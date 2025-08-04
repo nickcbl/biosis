@@ -1,0 +1,16 @@
+---
+title: "Aula 1: História da Genética"
+format: revealjs
+---
+
+## Introdução
+
+A história da genética de microrganismos começa com os experimentos de transformação, conjugação e transdução.
+
+---
+
+## Experimentos clássicos
+
+1. 🧪 Griffith (1928): Transformação em Streptococcus pneumoniae
+2. 🧬 Avery, MacLeod e McCarty (1944): DNA como material genético
+3. 🔬 Hershey e Chase (1952): Confirmam com bacteriófagos

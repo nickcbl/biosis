@@ -1,0 +1,17 @@
+---
+title: "Genética Molecular de Microrganismos"
+format: html
+---
+
+# Bem-vindo(a)
+
+Este é o site oficial da disciplina **Genética Molecular de Microrganismos**.
+
+Aqui você encontrará:
+
+- 📊 Slides das aulas
+- 📝 Listas de exercícios
+- 📚 Leituras obrigatórias
+- 🔗 Links úteis
+
+Use o menu no topo da página para navegar entre os materiais da disciplina.

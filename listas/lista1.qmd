@@ -1,0 +1,12 @@
+---
+title: "Lista 1: Transformação Bacteriana"
+format: html
+---
+
+# Lista de Exercícios 1
+
+**Tema: Transformação bacteriana e experimentos clássicos**
+
+1. Descreva o experimento de Griffith (1928). Qual a importância dos resultados?
+2. Explique como o trabalho de Avery, MacLeod e McCarty complementou o de Griffith.
+3. Diferencie os conceitos de transformação, conjugação e transdução.
