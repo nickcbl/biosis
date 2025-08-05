@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Genética Molecular de Microrganismos",
+    "section": "",
+    "text": "Bem-vindo(a)\nEste é o site oficial da disciplina Genética Molecular de Microrganismos.\nAqui você encontrará:\n\n📊 Slides das aulas\n📝 Listas de exercícios\n📚 Leituras obrigatórias\n🔗 Links úteis\n\nUse o menu no topo da página para navegar entre os materiais da disciplina."
+  },
+  {
+    "objectID": "listas/lista1.html",
+    "href": "listas/lista1.html",
+    "title": "Lista 1: Transformação Bacteriana",
+    "section": "",
+    "text": "Lista de Exercícios 1\nTema: Transformação bacteriana e experimentos clássicos\n\nDescreva o experimento de Griffith (1928). Qual a importância dos resultados?\nExplique como o trabalho de Avery, MacLeod e McCarty complementou o de Griffith.\nDiferencie os conceitos de transformação, conjugação e transdução."
+  },
+  {
+    "objectID": "slides/aula1.html#introdução",
+    "href": "slides/aula1.html#introdução",
+    "title": "Aula 1: História da Genética",
+    "section": "Introdução",
+    "text": "Introdução\nA história da genética de microrganismos começa com os experimentos de transformação, conjugação e transdução."
+  },
+  {
+    "objectID": "slides/aula1.html#experimentos-clássicos",
+    "href": "slides/aula1.html#experimentos-clássicos",
+    "title": "Aula 1: História da Genética",
+    "section": "Experimentos clássicos",
+    "text": "Experimentos clássicos\n\n🧪 Griffith (1928): Transformação em Streptococcus pneumoniae\n🧬 Avery, MacLeod e McCarty (1944): DNA como material genético\n🔬 Hershey e Chase (1952): Confirmam com bacteriófagos"
+  }
+]
