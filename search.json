@@ -1,10 +1,276 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Genética Molecular de Microrganismos",
+    "objectID": "modulos/aula01.html",
+    "href": "modulos/aula01.html",
+    "title": "Aula 01 - Histórico e Conceitos",
     "section": "",
-    "text": "Bem-vindo(a)\nEste é o site oficial da disciplina Genética Molecular de Microrganismos.\nAqui você encontrará:\n\n📊 Slides das aulas\n📝 Listas de exercícios\n📚 Leituras obrigatórias\n🔗 Links úteis\n\nUse o menu no topo da página para navegar entre os materiais da disciplina."
+    "text": "Professor Nicholas Barroso"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-14-ludwig-von-bertalanffy",
+    "href": "modulos/aula01.html#slide-14-ludwig-von-bertalanffy",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 14: Ludwig von Bertalanffy",
+    "text": "Slide 14: Ludwig von Bertalanffy\nBiólogo Austríaco Desenvolveu a Teoria Geral dos Sistemas. Trabalhos entre 1950 e 1968 A base para o conceito de Biologia de Sistemas."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-15-teoria-geral-do-sistemas",
+    "href": "modulos/aula01.html#slide-15-teoria-geral-do-sistemas",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 15: Teoria Geral do Sistemas",
+    "text": "Slide 15: Teoria Geral do Sistemas\nUm sistema é um conglomerado coeso de partes inter-relacionadas e interdependentes que pode ser natural ou feito pelo homem."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-16",
+    "href": "modulos/aula01.html#slide-16",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 16:",
+    "text": "Slide 16:\nTodo sistema é delineado por seus limites espaciais e temporais, cercados e influenciados por seu ambiente, descritos por sua estrutura e propósito ou natureza e expressos em seu funcionamento. Teoria Geral do Sistemas"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-17",
+    "href": "modulos/aula01.html#slide-17",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 17:",
+    "text": "Slide 17:\nUm sistema pode ser mais do que a soma de suas partes se expressar sinergia ou comportamento emergente. Teoria Geral do Sistemas"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-18",
+    "href": "modulos/aula01.html#slide-18",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 18:",
+    "text": "Slide 18:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-19",
+    "href": "modulos/aula01.html#slide-19",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 19:",
+    "text": "Slide 19:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência Uma entidade organizada composta de partes interrelacionadas e interdependentes. Alternativamente: Conjunto de componentes interconectados (genes, proteínas, células etc.) que atuam como uma unidade funcional, exibindo propriedades que não existem nos elementos isolados. Rede metabólica da glicólise: As 10 enzimas envolvidas convertem glicose em piruvato, mas o fluxo energético só emerge da interação entre elas (Almaas et al., 2004, Nature)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-20",
+    "href": "modulos/aula01.html#slide-20",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 20:",
+    "text": "Slide 20:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência Limites que definem o sistema e o diferenciam de outros sistemas e do ambiente. Alternativamente: Limites físicos ou funcionais que definem o sistema (ex.: membrana celular) e regulam trocas com o ambiente. Organoides tumorais: Culturas 3D de células cancerosas mantêm fronteiras que simulam microambientes tumorais, permitindo estudos de invasão (Drost & Clevers, 2018, Nature Reviews Cancer)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-21",
+    "href": "modulos/aula01.html#slide-21",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 21:",
+    "text": "Slide 21:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência A tendência de um sistema a ser resiliente em face de fatores externos a fim de manter suas características. Alternativamente: Capacidade do sistema de manter equilíbrio dinâmico frente a perturbações, via mecanismos de feedback. Regulação do pH sanguíneo: Sistemas tampão (ex.: bicarbonato) e trocas gasosas nos pulmões mantêm pH ~7,4 mesmo sob variações metabólicas (Hamm et al., 2015, Physiological Reviews)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-22",
+    "href": "modulos/aula01.html#slide-22",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 22:",
+    "text": "Slide 22:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência A tendência de um sistema auto-adaptativo de se ajustar internamente para se proteger e manter o seu propósito Alternativamente: Ajuste estrutural ou funcional do sistema em resposta a mudanças ambientais, garantindo sobrevivência. Bactérias resistentes a antibióticos: Alterações no transcritoma (ex.: upregulation de bombas de efluxo) surgem como adaptação a drogas (Blair et al., 2015, Nature Reviews Microbiology)"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-23",
+    "href": "modulos/aula01.html#slide-23",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 23:",
+    "text": "Slide 23:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência Interações circulares ou cíclicas em que os sistemas se envolveam, de tal forma que influenciam uns aos outros. Alternativamente: Interações bidirecionais entre sistemas, onde mudanças em um afetam o outro, criando ciclos de dependência. Eixo intestino-cérebro: Metabólitos bacterianos (ex.: butirato) modulam a síntese de serotonina no hospedeiro, influenciando comportamento (Sharon et al., 2016, Cell)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-24",
+    "href": "modulos/aula01.html#slide-24",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 24:",
+    "text": "Slide 24:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência O sinal pelo qual os sistemas se auto-corrigem baseados em reações de outros sistemas no ambiente. Alternativamente: Mecanismo de autorregulação onde a saída do sistema controla sua própria atividade (positiva: amplifica; negativa: atenua). Feedback negativo na insulina: Glicose alta → secreção de insulina → captação de glicose → redução da secreção (Saltiel & Kahn, 2001, Nature)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-25",
+    "href": "modulos/aula01.html#slide-25",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 25:",
+    "text": "Slide 25:\nTeoria Geral dos Sistemas CONCEITOS CHAVE EM TEORIA DE SISTEMAS Sistema Fronteiras Homeostase Adaptação Transações Recíprocas Retroalimentação Taxa de transferência Taxa de transferência de energia ou matéria entre o sistema e o ambiente durante o tempo em que o sistema funciona. Alternativamente: Velocidade de fluxo de matéria/energia/informação entre o sistema e o ambiente, critical para sua função. Fotossíntese: A taxa de fixação de CO₂ em plantas C4 é maior que em C3 devido a diferenças na anatomia foliar (Wang et al., 2016, Plant Cell)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-26",
+    "href": "modulos/aula01.html#slide-26",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 26:",
+    "text": "Slide 26:\nAlan Hodgkin e Andrew Huxley Modelagem Matemática do Impulso Nervoso (1952) Contexto: Em 1952, Hodgkin e Huxley publicaram um marco da biologia de sistemas: um modelo matemático quantitativo que descreve a geração e propagação do potencial de ação em neurônios do axônio gigante da lula (Loligo pealei). Metodologia: Combinaram experimentos eletrofisiológicos (com técnicas de voltage clamp) com equações diferenciais. Modelaram a dinâmica dos canais iônicos de sódio (Na⁺) e potássio (K⁺), prevendo como variações de voltagem controlam o fluxo de íons. Alan Hodgkin Andrew Huxley"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-27",
+    "href": "modulos/aula01.html#slide-27",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 27:",
+    "text": "Slide 27:\nAlan Hodgkin e Andrew Huxley Impacto Científico: Fundamentos da Neurociência Computacional: Seu modelo (equações de Hodgkin-Huxley) é a base para simulações de redes neuronais modernas, incluindo estudos sobre epilepsia e Parkinson (Dayan & Abbott, 2001). Biotecnologia: Inspirou o desenvolvimento de interfaces cérebro-máquina e próteses neurais (Nicolelis, 2003)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-28",
+    "href": "modulos/aula01.html#slide-28",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 28:",
+    "text": "Slide 28:\nAlan Hodgkin e Andrew Huxley Impacto Científico: Prêmio Nobel (1963): Receberam o Nobel de Fisiologia/Medicina por revelar os “mecanismos iônicos envolvidos na excitação e inibição de neurônios”. Exemplo Atual: Modelos derivados são usados para otimizar estimulação cerebral profunda em pacientes com Parkinson (Mainen & Sejnowski, 1996)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-29",
+    "href": "modulos/aula01.html#slide-29",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 29:",
+    "text": "Slide 29:\nAlan Turing Matemático inglês; O Modelo de Reação-Difusão (1952) Artigo Original: Turing propôs que padrões como listras (ex.: pelagem de animais) ou manchas (ex.: conchas de moluscos) surgem da interação entre dois morfógenos (moléculas sinalizadoras) com propriedades distintas: Ativador: Auto-reforça sua própria produção. Inibidor: Suprime o ativador e difunde-se mais rapidamente Seu modelo matemático descreve como pequenas perturbações em um sistema homogêneo levam a padrões espaciais estáveis (Turing, 1952)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-30",
+    "href": "modulos/aula01.html#slide-30",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 30:",
+    "text": "Slide 30:\nAlan Turing Impacto na Biologia de Sistemas: Padrões em Desenvolvimento Embrionário: Ex.: Formação de dígitos em membros de vertebrados (Sheth et al., 2012, Science). Engenharia de tecidos para regeneração de estruturas padronizadas (cartilagem, folículos capilares). Síntese de Padrões em Biologia Sintética: Células geneticamente modificadas para produzir padrões Turing in vitro (Sick et al., 2020, Nature Chemical Biology)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-31",
+    "href": "modulos/aula01.html#slide-31",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 31:",
+    "text": "Slide 31:\nAlan Turing Exemplos Biotecnológicos: Cultivo de Órgãos: Modelos de Turing guiam a auto-organização de células-tronco em organóides (Kondo & Miura, 2010, Science). Agricultura: Manipulação de padrões florais para aumentar atratividade a polinizadores (Reichelt & Burdet, 2023, Plant Biotechnology Journal). Ferramentas Computacionais Derivadas: Softwares como Morpheus (Starruß et al., 2014) usam as equações de Turing para prever padrões em tecidos."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-32",
+    "href": "modulos/aula01.html#slide-32",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 32:",
+    "text": "Slide 32:\nDenis Noble Biólogo inglês; Principal contribuição: modelo matemático da função cardíaca (1960). Usou modelos de computador de órgãos e sistemas de órgãos para interpretar a função molecular ao nível de todo o organismo. Utilizou supercomputadores para a criação de um coração virtual. Contribuiu para difundir a nível internacional o uso de modelos computacionais para simular quantitativamente funções fisiológicas ao nível do genoma."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-33",
+    "href": "modulos/aula01.html#slide-33",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 33:",
+    "text": "Slide 33:\nDenis Noble Música da Vida Uma mudança de paradigma: do reducionismo da Biologia Molecular aos multiníveis e sistemas da Biologia de Sistemas. Fez a introdução do conceito de middle-out. Em contraponto ao bottom-up e ao top-down."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-34",
+    "href": "modulos/aula01.html#slide-34",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 34:",
+    "text": "Slide 34:\nTop-down\nMiddle-out\nBottom-up"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-35",
+    "href": "modulos/aula01.html#slide-35",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 35:",
+    "text": "Slide 35:\nTop-down Abordagem que parte de dados experimentais em larga escala (ômicos) para reconstruir modelos integrados de sistemas biológicos, priorizando uma visão global (genoma, proteoma, metaboloma) antes de investigar componentes individuais."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-36",
+    "href": "modulos/aula01.html#slide-36",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 36:",
+    "text": "Slide 36:\nTop-down Dados ômicos → Rede de interações → Modelo matemático → Hipóteses testáveis → Validação experimental Limitações da Abordagem Dependência da qualidade dos dados: Ruído em dados ômicos pode gerar modelos imprecisos. Complexidade computacional: Modelos de genoma completo exigem supercomputadores (ex.: modelo Recon3D humano)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-37",
+    "href": "modulos/aula01.html#slide-37",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 37:",
+    "text": "Slide 37:\nTop-down Modelagem do Câncer de Mama Dados ômicos: Sequenciamento de tumor (genômica) + perfis de expressão gênica (transcriptômica). Modelagem: Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-AKT). Saída: Identificação de alvos terapêuticos (ex.: inibidores de AKT). Fonte: Thiele et al., 2013 (Nature Biotechnology)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-38",
+    "href": "modulos/aula01.html#slide-38",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 38:",
+    "text": "Slide 38:\nMiddle-out Abordagem que permite iniciar modelagens em qualquer nível (molécula, célula, órgão), explorando causalidades circulares entre escalas.\nNão é reducionista (como bottom-up) nem puramente holista (como top-down)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-39",
+    "href": "modulos/aula01.html#slide-39",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 39:",
+    "text": "Slide 39:\nMiddle-out Um modelo MWO pode iniciar em vias metabólicas (nível bioquímico) e escalar para redes de sinalização celular (nível celular), sem assumir prioridade causal."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-40",
+    "href": "modulos/aula01.html#slide-40",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 40:",
+    "text": "Slide 40:\nBottom-up Destina-se a elaborar modelos detalhados que podem ser simulados em diferentes condições. Esta abordagem combina todas as informações específicas do organismo em um modelo completo de escala genômica para proporcionar uma visão integrativa das interações biológicas que ocorrem dentro dos seres vivos."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-41",
+    "href": "modulos/aula01.html#slide-41",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 41:",
+    "text": "Slide 41:\nMihajlo Mesarovic Engenheiro sérvio Em 1966, Mesarović (engenheiro e teórico de sistemas sérvio-americano) publicou o artigo seminal: “Systems Theory and Biology” (Springer-Verlag), onde propôs a Biologia de Sistemas como uma disciplina formal, aplicando a Teoria Geral dos Sistemas (de Ludwig von Bertalanffy) à biologia."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-42",
+    "href": "modulos/aula01.html#slide-42",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 42:",
+    "text": "Slide 42:\nMihajlo Mesarovic Contribuições Chave no Trabalho de 1966: Definição Inovadora: Mesarović argumentou que sistemas biológicos devem ser estudados como redes hierárquicas de interações, onde o comportamento global emerge de múltiplos níveis (moléculas → células → organismos). Abordagem Matemática: Introduziu modelos dinâmicos para descrever sistemas vivos, antecipando conceitos como: Controle hierárquico (ex.: regulação metabólica). Propriedades emergentes (ex.: padrões de desenvolvimento embrionário). Impacto: Seu trabalho influenciou a criação de modelos computacionais em biologia, como os atuais GSMMs (Genome-Scale Metabolic Models)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-43",
+    "href": "modulos/aula01.html#slide-43",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 43:",
+    "text": "Slide 43:\nBiologia de Sistemas: Oscilações no Uso e Consolidação A disciplina passou por dois momentos distintos, impulsionados por avanços tecnológicos e mudanças de paradigma: 1. Fase de “Desuso” (Décadas de 1970–1990) Causas: Dominância do reducionismo: Foco da comunidade científica na Biologia Molecular (ex.: sequenciamento de DNA individual, PCR). Limitações tecnológicas: Dificuldade em gerar/processar dados complexos (sem técnicas ômicas ou computação poderosa). Exemplo: Entre 1975 e 1995, o termo “Biologia de Sistemas” teve poucas citações (Kitano, 2002). 2. Fase de “Reuso” e Expansão (A partir dos anos 2000) Gatilhos: Revolução das ômicas: Sequenciamento de genomas completos (ex.: Projeto Genoma Humano, 2003). Técnicas de alto rendimento (microarrays, espectrometria de massas). Avancos computacionais: Modelagem de redes em larga escala (ex.: modelos metabólicos Genome-Scale). Machine learning aplicado a dados biológicos (ex.: predição de interações proteicas). Exemplo: O número de artigos com “Biologia de Sistemas” no título aumentou 20× entre 2000 e 2010 (PubMed)."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-44",
+    "href": "modulos/aula01.html#slide-44",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 44:",
+    "text": "Slide 44:\nHiroaki Kitano: Pioneiro na Popularização da Biologia de Sistemas 1. Contexto da Popularização (2002) Publicação Seminal: Kitano foi autor do artigo “Systems Biology: A Brief Overview” (Science, 2002), que definiu os pilares da disciplina: “A biologia de sistemas busca entender os sistemas vivos como redes dinâmicas de interações, integrando modelagem computacional e experimentos.” DOI: 10.1126/science.1069492. Criação do Systems Biology Institute (SBI): Instituto líder em pesquisas interdisciplinares (Tóquio, Japão), focado em modelagem de redes biológicas e inteligência artificial aplicada à biologia."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-45",
+    "href": "modulos/aula01.html#slide-45",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 45:",
+    "text": "Slide 45:\nHiroaki Kitano: Pioneiro na Popularização da Biologia de Sistemas 2. Contribuições Chave Ferramentas e Plataformas: CellDesigner: Software para modelagem de redes biológicas (usado em estudos de câncer e vias metabólicas). SBML (Systems Biology Markup Language): Padrão computacional para representar modelos biológicos, adotado globalmente. Prêmios e Reconhecimento: Nature Award for Mentoring in Science (2015) por promover colaborações entre biólogos e engenheiros."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-46",
+    "href": "modulos/aula01.html#slide-46",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 46:",
+    "text": "Slide 46:\nHiroaki Kitano: Pioneiro na Popularização da Biologia de Sistemas 3. Exemplo de Aplicação Prática Modelagem do Câncer: Kitano desenvolveu modelos de redes de sinalização em tumores, mostrando como falhas em vias como PI3K-AKT geram resistência a terapias (Kitano, 2004, Cancer Research). 4. Frase de Impacto para # Slide “A biologia de sistemas não é apenas uma disciplina, mas uma revolução na forma como estudamos a vida.” — Hiroaki Kitano, 2002."
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-47",
+    "href": "modulos/aula01.html#slide-47",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 47:",
+    "text": "Slide 47:\nAplicações 1. Criação de Modelos Metabólicos Exemplo Avançado: Projeto Yeast 8: Modelo do metabolismo de Saccharomyces cerevisiae que prevê como deleções genéticas afetam a produção de etanol. Aplicação: Otimização de cepas para biocombustíveis pela empresa Novozymes (Lu et al., 2019, Nature Communications). Ferramenta: COBRA Toolbox para simulações (Schellenberger et al., 2011). Dado Curioso: “Modelos metabólicos reduziram em 70% o tempo para desenvolver linhagens produtoras de insulina humana em E. coli (Burgard et al., 2003).”"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-48",
+    "href": "modulos/aula01.html#slide-48",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 48:",
+    "text": "Slide 48:\nAplicações 2. Medicina P4 Exemplo Detalhado: Câncer de Mama Triplo-Negativo: Personalizada: Sequenciamento do tumor para identificar mutações em BRCA1. Preditiva: Modelos de risco baseados em transcriptômica (ex.: assinatura de 70 genes, MammaPrint). Preventiva: Uso de inibidores de PARP em pacientes com predisposição genética. Participativa: Plataformas como PatientsLikeMe integram dados de pacientes para refinamento de terapias. Fonte: Chen et al., 2021, Nature Reviews Drug Discovery. Frase Impactante: “A medicina P4 já reduz custos hospitalares em até 30% ao evitar terapias inefficazes (Hood & Flores, 2012).”"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-49",
+    "href": "modulos/aula01.html#slide-49",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 49:",
+    "text": "Slide 49:\nAplicações 3. Estudo do Câncer Caso Paradigmático: Projeto Cancer Cell Map Initiative (CCMI): Mapeou redes de interação proteica em tumores para identificar “nós críticos” (ex.: proteína MYC). Resultado: Inibidores de MYC em testes clínicos para leucemia (Krogan et al., 2020, Science). Ferramenta: Cytoscape para visualização de redes. Dado Revolucionário: “Modelos de câncer de pâncreas preveem resistência a gemcitabina com 92% de acurácia (Rahman et al., 2022).”"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-50",
+    "href": "modulos/aula01.html#slide-50",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 50:",
+    "text": "Slide 50:\nAplicações 4. Interações Hospedeiro-Patógeno Exemplo com Aplicação: COVID-19 e ACE2: Modelagem sistêmica revelou que a proteína TMPRSS2 facilita a entrada do SARS-CoV-2. Terapia: Inibidores de TMPRSS2 (ex.: camostat) reduziram infecções in vitro (Hoffmann et al., 2020, Cell). Ferramenta: PerturbNet para simular interações vírus-célula (Bojkova et al., 2021). Comparação Histórica: “Em 2009, modelos de gripe H1N1 levaram 6 meses para identificar alvos; em 2020, o SARS-CoV-2 foi mapeado em 3 semanas.”"
+  },
+  {
+    "objectID": "modulos/aula01.html#slide-51-referências",
+    "href": "modulos/aula01.html#slide-51-referências",
+    "title": "Aula 01 - Histórico e Conceitos",
+    "section": "Slide 51: Referências",
+    "text": "Slide 51: Referências\n\nMESAROVIĆ, M. D. (Ed.). Systems Theory and Biology. Berlin: Springer-Verlag, 1966. (Obra seminal que definiu a disciplina)\nBERTALANFFY, L. von. General System Theory: Foundations, Development, Applications. New York: Braziller, 1968.\nNOBLE, D. The Music of Life: Biology Beyond the Genome. Oxford: Oxford University Press, 2006. (Abordagem middle-out)\nKITANO, H. Systems biology: a brief overview. Science, v. 295, n. 5560, p. 1662-1664, 2002. DOI:10.1126/science.1069492. (Artigo-chave para popularização)\nLU, H. et al. A consensus S. cerevisiae metabolic model Yeast8. Nature Communications, v. 10, 3586, 2019. DOI:10.1038/s41467-019-11581-3. (Modelo metabólico de referência)\nORTH, J. D. et al. What is flux balance analysis? Nature Biotechnology, v. 28, n. 3, p. 245-248, 2010. DOI:10.1038/nbt.1614.\n\nRO, D.-K. et al. Production of the antimalarial drug precursor artemisinic acid in yeast. Nature, v. 440, n. 7086, p. 940-943, 2006. DOI:10.1038/nature04640. (Engenharia metabólica com sistemas)\nBRO, C. et al. In silico aided metabolic engineering of Saccharomyces cerevisiae for improved bioethanol production. Metabolic Engineering, v. 8, n. 2, p. 102-111, 2006. DOI:10.1016/j.ymben.2005.09.007.\n\nHOOD, L.; FLORES, M. A personal view on systems medicine. Nature Reviews Genetics, v. 13, n. 9, p. 647-650, 2012. DOI:10.1038/nrg3368. (Conceito de Medicina P4)\nKROGAN, N. J. et al. The Cancer Cell Map Initiative. Science, v. 369, n. 6509, eaba4902, 2020. DOI:10.1126/science.aba4902.\n\nHOFFMANN, M. et al. SARS-CoV-2 cell entry depends on ACE2 and TMPRSS2. Cell, v. 181, n. 2, p. 271-280, 2020. DOI:10.1016/j.cell.2020.02.052.\nHODGKIN, A. L.; HUXLEY, A. F. A quantitative description of membrane current and its application to conduction and excitation in nerve. The Journal of Physiology, v. 117, n. 4, p. 500-544, 1952. DOI:10.1113/jphysiol.1952.sp004764. (Modelo pioneiro)\nTURING, A. M. The chemical basis of morphogenesis. Philosophical Transactions of the Royal Society B, v. 237, n. 641, p. 37-72, 1952. DOI:10.1098/rstb.1952.0012. (Padrões de Turing)"
   },
   {
     "objectID": "listas/lista1.html",
@@ -14,17 +280,17 @@
     "text": "Lista de Exercícios 1\nTema: Transformação bacteriana e experimentos clássicos\n\nDescreva o experimento de Griffith (1928). Qual a importância dos resultados?\nExplique como o trabalho de Avery, MacLeod e McCarty complementou o de Griffith.\nDiferencie os conceitos de transformação, conjugação e transdução."
   },
   {
-    "objectID": "slides/aula1.html#introdução",
-    "href": "slides/aula1.html#introdução",
-    "title": "Aula 1: História da Genética",
-    "section": "Introdução",
-    "text": "Introdução\nA história da genética de microrganismos começa com os experimentos de transformação, conjugação e transdução."
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Biologia de Sistemas",
+    "section": "",
+    "text": "Este é o site oficial da disciplina Biologia de Sistemas Klamt; Haus; Theis (2009).\nAqui você encontrará:\n\n📊 Slides das aulas\n📝 Listas de exercícios\n📚 Leituras obrigatórias\n🔗 Links úteis\n\nUse o menu no topo da página para navegar entre os materiais da disciplina."
   },
   {
-    "objectID": "slides/aula1.html#experimentos-clássicos",
-    "href": "slides/aula1.html#experimentos-clássicos",
-    "title": "Aula 1: História da Genética",
-    "section": "Experimentos clássicos",
-    "text": "Experimentos clássicos\n\n🧪 Griffith (1928): Transformação em Streptococcus pneumoniae\n🧬 Avery, MacLeod e McCarty (1944): DNA como material genético\n🔬 Hershey e Chase (1952): Confirmam com bacteriófagos"
+    "objectID": "index.html#bem-vindoa",
+    "href": "index.html#bem-vindoa",
+    "title": "Biologia de Sistemas",
+    "section": "",
+    "text": "Este é o site oficial da disciplina Biologia de Sistemas Klamt; Haus; Theis (2009).\nAqui você encontrará:\n\n📊 Slides das aulas\n📝 Listas de exercícios\n📚 Leituras obrigatórias\n🔗 Links úteis\n\nUse o menu no topo da página para navegar entre os materiais da disciplina."
   }
 ]
