@@ -1,0 +1,229 @@
+---
+title: "05 - Obtenção de dados e banco de dados"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    code-copy: true
+---
+
+# Biologia de Sistemas  
+## 05 - Obtenção de dados e banco de dados
+
+---
+
+## Introdução
+
+Antes de gerar as redes, precisamos obter os dados porque:
+- Precisamos saber quais, quantos e qual a relação entre os elementos biológicos.
+
+---
+
+## Tipos de Dados
+
+### Dados Ômicos
+- Conjuntos completos de DNA, RNA, Proteínas, Metabólitos
+- Anotação funcional de genes
+- EC number
+- Domínios funcionais
+- Transcritos
+
+### Natureza dos Dados
+- **Qualitativo**: o que é?
+- **Quantitativo**: quanto de cada
+
+### Dados de Interação
+- Interação de proteínas
+- Interação proteínas-ácidos nucleicos
+- Associação à doenças
+
+---
+
+## Fontes de Dados
+
+- Experimentos
+- Bancos de dados
+- Literatura
+
+---
+
+## Fluxo de Trabalho: DNA → Genes
+
+1. **Sequenciamento**
+   - Obtenção da sequência de DNA do organismo de interesse
+
+2. **Montagem**
+   - Reconstituição da molécula de DNA inicial
+
+3. **Predição Gênica**
+   - Busca pelas porções codificantes do genoma
+   - Predição de outros elementos funcionais
+
+4. **Anotação Funcional**
+   - Designa a função dos genes
+
+---
+
+## Tecnologias de Sequenciamento
+
+### Empresas Principais
+- Illumina
+- MGI
+- PacBio
+- Nanopore
+- Element Biosciences
+
+### Tipos de Leituras
+- Curtas
+- Longas
+
+### Métodos de Sequenciamento
+- Sequenciamento por síntese
+- Sequenciamento em tempo real
+- Sequenciamento em nanoporo
+
+---
+
+## Microarranjos (Microarray)
+
+### Fluxo do Experimento
+1. Extração de RNA
+2. Seleção de mRNA
+3. Transcrição reversa
+4. Fragmentação (opcional)
+5. Ligação de fluoróforo
+6. Hibridização
+
+---
+
+## Comparação: Microarray vs RNA-Seq
+
+| Característica | Microarray | RNA-Seq | Implicação para Biologia de Sistemas |
+|----------------|------------|---------|--------------------------------------|
+| **Princípio** | Hibridização | Sequenciamento NGS | RNA-Seq é medida direta, mais confiável |
+| **Pré-requisito** | Requer conhecimento prévio | Não requer conhecimento prévio | RNA-Seq superior para sistemas não-modelo |
+| **Faixa Dinâmica** | Limitada | Muito ampla | RNA-Seq detecta melhor genes de baixa expressão |
+| **Dados Obtidos** | Sinal de fluorescência | Contagens de reads | Dados discretos do RNA-Seq requerem modelos estatísticos específicos |
+| **Resolução** | Baixa para variantes | Resolução de nucleotídeo único | RNA-Seq permite modelar regulação pós-transcricional |
+| **Custo** | Moderado | Mais alto (mas caindo) | Microarray mais acessível para conjuntos gênicos definidos |
+
+---
+
+## Técnicas para Estudo de Interações
+
+### Co-Imunoprecipitação (Co-IP)
+- Técnica para isolar complexos proteicos nativos
+- Usa anticorpo específico para "pescar" proteína-alvo e seus parceiros
+- **Limitação**: Epítopo oculto, visão parcial
+- **Validação**: Rodada reversa necessária
+
+### Imunoprecipitação da Cromatina (ChIP)
+- Fixa DNA às proteínas da cromatina
+- Enriquecimento com anticorpos específicos
+- **Variantes**:
+  - ChIP-PCR (qualitativo, obsoleto)
+  - ChIP-qPCR (quantitativo, para validação)
+  - ChIP-chip (genome-wide com microarranjo)
+  - ChIP-seq (padrão-ouro atual)
+
+### Purificação por Afinidade
+- Captura de material biológico com ligante específico
+- Múltiplos tipos de ligandos: DNA/RNA, químicos, lipídios, peptídeos, anticorpos
+
+### Espectrometria de Massa
+- Identifica e quantifica compostos
+- **Etapas**: Ionização, Separação, Detecção
+- **AP-MS**: Purificação por afinidade acoplada a espectrometria de massa
+
+### Duplo Híbrido em Levedura (Y2H)
+- Detecta interações proteína-proteína
+- **Princípio**: Reconstituição de fator de transcrição funcional
+- **Componentes**: Isca (BD) e Presa (AD)
+- **Leitura**: Ativação de gene repórter
+
+---
+
+## Conceitos Computacionais
+
+### Interólogos
+- Interação conservada entre pares de proteínas homólogas
+- **Pré-requisitos**:
+  - Homologia par-a-par
+  - Conservação da interação
+- **Aplicações**: Predição de interações, inferência funcional, mapeamento de redes
+
+### Coevolução
+- Proteínas que interagem coevoluem na superfície de interação
+- Métodos computacionais usam alinhamentos múltiplos, árvores filogenéticas
+
+### EC-number
+- Sistema de classificação numérica para enzimas
+- Baseado nas reações químicas catalisadas
+
+---
+
+## Bancos de Dados
+
+### Pathguide
+- 702 recursos sobre vias biológicas e interações moleculares
+- Acesso livre
+- Suporta padrões: BioPAX, CellML, PSI-MI, SBML
+
+### KEGG
+- Banco de dados de recursos biológicos
+- Interpreta funções e processos complexos
+- **Acesso**: Pago
+
+### Gene Ontology (GO)
+- Maior fonte de informações sobre funções de genes
+- Base para análise de dados ômicos
+- Modelo computacional abrangente de sistemas biológicos
+
+### MetaCyc
+- Banco de dados curado de vias metabólicas
+- 2666 vias de 2960 organismos
+- **Aplicações**: Enciclopédia metabólica, predição de vias, engenharia metabólica
+
+### TRANSFAC
+- Informação sobre fatores de transcrição e sítios de ligação
+- **Acesso**: Pago
+- **Característica**: Curado
+
+### STRING
+- Interações proteína-proteína conhecidas ou preditas
+- Inclui interações diretas (físicas) e indiretas (funcionais)
+- Fontes: Predição computacional, transferência entre organismos, outros bancos
+
+### Reactome
+- **Acesso**: Aberto
+- **Características**: Curado manualmente, revisado por pares
+- Fornece ferramentas de visualização e análise
+
+### IntAct
+- **Acesso**: Aberto
+- Interações derivadas da literatura (curadas)
+- Aceita submissão direta
+
+### BioGRID
+- **Estatísticas**:
+  - 69.031 publicações
+  - 1.676.780 interações
+  - 28.093 associações químicas
+  - 726.378 modificações pós-traducionais
+- **Acesso**: Livre
+
+---
+
+## Mineração de Texto
+
+- Técnica computacional para extrair informações de grandes volumes de texto
+- Procura automaticamente na literatura científica por termos específicos
+
+### Aplicações em Biologia
+- Função de genes/proteínas
+- Vias metabólicas
+- Interações entre biomoléculas
+- Relações de regulação

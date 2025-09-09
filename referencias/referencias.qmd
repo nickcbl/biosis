@@ -1,0 +1,6 @@
+---
+title: "Referências Completas"
+bibliography: ref.bib
+reference-location: document
+lang: pt-Br
+---

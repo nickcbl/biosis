@@ -1,0 +1,47 @@
+project:
+  type: website
+
+website:
+  title: "**Biologia de Sistemas**"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Início
+      - text: Módulos
+        menu: 
+          - href: modulos/aula01.qmd
+            text: 01 - Histórico e conceitos
+          - href: modulos/aula02.qmd
+            text: 02 - Grafos
+          - href: modulos/aula03.qmd
+            text: 03 - Redes Biológicas
+          - href: modulos/aula04.qmd
+            text: 04 - Modelos
+          - href: modulos/aula05.qmd
+            text: 05 - Obtenção de dados e banco de dados
+      - text: Slides
+        menu:
+          - href: slides/aula1.qmd
+            text: Aula 1
+      - text: Listas
+        menu:
+          - href: listas/ed1.qmd
+            text: Estudo Dirigido 1
+          - href: listas/ed2.qmd
+            text: Estudo Dirigido 2
+      - text: Leituras
+        menu:
+          - href: artigos/leitura1.pdf
+            text: Artigo 1
+      - href: referencias/referencias.qmd
+        text: Referências
+  page-footer:
+    center: "© Prof. Nicholas Barroso<br>2025<br>EM CONTRUÇÃO"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    language: pt-Br
+    bibliography: referencias/ref.bib
+    csl: referencias/abnt.csl

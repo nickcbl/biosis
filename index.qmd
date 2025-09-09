@@ -1,0 +1,22 @@
+---
+title: ""
+format: html
+lang: pt-Br
+---
+
+## Bem-vindos
+
+Este é o site oficial da disciplina **Biologia de Sistemas - CI0932**.
+
+<!--
+@klamt_2009.
+--->
+
+<span style="color: black;">Aqui você encontrará:</span>
+
+- 📚 Módulos
+- 📊 Slides das aulas
+- 📝 Listas de exercícios
+- 🔗 Leituras
+
+<span style="color: red;">GIREM O CELULAR PARA A HORIZONTAL AO VER SLIDES</span>

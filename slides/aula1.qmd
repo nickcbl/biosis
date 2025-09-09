@@ -1,0 +1,206 @@
+---
+title: "Aula 1<br>Histórico e Conceitos"
+format: revealjs
+---
+
+![](01/slide01.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide02.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide03.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide04.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide05.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide06.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide07.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide08.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide09.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide10.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide11.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide12.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide13.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide14.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide15.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide16.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide17.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide18.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide19.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide20.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide21.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide22.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide23.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide24.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide25.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide26.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide27.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide28.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide29.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide30.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide31.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide32.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide33.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide34.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide35.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide36.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide37.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide38.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide39.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide40.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide41.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide42.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide43.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide44.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide45.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide46.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide47.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide48.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide49.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide50.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](01/slide51.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
