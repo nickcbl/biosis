@@ -3,39 +3,39 @@ title: "Aula 1<br>Histórico e Conceitos"
 format: revealjs
 ---
 
-![](01/slide01.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide1.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide02.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide2.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide03.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide3.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide04.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide4.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide05.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide5.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide06.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide6.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide07.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide7.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide08.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide8.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 
-![](01/slide09.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+![](01/slide9.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
 
 ---
 

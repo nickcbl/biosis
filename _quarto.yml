@@ -22,7 +22,7 @@ website:
       - text: Slides
         menu:
           - href: slides/aula1.qmd
-            text: Aula 1
+            text: 01 - Histórico e conceitos
       - text: Listas
         menu:
           - href: listas/ed1.qmd

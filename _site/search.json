@@ -1,87 +1,59 @@
 [
   {
-    "objectID": "modulos/aula05.html",
-    "href": "modulos/aula05.html",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "listas/ed2.html",
+    "href": "listas/ed2.html",
+    "title": "Lista 1: Transformação Bacteriana",
     "section": "",
-    "text": "Antes de gerar as redes, precisamos obter os dados porque: - Precisamos saber quais, quantos e qual a relação entre os elementos biológicos.\n\n\n\n\n\n\n\nConjuntos completos de DNA, RNA, Proteínas, Metabólitos\nAnotação funcional de genes\nEC number\nDomínios funcionais\nTranscritos\n\n\n\n\n\nQualitativo: o que é?\nQuantitativo: quanto de cada\n\n\n\n\n\nInteração de proteínas\nInteração proteínas-ácidos nucleicos\nAssociação à doenças\n\n\n\n\n\n\n\nExperimentos\nBancos de dados\nLiteratura\n\n\n\n\n\n\nSequenciamento\n\nObtenção da sequência de DNA do organismo de interesse\n\nMontagem\n\nReconstituição da molécula de DNA inicial\n\nPredição Gênica\n\nBusca pelas porções codificantes do genoma\nPredição de outros elementos funcionais\n\nAnotação Funcional\n\nDesigna a função dos genes\n\n\n\n\n\n\n\n\n\nIllumina\nMGI\nPacBio\nNanopore\nElement Biosciences\n\n\n\n\n\nCurtas\nLongas\n\n\n\n\n\nSequenciamento por síntese\nSequenciamento em tempo real\nSequenciamento em nanoporo\n\n\n\n\n\n\n\n\n\nExtração de RNA\nSeleção de mRNA\nTranscrição reversa\nFragmentação (opcional)\nLigação de fluoróforo\nHibridização\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCaracterística\nMicroarray\nRNA-Seq\nImplicação para Biologia de Sistemas\n\n\n\n\nPrincípio\nHibridização\nSequenciamento NGS\nRNA-Seq é medida direta, mais confiável\n\n\nPré-requisito\nRequer conhecimento prévio\nNão requer conhecimento prévio\nRNA-Seq superior para sistemas não-modelo\n\n\nFaixa Dinâmica\nLimitada\nMuito ampla\nRNA-Seq detecta melhor genes de baixa expressão\n\n\nDados Obtidos\nSinal de fluorescência\nContagens de reads\nDados discretos do RNA-Seq requerem modelos estatísticos específicos\n\n\nResolução\nBaixa para variantes\nResolução de nucleotídeo único\nRNA-Seq permite modelar regulação pós-transcricional\n\n\nCusto\nModerado\nMais alto (mas caindo)\nMicroarray mais acessível para conjuntos gênicos definidos\n\n\n\n\n\n\n\n\n\n\nTécnica para isolar complexos proteicos nativos\nUsa anticorpo específico para “pescar” proteína-alvo e seus parceiros\nLimitação: Epítopo oculto, visão parcial\nValidação: Rodada reversa necessária\n\n\n\n\n\nFixa DNA às proteínas da cromatina\nEnriquecimento com anticorpos específicos\nVariantes:\n\nChIP-PCR (qualitativo, obsoleto)\nChIP-qPCR (quantitativo, para validação)\nChIP-chip (genome-wide com microarranjo)\nChIP-seq (padrão-ouro atual)\n\n\n\n\n\n\nCaptura de material biológico com ligante específico\nMúltiplos tipos de ligandos: DNA/RNA, químicos, lipídios, peptídeos, anticorpos\n\n\n\n\n\nIdentifica e quantifica compostos\nEtapas: Ionização, Separação, Detecção\nAP-MS: Purificação por afinidade acoplada a espectrometria de massa\n\n\n\n\n\nDetecta interações proteína-proteína\nPrincípio: Reconstituição de fator de transcrição funcional\nComponentes: Isca (BD) e Presa (AD)\nLeitura: Ativação de gene repórter\n\n\n\n\n\n\n\n\n\nInteração conservada entre pares de proteínas homólogas\nPré-requisitos:\n\nHomologia par-a-par\nConservação da interação\n\nAplicações: Predição de interações, inferência funcional, mapeamento de redes\n\n\n\n\n\nProteínas que interagem coevoluem na superfície de interação\nMétodos computacionais usam alinhamentos múltiplos, árvores filogenéticas\n\n\n\n\n\nSistema de classificação numérica para enzimas\nBaseado nas reações químicas catalisadas\n\n\n\n\n\n\n\n\n\n702 recursos sobre vias biológicas e interações moleculares\nAcesso livre\nSuporta padrões: BioPAX, CellML, PSI-MI, SBML\n\n\n\n\n\nBanco de dados de recursos biológicos\nInterpreta funções e processos complexos\nAcesso: Pago\n\n\n\n\n\nMaior fonte de informações sobre funções de genes\nBase para análise de dados ômicos\nModelo computacional abrangente de sistemas biológicos\n\n\n\n\n\nBanco de dados curado de vias metabólicas\n2666 vias de 2960 organismos\nAplicações: Enciclopédia metabólica, predição de vias, engenharia metabólica\n\n\n\n\n\nInformação sobre fatores de transcrição e sítios de ligação\nAcesso: Pago\nCaracterística: Curado\n\n\n\n\n\nInterações proteína-proteína conhecidas ou preditas\nInclui interações diretas (físicas) e indiretas (funcionais)\nFontes: Predição computacional, transferência entre organismos, outros bancos\n\n\n\n\n\nAcesso: Aberto\nCaracterísticas: Curado manualmente, revisado por pares\nFornece ferramentas de visualização e análise\n\n\n\n\n\nAcesso: Aberto\nInterações derivadas da literatura (curadas)\nAceita submissão direta\n\n\n\n\n\nEstatísticas:\n\n69.031 publicações\n1.676.780 interações\n28.093 associações químicas\n726.378 modificações pós-traducionais\n\nAcesso: Livre\n\n\n\n\n\n\n\nTécnica computacional para extrair informações de grandes volumes de texto\nProcura automaticamente na literatura científica por termos específicos\n\n\n\n\nFunção de genes/proteínas\nVias metabólicas\nInterações entre biomoléculas\nRelações de regulação"
+    "text": "Lista de Exercícios 1\nTema: Transformação bacteriana e experimentos clássicos\n\nDescreva o experimento de Griffith (1928). Qual a importância dos resultados?\nExplique como o trabalho de Avery, MacLeod e McCarty complementou o de Griffith.\nDiferencie os conceitos de transformação, conjugação e transdução."
   },
   {
-    "objectID": "modulos/aula05.html#introdução",
-    "href": "modulos/aula05.html#introdução",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "modulos/aula03.html",
+    "href": "modulos/aula03.html",
+    "title": "03 - Redes Biológicas",
     "section": "",
-    "text": "Antes de gerar as redes, precisamos obter os dados porque: - Precisamos saber quais, quantos e qual a relação entre os elementos biológicos."
+    "text": "Redes são estruturas ou entidades que conotam a relação entre: - Objetos - Indivíduos - Entidades\n\nNós/Vértices: representam os indivíduos.\nArestas: representam as relações.\n\n\n\n\nRedes sociais\nRedes de computadores\nRedes neurais\nRedes biológicas\nRedes de telecomunicações\n\n\n\n\n\n\nSão redes em que os elementos são dados biológicos (animais, plantas, microorganismos, genes, proteínas, regulações, etc.) que tenham alguma relação entre si.\nSão abstrações computacionais/matemáticas baseadas em dados experimentais.\n\n\n\n\n\nNós: substratos e produtos.\nArestas: reações metabólicas convertendo um composto em outro.\nHiperaresta: conceito avançado para representar reações com múltiplos substratos/produtos.\n\n\n\n\n\nRelação entre transcritos expressos ou reprimidos concomitantemente.\nGenes co-expressos podem:\n\nSer regulados pelo mesmo fator de transcrição;\nEstar funcionalmente relacionados;\nSer membros da mesma via;\nCodificar proteínas do mesmo complexo proteico.\n\n\n\n\n\n\nProteínas interagem para desempenhar funções celulares.\nInterações podem significar formação de complexos ou participação em vias comuns.\n\n\n\n\n\n\n\n\n\n\nDistância: número de arestas no caminho mais curto entre dois vértices.\nDiâmetro: a maior distância entre qualquer par de vértices.\n\n\n\n\n\nAtributos ou valores atribuídos às arestas.\nExemplos em redes biológicas: fluxo, massa, probabilidade.\nGrafos com pesos são chamados de grafos valorados ou ponderados.\n\n\n\n\n\n\nIndicadores que identificam os vértices mais importantes em um grafo.\n\n\n\nNúmero de arestas adjacentes a um vértice.\nEm redes direcionadas:\n\nGrau de entrada (in-degree)\nGrau de saída (out-degree)\n\nInterpretação: nós com alta centralidade de grau são “hubs” – funcionalmente cruciais.\n\n\n\n\n\nMede quão próximo um nó está de todos os outros.\nConsidera a distância geodésica (caminho mais curto).\nInterpretação: nós centrais para comunicação rápida ou disseminação de informação.\n\n\n\n\n\nQuantas vezes um vértice age como ponte no caminho mais curto entre dois outros nós.\nInterpretação: nós com alto betweenness controlam o fluxo de informação; sua remoção pode fragmentar a rede.\n\n\n\n\n\nMede a influência de um nó considerando a importância dos nós aos quais está conectado.\nAplicação: identificar genes mestres em redes de regulação.\n\n\n\n\n\nCompara o grau de um nó com o grau médio de seus vizinhos.\nAplicação: identificar conectores periféricos críticos (ex.: proteínas de membrana em patógenos).\n\n\n\n\n\nGeneralização da centralidade de autovetor; considera todos os caminhos, penalizando os mais longos.\nAplicação: modelar sinalização ou difusão de metabólitos.\n\n\n\n\n\nConsidera todos os caminhos possíveis (não apenas os mais curtos).\nAplicação: analisar redes metabólicas com fluxo distribuído.\n\n\n\n\n\n\n\n\n\n\n\n\nCentralidade\nMelhor para…\nExemplo de Aplicação Biotecnológica\n\n\n\n\nGrau\nIdentificar hubs conectados\nAlvo antibiótico\n\n\nProximidade\nIdentificar nós de comunicação rápida\nOtimização de vias metabólicas sintéticas\n\n\nIntermediação\nIdentificar gargalos e pontes\nAlvos terapêuticos que desconectam vias de doença\n\n\nAutovetor\nIdentificar influência hierárquica\nEngenharia de redes de regulação gênica\n\n\nAlavancagem\nIdentificar especializados críticos\nDesenvolvimento de vacinas\n\n\nDifusão (Katz)\nModelar sinalização de longo alcance\nPrever resposta a hormônios ou fármacos\n\n\nIntermediação de Fluxo\nAnalisar redes de fluxo (metabolismo)\nSuperar gargalos em produção de bioprodutos\n\n\n\n\n\n\n\n\n\n\n\nA maioria dos vértices não são vizinhos, mas podem ser alcançados por poucos passos.\nImplicação: perturbações ou sinais se espalham rapidamente pela rede.\n\n\n\n\n\nDistribuição de grau segue uma lei de potência.\nPoucos vértices (hubs) têm muitas conexões; a maioria tem poucas.\nImplicação: redes são resistentes a falhas aleatórias, mas vulneráveis a ataques direcionados aos hubs.\n\n\n\n\n\nMede a tendência de formação de grupos coesos (alta densidade de conexões).\nTransitividade: se A se conecta a B e B a C, é provável que A se conecte a C.\nEm redes biológicas: pode indicar módulos funcionais ou complexos proteicos.\n\n\n\n\n\nRobustez: capacidade de manter função apesar de perturbações.\nAdaptabilidade: capacidade de mudar em resposta a perturbações.\n\n\n\n\n\n\nPadrões ou sub-grafos recorrentes e estatisticamente significativos que refletem funções eficientes.\n\n\n\n\n\nEstrutura: ciclo onde um nó regula outro que eventualmente regula o primeiro.\nTipos:\n\nPositivo (→): cria estados estáveis irreversíveis (ex.: diferenciação celular).\nNegativo (⊣): gera oscilações ou mantém homeostase.\n\nExemplo: ciclo de divisão celular controlado por ciclinas e CDKs.\n\n\n\n\n\nEstrutura: um único regulador controla múltiplos alvos sem regulação entre eles.\nFunção: coordena expressão sincronizada de genes de uma mesma via.\nExemplo: operon em bactérias (ex.: operon lac).\n\n\nBaseado em slides de aula de Biologia de Sistemas."
   },
   {
-    "objectID": "modulos/aula05.html#tipos-de-dados",
-    "href": "modulos/aula05.html#tipos-de-dados",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "modulos/aula03.html#o-que-são-redes",
+    "href": "modulos/aula03.html#o-que-são-redes",
+    "title": "03 - Redes Biológicas",
     "section": "",
-    "text": "Conjuntos completos de DNA, RNA, Proteínas, Metabólitos\nAnotação funcional de genes\nEC number\nDomínios funcionais\nTranscritos\n\n\n\n\n\nQualitativo: o que é?\nQuantitativo: quanto de cada\n\n\n\n\n\nInteração de proteínas\nInteração proteínas-ácidos nucleicos\nAssociação à doenças"
+    "text": "Redes são estruturas ou entidades que conotam a relação entre: - Objetos - Indivíduos - Entidades\n\nNós/Vértices: representam os indivíduos.\nArestas: representam as relações.\n\n\n\n\nRedes sociais\nRedes de computadores\nRedes neurais\nRedes biológicas\nRedes de telecomunicações"
   },
   {
-    "objectID": "modulos/aula05.html#fontes-de-dados",
-    "href": "modulos/aula05.html#fontes-de-dados",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "modulos/aula03.html#o-que-são-redes-biológicas",
+    "href": "modulos/aula03.html#o-que-são-redes-biológicas",
+    "title": "03 - Redes Biológicas",
     "section": "",
-    "text": "Experimentos\nBancos de dados\nLiteratura"
+    "text": "São redes em que os elementos são dados biológicos (animais, plantas, microorganismos, genes, proteínas, regulações, etc.) que tenham alguma relação entre si.\nSão abstrações computacionais/matemáticas baseadas em dados experimentais.\n\n\n\n\n\nNós: substratos e produtos.\nArestas: reações metabólicas convertendo um composto em outro.\nHiperaresta: conceito avançado para representar reações com múltiplos substratos/produtos.\n\n\n\n\n\nRelação entre transcritos expressos ou reprimidos concomitantemente.\nGenes co-expressos podem:\n\nSer regulados pelo mesmo fator de transcrição;\nEstar funcionalmente relacionados;\nSer membros da mesma via;\nCodificar proteínas do mesmo complexo proteico.\n\n\n\n\n\n\nProteínas interagem para desempenhar funções celulares.\nInterações podem significar formação de complexos ou participação em vias comuns."
   },
   {
-    "objectID": "modulos/aula05.html#fluxo-de-trabalho-dna-genes",
-    "href": "modulos/aula05.html#fluxo-de-trabalho-dna-genes",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "modulos/aula03.html#propriedades-globais-de-redes-complexas",
+    "href": "modulos/aula03.html#propriedades-globais-de-redes-complexas",
+    "title": "03 - Redes Biológicas",
     "section": "",
-    "text": "Sequenciamento\n\nObtenção da sequência de DNA do organismo de interesse\n\nMontagem\n\nReconstituição da molécula de DNA inicial\n\nPredição Gênica\n\nBusca pelas porções codificantes do genoma\nPredição de outros elementos funcionais\n\nAnotação Funcional\n\nDesigna a função dos genes"
+    "text": "Distância: número de arestas no caminho mais curto entre dois vértices.\nDiâmetro: a maior distância entre qualquer par de vértices.\n\n\n\n\n\nAtributos ou valores atribuídos às arestas.\nExemplos em redes biológicas: fluxo, massa, probabilidade.\nGrafos com pesos são chamados de grafos valorados ou ponderados."
   },
   {
-    "objectID": "modulos/aula05.html#tecnologias-de-sequenciamento",
-    "href": "modulos/aula05.html#tecnologias-de-sequenciamento",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "modulos/aula03.html#centralidades",
+    "href": "modulos/aula03.html#centralidades",
+    "title": "03 - Redes Biológicas",
     "section": "",
-    "text": "Illumina\nMGI\nPacBio\nNanopore\nElement Biosciences\n\n\n\n\n\nCurtas\nLongas\n\n\n\n\n\nSequenciamento por síntese\nSequenciamento em tempo real\nSequenciamento em nanoporo"
+    "text": "Indicadores que identificam os vértices mais importantes em um grafo.\n\n\n\nNúmero de arestas adjacentes a um vértice.\nEm redes direcionadas:\n\nGrau de entrada (in-degree)\nGrau de saída (out-degree)\n\nInterpretação: nós com alta centralidade de grau são “hubs” – funcionalmente cruciais.\n\n\n\n\n\nMede quão próximo um nó está de todos os outros.\nConsidera a distância geodésica (caminho mais curto).\nInterpretação: nós centrais para comunicação rápida ou disseminação de informação.\n\n\n\n\n\nQuantas vezes um vértice age como ponte no caminho mais curto entre dois outros nós.\nInterpretação: nós com alto betweenness controlam o fluxo de informação; sua remoção pode fragmentar a rede.\n\n\n\n\n\nMede a influência de um nó considerando a importância dos nós aos quais está conectado.\nAplicação: identificar genes mestres em redes de regulação.\n\n\n\n\n\nCompara o grau de um nó com o grau médio de seus vizinhos.\nAplicação: identificar conectores periféricos críticos (ex.: proteínas de membrana em patógenos).\n\n\n\n\n\nGeneralização da centralidade de autovetor; considera todos os caminhos, penalizando os mais longos.\nAplicação: modelar sinalização ou difusão de metabólitos.\n\n\n\n\n\nConsidera todos os caminhos possíveis (não apenas os mais curtos).\nAplicação: analisar redes metabólicas com fluxo distribuído.\n\n\n\n\n\n\n\n\n\n\n\n\nCentralidade\nMelhor para…\nExemplo de Aplicação Biotecnológica\n\n\n\n\nGrau\nIdentificar hubs conectados\nAlvo antibiótico\n\n\nProximidade\nIdentificar nós de comunicação rápida\nOtimização de vias metabólicas sintéticas\n\n\nIntermediação\nIdentificar gargalos e pontes\nAlvos terapêuticos que desconectam vias de doença\n\n\nAutovetor\nIdentificar influência hierárquica\nEngenharia de redes de regulação gênica\n\n\nAlavancagem\nIdentificar especializados críticos\nDesenvolvimento de vacinas\n\n\nDifusão (Katz)\nModelar sinalização de longo alcance\nPrever resposta a hormônios ou fármacos\n\n\nIntermediação de Fluxo\nAnalisar redes de fluxo (metabolismo)\nSuperar gargalos em produção de bioprodutos"
   },
   {
-    "objectID": "modulos/aula05.html#microarranjos-microarray",
-    "href": "modulos/aula05.html#microarranjos-microarray",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "modulos/aula03.html#características-de-redes-biológicas",
+    "href": "modulos/aula03.html#características-de-redes-biológicas",
+    "title": "03 - Redes Biológicas",
     "section": "",
-    "text": "Extração de RNA\nSeleção de mRNA\nTranscrição reversa\nFragmentação (opcional)\nLigação de fluoróforo\nHibridização"
+    "text": "A maioria dos vértices não são vizinhos, mas podem ser alcançados por poucos passos.\nImplicação: perturbações ou sinais se espalham rapidamente pela rede.\n\n\n\n\n\nDistribuição de grau segue uma lei de potência.\nPoucos vértices (hubs) têm muitas conexões; a maioria tem poucas.\nImplicação: redes são resistentes a falhas aleatórias, mas vulneráveis a ataques direcionados aos hubs.\n\n\n\n\n\nMede a tendência de formação de grupos coesos (alta densidade de conexões).\nTransitividade: se A se conecta a B e B a C, é provável que A se conecte a C.\nEm redes biológicas: pode indicar módulos funcionais ou complexos proteicos.\n\n\n\n\n\nRobustez: capacidade de manter função apesar de perturbações.\nAdaptabilidade: capacidade de mudar em resposta a perturbações."
   },
   {
-    "objectID": "modulos/aula05.html#comparação-microarray-vs-rna-seq",
-    "href": "modulos/aula05.html#comparação-microarray-vs-rna-seq",
-    "title": "05 - Obtenção de dados e banco de dados",
+    "objectID": "modulos/aula03.html#motivos-de-redes-network-motifs",
+    "href": "modulos/aula03.html#motivos-de-redes-network-motifs",
+    "title": "03 - Redes Biológicas",
     "section": "",
-    "text": "Característica\nMicroarray\nRNA-Seq\nImplicação para Biologia de Sistemas\n\n\n\n\nPrincípio\nHibridização\nSequenciamento NGS\nRNA-Seq é medida direta, mais confiável\n\n\nPré-requisito\nRequer conhecimento prévio\nNão requer conhecimento prévio\nRNA-Seq superior para sistemas não-modelo\n\n\nFaixa Dinâmica\nLimitada\nMuito ampla\nRNA-Seq detecta melhor genes de baixa expressão\n\n\nDados Obtidos\nSinal de fluorescência\nContagens de reads\nDados discretos do RNA-Seq requerem modelos estatísticos específicos\n\n\nResolução\nBaixa para variantes\nResolução de nucleotídeo único\nRNA-Seq permite modelar regulação pós-transcricional\n\n\nCusto\nModerado\nMais alto (mas caindo)\nMicroarray mais acessível para conjuntos gênicos definidos"
-  },
-  {
-    "objectID": "modulos/aula05.html#técnicas-para-estudo-de-interações",
-    "href": "modulos/aula05.html#técnicas-para-estudo-de-interações",
-    "title": "05 - Obtenção de dados e banco de dados",
-    "section": "",
-    "text": "Técnica para isolar complexos proteicos nativos\nUsa anticorpo específico para “pescar” proteína-alvo e seus parceiros\nLimitação: Epítopo oculto, visão parcial\nValidação: Rodada reversa necessária\n\n\n\n\n\nFixa DNA às proteínas da cromatina\nEnriquecimento com anticorpos específicos\nVariantes:\n\nChIP-PCR (qualitativo, obsoleto)\nChIP-qPCR (quantitativo, para validação)\nChIP-chip (genome-wide com microarranjo)\nChIP-seq (padrão-ouro atual)\n\n\n\n\n\n\nCaptura de material biológico com ligante específico\nMúltiplos tipos de ligandos: DNA/RNA, químicos, lipídios, peptídeos, anticorpos\n\n\n\n\n\nIdentifica e quantifica compostos\nEtapas: Ionização, Separação, Detecção\nAP-MS: Purificação por afinidade acoplada a espectrometria de massa\n\n\n\n\n\nDetecta interações proteína-proteína\nPrincípio: Reconstituição de fator de transcrição funcional\nComponentes: Isca (BD) e Presa (AD)\nLeitura: Ativação de gene repórter"
-  },
-  {
-    "objectID": "modulos/aula05.html#conceitos-computacionais",
-    "href": "modulos/aula05.html#conceitos-computacionais",
-    "title": "05 - Obtenção de dados e banco de dados",
-    "section": "",
-    "text": "Interação conservada entre pares de proteínas homólogas\nPré-requisitos:\n\nHomologia par-a-par\nConservação da interação\n\nAplicações: Predição de interações, inferência funcional, mapeamento de redes\n\n\n\n\n\nProteínas que interagem coevoluem na superfície de interação\nMétodos computacionais usam alinhamentos múltiplos, árvores filogenéticas\n\n\n\n\n\nSistema de classificação numérica para enzimas\nBaseado nas reações químicas catalisadas"
-  },
-  {
-    "objectID": "modulos/aula05.html#bancos-de-dados",
-    "href": "modulos/aula05.html#bancos-de-dados",
-    "title": "05 - Obtenção de dados e banco de dados",
-    "section": "",
-    "text": "702 recursos sobre vias biológicas e interações moleculares\nAcesso livre\nSuporta padrões: BioPAX, CellML, PSI-MI, SBML\n\n\n\n\n\nBanco de dados de recursos biológicos\nInterpreta funções e processos complexos\nAcesso: Pago\n\n\n\n\n\nMaior fonte de informações sobre funções de genes\nBase para análise de dados ômicos\nModelo computacional abrangente de sistemas biológicos\n\n\n\n\n\nBanco de dados curado de vias metabólicas\n2666 vias de 2960 organismos\nAplicações: Enciclopédia metabólica, predição de vias, engenharia metabólica\n\n\n\n\n\nInformação sobre fatores de transcrição e sítios de ligação\nAcesso: Pago\nCaracterística: Curado\n\n\n\n\n\nInterações proteína-proteína conhecidas ou preditas\nInclui interações diretas (físicas) e indiretas (funcionais)\nFontes: Predição computacional, transferência entre organismos, outros bancos\n\n\n\n\n\nAcesso: Aberto\nCaracterísticas: Curado manualmente, revisado por pares\nFornece ferramentas de visualização e análise\n\n\n\n\n\nAcesso: Aberto\nInterações derivadas da literatura (curadas)\nAceita submissão direta\n\n\n\n\n\nEstatísticas:\n\n69.031 publicações\n1.676.780 interações\n28.093 associações químicas\n726.378 modificações pós-traducionais\n\nAcesso: Livre"
-  },
-  {
-    "objectID": "modulos/aula05.html#mineração-de-texto",
-    "href": "modulos/aula05.html#mineração-de-texto",
-    "title": "05 - Obtenção de dados e banco de dados",
-    "section": "",
-    "text": "Técnica computacional para extrair informações de grandes volumes de texto\nProcura automaticamente na literatura científica por termos específicos\n\n\n\n\nFunção de genes/proteínas\nVias metabólicas\nInterações entre biomoléculas\nRelações de regulação"
+    "text": "Padrões ou sub-grafos recorrentes e estatisticamente significativos que refletem funções eficientes.\n\n\n\n\n\nEstrutura: ciclo onde um nó regula outro que eventualmente regula o primeiro.\nTipos:\n\nPositivo (→): cria estados estáveis irreversíveis (ex.: diferenciação celular).\nNegativo (⊣): gera oscilações ou mantém homeostase.\n\nExemplo: ciclo de divisão celular controlado por ciclinas e CDKs.\n\n\n\n\n\nEstrutura: um único regulador controla múltiplos alvos sem regulação entre eles.\nFunção: coordena expressão sincronizada de genes de uma mesma via.\nExemplo: operon em bactérias (ex.: operon lac).\n\n\nBaseado em slides de aula de Biologia de Sistemas."
   },
   {
     "objectID": "modulos/aula07.html",
@@ -182,6 +154,300 @@
     "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
   },
   {
+    "objectID": "modulos/aula01.html",
+    "href": "modulos/aula01.html",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "",
+    "text": "A Biologia de Sistemas é uma abordagem holista para o estudo de sistemas biológicos, visando compreender não apenas os componentes isolados, mas principalmente as interações que dão origem às propriedades emergentes (Kitano, 2002).\n\n“A biologia de sistemas não é apenas uma disciplina, mas uma revolução na forma como estudamos a vida.”\n— Hiroaki Kitano, 2002"
+  },
+  {
+    "objectID": "modulos/aula01.html#holismo",
+    "href": "modulos/aula01.html#holismo",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.1 Holismo",
+    "text": "2.1 Holismo\nO holismo considera que um sistema deve ser entendido como um todo, pois suas propriedades não podem ser reduzidas à soma das partes.\nPor consequência, a Biologia de Sistemas possibilita modelar e descobrir propriedades emergentes, isto é, características que surgem das interações entre componentes e não pertencem a nenhuma parte isolada (Kitano, 2002).\nExemplo:\nA rede metabólica da glicólise envolve 10 enzimas que convertem glicose em piruvato. O fluxo energético emerge somente da interação coordenada entre elas (Almaas et al., 2004)."
+  },
+  {
+    "objectID": "modulos/aula01.html#holismo-x-reducionismo",
+    "href": "modulos/aula01.html#holismo-x-reducionismo",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.2 Holismo x Reducionismo",
+    "text": "2.2 Holismo x Reducionismo\nO reducionismo disseca sistemas em partes para compreendê-los, assumindo que o entendimento de cada elemento levará à compreensão do todo.\nJá o holismo foca na rede de interações e propriedades emergentes.\n\n\n\n\n\n\n\n\nAbordagem\nFoco\nExemplo\n\n\n\n\nReducionismo\nComponentes isolados\nEstudo da função de uma única enzima\n\n\nHolismo\nInterações e redes\nModelagem de todo o metabolismo celular"
+  },
+  {
+    "objectID": "modulos/aula01.html#ciclo-de-trabalho",
+    "href": "modulos/aula01.html#ciclo-de-trabalho",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.3 Ciclo de Trabalho",
+    "text": "2.3 Ciclo de Trabalho\nA Biologia de Sistemas segue, frequentemente, um ciclo iterativo:\n\nTeoria\n\nModelagem (analítica ou computacional)\n\nValidação experimental\n\nRefinamento do modelo\n\nExemplo:\nLinhagens de Saccharomyces cerevisiae produtoras de artemisinina foram desenvolvidas integrando dados transcriptômicos e modelagem de fluxo metabólico (Ro et al., 2006)."
+  },
+  {
+    "objectID": "modulos/aula01.html#origem",
+    "href": "modulos/aula01.html#origem",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "3.1 Origem",
+    "text": "3.1 Origem\nProposta por Ludwig von Bertalanffy (1950–1968), define sistemas como conjuntos coesos de partes inter-relacionadas com limites espaciais e temporais, influenciados pelo ambiente."
+  },
+  {
+    "objectID": "modulos/aula01.html#conceitos-chave",
+    "href": "modulos/aula01.html#conceitos-chave",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "3.2 Conceitos-chave",
+    "text": "3.2 Conceitos-chave\n\n\n\n\n\n\n\n\nConceito\nDefinição\nExemplo\n\n\n\n\nSistema\nConjunto de partes interconectadas que atuam como uma unidade funcional\nRede metabólica\n\n\nFronteiras\nLimites físicos ou funcionais que definem o sistema\nMembrana celular\n\n\nHomeostase\nCapacidade de manter equilíbrio dinâmico\nRegulação do pH sanguíneo\n\n\nAdaptação\nAjuste estrutural ou funcional para sobrevivência\nResistência bacteriana\n\n\nTransações Recíprocas\nInterações bidirecionais entre sistemas\nEixo intestino-cérebro\n\n\nRetroalimentação\nMecanismo de autorregulação\nControle de glicemia por insulina\n\n\nTaxa de Transferência\nVelocidade de troca de matéria/energia/informação\nFixação de CO₂ na fotossíntese"
+  },
+  {
+    "objectID": "modulos/aula01.html#alan-hodgkin-andrew-huxley-1952",
+    "href": "modulos/aula01.html#alan-hodgkin-andrew-huxley-1952",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.1 Alan Hodgkin & Andrew Huxley (1952)",
+    "text": "4.1 Alan Hodgkin & Andrew Huxley (1952)\n\nDesenvolveram modelo matemático para potencial de ação em neurônios.\nCombinaram experimentos de voltage clamp com equações diferenciais.\nFundamentaram a neurociência computacional."
+  },
+  {
+    "objectID": "modulos/aula01.html#alan-turing-1952",
+    "href": "modulos/aula01.html#alan-turing-1952",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.2 Alan Turing (1952)",
+    "text": "4.2 Alan Turing (1952)\n\nCriou o modelo de reação-difusão, explicando padrões biológicos (listras, manchas).\nAplicado hoje em engenharia de tecidos e biologia sintética."
+  },
+  {
+    "objectID": "modulos/aula01.html#denis-noble-1960",
+    "href": "modulos/aula01.html#denis-noble-1960",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.3 Denis Noble (1960)",
+    "text": "4.3 Denis Noble (1960)\n\nModelou a função cardíaca usando computadores.\nIntroduziu o conceito de middle-out — integração de abordagens top-down e bottom-up."
+  },
+  {
+    "objectID": "modulos/aula01.html#mihajlo-mesarović-1966",
+    "href": "modulos/aula01.html#mihajlo-mesarović-1966",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.4 Mihajlo Mesarović (1966)",
+    "text": "4.4 Mihajlo Mesarović (1966)\n\nDefiniu a Biologia de Sistemas como disciplina formal.\nPropôs estudo hierárquico de sistemas biológicos com controle multinível."
+  },
+  {
+    "objectID": "modulos/aula01.html#hiroaki-kitano-2002",
+    "href": "modulos/aula01.html#hiroaki-kitano-2002",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.5 Hiroaki Kitano (2002)",
+    "text": "4.5 Hiroaki Kitano (2002)\n\nPopularizou o campo com artigo seminal (Science).\nCriou ferramentas como CellDesigner e padrões como SBML."
+  },
+  {
+    "objectID": "modulos/aula01.html#top-down",
+    "href": "modulos/aula01.html#top-down",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.1 Top-down",
+    "text": "5.1 Top-down\nParte de dados ômicos para reconstruir modelos globais antes de analisar detalhes.\nExemplo:\nRede de interações no câncer de mama → identificação de alvos terapêuticos (Thiele et al., 2013).\nLimitações:\n- Depende fortemente da qualidade dos dados.\n- Exige alta capacidade computacional."
+  },
+  {
+    "objectID": "modulos/aula01.html#middle-out",
+    "href": "modulos/aula01.html#middle-out",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.2 Middle-out",
+    "text": "5.2 Middle-out\n\nPode iniciar em qualquer nível (molécula, célula, órgão).\nExplora causalidades circulares entre escalas.\nIntermediária entre holismo e reducionismo."
+  },
+  {
+    "objectID": "modulos/aula01.html#bottom-up",
+    "href": "modulos/aula01.html#bottom-up",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.3 Bottom-up",
+    "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
+  },
+  {
+    "objectID": "modulos/aula05.html",
+    "href": "modulos/aula05.html",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Antes de gerar as redes, precisamos obter os dados porque: - Precisamos saber quais, quantos e qual a relação entre os elementos biológicos.\n\n\n\n\n\n\n\nConjuntos completos de DNA, RNA, Proteínas, Metabólitos\nAnotação funcional de genes\nEC number\nDomínios funcionais\nTranscritos\n\n\n\n\n\nQualitativo: o que é?\nQuantitativo: quanto de cada\n\n\n\n\n\nInteração de proteínas\nInteração proteínas-ácidos nucleicos\nAssociação à doenças\n\n\n\n\n\n\n\nExperimentos\nBancos de dados\nLiteratura\n\n\n\n\n\n\nSequenciamento\n\nObtenção da sequência de DNA do organismo de interesse\n\nMontagem\n\nReconstituição da molécula de DNA inicial\n\nPredição Gênica\n\nBusca pelas porções codificantes do genoma\nPredição de outros elementos funcionais\n\nAnotação Funcional\n\nDesigna a função dos genes\n\n\n\n\n\n\n\n\n\nIllumina\nMGI\nPacBio\nNanopore\nElement Biosciences\n\n\n\n\n\nCurtas\nLongas\n\n\n\n\n\nSequenciamento por síntese\nSequenciamento em tempo real\nSequenciamento em nanoporo\n\n\n\n\n\n\n\n\n\nExtração de RNA\nSeleção de mRNA\nTranscrição reversa\nFragmentação (opcional)\nLigação de fluoróforo\nHibridização\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCaracterística\nMicroarray\nRNA-Seq\nImplicação para Biologia de Sistemas\n\n\n\n\nPrincípio\nHibridização\nSequenciamento NGS\nRNA-Seq é medida direta, mais confiável\n\n\nPré-requisito\nRequer conhecimento prévio\nNão requer conhecimento prévio\nRNA-Seq superior para sistemas não-modelo\n\n\nFaixa Dinâmica\nLimitada\nMuito ampla\nRNA-Seq detecta melhor genes de baixa expressão\n\n\nDados Obtidos\nSinal de fluorescência\nContagens de reads\nDados discretos do RNA-Seq requerem modelos estatísticos específicos\n\n\nResolução\nBaixa para variantes\nResolução de nucleotídeo único\nRNA-Seq permite modelar regulação pós-transcricional\n\n\nCusto\nModerado\nMais alto (mas caindo)\nMicroarray mais acessível para conjuntos gênicos definidos\n\n\n\n\n\n\n\n\n\n\nTécnica para isolar complexos proteicos nativos\nUsa anticorpo específico para “pescar” proteína-alvo e seus parceiros\nLimitação: Epítopo oculto, visão parcial\nValidação: Rodada reversa necessária\n\n\n\n\n\nFixa DNA às proteínas da cromatina\nEnriquecimento com anticorpos específicos\nVariantes:\n\nChIP-PCR (qualitativo, obsoleto)\nChIP-qPCR (quantitativo, para validação)\nChIP-chip (genome-wide com microarranjo)\nChIP-seq (padrão-ouro atual)\n\n\n\n\n\n\nCaptura de material biológico com ligante específico\nMúltiplos tipos de ligandos: DNA/RNA, químicos, lipídios, peptídeos, anticorpos\n\n\n\n\n\nIdentifica e quantifica compostos\nEtapas: Ionização, Separação, Detecção\nAP-MS: Purificação por afinidade acoplada a espectrometria de massa\n\n\n\n\n\nDetecta interações proteína-proteína\nPrincípio: Reconstituição de fator de transcrição funcional\nComponentes: Isca (BD) e Presa (AD)\nLeitura: Ativação de gene repórter\n\n\n\n\n\n\n\n\n\nInteração conservada entre pares de proteínas homólogas\nPré-requisitos:\n\nHomologia par-a-par\nConservação da interação\n\nAplicações: Predição de interações, inferência funcional, mapeamento de redes\n\n\n\n\n\nProteínas que interagem coevoluem na superfície de interação\nMétodos computacionais usam alinhamentos múltiplos, árvores filogenéticas\n\n\n\n\n\nSistema de classificação numérica para enzimas\nBaseado nas reações químicas catalisadas\n\n\n\n\n\n\n\n\n\n702 recursos sobre vias biológicas e interações moleculares\nAcesso livre\nSuporta padrões: BioPAX, CellML, PSI-MI, SBML\n\n\n\n\n\nBanco de dados de recursos biológicos\nInterpreta funções e processos complexos\nAcesso: Pago\n\n\n\n\n\nMaior fonte de informações sobre funções de genes\nBase para análise de dados ômicos\nModelo computacional abrangente de sistemas biológicos\n\n\n\n\n\nBanco de dados curado de vias metabólicas\n2666 vias de 2960 organismos\nAplicações: Enciclopédia metabólica, predição de vias, engenharia metabólica\n\n\n\n\n\nInformação sobre fatores de transcrição e sítios de ligação\nAcesso: Pago\nCaracterística: Curado\n\n\n\n\n\nInterações proteína-proteína conhecidas ou preditas\nInclui interações diretas (físicas) e indiretas (funcionais)\nFontes: Predição computacional, transferência entre organismos, outros bancos\n\n\n\n\n\nAcesso: Aberto\nCaracterísticas: Curado manualmente, revisado por pares\nFornece ferramentas de visualização e análise\n\n\n\n\n\nAcesso: Aberto\nInterações derivadas da literatura (curadas)\nAceita submissão direta\n\n\n\n\n\nEstatísticas:\n\n69.031 publicações\n1.676.780 interações\n28.093 associações químicas\n726.378 modificações pós-traducionais\n\nAcesso: Livre\n\n\n\n\n\n\n\nTécnica computacional para extrair informações de grandes volumes de texto\nProcura automaticamente na literatura científica por termos específicos\n\n\n\n\nFunção de genes/proteínas\nVias metabólicas\nInterações entre biomoléculas\nRelações de regulação"
+  },
+  {
+    "objectID": "modulos/aula05.html#introdução",
+    "href": "modulos/aula05.html#introdução",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Antes de gerar as redes, precisamos obter os dados porque: - Precisamos saber quais, quantos e qual a relação entre os elementos biológicos."
+  },
+  {
+    "objectID": "modulos/aula05.html#tipos-de-dados",
+    "href": "modulos/aula05.html#tipos-de-dados",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Conjuntos completos de DNA, RNA, Proteínas, Metabólitos\nAnotação funcional de genes\nEC number\nDomínios funcionais\nTranscritos\n\n\n\n\n\nQualitativo: o que é?\nQuantitativo: quanto de cada\n\n\n\n\n\nInteração de proteínas\nInteração proteínas-ácidos nucleicos\nAssociação à doenças"
+  },
+  {
+    "objectID": "modulos/aula05.html#fontes-de-dados",
+    "href": "modulos/aula05.html#fontes-de-dados",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Experimentos\nBancos de dados\nLiteratura"
+  },
+  {
+    "objectID": "modulos/aula05.html#fluxo-de-trabalho-dna-genes",
+    "href": "modulos/aula05.html#fluxo-de-trabalho-dna-genes",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Sequenciamento\n\nObtenção da sequência de DNA do organismo de interesse\n\nMontagem\n\nReconstituição da molécula de DNA inicial\n\nPredição Gênica\n\nBusca pelas porções codificantes do genoma\nPredição de outros elementos funcionais\n\nAnotação Funcional\n\nDesigna a função dos genes"
+  },
+  {
+    "objectID": "modulos/aula05.html#tecnologias-de-sequenciamento",
+    "href": "modulos/aula05.html#tecnologias-de-sequenciamento",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Illumina\nMGI\nPacBio\nNanopore\nElement Biosciences\n\n\n\n\n\nCurtas\nLongas\n\n\n\n\n\nSequenciamento por síntese\nSequenciamento em tempo real\nSequenciamento em nanoporo"
+  },
+  {
+    "objectID": "modulos/aula05.html#microarranjos-microarray",
+    "href": "modulos/aula05.html#microarranjos-microarray",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Extração de RNA\nSeleção de mRNA\nTranscrição reversa\nFragmentação (opcional)\nLigação de fluoróforo\nHibridização"
+  },
+  {
+    "objectID": "modulos/aula05.html#comparação-microarray-vs-rna-seq",
+    "href": "modulos/aula05.html#comparação-microarray-vs-rna-seq",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Característica\nMicroarray\nRNA-Seq\nImplicação para Biologia de Sistemas\n\n\n\n\nPrincípio\nHibridização\nSequenciamento NGS\nRNA-Seq é medida direta, mais confiável\n\n\nPré-requisito\nRequer conhecimento prévio\nNão requer conhecimento prévio\nRNA-Seq superior para sistemas não-modelo\n\n\nFaixa Dinâmica\nLimitada\nMuito ampla\nRNA-Seq detecta melhor genes de baixa expressão\n\n\nDados Obtidos\nSinal de fluorescência\nContagens de reads\nDados discretos do RNA-Seq requerem modelos estatísticos específicos\n\n\nResolução\nBaixa para variantes\nResolução de nucleotídeo único\nRNA-Seq permite modelar regulação pós-transcricional\n\n\nCusto\nModerado\nMais alto (mas caindo)\nMicroarray mais acessível para conjuntos gênicos definidos"
+  },
+  {
+    "objectID": "modulos/aula05.html#técnicas-para-estudo-de-interações",
+    "href": "modulos/aula05.html#técnicas-para-estudo-de-interações",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Técnica para isolar complexos proteicos nativos\nUsa anticorpo específico para “pescar” proteína-alvo e seus parceiros\nLimitação: Epítopo oculto, visão parcial\nValidação: Rodada reversa necessária\n\n\n\n\n\nFixa DNA às proteínas da cromatina\nEnriquecimento com anticorpos específicos\nVariantes:\n\nChIP-PCR (qualitativo, obsoleto)\nChIP-qPCR (quantitativo, para validação)\nChIP-chip (genome-wide com microarranjo)\nChIP-seq (padrão-ouro atual)\n\n\n\n\n\n\nCaptura de material biológico com ligante específico\nMúltiplos tipos de ligandos: DNA/RNA, químicos, lipídios, peptídeos, anticorpos\n\n\n\n\n\nIdentifica e quantifica compostos\nEtapas: Ionização, Separação, Detecção\nAP-MS: Purificação por afinidade acoplada a espectrometria de massa\n\n\n\n\n\nDetecta interações proteína-proteína\nPrincípio: Reconstituição de fator de transcrição funcional\nComponentes: Isca (BD) e Presa (AD)\nLeitura: Ativação de gene repórter"
+  },
+  {
+    "objectID": "modulos/aula05.html#conceitos-computacionais",
+    "href": "modulos/aula05.html#conceitos-computacionais",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Interação conservada entre pares de proteínas homólogas\nPré-requisitos:\n\nHomologia par-a-par\nConservação da interação\n\nAplicações: Predição de interações, inferência funcional, mapeamento de redes\n\n\n\n\n\nProteínas que interagem coevoluem na superfície de interação\nMétodos computacionais usam alinhamentos múltiplos, árvores filogenéticas\n\n\n\n\n\nSistema de classificação numérica para enzimas\nBaseado nas reações químicas catalisadas"
+  },
+  {
+    "objectID": "modulos/aula05.html#bancos-de-dados",
+    "href": "modulos/aula05.html#bancos-de-dados",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "702 recursos sobre vias biológicas e interações moleculares\nAcesso livre\nSuporta padrões: BioPAX, CellML, PSI-MI, SBML\n\n\n\n\n\nBanco de dados de recursos biológicos\nInterpreta funções e processos complexos\nAcesso: Pago\n\n\n\n\n\nMaior fonte de informações sobre funções de genes\nBase para análise de dados ômicos\nModelo computacional abrangente de sistemas biológicos\n\n\n\n\n\nBanco de dados curado de vias metabólicas\n2666 vias de 2960 organismos\nAplicações: Enciclopédia metabólica, predição de vias, engenharia metabólica\n\n\n\n\n\nInformação sobre fatores de transcrição e sítios de ligação\nAcesso: Pago\nCaracterística: Curado\n\n\n\n\n\nInterações proteína-proteína conhecidas ou preditas\nInclui interações diretas (físicas) e indiretas (funcionais)\nFontes: Predição computacional, transferência entre organismos, outros bancos\n\n\n\n\n\nAcesso: Aberto\nCaracterísticas: Curado manualmente, revisado por pares\nFornece ferramentas de visualização e análise\n\n\n\n\n\nAcesso: Aberto\nInterações derivadas da literatura (curadas)\nAceita submissão direta\n\n\n\n\n\nEstatísticas:\n\n69.031 publicações\n1.676.780 interações\n28.093 associações químicas\n726.378 modificações pós-traducionais\n\nAcesso: Livre"
+  },
+  {
+    "objectID": "modulos/aula05.html#mineração-de-texto",
+    "href": "modulos/aula05.html#mineração-de-texto",
+    "title": "05 - Obtenção de dados e banco de dados",
+    "section": "",
+    "text": "Técnica computacional para extrair informações de grandes volumes de texto\nProcura automaticamente na literatura científica por termos específicos\n\n\n\n\nFunção de genes/proteínas\nVias metabólicas\nInterações entre biomoléculas\nRelações de regulação"
+  },
+  {
+    "objectID": "modulos/aula10.html",
+    "href": "modulos/aula10.html",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "",
+    "text": "A Biologia de Sistemas é uma abordagem holista para o estudo de sistemas biológicos, visando compreender não apenas os componentes isolados, mas principalmente as interações que dão origem às propriedades emergentes (Kitano, 2002).\n\n“A biologia de sistemas não é apenas uma disciplina, mas uma revolução na forma como estudamos a vida.”\n— Hiroaki Kitano, 2002"
+  },
+  {
+    "objectID": "modulos/aula10.html#holismo",
+    "href": "modulos/aula10.html#holismo",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.1 Holismo",
+    "text": "2.1 Holismo\nO holismo considera que um sistema deve ser entendido como um todo, pois suas propriedades não podem ser reduzidas à soma das partes.\nPor consequência, a Biologia de Sistemas possibilita modelar e descobrir propriedades emergentes, isto é, características que surgem das interações entre componentes e não pertencem a nenhuma parte isolada (Kitano, 2002).\nExemplo:\nA rede metabólica da glicólise envolve 10 enzimas que convertem glicose em piruvato. O fluxo energético emerge somente da interação coordenada entre elas (Almaas et al., 2004)."
+  },
+  {
+    "objectID": "modulos/aula10.html#holismo-x-reducionismo",
+    "href": "modulos/aula10.html#holismo-x-reducionismo",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.2 Holismo x Reducionismo",
+    "text": "2.2 Holismo x Reducionismo\nO reducionismo disseca sistemas em partes para compreendê-los, assumindo que o entendimento de cada elemento levará à compreensão do todo.\nJá o holismo foca na rede de interações e propriedades emergentes.\n\n\n\n\n\n\n\n\nAbordagem\nFoco\nExemplo\n\n\n\n\nReducionismo\nComponentes isolados\nEstudo da função de uma única enzima\n\n\nHolismo\nInterações e redes\nModelagem de todo o metabolismo celular"
+  },
+  {
+    "objectID": "modulos/aula10.html#ciclo-de-trabalho",
+    "href": "modulos/aula10.html#ciclo-de-trabalho",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.3 Ciclo de Trabalho",
+    "text": "2.3 Ciclo de Trabalho\nA Biologia de Sistemas segue, frequentemente, um ciclo iterativo:\n\nTeoria\n\nModelagem (analítica ou computacional)\n\nValidação experimental\n\nRefinamento do modelo\n\nExemplo:\nLinhagens de Saccharomyces cerevisiae produtoras de artemisinina foram desenvolvidas integrando dados transcriptômicos e modelagem de fluxo metabólico (Ro et al., 2006)."
+  },
+  {
+    "objectID": "modulos/aula10.html#origem",
+    "href": "modulos/aula10.html#origem",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "3.1 Origem",
+    "text": "3.1 Origem\nProposta por Ludwig von Bertalanffy (1950–1968), define sistemas como conjuntos coesos de partes inter-relacionadas com limites espaciais e temporais, influenciados pelo ambiente."
+  },
+  {
+    "objectID": "modulos/aula10.html#conceitos-chave",
+    "href": "modulos/aula10.html#conceitos-chave",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "3.2 Conceitos-chave",
+    "text": "3.2 Conceitos-chave\n\n\n\n\n\n\n\n\nConceito\nDefinição\nExemplo\n\n\n\n\nSistema\nConjunto de partes interconectadas que atuam como uma unidade funcional\nRede metabólica\n\n\nFronteiras\nLimites físicos ou funcionais que definem o sistema\nMembrana celular\n\n\nHomeostase\nCapacidade de manter equilíbrio dinâmico\nRegulação do pH sanguíneo\n\n\nAdaptação\nAjuste estrutural ou funcional para sobrevivência\nResistência bacteriana\n\n\nTransações Recíprocas\nInterações bidirecionais entre sistemas\nEixo intestino-cérebro\n\n\nRetroalimentação\nMecanismo de autorregulação\nControle de glicemia por insulina\n\n\nTaxa de Transferência\nVelocidade de troca de matéria/energia/informação\nFixação de CO₂ na fotossíntese"
+  },
+  {
+    "objectID": "modulos/aula10.html#alan-hodgkin-andrew-huxley-1952",
+    "href": "modulos/aula10.html#alan-hodgkin-andrew-huxley-1952",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.1 Alan Hodgkin & Andrew Huxley (1952)",
+    "text": "4.1 Alan Hodgkin & Andrew Huxley (1952)\n\nDesenvolveram modelo matemático para potencial de ação em neurônios.\nCombinaram experimentos de voltage clamp com equações diferenciais.\nFundamentaram a neurociência computacional."
+  },
+  {
+    "objectID": "modulos/aula10.html#alan-turing-1952",
+    "href": "modulos/aula10.html#alan-turing-1952",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.2 Alan Turing (1952)",
+    "text": "4.2 Alan Turing (1952)\n\nCriou o modelo de reação-difusão, explicando padrões biológicos (listras, manchas).\nAplicado hoje em engenharia de tecidos e biologia sintética."
+  },
+  {
+    "objectID": "modulos/aula10.html#denis-noble-1960",
+    "href": "modulos/aula10.html#denis-noble-1960",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.3 Denis Noble (1960)",
+    "text": "4.3 Denis Noble (1960)\n\nModelou a função cardíaca usando computadores.\nIntroduziu o conceito de middle-out — integração de abordagens top-down e bottom-up."
+  },
+  {
+    "objectID": "modulos/aula10.html#mihajlo-mesarović-1966",
+    "href": "modulos/aula10.html#mihajlo-mesarović-1966",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.4 Mihajlo Mesarović (1966)",
+    "text": "4.4 Mihajlo Mesarović (1966)\n\nDefiniu a Biologia de Sistemas como disciplina formal.\nPropôs estudo hierárquico de sistemas biológicos com controle multinível."
+  },
+  {
+    "objectID": "modulos/aula10.html#hiroaki-kitano-2002",
+    "href": "modulos/aula10.html#hiroaki-kitano-2002",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.5 Hiroaki Kitano (2002)",
+    "text": "4.5 Hiroaki Kitano (2002)\n\nPopularizou o campo com artigo seminal (Science).\nCriou ferramentas como CellDesigner e padrões como SBML."
+  },
+  {
+    "objectID": "modulos/aula10.html#top-down",
+    "href": "modulos/aula10.html#top-down",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.1 Top-down",
+    "text": "5.1 Top-down\nParte de dados ômicos para reconstruir modelos globais antes de analisar detalhes.\nExemplo:\nRede de interações no câncer de mama → identificação de alvos terapêuticos (Thiele et al., 2013).\nLimitações:\n- Depende fortemente da qualidade dos dados.\n- Exige alta capacidade computacional."
+  },
+  {
+    "objectID": "modulos/aula10.html#middle-out",
+    "href": "modulos/aula10.html#middle-out",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.2 Middle-out",
+    "text": "5.2 Middle-out\n\nPode iniciar em qualquer nível (molécula, célula, órgão).\nExplora causalidades circulares entre escalas.\nIntermediária entre holismo e reducionismo."
+  },
+  {
+    "objectID": "modulos/aula10.html#bottom-up",
+    "href": "modulos/aula10.html#bottom-up",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.3 Bottom-up",
+    "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "**Biologia de Sistemas**",
+    "section": "",
+    "text": "Este é o site da disciplina Biologia de Sistemas - CI0932.\n\nAqui você encontrará:\n\n📚 Módulos\n📊 Slides das aulas (CELULAR NA HORIZONTAL)\n📝 Listas de exercícios\n🔗 Leituras"
+  },
+  {
+    "objectID": "index.html#bem-vindos",
+    "href": "index.html#bem-vindos",
+    "title": "**Biologia de Sistemas**",
+    "section": "",
+    "text": "Este é o site da disciplina Biologia de Sistemas - CI0932.\n\nAqui você encontrará:\n\n📚 Módulos\n📊 Slides das aulas (CELULAR NA HORIZONTAL)\n📝 Listas de exercícios\n🔗 Leituras"
+  },
+  {
     "objectID": "modulos/aula09.html",
     "href": "modulos/aula09.html",
     "title": "Biologia de Sistemas — Histórico e Conceitos",
@@ -275,6 +541,104 @@
   {
     "objectID": "modulos/aula09.html#bottom-up",
     "href": "modulos/aula09.html#bottom-up",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.3 Bottom-up",
+    "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
+  },
+  {
+    "objectID": "modulos/aula08.html",
+    "href": "modulos/aula08.html",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "",
+    "text": "A Biologia de Sistemas é uma abordagem holista para o estudo de sistemas biológicos, visando compreender não apenas os componentes isolados, mas principalmente as interações que dão origem às propriedades emergentes (Kitano, 2002).\n\n“A biologia de sistemas não é apenas uma disciplina, mas uma revolução na forma como estudamos a vida.”\n— Hiroaki Kitano, 2002"
+  },
+  {
+    "objectID": "modulos/aula08.html#holismo",
+    "href": "modulos/aula08.html#holismo",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.1 Holismo",
+    "text": "2.1 Holismo\nO holismo considera que um sistema deve ser entendido como um todo, pois suas propriedades não podem ser reduzidas à soma das partes.\nPor consequência, a Biologia de Sistemas possibilita modelar e descobrir propriedades emergentes, isto é, características que surgem das interações entre componentes e não pertencem a nenhuma parte isolada (Kitano, 2002).\nExemplo:\nA rede metabólica da glicólise envolve 10 enzimas que convertem glicose em piruvato. O fluxo energético emerge somente da interação coordenada entre elas (Almaas et al., 2004)."
+  },
+  {
+    "objectID": "modulos/aula08.html#holismo-x-reducionismo",
+    "href": "modulos/aula08.html#holismo-x-reducionismo",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.2 Holismo x Reducionismo",
+    "text": "2.2 Holismo x Reducionismo\nO reducionismo disseca sistemas em partes para compreendê-los, assumindo que o entendimento de cada elemento levará à compreensão do todo.\nJá o holismo foca na rede de interações e propriedades emergentes.\n\n\n\n\n\n\n\n\nAbordagem\nFoco\nExemplo\n\n\n\n\nReducionismo\nComponentes isolados\nEstudo da função de uma única enzima\n\n\nHolismo\nInterações e redes\nModelagem de todo o metabolismo celular"
+  },
+  {
+    "objectID": "modulos/aula08.html#ciclo-de-trabalho",
+    "href": "modulos/aula08.html#ciclo-de-trabalho",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "2.3 Ciclo de Trabalho",
+    "text": "2.3 Ciclo de Trabalho\nA Biologia de Sistemas segue, frequentemente, um ciclo iterativo:\n\nTeoria\n\nModelagem (analítica ou computacional)\n\nValidação experimental\n\nRefinamento do modelo\n\nExemplo:\nLinhagens de Saccharomyces cerevisiae produtoras de artemisinina foram desenvolvidas integrando dados transcriptômicos e modelagem de fluxo metabólico (Ro et al., 2006)."
+  },
+  {
+    "objectID": "modulos/aula08.html#origem",
+    "href": "modulos/aula08.html#origem",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "3.1 Origem",
+    "text": "3.1 Origem\nProposta por Ludwig von Bertalanffy (1950–1968), define sistemas como conjuntos coesos de partes inter-relacionadas com limites espaciais e temporais, influenciados pelo ambiente."
+  },
+  {
+    "objectID": "modulos/aula08.html#conceitos-chave",
+    "href": "modulos/aula08.html#conceitos-chave",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "3.2 Conceitos-chave",
+    "text": "3.2 Conceitos-chave\n\n\n\n\n\n\n\n\nConceito\nDefinição\nExemplo\n\n\n\n\nSistema\nConjunto de partes interconectadas que atuam como uma unidade funcional\nRede metabólica\n\n\nFronteiras\nLimites físicos ou funcionais que definem o sistema\nMembrana celular\n\n\nHomeostase\nCapacidade de manter equilíbrio dinâmico\nRegulação do pH sanguíneo\n\n\nAdaptação\nAjuste estrutural ou funcional para sobrevivência\nResistência bacteriana\n\n\nTransações Recíprocas\nInterações bidirecionais entre sistemas\nEixo intestino-cérebro\n\n\nRetroalimentação\nMecanismo de autorregulação\nControle de glicemia por insulina\n\n\nTaxa de Transferência\nVelocidade de troca de matéria/energia/informação\nFixação de CO₂ na fotossíntese"
+  },
+  {
+    "objectID": "modulos/aula08.html#alan-hodgkin-andrew-huxley-1952",
+    "href": "modulos/aula08.html#alan-hodgkin-andrew-huxley-1952",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.1 Alan Hodgkin & Andrew Huxley (1952)",
+    "text": "4.1 Alan Hodgkin & Andrew Huxley (1952)\n\nDesenvolveram modelo matemático para potencial de ação em neurônios.\nCombinaram experimentos de voltage clamp com equações diferenciais.\nFundamentaram a neurociência computacional."
+  },
+  {
+    "objectID": "modulos/aula08.html#alan-turing-1952",
+    "href": "modulos/aula08.html#alan-turing-1952",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.2 Alan Turing (1952)",
+    "text": "4.2 Alan Turing (1952)\n\nCriou o modelo de reação-difusão, explicando padrões biológicos (listras, manchas).\nAplicado hoje em engenharia de tecidos e biologia sintética."
+  },
+  {
+    "objectID": "modulos/aula08.html#denis-noble-1960",
+    "href": "modulos/aula08.html#denis-noble-1960",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.3 Denis Noble (1960)",
+    "text": "4.3 Denis Noble (1960)\n\nModelou a função cardíaca usando computadores.\nIntroduziu o conceito de middle-out — integração de abordagens top-down e bottom-up."
+  },
+  {
+    "objectID": "modulos/aula08.html#mihajlo-mesarović-1966",
+    "href": "modulos/aula08.html#mihajlo-mesarović-1966",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.4 Mihajlo Mesarović (1966)",
+    "text": "4.4 Mihajlo Mesarović (1966)\n\nDefiniu a Biologia de Sistemas como disciplina formal.\nPropôs estudo hierárquico de sistemas biológicos com controle multinível."
+  },
+  {
+    "objectID": "modulos/aula08.html#hiroaki-kitano-2002",
+    "href": "modulos/aula08.html#hiroaki-kitano-2002",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "4.5 Hiroaki Kitano (2002)",
+    "text": "4.5 Hiroaki Kitano (2002)\n\nPopularizou o campo com artigo seminal (Science).\nCriou ferramentas como CellDesigner e padrões como SBML."
+  },
+  {
+    "objectID": "modulos/aula08.html#top-down",
+    "href": "modulos/aula08.html#top-down",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.1 Top-down",
+    "text": "5.1 Top-down\nParte de dados ômicos para reconstruir modelos globais antes de analisar detalhes.\nExemplo:\nRede de interações no câncer de mama → identificação de alvos terapêuticos (Thiele et al., 2013).\nLimitações:\n- Depende fortemente da qualidade dos dados.\n- Exige alta capacidade computacional."
+  },
+  {
+    "objectID": "modulos/aula08.html#middle-out",
+    "href": "modulos/aula08.html#middle-out",
+    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "section": "5.2 Middle-out",
+    "text": "5.2 Middle-out\n\nPode iniciar em qualquer nível (molécula, célula, órgão).\nExplora causalidades circulares entre escalas.\nIntermediária entre holismo e reducionismo."
+  },
+  {
+    "objectID": "modulos/aula08.html#bottom-up",
+    "href": "modulos/aula08.html#bottom-up",
     "title": "Biologia de Sistemas — Histórico e Conceitos",
     "section": "5.3 Bottom-up",
     "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
@@ -425,265 +789,6 @@
     "title": "04 - Modelos",
     "section": "",
     "text": "Característica\nRede Erdös-Rényi\nRede Biológica\n\n\n\n\nDistribuição de graus\nPoisson\nLei de Potência\n\n\nModularidade\nAusente\nPresente\n\n\nCoesividade\nBaixa\nAlta\n\n\nMundo Pequeno\nSim\nSim\n\n\nLivre de Escala\nNão\nSim\n\n\n\n\n\n\n\nAlto agrupamento local + baixo caminho médio.\nConstrução: rede regular + reconexões aleatórias.\nAplicação: espalhamento de doenças infecciosas.\n\n\n\n\n\nExplica a existência de hubs.\nBaseado em:\n\nCrescimento: rede se expande ao longo do tempo.\nLigação Preferencial: nós novos conectam-se a hubs.\n\nGera redes livres de escala (distribuição de graus segue lei de potência)."
-  },
-  {
-    "objectID": "modulos/aula10.html",
-    "href": "modulos/aula10.html",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "",
-    "text": "A Biologia de Sistemas é uma abordagem holista para o estudo de sistemas biológicos, visando compreender não apenas os componentes isolados, mas principalmente as interações que dão origem às propriedades emergentes (Kitano, 2002).\n\n“A biologia de sistemas não é apenas uma disciplina, mas uma revolução na forma como estudamos a vida.”\n— Hiroaki Kitano, 2002"
-  },
-  {
-    "objectID": "modulos/aula10.html#holismo",
-    "href": "modulos/aula10.html#holismo",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.1 Holismo",
-    "text": "2.1 Holismo\nO holismo considera que um sistema deve ser entendido como um todo, pois suas propriedades não podem ser reduzidas à soma das partes.\nPor consequência, a Biologia de Sistemas possibilita modelar e descobrir propriedades emergentes, isto é, características que surgem das interações entre componentes e não pertencem a nenhuma parte isolada (Kitano, 2002).\nExemplo:\nA rede metabólica da glicólise envolve 10 enzimas que convertem glicose em piruvato. O fluxo energético emerge somente da interação coordenada entre elas (Almaas et al., 2004)."
-  },
-  {
-    "objectID": "modulos/aula10.html#holismo-x-reducionismo",
-    "href": "modulos/aula10.html#holismo-x-reducionismo",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.2 Holismo x Reducionismo",
-    "text": "2.2 Holismo x Reducionismo\nO reducionismo disseca sistemas em partes para compreendê-los, assumindo que o entendimento de cada elemento levará à compreensão do todo.\nJá o holismo foca na rede de interações e propriedades emergentes.\n\n\n\n\n\n\n\n\nAbordagem\nFoco\nExemplo\n\n\n\n\nReducionismo\nComponentes isolados\nEstudo da função de uma única enzima\n\n\nHolismo\nInterações e redes\nModelagem de todo o metabolismo celular"
-  },
-  {
-    "objectID": "modulos/aula10.html#ciclo-de-trabalho",
-    "href": "modulos/aula10.html#ciclo-de-trabalho",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.3 Ciclo de Trabalho",
-    "text": "2.3 Ciclo de Trabalho\nA Biologia de Sistemas segue, frequentemente, um ciclo iterativo:\n\nTeoria\n\nModelagem (analítica ou computacional)\n\nValidação experimental\n\nRefinamento do modelo\n\nExemplo:\nLinhagens de Saccharomyces cerevisiae produtoras de artemisinina foram desenvolvidas integrando dados transcriptômicos e modelagem de fluxo metabólico (Ro et al., 2006)."
-  },
-  {
-    "objectID": "modulos/aula10.html#origem",
-    "href": "modulos/aula10.html#origem",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "3.1 Origem",
-    "text": "3.1 Origem\nProposta por Ludwig von Bertalanffy (1950–1968), define sistemas como conjuntos coesos de partes inter-relacionadas com limites espaciais e temporais, influenciados pelo ambiente."
-  },
-  {
-    "objectID": "modulos/aula10.html#conceitos-chave",
-    "href": "modulos/aula10.html#conceitos-chave",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "3.2 Conceitos-chave",
-    "text": "3.2 Conceitos-chave\n\n\n\n\n\n\n\n\nConceito\nDefinição\nExemplo\n\n\n\n\nSistema\nConjunto de partes interconectadas que atuam como uma unidade funcional\nRede metabólica\n\n\nFronteiras\nLimites físicos ou funcionais que definem o sistema\nMembrana celular\n\n\nHomeostase\nCapacidade de manter equilíbrio dinâmico\nRegulação do pH sanguíneo\n\n\nAdaptação\nAjuste estrutural ou funcional para sobrevivência\nResistência bacteriana\n\n\nTransações Recíprocas\nInterações bidirecionais entre sistemas\nEixo intestino-cérebro\n\n\nRetroalimentação\nMecanismo de autorregulação\nControle de glicemia por insulina\n\n\nTaxa de Transferência\nVelocidade de troca de matéria/energia/informação\nFixação de CO₂ na fotossíntese"
-  },
-  {
-    "objectID": "modulos/aula10.html#alan-hodgkin-andrew-huxley-1952",
-    "href": "modulos/aula10.html#alan-hodgkin-andrew-huxley-1952",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.1 Alan Hodgkin & Andrew Huxley (1952)",
-    "text": "4.1 Alan Hodgkin & Andrew Huxley (1952)\n\nDesenvolveram modelo matemático para potencial de ação em neurônios.\nCombinaram experimentos de voltage clamp com equações diferenciais.\nFundamentaram a neurociência computacional."
-  },
-  {
-    "objectID": "modulos/aula10.html#alan-turing-1952",
-    "href": "modulos/aula10.html#alan-turing-1952",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.2 Alan Turing (1952)",
-    "text": "4.2 Alan Turing (1952)\n\nCriou o modelo de reação-difusão, explicando padrões biológicos (listras, manchas).\nAplicado hoje em engenharia de tecidos e biologia sintética."
-  },
-  {
-    "objectID": "modulos/aula10.html#denis-noble-1960",
-    "href": "modulos/aula10.html#denis-noble-1960",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.3 Denis Noble (1960)",
-    "text": "4.3 Denis Noble (1960)\n\nModelou a função cardíaca usando computadores.\nIntroduziu o conceito de middle-out — integração de abordagens top-down e bottom-up."
-  },
-  {
-    "objectID": "modulos/aula10.html#mihajlo-mesarović-1966",
-    "href": "modulos/aula10.html#mihajlo-mesarović-1966",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.4 Mihajlo Mesarović (1966)",
-    "text": "4.4 Mihajlo Mesarović (1966)\n\nDefiniu a Biologia de Sistemas como disciplina formal.\nPropôs estudo hierárquico de sistemas biológicos com controle multinível."
-  },
-  {
-    "objectID": "modulos/aula10.html#hiroaki-kitano-2002",
-    "href": "modulos/aula10.html#hiroaki-kitano-2002",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.5 Hiroaki Kitano (2002)",
-    "text": "4.5 Hiroaki Kitano (2002)\n\nPopularizou o campo com artigo seminal (Science).\nCriou ferramentas como CellDesigner e padrões como SBML."
-  },
-  {
-    "objectID": "modulos/aula10.html#top-down",
-    "href": "modulos/aula10.html#top-down",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.1 Top-down",
-    "text": "5.1 Top-down\nParte de dados ômicos para reconstruir modelos globais antes de analisar detalhes.\nExemplo:\nRede de interações no câncer de mama → identificação de alvos terapêuticos (Thiele et al., 2013).\nLimitações:\n- Depende fortemente da qualidade dos dados.\n- Exige alta capacidade computacional."
-  },
-  {
-    "objectID": "modulos/aula10.html#middle-out",
-    "href": "modulos/aula10.html#middle-out",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.2 Middle-out",
-    "text": "5.2 Middle-out\n\nPode iniciar em qualquer nível (molécula, célula, órgão).\nExplora causalidades circulares entre escalas.\nIntermediária entre holismo e reducionismo."
-  },
-  {
-    "objectID": "modulos/aula10.html#bottom-up",
-    "href": "modulos/aula10.html#bottom-up",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.3 Bottom-up",
-    "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
-  },
-  {
-    "objectID": "listas/ed2.html",
-    "href": "listas/ed2.html",
-    "title": "Lista 1: Transformação Bacteriana",
-    "section": "",
-    "text": "Lista de Exercícios 1\nTema: Transformação bacteriana e experimentos clássicos\n\nDescreva o experimento de Griffith (1928). Qual a importância dos resultados?\nExplique como o trabalho de Avery, MacLeod e McCarty complementou o de Griffith.\nDiferencie os conceitos de transformação, conjugação e transdução."
-  },
-  {
-    "objectID": "listas/ed1.html",
-    "href": "listas/ed1.html",
-    "title": "Estudo Dirigido 1",
-    "section": "",
-    "text": "Diferentes redes biológicas são modeladas por diferentes tipos grafos. Quais tipos de grafos são normalmente usados para modelar as seguintes redes:\n\nRedes de regulação de genes;\nRedes de interação proteínas-proteína;\nRedes metabólicas.\n\nConsidere o grafo não direcionado \\(G = (V,E)\\) mostrado abaixo. Para cada vértice \\(v\\ \\in \\ V\\) faça o seguinte:\n\nCalcule o grau de \\(v\\).\nListe todos os vizinhos de \\(v\\).\nEncontre caminhos para todos os outros vértices que estão no mesmo componente conectado que o vértice \\(v\\).\n\n\n\n\n\n\n\n\nPara o grafo mostrado acima, encontre uma representação gráfica diferente e mostre como ele é representado usando uma matriz de adjacência e uma representação de lista.\nFaça um grafo com nove vértices, quatro deles de grau 2 e quatro de grau 1. Este grafo está conectado?\nUm grafo sem loop, sem direção com n vértices tem no máximo \\(n*(n - 1)/2\\). Esta afirmação é correta? Você pode provar isso?\nDesenhe um grafo \\(G\\), não-direcionado e conectado, com 10 vértices e 20 arestas.\nAs redes de metabólitos podem ser construídas a partir de redes metabólicas modeladas como grafos bipartidos removendo todos os vértices que representam reações e conectando substratos (vértices com uma aresta de saída à reação) com produtos (verticais com uma aresta de entrada da reação) diretamente. Construa uma rede de metabólitos a partir da rede metabólica mostrada abaixo.\n\n\n\n\n\n\n\nUm caminho Euleriano é um caminho \\((v0,\\ e1,\\ v1,\\ e2,\\ v2,...,\\ vk - 1,\\ ek,\\ vk)\\) em um grafo não-direcionado que contém cada aresta do grafo exatamente uma vez. O grafo abaixo possui um caminho Euleriano? Qual a distância entre o vértices 1 e 6? Quais os caminhos (e o menor) entre os vértices 4 e 6?\n\n\n\n\n\n\n\nDefina as abordagens top-down, bottom-up e middle-way-out.\nO que significa o escopo para um modelo e qual sua importância?\nO que significa uma rede ser de mundo pequeno?\nO que significa uma rede ter modularidade (relativo ao coeficiente de agrupamento)?\nO que significa uma rede ser livre de escala?\nO que são ‘motivos de rede’?\nDefina as seguintes centralidades e seus significados:\n\nCentralidade de grau;\nCentralidade de proximidade;\nCentralidade de intermediação.\n\nDefina distância e menor caminho em uma rede.\nCite métodos de obtenção de dados para interação de proteínas, co-expressão e metabolismo.\nQuais são os níveis de integração de dados? Explique cada um.\nPorque quando há integração de dados há também redução de dimensionalidade?"
-  },
-  {
-    "objectID": "modulos/aula08.html",
-    "href": "modulos/aula08.html",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "",
-    "text": "A Biologia de Sistemas é uma abordagem holista para o estudo de sistemas biológicos, visando compreender não apenas os componentes isolados, mas principalmente as interações que dão origem às propriedades emergentes (Kitano, 2002).\n\n“A biologia de sistemas não é apenas uma disciplina, mas uma revolução na forma como estudamos a vida.”\n— Hiroaki Kitano, 2002"
-  },
-  {
-    "objectID": "modulos/aula08.html#holismo",
-    "href": "modulos/aula08.html#holismo",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.1 Holismo",
-    "text": "2.1 Holismo\nO holismo considera que um sistema deve ser entendido como um todo, pois suas propriedades não podem ser reduzidas à soma das partes.\nPor consequência, a Biologia de Sistemas possibilita modelar e descobrir propriedades emergentes, isto é, características que surgem das interações entre componentes e não pertencem a nenhuma parte isolada (Kitano, 2002).\nExemplo:\nA rede metabólica da glicólise envolve 10 enzimas que convertem glicose em piruvato. O fluxo energético emerge somente da interação coordenada entre elas (Almaas et al., 2004)."
-  },
-  {
-    "objectID": "modulos/aula08.html#holismo-x-reducionismo",
-    "href": "modulos/aula08.html#holismo-x-reducionismo",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.2 Holismo x Reducionismo",
-    "text": "2.2 Holismo x Reducionismo\nO reducionismo disseca sistemas em partes para compreendê-los, assumindo que o entendimento de cada elemento levará à compreensão do todo.\nJá o holismo foca na rede de interações e propriedades emergentes.\n\n\n\n\n\n\n\n\nAbordagem\nFoco\nExemplo\n\n\n\n\nReducionismo\nComponentes isolados\nEstudo da função de uma única enzima\n\n\nHolismo\nInterações e redes\nModelagem de todo o metabolismo celular"
-  },
-  {
-    "objectID": "modulos/aula08.html#ciclo-de-trabalho",
-    "href": "modulos/aula08.html#ciclo-de-trabalho",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.3 Ciclo de Trabalho",
-    "text": "2.3 Ciclo de Trabalho\nA Biologia de Sistemas segue, frequentemente, um ciclo iterativo:\n\nTeoria\n\nModelagem (analítica ou computacional)\n\nValidação experimental\n\nRefinamento do modelo\n\nExemplo:\nLinhagens de Saccharomyces cerevisiae produtoras de artemisinina foram desenvolvidas integrando dados transcriptômicos e modelagem de fluxo metabólico (Ro et al., 2006)."
-  },
-  {
-    "objectID": "modulos/aula08.html#origem",
-    "href": "modulos/aula08.html#origem",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "3.1 Origem",
-    "text": "3.1 Origem\nProposta por Ludwig von Bertalanffy (1950–1968), define sistemas como conjuntos coesos de partes inter-relacionadas com limites espaciais e temporais, influenciados pelo ambiente."
-  },
-  {
-    "objectID": "modulos/aula08.html#conceitos-chave",
-    "href": "modulos/aula08.html#conceitos-chave",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "3.2 Conceitos-chave",
-    "text": "3.2 Conceitos-chave\n\n\n\n\n\n\n\n\nConceito\nDefinição\nExemplo\n\n\n\n\nSistema\nConjunto de partes interconectadas que atuam como uma unidade funcional\nRede metabólica\n\n\nFronteiras\nLimites físicos ou funcionais que definem o sistema\nMembrana celular\n\n\nHomeostase\nCapacidade de manter equilíbrio dinâmico\nRegulação do pH sanguíneo\n\n\nAdaptação\nAjuste estrutural ou funcional para sobrevivência\nResistência bacteriana\n\n\nTransações Recíprocas\nInterações bidirecionais entre sistemas\nEixo intestino-cérebro\n\n\nRetroalimentação\nMecanismo de autorregulação\nControle de glicemia por insulina\n\n\nTaxa de Transferência\nVelocidade de troca de matéria/energia/informação\nFixação de CO₂ na fotossíntese"
-  },
-  {
-    "objectID": "modulos/aula08.html#alan-hodgkin-andrew-huxley-1952",
-    "href": "modulos/aula08.html#alan-hodgkin-andrew-huxley-1952",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.1 Alan Hodgkin & Andrew Huxley (1952)",
-    "text": "4.1 Alan Hodgkin & Andrew Huxley (1952)\n\nDesenvolveram modelo matemático para potencial de ação em neurônios.\nCombinaram experimentos de voltage clamp com equações diferenciais.\nFundamentaram a neurociência computacional."
-  },
-  {
-    "objectID": "modulos/aula08.html#alan-turing-1952",
-    "href": "modulos/aula08.html#alan-turing-1952",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.2 Alan Turing (1952)",
-    "text": "4.2 Alan Turing (1952)\n\nCriou o modelo de reação-difusão, explicando padrões biológicos (listras, manchas).\nAplicado hoje em engenharia de tecidos e biologia sintética."
-  },
-  {
-    "objectID": "modulos/aula08.html#denis-noble-1960",
-    "href": "modulos/aula08.html#denis-noble-1960",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.3 Denis Noble (1960)",
-    "text": "4.3 Denis Noble (1960)\n\nModelou a função cardíaca usando computadores.\nIntroduziu o conceito de middle-out — integração de abordagens top-down e bottom-up."
-  },
-  {
-    "objectID": "modulos/aula08.html#mihajlo-mesarović-1966",
-    "href": "modulos/aula08.html#mihajlo-mesarović-1966",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.4 Mihajlo Mesarović (1966)",
-    "text": "4.4 Mihajlo Mesarović (1966)\n\nDefiniu a Biologia de Sistemas como disciplina formal.\nPropôs estudo hierárquico de sistemas biológicos com controle multinível."
-  },
-  {
-    "objectID": "modulos/aula08.html#hiroaki-kitano-2002",
-    "href": "modulos/aula08.html#hiroaki-kitano-2002",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.5 Hiroaki Kitano (2002)",
-    "text": "4.5 Hiroaki Kitano (2002)\n\nPopularizou o campo com artigo seminal (Science).\nCriou ferramentas como CellDesigner e padrões como SBML."
-  },
-  {
-    "objectID": "modulos/aula08.html#top-down",
-    "href": "modulos/aula08.html#top-down",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.1 Top-down",
-    "text": "5.1 Top-down\nParte de dados ômicos para reconstruir modelos globais antes de analisar detalhes.\nExemplo:\nRede de interações no câncer de mama → identificação de alvos terapêuticos (Thiele et al., 2013).\nLimitações:\n- Depende fortemente da qualidade dos dados.\n- Exige alta capacidade computacional."
-  },
-  {
-    "objectID": "modulos/aula08.html#middle-out",
-    "href": "modulos/aula08.html#middle-out",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.2 Middle-out",
-    "text": "5.2 Middle-out\n\nPode iniciar em qualquer nível (molécula, célula, órgão).\nExplora causalidades circulares entre escalas.\nIntermediária entre holismo e reducionismo."
-  },
-  {
-    "objectID": "modulos/aula08.html#bottom-up",
-    "href": "modulos/aula08.html#bottom-up",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.3 Bottom-up",
-    "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
-  },
-  {
-    "objectID": "modulos/aula03.html",
-    "href": "modulos/aula03.html",
-    "title": "03 - Redes Biológicas",
-    "section": "",
-    "text": "Redes são estruturas ou entidades que conotam a relação entre: - Objetos - Indivíduos - Entidades\n\nNós/Vértices: representam os indivíduos.\nArestas: representam as relações.\n\n\n\n\nRedes sociais\nRedes de computadores\nRedes neurais\nRedes biológicas\nRedes de telecomunicações\n\n\n\n\n\n\nSão redes em que os elementos são dados biológicos (animais, plantas, microorganismos, genes, proteínas, regulações, etc.) que tenham alguma relação entre si.\nSão abstrações computacionais/matemáticas baseadas em dados experimentais.\n\n\n\n\n\nNós: substratos e produtos.\nArestas: reações metabólicas convertendo um composto em outro.\nHiperaresta: conceito avançado para representar reações com múltiplos substratos/produtos.\n\n\n\n\n\nRelação entre transcritos expressos ou reprimidos concomitantemente.\nGenes co-expressos podem:\n\nSer regulados pelo mesmo fator de transcrição;\nEstar funcionalmente relacionados;\nSer membros da mesma via;\nCodificar proteínas do mesmo complexo proteico.\n\n\n\n\n\n\nProteínas interagem para desempenhar funções celulares.\nInterações podem significar formação de complexos ou participação em vias comuns.\n\n\n\n\n\n\n\n\n\n\nDistância: número de arestas no caminho mais curto entre dois vértices.\nDiâmetro: a maior distância entre qualquer par de vértices.\n\n\n\n\n\nAtributos ou valores atribuídos às arestas.\nExemplos em redes biológicas: fluxo, massa, probabilidade.\nGrafos com pesos são chamados de grafos valorados ou ponderados.\n\n\n\n\n\n\nIndicadores que identificam os vértices mais importantes em um grafo.\n\n\n\nNúmero de arestas adjacentes a um vértice.\nEm redes direcionadas:\n\nGrau de entrada (in-degree)\nGrau de saída (out-degree)\n\nInterpretação: nós com alta centralidade de grau são “hubs” – funcionalmente cruciais.\n\n\n\n\n\nMede quão próximo um nó está de todos os outros.\nConsidera a distância geodésica (caminho mais curto).\nInterpretação: nós centrais para comunicação rápida ou disseminação de informação.\n\n\n\n\n\nQuantas vezes um vértice age como ponte no caminho mais curto entre dois outros nós.\nInterpretação: nós com alto betweenness controlam o fluxo de informação; sua remoção pode fragmentar a rede.\n\n\n\n\n\nMede a influência de um nó considerando a importância dos nós aos quais está conectado.\nAplicação: identificar genes mestres em redes de regulação.\n\n\n\n\n\nCompara o grau de um nó com o grau médio de seus vizinhos.\nAplicação: identificar conectores periféricos críticos (ex.: proteínas de membrana em patógenos).\n\n\n\n\n\nGeneralização da centralidade de autovetor; considera todos os caminhos, penalizando os mais longos.\nAplicação: modelar sinalização ou difusão de metabólitos.\n\n\n\n\n\nConsidera todos os caminhos possíveis (não apenas os mais curtos).\nAplicação: analisar redes metabólicas com fluxo distribuído.\n\n\n\n\n\n\n\n\n\n\n\n\nCentralidade\nMelhor para…\nExemplo de Aplicação Biotecnológica\n\n\n\n\nGrau\nIdentificar hubs conectados\nAlvo antibiótico\n\n\nProximidade\nIdentificar nós de comunicação rápida\nOtimização de vias metabólicas sintéticas\n\n\nIntermediação\nIdentificar gargalos e pontes\nAlvos terapêuticos que desconectam vias de doença\n\n\nAutovetor\nIdentificar influência hierárquica\nEngenharia de redes de regulação gênica\n\n\nAlavancagem\nIdentificar especializados críticos\nDesenvolvimento de vacinas\n\n\nDifusão (Katz)\nModelar sinalização de longo alcance\nPrever resposta a hormônios ou fármacos\n\n\nIntermediação de Fluxo\nAnalisar redes de fluxo (metabolismo)\nSuperar gargalos em produção de bioprodutos\n\n\n\n\n\n\n\n\n\n\n\nA maioria dos vértices não são vizinhos, mas podem ser alcançados por poucos passos.\nImplicação: perturbações ou sinais se espalham rapidamente pela rede.\n\n\n\n\n\nDistribuição de grau segue uma lei de potência.\nPoucos vértices (hubs) têm muitas conexões; a maioria tem poucas.\nImplicação: redes são resistentes a falhas aleatórias, mas vulneráveis a ataques direcionados aos hubs.\n\n\n\n\n\nMede a tendência de formação de grupos coesos (alta densidade de conexões).\nTransitividade: se A se conecta a B e B a C, é provável que A se conecte a C.\nEm redes biológicas: pode indicar módulos funcionais ou complexos proteicos.\n\n\n\n\n\nRobustez: capacidade de manter função apesar de perturbações.\nAdaptabilidade: capacidade de mudar em resposta a perturbações.\n\n\n\n\n\n\nPadrões ou sub-grafos recorrentes e estatisticamente significativos que refletem funções eficientes.\n\n\n\n\n\nEstrutura: ciclo onde um nó regula outro que eventualmente regula o primeiro.\nTipos:\n\nPositivo (→): cria estados estáveis irreversíveis (ex.: diferenciação celular).\nNegativo (⊣): gera oscilações ou mantém homeostase.\n\nExemplo: ciclo de divisão celular controlado por ciclinas e CDKs.\n\n\n\n\n\nEstrutura: um único regulador controla múltiplos alvos sem regulação entre eles.\nFunção: coordena expressão sincronizada de genes de uma mesma via.\nExemplo: operon em bactérias (ex.: operon lac).\n\n\nBaseado em slides de aula de Biologia de Sistemas."
-  },
-  {
-    "objectID": "modulos/aula03.html#o-que-são-redes",
-    "href": "modulos/aula03.html#o-que-são-redes",
-    "title": "03 - Redes Biológicas",
-    "section": "",
-    "text": "Redes são estruturas ou entidades que conotam a relação entre: - Objetos - Indivíduos - Entidades\n\nNós/Vértices: representam os indivíduos.\nArestas: representam as relações.\n\n\n\n\nRedes sociais\nRedes de computadores\nRedes neurais\nRedes biológicas\nRedes de telecomunicações"
-  },
-  {
-    "objectID": "modulos/aula03.html#o-que-são-redes-biológicas",
-    "href": "modulos/aula03.html#o-que-são-redes-biológicas",
-    "title": "03 - Redes Biológicas",
-    "section": "",
-    "text": "São redes em que os elementos são dados biológicos (animais, plantas, microorganismos, genes, proteínas, regulações, etc.) que tenham alguma relação entre si.\nSão abstrações computacionais/matemáticas baseadas em dados experimentais.\n\n\n\n\n\nNós: substratos e produtos.\nArestas: reações metabólicas convertendo um composto em outro.\nHiperaresta: conceito avançado para representar reações com múltiplos substratos/produtos.\n\n\n\n\n\nRelação entre transcritos expressos ou reprimidos concomitantemente.\nGenes co-expressos podem:\n\nSer regulados pelo mesmo fator de transcrição;\nEstar funcionalmente relacionados;\nSer membros da mesma via;\nCodificar proteínas do mesmo complexo proteico.\n\n\n\n\n\n\nProteínas interagem para desempenhar funções celulares.\nInterações podem significar formação de complexos ou participação em vias comuns."
-  },
-  {
-    "objectID": "modulos/aula03.html#propriedades-globais-de-redes-complexas",
-    "href": "modulos/aula03.html#propriedades-globais-de-redes-complexas",
-    "title": "03 - Redes Biológicas",
-    "section": "",
-    "text": "Distância: número de arestas no caminho mais curto entre dois vértices.\nDiâmetro: a maior distância entre qualquer par de vértices.\n\n\n\n\n\nAtributos ou valores atribuídos às arestas.\nExemplos em redes biológicas: fluxo, massa, probabilidade.\nGrafos com pesos são chamados de grafos valorados ou ponderados."
-  },
-  {
-    "objectID": "modulos/aula03.html#centralidades",
-    "href": "modulos/aula03.html#centralidades",
-    "title": "03 - Redes Biológicas",
-    "section": "",
-    "text": "Indicadores que identificam os vértices mais importantes em um grafo.\n\n\n\nNúmero de arestas adjacentes a um vértice.\nEm redes direcionadas:\n\nGrau de entrada (in-degree)\nGrau de saída (out-degree)\n\nInterpretação: nós com alta centralidade de grau são “hubs” – funcionalmente cruciais.\n\n\n\n\n\nMede quão próximo um nó está de todos os outros.\nConsidera a distância geodésica (caminho mais curto).\nInterpretação: nós centrais para comunicação rápida ou disseminação de informação.\n\n\n\n\n\nQuantas vezes um vértice age como ponte no caminho mais curto entre dois outros nós.\nInterpretação: nós com alto betweenness controlam o fluxo de informação; sua remoção pode fragmentar a rede.\n\n\n\n\n\nMede a influência de um nó considerando a importância dos nós aos quais está conectado.\nAplicação: identificar genes mestres em redes de regulação.\n\n\n\n\n\nCompara o grau de um nó com o grau médio de seus vizinhos.\nAplicação: identificar conectores periféricos críticos (ex.: proteínas de membrana em patógenos).\n\n\n\n\n\nGeneralização da centralidade de autovetor; considera todos os caminhos, penalizando os mais longos.\nAplicação: modelar sinalização ou difusão de metabólitos.\n\n\n\n\n\nConsidera todos os caminhos possíveis (não apenas os mais curtos).\nAplicação: analisar redes metabólicas com fluxo distribuído.\n\n\n\n\n\n\n\n\n\n\n\n\nCentralidade\nMelhor para…\nExemplo de Aplicação Biotecnológica\n\n\n\n\nGrau\nIdentificar hubs conectados\nAlvo antibiótico\n\n\nProximidade\nIdentificar nós de comunicação rápida\nOtimização de vias metabólicas sintéticas\n\n\nIntermediação\nIdentificar gargalos e pontes\nAlvos terapêuticos que desconectam vias de doença\n\n\nAutovetor\nIdentificar influência hierárquica\nEngenharia de redes de regulação gênica\n\n\nAlavancagem\nIdentificar especializados críticos\nDesenvolvimento de vacinas\n\n\nDifusão (Katz)\nModelar sinalização de longo alcance\nPrever resposta a hormônios ou fármacos\n\n\nIntermediação de Fluxo\nAnalisar redes de fluxo (metabolismo)\nSuperar gargalos em produção de bioprodutos"
-  },
-  {
-    "objectID": "modulos/aula03.html#características-de-redes-biológicas",
-    "href": "modulos/aula03.html#características-de-redes-biológicas",
-    "title": "03 - Redes Biológicas",
-    "section": "",
-    "text": "A maioria dos vértices não são vizinhos, mas podem ser alcançados por poucos passos.\nImplicação: perturbações ou sinais se espalham rapidamente pela rede.\n\n\n\n\n\nDistribuição de grau segue uma lei de potência.\nPoucos vértices (hubs) têm muitas conexões; a maioria tem poucas.\nImplicação: redes são resistentes a falhas aleatórias, mas vulneráveis a ataques direcionados aos hubs.\n\n\n\n\n\nMede a tendência de formação de grupos coesos (alta densidade de conexões).\nTransitividade: se A se conecta a B e B a C, é provável que A se conecte a C.\nEm redes biológicas: pode indicar módulos funcionais ou complexos proteicos.\n\n\n\n\n\nRobustez: capacidade de manter função apesar de perturbações.\nAdaptabilidade: capacidade de mudar em resposta a perturbações."
-  },
-  {
-    "objectID": "modulos/aula03.html#motivos-de-redes-network-motifs",
-    "href": "modulos/aula03.html#motivos-de-redes-network-motifs",
-    "title": "03 - Redes Biológicas",
-    "section": "",
-    "text": "Padrões ou sub-grafos recorrentes e estatisticamente significativos que refletem funções eficientes.\n\n\n\n\n\nEstrutura: ciclo onde um nó regula outro que eventualmente regula o primeiro.\nTipos:\n\nPositivo (→): cria estados estáveis irreversíveis (ex.: diferenciação celular).\nNegativo (⊣): gera oscilações ou mantém homeostase.\n\nExemplo: ciclo de divisão celular controlado por ciclinas e CDKs.\n\n\n\n\n\nEstrutura: um único regulador controla múltiplos alvos sem regulação entre eles.\nFunção: coordena expressão sincronizada de genes de uma mesma via.\nExemplo: operon em bactérias (ex.: operon lac).\n\n\nBaseado em slides de aula de Biologia de Sistemas."
   },
   {
     "objectID": "modulos/aula02.html",
@@ -903,115 +1008,10 @@
     "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
   },
   {
-    "objectID": "modulos/aula01.html",
-    "href": "modulos/aula01.html",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
+    "objectID": "listas/ed1.html",
+    "href": "listas/ed1.html",
+    "title": "Estudo Dirigido 1",
     "section": "",
-    "text": "A Biologia de Sistemas é uma abordagem holista para o estudo de sistemas biológicos, visando compreender não apenas os componentes isolados, mas principalmente as interações que dão origem às propriedades emergentes (Kitano, 2002).\n\n“A biologia de sistemas não é apenas uma disciplina, mas uma revolução na forma como estudamos a vida.”\n— Hiroaki Kitano, 2002"
-  },
-  {
-    "objectID": "modulos/aula01.html#holismo",
-    "href": "modulos/aula01.html#holismo",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.1 Holismo",
-    "text": "2.1 Holismo\nO holismo considera que um sistema deve ser entendido como um todo, pois suas propriedades não podem ser reduzidas à soma das partes.\nPor consequência, a Biologia de Sistemas possibilita modelar e descobrir propriedades emergentes, isto é, características que surgem das interações entre componentes e não pertencem a nenhuma parte isolada (Kitano, 2002).\nExemplo:\nA rede metabólica da glicólise envolve 10 enzimas que convertem glicose em piruvato. O fluxo energético emerge somente da interação coordenada entre elas (Almaas et al., 2004)."
-  },
-  {
-    "objectID": "modulos/aula01.html#holismo-x-reducionismo",
-    "href": "modulos/aula01.html#holismo-x-reducionismo",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.2 Holismo x Reducionismo",
-    "text": "2.2 Holismo x Reducionismo\nO reducionismo disseca sistemas em partes para compreendê-los, assumindo que o entendimento de cada elemento levará à compreensão do todo.\nJá o holismo foca na rede de interações e propriedades emergentes.\n\n\n\n\n\n\n\n\nAbordagem\nFoco\nExemplo\n\n\n\n\nReducionismo\nComponentes isolados\nEstudo da função de uma única enzima\n\n\nHolismo\nInterações e redes\nModelagem de todo o metabolismo celular"
-  },
-  {
-    "objectID": "modulos/aula01.html#ciclo-de-trabalho",
-    "href": "modulos/aula01.html#ciclo-de-trabalho",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "2.3 Ciclo de Trabalho",
-    "text": "2.3 Ciclo de Trabalho\nA Biologia de Sistemas segue, frequentemente, um ciclo iterativo:\n\nTeoria\n\nModelagem (analítica ou computacional)\n\nValidação experimental\n\nRefinamento do modelo\n\nExemplo:\nLinhagens de Saccharomyces cerevisiae produtoras de artemisinina foram desenvolvidas integrando dados transcriptômicos e modelagem de fluxo metabólico (Ro et al., 2006)."
-  },
-  {
-    "objectID": "modulos/aula01.html#origem",
-    "href": "modulos/aula01.html#origem",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "3.1 Origem",
-    "text": "3.1 Origem\nProposta por Ludwig von Bertalanffy (1950–1968), define sistemas como conjuntos coesos de partes inter-relacionadas com limites espaciais e temporais, influenciados pelo ambiente."
-  },
-  {
-    "objectID": "modulos/aula01.html#conceitos-chave",
-    "href": "modulos/aula01.html#conceitos-chave",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "3.2 Conceitos-chave",
-    "text": "3.2 Conceitos-chave\n\n\n\n\n\n\n\n\nConceito\nDefinição\nExemplo\n\n\n\n\nSistema\nConjunto de partes interconectadas que atuam como uma unidade funcional\nRede metabólica\n\n\nFronteiras\nLimites físicos ou funcionais que definem o sistema\nMembrana celular\n\n\nHomeostase\nCapacidade de manter equilíbrio dinâmico\nRegulação do pH sanguíneo\n\n\nAdaptação\nAjuste estrutural ou funcional para sobrevivência\nResistência bacteriana\n\n\nTransações Recíprocas\nInterações bidirecionais entre sistemas\nEixo intestino-cérebro\n\n\nRetroalimentação\nMecanismo de autorregulação\nControle de glicemia por insulina\n\n\nTaxa de Transferência\nVelocidade de troca de matéria/energia/informação\nFixação de CO₂ na fotossíntese"
-  },
-  {
-    "objectID": "modulos/aula01.html#alan-hodgkin-andrew-huxley-1952",
-    "href": "modulos/aula01.html#alan-hodgkin-andrew-huxley-1952",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.1 Alan Hodgkin & Andrew Huxley (1952)",
-    "text": "4.1 Alan Hodgkin & Andrew Huxley (1952)\n\nDesenvolveram modelo matemático para potencial de ação em neurônios.\nCombinaram experimentos de voltage clamp com equações diferenciais.\nFundamentaram a neurociência computacional."
-  },
-  {
-    "objectID": "modulos/aula01.html#alan-turing-1952",
-    "href": "modulos/aula01.html#alan-turing-1952",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.2 Alan Turing (1952)",
-    "text": "4.2 Alan Turing (1952)\n\nCriou o modelo de reação-difusão, explicando padrões biológicos (listras, manchas).\nAplicado hoje em engenharia de tecidos e biologia sintética."
-  },
-  {
-    "objectID": "modulos/aula01.html#denis-noble-1960",
-    "href": "modulos/aula01.html#denis-noble-1960",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.3 Denis Noble (1960)",
-    "text": "4.3 Denis Noble (1960)\n\nModelou a função cardíaca usando computadores.\nIntroduziu o conceito de middle-out — integração de abordagens top-down e bottom-up."
-  },
-  {
-    "objectID": "modulos/aula01.html#mihajlo-mesarović-1966",
-    "href": "modulos/aula01.html#mihajlo-mesarović-1966",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.4 Mihajlo Mesarović (1966)",
-    "text": "4.4 Mihajlo Mesarović (1966)\n\nDefiniu a Biologia de Sistemas como disciplina formal.\nPropôs estudo hierárquico de sistemas biológicos com controle multinível."
-  },
-  {
-    "objectID": "modulos/aula01.html#hiroaki-kitano-2002",
-    "href": "modulos/aula01.html#hiroaki-kitano-2002",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "4.5 Hiroaki Kitano (2002)",
-    "text": "4.5 Hiroaki Kitano (2002)\n\nPopularizou o campo com artigo seminal (Science).\nCriou ferramentas como CellDesigner e padrões como SBML."
-  },
-  {
-    "objectID": "modulos/aula01.html#top-down",
-    "href": "modulos/aula01.html#top-down",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.1 Top-down",
-    "text": "5.1 Top-down\nParte de dados ômicos para reconstruir modelos globais antes de analisar detalhes.\nExemplo:\nRede de interações no câncer de mama → identificação de alvos terapêuticos (Thiele et al., 2013).\nLimitações:\n- Depende fortemente da qualidade dos dados.\n- Exige alta capacidade computacional."
-  },
-  {
-    "objectID": "modulos/aula01.html#middle-out",
-    "href": "modulos/aula01.html#middle-out",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.2 Middle-out",
-    "text": "5.2 Middle-out\n\nPode iniciar em qualquer nível (molécula, célula, órgão).\nExplora causalidades circulares entre escalas.\nIntermediária entre holismo e reducionismo."
-  },
-  {
-    "objectID": "modulos/aula01.html#bottom-up",
-    "href": "modulos/aula01.html#bottom-up",
-    "title": "Biologia de Sistemas — Histórico e Conceitos",
-    "section": "5.3 Bottom-up",
-    "text": "5.3 Bottom-up\n\nConstrói modelos detalhados de baixo para cima.\nIntegra dados específicos até um modelo completo.\nUsado em modelos metabólicos de escala genômica."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "**Biologia de Sistemas**",
-    "section": "",
-    "text": "Este é o site oficial da disciplina Biologia de Sistemas - CI0932.\n\nAqui você encontrará:\n\n📚 Módulos\n📊 Slides das aulas\n📝 Listas de exercícios\n🔗 Leituras\n\nGIREM O CELULAR PARA A HORIZONTAL AO VER SLIDES"
-  },
-  {
-    "objectID": "index.html#bem-vindos",
-    "href": "index.html#bem-vindos",
-    "title": "**Biologia de Sistemas**",
-    "section": "",
-    "text": "Este é o site oficial da disciplina Biologia de Sistemas - CI0932.\n\nAqui você encontrará:\n\n📚 Módulos\n📊 Slides das aulas\n📝 Listas de exercícios\n🔗 Leituras\n\nGIREM O CELULAR PARA A HORIZONTAL AO VER SLIDES"
+    "text": "Diferentes redes biológicas são modeladas por diferentes tipos grafos. Quais tipos de grafos são normalmente usados para modelar as seguintes redes:\n\nRedes de regulação de genes;\nRedes de interação proteínas-proteína;\nRedes metabólicas.\n\nConsidere o grafo não direcionado \\(G = (V,E)\\) mostrado abaixo. Para cada vértice \\(v\\ \\in \\ V\\) faça o seguinte:\n\nCalcule o grau de \\(v\\).\nListe todos os vizinhos de \\(v\\).\nEncontre caminhos para todos os outros vértices que estão no mesmo componente conectado que o vértice \\(v\\).\n\n\n\n\n\n\n\n\nPara o grafo mostrado acima, encontre uma representação gráfica diferente e mostre como ele é representado usando uma matriz de adjacência e uma representação de lista.\nFaça um grafo com nove vértices, quatro deles de grau 2 e quatro de grau 1. Este grafo está conectado?\nUm grafo sem loop, sem direção com n vértices tem no máximo \\(n*(n - 1)/2\\). Esta afirmação é correta? Você pode provar isso?\nDesenhe um grafo \\(G\\), não-direcionado e conectado, com 10 vértices e 20 arestas.\nAs redes de metabólitos podem ser construídas a partir de redes metabólicas modeladas como grafos bipartidos removendo todos os vértices que representam reações e conectando substratos (vértices com uma aresta de saída à reação) com produtos (verticais com uma aresta de entrada da reação) diretamente. Construa uma rede de metabólitos a partir da rede metabólica mostrada abaixo.\n\n\n\n\n\n\n\nUm caminho Euleriano é um caminho \\((v0,\\ e1,\\ v1,\\ e2,\\ v2,...,\\ vk - 1,\\ ek,\\ vk)\\) em um grafo não-direcionado que contém cada aresta do grafo exatamente uma vez. O grafo abaixo possui um caminho Euleriano? Qual a distância entre o vértices 1 e 6? Quais os caminhos (e o menor) entre os vértices 4 e 6?\n\n\n\n\n\n\n\nDefina as abordagens top-down, bottom-up e middle-way-out.\nO que significa o escopo para um modelo e qual sua importância?\nO que significa uma rede ser de mundo pequeno?\nO que significa uma rede ter modularidade (relativo ao coeficiente de agrupamento)?\nO que significa uma rede ser livre de escala?\nO que são ‘motivos de rede’?\nDefina as seguintes centralidades e seus significados:\n\nCentralidade de grau;\nCentralidade de proximidade;\nCentralidade de intermediação.\n\nDefina distância e menor caminho em uma rede.\nCite métodos de obtenção de dados para interação de proteínas, co-expressão e metabolismo.\nQuais são os níveis de integração de dados? Explique cada um.\nPorque quando há integração de dados há também redução de dimensionalidade?"
   }
 ]

@@ -6,7 +6,7 @@ lang: pt-Br
 
 ## Bem-vindos
 
-Este é o site oficial da disciplina **Biologia de Sistemas - CI0932**.
+Este é o site da disciplina **Biologia de Sistemas - CI0932**.
 
 <!--
 @klamt_2009.
@@ -15,8 +15,6 @@ Este é o site oficial da disciplina **Biologia de Sistemas - CI0932**.
 <span style="color: black;">Aqui você encontrará:</span>
 
 - 📚 Módulos
-- 📊 Slides das aulas
+- 📊 Slides das aulas (<span style="color: red;">CELULAR NA HORIZONTAL</span>)
 - 📝 Listas de exercícios
 - 🔗 Leituras
-
-<span style="color: red;">GIREM O CELULAR PARA A HORIZONTAL AO VER SLIDES</span>
