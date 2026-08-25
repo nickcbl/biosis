@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>Aula Prática 1: Unix Básico – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dfa9e29798b7e35d0549a5533169485c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Aula Prática 1: Unix Básico – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/roteiros/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="Aula Prática 1: Unix Básico – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/roteiros/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../roteiros/input/input.html">Roteiros</a></li><li class="breadcrumb-item"><a href="../roteiros/pratica1.html">Aula Prática 1: Unix Básico</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 — Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 — Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 — Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 — Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 — Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 — Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 — Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 — Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 — Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 1<br>Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 2<br>Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 3<br>Redes biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 4<br>Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 5<br>Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 6<br>Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 7<br>Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 8<br>Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 9<br>Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 10<br>Biologia Sintética</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Roteiros</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/input/input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Aula Prática 1: Unix Básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 2: Fundamentos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 4 – Predição de Genes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 5 – Anotação Funcional</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 7 – Quantificação e Normalização de RNA-seq</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 9 – Redes de Coexpressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 10 – Identificação de Genes de Virulência em Bactérias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 11 – Redes PPI com STRING e Cytoscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 12 – CellDesigner e COPASI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Listas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_fundamentos_logica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios Clássicos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_biotecnologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios de Lógica de Programação para Biotecnologia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Teste</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/teste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teste de funcionalidades - Quarto MD</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - Histórico e Conceitos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
+  <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">2</span> Fluxograma</a></li>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos"><span class="header-section-number">3</span> Objetivos</a></li>
+  <li><a href="#material" id="toc-material" class="nav-link" data-scroll-target="#material"><span class="header-section-number">4</span> Material</a></li>
+  <li><a href="#parte-1-navegação-no-sistema-de-arquivos" id="toc-parte-1-navegação-no-sistema-de-arquivos" class="nav-link" data-scroll-target="#parte-1-navegação-no-sistema-de-arquivos"><span class="header-section-number">5</span> Parte 1 – Navegação no Sistema de Arquivos</a>
+  <ul class="collapse">
+  <li><a href="#comandos-básicos" id="toc-comandos-básicos" class="nav-link" data-scroll-target="#comandos-básicos"><span class="header-section-number">5.1</span> Comandos Básicos</a></li>
+  <li><a href="#exercício" id="toc-exercício" class="nav-link" data-scroll-target="#exercício"><span class="header-section-number">5.2</span> Exercício</a></li>
+  </ul></li>
+  <li><a href="#parte-2-manipulação-de-arquivos-e-diretórios" id="toc-parte-2-manipulação-de-arquivos-e-diretórios" class="nav-link" data-scroll-target="#parte-2-manipulação-de-arquivos-e-diretórios"><span class="header-section-number">6</span> Parte 2 – Manipulação de Arquivos e Diretórios</a>
+  <ul class="collapse">
+  <li><a href="#comandos-básicos-1" id="toc-comandos-básicos-1" class="nav-link" data-scroll-target="#comandos-básicos-1"><span class="header-section-number">6.1</span> Comandos Básicos</a></li>
+  <li><a href="#perguntas" id="toc-perguntas" class="nav-link" data-scroll-target="#perguntas"><span class="header-section-number">6.2</span> Perguntas</a></li>
+  <li><a href="#exercício-1" id="toc-exercício-1" class="nav-link" data-scroll-target="#exercício-1"><span class="header-section-number">6.3</span> Exercício</a></li>
+  </ul></li>
+  <li><a href="#parte-3-visualização-de-arquivos" id="toc-parte-3-visualização-de-arquivos" class="nav-link" data-scroll-target="#parte-3-visualização-de-arquivos"><span class="header-section-number">7</span> Parte 3 – Visualização de Arquivos</a>
+  <ul class="collapse">
+  <li><a href="#comandos-básicos-2" id="toc-comandos-básicos-2" class="nav-link" data-scroll-target="#comandos-básicos-2"><span class="header-section-number">7.1</span> Comandos Básicos</a></li>
+  <li><a href="#perguntas-1" id="toc-perguntas-1" class="nav-link" data-scroll-target="#perguntas-1"><span class="header-section-number">7.2</span> Perguntas</a></li>
+  <li><a href="#exercício-2" id="toc-exercício-2" class="nav-link" data-scroll-target="#exercício-2"><span class="header-section-number">7.3</span> Exercício</a></li>
+  </ul></li>
+  <li><a href="#parte-4-busca-em-arquivos-grep-e-expressões-regulares" id="toc-parte-4-busca-em-arquivos-grep-e-expressões-regulares" class="nav-link" data-scroll-target="#parte-4-busca-em-arquivos-grep-e-expressões-regulares"><span class="header-section-number">8</span> Parte 4 – Busca em Arquivos (grep e expressões regulares)</a>
+  <ul class="collapse">
+  <li><a href="#comandos-básicos-3" id="toc-comandos-básicos-3" class="nav-link" data-scroll-target="#comandos-básicos-3"><span class="header-section-number">8.1</span> Comandos Básicos</a></li>
+  <li><a href="#perguntas-2" id="toc-perguntas-2" class="nav-link" data-scroll-target="#perguntas-2"><span class="header-section-number">8.2</span> Perguntas</a></li>
+  <li><a href="#exercício-3" id="toc-exercício-3" class="nav-link" data-scroll-target="#exercício-3"><span class="header-section-number">8.3</span> Exercício</a></li>
+  </ul></li>
+  <li><a href="#parte-5-pipes" id="toc-parte-5-pipes" class="nav-link" data-scroll-target="#parte-5-pipes"><span class="header-section-number">9</span> Parte 5 – Pipes (|)</a>
+  <ul class="collapse">
+  <li><a href="#conceitos-fundamentais" id="toc-conceitos-fundamentais" class="nav-link" data-scroll-target="#conceitos-fundamentais"><span class="header-section-number">9.1</span> Conceitos Fundamentais</a></li>
+  <li><a href="#exemplos-práticos" id="toc-exemplos-práticos" class="nav-link" data-scroll-target="#exemplos-práticos"><span class="header-section-number">9.2</span> Exemplos Práticos</a></li>
+  <li><a href="#diagrama-visual-do-pipeline" id="toc-diagrama-visual-do-pipeline" class="nav-link" data-scroll-target="#diagrama-visual-do-pipeline"><span class="header-section-number">9.3</span> Diagrama Visual do Pipeline</a></li>
+  <li><a href="#perguntas-3" id="toc-perguntas-3" class="nav-link" data-scroll-target="#perguntas-3"><span class="header-section-number">9.4</span> Perguntas</a></li>
+  <li><a href="#exercício-4" id="toc-exercício-4" class="nav-link" data-scroll-target="#exercício-4"><span class="header-section-number">9.5</span> Exercício</a></li>
+  </ul></li>
+  <li><a href="#parte-6-redirecionamento" id="toc-parte-6-redirecionamento" class="nav-link" data-scroll-target="#parte-6-redirecionamento"><span class="header-section-number">10</span> Parte 6 – Redirecionamento</a>
+  <ul class="collapse">
+  <li><a href="#comandos-de-redirecionamento" id="toc-comandos-de-redirecionamento" class="nav-link" data-scroll-target="#comandos-de-redirecionamento"><span class="header-section-number">10.1</span> Comandos de Redirecionamento</a></li>
+  <li><a href="#resumo-dos-redirecionamentos" id="toc-resumo-dos-redirecionamentos" class="nav-link" data-scroll-target="#resumo-dos-redirecionamentos"><span class="header-section-number">10.2</span> Resumo dos Redirecionamentos</a></li>
+  </ul></li>
+  <li><a href="#parte-7-xargs" id="toc-parte-7-xargs" class="nav-link" data-scroll-target="#parte-7-xargs"><span class="header-section-number">11</span> Parte 7 – Xargs</a>
+  <ul class="collapse">
+  <li><a href="#conceito-e-uso" id="toc-conceito-e-uso" class="nav-link" data-scroll-target="#conceito-e-uso"><span class="header-section-number">11.1</span> Conceito e Uso</a></li>
+  <li><a href="#exemplos-práticos-1" id="toc-exemplos-práticos-1" class="nav-link" data-scroll-target="#exemplos-práticos-1"><span class="header-section-number">11.2</span> Exemplos Práticos</a></li>
+  <li><a href="#diferença-entre-pipe-e-xargs" id="toc-diferença-entre-pipe-e-xargs" class="nav-link" data-scroll-target="#diferença-entre-pipe-e-xargs"><span class="header-section-number">11.3</span> Diferença entre Pipe e Xargs</a></li>
+  <li><a href="#exercício-5" id="toc-exercício-5" class="nav-link" data-scroll-target="#exercício-5"><span class="header-section-number">11.4</span> Exercício</a></li>
+  </ul></li>
+  <li><a href="#parte-8-compactação-e-arquivos-tar" id="toc-parte-8-compactação-e-arquivos-tar" class="nav-link" data-scroll-target="#parte-8-compactação-e-arquivos-tar"><span class="header-section-number">12</span> Parte 8 – Compactação e Arquivos TAR</a>
+  <ul class="collapse">
+  <li><a href="#tipos-de-compactação" id="toc-tipos-de-compactação" class="nav-link" data-scroll-target="#tipos-de-compactação"><span class="header-section-number">12.1</span> Tipos de Compactação</a></li>
+  <li><a href="#tar-tape-archive" id="toc-tar-tape-archive" class="nav-link" data-scroll-target="#tar-tape-archive"><span class="header-section-number">12.2</span> TAR (Tape Archive)</a></li>
+  <li><a href="#comparação-de-tamanhos" id="toc-comparação-de-tamanhos" class="nav-link" data-scroll-target="#comparação-de-tamanhos"><span class="header-section-number">12.3</span> Comparação de Tamanhos</a></li>
+  <li><a href="#exercício-6" id="toc-exercício-6" class="nav-link" data-scroll-target="#exercício-6"><span class="header-section-number">12.4</span> Exercício</a></li>
+  </ul></li>
+  <li><a href="#material-complementar" id="toc-material-complementar" class="nav-link" data-scroll-target="#material-complementar"><span class="header-section-number">13</span> Material Complementar</a>
+  <ul class="collapse">
+  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link" data-scroll-target="#cheat-sheet"><span class="header-section-number">13.1</span> Cheat Sheet</a></li>
+  <li><a href="#dicas-de-produtividade" id="toc-dicas-de-produtividade" class="nav-link" data-scroll-target="#dicas-de-produtividade"><span class="header-section-number">13.2</span> Dicas de Produtividade</a></li>
+  <li><a href="#comandos-para-interessantes-para-bioinformática" id="toc-comandos-para-interessantes-para-bioinformática" class="nav-link" data-scroll-target="#comandos-para-interessantes-para-bioinformática"><span class="header-section-number">13.3</span> Comandos para interessantes para bioinformática</a></li>
+  <li><a href="#referências-e-recursos" id="toc-referências-e-recursos" class="nav-link" data-scroll-target="#referências-e-recursos"><span class="header-section-number">13.4</span> Referências e Recursos</a></li>
+  </ul></li>
+  <li><a href="#checklist-de-aprendizagem" id="toc-checklist-de-aprendizagem" class="nav-link" data-scroll-target="#checklist-de-aprendizagem"><span class="header-section-number">14</span> Checklist de Aprendizagem</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../roteiros/input/input.html">Roteiros</a></li><li class="breadcrumb-item"><a href="../roteiros/pratica1.html">Aula Prática 1: Unix Básico</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Aula Prática 1: Unix Básico</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">25 de agosto de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdução" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">1</span> Introdução</h2>
+<p>A linha de comando (terminal/console) é uma ferramenta <strong>essencial</strong> na bioinformática. O terminal permite:</p>
+<ul>
+<li><strong>Automatização</strong>: Processar muitos arquivos com um único comando.</li>
+<li><strong>Reprodutibilidade</strong>: Documentar cada passo da análise.</li>
+<li><strong>Acesso a servidores</strong>: Conectar-se a clusters de alto desempenho (HPC).</li>
+<li><strong>Controle fino</strong>: Executar ferramentas especializadas.</li>
+</ul>
+<hr>
+</section>
+<section id="fluxograma" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="fluxograma"><span class="header-section-number">2</span> Fluxograma</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Início] --&gt; B[Parte 1: Navegação]
+    B --&gt; C[Parte 2: Manipulação]
+    C --&gt; D[Parte 3: Visualização]
+    D --&gt; E[Parte 4: Busca]
+    E --&gt; F[Parte 5: Pipes]
+    F --&gt; G[Parte 6: Redirecionamento]
+    G --&gt; H[Parte 7: Xargs]
+    H --&gt; I[Parte 8: Compactação]
+    I --&gt; J[Desafio Final]
+    J --&gt; K[Fim]
+    
+    B --&gt; B1[pwd, ls, cd]
+    C --&gt; C1[cp, mv, rm, mkdir]
+    D --&gt; D1[cat, head, tail, less]
+    E --&gt; E1[grep, wc]
+    F --&gt; F1["|" pipe]
+    G --&gt; G1[&gt;, &gt;&gt;, 2&gt;, &lt;]
+    H --&gt; H1[xargs]
+    I --&gt; I1[tar, gzip, bzip2]
+    
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+
+    class A inicio
+    class B,C,D,E,F,G,H,I,J,K processo
+    class D1,D2,D3,D4,E1,E2,E3,G1,H1,H2 resultado
+    class L final
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="objetivos" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">3</span> Objetivos</h2>
+<p><strong>Comandos Básicos:</strong> - Navegar no sistema de arquivos usando caminhos absolutos e relativos - Manipular arquivos e diretórios (criar, copiar, mover, remover) - Visualizar e explorar arquivos texto de diferentes tamanhos - Utilizar <em>wildcards</em> (*, ?) e expansão de comandos</p>
+<p><strong>Filtros e Processamento:</strong> - Buscar padrões em arquivos usando expressões regulares - Contar sequências, caracteres e linhas - Construir pipelines utilizando pipes (|) e redirecionamentos</p>
+<p><strong>Bioinformática:</strong> - Extrair cabeçalhos de arquivos FASTA - Filtrar sequências por critérios específicos - Contar e analisar sequências biológicas - Compactar e descompactar arquivos de dados</p>
+<hr>
+</section>
+<section id="material" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="material"><span class="header-section-number">4</span> Material</h2>
+<p><strong>Arquivo: <code>sequencias.fasta</code></strong></p>
+<pre class="fasta"><code>&gt;seq1|Escherichia coli|gene:lacZ
+ATGCGTACGTAGCTAGCTAGCATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
+ATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
+&gt;seq2|Escherichia coli|gene:recA
+ATGGATCCAGATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGA
+&gt;seq3|Bacillus subtilis|gene:spo0A
+ATGAGTGATCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+TCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+TCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+&gt;seq4|Pseudomonas aeruginosa|gene:lasR
+ATGAATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGAT
+CGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGATCGATCG
+&gt;seq5|Bacillus subtilis|gene:comK
+ATGGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTAC
+GTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTA
+CGTACGTACGTACGTACGTACGTACGTACGTACGTACGT</code></pre>
+<p><strong>Para baixar o arquivo:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://nickcbl.github.io/biosis/roteiros/input/roteiros/input/sequencias.fasta</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ou crie manualmente com nano/vim</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ou faça o download de todos os arquivos de entrada em: https://nickcbl.github.io/biosis/roteiros/input/input.html</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="parte-1-navegação-no-sistema-de-arquivos" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="parte-1-navegação-no-sistema-de-arquivos"><span class="header-section-number">5</span> Parte 1 – Navegação no Sistema de Arquivos</h2>
+<section id="comandos-básicos" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="comandos-básicos"><span class="header-section-number">5.1</span> Comandos Básicos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comando que traz o manual dos comandos</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar diretório atual</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Listar arquivos</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span>      <span class="co"># detalhado</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span>     <span class="co"># detalhado com tamanhos legíveis</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span>      <span class="co"># inclui arquivos ocultos (.arquivo)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span>     <span class="co"># combinação: todos + detalhado</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar diretório</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> pratica1</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> pratica1/dados/raw    <span class="co"># cria diretórios aninhados</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Navegar</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> pratica1</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..       <span class="co"># voltar um nível</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..    <span class="co"># voltar dois níveis</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~        <span class="co"># ir para home</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="at">-</span>        <span class="co"># voltar para diretório anterior</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Caminhos</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /home/usuario/pratica1    <span class="co"># caminho absoluto</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ./pratica1                <span class="co"># caminho relativo (.) = atual</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ../Downloads              <span class="co"># caminho relativo (..) = pai</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Wildcards</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> arquivo1.txt arquivo2.txt arquivo3.log</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.txt                     <span class="co"># lista todos .txt</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> arquivo<span class="pp">?</span>                  <span class="co"># ? substitui um caractere</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> arquivo<span class="pp">[</span><span class="ss">1</span><span class="pp">-</span><span class="ss">3</span><span class="pp">]*</span>             <span class="co"># [1-3] substitui por 1, 2 ou 3</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Permissões</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x script.sh           <span class="co"># torna executável</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 755 script.sh          <span class="co"># permissões numéricas</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="exercício" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="exercício"><span class="header-section-number">5.2</span> Exercício</h3>
+<p>Crie a seguinte estrutura de diretórios dentro de <code>pratica1</code>:</p>
+<pre><code>pratica1/
+├── dados/
+│   ├── raw/
+│   ├── processados/
+│   └── resultados/
+├── scripts/
+└── backup/</code></pre>
+<!-- ```{bash}
+#|code-fold: true
+#|code-summary: "Clique para ver a solução"
+mkdir -p pratica1/dados/{raw,processados,resultados}
+mkdir pratica1/scripts
+mkdir pratica1/backup
+``` -->
+<details>
+<summary>
+Clique para ver a solução
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> pratica1/dados/<span class="dt">{raw</span><span class="op">,</span><span class="dt">processados</span><span class="op">,</span><span class="dt">resultados}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> pratica1/scripts</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> pratica1/backup</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+</section>
+<section id="parte-2-manipulação-de-arquivos-e-diretórios" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="parte-2-manipulação-de-arquivos-e-diretórios"><span class="header-section-number">6</span> Parte 2 – Manipulação de Arquivos e Diretórios</h2>
+<section id="comandos-básicos-1" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="comandos-básicos-1"><span class="header-section-number">6.1</span> Comandos Básicos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Copiar arquivos</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> sequencias.fasta copia.fasta</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> sequencias.fasta pratica1/dados/   <span class="co"># copiar para diretório</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> pratica1/ pratica1_backup/      <span class="co"># copiar diretório recursivamente</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover/Renomear</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> copia.fasta teste.fasta</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> teste.fasta pratica1/dados/        <span class="co"># mover para diretório</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> pratica1/dados/teste.fasta .       <span class="co"># mover para atual (.)</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> antigo_novo.txt novo_antigo.txt    <span class="co"># renomear</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Remover</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> teste.fasta</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-i</span> teste.fasta                     <span class="co"># confirmar antes de remover</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> pratica1_backup/                <span class="co"># remover diretório recursivamente</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> pratica1_backup/               <span class="co"># FORÇAR remoção (cuidado!)</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar arquivos vazios</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> novo_arquivo.txt</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> <span class="at">-t</span> 202401011200 data.txt        <span class="co"># criar com data específica</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver tipo de arquivo</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">file</span> sequencias.fasta</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="fu">file</span> script.sh</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="perguntas" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="perguntas"><span class="header-section-number">6.2</span> Perguntas</h3>
+<ol start="6" type="1">
+<li>Qual a diferença entre <code>cp</code> e <code>mv</code>?</li>
+<li>O que acontece se você mover um arquivo para o mesmo diretório com nome diferente?</li>
+<li>Por que <code>rm -rf</code> é perigoso?</li>
+</ol>
+</section>
+<section id="exercício-1" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="exercício-1"><span class="header-section-number">6.3</span> Exercício</h3>
+<ol type="1">
+<li>Copie <code>sequencias.fasta</code> para <code>dados/raw/</code></li>
+<li>Renomeie a cópia para <code>raw_sequences.fasta</code></li>
+<li>Crie uma cópia de segurança em <code>backup/</code></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="parte-3-visualização-de-arquivos" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="parte-3-visualização-de-arquivos"><span class="header-section-number">7</span> Parte 3 – Visualização de Arquivos</h2>
+<section id="comandos-básicos-2" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="comandos-básicos-2"><span class="header-section-number">7.1</span> Comandos Básicos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar completo</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sequencias.fasta</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar com numeração de linhas</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="at">-n</span> sequencias.fasta</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar início/fim</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> sequencias.fasta          <span class="co"># primeiras 10 linhas</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 5 sequencias.fasta    <span class="co"># primeiras 5 linhas</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> sequencias.fasta          <span class="co"># últimas 10 linhas</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 20 sequencias.fasta   <span class="co"># últimas 20 linhas</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-f</span> log.txt               <span class="co"># seguir arquivo (útil para logs)</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Navegação interativa</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> sequencias.fasta</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Dentro do less:</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#   /palavra    - buscar (N = próximo, n = anterior)</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   g           - ir para início</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   G           - ir para fim</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">#   Ctrl+F      - avançar página</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co">#   Ctrl+B      - voltar página</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co">#   q           - sair</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="co">#   -N          - mostrar números</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar linhas específicas</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-n</span> <span class="st">'10,20p'</span> sequencias.fasta   <span class="co"># linhas 10-20</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-n</span> <span class="st">'/^&gt;/p'</span> sequencias.fasta    <span class="co"># linhas que começam com &gt;</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar linhas/palavras/caracteres</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> sequencias.fasta             <span class="co"># número de linhas</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-c</span> sequencias.fasta             <span class="co"># número de caracteres</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> sequencias.fasta             <span class="co"># número de palavras</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="perguntas-1" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="perguntas-1"><span class="header-section-number">7.2</span> Perguntas</h3>
+<ol start="9" type="1">
+<li>Qual comando é melhor para visualizar arquivos grandes (&gt; 1GB)?</li>
+<li>Como você visualizaria apenas as linhas 50 a 100 de um arquivo?</li>
+<li>O que o comando <code>wc -l</code> mostra e por que isso é útil em bioinformática?</li>
+</ol>
+</section>
+<section id="exercício-2" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="exercício-2"><span class="header-section-number">7.3</span> Exercício</h3>
+<ol type="1">
+<li>Visualize as primeiras 3 sequências do arquivo FASTA</li>
+<li>Conte quantas linhas tem cada sequência (use <code>sed</code> e <code>wc</code>)</li>
+<li>Use <code>less</code> para explorar o arquivo e encontrar todas as ocorrências de <em>Bacillus</em></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="parte-4-busca-em-arquivos-grep-e-expressões-regulares" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="parte-4-busca-em-arquivos-grep-e-expressões-regulares"><span class="header-section-number">8</span> Parte 4 – Busca em Arquivos (grep e expressões regulares)</h2>
+<section id="comandos-básicos-3" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="comandos-básicos-3"><span class="header-section-number">8.1</span> Comandos Básicos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Busca simples</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta          <span class="co"># encontrar cabeçalhos</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"Escherichia"</span> sequencias.fasta</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Busca com contexto</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-A</span> 3 <span class="st">"&gt;"</span> sequencias.fasta    <span class="co"># 3 linhas após</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B</span> 2 <span class="st">"&gt;"</span> sequencias.fasta    <span class="co"># 2 linhas antes</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-C</span> 1 <span class="st">"&gt;"</span> sequencias.fasta    <span class="co"># 1 linha antes e depois</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Opções úteis</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"&gt;"</span> sequencias.fasta      <span class="co"># contar ocorrências</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"&gt;"</span> sequencias.fasta      <span class="co"># linhas que NÃO contêm</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">"atg"</span> sequencias.fasta    <span class="co"># case insensitive</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-n</span> <span class="st">"&gt;"</span> sequencias.fasta      <span class="co"># mostrar números de linha</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-l</span> <span class="st">"Escherichia"</span> <span class="pp">*</span>.fasta     <span class="co"># listar arquivos com padrão</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-r</span> <span class="st">"gene:lacZ"</span> .             <span class="co"># buscar recursivamente</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Expressões regulares básicas</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> sequencias.fasta         <span class="co"># linhas que começam com &gt;</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"A$"</span> sequencias.fasta         <span class="co"># linhas que terminam com A</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"TATA[AT]"</span> sequencias.fasta   <span class="co"># TATA seguido de A ou T</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"AG{2,4}"</span> sequencias.fasta    <span class="co"># A seguido de 2-4 G's</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span> <span class="st">"GAT|CAT"</span> sequencias.fasta <span class="co"># GAT ou CAT (ERE)</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Extrair informações</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">'|'</span> <span class="at">-f2</span>   <span class="co"># extrair espécie</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">'|'</span> <span class="at">-f3</span>   <span class="co"># extrair gene</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="perguntas-2" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="perguntas-2"><span class="header-section-number">8.2</span> Perguntas</h3>
+<ol start="12" type="1">
+<li>Quantas sequências existem no arquivo <code>sequencias.fasta</code>?</li>
+<li>Como você encontraria apenas as sequências de <em>Bacillus subtilis</em>?</li>
+<li>Qual comando mostra o nome do arquivo junto com o padrão encontrado?</li>
+</ol>
+</section>
+<section id="exercício-3" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="exercício-3"><span class="header-section-number">8.3</span> Exercício</h3>
+<ol type="1">
+<li>Conte quantas sequências de cada espécie existem</li>
+<li>Encontre todas as sequências que contêm “TATAAT” (promotor)</li>
+<li>Extraia apenas os cabeçalhos das sequências para um novo arquivo</li>
+</ol>
+<details>
+<summary>
+Solução
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Contar por espécie</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"Escherichia"</span> sequencias.fasta</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"Bacillus"</span> sequencias.fasta</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"Pseudomonas"</span> sequencias.fasta</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Encontrar promotor</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B</span> 2 <span class="st">"TATAAT"</span> sequencias.fasta</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Extrair cabeçalhos</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="op">&gt;</span> cabecalhos.txt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+</section>
+<section id="parte-5-pipes" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="parte-5-pipes"><span class="header-section-number">9</span> Parte 5 – Pipes (|)</h2>
+<section id="conceitos-fundamentais" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="conceitos-fundamentais"><span class="header-section-number">9.1</span> Conceitos Fundamentais</h3>
+<p>No Unix, todo comando tem três fluxos de dados:</p>
+<ul>
+<li><strong>stdin</strong> (0): entrada padrão (teclado)</li>
+<li><strong>stdout</strong> (1): saída padrão (tela)</li>
+<li><strong>stderr</strong> (2): saída de erro (tela)</li>
+</ul>
+<p>O <strong>pipe (|)</strong> conecta o stdout de um comando ao stdin de outro:</p>
+<pre><code>[comando1] → stdout → | → stdin → [comando2] → stdout → tela</code></pre>
+</section>
+<section id="exemplos-práticos" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="exemplos-práticos"><span class="header-section-number">9.2</span> Exemplos Práticos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline básico</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. grep encontra cabeçalhos</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. wc conta as linhas</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline com múltiplos comandos</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\n'</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-c</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. remove cabeçalhos</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. remove quebras de linha</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. conta caracteres (nucleotídeos totais)</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline com tee (salvar e continuar)</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">tee</span> cabecalhos.txt <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline com sort e unique</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">'|'</span> <span class="at">-f2</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="at">-c</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipeline complexo</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sequencias.fasta <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\n'</span> <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grep</span> <span class="at">-o</span> <span class="st">"TATAAT"</span> <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Conta ocorrências de TATAAT em sequências (excluindo cabeçalhos)</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="diagrama-visual-do-pipeline" class="level3" data-number="9.3">
+<h3 data-number="9.3" class="anchored" data-anchor-id="diagrama-visual-do-pipeline"><span class="header-section-number">9.3</span> Diagrama Visual do Pipeline</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[cat arquivo.fasta] --&gt; B[grep -v '^&gt;']
+    B --&gt; C[tr -d '\\n']
+    C --&gt; D[grep -o 'TATAAT']
+    D --&gt; E[wc -l]
+    
+    style A fill:#fff,stroke:#000
+    style B fill:#fff,stroke:#000
+    style C fill:#fff,stroke:#000
+    style D fill:#fff,stroke:#000
+    style E fill:#fff,stroke:#000
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="perguntas-3" class="level3" data-number="9.4">
+<h3 data-number="9.4" class="anchored" data-anchor-id="perguntas-3"><span class="header-section-number">9.4</span> Perguntas</h3>
+<ol start="15" type="1">
+<li>Qual a diferença entre <code>grep "&gt;" arquivo | wc -l</code> e <code>wc -l arquivo</code>?</li>
+<li>Por que pipelines são úteis em bioinformática?</li>
+<li>O que faz o comando <code>tr -d '\n'</code> e quando isso é útil?</li>
+</ol>
+</section>
+<section id="exercício-4" class="level3" data-number="9.5">
+<h3 data-number="9.5" class="anchored" data-anchor-id="exercício-4"><span class="header-section-number">9.5</span> Exercício</h3>
+<p>Crie um pipeline que:</p>
+<ol type="1">
+<li>Leia o arquivo FASTA</li>
+<li>Remova os cabeçalhos</li>
+<li>Conte o número total de nucleotídeos</li>
+<li>Salve o resultado em <code>total_nucleotideos.txt</code></li>
+</ol>
+<details>
+<summary>
+Solução
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\n'</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-c</span> <span class="op">&gt;</span> total_nucleotideos.txt</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+</section>
+<section id="parte-6-redirecionamento" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="parte-6-redirecionamento"><span class="header-section-number">10</span> Parte 6 – Redirecionamento</h2>
+<section id="comandos-de-redirecionamento" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="comandos-de-redirecionamento"><span class="header-section-number">10.1</span> Comandos de Redirecionamento</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Saída para arquivo (sobrescreve)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Contagem de sequências:"</span> <span class="op">&gt;</span> relatorio.txt</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="op">&gt;&gt;</span> relatorio.txt</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Anexar ao arquivo (&gt;&gt;)</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Comprimento total:"</span> <span class="op">&gt;&gt;</span> relatorio.txt</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\n'</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-c</span> <span class="op">&gt;&gt;</span> relatorio.txt</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Redirecionar erros</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="ex">comando_inexistente</span> <span class="dv">2</span><span class="op">&gt;</span> erros.log</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Redirecionar stdout e stderr</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="op">&gt;</span> saida.txt <span class="dv">2</span><span class="op">&gt;</span> erros.txt</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="op">&amp;&gt;</span> saida_erros.txt</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Redirecionar entrada de arquivo</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> <span class="op">&lt;</span> sequencias.fasta   <span class="co"># entrada do arquivo para sort</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Here document</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&gt;</span> novo_arquivo.txt <span class="op">&lt;&lt; EOF</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="st">Linha 1</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="st">Linha 2</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="resumo-dos-redirecionamentos" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="resumo-dos-redirecionamentos"><span class="header-section-number">10.2</span> Resumo dos Redirecionamentos</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Símbolo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>Redireciona stdout para arquivo (sobrescreve)</td>
+</tr>
+<tr class="even">
+<td><code>&gt;&gt;</code></td>
+<td>Redireciona stdout para arquivo (anexa)</td>
+</tr>
+<tr class="odd">
+<td><code>2&gt;</code></td>
+<td>Redireciona stderr para arquivo</td>
+</tr>
+<tr class="even">
+<td><code>&amp;&gt;</code></td>
+<td>Redireciona stdout e stderr</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>Redireciona stdin de arquivo</td>
+</tr>
+<tr class="even">
+<td><code>&lt;&lt;</code></td>
+<td>Here document</td>
+</tr>
+</tbody>
+</table>
+<!-- ### Exercício
+
+Crie um script que gere um relatório completo do arquivo FASTA:
+
+<details>
+<summary>Solução</summary>
+
+```bash
+#!/bin/bash
+echo "<mark>= RELATÓRIO DO ARQUIVO FASTA </mark>=" > relatorio_completo.txt
+echo "Arquivo: sequencias.fasta" >> relatorio_completo.txt
+echo "Data: $(date)" >> relatorio_completo.txt
+echo "" >> relatorio_completo.txt
+echo "Número de sequências: $(grep -c '^>' sequencias.fasta)" >> relatorio_completo.txt
+echo "Total de nucleotídeos: $(grep -v '^>' sequencias.fasta | tr -d '\n' | wc -c)" >> relatorio_completo.txt
+echo "Tamanho do arquivo: $(ls -lh sequencias.fasta | awk '{print $5}')" >> relatorio_completo.txt
+echo "" >> relatorio_completo.txt
+echo "<mark>= ESPÉCIES </mark>=" >> relatorio_completo.txt
+grep '^>' sequencias.fasta | cut -d'|' -f2 | sort | uniq -c >> relatorio_completo.txt
+```
+</details>
+
+---
+ -->
+</section>
+</section>
+<section id="parte-7-xargs" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="parte-7-xargs"><span class="header-section-number">11</span> Parte 7 – Xargs</h2>
+<section id="conceito-e-uso" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="conceito-e-uso"><span class="header-section-number">11.1</span> Conceito e Uso</h3>
+<p>O <code>xargs</code> converte entrada padrão (stdin) em argumentos para um comando. É útil quando comandos não aceitam entrada via pipe diretamente.</p>
+</section>
+<section id="exemplos-práticos-1" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="exemplos-práticos-1"><span class="header-section-number">11.2</span> Exemplos Práticos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Xargs básico</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"seq1 seq2 seq3"</span> <span class="kw">|</span> <span class="fu">xargs</span> mkdir   <span class="co"># cria 3 diretórios</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Xargs com -n (número de argumentos por vez)</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"seq1 seq2 seq3 seq4 seq5"</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-n</span> 2 echo <span class="st">"Processando:"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Xargs com -I (substituição)</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.txt <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I</span> {} mv {} backup/{}</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Xargs com -P (paralelismo)</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">'|'</span> <span class="at">-f3</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-P</span> 4 <span class="at">-I</span> {} echo <span class="st">"Gene: {}"</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Xargs com arquivo</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">'|'</span> <span class="at">-f2</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-n</span> 1 echo <span class="st">"Espécie:"</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Xargs com comando específico</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.fasta <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I</span> {} grep <span class="at">-c</span> <span class="st">"&gt;"</span> {}</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Xargs com echo para debug</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"arquivo1 arquivo2"</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-t</span> echo  <span class="co"># -t mostra comando executado</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="diferença-entre-pipe-e-xargs" class="level3" data-number="11.3">
+<h3 data-number="11.3" class="anchored" data-anchor-id="diferença-entre-pipe-e-xargs"><span class="header-section-number">11.3</span> Diferença entre Pipe e Xargs</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PIPE: comando recebe stdin</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span>    <span class="co"># ✅ wc aceita stdin</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># XARGS: comando recebe argumentos</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">xargs</span> echo   <span class="co"># echo não aceita stdin, mas aceita args</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="exercício-5" class="level3" data-number="11.4">
+<h3 data-number="11.4" class="anchored" data-anchor-id="exercício-5"><span class="header-section-number">11.4</span> Exercício</h3>
+<ol type="1">
+<li>Use <code>xargs</code> para criar diretórios para cada espécie no arquivo</li>
+<li>Use <code>xargs</code> com <code>grep</code> para contar sequências em todos os arquivos .fasta</li>
+</ol>
+<details>
+<summary>
+Solução
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Criar diretórios por espécie</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">'|'</span> <span class="at">-f2</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-u</span> <span class="kw">|</span> <span class="fu">xargs</span> mkdir <span class="at">-p</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Contar sequências em múltiplos arquivos</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.fasta <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I</span> {} sh <span class="at">-c</span> <span class="st">'echo -n "{}: " &amp;&amp; grep -c "&gt;" {}'</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+</section>
+<section id="parte-8-compactação-e-arquivos-tar" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="parte-8-compactação-e-arquivos-tar"><span class="header-section-number">12</span> Parte 8 – Compactação e Arquivos TAR</h2>
+<section id="tipos-de-compactação" class="level3" data-number="12.1">
+<h3 data-number="12.1" class="anchored" data-anchor-id="tipos-de-compactação"><span class="header-section-number">12.1</span> Tipos de Compactação</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Compressão individual</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gzip</span> sequencias.fasta          <span class="co"># cria .gz</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> sequencias.fasta.gz     <span class="co"># descomprime</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bzip2</span> sequencias.fasta         <span class="co"># cria .bz2 (melhor compressão)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bunzip2</span> sequencias.fasta.bz2</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">xz</span> sequencias.fasta            <span class="co"># cria .xz (melhor ainda)</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">unxz</span> sequencias.fasta.xz</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar tamanhos</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> sequencias.fasta<span class="pp">*</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="tar-tape-archive" class="level3" data-number="12.2">
+<h3 data-number="12.2" class="anchored" data-anchor-id="tar-tape-archive"><span class="header-section-number">12.2</span> TAR (Tape Archive)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar arquivo tar (sem compressão)</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> cvf arquivos.tar arquivo1 arquivo2 pasta/</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compressão com tar (recomendado)</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> czvf arquivos.tar.gz arquivo1 arquivo2 pasta/   <span class="co"># gzip</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> cjvf arquivos.tar.bz2 arquivo1 arquivo2 pasta/  <span class="co"># bzip2</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> cJvf arquivos.tar.xz arquivo1 arquivo2 pasta/   <span class="co"># xz</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Descompactar</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xzvf arquivos.tar.gz        <span class="co"># gzip</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xjvf arquivos.tar.bz2       <span class="co"># bzip2</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xJvf arquivos.tar.xz        <span class="co"># xz</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Ver conteúdo sem extrair</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> tvf arquivos.tar.gz</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Extrair arquivo específico</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xzvf arquivos.tar.gz sequencias.fasta</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Extrair para diretório específico</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xzvf arquivos.tar.gz <span class="at">-C</span> /destino/</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="comparação-de-tamanhos" class="level3" data-number="12.3">
+<h3 data-number="12.3" class="anchored" data-anchor-id="comparação-de-tamanhos"><span class="header-section-number">12.3</span> Comparação de Tamanhos</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Formato</th>
+<th>Comando</th>
+<th>Tamanho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Original</td>
+<td>-</td>
+<td>1.0 MB</td>
+</tr>
+<tr class="even">
+<td>gzip</td>
+<td>tar czvf</td>
+<td>350 KB</td>
+</tr>
+<tr class="odd">
+<td>bzip2</td>
+<td>tar cjvf</td>
+<td>280 KB</td>
+</tr>
+<tr class="even">
+<td>xz</td>
+<td>tar cJvf</td>
+<td>210 KB</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercício-6" class="level3" data-number="12.4">
+<h3 data-number="12.4" class="anchored" data-anchor-id="exercício-6"><span class="header-section-number">12.4</span> Exercício</h3>
+<ol type="1">
+<li>Compacte todos os arquivos .fasta em um arquivo <code>sequencias.tar.gz</code></li>
+<li>Crie uma cópia de segurança de toda a pasta <code>pratica1</code></li>
+<li>Compare os tamanhos dos arquivos compactados com diferentes algoritmos</li>
+</ol>
+<details>
+<summary>
+<strong>Solução:</strong>
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Compactar todos .fasta</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> czvf sequencias.tar.gz <span class="pp">*</span>.fasta</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Backup completo</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> czvf pratica1_backup_<span class="va">$(</span><span class="fu">date</span> +%Y%m%d<span class="va">)</span>.tar.gz pratica1/</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Comparar algoritmos</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> czvf arquivo.tar.gz sequencias.fasta</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> cjvf arquivo.tar.bz2 sequencias.fasta</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> cJvf arquivo.tar.xz sequencias.fasta</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> arquivo.tar.<span class="pp">*</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+<!-- ## DESAFIO FINAL – Pipeline Completo de Análise
+
+
+### Objetivo
+
+Criar um script que analise completamente o arquivo FASTA e gere um relatório detalhado.
+
+
+### Requisitos
+
+O script deve:
+
+1. **Validar** que o arquivo FASTA existe
+2. **Contar**:
+   - Número total de sequências
+   - Número de sequências por espécie
+   - Total de nucleotídeos (excluindo cabeçalhos)
+   - Comprimento médio das sequências
+   - Comprimento mínimo e máximo
+3. **Encontrar** sequências que:
+   - Contêm o motivo "TATAAT"
+   - Têm comprimento > 100 pb
+   - Pertencem a Bacillus subtilis
+4. **Gerar** um arquivo de saída com:
+   - Estatísticas descritivas
+   - Lista de IDs das sequências
+   - Sequências mais curtas e mais longas
+5. **Compactar** o arquivo de saída
+
+
+### Script Solução
+
+```bash
+#!/bin/bash
+
+# analisar_fasta.sh - Análise completa de arquivo FASTA
+#| code-fold: true
+#| code-summary: "Clique para ver o código bash"
+
+ARQUIVO="sequencias.fasta"
+RELATORIO="analise_completa.txt"
+DATA=$(date +"%Y-%m-%d %H:%M:%S")
+
+
+# 1. Validar arquivo
+if [ ! -f "$ARQUIVO" ]; then
+    echo "ERRO: Arquivo $ARQUIVO não encontrado!" >&2
+    exit 1
+fi
+
+
+# 2. Função para calcular estatísticas
+calcular_stats() {
+    # Total de sequências
+    TOTAL_SEQS=$(grep -c "^>" "$ARQUIVO")
+    
+    # Total de nucleotídeos
+    TOTAL_NT=$(grep -v "^>" "$ARQUIVO" | tr -d '\n' | wc -c)
+    
+    # Sequências por espécie
+    mapfile -t ESPECIES < <(grep "^>" "$ARQUIVO" | cut -d'|' -f2 | sort | uniq -c)
+    
+    # Comprimentos das sequências
+    mapfile -t COMPRIMENTOS < <(grep -v "^>" "$ARQUIVO" | awk '{print length($0)}')
+    
+    # Calcular comprimento médio
+    SOMA=0
+    for i in "${COMPRIMENTOS[@]}"; do
+        SOMA=$((SOMA + i))
+    done
+    MEDIA=$((SOMA / TOTAL_SEQS))
+    
+    # Mínimo e máximo
+    MIN=1000000
+    MAX=0
+    for i in "${COMPRIMENTOS[@]}"; do
+        [ $i -lt $MIN ] && MIN=$i
+        [ $i -gt $MAX ] && MAX=$i
+    done
+}
+
+
+# 3. Gerar relatório
+gerar_relatorio() {
+    echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>==" > "$RELATORIO"
+    echo "  RELATÓRIO DE ANÁLISE DE ARQUIVO FASTA" >> "$RELATORIO"
+    echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>==" >> "$RELATORIO"
+    echo "Data da análise: $DATA" >> "$RELATORIO"
+    echo "Arquivo: $ARQUIVO" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "📊 ESTATÍSTICAS GERAIS:" >> "$RELATORIO"
+    echo "  • Total de sequências: $TOTAL_SEQS" >> "$RELATORIO"
+    echo "  • Total de nucleotídeos: $TOTAL_NT" >> "$RELATORIO"
+    echo "  • Comprimento médio: $MEDIA pb" >> "$RELATORIO"
+    echo "  • Comprimento mínimo: $MIN pb" >> "$RELATORIO"
+    echo "  • Comprimento máximo: $MAX pb" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "🔬 DISTRIBUIÇÃO POR ESPÉCIE:" >> "$RELATORIO"
+    printf "%s\n" "${ESPECIES[@]}" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "🧬 SEQUÊNCIAS COM MOTIVO TATAAT:" >> "$RELATORIO"
+    grep -B 1 "TATAAT" "$ARQUIVO" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "📏 SEQUÊNCIAS MAIS LONGAS (TOP 3):" >> "$RELATORIO"
+    grep -v "^>" "$ARQUIVO" | awk '{print length($0), NR}' | sort -rn | head -3 >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "📏 SEQUÊNCIAS MAIS CURTAS (BOTTOM 3):" >> "$RELATORIO"
+    grep -v "^>" "$ARQUIVO" | awk '{print length($0), NR}' | sort -n | head -3 >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "✅ ANÁLISE CONCLUÍDA COM SUCESSO!" >> "$RELATORIO"
+    echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>==" >> "$RELATORIO"
+}
+
+
+# 4. Executar funções
+calcular_stats
+gerar_relatorio
+
+
+# 5. Compactar relatório
+tar czvf analise_completa.tar.gz "$RELATORIO"
+
+
+# 6. Mostrar resumo
+echo "✅ Análise concluída!"
+echo "📄 Relatório: $RELATORIO"
+echo "📦 Compactado: analise_completa.tar.gz"
+echo ""
+echo "Resumo rápido:"
+echo "  • Sequências: $TOTAL_SEQS"
+echo "  • Nucleotídeos: $TOTAL_NT"
+echo "  • Comprimento médio: $MEDIA pb"
+```
+
+
+### Como Executar o Desafio
+
+```bash
+
+# Tornar executável
+chmod +x analisar_fasta.sh
+
+
+# Executar
+./analisar_fasta.sh
+``` -->
+<hr>
+</section>
+</section>
+<section id="material-complementar" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="material-complementar"><span class="header-section-number">13</span> Material Complementar</h2>
+<section id="cheat-sheet" class="level3" data-number="13.1">
+<h3 data-number="13.1" class="anchored" data-anchor-id="cheat-sheet"><span class="header-section-number">13.1</span> Cheat Sheet</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Comando</th>
+<th>Descrição</th>
+<th>Exemplo Bioinformática</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>Diretório atual</td>
+<td>Verificar localização</td>
+</tr>
+<tr class="even">
+<td><code>ls -lh</code></td>
+<td>Listar arquivos</td>
+<td>Ver arquivos FASTA</td>
+</tr>
+<tr class="odd">
+<td><code>cd</code></td>
+<td>Mudar diretório</td>
+<td>Navegar para pasta de dados</td>
+</tr>
+<tr class="even">
+<td><code>mkdir -p</code></td>
+<td>Criar diretórios</td>
+<td>Criar estrutura de projeto</td>
+</tr>
+<tr class="odd">
+<td><code>cp -r</code></td>
+<td>Copiar recursivo</td>
+<td>Backup de dados</td>
+</tr>
+<tr class="even">
+<td><code>grep -c</code></td>
+<td>Contar padrões</td>
+<td>Contar sequências</td>
+</tr>
+<tr class="odd">
+<td><code>wc -l</code></td>
+<td>Contar linhas</td>
+<td>Verificar tamanho do arquivo</td>
+</tr>
+<tr class="even">
+<td><code>cut -d'|'</code></td>
+<td>Extrair campos</td>
+<td>Extrair IDs de sequências</td>
+</tr>
+<tr class="odd">
+<td><code>sort \| uniq -c</code></td>
+<td>Contar únicos</td>
+<td>Distribuição de espécies</td>
+</tr>
+<tr class="even">
+<td><code>tar czvf</code></td>
+<td>Compactar</td>
+<td>Backup de projetos</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dicas-de-produtividade" class="level3" data-number="13.2">
+<h3 data-number="13.2" class="anchored" data-anchor-id="dicas-de-produtividade"><span class="header-section-number">13.2</span> Dicas de Produtividade</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Tab completion - digite parte do comando e aperte TAB</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> pr<span class="pp">[</span><span class="ss">TAB</span><span class="pp">]</span>   <span class="co"># auto-completa para pratica1</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse search (Ctrl+R)</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Ctrl+R</span>   <span class="co"># busca em histórico de comandos</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Aliases úteis</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> ll=<span class="st">'ls -lah'</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> grep=<span class="st">'grep --color=auto'</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> gs=<span class="st">'grep "^&gt;"'</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Histórico</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="bu">history</span> <span class="kw">|</span> <span class="fu">grep</span> grep   <span class="co"># buscar comandos anteriores com grep</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="ex">!100</span>                  <span class="co"># executar comando número 100 do histórico</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ex">!!</span>                    <span class="co"># repetir último comando</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="comandos-para-interessantes-para-bioinformática" class="level3" data-number="13.3">
+<h3 data-number="13.3" class="anchored" data-anchor-id="comandos-para-interessantes-para-bioinformática"><span class="header-section-number">13.3</span> Comandos para interessantes para bioinformática</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequências únicas</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="at">-c</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequência de nucleotídeos</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-o</span> . <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="at">-c</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># GC content</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> sequencias.fasta <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="st">'\n'</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-cd</span> <span class="st">'GC'</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-c</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse complement (com tr e rev)</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"ATGC"</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="st">'ATCG'</span> <span class="st">'TAGC'</span> <span class="kw">|</span> <span class="fu">rev</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Download do NCBI</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="st">"https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=NC_000913&amp;db=nuccore&amp;report=fasta"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<!-- 
+### Desafios Extras para Alunos Avançados
+
+1. **Pipeline de filtragem**: Crie um pipeline que filtre sequências por comprimento (> 100 pb)
+2. **Análise de qualidade**: Calcule o GC content de cada sequência e crie um histograma simples
+3. **Conversão de formato**: Converta o FASTA para formato tabular (ID, comprimento, GC%)
+4. **Análise de motivos**: Encontre e conte todos os motivos de 6 nucleotídeos (hexâmeros)
+5. **Parallel processing**: Use xargs -P para processar múltiplos arquivos simultaneamente -->
+</section>
+<section id="referências-e-recursos" class="level3" data-number="13.4">
+<h3 data-number="13.4" class="anchored" data-anchor-id="referências-e-recursos"><span class="header-section-number">13.4</span> Referências e Recursos</h3>
+<ul>
+<li><strong>Documentação oficial</strong>: <a href="https://www.gnu.org/software/bash/manual/">GNU Bash Manual</a></li>
+<li><strong>Bioinformatics</strong>:
+<ul>
+<li><a href="https://www.oreilly.com/library/view/bioinformatics-data-skills/9781449367480/">Bioinformatics Data Skills</a></li>
+<li><a href="https://edu.anarcho-copy.org/GNU%20Linux%20-%20Unix-Like/Science/linuxforbiologists.pdf">Linux for Biologists</a></li>
+</ul></li>
+<li><strong>Comandos</strong>:
+<ul>
+<li><a href="https://explainshell.com/">Explain Shell</a></li>
+<li><a href="https://ss64.com/bash/">SS64 Bash Commands</a></li>
+</ul></li>
+<li><strong>Prática online</strong>:
+<ul>
+<li><a href="https://overthewire.org/wargames/bandit/">OverTheWire Bandit</a> - Jogos para aprender Linux</li>
+<li><a href="http://rosalind.info/">Rosalind</a> - Problemas de bioinformática</li>
+</ul></li>
+</ul>
+<hr>
+<!-- ## ✅ Checklist de Aprendizagem -->
+</section>
+</section>
+<section id="checklist-de-aprendizagem" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="checklist-de-aprendizagem"><span class="header-section-number">14</span> Checklist de Aprendizagem</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Consigo navegar entre diretórios usando caminhos absolutos e relativos</label></li>
+<li><label><input type="checkbox">Sei criar, copiar, mover e remover arquivos e diretórios</label></li>
+<li><label><input type="checkbox">Consigo visualizar arquivos grandes usando <code>less</code></label></li>
+<li><label><input type="checkbox">Sei usar <code>grep</code> com expressões regulares básicas</label></li>
+<li><label><input type="checkbox">Construo pipelines usando <code>|</code> (pipe)</label></li>
+<li><label><input type="checkbox">Entendo redirecionamento (<code>&gt;</code>, <code>&gt;&gt;</code>, <code>2&gt;</code>)</label></li>
+<li><label><input type="checkbox">Uso <code>xargs</code> para processar múltiplos arquivos</label></li>
+<li><label><input type="checkbox">Compacto e descompacto arquivos com <code>tar</code> e <code>gzip</code></label></li>
+<li><label><input type="checkbox">Consigo extrair informações de um arquivo FASTA</label></li>
+<li><label><input type="checkbox">Sei criar scripts simples para automatizar análises</label></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

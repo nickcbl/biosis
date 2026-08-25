@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Exercícios de Lógica de Programação para Biotecnologia – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dfa9e29798b7e35d0549a5533169485c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Exercícios de Lógica de Programação para Biotecnologia – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="Resolvidos apenas com if/else, for e while">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/listas/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="Exercícios de Lógica de Programação para Biotecnologia – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="Resolvidos apenas com if/else, for e while">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/listas/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../listas/ed1.html">Listas</a></li><li class="breadcrumb-item"><a href="../listas/exercicios_biotecnologia.html">Exercícios de Lógica de Programação para Biotecnologia</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 — Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 — Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 — Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 — Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 — Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 — Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 — Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 — Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 — Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 1<br>Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 2<br>Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 3<br>Redes biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 4<br>Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 5<br>Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 6<br>Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 7<br>Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 8<br>Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 9<br>Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 10<br>Biologia Sintética</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Roteiros</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/input/input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 1: Unix Básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 2: Fundamentos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 4 – Predição de Genes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 5 – Anotação Funcional</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 7 – Quantificação e Normalização de RNA-seq</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 9 – Redes de Coexpressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 10 – Identificação de Genes de Virulência em Bactérias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 11 – Redes PPI com STRING e Cytoscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 12 – CellDesigner e COPASI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Listas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_fundamentos_logica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios Clássicos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_biotecnologia.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Exercícios de Lógica de Programação para Biotecnologia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Teste</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/teste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teste de funcionalidades - Quarto MD</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - Histórico e Conceitos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#regras-destes-exercícios" id="toc-regras-destes-exercícios" class="nav-link active" data-scroll-target="#regras-destes-exercícios">Regras destes exercícios</a></li>
+  <li><a href="#nível-1-condicionais-ifelse" id="toc-nível-1-condicionais-ifelse" class="nav-link" data-scroll-target="#nível-1-condicionais-ifelse">Nível 1 — Condicionais (<code>if</code>/<code>else</code>)</a></li>
+  <li><a href="#nível-2-repetição-com-for" id="toc-nível-2-repetição-com-for" class="nav-link" data-scroll-target="#nível-2-repetição-com-for">Nível 2 — Repetição com <code>for</code></a></li>
+  <li><a href="#nível-3-laços-aninhados" id="toc-nível-3-laços-aninhados" class="nav-link" data-scroll-target="#nível-3-laços-aninhados">Nível 3 — Laços aninhados</a></li>
+  <li><a href="#nível-3.5-laço-aninhado-acumulador-o-salto-de-dificuldade" id="toc-nível-3.5-laço-aninhado-acumulador-o-salto-de-dificuldade" class="nav-link" data-scroll-target="#nível-3.5-laço-aninhado-acumulador-o-salto-de-dificuldade">Nível 3.5 — Laço aninhado + acumulador (o salto de dificuldade)</a></li>
+  <li><a href="#nível-4-acumuladores-contadores-e-listas" id="toc-nível-4-acumuladores-contadores-e-listas" class="nav-link" data-scroll-target="#nível-4-acumuladores-contadores-e-listas">Nível 4 — Acumuladores, contadores e listas</a></li>
+  <li><a href="#nível-5-while-repetição-de-tamanho-desconhecido" id="toc-nível-5-while-repetição-de-tamanho-desconhecido" class="nav-link" data-scroll-target="#nível-5-while-repetição-de-tamanho-desconhecido">Nível 5 — <code>while</code> (repetição de tamanho desconhecido)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../listas/ed1.html">Listas</a></li><li class="breadcrumb-item"><a href="../listas/exercicios_biotecnologia.html">Exercícios de Lógica de Programação para Biotecnologia</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Exercícios de Lógica de Programação para Biotecnologia</h1>
+<p class="subtitle lead">Resolvidos apenas com <code>if</code>/<code>else</code>, <code>for</code> e <code>while</code></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="regras-destes-exercícios" class="level2">
+<h2 class="anchored" data-anchor-id="regras-destes-exercícios">Regras destes exercícios</h2>
+<p>O objetivo é praticar <strong>lógica</strong>, sem usar funções prontas de Python. Por isso, em todas as soluções:</p>
+<ul>
+<li><strong>Não usar</strong>: <code>sum()</code>, <code>max()</code>, <code>min()</code>, <code>sorted()</code>, <code>reversed()</code>, <code>count()</code>, <code>any()</code>, <code>all()</code>, list comprehensions, slicing reverso (<code>[::-1]</code>).</li>
+<li><strong>São permitidas</strong>: <code>if</code>/<code>elif</code>/<code>else</code>, <code>for</code> com <code>range()</code>, <code>while</code>, listas apenas como armazenamento (<code>append</code>, acesso por índice), e <code>len()</code> apenas para controlar o tamanho de um laço (nunca para “resolver” o problema).</li>
+<li>Nos exemplos abaixo, os dados de entrada estão definidos diretamente nas variáveis (para o documento rodar sozinho). Em aula, vocês podem trocar por <code>input()</code>.</li>
+</ul>
+<hr>
+</section>
+<section id="nível-1-condicionais-ifelse" class="level2">
+<h2 class="anchored" data-anchor-id="nível-1-condicionais-ifelse">Nível 1 — Condicionais (<code>if</code>/<code>else</code>)</h2>
+<section id="classificação-de-ph" class="level3">
+<h3 class="anchored" data-anchor-id="classificação-de-ph">1. Classificação de pH</h3>
+<p>Dado um valor de pH, classifique a amostra como <strong>ácida</strong> (pH &lt; 7), <strong>neutra</strong> (pH = 7) ou <strong>básica</strong> (pH &gt; 7).</p>
+<!-- ```{python}
+ph = 5.8
+
+if ph < 7:
+    print("Amostra ácida")
+elif ph == 7:
+    print("Amostra neutra")
+else:
+    print("Amostra básica")
+``` -->
+</section>
+<section id="purina-ou-pirimidina" class="level3">
+<h3 class="anchored" data-anchor-id="purina-ou-pirimidina">2. Purina ou pirimidina</h3>
+<p>Dada uma base nitrogenada (A, T, C ou G), diga se ela é uma <strong>purina</strong> (A, G) ou uma <strong>pirimidina</strong> (T, C).</p>
+<!-- ```{python}
+base = "G"
+
+if base == "A" or base == "G":
+    print("Purina")
+elif base == "T" or base == "C":
+    print("Pirimidina")
+else:
+    print("Base inválida")
+``` -->
+</section>
+<section id="faixa-segura-de-armazenamento" class="level3">
+<h3 class="anchored" data-anchor-id="faixa-segura-de-armazenamento">3. Faixa segura de armazenamento</h3>
+<p>Dada uma temperatura de um freezer de laboratório, diga se está dentro da faixa segura para armazenar amostras de DNA (-25°C a -15°C).</p>
+<!-- ```{python}
+temperatura = -18
+
+if temperatura >= -25 and temperatura <= -15:
+    print("Temperatura segura para armazenamento")
+else:
+    print("Atenção: temperatura fora da faixa segura")
+``` -->
+</section>
+<section id="fase-do-ciclo-celular" class="level3">
+<h3 class="anchored" data-anchor-id="fase-do-ciclo-celular">4. Fase do ciclo celular</h3>
+<p>Dado um código numérico (1 a 4), informe a fase correspondente do ciclo celular: 1 = G1, 2 = S, 3 = G2, 4 = M.</p>
+<!-- ```{python}
+codigo = 3
+
+if codigo == 1:
+    print("Fase G1")
+elif codigo == 2:
+    print("Fase S")
+elif codigo == 3:
+    print("Fase G2")
+elif codigo == 4:
+    print("Fase M (mitose)")
+else:
+    print("Código inválido")
+``` -->
+<hr>
+</section>
+</section>
+<section id="nível-2-repetição-com-for" class="level2">
+<h2 class="anchored" data-anchor-id="nível-2-repetição-com-for">Nível 2 — Repetição com <code>for</code></h2>
+<section id="contagem-de-bases-nitrogenadas" class="level3">
+<h3 class="anchored" data-anchor-id="contagem-de-bases-nitrogenadas">5. Contagem de bases nitrogenadas</h3>
+<p>Dada uma sequência de DNA, conte quantas vezes aparecem A, T, C e G.</p>
+<!-- ```{python}
+sequencia = "ATCGGGCTAAGCTAGCTTTAGCG"
+
+contagem_A = 0
+contagem_T = 0
+contagem_C = 0
+contagem_G = 0
+
+for base in sequencia:
+    if base == "A":
+        contagem_A = contagem_A + 1
+    elif base == "T":
+        contagem_T = contagem_T + 1
+    elif base == "C":
+        contagem_C = contagem_C + 1
+    elif base == "G":
+        contagem_G = contagem_G + 1
+
+print("A:", contagem_A)
+print("T:", contagem_T)
+print("C:", contagem_C)
+print("G:", contagem_G)
+``` -->
+</section>
+<section id="conteúdo-gc" class="level3">
+<h3 class="anchored" data-anchor-id="conteúdo-gc">6. Conteúdo GC</h3>
+<p>Calcule a porcentagem de bases G e C em uma sequência de DNA.</p>
+<!-- ```{python}
+sequencia = "ATCGGGCTAAGCTAGCTTTAGCG"
+
+gc = 0
+total = 0
+
+for base in sequencia:
+    total = total + 1
+    if base == "G" or base == "C":
+        gc = gc + 1
+
+percentual_gc = (gc / total) * 100
+print("Conteúdo GC: %.2f%%" % percentual_gc)
+``` -->
+</section>
+<section id="fita-complementar" class="level3">
+<h3 class="anchored" data-anchor-id="fita-complementar">7. Fita complementar</h3>
+<p>Gere a fita complementar de uma sequência de DNA (A↔︎T, C↔︎G).</p>
+<!-- ```{python}
+sequencia = "ATCGGGCTA"
+
+complementar = ""
+
+for base in sequencia:
+    if base == "A":
+        complementar = complementar + "T"
+    elif base == "T":
+        complementar = complementar + "A"
+    elif base == "C":
+        complementar = complementar + "G"
+    elif base == "G":
+        complementar = complementar + "C"
+
+print("Sequência original:   ", sequencia)
+print("Sequência complementar:", complementar)
+``` -->
+</section>
+<section id="diluição-seriada" class="level3">
+<h3 class="anchored" data-anchor-id="diluição-seriada">8. Diluição seriada</h3>
+<p>Simule N diluições seriadas de uma amostra: a cada passo, a concentração é dividida pelo fator de diluição.</p>
+<!-- ```{python}
+concentracao_inicial = 1024.0   # ng/uL
+fator_diluicao = 2
+n_diluicoes = 6
+
+concentracao = concentracao_inicial
+
+for passo in range(1, n_diluicoes + 1):
+    concentracao = concentracao / fator_diluicao
+    print("Diluição", passo, "-> concentração:", concentracao, "ng/uL")
+``` -->
+</section>
+<section id="crescimento-populacional-bacteriano" class="level3">
+<h3 class="anchored" data-anchor-id="crescimento-populacional-bacteriano">9. Crescimento populacional bacteriano</h3>
+<p>Uma cultura bacteriana duplica a cada geração. Dado o número inicial de células e o número de gerações, calcule a população final, mostrando geração a geração.</p>
+<!-- ```{python}
+populacao_inicial = 100
+n_geracoes = 8
+
+populacao = populacao_inicial
+
+for geracao in range(1, n_geracoes + 1):
+    populacao = populacao * 2
+    print("Geração", geracao, "-> população:", populacao)
+``` -->
+<hr>
+</section>
+</section>
+<section id="nível-3-laços-aninhados" class="level2">
+<h2 class="anchored" data-anchor-id="nível-3-laços-aninhados">Nível 3 — Laços aninhados</h2>
+<section id="todos-os-códons-possíveis-rna" class="level3">
+<h3 class="anchored" data-anchor-id="todos-os-códons-possíveis-rna">10. Todos os códons possíveis (RNA)</h3>
+<p>Gere e imprima todos os 64 códons possíveis de RNA (combinações de 3 bases entre A, U, C, G), usando três laços <code>for</code> aninhados.</p>
+<!-- ```{python}
+bases = ["A", "U", "C", "G"]
+
+total_codons = 0
+
+for b1 in bases:
+    for b2 in bases:
+        for b3 in bases:
+            codon = b1 + b2 + b3
+            print(codon)
+            total_codons = total_codons + 1
+
+print("Total de códons gerados:", total_codons)
+``` -->
+</section>
+<section id="contagem-de-dinucleotídeos" class="level3">
+<h3 class="anchored" data-anchor-id="contagem-de-dinucleotídeos">11. Contagem de dinucleotídeos</h3>
+<p>Conte quantas vezes cada par de bases consecutivas (dinucleotídeo, ex: “AT”, “CG”) aparece em uma sequência, usando dois laços <code>for</code> para comparar cada par possível.</p>
+<!-- ```{python}
+sequencia = "ATCGATCGGC"
+pares_possiveis = ["AA", "AT", "AC", "AG",
+                    "TA", "TT", "TC", "TG",
+                    "CA", "CT", "CC", "CG",
+                    "GA", "GT", "GC", "GG"]
+
+for par in pares_possiveis:
+    contador = 0
+    for i in range(len(sequencia) - 1):
+        dinucleotideo = sequencia[i] + sequencia[i + 1]
+        if dinucleotideo == par:
+            contador = contador + 1
+    if contador > 0:
+        print(par, "->", contador, "ocorrência(s)")
+``` -->
+<hr>
+</section>
+</section>
+<section id="nível-3.5-laço-aninhado-acumulador-o-salto-de-dificuldade" class="level2">
+<h2 class="anchored" data-anchor-id="nível-3.5-laço-aninhado-acumulador-o-salto-de-dificuldade">Nível 3.5 — Laço aninhado + acumulador (o salto de dificuldade)</h2>
+<p>Aqui os dois laços trabalham juntos: o laço externo passa por vários “itens” (sequências, poços de uma placa) e o laço interno calcula algo sobre cada item, que é acumulado ou comparado no laço externo. É normalmente aqui que a turma trava — vale desenhar no quadro o que cada laço está fazendo separadamente antes de juntá-los.</p>
+<section id="sequência-com-maior-conteúdo-gc" class="level3">
+<h3 class="anchored" data-anchor-id="sequência-com-maior-conteúdo-gc">12. Sequência com maior conteúdo GC</h3>
+<p>Dada uma lista de sequências de DNA, descubra qual delas tem o maior conteúdo GC, sem usar <code>max()</code>. Para cada sequência (laço externo), calcule o GC content (laço interno) e compare com o melhor resultado encontrado até agora.</p>
+<!-- ```{python}
+sequencias = ["ATCGGGCTA", "GGGGCCCCA", "ATATATATCG", "GCGCGCGCGC"]
+
+melhor_sequencia = ""
+melhor_percentual = -1
+
+for seq in sequencias:
+    gc = 0
+    total = 0
+    for base in seq:
+        total = total + 1
+        if base == "G" or base == "C":
+            gc = gc + 1
+    percentual = (gc / total) * 100
+    print(seq, "-> GC: %.1f%%" % percentual)
+    if percentual > melhor_percentual:
+        melhor_percentual = percentual
+        melhor_sequencia = seq
+
+print()
+print("Sequência com maior GC content:", melhor_sequencia, "(%.1f%%)" % melhor_percentual)
+``` -->
+</section>
+<section id="soma-de-absorbância-por-linha-de-uma-microplaca" class="level3">
+<h3 class="anchored" data-anchor-id="soma-de-absorbância-por-linha-de-uma-microplaca">13. Soma de absorbância por linha de uma microplaca</h3>
+<p>Uma microplaca de 96 poços foi organizada em 8 linhas de 12 colunas (representada como uma lista de listas). Para cada linha, some as absorbâncias dos poços (laço interno) e mostre o total (laço externo).</p>
+<!-- ```{python}
+placa = [
+    [0.10, 0.12, 0.11, 0.15, 0.14, 0.13, 0.12, 0.11, 0.10, 0.13, 0.12, 0.11],
+    [0.45, 0.48, 0.44, 0.47, 0.46, 0.45, 0.49, 0.48, 0.44, 0.46, 0.47, 0.45],
+    [0.80, 0.82, 0.79, 0.81, 0.83, 0.80, 0.82, 0.81, 0.79, 0.80, 0.82, 0.81],
+    [0.20, 0.22, 0.21, 0.19, 0.20, 0.21, 0.22, 0.20, 0.19, 0.21, 0.20, 0.22],
+    [0.55, 0.57, 0.56, 0.58, 0.55, 0.56, 0.57, 0.58, 0.56, 0.55, 0.57, 0.56],
+    [0.30, 0.31, 0.29, 0.30, 0.32, 0.31, 0.30, 0.29, 0.31, 0.30, 0.31, 0.30],
+    [0.65, 0.66, 0.64, 0.65, 0.67, 0.66, 0.65, 0.64, 0.66, 0.65, 0.66, 0.65],
+    [0.05, 0.06, 0.04, 0.05, 0.06, 0.05, 0.04, 0.06, 0.05, 0.04, 0.05, 0.06],
+]
+
+letras_linha = ["A", "B", "C", "D", "E", "F", "G", "H"]
+indice_linha = 0
+
+for linha in placa:
+    soma_linha = 0
+    for poco in linha:
+        soma_linha = soma_linha + poco
+    media_linha = soma_linha / len(linha)
+    print("Linha", letras_linha[indice_linha], "-> soma:", round(soma_linha, 2), "| média:", round(media_linha, 3))
+    indice_linha = indice_linha + 1
+``` -->
+</section>
+<section id="total-de-um-códon-específico-em-várias-sequências-de-rna" class="level3">
+<h3 class="anchored" data-anchor-id="total-de-um-códon-específico-em-várias-sequências-de-rna">14. Total de um códon específico em várias sequências de RNA</h3>
+<p>Dada uma lista de sequências de RNA, conte quantas vezes o códon de início <code>AUG</code> aparece somando as ocorrências em todas as sequências.</p>
+<!-- ```{python}
+sequencias_rna = ["AUGGCCAUGGCU", "UAGAUGCCCAUG", "GGGCCCAUGAAA"]
+
+total_aug = 0
+
+for seq in sequencias_rna:
+    ocorrencias_nesta = 0
+    for i in range(len(seq) - 2):
+        codon = seq[i] + seq[i + 1] + seq[i + 2]
+        if codon == "AUG":
+            ocorrencias_nesta = ocorrencias_nesta + 1
+    print(seq, "-> AUG encontrado", ocorrencias_nesta, "vez(es)")
+    total_aug = total_aug + ocorrencias_nesta
+
+print()
+print("Total de AUG em todas as sequências:", total_aug)
+``` -->
+<hr>
+</section>
+</section>
+<section id="nível-4-acumuladores-contadores-e-listas" class="level2">
+<h2 class="anchored" data-anchor-id="nível-4-acumuladores-contadores-e-listas">Nível 4 — Acumuladores, contadores e listas</h2>
+<section id="maior-e-menor-absorbância-de-uma-leitura" class="level3">
+<h3 class="anchored" data-anchor-id="maior-e-menor-absorbância-de-uma-leitura">15. Maior e menor absorbância de uma leitura</h3>
+<p>Dada uma lista de leituras de absorbância (espectrofotômetro), encontre o maior e o menor valor sem usar <code>max()</code>/<code>min()</code>.</p>
+<!-- ```{python}
+leituras = [0.452, 0.891, 0.213, 0.675, 0.998, 0.334]
+
+maior = leituras[0]
+menor = leituras[0]
+
+for valor in leituras:
+    if valor > maior:
+        maior = valor
+    if valor < menor:
+        menor = valor
+
+print("Maior leitura:", maior)
+print("Menor leitura:", menor)
+``` -->
+</section>
+<section id="controle-de-qualidade-de-amostras" class="level3">
+<h3 class="anchored" data-anchor-id="controle-de-qualidade-de-amostras">16. Controle de qualidade de amostras</h3>
+<p>Dada uma lista de concentrações de amostras de DNA, conte quantas estão dentro do intervalo aceitável (entre 20 e 200 ng/uL) e calcule a porcentagem de aprovação.</p>
+<!-- ```{python}
+concentracoes = [15.2, 45.0, 210.5, 88.3, 120.0, 19.9, 75.4]
+
+aprovadas = 0
+total = 0
+
+for c in concentracoes:
+    total = total + 1
+    if c >= 20 and c <= 200:
+        aprovadas = aprovadas + 1
+
+percentual = (aprovadas / total) * 100
+print("Amostras aprovadas:", aprovadas, "de", total)
+print("Percentual de aprovação: %.1f%%" % percentual)
+``` -->
+</section>
+<section id="inverter-uma-sequência-de-dna" class="level3">
+<h3 class="anchored" data-anchor-id="inverter-uma-sequência-de-dna">17. Inverter uma sequência de DNA</h3>
+<p>Inverta uma sequência de DNA sem usar slicing reverso (<code>[::-1]</code>).</p>
+<!-- ```{python}
+sequencia = "ATCGGGCTA"
+
+invertida = ""
+i = len(sequencia) - 1
+
+while i >= 0:
+    invertida = invertida + sequencia[i]
+    i = i - 1
+
+print("Original: ", sequencia)
+print("Invertida:", invertida)
+``` -->
+</section>
+<section id="validação-de-sequência" class="level3">
+<h3 class="anchored" data-anchor-id="validação-de-sequência">18. Validação de sequência</h3>
+<p>Verifique se uma sequência contém apenas bases válidas (A, T, C, G). Use uma variável “flag” booleana.</p>
+<!-- ```{python}
+sequencia = "ATCGXTAGC"
+
+valida = True
+
+for base in sequencia:
+    if base != "A" and base != "T" and base != "C" and base != "G":
+        valida = False
+
+if valida:
+    print("Sequência válida")
+else:
+    print("Sequência inválida: contém caracteres não permitidos")
+``` -->
+<hr>
+</section>
+</section>
+<section id="nível-5-while-repetição-de-tamanho-desconhecido" class="level2">
+<h2 class="anchored" data-anchor-id="nível-5-while-repetição-de-tamanho-desconhecido">Nível 5 — <code>while</code> (repetição de tamanho desconhecido)</h2>
+<section id="diluições-até-atingir-um-limite" class="level3">
+<h3 class="anchored" data-anchor-id="diluições-até-atingir-um-limite">19. Diluições até atingir um limite</h3>
+<p>Simule diluições seriadas sucessivas até que a concentração fique abaixo de um limite mínimo de detecção. Como não se sabe de antemão quantas diluições serão necessárias, use <code>while</code>.</p>
+<!-- ```{python}
+concentracao = 5000.0   # ng/uL
+fator_diluicao = 3
+limite_deteccao = 10.0
+
+diluicoes = 0
+
+while concentracao >= limite_deteccao:
+    concentracao = concentracao / fator_diluicao
+    diluicoes = diluicoes + 1
+    print("Diluição", diluicoes, "-> concentração:", round(concentracao, 3), "ng/uL")
+
+print("Número de diluições até ficar abaixo do limite:", diluicoes)
+``` -->
+</section>
+<section id="busca-de-um-motivo-motif-em-uma-sequência" class="level3">
+<h3 class="anchored" data-anchor-id="busca-de-um-motivo-motif-em-uma-sequência">20. Busca de um motivo (motif) em uma sequência</h3>
+<p>Procure a primeira posição em que um pequeno trecho (motif) aparece dentro de uma sequência de DNA. Pare assim que encontrar.</p>
+<!-- ```{python}
+sequencia = "ATCGGGCTAAGCTAGCTTTAGCG"
+motivo = "AGCT"
+
+posicao = 0
+encontrado = False
+
+while posicao <= len(sequencia) - len(motivo) and encontrado == False:
+    trecho = sequencia[posicao:posicao + len(motivo)]
+    if trecho == motivo:
+        encontrado = True
+    else:
+        posicao = posicao + 1
+
+if encontrado:
+    print("Motivo encontrado na posição:", posicao)
+else:
+    print("Motivo não encontrado")
+``` -->
+</section>
+<section id="contagem-de-códons-até-encontrar-um-stop-códon" class="level3">
+<h3 class="anchored" data-anchor-id="contagem-de-códons-até-encontrar-um-stop-códon">21. Contagem de códons até encontrar um stop códon</h3>
+<p>Percorra uma sequência de RNA de 3 em 3 bases (códons) e pare ao encontrar o primeiro códon de parada (UAA, UAG ou UGA), contando quantos códons foram lidos até ali (incluindo o de parada).</p>
+<!-- ```{python}
+rna = "AUGGCCAUGGCUUAGGCC"
+
+posicao = 0
+n_codons = 0
+parou = False
+
+while posicao + 3 <= len(rna) and parou == False:
+    codon = rna[posicao:posicao + 3]
+    n_codons = n_codons + 1
+    if codon == "UAA" or codon == "UAG" or codon == "UGA":
+        parou = True
+    else:
+        posicao = posicao + 3
+
+if parou:
+    print("Stop códon encontrado após", n_codons, "códons")
+else:
+    print("Nenhum stop códon encontrado; total de códons lidos:", n_codons)
+``` -->
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dfa9e29798b7e35d0549a5533169485c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/roteiros/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/roteiros/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../roteiros/input/input.html">Roteiros</a></li><li class="breadcrumb-item"><a href="../roteiros/pratica8.html">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 — Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 — Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 — Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 — Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 — Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 — Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 — Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 — Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 — Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 1<br>Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 2<br>Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 3<br>Redes biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 4<br>Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 5<br>Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 6<br>Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 7<br>Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 8<br>Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 9<br>Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 10<br>Biologia Sintética</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Roteiros</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/input/input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 1: Unix Básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 2: Fundamentos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 4 – Predição de Genes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 5 – Anotação Funcional</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 7 – Quantificação e Normalização de RNA-seq</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica8.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 9 – Redes de Coexpressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 10 – Identificação de Genes de Virulência em Bactérias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 11 – Redes PPI com STRING e Cytoscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 12 – CellDesigner e COPASI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Listas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_fundamentos_logica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios Clássicos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_biotecnologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios de Lógica de Programação para Biotecnologia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Teste</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/teste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teste de funcionalidades - Quarto MD</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - Histórico e Conceitos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
+  <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">2</span> Fluxograma</a></li>
+  <li><a href="#resumo-do-fluxo-de-análise" id="toc-resumo-do-fluxo-de-análise" class="nav-link" data-scroll-target="#resumo-do-fluxo-de-análise"><span class="header-section-number">3</span> Resumo do Fluxo de Análise</a>
+  <ul class="collapse">
+  <li><a href="#fase-1-preparação-e-correlação" id="toc-fase-1-preparação-e-correlação" class="nav-link" data-scroll-target="#fase-1-preparação-e-correlação"><span class="header-section-number">3.1</span> Fase 1: Preparação e Correlação</a></li>
+  <li><a href="#fase-2-construção-da-rede" id="toc-fase-2-construção-da-rede" class="nav-link" data-scroll-target="#fase-2-construção-da-rede"><span class="header-section-number">3.2</span> Fase 2: Construção da Rede</a></li>
+  <li><a href="#fase-3-identificação-de-módulos" id="toc-fase-3-identificação-de-módulos" class="nav-link" data-scroll-target="#fase-3-identificação-de-módulos"><span class="header-section-number">3.3</span> Fase 3: Identificação de Módulos</a></li>
+  <li><a href="#fase-4-hub-genes-e-visualização" id="toc-fase-4-hub-genes-e-visualização" class="nav-link" data-scroll-target="#fase-4-hub-genes-e-visualização"><span class="header-section-number">3.4</span> Fase 4: Hub Genes e Visualização</a></li>
+  <li><a href="#fase-5-interpretação-biológica" id="toc-fase-5-interpretação-biológica" class="nav-link" data-scroll-target="#fase-5-interpretação-biológica"><span class="header-section-number">3.5</span> Fase 5: Interpretação Biológica</a></li>
+  <li><a href="#aplicações-práticas" id="toc-aplicações-práticas" class="nav-link" data-scroll-target="#aplicações-práticas"><span class="header-section-number">3.6</span> Aplicações Práticas</a></li>
+  </ul></li>
+  <li><a href="#parte-1-correlação" id="toc-parte-1-correlação" class="nav-link" data-scroll-target="#parte-1-correlação"><span class="header-section-number">4</span> Parte 1 – Correlação</a>
+  <ul class="collapse">
+  <li><a href="#preparação-dos-dados" id="toc-preparação-dos-dados" class="nav-link" data-scroll-target="#preparação-dos-dados"><span class="header-section-number">4.1</span> Preparação dos Dados</a></li>
+  <li><a href="#construção-da-matriz-de-correlação" id="toc-construção-da-matriz-de-correlação" class="nav-link" data-scroll-target="#construção-da-matriz-de-correlação"><span class="header-section-number">4.2</span> Construção da Matriz de Correlação</a></li>
+  <li><a href="#poder-da-correlação-soft-thresholding" id="toc-poder-da-correlação-soft-thresholding" class="nav-link" data-scroll-target="#poder-da-correlação-soft-thresholding"><span class="header-section-number">4.3</span> Poder da Correlação (<em>Soft-Thresholding</em>)</a></li>
+  </ul></li>
+  <li><a href="#parte-2-rede" id="toc-parte-2-rede" class="nav-link" data-scroll-target="#parte-2-rede"><span class="header-section-number">5</span> Parte 2 – Rede</a>
+  <ul class="collapse">
+  <li><a href="#construção-da-adjacência" id="toc-construção-da-adjacência" class="nav-link" data-scroll-target="#construção-da-adjacência"><span class="header-section-number">5.1</span> Construção da Adjacência</a></li>
+  <li><a href="#transformação-para-matriz-de-dissimilaridade" id="toc-transformação-para-matriz-de-dissimilaridade" class="nav-link" data-scroll-target="#transformação-para-matriz-de-dissimilaridade"><span class="header-section-number">5.2</span> Transformação para Matriz de Dissimilaridade</a></li>
+  <li><a href="#clustering-hierárquico" id="toc-clustering-hierárquico" class="nav-link" data-scroll-target="#clustering-hierárquico"><span class="header-section-number">5.3</span> Clustering Hierárquico</a></li>
+  </ul></li>
+  <li><a href="#parte-3-módulos" id="toc-parte-3-módulos" class="nav-link" data-scroll-target="#parte-3-módulos"><span class="header-section-number">6</span> Parte 3 – Módulos</a>
+  <ul class="collapse">
+  <li><a href="#identificação-de-módulos" id="toc-identificação-de-módulos" class="nav-link" data-scroll-target="#identificação-de-módulos"><span class="header-section-number">6.1</span> Identificação de Módulos</a></li>
+  <li><a href="#fusão-de-módulos-similares" id="toc-fusão-de-módulos-similares" class="nav-link" data-scroll-target="#fusão-de-módulos-similares"><span class="header-section-number">6.2</span> Fusão de Módulos Similares</a></li>
+  <li><a href="#análise-dos-módulos" id="toc-análise-dos-módulos" class="nav-link" data-scroll-target="#análise-dos-módulos"><span class="header-section-number">6.3</span> Análise dos Módulos</a></li>
+  </ul></li>
+  <li><a href="#parte-4-hub-genes" id="toc-parte-4-hub-genes" class="nav-link" data-scroll-target="#parte-4-hub-genes"><span class="header-section-number">7</span> Parte 4 – <em>Hub Genes</em></a>
+  <ul class="collapse">
+  <li><a href="#identificação-de-genes-centrais-hub-genes" id="toc-identificação-de-genes-centrais-hub-genes" class="nav-link" data-scroll-target="#identificação-de-genes-centrais-hub-genes"><span class="header-section-number">7.1</span> Identificação de Genes Centrais (<em>Hub Genes</em>)</a></li>
+  <li><a href="#identificação-de-genes-candidatos" id="toc-identificação-de-genes-candidatos" class="nav-link" data-scroll-target="#identificação-de-genes-candidatos"><span class="header-section-number">7.2</span> Identificação de Genes Candidatos</a></li>
+  <li><a href="#visualização-da-rede" id="toc-visualização-da-rede" class="nav-link" data-scroll-target="#visualização-da-rede"><span class="header-section-number">7.3</span> Visualização da Rede</a></li>
+  </ul></li>
+  <li><a href="#resultados-e-interpretação-biológica" id="toc-resultados-e-interpretação-biológica" class="nav-link" data-scroll-target="#resultados-e-interpretação-biológica"><span class="header-section-number">8</span> Resultados e Interpretação Biológica</a>
+  <ul class="collapse">
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados"><span class="header-section-number">8.1</span> Resultados</a></li>
+  <li><a href="#roteiro-interpretação-biológica" id="toc-roteiro-interpretação-biológica" class="nav-link" data-scroll-target="#roteiro-interpretação-biológica"><span class="header-section-number">8.2</span> Roteiro: Interpretação Biológica</a></li>
+  <li><a href="#perguntas-para-discussão" id="toc-perguntas-para-discussão" class="nav-link" data-scroll-target="#perguntas-para-discussão"><span class="header-section-number">8.3</span> Perguntas para Discussão</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../roteiros/input/input.html">Roteiros</a></li><li class="breadcrumb-item"><a href="../roteiros/pratica8.html">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">25 de agosto de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdução" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
+<p>A análise de redes de coexpressão gênica é uma abordagem poderosa em bioinformática que permite identificar padrões de expressão coordenada entre genes, revelando relações funcionais e regulatórias. O <strong>WGCNA (Weighted Gene Co-expression Network Analysis)</strong> é um dos métodos mais utilizados para esse fim, destacando-se por sua capacidade de:</p>
+<ol type="1">
+<li><strong>Construir redes ponderadas</strong> onde as conexões entre genes são contínuas (não binárias), preservando mais informação biológica</li>
+<li><strong>Identificar módulos</strong> (grupos de genes altamente correlacionados) que geralmente correspondem a vias metabólicas ou processos celulares</li>
+<li><strong>Determinar genes hub</strong> (centrais) que podem ser reguladores chave ou marcadores biológicos</li>
+<li><strong>Correlacionar módulos com fenótipos</strong> para identificar associações genótipo-fenótipo</li>
+</ol>
+<p>A metodologia baseia-se no princípio de que genes com padrões de expressão similares tendem a participar das mesmas vias biológicas ou processos celulares. O WGCNA utiliza correlações pareadas entre todos os genes, transformando-as em uma matriz de adjacência ponderada que preserva a topologia “scale-free” característica de redes biológicas.</p>
+</section>
+<section id="fluxograma" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Fluxograma</h1>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Início da Aula Prática - 4h] --&gt; B[Parte 1: Correlação e Preparação dos Dados - 45min]
+    
+    B --&gt; B1[1.1 Preparação dos Dados - 15min]
+    B1 --&gt; B1a[Carregar pacotes R]
+    B1a --&gt; B1b[Importar dados de expressão]
+    B1b --&gt; B1c[Remover genes com baixa variância]
+    B1c --&gt; B1d[Transpor matriz para formato WGCNA]
+    
+    B --&gt; B2[1.2 Construção da Matriz de Correlação - 15min]
+    B2 --&gt; B2a[Calcular correlações pareadas]
+    B2a --&gt; B2b[Visualizar heatmap da correlação]
+    
+    B --&gt; B3[1.3 Poder da Correlação - 15min]
+    B3 --&gt; B3a[Testar diferentes poderes]
+    B3a --&gt; B3b[Avaliar topologia scale-free]
+    B3b --&gt; B3c[Selecionar poder ótimo]
+    
+    B3c --&gt; C[Parte 2: Construção da Rede - 1h]
+    
+    C --&gt; C1[2.1 Construção da Adjacência - 15min]
+    C1 --&gt; C1a[Calcular adjacência com poder selecionado]
+    C1a --&gt; C1b[Verificar esparsidade da rede]
+    
+    C --&gt; C2[2.2 Transformação para Dissimilaridade - 15min]
+    C2 --&gt; C2a[Calcular matriz TOM]
+    C2a --&gt; C2b[Converter para dissimilaridade]
+    
+    C --&gt; C3[2.3 Clustering Hierárquico - 30min]
+    C3 --&gt; C3a[Realizar clustering baseado na dissimilaridade TOM]
+    C3a --&gt; C3b[Construir dendrograma]
+    
+    C3b --&gt; D[Parte 3: Identificação de Módulos - 1h]
+    
+    D --&gt; D1[3.1 Identificação de Módulos - 25min]
+    D1 --&gt; D1a[Aplicar corte dinâmico de árvore]
+    D1a --&gt; D1b[Atribuir cores aos módulos]
+    D1b --&gt; D1c[Visualizar dendrograma colorido]
+    
+    D --&gt; D2[3.2 Fusão de Módulos Similares - 20min]
+    D2 --&gt; D2a[Calcular eigengenes dos módulos]
+    D2a --&gt; D2b[Correlacionar eigengenes]
+    D2b --&gt; D2c[Mesclar módulos com alta correlação]
+    
+    D --&gt; D3[3.3 Análise dos Módulos - 15min]
+    D3 --&gt; D3a[Listar genes por módulo]
+    D3a --&gt; D3b[Salvar listas de genes]
+    D3b --&gt; D3c[Correlacionar módulos com fenótipos]
+    
+    D3c --&gt; E[Parte 4: Hub Genes e Genes Candidatos - 45min]
+    
+    E --&gt; E1[4.1 Identificação de Hub Genes - 20min]
+    E1 --&gt; E1a[Calcular conectividade intramodular]
+    E1a --&gt; E1b[Calcular module membership]
+    E1b --&gt; E1c[Selecionar top 10 hub genes por módulo]
+    
+    E --&gt; E2[4.2 Identificação de Genes Candidatos - 15min]
+    E2 --&gt; E2a[Aplicar critérios de seleção]
+    E2a --&gt; E2b[Filtrar genes candidatos]
+    
+    E --&gt; E3[4.3 Visualização da Rede - 10min]
+    E3 --&gt; E3a[Extrair sub-rede do módulo alvo]
+    E3a --&gt; E3b[Construir grafo com igraph]
+    E3b --&gt; E3c[Plotar rede com hubs destacados]
+    
+    E3c --&gt; F[Entrega e Discussão - 30min]
+    F --&gt; F1[Compilar resultados]
+    F1 --&gt; F2[Interpretação biológica]
+    F2 --&gt; F3[Análise de enriquecimento funcional]
+    F3 --&gt; F4[Discussão em grupo]
+    F4 --&gt; G[Fim da Aula Prática]
+    
+    style A fill:#4A90E2,color:#fff
+    style G fill:#4A90E2,color:#fff
+    style F fill:#50C878,color:#fff
+    style B fill:#FF6B6B,color:#fff
+    style C fill:#FFA07A,color:#fff
+    style D fill:#FFD700,color:#000
+    style E fill:#9B59B6,color:#fff
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="resumo-do-fluxo-de-análise" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Resumo do Fluxo de Análise</h1>
+<section id="fase-1-preparação-e-correlação" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="fase-1-preparação-e-correlação"><span class="header-section-number">3.1</span> Fase 1: Preparação e Correlação</h2>
+<ul>
+<li><strong>Entrada</strong>: Matriz de expressão gênica (genes × amostras ou amostras × genes).</li>
+<li><strong>Processamento</strong>: Limpeza de dados, remoção de genes com baixa variância, transposição.</li>
+<li><strong>Saída</strong>: Matriz de correlação e poder ótimo para construção da rede.</li>
+</ul>
+</section>
+<section id="fase-2-construção-da-rede" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="fase-2-construção-da-rede"><span class="header-section-number">3.2</span> Fase 2: Construção da Rede</h2>
+<ul>
+<li><strong>Entrada</strong>: Dados de expressão e poder selecionado.</li>
+<li><strong>Processamento</strong>: Cálculo da adjacência, matriz TOM, clustering hierárquico.</li>
+<li><strong>Saída</strong>: Dendrograma e estrutura hierárquica da rede.</li>
+</ul>
+</section>
+<section id="fase-3-identificação-de-módulos" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="fase-3-identificação-de-módulos"><span class="header-section-number">3.3</span> Fase 3: Identificação de Módulos</h2>
+<ul>
+<li><strong>Entrada</strong>: Dendrograma e matriz de dissimilaridade.</li>
+<li><strong>Processamento</strong>: Corte dinâmico, fusão de módulos similares.</li>
+<li><strong>Saída</strong>: Módulos de genes coexpressos com cores associadas.</li>
+</ul>
+</section>
+<section id="fase-4-hub-genes-e-visualização" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="fase-4-hub-genes-e-visualização"><span class="header-section-number">3.4</span> Fase 4: Hub Genes e Visualização</h2>
+<ul>
+<li><strong>Entrada</strong>: Módulos identificados e matriz de adjacência.</li>
+<li><strong>Processamento</strong>: Cálculo de conectividade, seleção de hub genes.</li>
+<li><strong>Saída</strong>: Lista de genes candidatos e visualização da rede.</li>
+</ul>
+</section>
+<section id="fase-5-interpretação-biológica" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="fase-5-interpretação-biológica"><span class="header-section-number">3.5</span> Fase 5: Interpretação Biológica</h2>
+<ul>
+<li><strong>Entrada</strong>: Genes dos módulos e hub genes.</li>
+<li><strong>Processamento</strong>: Análise de enriquecimento funcional.</li>
+<li><strong>Saída</strong>: Hipóteses biológicas e insights funcionais.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceitos-Chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Soft-thresholding power</strong>: Parâmetro que transforma correlações em adjacências, determinando a topologia da rede</p></li>
+<li><p><strong>TOM (Topological Overlap Matrix)</strong>: Medida de similaridade que considera conexões diretas e indiretas</p></li>
+<li><p><strong>Eigengene</strong>: Primeiro componente principal da expressão de um módulo, representando seu padrão de expressão</p></li>
+<li><p><strong>Module Membership (MM)</strong>: Correlação entre a expressão de um gene e o eigengene do módulo</p></li>
+<li><p><strong>Intramodular Connectivity (kWithin)</strong>: Soma das adjacências de um gene com todos os genes do mesmo módulo</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="aplicações-práticas" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="aplicações-práticas"><span class="header-section-number">3.6</span> Aplicações Práticas</h2>
+<ul>
+<li><strong>Descoberta de biomarcadores</strong>: Identificação de genes associados a doenças</li>
+<li><strong>Estudo de vias metabólicas</strong>: Elucidação de redes regulatórias</li>
+<li><strong>Medicina de precisão</strong>: Associação de módulos com fenótipos clínicos</li>
+<li><strong>Biologia de sistemas</strong>: Compreensão da arquitetura regulatória do transcriptoma</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Pré-requisitos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Conhecimento básico de R e RStudio.</li>
+<li>Dados de expressão gênica (matriz de contagens ou valores normalizados, ex: RNA-seq ou microarray).</li>
+<li>Pacotes R instalados: <code>WGCNA</code>, <code>ggplot2</code>, <code>igraph</code>, <code>reshape2</code>, <code>corrplot</code>.</li>
+</ul>
+<section id="instalação-dos-pacotes-antes-da-aula" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="instalação-dos-pacotes-antes-da-aula"><span class="header-section-number">3.7</span> Instalação dos Pacotes (antes da aula)</h2>
+<p><span style="background-color:red;color:white"><strong>VERIFICAR SE EU JÁ TENHO OS ARQUIVOS INSTALADOS NA MÁQUINA VIRTUAL</strong></span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"WGCNA"</span>, <span class="st">"ggplot2"</span>, <span class="st">"igraph"</span>, <span class="st">"reshape2"</span>, <span class="st">"corrplot"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># WGCNA depende de pacotes do Bioconductor</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="fu">c</span>(<span class="st">"impute"</span>, <span class="st">"preprocessCore"</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="parte-1-correlação" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Parte 1 – Correlação</h1>
+<section id="preparação-dos-dados" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="preparação-dos-dados"><span class="header-section-number">4.1</span> Preparação dos Dados</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Carregar os pacotes</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(WGCNA)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Configurações iniciais do WGCNA</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Permite o uso de múltiplos threads (opcional)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">enableWGCNAThreads</span>(<span class="at">nThreads =</span> <span class="dv">4</span>)  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Importar os dados de expressão</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo: matriz com genes nas linhas e amostras nas colunas</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Ou usar dados simulados para demonstração</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>expr_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"expressao_normalizada.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Verificar a estrutura dos dados</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(expr_data)  <span class="co"># Deve ser genes x amostras</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(expr_data[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Opção: Usar dados simulados para teste rápido</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed(123)</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># expr_data &lt;- matrix(rnorm(1000*20, mean=10, sd=2), nrow=1000, ncol=20)</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># rownames(expr_data) &lt;- paste0("Gene", 1:1000)</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># colnames(expr_data) &lt;- paste0("Sample", 1:20)</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Remover genes com baixa variância (opcional, mas recomendado)</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Manter apenas os 5000 genes mais variáveis para reduzir ruído</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">apply</span>(expr_data, <span class="dv">1</span>, var)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>expr_data <span class="ot">&lt;-</span> expr_data[<span class="fu">order</span>(vars, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">min</span>(<span class="dv">5000</span>, <span class="fu">nrow</span>(expr_data))], ]</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Verificar se há muitos dados faltantes (NA)</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Se houver, imputar ou remover</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">is.na</span>(expr_data))) {</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    expr_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(expr_data)</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Removidas linhas com NA. Nova dimensão:"</span>, <span class="fu">dim</span>(expr_data), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Transpor se necessário: WGCNA espera amostras nas linhas e genes nas colunas</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Se seus dados estão genes x amostras, transpose:</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>datExpr <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">t</span>(expr_data))</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Agora: amostras nas linhas, genes nas colunas</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(datExpr)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="construção-da-matriz-de-correlação" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="construção-da-matriz-de-correlação"><span class="header-section-number">4.2</span> Construção da Matriz de Correlação</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calcular a matriz de correlação entre todos os genes</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Método de Pearson (padrão) ou Spearman (para dados não lineares)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(datExpr, <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Visualizar a matriz de correlação (para um subconjunto)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecionar os 50 primeiros genes para visualização</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>cor_subset <span class="ot">&lt;-</span> cor_matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Plotar heatmap da correlação</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(cor_subset, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"color"</span>, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"hclust"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col =</span> <span class="st">"black"</span>, </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.cex =</span> <span class="fl">0.5</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Matriz de Correlação - Top 50 Genes"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Salvar o gráfico</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"correlation_matrix_heatmap.png"</span>, <span class="at">width =</span> <span class="dv">800</span>, <span class="at">height =</span> <span class="dv">800</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(cor_subset, </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"color"</span>, </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">type =</span> <span class="st">"upper"</span>, </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">order =</span> <span class="st">"hclust"</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col =</span> <span class="st">"black"</span>, </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.cex =</span> <span class="fl">0.5</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="poder-da-correlação-soft-thresholding" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="poder-da-correlação-soft-thresholding"><span class="header-section-number">4.3</span> Poder da Correlação (<em>Soft-Thresholding</em>)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Escolher o poder de adjacência (soft-thresholding power)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># WGCNA transforma a correlação em adjacência usando uma função de potência:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjacência = |cor|{#lst:power}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Testar diferentes poderes para encontrar o que torna a rede "scale-free"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>powers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="fu">seq</span>(<span class="dv">12</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="dv">2</span>))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calcular a métrica de scale-free para cada poder</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>sft <span class="ot">&lt;-</span> <span class="fu">pickSoftThreshold</span>(datExpr, </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                         <span class="at">powerVector =</span> powers, </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                         <span class="at">verbose =</span> <span class="dv">5</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Visualizar os resultados</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico 1: R² da scale-free topology vs poder</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sft<span class="sc">$</span>fitIndices[, <span class="dv">1</span>], </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>     <span class="sc">-</span><span class="fu">sign</span>(sft<span class="sc">$</span>fitIndices[, <span class="dv">3</span>]) <span class="sc">*</span> sft<span class="sc">$</span>fitIndices[, <span class="dv">2</span>],</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Soft Threshold (power)"</span>, </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Scale Free Topology Model Fit, R²"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Escolha do Poder para Rede Scale-Free"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"n"</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(sft<span class="sc">$</span>fitIndices[, <span class="dv">1</span>], </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>     <span class="sc">-</span><span class="fu">sign</span>(sft<span class="sc">$</span>fitIndices[, <span class="dv">3</span>]) <span class="sc">*</span> sft<span class="sc">$</span>fitIndices[, <span class="dv">2</span>],</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> powers, </span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar linha de corte (geralmente R² &gt; 0.8)</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">0.8</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Escolher o poder: primeiro valor onde R² &gt; 0.8</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co"># OU o poder que atinge o platô</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>picked_power <span class="ot">&lt;-</span> sft<span class="sc">$</span>powerEstimate</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Poder selecionado:"</span>, picked_power, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="parte-2-rede" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Parte 2 – Rede</h1>
+<section id="construção-da-adjacência" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="construção-da-adjacência"><span class="header-section-number">5.1</span> Construção da Adjacência</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Construir a matriz de adjacência usando o poder selecionado</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A adjacência é uma medida de força da conexão entre genes</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>adjacency <span class="ot">&lt;-</span> <span class="fu">adjacency</span>(datExpr, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">power =</span> picked_power, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">"signed"</span>)  <span class="co"># ou "unsigned"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Verificar a esparsidade da rede</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(adjacency <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">/</span> (<span class="fu">ncol</span>(adjacency)<span class="sc">^</span><span class="dv">2</span>)  <span class="co"># Proporção de conexões não-zero</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores típicos: &lt; 10% para redes esparsas</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Visualizar um subconjunto da matriz de adjacência</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># (apenas os primeiros 30 genes para não sobrecarregar)</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap.2</span>(adjacency[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>],</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"Matriz de Adjacência (Top 30 Genes)"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">trace =</span> <span class="st">"none"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">col =</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>))(<span class="dv">100</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="transformação-para-matriz-de-dissimilaridade" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="transformação-para-matriz-de-dissimilaridade"><span class="header-section-number">5.2</span> Transformação para Matriz de Dissimilaridade</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. WGCNA usa TOM (Topological Overlap Matrix) para medir similaridade</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># TOM considera não apenas conexões diretas, mas também compartilhamento de vizinhos</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>TOM <span class="ot">&lt;-</span> <span class="fu">TOMsimilarity</span>(adjacency, <span class="at">TOMType =</span> <span class="st">"signed"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Converter para dissimilaridade (1 - similaridade)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>dissTOM <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> TOM</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Visualizar a dissimilaridade TOM</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (importante para ver a estrutura da rede)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(dissTOM) <span class="ot">&lt;-</span> <span class="cn">NA</span>  <span class="co"># Remover diagonal para melhor visualização</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap da dissimilaridade TOM</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap.2</span>(dissTOM[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>],</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"Dissimilaridade TOM (Top 100 Genes)"</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">trace =</span> <span class="st">"none"</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">col =</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"white"</span>, <span class="st">"black"</span>))(<span class="dv">100</span>))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="clustering-hierárquico" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="clustering-hierárquico"><span class="header-section-number">5.3</span> Clustering Hierárquico</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Realizar clustering hierárquico baseado na dissimilaridade TOM</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>geneTree <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">as.dist</span>(dissTOM), <span class="at">method =</span> <span class="st">"average"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Plotar o dendrograma completo</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(geneTree, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">""</span>, </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">sub =</span> <span class="st">""</span>, </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Dendrograma de Clustering - Todos os Genes"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">hang =</span> <span class="fl">0.04</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Adicionar a cor dos módulos (faremos na Parte 3)</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># (Por enquanto, apenas para visualização da estrutura)</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Podemos ver que existem clusters naturais</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Salvar o dendrograma</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"dendrograma_completo.pdf"</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">8</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(geneTree, </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">""</span>, </span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">sub =</span> <span class="st">""</span>, </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Dendrograma de Clustering - Todos os Genes"</span>,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>     <span class="at">hang =</span> <span class="fl">0.04</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="parte-3-módulos" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Parte 3 – Módulos</h1>
+<section id="identificação-de-módulos" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="identificação-de-módulos"><span class="header-section-number">6.1</span> Identificação de Módulos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Identificar módulos usando corte dinâmico de árvore</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># O método Dynamic Tree Cut identifica clusters automaticamente</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dynamicMods <span class="ot">&lt;-</span> <span class="fu">cutreeDynamic</span>(<span class="at">dendro =</span> geneTree, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">distM =</span> dissTOM,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                             <span class="at">deepSplit =</span> <span class="dv">2</span>,    <span class="co"># Sensibilidade (1-4)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                             <span class="at">pamRespectsDendro =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                             <span class="at">minClusterSize =</span> <span class="dv">30</span>)  <span class="co"># Tamanho mínimo do módulo</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Ver o número de módulos identificados</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dynamicMods)  <span class="co"># Módulo 0 = genes não atribuídos</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Converter para cores (cada módulo recebe uma cor)</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>dynamicColors <span class="ot">&lt;-</span> <span class="fu">labels2colors</span>(dynamicMods)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dynamicColors)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Plotar o dendrograma com as cores dos módulos</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plotDendroAndColors</span>(geneTree, </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                    dynamicColors,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Módulos Dinâmicos"</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dendroLabels =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hang =</span> <span class="fl">0.03</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">addGuide =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guideHang =</span> <span class="fl">0.05</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Salvar a figura</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"dendrograma_modulos_dinamicos.pdf"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">6</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">plotDendroAndColors</span>(geneTree, </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>                    dynamicColors,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Módulos Dinâmicos"</span>,</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dendroLabels =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hang =</span> <span class="fl">0.03</span>,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>                    <span class="at">addGuide =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guideHang =</span> <span class="fl">0.05</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="fusão-de-módulos-similares" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="fusão-de-módulos-similares"><span class="header-section-number">6.2</span> Fusão de Módulos Similares</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calcular a correlação entre os módulos (usando eigengenes)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>MEList <span class="ot">&lt;-</span> <span class="fu">moduleEigengenes</span>(datExpr, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">colors =</span> dynamicColors, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">softPower =</span> picked_power)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>MEs <span class="ot">&lt;-</span> MEList<span class="sc">$</span>eigengenes</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calcular a correlação entre eigengenes</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>MEDiss <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cor</span>(MEs)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>METree <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">as.dist</span>(MEDiss), <span class="at">method =</span> <span class="st">"average"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Plotar o dendrograma dos módulos</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(METree, </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Dendrograma de Módulos Baseado em Eigengenes"</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">""</span>, </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">sub =</span> <span class="st">""</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Definir um limiar para fusão (geralmente 0.25 ou 0.5)</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Módulos com dissimilaridade &lt; 0.25 (correlação &gt; 0.75) serão mesclados</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>mergeCutHeight <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Mesclar módulos similares</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>merge <span class="ot">&lt;-</span> <span class="fu">mergeCloseModules</span>(datExpr, </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>                           dynamicColors, </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>                           <span class="at">cutHeight =</span> mergeCutHeight, </span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>                           <span class="at">verbose =</span> <span class="dv">3</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Obter as cores dos módulos mesclados</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>mergedColors <span class="ot">&lt;-</span> merge<span class="sc">$</span>colors</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>mergedMEs <span class="ot">&lt;-</span> merge<span class="sc">$</span>newMEs</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Verificar quantos módulos foram mesclados</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mergedColors)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Comparar módulos antes e depois da mesclagem</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="fu">plotDendroAndColors</span>(geneTree, </span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">cbind</span>(dynamicColors, mergedColors),</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="st">"Módulos Dinâmicos"</span>, <span class="st">"Módulos Mesclados"</span>),</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dendroLabels =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hang =</span> <span class="fl">0.03</span>,</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>                    <span class="at">addGuide =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guideHang =</span> <span class="fl">0.05</span>)</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="co"># 9. Salvar a figura</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">"dendrograma_modulos_mesclados.pdf"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">8</span>)</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="fu">plotDendroAndColors</span>(geneTree, </span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">cbind</span>(dynamicColors, mergedColors),</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="st">"Módulos Dinâmicos"</span>, <span class="st">"Módulos Mesclados"</span>),</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dendroLabels =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hang =</span> <span class="fl">0.03</span>,</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>                    <span class="at">addGuide =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guideHang =</span> <span class="fl">0.05</span>)</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="análise-dos-módulos" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="análise-dos-módulos"><span class="header-section-number">6.3</span> Análise dos Módulos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Salvar os genes de cada módulo</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>module_colors <span class="ot">&lt;-</span> <span class="fu">unique</span>(mergedColors)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>module_colors <span class="ot">&lt;-</span> module_colors[module_colors <span class="sc">!=</span> <span class="st">"grey"</span>]  <span class="co"># Remover não atribuídos</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Listar genes por módulo</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>module_genes <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (color <span class="cf">in</span> module_colors) {</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    genes_in_module <span class="ot">&lt;-</span> <span class="fu">colnames</span>(datExpr)[mergedColors <span class="sc">==</span> color]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    module_genes[color](color) <span class="ot">&lt;-</span> genes_in_module</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Módulo"</span>, color, <span class="st">":"</span>, <span class="fu">length</span>(genes_in_module), <span class="st">"genes</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Salvar listas de genes em arquivos</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (color <span class="cf">in</span> <span class="fu">names</span>(module_genes)) {</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(module_genes[color](color), </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">"module_"</span>, color, <span class="st">".txt"</span>),</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                <span class="at">row.names =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.names =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">quote =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Calcular eigengenes finais (representam a expressão do módulo)</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>MEs_final <span class="ot">&lt;-</span> <span class="fu">moduleEigengenes</span>(datExpr, mergedColors)<span class="sc">$</span>eigengenes</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Correlacionar módulos com características clínicas (se disponível)</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo: se tiver dados clínicos (trait_data)</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="co"># trait_cor &lt;- cor(MEs_final, trait_data)</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="co"># pheatmap(trait_cor, main = "Correlação Módulos-Traits")</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="parte-4-hub-genes" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Parte 4 – <em>Hub Genes</em></h1>
+<section id="identificação-de-genes-centrais-hub-genes" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="identificação-de-genes-centrais-hub-genes"><span class="header-section-number">7.1</span> Identificação de Genes Centrais (<em>Hub Genes</em>)</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calcular a conectividade intramodular (kWithin)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># kWithin = soma das adjacências com todos os genes do mesmo módulo</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>kWithin <span class="ot">&lt;-</span> <span class="fu">intramodularConnectivity</span>(adjacency, mergedColors)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calcular a conectividade total (kTotal)</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>kTotal <span class="ot">&lt;-</span> <span class="fu">apply</span>(adjacency, <span class="dv">2</span>, sum)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calcular a proximidade aos eigengenes (module membership)</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># MM = correlação entre a expressão do gene e o eigengene do módulo</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>MM <span class="ot">&lt;-</span> <span class="fu">cor</span>(datExpr, MEs_final, <span class="at">use =</span> <span class="st">"p"</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(MM) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"MM."</span>, <span class="fu">colnames</span>(MEs_final))</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Identificar hub genes de cada módulo</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Hub genes = alta conectividade intramodular + alta MM</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>hub_genes <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (color <span class="cf">in</span> module_colors) {</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Genes do módulo</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    genes_in_mod <span class="ot">&lt;-</span> <span class="fu">colnames</span>(datExpr)[mergedColors <span class="sc">==</span> color]</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Conectividade e MM desses genes</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    k_mod <span class="ot">&lt;-</span> kWithin[genes_in_mod, color]</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    MM_mod <span class="ot">&lt;-</span> MM[genes_in_mod, <span class="fu">paste0</span>(<span class="st">"MM."</span>, color)]</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Combinar em um dataframe</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    hub_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">Gene =</span> genes_in_mod,</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">kWithin =</span> k_mod,</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">MM =</span> MM_mod</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ordenar por conectividade (top hub genes)</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    hub_df <span class="ot">&lt;-</span> hub_df[<span class="fu">order</span>(hub_df<span class="sc">$</span>kWithin, <span class="at">decreasing =</span> <span class="cn">TRUE</span>), ]</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Selecionar top 10</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    hub_genes[color](color) <span class="ot">&lt;-</span> <span class="fu">head</span>(hub_df, <span class="dv">10</span>)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">&lt;mark&gt;= Módulo"</span>, color, <span class="st">" - Top 10 Hub Genes &lt;/mark&gt;=</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(hub_genes[color](color))</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Salvar lista de hub genes</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (color <span class="cf">in</span> <span class="fu">names</span>(hub_genes)) {</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.csv</span>(hub_genes[color](color), </span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>              <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">"hub_genes_"</span>, color, <span class="st">".csv"</span>),</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>              <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="identificação-de-genes-candidatos" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="identificação-de-genes-candidatos"><span class="header-section-number">7.2</span> Identificação de Genes Candidatos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Definir critérios para genes candidatos (ex: associados a traits)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo: se tiver dados de fenótipos</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># gene_significance &lt;- cor(datExpr, phenotype, use = "p")</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Sem dados fenotípicos, usar critérios de conectividade e MM</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Genes candidatos = alta conectividade total + alta MM com módulo de interesse</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Selecionar um módulo de interesse (ex: o maior módulo)</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>target_module <span class="ot">&lt;-</span> module_colors[<span class="fu">which.max</span>(<span class="fu">sapply</span>(module_genes, length))]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Módulo alvo (maior):"</span>, target_module, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Extrair genes candidatos do módulo alvo</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>candidate_genes <span class="ot">&lt;-</span> hub_genes[target_module](target_module)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Critérios adicionais: genes com kTotal &gt; mediana + 2*SD</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>kTotal_median <span class="ot">&lt;-</span> <span class="fu">median</span>(kTotal)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>kTotal_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(kTotal)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>candidate_genes<span class="sc">$</span>is_central <span class="ot">&lt;-</span> candidate_genes<span class="sc">$</span>kWithin <span class="sc">&gt;</span> (kTotal_median <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>kTotal_sd)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Filtrar genes candidatos</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>final_candidates <span class="ot">&lt;-</span> candidate_genes[candidate_genes<span class="sc">$</span>is_central, ]</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Genes candidatos finais:"</span>, <span class="fu">nrow</span>(final_candidates), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(final_candidates)</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Exportar genes candidatos</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(final_candidates, </span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">"candidate_genes_"</span>, target_module, <span class="st">".csv"</span>),</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>          <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="visualização-da-rede" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="visualização-da-rede"><span class="header-section-number">7.3</span> Visualização da Rede</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Selecionar um módulo para visualização (ex: o maior)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>selected_module <span class="ot">&lt;-</span> target_module</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>genes_selected <span class="ot">&lt;-</span> <span class="fu">colnames</span>(datExpr)[mergedColors <span class="sc">==</span> selected_module]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Extrair sub-rede</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>adj_sub <span class="ot">&lt;-</span> adjacency[genes_selected, genes_selected]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Usar o igraph para visualização</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar grafo</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>graph <span class="ot">&lt;-</span> <span class="fu">graph_from_adjacency_matrix</span>(adj_sub, </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">mode =</span> <span class="st">"undirected"</span>, </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">weighted =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">diag =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Simplificar (remover múltiplas arestas)</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>graph <span class="ot">&lt;-</span> <span class="fu">simplify</span>(graph)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir tamanho dos vértices baseado na conectividade</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(graph)<span class="sc">$</span>size <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">degree</span>(graph) <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir cor dos vértices baseado no módulo</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(graph)<span class="sc">$</span>color <span class="ot">&lt;-</span> selected_module</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotar a rede</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(graph, </span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.label =</span> <span class="cn">NA</span>,  <span class="co"># Ocultar labels para não poluir</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.size =</span> <span class="fu">V</span>(graph)<span class="sc">$</span>size,</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.color =</span> <span class="fu">V</span>(graph)<span class="sc">$</span>color,</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.width =</span> <span class="fu">E</span>(graph)<span class="sc">$</span>weight <span class="sc">*</span> <span class="dv">5</span>,</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.color =</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.3</span>),</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Rede de Coexpressão - Módulo"</span>, selected_module),</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>     <span class="at">layout =</span> <span class="fu">layout_with_fr</span>(graph))</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Visualizar hub genes destacados</span></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar hub genes no grafo</span></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>hub_gene_names <span class="ot">&lt;-</span> hub_genes[selected_module](selected_module)<span class="sc">$</span>Gene[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Destacar hub genes</span></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(graph)<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">V</span>(graph)<span class="sc">$</span>name <span class="sc">%in%</span> hub_gene_names, </span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"red"</span>, selected_module)</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(graph)<span class="sc">$</span>size <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">V</span>(graph)<span class="sc">$</span>name <span class="sc">%in%</span> hub_gene_names, </span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>                         <span class="dv">10</span>, <span class="fu">V</span>(graph)<span class="sc">$</span>size)</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotar com hubs destacados</span></span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(graph, </span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.label =</span> <span class="fu">ifelse</span>(<span class="fu">V</span>(graph)<span class="sc">$</span>name <span class="sc">%in%</span> hub_gene_names, </span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">V</span>(graph)<span class="sc">$</span>name, <span class="cn">NA</span>),</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.label.cex =</span> <span class="fl">0.8</span>,</span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.size =</span> <span class="fu">V</span>(graph)<span class="sc">$</span>size,</span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.color =</span> <span class="fu">V</span>(graph)<span class="sc">$</span>color,</span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.width =</span> <span class="fu">E</span>(graph)<span class="sc">$</span>weight <span class="sc">*</span> <span class="dv">3</span>,</span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.color =</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>),</span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Hub Genes em Destaque - Módulo"</span>, selected_module),</span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>     <span class="at">layout =</span> <span class="fu">layout_with_fr</span>(graph))</span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Salvar a figura</span></span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="fu">paste0</span>(<span class="st">"network_module_"</span>, selected_module, <span class="st">".pdf"</span>), <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(graph, </span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.label =</span> <span class="fu">ifelse</span>(<span class="fu">V</span>(graph)<span class="sc">$</span>name <span class="sc">%in%</span> hub_gene_names, </span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">V</span>(graph)<span class="sc">$</span>name, <span class="cn">NA</span>),</span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.label.cex =</span> <span class="fl">0.8</span>,</span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.size =</span> <span class="fu">V</span>(graph)<span class="sc">$</span>size,</span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>     <span class="at">vertex.color =</span> <span class="fu">V</span>(graph)<span class="sc">$</span>color,</span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.width =</span> <span class="fu">E</span>(graph)<span class="sc">$</span>weight <span class="sc">*</span> <span class="dv">3</span>,</span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>     <span class="at">edge.color =</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>),</span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Hub Genes em Destaque - Módulo"</span>, selected_module),</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>     <span class="at">layout =</span> <span class="fu">layout_with_fr</span>(graph))</span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="resultados-e-interpretação-biológica" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Resultados e Interpretação Biológica</h1>
+<section id="resultados" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="resultados"><span class="header-section-number">8.1</span> Resultados</h2>
+<ol type="1">
+<li><strong>Figura da Rede</strong>
+<ul>
+<li>Arquivo PDF/PNG da rede de coexpressão do módulo principal.</li>
+<li>Hub genes destacados em vermelho.</li>
+</ul></li>
+<li><strong>Lista de Hub Genes</strong>
+<ul>
+<li>Tabela com top 10 hub genes por módulo.</li>
+<li>Conectividade intramodular (kWithin) e Module Membership (MM).</li>
+</ul></li>
+<li><strong>Lista de Genes Candidatos</strong>
+<ul>
+<li>Genes com alta conectividade e relevância biológica.</li>
+<li>Justificativa para seleção.</li>
+</ul></li>
+<li><strong>Interpretação Biológica</strong>
+<ul>
+<li>Análise funcional dos módulos (usando ferramentas como DAVID, Enrichr).</li>
+<li>Significado biológico dos hub genes.</li>
+<li>Hipóteses geradas a partir da análise.</li>
+</ul></li>
+</ol>
+</section>
+<section id="roteiro-interpretação-biológica" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="roteiro-interpretação-biológica"><span class="header-section-number">8.2</span> Roteiro: Interpretação Biológica</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Exportar genes dos módulos para análise de enriquecimento</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (color <span class="cf">in</span> <span class="fu">names</span>(module_genes)) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">writeLines</span>(module_genes[color](color), </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">paste0</span>(<span class="st">"module_genes_"</span>, color, <span class="st">".txt"</span>))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Análise de enriquecimento funcional (usando clusterProfiler)</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalar se necessário</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># BiocManager::install("clusterProfiler")</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(clusterProfiler)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(org.Hs.eg.db)  <span class="co"># Para humanos; use org.Mm.eg.db para camundongo</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo para o módulo alvo</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>genes_for_enrich <span class="ot">&lt;-</span> module_genes[target_module](target_module)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Converter para IDs Entrez (se necessário)</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Nota: Isso requer que os genes estejam no formato correto</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co"># gene_ids &lt;- bitr(genes_for_enrich, </span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="co">#                  fromType = "SYMBOL", </span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="co">#                  toType = "ENTREZID", </span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co">#                  OrgDb = org.Hs.eg.db)</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Enriquecimento GO</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="co"># go_enrich &lt;- enrichGO(gene = gene_ids$ENTREZID,</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="co">#                       OrgDb = org.Hs.eg.db,</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="co">#                       ont = "BP",</span></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="co">#                       pAdjustMethod = "BH",</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="co">#                       pvalueCutoff = 0.05,</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="co">#                       qvalueCutoff = 0.10)</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar resultados</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="co"># dotplot(go_enrich, showCategory = 20)</span></span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot(go_enrich, showCategory = 20)</span></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Salvar resultados de enriquecimento</span></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv(as.data.frame(go_enrich), </span></span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a><span class="co">#           file = paste0("enrichment_module_", target_module, ".csv"))</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="perguntas-para-discussão" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="perguntas-para-discussão"><span class="header-section-number">8.3</span> Perguntas para Discussão</h2>
+<ol type="1">
+<li><p><strong>Quais módulos estão mais associados a fenótipos de interesse?</strong> (se dados clínicos disponíveis)</p></li>
+<li><p><strong>Os hub genes identificados são conhecidos na literatura?</strong> (ex: fatores de transcrição, oncogenes, etc.)</p></li>
+<li><p><strong>Qual a relevância biológica dos genes candidatos?</strong></p>
+<ul>
+<li>Estão envolvidos em vias de sinalização específicas?</li>
+<li>São alvos de medicamentos?</li>
+<li>Têm papel em doenças?</li>
+</ul></li>
+<li><p><strong>Como a rede de coexpressão pode gerar novas hipóteses?</strong></p>
+<ul>
+<li>Genes com funções desconhecidas podem ser estudados.</li>
+<li>Módulos específicos de condições podem ser alvos terapêuticos.</li>
+</ul></li>
+</ol>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Dicas Finais para os Alunos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Documentação:</strong> Consulte o manual do WGCNA: <code>vignette("WGCNA")</code></p></li>
+<li><p><strong>Parâmetros:</strong> Experimente diferentes valores de <code>softPower</code>, <code>deepSplit</code> e <code>minClusterSize</code> para ver como afetam os resultados.</p></li>
+<li><p><strong>Interpretação:</strong> A análise de rede é uma ferramenta exploratória. Os resultados devem ser validados experimentalmente.</p></li>
+<li><p><strong>Visualização:</strong> Use ferramentas como Cytoscape para visualizações mais sofisticadas da rede.</p></li>
+<li><p><strong>Publicação:</strong> Para publicar, inclua:</p>
+<ul>
+<li>Parâmetros usados (power, minClusterSize).</li>
+<li>Estatísticas da rede (número de módulos, tamanho).</li>
+<li>Lista de hub genes e suas funções.</li>
+<li>Análise de enriquecimento funcional.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
