@@ -1,0 +1,41 @@
+.process-container {
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  /* Formato da seta encaixada */
+  clip-path: polygon(0% 0%, calc(100% - 25px) 0%, 100% 50%, calc(100% - 25px) 100%, 0% 100%, 25px 50%);
+  padding: 25px 15px 20px 35px;
+  color: white;
+  margin-right: -20px; /* Sobrepõe as setas levemente */
+  font-family: sans-serif;
+}
+
+/* Ajuste da primeira seta para não ter o recorte na esquerda */
+.step-1 {
+  clip-path: polygon(0% 0%, calc(100% - 25px) 0%, 100% 50%, calc(100% - 25px) 100%, 0% 100%);
+  padding-left: 20px;
+  background-color: #0b4da2;
+}
+
+/* Gradiente de tons de azul idêntico ao original */
+.step-2 { background-color: #1a60c2; }
+.step-3 { background-color: #2173e8; }
+.step-4 { background-color: #2684ff; }
+
+/* Texto abaixo da faixa colorida */
+.step-desc {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 25px 15px 0 15px;
+  color: #333333;
+  font-size: 0.6em;
+  line-height: 1.3;
+}

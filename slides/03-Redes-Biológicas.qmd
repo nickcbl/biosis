@@ -51,7 +51,7 @@ __Redes biológicas__
 
 Redes de telecomunicações
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_0.png)
+![](img/03-Redes-Biol%C3%B3gicas_0.png)
 
 
 ---
@@ -67,7 +67,7 @@ Algum exemplo?
 
 # Rede de predação: Carnaúba por inseto
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_1.png)
+![](img/03-Redes-Biol%C3%B3gicas_1.png)
 
 
 ---
@@ -99,7 +99,7 @@ São dados sobre animais\, plantas\, microorganismos\, genes\, proteínas\, regu
 
 Dependendo do tipo de dado e das relações podemos ter diferentes tipos de redes biológicas\.
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_2.png)
+![](img/03-Redes-Biol%C3%B3gicas_2.png)
 
 Jeong et al\. Nature 2001\. 411 \( _[link](https://www.ebi.ac.uk/training/online/course/network-analysis-protein-interaction-data-introduction/references)_ \) and Rual et al\. Nature 2005: 437 \( _[link](https://www.ebi.ac.uk/training/online/course/network-analysis-protein-interaction-data-introduction/references)_ \)\.
 
@@ -109,7 +109,7 @@ Jeong et al\. Nature 2001\. 411 \( _[link](https://www.ebi.ac.uk/training/online
 
 # Redes Metabólicas
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_3.png)
+![](img/03-Redes-Biol%C3%B3gicas_3.png)
 
 __É o conjunto completo de processos metabólicos:__
 
@@ -135,11 +135,11 @@ Zhang\, Cheng & Hua\, Qiang\. \(2015\)\. Applications of Genome\-Scale Metabolic
   * Codificar proteínas do mesmo complexo proteico\.
 
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_4.png)
+![](img/03-Redes-Biol%C3%B3gicas_4.png)
 
-__Human gene co\-expression landscape: confident network derived from tissue transcriptomic profiles__  __ __
+__Human gene co\-expression landscape: confident network derived from tissue transcriptomic profiles__
 
-__Carlos PRIETO__  __\*__  __\, Alberto RISUENO\, Celia FONTANILLO and Javier DE LAS RIVAS__
+__Carlos PRIETO, Alberto RISUENO, Celia FONTANILLO and Javier DE LAS RIVAS__
 
 
 ---

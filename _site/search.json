@@ -3639,5 +3639,82 @@
       "Teste",
       "01 - Histórico e Conceitos"
     ]
+  },
+  {
+    "objectID": "slides/01-Historico-e-Conceitos.html#título-do-slide",
+    "href": "slides/01-Historico-e-Conceitos.html#título-do-slide",
+    "title": "01  Histórico e Conceitos",
+    "section": "Título do Slide",
+    "text": "Título do Slide\n\n\nExperimentos\n\n\nBancos de dados\n\n\nLiteratura\n\n\n\n\nAbordagem holista para o estudo de sistemas biológicos\n\nHolismo é a ideia de que as propriedades de um sistema, quer se trate de seres humanos ou outros organismos, não podem ser explicadas apenas pela soma dos seus componentes. O sistema como um todo determina como se comportam as partes."
+  },
+  {
+    "objectID": "slides/01-Historico-e-Conceitos.html#fluxo-de-análise",
+    "href": "slides/01-Historico-e-Conceitos.html#fluxo-de-análise",
+    "title": "01  Histórico e Conceitos",
+    "section": "Fluxo de Análise",
+    "text": "Fluxo de Análise\n\n\nSequenciamento\n\n\nMontagem\n\n\nPredição Gênica\n\n\nAnotação Funcional\n\n\nO holismo, conceito proposto por Jan Christiaan Smuts, sustenta que as propriedades de um sistema não podem ser explicadas apenas pela soma de suas partes, pois o todo influencia o comportamento de cada componente (SMUTS, 1926)."
+  },
+  {
+    "objectID": "slides/01-Historico-e-Conceitos.html#fluxo-de-análise-1",
+    "href": "slides/01-Historico-e-Conceitos.html#fluxo-de-análise-1",
+    "title": "01  Histórico e Conceitos",
+    "section": "Fluxo de Análise",
+    "text": "Fluxo de Análise\n\n\nSequenciamento\n\n\nMontagem\n\n\nPredição Gênica\n\n\nAnotaçãoFuncional\n\n\nO holismo, conceito proposto por Jan Christiaan Smuts, sustenta que as propriedades de um sistema não podem ser explicadas apenas pela soma de suas partes, pois o todo influencia o comportamento de cada componente (SMUTS, 1926)."
+  },
+  {
+    "objectID": "slides/01-Historico-e-Conceitos.html#fluxo-de-cu",
+    "href": "slides/01-Historico-e-Conceitos.html#fluxo-de-cu",
+    "title": "01  Histórico e Conceitos",
+    "section": "Fluxo de Cu",
+    "text": "Fluxo de Cu\n\n\nSequenciamento\n\n\nMontagem\n\n\nPredição Gênica\n\n\nAnotaçãoFuncional"
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#título-do-slide",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#título-do-slide",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "Título do Slide",
+    "text": "Título do Slide\n\n\nExperimentos\n\n\nBancos de dados\n\n\nLiteratura"
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#fluxo-de-análise",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#fluxo-de-análise",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "Fluxo de Análise",
+    "text": "Fluxo de Análise\n\n\nSequenciamento\n\n\nMontagem\n\n\nPredição Gênica\n\n\nAnotação Funcional\n\n\nAnotação Funcional\nObtenção da sequência de DNA do organismo de interesse.\nReconstituição da molécula de DNA inicial da maneira mais contínua e fidedigna possível.\nBusca pelas porções codificantes do genoma.Pode-ser fazer também a predição de outros elementos funcionais.\nDesigna a função dos genes."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#dna-rightarrow-genes",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#dna-rightarrow-genes",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "DNA \\(\\rightarrow\\) Genes",
+    "text": "DNA \\(\\rightarrow\\) Genes\n\n\n::: {.chevron .step-1} Sequenciamento ::: ::: {.step-desc} Obtenção da sequência de DNA do organismo de interesse. :::\n\n\n::: {.chevron .step-2} Montagem ::: ::: {.step-desc} Reconstituição da molécula de DNA inicial da maneira mais contínua e fidedigna possível. :::\n\n\n::: {.chevron .step-3} Predição Gênica ::: ::: {.step-desc} Busca pelas porções codificantes do genoma. Pode-se fazer também a predição de outros elementos funcionais. :::\n\n\n::: {.chevron .step-4} Anotação Funcional ::: ::: {.step-desc} Designa a função dos genes. :::"
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#rna-seq-vs.-microarranjos-para-biologia-de-sistemas",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#rna-seq-vs.-microarranjos-para-biologia-de-sistemas",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "RNA-Seq vs. Microarranjos para Biologia de Sistemas",
+    "text": "RNA-Seq vs. Microarranjos para Biologia de Sistemas\n\n\n\n\n\n\n\n\n\nCaracterística\nMicroarranjo de DNA (Gene Chip)\nRNA-Sequenciamento (RNA-Seq)\nImplicação para a Biologia de Sistemas\n\n\n\n\nPrincípio Fundamental\nHibridização de sequências complementares. Moléculas de RNA são marcadas com fluorescência e hibridizam com sondas fixadas em uma lâmina.\nSequenciamento de nova geração (NGS). As moléculas de RNA são convertidas em cDNA e sequenciadas diretamente, gerando “leituras” (reads).\nRNA-Seq é uma medida direta (sequência), Microarranjo é uma medida indireta (hibridização). Isso afeta a confiança nos dados para a construção de modelos.\n\n\nPré-requisito de Conhecimento\nRequer conhecimento prévio do genoma. Sondas são projetadas para genes/transcritos conhecidos ou previstos.\nNão requer conhecimento prévio do genoma (descoberta). Pode identificar transcritos novos, variantes de splicing, fusões gênicas.\nRNA-Seq é superior para sistemas não-modelo ou para descobrir nova biologia (e.g., novas isoformas que podem ser componentes críticos de uma rede).\n\n\nFaixa Dinâmica\nLimitada. Sofre de saturação de sinal para genes altamente expressos e baixa sensibilidade para genes de baixa expressão.\nMuito ampla. Capaz de quantificar desde transcritos muito abundantes até raros sem saturação.\nCrucial para modelar redes regulatórias. Fatores de transcrição (baixa expressão) são frequentemente chave nos modelos, e o RNA-Seq os detecta melhor."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#tabela-comparativa-rna-seq-vs.-microarranjos-para-biologia-de-sistemas",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#tabela-comparativa-rna-seq-vs.-microarranjos-para-biologia-de-sistemas",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "Tabela Comparativa RNA-Seq vs. Microarranjos para Biologia de Sistemas",
+    "text": "Tabela Comparativa RNA-Seq vs. Microarranjos para Biologia de Sistemas\n\n\n\n\n\n\n\n\n\nCaracterística\nMicroarranjo de DNA (Gene Chip)\nRNA-Sequenciamento (RNA-Seq)\nImplicação para a Biologia de Sistemas\n\n\n\n\nPrincípio Fundamental\nHibridização de sequências complementares. Moléculas de RNA são marcadas com fluorescência e hibridizam com sondas fixadas em uma lâmina.\nSequenciamento de nova geração (NGS). As moléculas de RNA são convertidas em cDNA e sequenciadas diretamente, gerando “leituras” (reads).\nRNA-Seq é uma medida direta (sequência), Microarranjo é uma medida indireta (hibridização). Isso afeta a confiança nos dados para a construção de modelos.\n\n\nPré-requisito de Conhecimento\nRequer conhecimento prévio do genoma. Sondas são projetadas para genes/transcritos conhecidos ou previstos.\nNão requer conhecimento prévio do genoma (descoberta). Pode identificar transcritos novos, variantes de splicing, fusões gênicas.\nRNA-Seq é superior para sistemas não-modelo ou para descobrir nova biologia (e.g., novas isoformas que podem ser componentes críticos de uma rede).\n\n\nFaixa Dinâmica\nLimitada. Sofre de saturação de sinal para genes altamente expressos e baixa sensibilidade para genes de baixa expressão.\nMuito ampla. Capaz de quantificar desde transcritos muito abundantes até raros sem saturação.\nCrucial para modelar redes regulatórias. Fatores de transcrição (baixa expressão) são frequentemente chave nos modelos, e o RNA-Seq os detecta melhor."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#section",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#section",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": ".",
+    "text": ".\nRNA-Seq vs. Microarranjos para Biologia de Sistemas\n\n\n\n\n\n\n\n\n\nCaracterística\nMicroarranjo de DNA (Gene Chip)\nRNA-Sequenciamento (RNA-Seq)\nImplicação para a Biologia de Sistemas\n\n\n\n\nPrincípio Fundamental\nHibridização de sequências complementares. Moléculas de RNA são marcadas com fluorescência e hibridizam com sondas fixadas em uma lâmina.\nSequenciamento de nova geração (NGS). As moléculas de RNA são convertidas em cDNA e sequenciadas diretamente, gerando “leituras” (reads).\nRNA-Seq é uma medida direta (sequência), Microarranjo é uma medida indireta (hibridização). Isso afeta a confiança nos dados para a construção de modelos.\n\n\nPré-requisito de Conhecimento\nRequer conhecimento prévio do genoma. Sondas são projetadas para genes/transcritos conhecidos ou previstos.\nNão requer conhecimento prévio do genoma (descoberta). Pode identificar transcritos novos, variantes de splicing, fusões gênicas.\nRNA-Seq é superior para sistemas não-modelo ou para descobrir nova biologia (e.g., novas isoformas que podem ser componentes críticos de uma rede).\n\n\nFaixa Dinâmica\nLimitada. Sofre de saturação de sinal para genes altamente expressos e baixa sensibilidade para genes de baixa expressão.\nMuito ampla. Capaz de quantificar desde transcritos muito abundantes até raros sem saturação.\nCrucial para modelar redes regulatórias. Fatores de transcrição (baixa expressão) são frequentemente chave nos modelos, e o RNA-Seq os detecta melhor."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#rna-seq-vs-microarranjo",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#rna-seq-vs-microarranjo",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "RNA-seq vs Microarranjo",
+    "text": "RNA-seq vs Microarranjo\n\n\n\n\n\n\n\n\n\nCaracterística\nMicroarranjo de DNA (Gene Chip)\nRNA-Sequenciamento (RNA-Seq)\nImplicação para a Biologia de Sistemas\n\n\n\n\nPrincípio Fundamental\nHibridização de sequências complementares. Moléculas de RNA são marcadas com fluorescência e hibridizam com sondas fixadas em uma lâmina.\nSequenciamento de nova geração (NGS). As moléculas de RNA são convertidas em cDNA e sequenciadas diretamente, gerando “leituras” (reads).\nRNA-Seq é uma medida direta (sequência), Microarranjo é uma medida indireta (hibridização). Isso afeta a confiança nos dados para a construção de modelos.\n\n\nPré-requisito de Conhecimento\nRequer conhecimento prévio do genoma. Sondas são projetadas para genes/transcritos conhecidos ou previstos.\nNão requer conhecimento prévio do genoma (descoberta). Pode identificar transcritos novos, variantes de splicing, fusões gênicas.\nRNA-Seq é superior para sistemas não-modelo ou para descobrir nova biologia (e.g., novas isoformas que podem ser componentes críticos de uma rede).\n\n\nFaixa Dinâmica\nLimitada. Sofre de saturação de sinal para genes altamente expressos e baixa sensibilidade para genes de baixa expressão.\nMuito ampla. Capaz de quantificar desde transcritos muito abundantes até raros sem saturação.\nCrucial para modelar redes regulatórias. Fatores de transcrição (baixa expressão) são frequentemente chave nos modelos, e o RNA-Seq os detecta melhor."
   }
 ]

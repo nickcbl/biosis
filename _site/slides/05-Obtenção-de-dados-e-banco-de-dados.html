@@ -7,11 +7,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
-  <meta name="author" content="Author">
-  <title>CI0932 - Biologia de Sistemas – Presentation Title</title>
+  <meta name="author" content="Nicholas Barroso">
+  <title>CI0932 - Biologia de Sistemas – 05 - Obtenção de dados e bancos de dados</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -33,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-89d05c9c7f8a0a1d591afc160e5fe99d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -125,10 +128,10 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
+<meta property="og:title" content="05 - Obtenção de dados e bancos de dados – CI0932 - Biologia de Sistemas">
 <meta property="og:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
 <meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
-<meta name="twitter:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="05 - Obtenção de dados e bancos de dados – CI0932 - Biologia de Sistemas">
 <meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -137,353 +140,297 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Presentation Title</h1>
+  <h1 class="title">05 - Obtenção de dados e bancos de dados</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author 
+Nicholas Barroso
 </div>
 </div>
 </div>
 
 </section>
-<section id="biologia-de-sistemas" class="title-slide slide level1 center">
-<h1>Biologia de Sistemas</h1>
-
+<section id="antes-de-gerar-as-redes" class="title-slide slide level1 center">
+<h1>Antes de gerar as redes</h1>
+<p>Precisamos obter os dados porque:</p>
+<ul>
+<li>Precisamos saber quais, quantos e qual a relação entre os <span style="color:#00589b; font-weight:bold;">elementos biológicos</span>.</li>
+</ul>
 </section>
 
-<section>
-<section id="obtenção-de-dados-e-banco-de-dados" class="title-slide slide level1 center">
-<h1>05 - Obtenção de dados e banco de dados</h1>
-
+<section id="que-dados-são-esses" class="title-slide slide level1 center">
+<h1>Que dados são esses?</h1>
+<ul>
+<li>Dados ômicos de conjuntos completos de DNA, RNA, Proteínas, Metabólitos.</li>
+<li>Anotação funcional de genes
+<ul>
+<li>EC number</li>
+<li>Domínio funcionais</li>
+</ul></li>
+<li>Transcritos
+<ul>
+<li>Qualitativo: o que é?</li>
+<li>Quantitativo: quanto de cada.</li>
+</ul></li>
+<li>Interação de proteínas
+<ul>
+<li>Proteínas</li>
+<li>Ácidos Nucleicos</li>
+</ul></li>
+<li>Dados de associação à doenças.</li>
+</ul>
 </section>
-<section class="slide level2">
 
-<p><strong>P</strong> <strong>recisamos saber quais, quantos e qual a relação entre os </strong> <strong>elementos biológicos</strong> <strong>.</strong></p>
-</section></section>
-<section>
-<section id="antes-de-gerar-as-redes-precisamos-obter-os-dados-porque" class="title-slide slide level1 center">
-<h1>Antes de gerar as redes, precisamos obter os dados porque:</h1>
+<section id="podemos-obter-os-dados-por" class="title-slide slide level1 center">
+<h1>Podemos obter os dados por:</h1>
+<!-- Aqui faz a mesma coisa que o código acima, mas com uma formatação diferente. -->
+<!-- ::: {.callout-note appearance="minimal" icon=false style="background-color: #005689; color: white; text-align: center;"}
+Experimentos
+:::
 
+::: {.callout-note appearance="minimal" icon=false style="background-color: #00873e; color: white; text-align: center;"}
+Bancos de dados
+:::
+
+::: {.callout-note appearance="minimal" icon=false style="background-color: #e67e15; color: white; text-align: center;"}
+Literatura
+::: -->
+<div style="display: flex; flex-direction: column; gap: 15px; width: 60%; margin: 2em auto;">
+<div style="background-color: #005689; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<p>Experimentos</p>
+</div>
+<div style="background-color: #00873e; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<p>Bancos de dados</p>
+</div>
+<div style="background-color: #e67e15; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<p>Literatura</p>
+</div>
+</div>
 </section>
-<section class="slide level2">
 
-</section></section>
+<section id="dna-rightarrow-genes" class="title-slide slide level1 center">
+<h1>DNA <span class="math inline">\(\rightarrow\)</span> Genes</h1>
+<div style="display: flex; width: 100%; margin: 2.5em auto; justify-content: center; align-items: center;">
+<div style="flex: 1; background-color: #0b45a6; color: white; min-height: 90px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em; text-align: center; clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%); padding-right: 15px;">
+<p>Sequenciamento</p>
+</div>
+<div style="flex: 1; background-color: #0d59cf; color: white; min-height: 90px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em; text-align: center; margin-left: -3.2%; clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%, 15% 50%); padding-left: 20px; padding-right: 15px;">
+<p>Montagem</p>
+</div>
+<div style="flex: 1; background-color: #126cf0; color: white; min-height: 90px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em; text-align: center; margin-left: -3.2%; clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%, 15% 50%); padding-left: 20px; padding-right: 15px;">
+<p>Predição Gênica</p>
+</div>
+<div style="flex: 1; background-color: #187cff; color: white; min-height: 90px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8em; text-align: center; margin-left: -3.2%; clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%, 15% 50%); padding-left: 20px; padding-right: 15px;">
+<p>Anotação Funcional</p>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p>Obtenção da sequência de DNA do organismo de interesse.</p>
+</div><div class="column" style="width:25%;">
+<p>Reconstituição da molécula de DNA inicial da maneira mais contínua e fidedigna possível.</p>
+</div><div class="column" style="width:25%;">
+<p>Busca pelas porções codificantes do genoma.Pode-ser fazer também a predição de outros elementos funcionais.</p>
+</div><div class="column" style="width:25%;">
+<p>Designa a função dos genes.</p>
+</div></div>
+</section>
+
+<section id="dna-genes-cont." class="title-slide slide level1 center">
+<h1>DNA ⟶ Genes (cont.)</h1>
+<div style="display: flex; width: 100%; margin: 2.5em auto; justify-content: flex-start; align-items: center;">
+<div style="flex: 1; max-width: 25%; background-color: #0b45a6; color: white; min-height: 90px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9em; text-align: center; clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%); padding-right: 15px;">
+<p>Sequenciamento</p>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Sequenciadores</strong><br> Mais frequentemente das empresas:</p>
+<ul>
+<li>Illumina</li>
+<li>MGI</li>
+<li>PacBio</li>
+<li>Nanopore</li>
+<li>Element Biosciences</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Leituras</strong><br></p>
+<p>A diferença está no método de detecção:</p>
+<ul>
+<li>Curtas</li>
+<li>Longas</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Tipo de sequenciamento</strong><br></p>
+<ul>
+<li>Sequenciamento por síntese</li>
+<li>Sequenciamento em tempo real</li>
+<li>Sequenciamento em nanoporo (não envolve síntese)</li>
+</ul>
+</div></div>
+</section>
+
+<section id="microarranjos---microarray" class="title-slide slide level1 center">
+<h1>Microarranjos - Microarray</h1>
+
+<img data-src="img/05-Obtenção-de-dados-e-banco-de-dados_0.png" class="r-stretch quarto-figure-center"><p class="caption">https://microbenotes.com/dna-microarray/</p></section>
+
+<section id="microarranjos---microarray-cont." class="title-slide slide level1 center">
+<h1>Microarranjos - Microarray (cont.)</h1>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Extração de RNA</li>
+<li>Seleção de mRNA</li>
+<li>Transcrição reversa</li>
+<li>Pode ser fragmentado, ou não</li>
+<li>Ligação de fluoróforo</li>
+<li>Hibridização</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/05-Obtenção-de-dados-e-banco-de-dados_1.png"></p>
+<figcaption>Imagem: Wikipedia</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="rna-seq" class="title-slide slide level1 center">
+<h1>RNA-seq</h1>
+
+<img data-src="img/05-Obtenção-de-dados-e-banco-de-dados_4.png" class="r-stretch quarto-figure-center"><p class="caption">Imagem: Wikipedia</p></section>
+
+<section id="rna-seq-vs-microarranjo-parte-1-técnico" class="title-slide slide level1 smaller center">
+<h1>RNA-seq <em>vs</em> Microarranjo (Parte 1: Técnico)</h1>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Característica</th>
+<th style="text-align: center;">Microarranjo de DNA</th>
+<th style="text-align: center;">RNA-Seq</th>
+<th style="text-align: center;">Implicação (Biologia de Sistemas)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Princípio</strong></td>
+<td style="text-align: center;">Hibridização por fluorescência (indireto).</td>
+<td style="text-align: center;">Sequenciamento direto (NGS, reads).</td>
+<td style="text-align: center;">RNA-Seq oferece maior confiança nos dados.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Conhecimento Prévio</strong></td>
+<td style="text-align: center;">Requer genoma/sondas conhecidas.</td>
+<td style="text-align: center;">Não requer (descoberta de transcritos novos/isoformas).</td>
+<td style="text-align: center;">RNA-Seq é superior para novos componentes da rede.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Faixa Dinâmica</strong></td>
+<td style="text-align: center;">Limitada (saturação / baixa sensibilidade).</td>
+<td style="text-align: center;">Muito ampla (sem saturação).</td>
+<td style="text-align: center;">RNA-Seq capta fatores de transcrição (baixa expressão).</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Tipo de Dado</strong></td>
+<td style="text-align: center;">Intensidade de fluorescência (contínuo, relativo).</td>
+<td style="text-align: center;">Contagens de reads (discreto, quantificável).</td>
+<td style="text-align: center;">Exige modelos estatísticos distintos (ex: DESeq2).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Vieses Técnicos</strong></td>
+<td style="text-align: center;">Hibridização e especificidade de sonda.</td>
+<td style="text-align: center;">Composição de GC e amplificação por PCR.</td>
+<td style="text-align: center;">Ambos exigem correções computacionais específicas.</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section id="rna-seq-vs-microarranjo-parte-2-prática-e-aplicações" class="title-slide slide level1 smaller center">
+<h1>RNA-seq <em>vs</em> Microarranjo (Parte 2: Prática e Aplicações)</h1>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Característica</th>
+<th style="text-align: center;">Microarranjo de DNA</th>
+<th style="text-align: center;">RNA-Seq</th>
+<th style="text-align: center;">Implicação (Biologia de Sistemas)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Reprodutibilidade</strong></td>
+<td style="text-align: center;">Alta reprodutibilidade técnica entre plataformas.</td>
+<td style="text-align: center;">Maior sensibilidade para mudanças biológicas sutis.</td>
+<td style="text-align: center;">Microarranjo ideal para estudos longitudinais grandes.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Resolução</strong></td>
+<td style="text-align: center;">Mede apenas o que foi projetado.</td>
+<td style="text-align: center;">Resolução de nucleotídeo único (edição, alelos).</td>
+<td style="text-align: center;">RNA-Seq mapeia a regulação pós-transcricional.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Custo &amp; Computação</strong></td>
+<td style="text-align: center;">Custo moderado; bioinformática simples.</td>
+<td style="text-align: center;">Custo mais alto; exige infraestrutura robusta.</td>
+<td style="text-align: center;">Orçamento e expertise limitam a escolha da plataforma.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Workflow</strong></td>
+<td style="text-align: center;">Padronizado (qualidade <span class="math inline">\(\rightarrow\)</span> normalização <span class="math inline">\(\rightarrow\)</span> dif.).</td>
+<td style="text-align: center;">Complexo (alinhamento, assembly, quantificação).</td>
+<td style="text-align: center;">Requer pipelines robustos para integração em modelos.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Aplicação Ideal</strong></td>
+<td style="text-align: center;">Validação em larga escala; painéis específicos.</td>
+<td style="text-align: center;">Descoberta <em>ab initio</em>; integração multiômica.</td>
+<td style="text-align: center;">RNA-Seq constrói modelos; Microarranjo valida hipóteses.</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section id="co-imunoprecipitação-co-ip" class="title-slide slide level1 center">
+<h1>Co-Imunoprecipitação (Co-IP)</h1>
+
+<img data-src="img/05-Obtenção-de-dados-e-banco-de-dados_5.png" class="r-stretch quarto-figure-center"><p class="caption">https://www.assaygenie.com/co-immunoprecipitation-co-ip-protocol</p></section>
+
 <section>
-<section id="quais-dados" class="title-slide slide level1 center">
-<h1>Quais dados?</h1>
+<section id="co-imunoprecipitação-co-ip-1" class="title-slide slide level1 center">
+<h1>Co-Imunoprecipitação (Co-IP)</h1>
+<p><strong>Princípio Básico:</strong></p>
 <ul>
-<li class="fragment">Dados ômicos de conjuntos completos de DNA, RNA, Proteínas, Metabólitos...</li>
-<li class="fragment">Anotação funcional de genes
+<li>Técnica clássica para isolar complexos proteicos nativos de uma amostra biológica.</li>
+<li>Funciona como um <em>pull-down</em> : usa um anticorpo específico para <em>pescar</em> uma proteína-alvo (isca) e todas as proteínas que estão firmemente ligadas a ela.</li>
+</ul>
+<p><strong>Como Funciona:</strong></p>
 <ul>
-<li class="fragment">EC number</li>
-<li class="fragment">Domínio funcionais</li>
-</ul></li>
-<li class="fragment">Transcritos
-<ul>
-<li class="fragment">Qualitativo: o que é?</li>
-<li class="fragment">Quantitativo: quanto de cada.</li>
-</ul></li>
-<li class="fragment">Interação de proteínas
-<ul>
-<li class="fragment">Proteínas</li>
-<li class="fragment">Ácidos Nucléicos</li>
-</ul></li>
-<li class="fragment">Associação à doenças.</li>
+<li>Um anticorpo é projetado para se ligar a uma proteína conhecida (a <em>isc</em> <em>a</em> , ou <em>bait</em> ) que se acredita fazer parte de um complexo maior.</li>
+<li>O anticorpo, fixado em uma esfera, é adicionado à amostra.</li>
+<li>A proteína-isca e seus parceiros de ligação são capturados e puxados para fora da solução.</li>
+<li>O complexo é purificado e analisado (ex.: por Western Blot ou espectrometria de massa) para identificar as proteínas associadas.</li>
 </ul>
 </section>
 <section class="slide level2">
 
-</section></section>
-<section>
-<section id="podemos-obter-os-dados-por" class="title-slide slide level1 center">
-<h1>Podemos obter os dados por:</h1>
-
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="dna-genes" class="title-slide slide level1 center">
-<h1>DNA ⟶ Genes</h1>
-<p><strong>Anotação Funcional</strong></p>
-<p>Obtenção da sequência de DNA do organismo de interesse.</p>
-<p>Reconstituição da molécula de DNA inicial da maneira mais contínua e fidedigna possível.</p>
-<p>Busca pelas porções codificantes do genoma.Pode-ser fazer também a predição de outros elementos funcionais.</p>
-<p>Designa a função dos genes.</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="dna-genes-cont." class="title-slide slide level1 center">
-<h1>DNA ⟶ Genes (cont.)</h1>
-<p><strong>Sequenciadores</strong></p>
-<p>Mais frequentemente das empresas:</p>
-<p>Illumina</p>
-<p>MGI</p>
-<p>PacBio</p>
-<p>Nanopore</p>
-<p>Element Biosciences</p>
-<p><strong>Leituras</strong></p>
-<p>A diferença está no método de detecção:</p>
-<p>Curtas</p>
-<p>Longas</p>
-<p><strong>Tipo de sequenciamento</strong></p>
-<p>Sequenciamento por síntese</p>
-<p>Sequenciamento em tempo real</p>
-<p>Sequenciamento em nanoporo (não envolve síntese)</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="microarranjos---microarray" class="title-slide slide level1 center">
-<h1>Microarranjos - Microarray</h1>
-
-<img data-src="img/05 - Obtenção de dados e banco de dados_0.png" class="r-stretch"><p>https://microbenotes.com/dna-microarray/</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="microarranjos---microarray-cont." class="title-slide slide level1 center">
-<h1>Microarranjos - Microarray (cont.)</h1>
-
-<img data-src="img/05 - Obtenção de dados e banco de dados_1.png" class="r-stretch"><p>Extração de RNA</p>
-<p>Seleção de mRNA</p>
-<p>Transcrição reversa</p>
-<p>Pode ser fragmentado, ou não</p>
-<p>Ligação de fluoróforo</p>
-<p>Hibridização</p>
-<p>Imagem: Wikipedia</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="microarranjos---microarray-cont.-1" class="title-slide slide level1 center">
-<h1>Microarranjos - Microarray (cont.)</h1>
-
-<img data-src="img/05 - Obtenção de dados e banco de dados_2.png" class="r-stretch"><p>Extração de RNA</p>
-<p>Seleção de mRNA</p>
-<p>Transcrição reversa</p>
-<p>Pode ser fragmentado, ou não</p>
-<p>Ligação de fluoróforo</p>
-<p>Hibridização</p>
-<p>Imagem: Wikipedia</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="microarranjos---microarray-cont.-2" class="title-slide slide level1 center">
-<h1>Microarranjos - Microarray (cont.)</h1>
-
-<img data-src="img/05 - Obtenção de dados e banco de dados_3.png" class="r-stretch"><p>Extração de RNA</p>
-<p>Seleção de mRNA</p>
-<p>Transcrição reversa</p>
-<p>Pode ser fragmentado, ou não</p>
-<p>Ligação de fluoróforo</p>
-<p>Hibridização</p>
-<p>Imagem: Wikipedia</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="img/05 - Obtenção de dados e banco de dados_4.png" class="r-stretch"></section></section>
-<section>
-<section id="rna-seq" class="title-slide slide level1 center">
-<h1>RNA-seq</h1>
-<p>Sequenciamento de RNA</p>
-<p>Imagem: Wikipedia</p>
-</section>
-<section class="slide level2">
-
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Característica</th>
-<th style="text-align: center;">Microarranjo de DNA (Gene Chip)</th>
-<th style="text-align: center;">RNA-Sequenciamento (RNA-Seq)</th>
-<th style="text-align: center;">Implicação para a Biologia de Sistemas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>Princípio Fundamental</strong></td>
-<td style="text-align: center;">Hibridização de sequências complementares. Moléculas de RNA são marcadas com fluorescência e hibridizam com sondas fixadas em uma lâmina.</td>
-<td style="text-align: center;">Sequenciamento de nova geração (NGS). As moléculas de RNA são convertidas em cDNA e sequenciadas diretamente, gerando “leituras” (reads).</td>
-<td style="text-align: center;">RNA-Seq é uma medida direta (sequência), Microarranjo é uma medida indireta (hibridização). Isso afeta a confiança nos dados para a construção de modelos.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Pré-requisito de Conhecimento</strong></td>
-<td style="text-align: center;">Requer conhecimento prévio do genoma. Sondas são projetadas para genes/transcritos conhecidos ou previstos.</td>
-<td style="text-align: center;">Não requer conhecimento prévio do genoma (descoberta). Pode identificar transcritos novos, variantes de splicing, fusões gênicas.</td>
-<td style="text-align: center;">RNA-Seq é superior para sistemas não-modelo ou para descobrir nova biologia (e.g., novas isoformas que podem ser componentes críticos de uma rede).</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>Faixa Dinâmica</strong></td>
-<td style="text-align: center;">Limitada. Sofre de saturação de sinal para genes altamente expressos e baixa sensibilidade para genes de baixa expressão.</td>
-<td style="text-align: center;">Muito ampla. Capaz de quantificar desde transcritos muito abundantes até raros sem saturação.</td>
-<td style="text-align: center;">Crucial para modelar redes regulatórias. Fatores de transcrição (baixa expressão) são frequentemente chave nos modelos, e o RNA-Seq os detecta melhor.</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>Tabela Comparativa: RNA-Seq vs.&nbsp;Microarranjos para Biologia de Sistemas</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Característica</th>
-<th style="text-align: center;">Microarranjo de DNA (Gene Chip)</th>
-<th style="text-align: center;">RNA-Sequenciamento (RNA-Seq)</th>
-<th style="text-align: center;">Implicação para a Biologia de Sistemas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>Dados Obtidos</strong></td>
-<td style="text-align: center;">Sinal de fluorescência intensidade (contínuo, mas relativo). Fornece uma medida de expressão relativa.</td>
-<td style="text-align: center;">Contagens de reads (discretas, absolutas em teoria). Pode ser normalizado para obter estimativas de expressão absoluta (e.g., FPKM, RPKM, TPM).</td>
-<td style="text-align: center;">Dados discretos (RNA-Seq) requerem modelos estatísticos específicos (e.g., DESeq2, edgeR) para análise diferencial, enquanto microarranjos usam testes t modificados.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Reprodutibilidade &amp; Precisão</strong></td>
-<td style="text-align: center;">Alta reprodutibilidade técnica dentro de uma plataforma.</td>
-<td style="text-align: center;">Maior variabilidade técnica, mas a precisão e a sensibilidade são geralmente superiores.</td>
-<td style="text-align: center;">Microarranjos são bons para estudos grandes e longitudinais onde a consistência técnica é primordial. RNA-Seq é melhor para detectar mudanças biológicas sutis.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>Vieses Técnicos</strong></td>
-<td style="text-align: center;">Vieses de hibridização (sequência, temperatura). Vieses de sonda (especificidade).</td>
-<td style="text-align: center;">Vieses de composição de GC, amplificação por PCR, fragmentação.</td>
-<td style="text-align: center;">Ambos têm vieses, mas são de naturezas diferentes. Os modelos computacionais em Biologia de Sistemas devem incorporar correções para esses vieses.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Cobertura e Resolução</strong></td>
-<td style="text-align: center;">Mede apenas o que foi projetado na lâmina. Baixa resolução para variantes de splicing (usa exon arrays específicos).</td>
-<td style="text-align: center;">Resolução de nucleotídeo único. Pode discernir isoformas, alelos específicos, edição de RNA, com a análise bioinformática correta.</td>
-<td style="text-align: center;">RNA-Seq fornece uma visão muito mais rica e completa do “sistema transcritômico”, permitindo modelar a regulação pós-transcricional.</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>Tabela Comparativa: RNA-Seq vs.&nbsp;Microarranjos para Biologia de Sistemas</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><strong>Característica</strong></th>
-<th style="text-align: center;"><strong>Microarranjo de DNA (Gene Chip)</strong></th>
-<th style="text-align: center;"><strong>RNA-Sequenciamento (RNA-Seq)</strong></th>
-<th style="text-align: center;"><strong>Implicação para a Biologia de Sistemas</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>Custo e Acessibilidade</strong></td>
-<td style="text-align: center;">Custo moderado por amostra. Infraestrutura de análise mais simples (scanner + software comercial).</td>
-<td style="text-align: center;">Custo mais alto por amostra (mas caindo rapidamente). Requer infraestrutura de bioinformática robusta (armazenamento, computação, expertise).</td>
-<td style="text-align: center;">A escolha pode ser ditada pelo orçamento e expertise do laboratório. Microarranjos permitem focar em um conjunto gênico menor e bem definido de forma custo-efetiva.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Workflow de Análise (Bioinformática)</strong></td>
-<td style="text-align: center;">Relativamente padronizado: controle de qualidade &gt; normalização &gt; análise diferencial.</td>
-<td style="text-align: center;">Extremamente complexo e variável: controle de qualidade &gt; alinhamento/ assembly &gt; quantificação &gt; normalização &gt; análise diferencial. Múltiplas ferramentas e parâmetros.</td>
-<td style="text-align: center;">O maior desafio do RNA-Seq é a análise. A Biologia de Sistemas depende de pipelines robustos e reprodutíveis para gerar dados confiáveis para integração em modelos.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>Aplicação Ideal em Biologia de Sistemas</strong></td>
-<td style="text-align: center;">- Estudos de validação em larga escala.- Projetos focados em um painel gênico específico (e.g., vias de sinalização).- Quando a infraestrutura de bioinformática é limitada.</td>
-<td style="text-align: center;">- Descoberta de sistemas (identificação de novos componentes).- Estudos abrangentes de regulação gênica (splicing, alelo específico).- Integração com outros dados ômicos (e.g., genoma, metiloma).</td>
-<td style="text-align: center;">RNA-Seq é a ferramenta de escolha para a construção de modelos transcriptômicos ab initio e integrativos. Microarranjos são ferramentas validadas para hipóteses mais diretas.</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>Tabela Comparativa: RNA-Seq vs.&nbsp;Microarranjos para Biologia de Sistemas</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-
-<img data-src="img/05 - Obtenção de dados e banco de dados_5.png" class="r-stretch"><p><strong>O que é Co-Imunoprecipitação (Co-IP)</strong> <strong>?</strong></p>
-<p>https://www.assaygenie.com/co-immunoprecipitation-co-ip-protocol</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="o-que-é-co-imunoprecipitação-co-ip" class="title-slide slide level1 center">
-<h1>O que é Co-Imunoprecipitação (Co-IP)?</h1>
-<p><strong>Princípio Básico:</strong></p>
-<p>Técnica clássica para isolar complexos proteicos nativos de uma amostra biológica.</p>
-<p>Funciona como um <em>pull-down</em> : usa um anticorpo específico para <em>pescar</em> uma proteína-alvo (isca) e todas as proteínas que estão firmemente ligadas a ela.</p>
-<p><strong>Como Funciona:</strong></p>
-<p>Um anticorpo é projetado para se ligar a uma proteína conhecida (a <em>isc</em> <em>a</em> , ou <em>bait</em> ) que se acredita fazer parte de um complexo maior.</p>
-<p>O anticorpo, fixado em uma esfera, é adicionado à amostra.</p>
-<p>A proteína-isca e seus parceiros de ligação são capturados e puxados para fora da solução.</p>
-<p>O complexo é purificado e analisado (ex.: por Western Blot ou espectrometria de massa) para identificar as proteínas associadas.</p>
-</section>
-<section class="slide level2">
-
+<iframe data-external="1" src="https://www.youtube.com/embed/InA8wOzFg1U?si=lKzAPaHNj2cxg96N" width="100%" height="100%" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </section></section>
 <section>
 <section id="limitações-e-validação" class="title-slide slide level1 center">
@@ -503,13 +450,13 @@ Author
 <section id="imunoprecipitação-da-cromatina-chip" class="title-slide slide level1 center">
 <h1>Imunoprecipitação da cromatina (ChIP)</h1>
 <ul>
-<li class="fragment">A base para a imunoprecipitação da cromatina é fixar o DNA às proteínas da cromatina
+<li>A base para a imunoprecipitação da cromatina é fixar o DNA às proteínas da cromatina
 <ul>
-<li class="fragment">Tratamento com formaldeído para ligar as histonas ao DNA</li>
+<li>Tratamento com formaldeído para ligar as histonas ao DNA</li>
 </ul></li>
-<li class="fragment">Extrair a cromatina</li>
-<li class="fragment">Cortá-la em fragmentos viáveis</li>
-<li class="fragment">Enriquecer para fragmentos de cromatina de interesse por imunoprecipitação com anticorpos específicos para proteínas da cromatina, ou modificações naquelas proteínas de cromatina.</li>
+<li>Extrair a cromatina</li>
+<li>Cortá-la em fragmentos viáveis</li>
+<li>Enriquecer para fragmentos de cromatina de interesse por imunoprecipitação com anticorpos específicos para proteínas da cromatina, ou modificações naquelas proteínas de cromatina.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -543,30 +490,30 @@ Author
 <section class="slide level2">
 
 <ul>
-<li class="fragment"><strong>3. ChIP-chip (</strong> <em>Chromatin Immunoprecipitation on Chip</em> <strong>)</strong></li>
-<li class="fragment"><strong>Conceito:</strong> O DNA purificado do ChIP é hibridizado em um microarranjo (chip) que contém sondas representando milhares de regiões genômicas conhecidas.</li>
-<li class="fragment"><strong>Vantagem:</strong> Foi a primeira tecnologia a permitir perfis genome-wide.</li>
-<li class="fragment"><strong>Desvantagens:</strong>
+<li><strong>3. ChIP-chip (</strong> <em>Chromatin Immunoprecipitation on Chip</em> <strong>)</strong></li>
+<li><strong>Conceito:</strong> O DNA purificado do ChIP é hibridizado em um microarranjo (chip) que contém sondas representando milhares de regiões genômicas conhecidas.</li>
+<li><strong>Vantagem:</strong> Foi a primeira tecnologia a permitir perfis genome-wide.</li>
+<li><strong>Desvantagens:</strong>
 <ul>
-<li class="fragment">Só detecta ligações em regiões para as quais há uma sonda no chip (viés de descoberta).</li>
-<li class="fragment">Resolução espacial limitada.</li>
-<li class="fragment">Faixa dinâmica menor comparada ao sequenciamento.</li>
-<li class="fragment">Quase totalmente substituído pelo ChIP-seq, que é mais poderoso e abrangente.</li>
+<li>Só detecta ligações em regiões para as quais há uma sonda no chip (viés de descoberta).</li>
+<li>Resolução espacial limitada.</li>
+<li>Faixa dinâmica menor comparada ao sequenciamento.</li>
+<li>Quase totalmente substituído pelo ChIP-seq, que é mais poderoso e abrangente.</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
-<li class="fragment"><strong>4. ChIP-seq (</strong> <em>Chromatin Immunoprecipitation followed by Sequencing</em> <strong>)</strong></li>
-<li class="fragment"><strong>Conceito:</strong> O DNA purificado do ChIP é sequenciado de forma massiva (NGS). Todos os fragmentos de DNA são lidos, e suas posições no genoma são mapeadas computacionalmente.</li>
-<li class="fragment"><strong>Vantagens:</strong>
+<li><strong>4. ChIP-seq (</strong> <em>Chromatin Immunoprecipitation followed by Sequencing</em> <strong>)</strong></li>
+<li><strong>Conceito:</strong> O DNA purificado do ChIP é sequenciado de forma massiva (NGS). Todos os fragmentos de DNA são lidos, e suas posições no genoma são mapeadas computacionalmente.</li>
+<li><strong>Vantagens:</strong>
 <ul>
-<li class="fragment"><em>Genome-wide</em> __ imparcial:__ Não precisa de conhecimento prévio; descobre novos locais de ligação.</li>
-<li class="fragment"><strong>Alta resolução:</strong> É possível mapear o sítio de ligação com precisão de base única.</li>
-<li class="fragment"><strong>Ampla faixa dinâmica:</strong> Detecta desde locais de ligação muito fortes até os muito fracos.</li>
+<li><em>Genome-wide</em> __ imparcial:__ Não precisa de conhecimento prévio; descobre novos locais de ligação.</li>
+<li><strong>Alta resolução:</strong> É possível mapear o sítio de ligação com precisão de base única.</li>
+<li><strong>Ampla faixa dinâmica:</strong> Detecta desde locais de ligação muito fortes até os muito fracos.</li>
 </ul></li>
-<li class="fragment"><strong>Quando usar?</strong> É o padrão-ouro atual para descoberta. Use quando quiser mapear todos os locais de ligação de um fator de transcrição ou o genoma-wide padrão de uma modificação de histona (ex., H3K4me3) em uma célula.</li>
+<li><strong>Quando usar?</strong> É o padrão-ouro atual para descoberta. Use quando quiser mapear todos os locais de ligação de um fator de transcrição ou o genoma-wide padrão de uma modificação de histona (ex., H3K4me3) em uma célula.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -576,17 +523,17 @@ Author
 <section id="purificação-por-afinidade" class="title-slide slide level1 center">
 <h1>Purificação por afinidade</h1>
 <ul>
-<li class="fragment">Técnica de captura de material biológico
+<li>Técnica de captura de material biológico
 <ul>
-<li class="fragment">Captura de material biológico via enriquecimento específico com um ligante acoplado a um suporte sólido.</li>
-<li class="fragment">Muitos tipos de ligandos podem ser usados na purificação por afinidade
+<li>Captura de material biológico via enriquecimento específico com um ligante acoplado a um suporte sólido.</li>
+<li>Muitos tipos de ligandos podem ser usados na purificação por afinidade
 <ul>
-<li class="fragment">DNA e RNA (na maioria das vezes oligonucleotídeos)</li>
-<li class="fragment">Produtos químicos</li>
-<li class="fragment">Lipídios</li>
-<li class="fragment">Peptídeos ou proteínas
+<li>DNA e RNA (na maioria das vezes oligonucleotídeos)</li>
+<li>Produtos químicos</li>
+<li>Lipídios</li>
+<li>Peptídeos ou proteínas
 <ul>
-<li class="fragment">Anticorpos.</li>
+<li>Anticorpos.</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -636,7 +583,9 @@ Author
 <section id="o-sistema-de-duplo-híbrido-de-levedura-y2h" class="title-slide slide level1 center">
 <h1>O Sistema de Duplo-Híbrido de Levedura (Y2H)</h1>
 <p>O Duplo-Híbrido de Levedura (do inglês, <em>Yeast Two-Hybrid</em> - Y2H) é uma técnica genética poderosa usada para detectar interações físicas entre proteínas. Ele é baseado na reconstituição de um fator de transcrição funcional, que só ocorre quando duas proteínas de interesse interagem.</p>
-<p>* A <em>Isca</em> e a <em>Presa</em></p>
+<ul>
+<li>A <em>Isca</em> e a <em>Presa</em></li>
+</ul>
 <p>O princípio do sistema envolve dividir um fator de transcrição em duas partes inativas:</p>
 <p>Domínio de Ligação ao DNA (BD): A <em>Isca</em> . Esta parte se liga a uma sequência específica de DNA, mas sozinha não pode iniciar a transcrição.</p>
 <p>Domínio de Ativação (AD): A <em>Presa</em> . Esta parte é capaz de recrutar a maquinaria de transcrição, mas não pode se prender ao DNA sozinha.</p>
@@ -654,9 +603,11 @@ Author
 <p>Se a proteína X interage com a proteína Y, o BD e o AD são aproximados. Isso forma um fator de transcrição funcional e completo. Este complexo se liga ao DNA e ativa a transcrição de um gene repórter.</p>
 <p><strong>Leitura do Resultado:</strong></p>
 <p>A ativação do gene repórter produz um sinal detectável, como:</p>
-<p>- Crescimento em meio de cultura deficiente (ex.: sem histidina).</p>
-<p>- Mudança de cor (ex.: produção de β-galactosidase que torna a colônia azul).</p>
-<p>- Produção de luz fluorescente.</p>
+<ul>
+<li><p>Crescimento em meio de cultura deficiente (ex.: sem histidina).</p></li>
+<li><p>Mudança de cor (ex.: produção de β-galactosidase que torna a colônia azul).</p></li>
+<li><p>Produção de luz fluorescente.</p></li>
+</ul>
 <p>Se não houver interação, o gene repórter não é ativado e nenhum sinal é produzido.</p>
 <p><strong>Aplicações:</strong></p>
 <p>A principal aplicação do Y2H é a descoberta em larga escala de interações proteína-proteína, sendo uma ferramenta fundamental para mapear redes de interação em biologia celular e sistemas.</p>
@@ -685,8 +636,8 @@ Author
 <img data-src="img/05 - Obtenção de dados e banco de dados_17.png" class="r-stretch"><p>Um interólogo é uma interação proteína-proteína conservada evolutivamente. Se duas proteínas (A e B) interagem em um organismo, e seus homólogos (A’ e B’) também interagem em outro organismo, então a interação A-B é um interólogo da interação A’-B’.</p>
 <p>Pré-requisitos para ser um Interólogo:</p>
 <p><strong>Para que um par de interações seja considerado interólogo, todas as condições abaixo devem ser verdadeiras:</strong></p>
-<p>-- <strong>Homologia Par-a-Par:</strong> A proteína A deve ser homóloga à proteína A’, e a proteína B deve ser homóloga à proteína B’.</p>
-<p><strong>-- </strong> <strong>Conservação da Interação:</strong> A interação física entre o par de proteínas deve ser conservada nas duas espécies. Ou seja, A interage com B e A’ interage com B’.</p>
+<p>– <strong>Homologia Par-a-Par:</strong> A proteína A deve ser homóloga à proteína A’, e a proteína B deve ser homóloga à proteína B’.</p>
+<p><strong>– </strong> <strong>Conservação da Interação:</strong> A interação física entre o par de proteínas deve ser conservada nas duas espécies. Ou seja, A interage com B e A’ interage com B’.</p>
 </section>
 <section class="slide level2">
 
@@ -695,9 +646,9 @@ Author
 <section id="importância-e-aplicação-do-conceito-em-biologia-de-sistemas" class="title-slide slide level1 center">
 <h1>Importância e Aplicação do Conceito em Biologia de Sistemas:</h1>
 <p>O conceito de interólogo é extremamente poderoso porque permite prever interações proteicas em uma espécie com base em dados de outra.</p>
-<p>-- <strong>Predição de Interações:</strong> Se sabemos que a proteína A interage com a proteína B em humanos, e identificamos os homólogos de A e B em um rato (A’ e B’), podemos prever que A’ e B’ também interagem no rato. Isso é fundamental para extrapolar conhecimento de organismos-modelo (como levedura) para humanos.</p>
-<p>-- <strong>Inferência Funcional:</strong> A conservação de uma interação através da evolução é um forte indício de que ela é funcionalmente importante. Se uma interação foi mantida por seleção natural em espécies diferentes, é provável que ela exerça um papel biológico crucial.</p>
-<p>-- <strong>Mapeamento de Redes de Interação:</strong> É a base para transferir informações e construir redes de interação proteica (interatomas) para espécies pouco estudadas, usando como base o interatoma de espécies bem caracterizadas.</p>
+<p>– <strong>Predição de Interações:</strong> Se sabemos que a proteína A interage com a proteína B em humanos, e identificamos os homólogos de A e B em um rato (A’ e B’), podemos prever que A’ e B’ também interagem no rato. Isso é fundamental para extrapolar conhecimento de organismos-modelo (como levedura) para humanos.</p>
+<p>– <strong>Inferência Funcional:</strong> A conservação de uma interação através da evolução é um forte indício de que ela é funcionalmente importante. Se uma interação foi mantida por seleção natural em espécies diferentes, é provável que ela exerça um papel biológico crucial.</p>
+<p>– <strong>Mapeamento de Redes de Interação:</strong> É a base para transferir informações e construir redes de interação proteica (interatomas) para espécies pouco estudadas, usando como base o interatoma de espécies bem caracterizadas.</p>
 
 <img data-src="img/05 - Obtenção de dados e banco de dados_18.png" class="r-stretch"></section>
 <section class="slide level2">
@@ -745,15 +696,15 @@ Author
 <h1>KEGG</h1>
 
 <img data-src="img/05 - Obtenção de dados e banco de dados_20.png" class="r-stretch"><ul>
-<li class="fragment">O KEGG é um banco de dados de recursos biológicos.</li>
-<li class="fragment">Interpretar funções e processos complexos (de alto nível) em sistemas biológicos, como células, organismos e ecossistemas.</li>
-<li class="fragment">Integra e analisa dados moleculares.</li>
-<li class="fragment">Interpretar dados de larga escala, como os gerados por:
+<li>O KEGG é um banco de dados de recursos biológicos.</li>
+<li>Interpretar funções e processos complexos (de alto nível) em sistemas biológicos, como células, organismos e ecossistemas.</li>
+<li>Integra e analisa dados moleculares.</li>
+<li>Interpretar dados de larga escala, como os gerados por:
 <ul>
-<li class="fragment">Sequenciamento de genoma.</li>
-<li class="fragment">Outras tecnologias experimentais de alto rendimento (ômicas).</li>
+<li>Sequenciamento de genoma.</li>
+<li>Outras tecnologias experimentais de alto rendimento (ômicas).</li>
 </ul></li>
-<li class="fragment">Pago.</li>
+<li>Pago.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -775,22 +726,22 @@ Author
 <h1>MetaCyc</h1>
 
 <img data-src="img/05 - Obtenção de dados e banco de dados_22.png" class="r-stretch"><ul>
-<li class="fragment">O MetaCyc é um banco de dados curado de vias metabólicas experimentalmente elucidadas de todos os domínios da vida.</li>
-<li class="fragment">Contém 2666 vias de 2960 diferentes organismos.</li>
-<li class="fragment">Metabolismo:
+<li>O MetaCyc é um banco de dados curado de vias metabólicas experimentalmente elucidadas de todos os domínios da vida.</li>
+<li>Contém 2666 vias de 2960 diferentes organismos.</li>
+<li>Metabolismo:
 <ul>
-<li class="fragment">Primário e secundário.</li>
-<li class="fragment">Metabólitos.</li>
-<li class="fragment">Reações.</li>
-<li class="fragment">Enzimas.</li>
-<li class="fragment">Genes associados.</li>
+<li>Primário e secundário.</li>
+<li>Metabólitos.</li>
+<li>Reações.</li>
+<li>Enzimas.</li>
+<li>Genes associados.</li>
 </ul></li>
-<li class="fragment">As aplicações do MetaCyc incluem:
+<li>As aplicações do MetaCyc incluem:
 <ul>
-<li class="fragment">Enciclopédia on-line do metabolismo.</li>
-<li class="fragment">Prever as vias metabólicas em genomas sequenciados.</li>
-<li class="fragment">Apoiar engenharia metabólica via banco de dados de enzimas.</li>
-<li class="fragment">Banco de dados Metabolite ajuda a pesquisa metabolômica.</li>
+<li>Enciclopédia on-line do metabolismo.</li>
+<li>Prever as vias metabólicas em genomas sequenciados.</li>
+<li>Apoiar engenharia metabólica via banco de dados de enzimas.</li>
+<li>Banco de dados Metabolite ajuda a pesquisa metabolômica.</li>
 </ul></li>
 </ul>
 </section>
@@ -813,13 +764,13 @@ Author
 <h1>STRING</h1>
 
 <img data-src="img/05 - Obtenção de dados e banco de dados_24.png" class="r-stretch"><ul>
-<li class="fragment">Banco de dados de interações proteína-proteína conhecidas ou preditas.</li>
-<li class="fragment">Interações
+<li>Banco de dados de interações proteína-proteína conhecidas ou preditas.</li>
+<li>Interações
 <ul>
-<li class="fragment">Direta: física.</li>
-<li class="fragment">Indireta: funcional</li>
+<li>Direta: física.</li>
+<li>Indireta: funcional</li>
 </ul></li>
-<li class="fragment">A interações podem ter vindo de predição computacional, de transferência de conhecimento entre organismos e de interações descritas em outros bancos de dados.</li>
+<li>A interações podem ter vindo de predição computacional, de transferência de conhecimento entre organismos e de interações descritas em outros bancos de dados.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -855,16 +806,16 @@ Author
 <h1>BioGRID</h1>
 
 <img data-src="img/05 - Obtenção de dados e banco de dados_27.png" class="r-stretch"><ul>
-<li class="fragment">Dados de interação.</li>
-<li class="fragment">Curado.</li>
-<li class="fragment">Dado:
+<li>Dados de interação.</li>
+<li>Curado.</li>
+<li>Dado:
 <ul>
-<li class="fragment">69.031 publicações</li>
-<li class="fragment">1.676.780 interações proteicas e genéticas</li>
-<li class="fragment">28.093 associações químicas</li>
-<li class="fragment">726.378 modificações pós-traducionais.</li>
+<li>69.031 publicações</li>
+<li>1.676.780 interações proteicas e genéticas</li>
+<li>28.093 associações químicas</li>
+<li>726.378 modificações pós-traducionais.</li>
 </ul></li>
-<li class="fragment">Acesso livre.</li>
+<li>Acesso livre.</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -886,7 +837,7 @@ Author
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Organization</p>
+<p>Nicholas Barroso</p>
 </div>
 </div></div>
 
