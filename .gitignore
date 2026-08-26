@@ -2,3 +2,4 @@
 
 **/*.quarto_ipynb
 roteiros/input/*.fastq.gz
+bfg-1.14.0.jar
