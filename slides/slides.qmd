@@ -1,0 +1,69 @@
+---
+title: ""
+page-layout: full
+---
+
+# Roteiros
+
+::: {.modules-grid}
+
+<div class="mod-card">
+<div class="mod-node n-teal">01</div>
+<a class="stretched-link" href="aula1.qmd"><strong>Histórico e Cocneitos</strong></a>
+<p>Origens e princípios da biologia de sistemas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-teal">02</div>
+<a class="stretched-link" href="aula2.qmd"><strong>Grafos</strong></a>
+<p>Fundamentos de teoria dos grafos aplicada a redes biológicas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-green">03</div>
+<a class="stretched-link" href="aula3.qmd"><strong>Redes biológicas</strong></a>
+<p>Como sistemas vivos são representados como redes.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-green">04</div>
+<a class="stretched-link" href="aula4.qmd"><strong>Modelos</strong></a>
+<p>Modelagem matemática de sistemas biológicos.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-blue">05</div>
+<a class="stretched-link" href="aula5.qmd"><strong>Obtenção de dados</strong></a>
+<p>Bancos de dados e fontes para biologia de sistemas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-blue">06</div>
+<a class="stretched-link" href="aula6.qmd"><strong>Integração de dados</strong></a>
+<p>Combinando múltiplas camadas de dados ômicos.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">07</div>
+<a class="stretched-link" href="aula7.qmd"><strong>Redes metabólicas</strong></a>
+<p>Vias e fluxos metabólicos como redes.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">08</div>
+<a class="stretched-link" href="aula8.qmd"><strong>Redes de co-expressão</strong></a>
+<p>Co-expressão gênica e suas redes associadas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">09</div>
+<a class="stretched-link" href="aula9.qmd"><strong>Integração proteína-proteína</strong></a>
+<p>Redes PPI e sua análise topológica.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-red">10</div>
+<a class="stretched-link" href="aula10.qmd"><strong>Biologia Sintética</strong></a>
+<p>Design e construção de sistemas biológicos artificiais.</p>
+</div>
+:::

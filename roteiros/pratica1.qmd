@@ -1,0 +1,1035 @@
+---
+title: "Aula Prática 1: Unix Básico"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   pdf-engine: xelatex
+editor: source
+---
+
+## Introdução
+
+A linha de comando (terminal/console) é uma ferramenta **essencial** na bioinformática. O terminal permite:
+
+- **Automatização**: Processar muitos arquivos com um único comando.
+- **Reprodutibilidade**: Documentar cada passo da análise.
+- **Acesso a servidores**: Conectar-se a clusters de alto desempenho (HPC).
+- **Controle fino**: Executar ferramentas especializadas.
+
+---
+
+## Fluxograma
+
+```{mermaid}
+flowchart TD
+    A[Início] --> B[Parte 1: Navegação]
+    B --> C[Parte 2: Manipulação]
+    C --> D[Parte 3: Visualização]
+    D --> E[Parte 4: Busca]
+    E --> F[Parte 5: Pipes]
+    F --> G[Parte 6: Redirecionamento]
+    G --> H[Parte 7: Xargs]
+    H --> I[Parte 8: Compactação]
+    I --> J[Desafio Final]
+    J --> K[Fim]
+    
+    B --> B1[pwd, ls, cd]
+    C --> C1[cp, mv, rm, mkdir]
+    D --> D1[cat, head, tail, less]
+    E --> E1[grep, wc]
+    F --> F1["|" pipe]
+    G --> G1[>, >>, 2>, <]
+    H --> H1[xargs]
+    I --> I1[tar, gzip, bzip2]
+    
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+
+    class A inicio
+    class B,C,D,E,F,G,H,I,J,K processo
+    class D1,D2,D3,D4,E1,E2,E3,G1,H1,H2 resultado
+    class L final
+```
+
+---
+
+
+## Objetivos
+
+**Comandos Básicos:**
+- Navegar no sistema de arquivos usando caminhos absolutos e relativos
+- Manipular arquivos e diretórios (criar, copiar, mover, remover)
+- Visualizar e explorar arquivos texto de diferentes tamanhos
+- Utilizar *wildcards* (\*, ?) e expansão de comandos
+
+**Filtros e Processamento:**
+- Buscar padrões em arquivos usando expressões regulares
+- Contar sequências, caracteres e linhas
+- Construir pipelines utilizando pipes (|) e redirecionamentos
+
+**Bioinformática:**
+- Extrair cabeçalhos de arquivos FASTA
+- Filtrar sequências por critérios específicos
+- Contar e analisar sequências biológicas
+- Compactar e descompactar arquivos de dados
+
+---
+
+
+## Material
+
+**Arquivo: `sequencias.fasta`**
+
+```fasta
+>seq1|Escherichia coli|gene:lacZ
+ATGCGTACGTAGCTAGCTAGCATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
+ATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
+>seq2|Escherichia coli|gene:recA
+ATGGATCCAGATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGA
+>seq3|Bacillus subtilis|gene:spo0A
+ATGAGTGATCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+TCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+TCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+>seq4|Pseudomonas aeruginosa|gene:lasR
+ATGAATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGAT
+CGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGATCGATCG
+>seq5|Bacillus subtilis|gene:comK
+ATGGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTAC
+GTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTA
+CGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
+```
+
+**Para baixar o arquivo:**
+```bash
+wget https://nickcbl.github.io/biosis/roteiros/input/roteiros/input/sequencias.fasta
+
+# ou crie manualmente com nano/vim
+
+# ou faça o download de todos os arquivos de entrada em: https://nickcbl.github.io/biosis/roteiros/input/input.html
+```
+
+---
+
+
+## Parte 1 – Navegação no Sistema de Arquivos
+
+
+### Comandos Básicos
+
+```bash
+
+# Comando que traz o manual dos comandos
+man
+
+
+# Verificar diretório atual
+pwd
+
+
+# Listar arquivos
+ls
+ls -l      # detalhado
+ls -lh     # detalhado com tamanhos legíveis
+ls -a      # inclui arquivos ocultos (.arquivo)
+ls -la     # combinação: todos + detalhado
+
+
+# Criar diretório
+mkdir pratica1
+mkdir -p pratica1/dados/raw    # cria diretórios aninhados
+
+
+# Navegar
+cd pratica1
+cd ..       # voltar um nível
+cd ../..    # voltar dois níveis
+cd ~        # ir para home
+cd -        # voltar para diretório anterior
+
+
+# Caminhos
+ls /home/usuario/pratica1    # caminho absoluto
+ls ./pratica1                # caminho relativo (.) = atual
+ls ../Downloads              # caminho relativo (..) = pai
+
+
+# Wildcards
+touch arquivo1.txt arquivo2.txt arquivo3.log
+ls *.txt                     # lista todos .txt
+ls arquivo?                  # ? substitui um caractere
+ls arquivo[1-3]*             # [1-3] substitui por 1, 2 ou 3
+
+
+# Permissões
+ls -l
+chmod +x script.sh           # torna executável
+chmod 755 script.sh          # permissões numéricas
+```
+
+
+### Exercício
+
+Crie a seguinte estrutura de diretórios dentro de `pratica1`:
+
+```
+pratica1/
+├── dados/
+│   ├── raw/
+│   ├── processados/
+│   └── resultados/
+├── scripts/
+└── backup/
+```
+
+<!-- ```{bash}
+#|code-fold: true
+#|code-summary: "Clique para ver a solução"
+mkdir -p pratica1/dados/{raw,processados,resultados}
+mkdir pratica1/scripts
+mkdir pratica1/backup
+``` -->
+
+<details>
+<summary>Clique para ver a solução</summary>
+
+```bash
+mkdir -p pratica1/dados/{raw,processados,resultados}
+mkdir pratica1/scripts
+mkdir pratica1/backup
+```
+</details>
+
+---
+
+
+## Parte 2 – Manipulação de Arquivos e Diretórios
+
+
+### Comandos Básicos
+
+```bash
+
+# Copiar arquivos
+cp sequencias.fasta copia.fasta
+cp sequencias.fasta pratica1/dados/   # copiar para diretório
+cp -r pratica1/ pratica1_backup/      # copiar diretório recursivamente
+
+
+# Mover/Renomear
+mv copia.fasta teste.fasta
+mv teste.fasta pratica1/dados/        # mover para diretório
+mv pratica1/dados/teste.fasta .       # mover para atual (.)
+mv antigo_novo.txt novo_antigo.txt    # renomear
+
+
+# Remover
+rm teste.fasta
+rm -i teste.fasta                     # confirmar antes de remover
+rm -r pratica1_backup/                # remover diretório recursivamente
+rm -rf pratica1_backup/               # FORÇAR remoção (cuidado!)
+
+
+# Criar arquivos vazios
+touch novo_arquivo.txt
+touch -t 202401011200 data.txt        # criar com data específica
+
+
+# Ver tipo de arquivo
+file sequencias.fasta
+file script.sh
+```
+
+
+### Perguntas
+
+6. Qual a diferença entre `cp` e `mv`?
+7. O que acontece se você mover um arquivo para o mesmo diretório com nome diferente?
+8. Por que `rm -rf` é perigoso?
+
+
+### Exercício
+
+1. Copie `sequencias.fasta` para `dados/raw/`
+2. Renomeie a cópia para `raw_sequences.fasta`
+3. Crie uma cópia de segurança em `backup/`
+
+---
+
+
+## Parte 3 – Visualização de Arquivos
+
+
+### Comandos Básicos
+
+```bash
+
+# Visualizar completo
+cat sequencias.fasta
+
+
+# Visualizar com numeração de linhas
+cat -n sequencias.fasta
+
+
+# Visualizar início/fim
+head sequencias.fasta          # primeiras 10 linhas
+head -n 5 sequencias.fasta    # primeiras 5 linhas
+tail sequencias.fasta          # últimas 10 linhas
+tail -n 20 sequencias.fasta   # últimas 20 linhas
+tail -f log.txt               # seguir arquivo (útil para logs)
+
+
+# Navegação interativa
+less sequencias.fasta
+
+# Dentro do less:
+
+#   /palavra    - buscar (N = próximo, n = anterior)
+
+#   g           - ir para início
+
+#   G           - ir para fim
+
+#   Ctrl+F      - avançar página
+
+#   Ctrl+B      - voltar página
+
+#   q           - sair
+
+#   -N          - mostrar números
+
+
+# Visualizar linhas específicas
+sed -n '10,20p' sequencias.fasta   # linhas 10-20
+sed -n '/^>/p' sequencias.fasta    # linhas que começam com >
+
+
+# Contar linhas/palavras/caracteres
+wc -l sequencias.fasta             # número de linhas
+wc -c sequencias.fasta             # número de caracteres
+wc -w sequencias.fasta             # número de palavras
+```
+
+
+### Perguntas
+
+9. Qual comando é melhor para visualizar arquivos grandes (> 1GB)?
+10. Como você visualizaria apenas as linhas 50 a 100 de um arquivo?
+11. O que o comando `wc -l` mostra e por que isso é útil em bioinformática?
+
+
+### Exercício
+
+1. Visualize as primeiras 3 sequências do arquivo FASTA
+2. Conte quantas linhas tem cada sequência (use `sed` e `wc`)
+3. Use `less` para explorar o arquivo e encontrar todas as ocorrências de _Bacillus_
+
+---
+
+
+## Parte 4 – Busca em Arquivos (grep e expressões regulares)
+
+
+### Comandos Básicos
+
+```bash
+
+# Busca simples
+grep ">" sequencias.fasta          # encontrar cabeçalhos
+grep "Escherichia" sequencias.fasta
+
+
+# Busca com contexto
+grep -A 3 ">" sequencias.fasta    # 3 linhas após
+grep -B 2 ">" sequencias.fasta    # 2 linhas antes
+grep -C 1 ">" sequencias.fasta    # 1 linha antes e depois
+
+
+# Opções úteis
+grep -c ">" sequencias.fasta      # contar ocorrências
+grep -v ">" sequencias.fasta      # linhas que NÃO contêm
+grep -i "atg" sequencias.fasta    # case insensitive
+grep -n ">" sequencias.fasta      # mostrar números de linha
+grep -l "Escherichia" *.fasta     # listar arquivos com padrão
+grep -r "gene:lacZ" .             # buscar recursivamente
+
+
+# Expressões regulares básicas
+grep "^>" sequencias.fasta         # linhas que começam com >
+grep "A$" sequencias.fasta         # linhas que terminam com A
+grep "TATA[AT]" sequencias.fasta   # TATA seguido de A ou T
+grep "AG{2,4}" sequencias.fasta    # A seguido de 2-4 G's
+grep -E "GAT|CAT" sequencias.fasta # GAT ou CAT (ERE)
+
+
+# Extrair informações
+grep "^>" sequencias.fasta | cut -d'|' -f2   # extrair espécie
+grep "^>" sequencias.fasta | cut -d'|' -f3   # extrair gene
+```
+
+
+### Perguntas
+
+12. Quantas sequências existem no arquivo `sequencias.fasta`?
+13. Como você encontraria apenas as sequências de *Bacillus subtilis*?
+14. Qual comando mostra o nome do arquivo junto com o padrão encontrado?
+
+
+### Exercício
+
+1. Conte quantas sequências de cada espécie existem
+2. Encontre todas as sequências que contêm "TATAAT" (promotor)
+3. Extraia apenas os cabeçalhos das sequências para um novo arquivo
+
+<details>
+<summary>Solução</summary>
+
+```bash
+
+# 1. Contar por espécie
+grep -c "Escherichia" sequencias.fasta
+grep -c "Bacillus" sequencias.fasta
+grep -c "Pseudomonas" sequencias.fasta
+
+
+# 2. Encontrar promotor
+grep -B 2 "TATAAT" sequencias.fasta
+
+
+# 3. Extrair cabeçalhos
+grep "^>" sequencias.fasta > cabecalhos.txt
+```
+</details>
+
+---
+
+
+## Parte 5 – Pipes (|)
+
+
+### Conceitos Fundamentais
+
+No Unix, todo comando tem três fluxos de dados:
+
+- **stdin** (0): entrada padrão (teclado)
+- **stdout** (1): saída padrão (tela)
+- **stderr** (2): saída de erro (tela)
+
+O **pipe (|)** conecta o stdout de um comando ao stdin de outro:
+
+```
+[comando1] → stdout → | → stdin → [comando2] → stdout → tela
+```
+
+
+### Exemplos Práticos
+
+```bash
+
+# Pipeline básico
+grep ">" sequencias.fasta | wc -l
+
+# 1. grep encontra cabeçalhos
+
+# 2. wc conta as linhas
+
+
+# Pipeline com múltiplos comandos
+grep -v "^>" sequencias.fasta | tr -d '\n' | wc -c
+
+# 1. remove cabeçalhos
+
+# 2. remove quebras de linha
+
+# 3. conta caracteres (nucleotídeos totais)
+
+
+# Pipeline com tee (salvar e continuar)
+grep ">" sequencias.fasta | tee cabecalhos.txt | wc -l
+
+
+# Pipeline com sort e unique
+grep "^>" sequencias.fasta | cut -d'|' -f2 | sort | uniq -c
+
+
+# Pipeline complexo
+cat sequencias.fasta | \
+  grep -v "^>" | \
+  tr -d '\n' | \
+  grep -o "TATAAT" | \
+  wc -l
+
+# Conta ocorrências de TATAAT em sequências (excluindo cabeçalhos)
+```
+
+
+### Diagrama Visual do Pipeline
+
+```{mermaid}
+flowchart LR
+    A[cat arquivo.fasta] --> B[grep -v '^>']
+    B --> C[tr -d '\\n']
+    C --> D[grep -o 'TATAAT']
+    D --> E[wc -l]
+    
+    style A fill:#fff,stroke:#000
+    style B fill:#fff,stroke:#000
+    style C fill:#fff,stroke:#000
+    style D fill:#fff,stroke:#000
+    style E fill:#fff,stroke:#000
+```
+
+
+### Perguntas
+
+15. Qual a diferença entre `grep ">" arquivo | wc -l` e `wc -l arquivo`?
+16. Por que pipelines são úteis em bioinformática?
+17. O que faz o comando `tr -d '\n'` e quando isso é útil?
+
+
+### Exercício
+
+Crie um pipeline que:
+
+1. Leia o arquivo FASTA
+2. Remova os cabeçalhos
+3. Conte o número total de nucleotídeos
+4. Salve o resultado em `total_nucleotideos.txt`
+
+<details>
+<summary>Solução</summary>
+
+```bash
+grep -v "^>" sequencias.fasta | tr -d '\n' | wc -c > total_nucleotideos.txt
+```
+</details>
+
+---
+
+
+## Parte 6 – Redirecionamento
+
+
+### Comandos de Redirecionamento
+
+```bash
+
+# Saída para arquivo (sobrescreve)
+echo "Contagem de sequências:" > relatorio.txt
+grep -c ">" sequencias.fasta >> relatorio.txt
+
+
+# Anexar ao arquivo (>>)
+echo "Comprimento total:" >> relatorio.txt
+grep -v "^>" sequencias.fasta | tr -d '\n' | wc -c >> relatorio.txt
+
+
+# Redirecionar erros
+comando_inexistente 2> erros.log
+
+
+# Redirecionar stdout e stderr
+grep ">" sequencias.fasta > saida.txt 2> erros.txt
+grep ">" sequencias.fasta &> saida_erros.txt
+
+
+# Redirecionar entrada de arquivo
+sort < sequencias.fasta   # entrada do arquivo para sort
+
+
+# Here document
+cat > novo_arquivo.txt << EOF
+Linha 1
+Linha 2
+EOF
+```
+
+
+### Resumo dos Redirecionamentos
+
+| Símbolo | Descrição |
+|---------|-----------|
+| `>` | Redireciona stdout para arquivo (sobrescreve) |
+| `>>` | Redireciona stdout para arquivo (anexa) |
+| `2>` | Redireciona stderr para arquivo |
+| `&>` | Redireciona stdout e stderr |
+| `<` | Redireciona stdin de arquivo |
+| `<<` | Here document |
+
+
+<!-- ### Exercício
+
+Crie um script que gere um relatório completo do arquivo FASTA:
+
+<details>
+<summary>Solução</summary>
+
+```bash
+#!/bin/bash
+echo "<mark>= RELATÓRIO DO ARQUIVO FASTA </mark>=" > relatorio_completo.txt
+echo "Arquivo: sequencias.fasta" >> relatorio_completo.txt
+echo "Data: $(date)" >> relatorio_completo.txt
+echo "" >> relatorio_completo.txt
+echo "Número de sequências: $(grep -c '^>' sequencias.fasta)" >> relatorio_completo.txt
+echo "Total de nucleotídeos: $(grep -v '^>' sequencias.fasta | tr -d '\n' | wc -c)" >> relatorio_completo.txt
+echo "Tamanho do arquivo: $(ls -lh sequencias.fasta | awk '{print $5}')" >> relatorio_completo.txt
+echo "" >> relatorio_completo.txt
+echo "<mark>= ESPÉCIES </mark>=" >> relatorio_completo.txt
+grep '^>' sequencias.fasta | cut -d'|' -f2 | sort | uniq -c >> relatorio_completo.txt
+```
+</details>
+
+---
+ -->
+
+
+## Parte 7 – Xargs
+
+
+### Conceito e Uso
+
+O `xargs` converte entrada padrão (stdin) em argumentos para um comando. É útil quando comandos não aceitam entrada via pipe diretamente.
+
+
+### Exemplos Práticos
+
+```bash
+
+# Xargs básico
+echo "seq1 seq2 seq3" | xargs mkdir   # cria 3 diretórios
+
+
+# Xargs com -n (número de argumentos por vez)
+echo "seq1 seq2 seq3 seq4 seq5" | xargs -n 2 echo "Processando:"
+
+
+# Xargs com -I (substituição)
+ls *.txt | xargs -I {} mv {} backup/{}
+
+
+# Xargs com -P (paralelismo)
+grep "^>" sequencias.fasta | cut -d'|' -f3 | xargs -P 4 -I {} echo "Gene: {}"
+
+
+# Xargs com arquivo
+grep ">" sequencias.fasta | cut -d'|' -f2 | xargs -n 1 echo "Espécie:"
+
+
+# Xargs com comando específico
+ls *.fasta | xargs -I {} grep -c ">" {}
+
+
+# Xargs com echo para debug
+echo "arquivo1 arquivo2" | xargs -t echo  # -t mostra comando executado
+```
+
+
+### Diferença entre Pipe e Xargs
+
+```bash
+
+# PIPE: comando recebe stdin
+grep ">" sequencias.fasta | wc -l    # ✅ wc aceita stdin
+
+
+# XARGS: comando recebe argumentos
+grep ">" sequencias.fasta | xargs echo   # echo não aceita stdin, mas aceita args
+```
+
+
+### Exercício
+
+1. Use `xargs` para criar diretórios para cada espécie no arquivo
+2. Use `xargs` com `grep` para contar sequências em todos os arquivos .fasta
+
+<details>
+<summary>Solução</summary>
+
+```bash
+
+# 1. Criar diretórios por espécie
+grep "^>" sequencias.fasta | cut -d'|' -f2 | sort -u | xargs mkdir -p
+
+
+# 2. Contar sequências em múltiplos arquivos
+ls *.fasta | xargs -I {} sh -c 'echo -n "{}: " && grep -c ">" {}'
+```
+</details>
+
+---
+
+
+## Parte 8 – Compactação e Arquivos TAR
+
+
+### Tipos de Compactação
+
+```bash
+
+# Compressão individual
+gzip sequencias.fasta          # cria .gz
+gunzip sequencias.fasta.gz     # descomprime
+bzip2 sequencias.fasta         # cria .bz2 (melhor compressão)
+bunzip2 sequencias.fasta.bz2
+xz sequencias.fasta            # cria .xz (melhor ainda)
+unxz sequencias.fasta.xz
+
+
+# Comparar tamanhos
+ls -lh sequencias.fasta*
+```
+
+
+### TAR (Tape Archive)
+
+```bash
+
+# Criar arquivo tar (sem compressão)
+tar cvf arquivos.tar arquivo1 arquivo2 pasta/
+
+
+# Compressão com tar (recomendado)
+tar czvf arquivos.tar.gz arquivo1 arquivo2 pasta/   # gzip
+tar cjvf arquivos.tar.bz2 arquivo1 arquivo2 pasta/  # bzip2
+tar cJvf arquivos.tar.xz arquivo1 arquivo2 pasta/   # xz
+
+
+# Descompactar
+tar xzvf arquivos.tar.gz        # gzip
+tar xjvf arquivos.tar.bz2       # bzip2
+tar xJvf arquivos.tar.xz        # xz
+
+
+# Ver conteúdo sem extrair
+tar tvf arquivos.tar.gz
+
+
+# Extrair arquivo específico
+tar xzvf arquivos.tar.gz sequencias.fasta
+
+
+# Extrair para diretório específico
+tar xzvf arquivos.tar.gz -C /destino/
+```
+
+
+### Comparação de Tamanhos
+
+| Formato | Comando | Tamanho |
+|---------|---------|---------|
+| Original | - | 1.0 MB |
+| gzip | tar czvf | 350 KB |
+| bzip2 | tar cjvf | 280 KB |
+| xz | tar cJvf | 210 KB |
+
+
+### Exercício
+
+1. Compacte todos os arquivos .fasta em um arquivo `sequencias.tar.gz`
+2. Crie uma cópia de segurança de toda a pasta `pratica1`
+3. Compare os tamanhos dos arquivos compactados com diferentes algoritmos
+
+<details>
+<summary>**Solução:**</summary>
+
+```bash
+
+# 1. Compactar todos .fasta
+tar czvf sequencias.tar.gz *.fasta
+
+
+# 2. Backup completo
+tar czvf pratica1_backup_$(date +%Y%m%d).tar.gz pratica1/
+
+
+# 3. Comparar algoritmos
+tar czvf arquivo.tar.gz sequencias.fasta
+tar cjvf arquivo.tar.bz2 sequencias.fasta
+tar cJvf arquivo.tar.xz sequencias.fasta
+ls -lh arquivo.tar.*
+```
+</details>
+
+---
+
+
+<!-- ## DESAFIO FINAL – Pipeline Completo de Análise
+
+
+### Objetivo
+
+Criar um script que analise completamente o arquivo FASTA e gere um relatório detalhado.
+
+
+### Requisitos
+
+O script deve:
+
+1. **Validar** que o arquivo FASTA existe
+2. **Contar**:
+   - Número total de sequências
+   - Número de sequências por espécie
+   - Total de nucleotídeos (excluindo cabeçalhos)
+   - Comprimento médio das sequências
+   - Comprimento mínimo e máximo
+3. **Encontrar** sequências que:
+   - Contêm o motivo "TATAAT"
+   - Têm comprimento > 100 pb
+   - Pertencem a Bacillus subtilis
+4. **Gerar** um arquivo de saída com:
+   - Estatísticas descritivas
+   - Lista de IDs das sequências
+   - Sequências mais curtas e mais longas
+5. **Compactar** o arquivo de saída
+
+
+### Script Solução
+
+```bash
+#!/bin/bash
+
+# analisar_fasta.sh - Análise completa de arquivo FASTA
+#| code-fold: true
+#| code-summary: "Clique para ver o código bash"
+
+ARQUIVO="sequencias.fasta"
+RELATORIO="analise_completa.txt"
+DATA=$(date +"%Y-%m-%d %H:%M:%S")
+
+
+# 1. Validar arquivo
+if [ ! -f "$ARQUIVO" ]; then
+    echo "ERRO: Arquivo $ARQUIVO não encontrado!" >&2
+    exit 1
+fi
+
+
+# 2. Função para calcular estatísticas
+calcular_stats() {
+    # Total de sequências
+    TOTAL_SEQS=$(grep -c "^>" "$ARQUIVO")
+    
+    # Total de nucleotídeos
+    TOTAL_NT=$(grep -v "^>" "$ARQUIVO" | tr -d '\n' | wc -c)
+    
+    # Sequências por espécie
+    mapfile -t ESPECIES < <(grep "^>" "$ARQUIVO" | cut -d'|' -f2 | sort | uniq -c)
+    
+    # Comprimentos das sequências
+    mapfile -t COMPRIMENTOS < <(grep -v "^>" "$ARQUIVO" | awk '{print length($0)}')
+    
+    # Calcular comprimento médio
+    SOMA=0
+    for i in "${COMPRIMENTOS[@]}"; do
+        SOMA=$((SOMA + i))
+    done
+    MEDIA=$((SOMA / TOTAL_SEQS))
+    
+    # Mínimo e máximo
+    MIN=1000000
+    MAX=0
+    for i in "${COMPRIMENTOS[@]}"; do
+        [ $i -lt $MIN ] && MIN=$i
+        [ $i -gt $MAX ] && MAX=$i
+    done
+}
+
+
+# 3. Gerar relatório
+gerar_relatorio() {
+    echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>==" > "$RELATORIO"
+    echo "  RELATÓRIO DE ANÁLISE DE ARQUIVO FASTA" >> "$RELATORIO"
+    echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>==" >> "$RELATORIO"
+    echo "Data da análise: $DATA" >> "$RELATORIO"
+    echo "Arquivo: $ARQUIVO" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "📊 ESTATÍSTICAS GERAIS:" >> "$RELATORIO"
+    echo "  • Total de sequências: $TOTAL_SEQS" >> "$RELATORIO"
+    echo "  • Total de nucleotídeos: $TOTAL_NT" >> "$RELATORIO"
+    echo "  • Comprimento médio: $MEDIA pb" >> "$RELATORIO"
+    echo "  • Comprimento mínimo: $MIN pb" >> "$RELATORIO"
+    echo "  • Comprimento máximo: $MAX pb" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "🔬 DISTRIBUIÇÃO POR ESPÉCIE:" >> "$RELATORIO"
+    printf "%s\n" "${ESPECIES[@]}" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "🧬 SEQUÊNCIAS COM MOTIVO TATAAT:" >> "$RELATORIO"
+    grep -B 1 "TATAAT" "$ARQUIVO" >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "📏 SEQUÊNCIAS MAIS LONGAS (TOP 3):" >> "$RELATORIO"
+    grep -v "^>" "$ARQUIVO" | awk '{print length($0), NR}' | sort -rn | head -3 >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "📏 SEQUÊNCIAS MAIS CURTAS (BOTTOM 3):" >> "$RELATORIO"
+    grep -v "^>" "$ARQUIVO" | awk '{print length($0), NR}' | sort -n | head -3 >> "$RELATORIO"
+    echo "" >> "$RELATORIO"
+    
+    echo "✅ ANÁLISE CONCLUÍDA COM SUCESSO!" >> "$RELATORIO"
+    echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>==" >> "$RELATORIO"
+}
+
+
+# 4. Executar funções
+calcular_stats
+gerar_relatorio
+
+
+# 5. Compactar relatório
+tar czvf analise_completa.tar.gz "$RELATORIO"
+
+
+# 6. Mostrar resumo
+echo "✅ Análise concluída!"
+echo "📄 Relatório: $RELATORIO"
+echo "📦 Compactado: analise_completa.tar.gz"
+echo ""
+echo "Resumo rápido:"
+echo "  • Sequências: $TOTAL_SEQS"
+echo "  • Nucleotídeos: $TOTAL_NT"
+echo "  • Comprimento médio: $MEDIA pb"
+```
+
+
+### Como Executar o Desafio
+
+```bash
+
+# Tornar executável
+chmod +x analisar_fasta.sh
+
+
+# Executar
+./analisar_fasta.sh
+``` -->
+
+---
+
+
+## Material Complementar
+
+
+### Cheat Sheet
+
+| Comando | Descrição | Exemplo Bioinformática |
+|---------|-----------|----------------------|
+| `pwd` | Diretório atual | Verificar localização |
+| `ls -lh` | Listar arquivos | Ver arquivos FASTA |
+| `cd` | Mudar diretório | Navegar para pasta de dados |
+| `mkdir -p` | Criar diretórios | Criar estrutura de projeto |
+| `cp -r` | Copiar recursivo | Backup de dados |
+| `grep -c` | Contar padrões | Contar sequências |
+| `wc -l` | Contar linhas | Verificar tamanho do arquivo |
+| `cut -d'|'` | Extrair campos | Extrair IDs de sequências |
+| `sort \| uniq -c` | Contar únicos | Distribuição de espécies |
+| `tar czvf` | Compactar | Backup de projetos |
+
+
+### Dicas de Produtividade
+
+```bash
+
+# Tab completion - digite parte do comando e aperte TAB
+cd pr[TAB]   # auto-completa para pratica1
+
+
+# Reverse search (Ctrl+R)
+Ctrl+R   # busca em histórico de comandos
+
+
+# Aliases úteis
+alias ll='ls -lah'
+alias grep='grep --color=auto'
+alias gs='grep "^>"'
+
+
+# Histórico
+history | grep grep   # buscar comandos anteriores com grep
+!100                  # executar comando número 100 do histórico
+!!                    # repetir último comando
+```
+
+
+### Comandos para interessantes para bioinformática
+
+```bash
+
+# Sequências únicas
+grep -v "^>" sequencias.fasta | sort | uniq -c
+
+
+# Frequência de nucleotídeos
+grep -v "^>" sequencias.fasta | grep -o . | sort | uniq -c
+
+
+# GC content
+grep -v "^>" sequencias.fasta | tr -d '\n' | tr -cd 'GC' | wc -c
+
+
+# Reverse complement (com tr e rev)
+echo "ATGC" | tr 'ATCG' 'TAGC' | rev
+
+
+# Download do NCBI
+wget "https://www.ncbi.nlm.nih.gov/sviewer/viewer.fcgi?id=NC_000913&db=nuccore&report=fasta"
+```
+
+<!-- 
+### Desafios Extras para Alunos Avançados
+
+1. **Pipeline de filtragem**: Crie um pipeline que filtre sequências por comprimento (> 100 pb)
+2. **Análise de qualidade**: Calcule o GC content de cada sequência e crie um histograma simples
+3. **Conversão de formato**: Converta o FASTA para formato tabular (ID, comprimento, GC%)
+4. **Análise de motivos**: Encontre e conte todos os motivos de 6 nucleotídeos (hexâmeros)
+5. **Parallel processing**: Use xargs -P para processar múltiplos arquivos simultaneamente -->
+
+
+### Referências e Recursos
+
+- **Documentação oficial**: [GNU Bash Manual](https://www.gnu.org/software/bash/manual/)
+- **Bioinformatics**:
+  - [Bioinformatics Data Skills](https://www.oreilly.com/library/view/bioinformatics-data-skills/9781449367480/)
+  - [Linux for Biologists](https://edu.anarcho-copy.org/GNU%20Linux%20-%20Unix-Like/Science/linuxforbiologists.pdf)
+- **Comandos**:
+  - [Explain Shell](https://explainshell.com/)
+  - [SS64 Bash Commands](https://ss64.com/bash/)
+- **Prática online**:
+  - [OverTheWire Bandit](https://overthewire.org/wargames/bandit/) - Jogos para aprender Linux
+  - [Rosalind](http://rosalind.info/) - Problemas de bioinformática
+
+---
+
+
+<!-- ## ✅ Checklist de Aprendizagem -->
+## Checklist de Aprendizagem
+
+- [ ] Consigo navegar entre diretórios usando caminhos absolutos e relativos
+- [ ] Sei criar, copiar, mover e remover arquivos e diretórios
+- [ ] Consigo visualizar arquivos grandes usando `less`
+- [ ] Sei usar `grep` com expressões regulares básicas
+- [ ] Construo pipelines usando `|` (pipe)
+- [ ] Entendo redirecionamento (`>`, `>>`, `2>`)
+- [ ] Uso `xargs` para processar múltiplos arquivos
+- [ ] Compacto e descompacto arquivos com `tar` e `gzip`
+- [ ] Consigo extrair informações de um arquivo FASTA
+- [ ] Sei criar scripts simples para automatizar análises

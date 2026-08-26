@@ -1,0 +1,704 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  brazilian,
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,shorthands=off]{babel}
+\else
+\usepackage[bidi=default,shorthands=off]{babel}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Índice}
+\else
+  \newcommand\contentsname{Índice}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Lista de Figuras}
+\else
+  \newcommand\listfigurename{Lista de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Lista de Tabelas}
+\else
+  \newcommand\listtablename{Lista de Tabelas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabela}
+\else
+  \newcommand\tablename{Tabela}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listagem}
+\newcommand*\listoflistings{\listof{codelisting}{Lista de Listagens}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Aula Prática 3 -- Montagem Genômica e Avaliação de Qualidade},
+  pdfauthor={Nicholas Barroso},
+  pdflang={pt-BR},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Aula Prática 3 -- Montagem Genômica e Avaliação de Qualidade}
+\author{Nicholas Barroso}
+\date{2026-07-18}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Índice}
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{Introdução}\label{introduuxe7uxe3o}
+
+A montagem genômica permite reconstruir o genoma de um organismo a
+partir de milhões de pequenos fragmentos de DNA (\emph{reads}) gerados
+por tecnologias de sequenciamento de nova geração (NGS). O desafio está
+em ordenar corretamente as leituras para obter o genoma completo.
+
+A qualidade da montagem depende diretamente da qualidade dos dados de
+entrada. Reads com baixa qualidade, presença de adaptadores ou
+contaminações podem levar a montagens fragmentadas, com erros e regiões
+não resolvidas. Por isso, o controle de qualidade e a limpeza (trimagem)
+dos dados são etapas fundamentais antes de qualquer montagem.
+
+Nesta aula prática faremos o fluxo de trabalho da montagem genômica,
+desde a avaliação inicial dos dados até a comparação de diferentes
+montadores (\emph{assemblers}). Utilizaremos as seguintes ferramentas:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{FastQC}: para controle de qualidade dos reads;
+\item
+  \textbf{Trimmomatic}: para limpeza e remoção de adaptadores;
+\item
+  \textbf{SPAdes, Masurca e MEGAHIT}: três dos mais populares assemblers
+  de genomas, cada um com abordagens algorítmicas distintas;
+\item
+  \textbf{QUAST}: para avaliação comparativa das montagens geradas.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Objetivos}\label{objetivos}
+
+\begin{itemize}
+\tightlist
+\item
+  Realizar o controle de qualidade de dados de sequenciamento;
+\item
+  Executar a limpeza (trimagem) de reads;
+\item
+  Montar genomas utilizando diferentes montadores/\emph{assemblers}
+  (SPAdes, Masurca e MEGAHIT);
+\item
+  Comparar e interpretar métricas de qualidade de montagens.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Pré-requisitos}\label{pruxe9-requisitos}
+
+\begin{itemize}
+\tightlist
+\item
+  Conhecimento básico de linha de comando (Linux/Unix);
+\item
+  Ferramentas instaladas: FastQC, Trimmomatic, SPAdes, Masurca, MEGAHIT,
+  QUAST;
+\item
+  Arquivos de entrada: \texttt{reads\_R1.fastq.gz} e
+  \texttt{reads\_R2.fastq.gz} (dados paired-end);
+\item
+  Arquivo de adaptadores: \texttt{adapters.fa} (ex: TruSeq3-PE.fa).
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Fluxograma}\label{fluxograma}
+
+\includegraphics[width=7.38in,height=31.18in]{pratica3_files/figure-latex/mermaid-figure-1.png}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Resumo do Fluxo de Trabalho}\label{resumo-do-fluxo-de-trabalho}
+
+\begin{verbatim}
+Dados Brutos → QC → Limpeza → Montagem → Avaliação → Comparação → Conclusão
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 1 -- Controle de Qualidade com
+FastQC}\label{parte-1-controle-de-qualidade-com-fastqc}
+
+\subsection{Execução}\label{execuuxe7uxe3o}
+
+Manual:
+\href{https://www.bioinformatics.babraham.ac.uk/projects/fastqc/}{FastQC
+Documentation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{fastqc}\NormalTok{ reads\_R1.fastq.gz reads\_R2.fastq.gz }\AttributeTok{{-}o}\NormalTok{ fastqc\_results/}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Interpretação dos
+Relatórios}\label{interpretauxe7uxe3o-dos-relatuxf3rios}
+
+Abra os arquivos HTML gerados e observe:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Qualidade por base (\emph{Per base sequence quality})}:
+  Boxplots mostrando a pontuação Phred em cada posição. Regiões com
+  qualidade \textless{} 20 indicam necessidade de trimagem.
+\item
+  \textbf{Conteúdo GC (\emph{Per sequence GC content})}: A distribuição
+  deve ser próxima a uma curva normal. Picos anômalos podem indicar
+  contaminação.
+\item
+  \textbf{Presença de adaptadores (\emph{Adapter Content})}: Identifica
+  se adaptadores não foram totalmente removidos.
+\item
+  \textbf{Níveis de duplicação (\emph{Sequence Duplication Levels})}:
+  Altos níveis podem indicar viés de PCR.
+\end{itemize}
+
+\emph{Com base nos relatórios, quais etapas de limpeza você considera
+necessárias?}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 2 -- Limpeza (Trimagem) com
+Trimmomatic}\label{parte-2-limpeza-trimagem-com-trimmomatic}
+
+\subsection{Comando}\label{comando}
+
+Trimmomatic é uma ferramenta flexível para remover adaptadores e bases
+de baixa qualidade. O comando abaixo realiza a trimagem em dados
+paired-end, gerando arquivos de reads limpos e descartando reads curtas.
+
+\textbf{Manual}:
+\href{http://www.usadellab.org/cms/?page=trimmomatic}{Trimmomatic
+Manual}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{TrimmomaticPE} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}threads}\NormalTok{ 4 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}phred33} \DataTypeTok{\textbackslash{}}
+\NormalTok{    reads\_R1.fastq.gz }\DataTypeTok{\textbackslash{}}
+\NormalTok{    reads\_R2.fastq.gz }\DataTypeTok{\textbackslash{}}
+\NormalTok{    forward\_paired.fastq.gz }\DataTypeTok{\textbackslash{}}
+\NormalTok{    forward\_unpaired.fastq.gz }\DataTypeTok{\textbackslash{}}
+\NormalTok{    reverse\_paired.fastq.gz }\DataTypeTok{\textbackslash{}}
+\NormalTok{    reverse\_unpaired.fastq.gz }\DataTypeTok{\textbackslash{}}
+\NormalTok{    ILLUMINACLIP:adapters.fa:2:30:10 }\DataTypeTok{\textbackslash{}}
+\NormalTok{    LEADING:3 }\DataTypeTok{\textbackslash{}}
+\NormalTok{    TRAILING:3 }\DataTypeTok{\textbackslash{}}
+\NormalTok{    SLIDINGWINDOW:4:15 }\DataTypeTok{\textbackslash{}}
+\NormalTok{    MINLEN:36}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Explicação dos
+Parâmetros}\label{explicauxe7uxe3o-dos-paruxe2metros}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5789}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4211}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Parâmetro
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Função
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{ILLUMINACLIP:adapters.fa:2:30:10} & Remove adaptadores.
+Parâmetros: mismatch máximo (2), palíndromo (30), simples (10) \\
+\texttt{LEADING:3} & Remove bases com qualidade \textless{} 3 no início
+da read \\
+\texttt{TRAILING:3} & Remove bases com qualidade \textless{} 3 no final
+da read \\
+\texttt{SLIDINGWINDOW:4:15} & Corta a read quando a média de qualidade
+em uma janela de 4 bases for \textless{} 15 \\
+\texttt{MINLEN:36} & Descarta reads com comprimento final \textless{} 36
+bases \\
+\end{longtable}
+}
+
+\subsection{Verificação
+Pós-Trimagem}\label{verificauxe7uxe3o-puxf3s-trimagem}
+
+Execute novamente o FastQC nos arquivos \texttt{*\_paired.fastq.gz} para
+confirmar a melhoria da qualidade.
+
+\emph{Quantos reads foram descartados? Isso é esperado para seus dados?}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 3 -- Montagem com
+SPAdes}\label{parte-3-montagem-com-spades}
+
+Manual: \href{https://github.com/ablab/spades}{SPAdes GitHub}
+
+\subsection{Execução}\label{execuuxe7uxe3o-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{spades.py} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}1}\NormalTok{ forward\_paired.fastq.gz }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}2}\NormalTok{ reverse\_paired.fastq.gz }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ montagem\_spades }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}{-}careful} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ 8 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}m}\NormalTok{ 64}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Parâmetros Importantes}\label{paruxe2metros-importantes}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{-\/-careful}: Reduz erros em montagens de bactérias (modo mais
+  rigoroso);
+\item
+  \texttt{-t\ 8}: Número de threads (ajuste conforme seu hardware);
+\item
+  \texttt{-m\ 64}: Limite de memória em GB.
+\end{itemize}
+
+\subsection{Saída Principal}\label{sauxedda-principal}
+
+O arquivo de contigs está em: \texttt{montagem\_spades/contigs.fasta}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 4 -- Montagem com
+Masurca}\label{parte-4-montagem-com-masurca}
+
+Manual: \href{https://masurca.readthedocs.io/en/latest/}{Masurca
+Documentation}
+
+\subsection{Execução}\label{execuuxe7uxe3o-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{masurca} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}i} \StringTok{"forward\_paired.fastq.gz,reverse\_paired.fastq.gz"} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ montagem\_masurca }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ 8}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Processo}\label{processo}
+
+O Masurca gera um script chamado \texttt{assemble.sh}. Execute-o para
+iniciar a montagem:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ montagem\_masurca}
+\ExtensionTok{./assemble.sh}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Importante:} Não use espaços após a vírgula na lista de
+arquivos!
+
+\subsection{Saída Principal}\label{sauxedda-principal-1}
+
+O arquivo de contigs está em:
+\texttt{montagem\_masurca/CA/primary.genome.scf.fasta}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 5 -- Montagem com
+MEGAHIT}\label{parte-5-montagem-com-megahit}
+
+Manual: \href{https://github.com/voutcn/megahit}{MEGAHIT GitHub}
+
+\subsection{Execução}\label{execuuxe7uxe3o-3}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{megahit} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}1}\NormalTok{ forward\_paired.fastq.gz }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}2}\NormalTok{ reverse\_paired.fastq.gz }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ montagem\_megahit }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ 8 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}m}\NormalTok{ 0.9}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Parâmetros}\label{paruxe2metros}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{-m\ 0.9}: Usa 90\% da memória total disponível (ajuste
+  conforme necessário);
+\item
+  \texttt{-t\ 8}: Número de threads.
+\end{itemize}
+
+\subsection{Saída Principal}\label{sauxedda-principal-2}
+
+O arquivo de contigs está em:
+\texttt{montagem\_megahit/final.contigs.fa}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 6 -- Avaliação Inicial das
+Montagens}\label{parte-6-avaliauxe7uxe3o-inicial-das-montagens}
+
+Para cada montagem, analise:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{\# Contar número de contigs}
+\FunctionTok{grep} \AttributeTok{{-}c} \StringTok{"\^{}\textgreater{}"}\NormalTok{ montagem\_spades/contigs.fasta}
+
+
+\CommentTok{\# Tamanho total da montagem}
+\FunctionTok{grep} \AttributeTok{{-}v} \StringTok{"\^{}\textgreater{}"}\NormalTok{ montagem\_spades/contigs.fasta }\KeywordTok{|} \FunctionTok{wc} \AttributeTok{{-}c}
+
+
+\CommentTok{\# Maior contig}
+\FunctionTok{grep} \AttributeTok{{-}v} \StringTok{"\^{}\textgreater{}"}\NormalTok{ montagem\_spades/contigs.fasta }\KeywordTok{|} \FunctionTok{awk} \StringTok{\textquotesingle{}\{print length($0)\}\textquotesingle{}} \KeywordTok{|} \FunctionTok{sort} \AttributeTok{{-}nr} \KeywordTok{|} \FunctionTok{head} \AttributeTok{{-}1}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Monte uma tabela comparativa:}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Métrica & SPAdes & Masurca & MEGAHIT \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Nº de contigs & & & \\
+Tamanho total (bp) & & & \\
+Maior contig (bp) & & & \\
+\end{longtable}
+}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 7 -- Avaliação Detalhada com
+QUAST}\label{parte-7-avaliauxe7uxe3o-detalhada-com-quast}
+
+Manual: \href{http://quast.sourceforge.net/docs/manual.html}{QUAST
+Documentation}
+
+\subsection{Execução}\label{execuuxe7uxe3o-4}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{quast.py} \DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}o}\NormalTok{ quast\_results }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}t}\NormalTok{ 8 }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}m}\NormalTok{ 500 }\DataTypeTok{\textbackslash{}}
+\NormalTok{    montagem\_spades/contigs.fasta }\DataTypeTok{\textbackslash{}}
+\NormalTok{    montagem\_masurca/CA/primary.genome.scf.fasta }\DataTypeTok{\textbackslash{}}
+\NormalTok{    montagem\_megahit/final.contigs.fa }\DataTypeTok{\textbackslash{}}
+    \AttributeTok{{-}l} \StringTok{"SPAdes,Masurca,MEGAHIT"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Métricas Chave a
+Interpretar}\label{muxe9tricas-chave-a-interpretar}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2368}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4211}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3421}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Métrica
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+O que significa
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Valor ideal
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{N50} & Comprimento mínimo dos contigs que cobrem 50\% do genoma
+& Quanto maior, melhor \\
+\textbf{L50} & Número de contigs necessários para atingir o N50 & Quanto
+menor, melhor \\
+\textbf{Nº de contigs} & Fragmentação da montagem & Menor é melhor \\
+\textbf{Maior contig} & Contig mais longo produzido & Quanto maior,
+melhor \\
+\textbf{GC (\%)} & Conteúdo GC estimado & Deve ser compatível com a
+espécie \\
+\textbf{Mismatches por 100 kbp} & Erros de base na montagem & Quanto
+menor, melhor \\
+\end{longtable}
+}
+
+\subsection{Análise Comparativa}\label{anuxe1lise-comparativa}
+
+Abra o relatório HTML gerado (\texttt{quast\_results/report.html}) e
+compare:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Qual assembler produziu o melhor N50?
+\item
+  Qual teve o menor número de contigs?
+\item
+  Há diferenças significativas no conteúdo GC estimado?
+\item
+  Qual montagem você consideraria a melhor e por quê?
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Parte 8 -- Perguntas para Discussão
+Final}\label{parte-8-perguntas-para-discussuxe3o-final}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Qualidade dos dados}: Como a qualidade inicial dos reads
+  afetou as montagens?
+\item
+  \textbf{Desempenho dos assemblers}: Quais foram as principais
+  diferenças entre SPAdes, Masurca e MEGAHIT?
+\item
+  \textbf{Escolha do assembler}: Em quais situações você usaria cada um
+  dos assemblers?
+\item
+  \textbf{Limitações}: Quais informações ainda faltam para validar
+  completamente a montagem?
+\item
+  \textbf{Próximos passos}: O que você faria para melhorar ainda mais a
+  montagem?
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Referências e Leituras
+Recomendadas}\label{referuxeancias-e-leituras-recomendadas}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.bioinformatics.babraham.ac.uk/projects/fastqc/}{FastQC
+  Documentation}
+\item
+  \href{http://www.usadellab.org/cms/?page=trimmomatic}{Trimmomatic
+  Manual}
+\item
+  \href{https://github.com/ablab/spades}{SPAdes GitHub}
+\item
+  \href{https://masurca.readthedocs.io/en/latest/}{Masurca
+  Documentation}
+\item
+  \href{https://github.com/voutcn/megahit}{MEGAHIT GitHub}
+\item
+  \href{http://quast.sourceforge.net/docs/manual.html}{QUAST
+  Documentation}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+
+
+
+\end{document}

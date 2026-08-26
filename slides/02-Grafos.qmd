@@ -1,0 +1,661 @@
+---
+title: "02 <br> Grafos"
+author: "Nicholas Barroso"
+format: 
+  revealjs:
+    slide-number: c/t
+    width: 1600
+    height: 900
+    logo: img/logo.png
+    footer: "Nicholas Barroso"
+    incremental: true
+    theme: tema_azul.scss
+---
+# Biologia de Sistemas
+
+# 02 - Grafos
+
+Nicholas Barroso
+
+
+---
+
+
+# Teoria de Grafos
+
+
+---
+
+
+# Grafo versus Gráfico
+
+![](img/02-Grafos_0.png)
+
+![](img/02-0Grafos_1.png)
+
+
+---
+
+
+![](img/02-Grafos_2.png)
+
+__É possível andar pela cidade atravessando cada ponte __  _exatamente uma vez_  __?__
+
+
+---
+
+
+# Pontes de Kaliningrado
+
+![](img/02-Grafos_3.png)
+
+__Leonhard Euler__
+
+Matemático e físico Suíço
+
+Tentou responder a questão sobre as pontes de Kaliningrado\.
+
+Para tanto desenvolveu a  __Teoria dos Grafos__ \.
+
+
+---
+
+
+![](img/02-Grafos_4.png)
+
+__É possível andar pela cidade atravessando cada ponte __  _exatamente uma vez_  __?__
+
+
+---
+
+
+![](img/02-Grafos_5.png)
+
+__É possível andar pela cidade atravessando cada ponte __  _exatamente uma vez_  __?__
+
+
+---
+
+
+Um grafo é uma representação matemática de um objeto consistindo de  __vértices__  __ __ \(nós\) e  __arestas__  representando elementos e conexões\, respectivamente\.
+
+V: Vértices \(ex\.: genes\, proteínas\, metabólitos\)\.
+
+E: Arestas \(ex\.: interações\, reações químicas\)\.
+
+# Grafo
+
+# Definição 1
+
+
+---
+
+
+_G = \(V\,E\)_
+
+O grafo  _G_  é um  __conjunto__  formado por um conjunto de vértices  _V_  e um conjunto de arestas  _E_
+
+Exemplo
+
+Grafo de Regulação Gênica:
+
+V = \{GeneA\, GeneB\, GeneC\}
+
+E = \{GeneA → GeneB\, GeneB → GeneC\}\.
+
+# Grafo
+
+# Definição 2
+
+
+---
+
+
+_G = \(V\,E\)_
+
+O grafo  _G_  é um conjunto formado por um conjunto de vértices V = \{v1\,v2\,v3\,\.\.\.\,vn\} e um conjunto de arestas E = \{\(v1\,v2\)\,\(v3\,vn\)\,\.\.\.\,\(vx\,vz\)\}
+
+# Grafo
+
+# Definição 2 expandida
+
+
+---
+
+
+# Algumas definições
+
+
+---
+
+
+# Vértices ou nós
+
+São os elementos do grafo\. Os elementos podem significar qualquer coisa
+
+Pessoas
+
+Lugares
+
+Genes
+
+Animais
+
+Proteínas
+
+![](img/02-Grafos_6.jpg)
+
+![](img/02-Grafos_7.jpg)
+
+![](img/02-Grafos_8.jpg)
+
+__Sua representação gráfica pode ser um ponto ou um círculo que pode\, ou não\, conter algum símbolo interno\.__
+
+![](img/02-Grafos_9.jpg)
+
+
+---
+
+
+# Arestas
+
+
+
+* As arestas indicam  __relações__  entre os elementos\. O significado da relação pode mudar dependendo dos elementos\.
+* Por isso as arestas podem ser:
+* __Não\-direcionadas:__  \(v1\,v2\)  __=__  \(v2\,v1\)\, relações simétrica\.
+  * __Quando a ligação não exibe precedência\, somente relação\.__
+  * __Complexo proteico onde A interage com B e vice\-versa\.__
+* __Direcionadas:__   __\(v__  __1__  __\,v__  __2__  __\) __  __≠__  __ \(v__  __2__  __\,v__  __1__  __\)__
+  * __Quando a ligação entre os dados indica precedência ou ordem__
+    * __causa e efeito;__
+    * __antes ou depois;__
+    * __substrato → produto\.__
+    * __GeneX ativa a expressão de GeneY \(GeneX → GeneY\)\.__
+
+---
+
+
+# Arestas (cont.)
+
+__Não\-direcionadas__
+
+__Relação sem precedência__
+
+__Direcionadas__
+
+__Relação com precedência__
+
+
+---
+
+
+Grafos com arestas direcionadas são  __grafos direcionados__ \.
+
+Grafos com arestas não\-direcionadas são  __grafos não\-direcionados__ \.
+
+# Por consequência
+
+# O grafos podem ser classificados de acordo com os tipos das suas arestas
+
+
+---
+
+
+Um grafo não\-direcionado é conectado quando possui pelo menos um vértice e existe um caminho entre cada par de vértices\.
+
+Em um grafo conectado\, não há vértices inacessíveis\.
+
+Um grafo não direcionado que não está conectado é chamado desconectado\.
+
+Um grafo não direcionado G é\, portanto\, desconectado se existir dois vértices em G\, de modo que nenhum caminho em G tenha esses vértices como pontos finais\.
+
+Um grafo com apenas um vértice está conectado\.
+
+Um gráfico sem arestas entre dois ou mais vértices é desconectado\.
+
+# Grafo
+
+# Conectado e não-conectado
+
+
+---
+
+
+__Conectado:__  Todos os vértices estão ligados \(ex\.: rede metabólica essencial\)\.
+
+__Desconectado:__  Componentes isolados \(ex\.: vias metabólicas independentes\)\.
+
+Exemplo:
+
+__Rede de Coexpressão Gênica:__  Se desconectada\, indica grupos de genes com funções distintas\.
+
+# Grafo
+
+# Conectado e não-conectado
+
+
+---
+
+
+# Adjacência entre vértices
+
+![](img/02-Grafos_10.png)
+
+# Se os vértices compartilham da mesma aresta então eles são adjacentes entre si.
+
+Exemplo: Proteína A e B são adjacentes se interagem.
+
+
+---
+
+
+![](img/02-Grafos_11.png)
+
+# Grau
+
+# O grau de um vértice é o número de arestas que incidem nele.
+
+
+---
+
+
+![](img/02-Grafos_12.png)
+
+# Grau
+
+# Para o grafo direcionado, o grau de vértice pode ser dividido em grau de entrada e grau de saída.
+
+
+---
+
+
+![](img/02-Grafos_13.png)
+
+# Laço
+
+# Quando uma aresta começa e termina em um mesmo vértice ela é chamada de laço (loop)
+
+Exemplo: Autofosforilação de uma quinase (ex.: receptor EGFR).
+
+
+---
+
+
+# Layout
+
+Layout é um mapeamento dos vértices e arestas de um grafo G=\(V\,E\) em posições geométricas \(coordenadas\)\, seguindo regras que podem:
+
+Minimizar cruzamentos de arestas\.
+
+Destacar hierarquias ou comunidades\.
+
+Facilitar a identificação de padrões\.
+
+# Disposição visual dos vértices (nós) e arestas (conexões) no espaço (geralmente em 2D ou 3D) para representar a estrutura do grafo de forma clara e interpretável. O layout não altera a estrutura matemática do grafo, mas influencia diretamente a compreensão humana das relações entre os elementos.
+
+
+---
+
+
+# Layout
+
+Por que o Layout é Importante?
+
+__Clareza:__  Evita sobreposição de arestas \(ex\.: em redes densas como interações proteicas\)\.
+
+__Análise:__  Layouts específicos revelam propriedades \(ex\.: hubs em redes livres de escala\)\.
+
+__Comunicação:__  Facilita a apresentação de dados complexos em artigos ou relatórios\.
+
+
+---
+
+
+# Layout (cont.)
+
+| Tipo de Layout | Características | Aplicação em Biotecnologia |
+| :-: | :-: | :-: |
+| Force\-Directed | Arestas como molas\, vértices se repelem | Redes de coexpressão gênica \(identifica módulos funcionais\)\. |
+| Hierárquico | Vértices em camadas \(top\-down\) | Cascatas de sinalização celular \(ex\.: via MAPK\)\. |
+| Circular | Vértices em um círculo | Interações proteína\-DNA para destacar elementos centrais\. |
+| Radial | Vértices dispostos em anéis concêntricos | Árvores filogenéticas \(evolução de patógenos\)\. |
+
+::: {.notes}
+
+Ferramentas para Layout de Grafos
+
+    Cytoscape: Oferece algoritmos como Prefuse Force-Directed para redes biológicas.
+
+    Gephi: Usa Force Atlas 2 para layouts dinâmicos.
+
+    Python (NetworkX + Matplotlib): Permite customização via spring_layout ou circular_layout.
+
+Dica: Em biotecnologia, escolha o layout com base no objetivo:
+
+    Se quer identificar comunidades, use force-directed.
+
+    Se quer mostrar fluxos, use hierárquico.
+
+:::
+
+
+---
+
+
+G’ = \(V’\, E’\) onde V’ é um subconjunto de V e E’ é um subconjunto de E\.
+
+Isso implica que E’ só possui arestas que começam e terminam em vértices que estão em V’\.
+
+# Subgrafo
+
+![](img/02-Grafos_14.png)
+
+
+---
+
+
+Se G’  é um subgrafo de G e E’ possui todas as arestas de E que ligam os vértices de V’\, então esse subgrafo é chamado de grafo induzido\.
+
+# Subgrafo Induzido
+
+
+---
+
+
+E’=\{1\,2; 5\,6; 5\,7\}
+
+E’=\{1\,2; 1\,7; 5\,5; 5\,6; 5\,7\}
+
+
+---
+
+
+Dois grafos G1=\(V1\,E1\) e G2=\(V2\,E2\) são isomorfos se existir uma bijeção \(mapeamento um\-para\-um\) entre seus vértices que preserve as adjacências\.
+
+Ou seja:
+
+Cada vértice em G1​ tem um correspondente único em G2\.
+
+Duas arestas são conectadas em G1​ se e somente se suas correspondentes em G2 também estiverem conectadas\.
+
+Em outras palavras: Os grafos têm a mesma "forma" ou topologia\, mas podem diferir nos rótulos dos vértices/arestas\.
+
+# Isomorfismo
+
+
+---
+
+
+__Homologia Estrutural:__  Identifica padrões conservados na evolução \(ex\.: redes de interação proteica em eucariotos vs\. bactérias\)\.
+
+__Engenharia Metabólica:__  Redes isomorfas em microrganismos podem ser "copiadas" para organismos\-modelo\.
+
+__Descoberta de Drogas:__  Alvos farmacológicos em uma espécie podem ser inferidos a partir de redes isomorfas em outras\.
+
+# Por que Isomorfismo é Importante na Biologia?
+
+
+---
+
+
+# Passeio &
+Caminho &
+Trilha
+
+
+---
+
+
+# Passeio - Walk
+
+Um  __passeio__  de distância  _k_  em um grafo é uma sequência alternante de vértices e arestas v0\, e0\, v1\, e1\, v2\, e2\, … \, vk\-1\, ek\-1\, vk\, que começa e termina em vértices\.
+
+
+---
+
+
+# Passeio - Walk (cont.)
+
+Um  __passeio \(__  _walk_  __\)__  de comprimento  _k_  em um grafo é uma sequência alternada de vértices e arestas:
+
+_v_  _0_  _\, e_  _0_  _\, v_  _1_  _\, v_  _2_  _\, \.\.\.\, v_  _k\-1_  _\, e_  _k\-1_  _\, v_  _k_
+
+onde:
+
+Cada aresta  _e_  _i_  conecta os vértices  _v_  _i_  e  _v_  _i\+1_ \.
+
+__Vértices e arestas podem se repetir\.__
+
+Começa e termina em vértices
+
+
+---
+
+
+# Passeio - Walk (cont.)
+
+
+---
+
+
+# Tipos de Passeio
+
+
+
+* __Trilha__  \( _Trail_ \): Passeio sem arestas repetidas \(vértices podem repetir\)\.
+  * Exemplo:  _A\,_  _ _  _e_  _1_  _\,_  _ _  _B\,_  _ _  _e_  _2_  _\,_  _ _  _C\,_  _ _  _e_  _3_  _\,_  _ _  _A\,_  _ _  _e_  _4_  _\,_  _ _  _D_  \( _usa cada aresta apenas uma vez_ \)\.
+* __Caminho__  \( _Path_ \): Passeio sem vértices repetidos \( _e\, portanto\, sem arestas repetidas_ \)\.
+  * Exemplo:  _A\,_  _ _  _e_  _1_  _\,_  _ _  _B\,_  _ _  _e_  _2_  _\,_  _ _  _C_  \( _vértices distintos_ \)\.
+* __Ciclo__  \( _Cycle_ \): Passeio fechado \(v0=vk​\) sem repetir arestas e com vértices distintos \( _exceto o primeiro/último_ \)\.
+  * Exemplo:  _A\,_  _ _  _e_  _1_  _\,_  _ _  _B\,_  _ _  _e_  _2_  _\,_  _ _  _C\,_  _ _  _e_  _3_  _\,_  _ _  _A_ \.
+  * Exemplo: Ciclo de Krebs \(rede metabólica circular\)\.
+
+---
+
+
+# Caminhos especiais
+
+
+---
+
+
+Sequência de vértices conectados por arestas\, sem repetição de vértices ou arestas\.
+
+__Exemplo:__  Em uma rede metabólica\, um caminho simples pode representar uma rota linear de reações enzimáticas \(e\.g\.\, Glicose → Glicose\-6P → Frutose\-6P\)\.
+
+# Caminho simples
+
+
+---
+
+
+# Caminho Euleriano
+
+__Caminho que passa por __  _todas as arestas_  __ do grafo exatamente uma vez\.__
+
+__Exemplo:__  Modelar a trajetória de um metabólito que percorre todas as reações de uma via sem repetições \(raro em redes biológicas devido a ciclos\)\.
+
+
+---
+
+
+# Caminho Hamiltoniano
+
+__Caminho que visita todos os vértices exatamente uma vez\.__
+
+__Exemplo:__  Identificar uma ordem de ativação de proteínas em uma cascata de sinalização \(e\.g\.\, Receptor → Kinase A → Kinase B → TF\)\.
+
+
+---
+
+
+# Comprimento
+
+É dado pelo número de arestas  _atravessadas_  de um vértice inicial a um vértice final\.
+
+A distância entre dois vértices é o comprimento do  __menor caminho__  entre eles ou ∞ se não existir um menor caminho\.
+
+
+---
+
+
+# Menor caminho
+
+__É um caminho de tamanho mínimo entre dois vértices\.__
+
+__Pode existir vários menores caminhos entre dois vértices__  __ __  __ \(passando por diferentes vértices\)__  __\.__
+
+![](img/02-Grafos_15.png)
+
+::: {.notes}
+
+Fazer a distância entre 6 e 2 passando por 5 e por 3.
+Depois fazer a distância entre 6 e 1 passando por 5 e por 3.
+
+:::
+
+
+---
+
+
+# Outros tipos de grafos
+
+
+---
+
+
+# Grafos Mistos
+
+__Um grafo que possui arestas direcionadas e não direcionadas\.__
+
+__Exemplo:__  Rede de sinalização com interações bidirecionais \(e\.g\.\, feedback\) e unidirecionais \(e\.g\.\, fosforilação\)\.
+
+![](img/02-Grafos_16.png)
+
+![](img/02-Grafos_17.png)
+
+
+---
+
+
+# Multigrafo
+
+É um grafo onde dois vértices podem ser ligados por mais de uma aresta\.
+
+__Exemplo:__  Proteínas que interagem por diferentes domínios ou em diferentes condições\.
+
+![](img/02-Grafos_18.png)
+
+::: {.notes}
+
+Nesse caso o pseudografo seria um grafo dirigido com pares de arestas paralelas dirigidas conectando cidades para mostrar que é possível voar para e a partir destas locações.
+
+:::
+
+
+---
+
+
+# Grafo Valorado ou Ponderado
+
+São grafos nos quais as arestas possuem valores associados dando peso a cada conexão/interação\.
+
+__Exemplo:__  Rede metabólica com fluxos \(peso = taxa de produção\) ou redes de coexpressão gênica \(peso = correlação\)\.
+
+![](img/02-Grafos_19.png)
+
+
+---
+
+
+![](img/02-Grafos_20.png)
+
+__Aldeído\-redutase__
+
+# Hipergrafo
+
+No hipergrafo\, uma única aresta pode ligar  __mais de dois__  vértices\.
+
+
+---
+
+
+# Grafos Bipartidos
+
+Os hipergrafos podem ser representados por grafos bipartidos\. Grafos bipartidos são aqueles que podem ser divididos em dois subgrafos disjuntos\. __Exemplo:__  Interação fármaco\-proteína \(conjunto A =  _fármacos_ \, Conjunto B =  _proteínas\-alvo_ \)\.
+
+![](img/02-Grafos_21.png)
+
+![](img/02-Grafos_22.png)
+
+
+---
+
+
+![](img/02-Grafos_23.png)
+
+
+---
+
+
+# Árvores
+
+
+
+* __Definição:__  __ é um grafo sem ciclos e conectado\.__
+* __Exemplo:__
+  * __R__  __elações evolutivas entre as espécies como uma árvore filogenética\.__
+* __V__  __értices de __  __grau 1: folhas\.__
+* __Todos os outros vértices são vértices internos\.__
+* __P__  __rofundidade__  __:__  __ comprimento do caminho entre a raiz e este vértice__
+* __Altura:__  __ é a profundidade máxima de um vértice\.__
+* __Uma árvore binária é uma árvore onde cada vértice tem no máximo grau 3\.__
+
+
+![](img/02-Grafos_24.png)
+
+
+---
+
+
+# Representações de grafos
+
+
+---
+
+
+# Matriz de adjacência
+
+![](img/02-Grafos_25.png)
+
+![](img/02-Grafos_26.png)
+
+__Quando o grafo é não\-direcionado:__  matriz de adjacência simétrica\.
+
+__Quando o grafo é direcionado:__  matriz de adjacência assimétrica\.
+
+
+---
+
+
+# Lista de adjacência
+
+= \{1\, 2\, 5\}
+
+__= \{1\, 3\, 5\}__
+
+__= \{2\, 4\)\}__
+
+__= \{3\, 5\, 6\}__
+
+__= \{1\, 2\, 4\)\}__
+
+__= \{4\}__
+
+![](img/02-Grafos_27.png)
+
+__Quando o grafo é não\-direcionado:__  a lista repete as arestas para cada vértice\.
+
+__Quando o grafo é direcionado:__  a lista para cada vértice indica do vértice para onde a ligação vai\.
+

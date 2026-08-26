@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>Aula Prática 5 – Anotação Funcional – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dfa9e29798b7e35d0549a5533169485c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Aula Prática 5 – Anotação Funcional – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/roteiros/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="Aula Prática 5 – Anotação Funcional – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/roteiros/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../roteiros/input/input.html">Roteiros</a></li><li class="breadcrumb-item"><a href="../roteiros/pratica5.html">Aula Prática 5 – Anotação Funcional</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 — Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 — Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 — Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 — Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 — Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 — Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 — Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 — Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 — Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 1<br>Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 2<br>Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 3<br>Redes biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 4<br>Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 5<br>Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 6<br>Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 7<br>Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 8<br>Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 9<br>Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 10<br>Biologia Sintética</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Roteiros</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/input/input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 1: Unix Básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 2: Fundamentos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 4 – Predição de Genes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Aula Prática 5 – Anotação Funcional</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 7 – Quantificação e Normalização de RNA-seq</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 9 – Redes de Coexpressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 10 – Identificação de Genes de Virulência em Bactérias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 11 – Redes PPI com STRING e Cytoscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 12 – CellDesigner e COPASI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Listas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_fundamentos_logica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios Clássicos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_biotecnologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios de Lógica de Programação para Biotecnologia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Teste</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/teste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teste de funcionalidades - Quarto MD</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">teste/slides.qmd</span>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
+  <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">2</span> Fluxograma</a>
+  <ul class="collapse">
+  <li><a href="#explicação-do-fluxograma" id="toc-explicação-do-fluxograma" class="nav-link" data-scroll-target="#explicação-do-fluxograma"><span class="header-section-number">2.1</span> Explicação do Fluxograma</a></li>
+  <li><a href="#ferramentas" id="toc-ferramentas" class="nav-link" data-scroll-target="#ferramentas"><span class="header-section-number">2.2</span> Ferramentas</a></li>
+  <li><a href="#parte-1" id="toc-parte-1" class="nav-link" data-scroll-target="#parte-1"><span class="header-section-number">2.3</span> Parte 1</a>
+  <ul class="collapse">
+  <li><a href="#baixar-uma-base-de-dados-do-ncbi" id="toc-baixar-uma-base-de-dados-do-ncbi" class="nav-link" data-scroll-target="#baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.3.1</span> Baixar uma Base de Dados do NCBI</a></li>
+  <li><a href="#criar-um-banco-de-dados-personalizado" id="toc-criar-um-banco-de-dados-personalizado" class="nav-link" data-scroll-target="#criar-um-banco-de-dados-personalizado"><span class="header-section-number">2.3.2</span> Criar um Banco de Dados Personalizado</a></li>
+  <li><a href="#executar-o-blast" id="toc-executar-o-blast" class="nav-link" data-scroll-target="#executar-o-blast"><span class="header-section-number">2.3.3</span> Executar o BLAST</a></li>
+  </ul></li>
+  <li><a href="#parte-2" id="toc-parte-2" class="nav-link" data-scroll-target="#parte-2"><span class="header-section-number">2.4</span> Parte 2</a>
+  <ul class="collapse">
+  <li><a href="#identificar-organismo-homólogo-e-função-com-blast" id="toc-identificar-organismo-homólogo-e-função-com-blast" class="nav-link" data-scroll-target="#identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.4.1</span> Identificar Organismo Homólogo e Função com BLAST</a></li>
+  <li><a href="#identificar-domínios-e-função-com-interproscan" id="toc-identificar-domínios-e-função-com-interproscan" class="nav-link" data-scroll-target="#identificar-domínios-e-função-com-interproscan"><span class="header-section-number">2.4.2</span> Identificar Domínios e Função com InterProScan</a></li>
+  <li><a href="#alternativa-identificar-domínios-com-hmmscan-e-pfam" id="toc-alternativa-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.3</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../roteiros/input/input.html">Roteiros</a></li><li class="breadcrumb-item"><a href="../roteiros/pratica5.html">Aula Prática 5 – Anotação Funcional</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Aula Prática 5 – Anotação Funcional</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">26 de agosto de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdução" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
+<p>Aula para anotação de sequências:</p>
+<p><strong>Parte 1 - Preparação e Busca com BLAST:</strong> - Download de bases de dados do NCBI pré-formatadas para BLAST - Criação de bancos de dados personalizados a partir de arquivos FASTA - Execução de buscas BLAST (blastp, blastn, etc.) com diferentes parâmetros e formatos de saída</p>
+<p><strong>Parte 2 - Anotação Funcional e Identificação de Domínios:</strong> - Identificação de organismos homólogos e função através de buscas BLAST no banco NR (<em>non-redundant</em>) - Anotação detalhada de domínios e função utilizando InterProScan (recomendado) - Alternativa com hmmscan para busca específica em banco de dados Pfam</p>
+<hr>
+</section>
+<section id="fluxograma" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Fluxograma</h1>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A[Início] --&gt; B[Preparação das Sequências]
+    B --&gt; C{Qual fonte de dados?}
+    
+    C --&gt;|NCBI| D[Baixar base de dados com update_blastdb.pl]
+    C --&gt;|Própria| E[Criar banco personalizado com makeblastdb]
+    
+    D --&gt; F[base_blast]
+    E --&gt; F[base_blast]
+    
+    F --&gt; G[Executar BLAST]
+    
+    G --&gt; H{Qual tipo de análise?}
+    
+    H --&gt;|Busca Homólogos| I[blastp/blastn com parâmetros básicos]
+    H --&gt;|Filtro Taxonômico| J[blastp com -taxids]
+    H --&gt;|Análise Completa| K[Análise detalhada]
+    
+    I --&gt; L[Resultados BLAST&lt;br/&gt;Homólogos encontrados]
+    J --&gt; M[Resultados BLAST&lt;br/&gt;Organismo específico]
+    
+    L --&gt; N[Análise dos resultados]
+    M --&gt; N
+    
+    N --&gt; O{Anotação Funcional}
+    
+    O --&gt;|InterProScan| P[interproscan.sh&lt;br/&gt;-goterms -iprlookup]
+    O --&gt;|Pfam/HMMER| Q[hmmscan&lt;br/&gt;com banco Pfam-A.hmm]
+    
+    P --&gt; R[Arquivos TSV/GFF3&lt;br/&gt;Domínios, GO termos, funções]
+    Q --&gt; S[Arquivos tblout/domtblout&lt;br/&gt;Domínios Pfam identificados]
+    
+    R --&gt; T[Interpretação dos Resultados]
+    S --&gt; T
+    
+    T --&gt; U[Identificação de:&lt;br/&gt;- Função molecular&lt;br/&gt;- Domínios proteicos&lt;br/&gt;- Organismo homólogo&lt;br/&gt;- Processos biológicos]
+    
+    U --&gt; V[Fim]
+    
+    %% Estilos
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+    
+    class A,V inicio
+    class B,D,E,F,G,I,J,K,N,O,P,Q processo
+    class C,H decisao
+    class L,M,R,S,U resultado
+    class T final
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+<section id="explicação-do-fluxograma" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="explicação-do-fluxograma"><span class="header-section-number">2.1</span> Explicação do Fluxograma</h2>
+<p>O fluxograma acima ilustra o <em>workflow</em> completo do roteiro, com as seguintes etapas:</p>
+<ol type="1">
+<li><p><strong>Início e Preparação</strong>: O processo inicia com a preparação das sequências que serão analisadas.</p></li>
+<li><p><strong>Decisão da Fonte de Dados</strong>:</p>
+<ul>
+<li>Se a base de dados for do NCBI, utiliza-se <code>update_blastdb.pl</code> para baixar bases já pré-formatadas</li>
+<li>Se for um arquivo próprio, cria-se um banco personalizado com <code>makeblastdb</code></li>
+</ul></li>
+<li><p><strong>Execução do BLAST</strong>: Com a base de dados pronta, executa-se a busca com <code>blastp</code> (proteínas) ou outras variantes.</p></li>
+<li><p><strong>Tipos de Análise</strong>:</p>
+<ul>
+<li>Busca básica por homólogos</li>
+<li>Filtragem por organismo específico usando <code>-taxids</code></li>
+<li>Análise mais detalhada conforme necessidade</li>
+</ul></li>
+<li><p><strong>Anotação Funcional</strong>:</p>
+<ul>
+<li><strong>InterProScan</strong>: Ferramenta principal que integra múltiplas bases de dados (Pfam, CDD, PROSITE) e fornece GO termos</li>
+<li><strong>hmmscan</strong>: Alternativa focada em buscas específicas no banco Pfam</li>
+</ul></li>
+<li><p><strong>Resultados</strong>: Os arquivos gerados contêm informações sobre domínios, funções moleculares, processos biológicos e organismos homólogos.</p></li>
+<li><p><strong>Interpretação</strong>: Consolidação das informações para identificação completa da função, domínios e organismo da sequência analisada.</p></li>
+</ol>
+</section>
+<section id="ferramentas" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="ferramentas"><span class="header-section-number">2.2</span> Ferramentas</h2>
+<ul>
+<li>Blast</li>
+<li>UniProt</li>
+</ul>
+<hr>
+</section>
+<section id="parte-1" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="parte-1"><span class="header-section-number">2.3</span> Parte 1</h2>
+<p>Para baixar sequências do NCBI, criar um banco de dados local para o BLAST e realizar uma busca, você pode seguir o fluxo de trabalho com as ferramentas de linha de comando do <mark>BLAST+</mark>. O processo consiste em três etapas principais.</p>
+<section id="baixar-uma-base-de-dados-do-ncbi" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.3.1</span> Baixar uma Base de Dados do NCBI</h3>
+<p>A maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script <code>update_blastdb.pl</code>, que acompanha a suíte BLAST+ .</p>
+<p>Para baixar a base de dados de proteínas não-redundante (<code>nr</code>), por exemplo, use o comando :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--decompress</span> nr</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Explicação:</strong> * <code>update_blastdb.pl</code>: É o script para baixar e atualizar bases de dados do NCBI . * <code>--decompress</code>: Baixa e descompacta a base de dados no diretório atual . * <code>nr</code>: É o nome da base de dados de proteínas não-redundante.</p>
+<p>Para ver a lista completa de bases de dados disponíveis para download, use :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--showall</span> pretty</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Este comando exibirá uma lista com todas as opções, como <code>swissprot</code>, <code>refseq_protein</code>, entre outras .</p>
+</section>
+<section id="criar-um-banco-de-dados-personalizado" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="criar-um-banco-de-dados-personalizado"><span class="header-section-number">2.3.2</span> Criar um Banco de Dados Personalizado</h3>
+<p>Se você tem seu próprio arquivo de sequências em formato FASTA (por exemplo, <code>minhas_proteinas.faa</code>), pode criar um banco de dados BLAST com o comando <code>makeblastdb</code> .</p>
+<p>Para uma base de dados de proteínas, o comando é :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">makeblastdb</span> <span class="at">-in</span> minhas_proteinas.faa <span class="at">-dbtype</span> prot <span class="at">-out</span> meu_banco <span class="at">-parse_seqids</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Explicação dos parâmetros :</strong> * <code>-in minhas_proteinas.faa</code>: Seu arquivo de entrada no formato FASTA. * <code>-dbtype prot</code>: Define o tipo como proteína. Use <code>nucl</code> para nucleotídeos. * <code>-out meu_banco</code>: Nome base para os arquivos do banco de dados que serão criados. * <code>-parse_seqids</code>: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências .</p>
+</section>
+<section id="executar-o-blast" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="executar-o-blast"><span class="header-section-number">2.3.3</span> Executar o BLAST</h3>
+<p>Com o banco de dados criado (seja baixado do NCBI ou personalizado), você pode realizar a busca. Para uma busca de proteína contra uma base de dados de proteínas, use o comando <code>blastp</code> .</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> meu_banco <span class="at">-query</span> minha_sequencia.faa <span class="at">-out</span> resultados.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Explicação dos parâmetros :</strong> * <code>-db meu_banco</code>: O nome do banco de dados que você criou. * <code>-query minha_sequencia.faa</code>: O arquivo com a(s) sequência(s) que você quer pesquisar. * <code>-out resultados.txt</code>: O arquivo onde os resultados serão salvos. * <code>-outfmt 6</code>: Define o formato de saída como tabular, que é fácil de processar . * <code>-evalue 1e-5</code>: O valor de corte para o <em>E-value</em> .</p>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> Para outros tipos de busca, use os comandos correspondentes: <code>blastn</code> para DNA contra DNA, <code>blastx</code> para DNA traduzido contra proteína, etc. .</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="parte-2" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="parte-2"><span class="header-section-number">2.4</span> Parte 2</h2>
+<p>Para identificar a função, domínios e organismo homólogo das suas sequências, você pode usar uma combinação de ferramentas de linha de comando. Um fluxo de trabalho comum envolve usar o BLAST para encontrar homólogos e, em seguida, ferramentas especializadas como o InterProScan para anotação funcional e de domínios.</p>
+<section id="identificar-organismo-homólogo-e-função-com-blast" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.4.1</span> Identificar Organismo Homólogo e Função com BLAST</h3>
+<p>O BLAST (como <code>blastp</code> para proteínas) é a ferramenta padrão para encontrar sequências homólogas em bancos de dados. A identificação do organismo e uma primeira indicação da função vêm da análise dos hits retornados.</p>
+<ul>
+<li><strong>Comando básico para buscar homólogos:</strong></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> nr <span class="at">-query</span> sua_sequencia.faa <span class="at">-out</span> resultados_blast.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5 <span class="at">-max_target_seqs</span> 1</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p><code>-db nr</code>: Usa o banco de dados de proteínas não-redundante do NCBI (que você pode baixar com <code>update_blastdb.pl</code>).</p></li>
+<li><p><code>-query sua_sequencia.faa</code>: Seu arquivo de entrada.</p></li>
+<li><p><code>-out resultados_blast.txt</code>: Arquivo de saída.</p></li>
+<li><p><code>-outfmt 6</code>: Formato tabular simples e fácil de processar.</p></li>
+<li><p><code>-evalue 1e-5</code>: Valor de corte para significância estatística.</p></li>
+<li><p><code>-max_target_seqs 1</code>: Limita a saída ao melhor hit, útil para uma visão rápida.</p></li>
+<li><p><strong>Filtrando por um organismo específico:</strong> Se você quiser buscar apenas por homólogos em um organismo ou grupo taxonômico específico, pode usar a opção <code>-taxids</code> com o ID de táxon do NCBI. Por exemplo, para buscar apenas em bactérias (taxid <code>2</code>):</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> nr <span class="at">-query</span> sua_sequencia.faa <span class="at">-taxids</span> 2 <span class="at">-out</span> resultados_blast_filtrado.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="identificar-domínios-e-função-com-interproscan" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="identificar-domínios-e-função-com-interproscan"><span class="header-section-number">2.4.2</span> Identificar Domínios e Função com InterProScan</h3>
+<p>O InterProScan é uma ferramenta poderosa que integra várias bases de dados de domínios e famílias de proteínas (como Pfam, CDD, PROSITE, etc.) para fornecer uma anotação funcional rica. É a ferramenta ideal para a análise que você deseja.</p>
+<ul>
+<li><strong>Comando básico para anotar proteínas:</strong></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">interproscan.sh</span> <span class="at">-i</span> sua_sequencia.faa <span class="at">-f</span> TSV,GFF3 <span class="at">-goterms</span> <span class="at">-iprlookup</span> <span class="at">-cpu</span> 4</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>-i sua_sequencia.faa</code>: Arquivo de entrada com suas sequências de proteínas.</li>
+<li><code>-f TSV,GFF3</code>: Especifica os formatos de saída. O TSV é um formato tabular fácil de ler, e o GFF3 é útil para visualização em ferramentas de genômica.</li>
+<li><code>-goterms</code>: Adiciona termos de ontologia gênica (GO), que descrevem a função molecular, o processo biológico e o componente celular.</li>
+<li><code>-iprlookup</code>: Inclui anotações do banco de dados InterPro, que faz uma curadoria das informações de domínios e famílias.</li>
+<li><code>-cpu 4</code>: Número de núcleos de CPU para acelerar o processo.</li>
+<li><strong>Nota sobre a conexão com a internet:</strong> Por padrão, o InterProScan usa um serviço de <em>lookup</em> para verificar se a sequência já foi analisada, o que acelera o processo, mas requer internet. Para uso offline, adicione a opção <code>-dp</code> (disable precalc), o que fará com que todas as análises sejam executadas localmente (o que pode ser mais lento).</li>
+</ul>
+</section>
+<section id="alternativa-identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.3</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
+<p>O <code>hmmscan</code>, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.</p>
+<ul>
+<li><strong>Preparar o banco de dados Pfam (fazer uma vez):</strong></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> Pfam-A.hmm.gz</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmpress</span> Pfam-A.hmm</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Isso criará os arquivos necessários para a busca.</p>
+<ul>
+<li><strong>Executar a busca de domínios:</strong></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmscan</span> <span class="at">--tblout</span> saida_domains_tbl.txt <span class="at">--domtblout</span> saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>--tblout saida_domains_tbl.txt</code>: Saída resumida por sequência alvo.</li>
+<li><code>--domtblout saida_domains_domtbl.txt</code>: Saída detalhada por domínio encontrado, muito útil para análise.</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

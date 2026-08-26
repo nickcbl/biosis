@@ -1,0 +1,218 @@
+---
+title: "Biologia de Sistemas — Histórico e Conceitos"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+<style>
+/* Estilo para o container do Mermaid */
+.mermaid-container {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: white;
+}
+
+/* Aumentar o tamanho de TODOS os elementos no gráfico Mermaid */
+.mermaid svg {
+  font-size: 16px !important;  /* Aumenta a fonte */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Aumentar específicamente o texto dos nós */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  font-size: 16px !important;
+}
+
+/* Botões de zoom flutuantes */
+.zoom-controls {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.zoom-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  background: #3498db;
+}
+</style>
+
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="zoomIn()">+</button>
+  <button class="zoom-btn" onclick="zoomOut()">−</button>
+  <button class="zoom-btn" onclick="resetZoom()">↺</button>
+</div>
+
+<div class="mermaid-container">
+```{mermaid}
+mindmap
+  **Redes de Interação Proteína-Proteína - PPI**
+      Conceito
+        Vértires proteínas
+        Arestas interações físicas
+        Grafos não-direcionados
+        Interações podem ser estáveis ou transitórias
+
+      Definição de Interação
+        Interação intencional com interface específica
+        Exclui interações ao acaso
+        Exclui processos genéricos produção dobra degradação
+        Exemplos excluídos ribossomo chaperonas proteassoma
+
+      Contexto Biológico
+        Interações dependem de
+          Tipo celular
+          Fase do ciclo celular
+          Estágio de desenvolvimento
+          Condições ambientais
+          Modificações pós-traducionais
+          Presença de cofatores e parceiros
+
+    Determinação Experimental
+
+      Binária
+        Interações par-a-par
+        Método - Y2H - _Yeast Two-Hybrid_
+
+      Co-complexo
+        Grupos de proteínas
+        Métodos
+         AP-MS e CoIP
+        Necessita inferência para pares individuais
+
+      Modelos de Inferência
+        Modelo Spoke
+          Inferência conservadora isca-presa
+          Alta confiança baixa cobertura
+        Modelo Matrix
+          Inferência abrangente todos contra todos
+          Baixa confiança alta cobertura
+
+    Predição Computacional
+      Interólogos
+        Conservação de interações entre espécies
+        Base homologia e conservação evolutiva
+
+      Algoritmos Genéticos
+        Seleção cruzamento mutação avaliação
+        Usa domínios conservados motivos perfis físico-químicos coocorrência
+
+      Perfil Evolutivo
+        Coevolução entre proteínas
+        Correlação filogenética
+        Ganho ou perda conjunta
+        Substituições compensatórias
+
+    Bancos de Dados
+      Primários dados experimentais
+      Metabases integração de bases primárias
+      Preditos inferência computacional
+
+    Aplicações das Redes PPI
+
+      Anotação Funcional
+        Guilt-by-association
+        Função inferida a partir de vizinhos na rede
+
+      Identificação de Módulos
+        Complexos proteicos
+        Subsistemas funcionais
+        Associação com vias respostas ou doenças
+
+      Análise Evolutiva
+        Relações evolutivas
+        Estudos de interólogos
+
+      Análise de Hubs
+        Regra da centralidade-letalidade
+        Hubs Party
+          Interagem simultaneamente com parceiros
+          Localizados dentro de módulos
+        Hubs Date
+          Interagem em tempos ou locais distintos
+          Conectam módulos diferentes
+
+    Aplicações em Doenças
+      Proteínas envolvidas em múltiplas doenças
+      Relação doença-doença
+      Identificação de alvos terapêuticos
+      Suporte para co-tratamento
+```
+</div>
+
+<script>
+// Funções de zoom
+let currentScale = 1;
+const minScale = 0.5;
+const maxScale = 3;
+const scaleStep = 0.2;
+
+function zoomIn() {
+  if (currentScale < maxScale) {
+    currentScale += scaleStep;
+    applyZoom();
+  }
+}
+
+function zoomOut() {
+  if (currentScale > minScale) {
+    currentScale -= scaleStep;
+    applyZoom();
+  }
+}
+
+function resetZoom() {
+  currentScale = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const container = document.querySelector('.mermaid-container');
+  if (container) {
+    container.style.transform = `scale(${currentScale})`;
+    container.style.transformOrigin = 'center top';
+  }
+}
+
+// Também permitir zoom com Ctrl + Scroll
+document.addEventListener('wheel', function(e) {
+  if (e.ctrlKey) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  }
+}, { passive: false });
+</script>

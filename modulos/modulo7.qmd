@@ -1,0 +1,251 @@
+---
+title: "07 — Redes Metabólicas"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    code-copy: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+editor: source
+---
+
+## Redes Metabólicas
+
+Rede composta de metabólitos e suas interconversões.
+
+- **Interconversões**: catalisadas por enzimas (proteínas)
+- **Via metabólica**: série de reações bioquímicas sucessivas com propósito metabólico comum
+- **Rede metabólica**: visão mais completa do metabolismo celular
+
+## Importância das Redes Metabólicas
+
+Rede metabólica completa mostra todos os possíveis modos de fluxo de material dentro da célula, indicando:
+
+- Capacidade e potencial metabólico da célula
+- Absorção e digestão de substratos do meio
+- Geração de energia (ATP)
+- Síntese de componentes para crescimento e sobrevivência
+
+## Aplicações Práticas
+
+### Biotecnologia
+- Fábricas celulares para produção de:
+  - Produtos químicos
+  - Antibióticos
+  - Enzimas industriais
+  - Anticorpos
+
+### Biomedicina
+- Melhor entendimento de doenças metabólicas humanas
+- Controle de infecções bacterianas explorando diferenças metabólicas entre humanos e patógenos
+
+## Ômicas e Bioinformática
+
+Tornaram possível a reconstrução de redes metabólicas de organismos específicos em nível de genoma.
+
+## Visualização e Representação em Grafo
+
+### Representação 1:
+- Dois tipos de vértices alternados:
+  - Metabólitos
+  - Enzimas
+
+### Representação 2 (simplificada):
+- Grafos direcionados
+- **Vértices**: metabólitos
+- **Arestas**: reações convertendo um metabólito em outro
+
+**Problema**: metabólitos moeda podem oferecer pequenos caminhos espúrios
+
+## Reconstrução Metabólica em Escala Genômica
+
+Processo em 5 estágios:
+
+1. **Criação de uma reconstrução rascunho**
+2. **Curadoria Manual**
+3. **Converter a rede para modelo matemático**
+4. **Avaliação da rede**
+5. **Concatenação dos dados, disseminação e uso**
+
+```{mermaid}
+---
+config:
+  look: neo
+  layout: dagre
+---
+flowchart LR
+    A("Rede Metabólica") ~~~ B(("1")) & G("Rede Rascunho")
+    B ~~~ C(("2"))
+    C ~~~ D(("3"))
+    D ~~~ E(("4"))
+    E ~~~ F(("5"))
+    G --> H("Curadoria Manual")
+    H --> I("Modelo Matemático")
+    I --> J("Avaliação da Rede")
+    J --> K("Concatenação
+    Disseminação
+    Uso")
+    K --> H
+    style A stroke-width:1px,stroke-dasharray: 0,stroke:none
+    style B fill:#BBDEFB
+    style G fill:transparent
+    style C fill:#BBDEFB
+    style D fill:#BBDEFB
+    style E fill:#BBDEFB
+    style F fill:#BBDEFB
+    style H fill:transparent
+    style I fill:transparent
+    style J fill:transparent
+    style K fill:transparent
+    ```
+
+## Estágio 1: Criação da Reconstrução Rascunho
+
+### Genoma Anotado
+- Coordenadas genômicas
+- Funções conhecidas de produtos gênicos
+- Isoformas de splicing
+
+### Identificação de Genes Metabólicos
+- EC number
+- Termos metabólicos (desidrogenase, quinase)
+- Termos do Gene Ontology relacionados ao metabolismo
+
+### Estabelecimento
+- Reações de genes metabólicos
+- Reconstrução rascunho preliminar
+
+## Fontes de Informação
+
+### Bancos de Dados
+- metaSHARK
+- KEGG
+- modelSEED
+- BRENDA
+- Gene Ontology
+- Reactome
+
+## Estágio 2: Curadoria Manual
+
+### Necessidade
+- Anotação baseada em homologia pode conter erros propagados
+- Verificação de presença real de reações e genes no organismo
+
+### Informações Adicionais e Verificação
+
+#### Especificidade substrato-cofator
+- Pode variar entre organismos
+- Fontes: literatura ou banco de dados
+
+#### Localização das reações
+- Algoritmos, literatura ou dados experimentais
+- Importante devido à disponibilidade de metabólitos em cada compartimento
+- Reações de transporte
+
+#### Relação Gene-Proteína-Reação (GPR)
+- Dado em formato lógico
+- **Exemplo OU**: pykA OU pykF (ambos catalisam piruvato quinase)
+- **Exemplo E**: sdhA E sdhB E sdhC E sdhD (necessários para succinato desidrogenase)
+
+#### Balanceamento Químico
+- Confirmar fórmula química de cada metabólito
+- Determinar fórmula carregada conforme pH do compartimento
+- Verificar balanço de carga e massa
+- Adição de água ou prótons quando necessário
+
+### Incorporação de Reações Espontâneas e de Transporte
+
+- Nem todas as reações são catalisadas por enzimas
+- Alguns metabólitos difundem facilmente através da membrana
+- Evidência de transporte: meio↔célula, entre compartimentos
+- Reações análogas quando informação precisa não disponível
+
+### Reação de Biomassa
+
+- **Função objetivo**: simula crescimento
+- Representação matemática das quantidades molares de metabólitos necessários para componentes celulares
+- Necessário conhecer composição celular (lipídios, proteínas, carboidratos...)
+
+**Exemplo**: Fórmula complexa para bactérias gram-negativas incluindo aminoácidos, nucleotídeos, cofatores, etc.
+
+## Estágio 3: Convertendo para Modelo Matemático
+
+### Requisitos
+- Descrição matemática
+- Limites do modelo (entradas e saídas)
+- Construção de matriz estequiométrica
+
+### Matriz Estequiométrica
+- **Linhas**: metabólitos
+- **Colunas**: reações
+- **Elementos**: coeficientes de cada metabólito em reação específica
+  - **Negativo**: metabólitos consumidos
+  - **Positivo**: metabólitos sintetizados
+
+### Reações de Troca
+- Permitem sistema receber e exportar metabólitos
+- Valores máximos e mínimos podem ser definidos
+
+### Pseudo-reações
+- Reações de demanda
+- Reações de fornecimento
+- Usadas para metabólitos gerados/consumidos além do escopo do modelo
+
+## Após Transformação Matemática
+
+O modelo pode ser usado para simular como as vias são usadas.
+
+### Flux Balance Analysis (FBA)
+- Assume estado estacionário
+- Equação: **S · v = 0**
+- Onde **v** é o vetor de fluxo
+
+## Estágio 4: Avaliação da Rede
+
+### Testes Realizados
+
+#### Teste Topológico
+- Verificação de reações a mais ou faltando
+- Revisão do balanço de massas e carga
+- Verificação da localização dos metabólitos
+
+#### Teste Termodinâmico
+- Verificar reversibilidade das reações
+- Fontes: bancos de dados, algoritmos especializados
+
+#### Teste Fenotípico
+- Habilidade do modelo de reproduzir aspectos fenotípicos
+
+#### Teste Quantitativo
+- Capacidade de predição de parâmetros quantitativos
+- Identificação de erros: crescimento inadequado
+
+### Resolução de Problemas
+- **GapFilling**: preenchimento de lacunas nos modelos
+
+## Estágio 5: Concatenação, Disseminação e Uso
+
+### Disponibilização
+- Formato comum: **SBML** (Systems Biology Markup Language)
+
+### Padrões e Recursos
+- BioModels Database
+- BioPAX
+- CellML
+- MIASE
+- MIRIAM
+- Systems Biology Ontology
+- Systems Biology Graphical Notation
+
+## Tópicos Adicionais
+
+- Aplicações de Reconstruções Metabólicas
+- Elementary Flux Modes and Extreme Pathways
+- Modularidade
+

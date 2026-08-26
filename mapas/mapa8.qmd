@@ -1,0 +1,209 @@
+---
+title: "Biologia de Sistemas — Histórico e Conceitos"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+<style>
+/* Estilo para o container do Mermaid */
+.mermaid-container {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: white;
+}
+
+/* Aumentar o tamanho de TODOS os elementos no gráfico Mermaid */
+.mermaid svg {
+  font-size: 16px !important;  /* Aumenta a fonte */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Aumentar específicamente o texto dos nós */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  font-size: 16px !important;
+}
+
+/* Botões de zoom flutuantes */
+.zoom-controls {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.zoom-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  background: #3498db;
+}
+</style>
+
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="zoomIn()">+</button>
+  <button class="zoom-btn" onclick="zoomOut()">−</button>
+  <button class="zoom-btn" onclick="resetZoom()">↺</button>
+</div>
+
+<div class="mermaid-container">
+```{mermaid}
+mindmap
+  Rede de Coexpressão
+    Definição
+      Rede de genes que tendem a ser coexpressos ativados ou reprimidos em um grupo de amostras
+      Grafos não-direcionados
+      Vértices genes
+      Arestas relação de coexpressão
+
+    Construção das Redes
+      Necessidade várias amostras
+      Procurar pares de genes com padrão de expressão similar
+      Transcrições podem subir ou descer juntas
+
+    Aplicações
+      Priorização de genes associados a doenças
+      Anotação funcional de genes
+      Identificação de correlação
+
+    Limitações
+      Não conferem causalidade
+      Genes ativos sem efeito causativo
+      Não distinguem genes reguladores e genes regulados
+
+    Três Passos da Construção
+      Definir relacoes entre genes
+      Construir a rede
+      Definir modulos
+
+    Estágio 1: Definir relações
+      Relações baseadas em medidas de correlação
+      Comparação do padrão entre pares de genes
+      Medidas comuns
+        Correlação de Pearson
+            Correlação linear entre duas variaveis
+            Coeficiente covariancia dividido por desvios padrão
+        Correlação de Spearman
+            Correlação monotônica linear ou não
+            Menos restritiva que Pearson
+            Identifica se variaveis crescem juntas ou em direcoes opostas
+
+    Estágio 2: Construir a rede
+      Vértices: genes
+      Arestas: presença da correlacao
+      Pode refletir forca da correlacao
+
+    Tipos de Redes
+      Redes com sinal e sem sinal
+      Redes ponderadas e nao ponderadas
+      Redes ponderadas e não-ponderadas
+
+    Estágio 3: Definicao de módulos
+      Modulos de genes coexpressos via agrupamento
+      Grupos com padrões similares
+      Interpretacao via analise de enriquecimento funcional
+      Identificando módulos
+        Ferramenta principal WGCNA
+        Agrupamento hierarquico
+        Subdivisão iterativa de clusters
+        Árvore com ramos representando modulos
+        Modulos definidos cortando ramos
+
+    Redes de Coexpressão Diferencial
+      Identifica genes com parceiros diferentes entre condições
+      Genes potencialmente reguladores de diferenças fenotipicas
+      Integra dados adicionais para inferir papeis reguladores
+
+    Identificando Hubs
+      Hubs
+        Genes altamente conectados
+        Frequentemente mais relevantes
+      Hubs intramodulares centrais no módulo
+      Hubs intermodulares centrais na rede inteira
+        Identificação via medidas de centralidade
+
+    Análise de Enriquecimento
+      Termos funcionais frequentes no modulo
+      Determina funcao representativa
+
+    Predição de Culpados por Associação - GBA
+      Determina enriquecimento funcional
+      Associa genes funcionalmente relacionados
+      Atribui funções a genes pouco anotados
+      Identifica novas associações com doenças
+```
+</div>
+
+<script>
+// Funções de zoom
+let currentScale = 1;
+const minScale = 0.5;
+const maxScale = 3;
+const scaleStep = 0.2;
+
+function zoomIn() {
+  if (currentScale < maxScale) {
+    currentScale += scaleStep;
+    applyZoom();
+  }
+}
+
+function zoomOut() {
+  if (currentScale > minScale) {
+    currentScale -= scaleStep;
+    applyZoom();
+  }
+}
+
+function resetZoom() {
+  currentScale = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const container = document.querySelector('.mermaid-container');
+  if (container) {
+    container.style.transform = `scale(${currentScale})`;
+    container.style.transformOrigin = 'center top';
+  }
+}
+
+// Também permitir zoom com Ctrl + Scroll
+document.addEventListener('wheel', function(e) {
+  if (e.ctrlKey) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  }
+}, { passive: false });
+</script>

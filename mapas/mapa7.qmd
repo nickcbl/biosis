@@ -1,0 +1,227 @@
+---
+title: "Biologia de Sistemas — Histórico e Conceitos"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+<style>
+/* Estilo para o container do Mermaid */
+.mermaid-container {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: white;
+}
+
+/* Aumentar o tamanho de TODOS os elementos no gráfico Mermaid */
+.mermaid svg {
+  font-size: 16px !important;  /* Aumenta a fonte */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Aumentar específicamente o texto dos nós */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  font-size: 16px !important;
+}
+
+/* Botões de zoom flutuantes */
+.zoom-controls {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.zoom-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  background: #3498db;
+}
+</style>
+
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="zoomIn()">+</button>
+  <button class="zoom-btn" onclick="zoomOut()">−</button>
+  <button class="zoom-btn" onclick="resetZoom()">↺</button>
+</div>
+
+<div class="mermaid-container">
+```{mermaid}
+mindmap
+  **Redes Metabólicas**
+    O que são:
+      Interconversões catalisadas por enzimas
+        Via metabólica
+            Série de reações com propósito comum
+      Rede metabólica
+            Visão completa do metabolismo celular
+
+    Importância
+      Fluxo de material na célula
+      Capacidade metabólica - versatilidade
+      Absorção e digestão de substratos
+      Geração de energia ATP
+      Síntese de componentes celulares
+
+    Aplicações práticas
+      Biotecnologia
+        Fábricas celulares
+        Produtos químicos
+        Antibióticos
+        Enzimas industriais
+        Anticorpos
+      Biomedicina
+        Doenças metabólicas humanas
+        Controle de infecções bacterianas
+
+    Visualização e grafos
+      Representação com vértices alternados metabólitos e enzimas
+      Representação simplificada grafos direcionados
+        Vértices metabólitos
+        Arestas reações
+      Problema
+        Metabólitos moeda criam caminhos espúrios
+
+    Reconstrução metabólica em escala genômica
+      Etapas
+        Criar reconstrução rascunho
+        Curadoria manual
+        Converter rede em modelo matemático
+        Avaliação da rede
+        Concatenação disseminação uso
+
+    Estágio 1: Criação rascunho
+      Genoma anotado
+      Identificação de genes metabólicos
+      Reconstrução preliminar
+
+    Estágio 2: Curadoria manual
+      Necessidade
+        Erros de homologia
+        Verificação de reações presentes
+      Informações adicionais
+        Especificidade substrato cofator
+        Localização das reações
+        Reações de transporte
+      Relação gene-proteína-reação - GPR
+        Exemplo: OU pykA OU pykF
+        Exemplo: E sdhA E sdhB E sdhC E sdhD
+      Balanceamento químico
+        Fórmulas químicas
+        Ajustes de pH
+        Verificação de massa e carga
+      Reações espontâneas e transporte
+        Difusão de metabólitos
+        Evidência entre meio e compartimentos
+      Reação de biomassa
+        Função objetivo simula crescimento
+        Exige composição celular
+
+    Estágio 3: Modelo matemático
+        Descrição matemática
+        Limites do modelo
+        Matriz estequiométrica
+          Linhas metabólitos
+          Colunas reações
+          Coeficientes negativos consumidos positivos produzidos
+        Reações de troca
+        Pseudo-reações
+         Demanda
+         Fornecimento
+
+    Estágio 4: Avaliação da rede
+      Testes
+        Teste topológico
+        Teste termodinâmico
+        Teste fenotípico
+        Teste quantitativo
+      Resolução de problemas
+        GapFilling
+
+    Estágio 5: Concatenação disseminação uso
+      Padrões e recursos
+        SBML
+        BioModels Database
+        BioPAX
+        CellML
+        MIASE
+        MIRIAM
+        Systems Biology Ontology
+        Systems Biology Graphical Notation
+```
+</div>
+
+<script>
+// Funções de zoom
+let currentScale = 1;
+const minScale = 0.5;
+const maxScale = 3;
+const scaleStep = 0.2;
+
+function zoomIn() {
+  if (currentScale < maxScale) {
+    currentScale += scaleStep;
+    applyZoom();
+  }
+}
+
+function zoomOut() {
+  if (currentScale > minScale) {
+    currentScale -= scaleStep;
+    applyZoom();
+  }
+}
+
+function resetZoom() {
+  currentScale = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const container = document.querySelector('.mermaid-container');
+  if (container) {
+    container.style.transform = `scale(${currentScale})`;
+    container.style.transformOrigin = 'center top';
+  }
+}
+
+// Também permitir zoom com Ctrl + Scroll
+document.addEventListener('wheel', function(e) {
+  if (e.ctrlKey) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  }
+}, { passive: false });
+</script>

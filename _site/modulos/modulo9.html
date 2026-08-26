@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>09 — Redes de Interação Proteína-Proteína – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-88153311022f9caab94f4aecddd0fb53.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<meta property="og:title" content="09 — Redes de Interação Proteína-Proteína – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="09 — Redes de Interação Proteína-Proteína – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo9.html">09 — Redes de Interação Proteína-Proteína</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 — Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 — Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 — Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 — Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 — Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 — Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 — Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 — Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo9.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">09 — Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 1<br>Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 2<br>Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 3<br>Redes biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 4<br>Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 5<br>Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 6<br>Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 7<br>Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 8<br>Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 9<br>Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 10<br>Biologia Sintética</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Roteiros</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/input/input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 1: Unix Básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 2: Fundamentos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 4 – Predição de Genes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 5 – Anotação Funcional</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 7 – Quantificação e Normalização de RNA-seq</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 9 – Redes de Coexpressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 10 – Identificação de Genes de Virulência em Bactérias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 11 – Redes PPI com STRING e Cytoscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 12 – CellDesigner e COPASI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Listas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_fundamentos_logica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios Clássicos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_biotecnologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios de Lógica de Programação para Biotecnologia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Teste</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/teste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teste de funcionalidades - Quarto MD</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - Histórico e Conceitos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#redes-de-interação-proteína-proteína-ppi" id="toc-redes-de-interação-proteína-proteína-ppi" class="nav-link active" data-scroll-target="#redes-de-interação-proteína-proteína-ppi"><span class="header-section-number">1</span> Redes de Interação Proteína-Proteína (PPI)</a></li>
+  <li><a href="#definição-de-interação-proteína-proteína" id="toc-definição-de-interação-proteína-proteína" class="nav-link" data-scroll-target="#definição-de-interação-proteína-proteína"><span class="header-section-number">2</span> Definição de Interação Proteína-Proteína</a>
+  <ul class="collapse">
+  <li><a href="#critérios-de-exclusão" id="toc-critérios-de-exclusão" class="nav-link" data-scroll-target="#critérios-de-exclusão"><span class="header-section-number">2.1</span> Critérios de Exclusão</a></li>
+  </ul></li>
+  <li><a href="#definição-formal-de-ppi" id="toc-definição-formal-de-ppi" class="nav-link" data-scroll-target="#definição-formal-de-ppi"><span class="header-section-number">3</span> Definição Formal de PPI</a></li>
+  <li><a href="#natureza-das-interações" id="toc-natureza-das-interações" class="nav-link" data-scroll-target="#natureza-das-interações"><span class="header-section-number">4</span> Natureza das Interações</a></li>
+  <li><a href="#contexto-biológico-das-ppis" id="toc-contexto-biológico-das-ppis" class="nav-link" data-scroll-target="#contexto-biológico-das-ppis"><span class="header-section-number">5</span> Contexto Biológico das PPIs</a>
+  <ul class="collapse">
+  <li><a href="#fatores-que-influenciam" id="toc-fatores-que-influenciam" class="nav-link" data-scroll-target="#fatores-que-influenciam"><span class="header-section-number">5.1</span> Fatores que Influenciam</a></li>
+  </ul></li>
+  <li><a href="#métodos-de-determinação-de-interações" id="toc-métodos-de-determinação-de-interações" class="nav-link" data-scroll-target="#métodos-de-determinação-de-interações"><span class="header-section-number">6</span> Métodos de Determinação de Interações</a>
+  <ul class="collapse">
+  <li><a href="#binária" id="toc-binária" class="nav-link" data-scroll-target="#binária"><span class="header-section-number">6.1</span> Binária</a></li>
+  <li><a href="#co-complexo" id="toc-co-complexo" class="nav-link" data-scroll-target="#co-complexo"><span class="header-section-number">6.2</span> Co-complexo</a></li>
+  </ul></li>
+  <li><a href="#modelos-de-inferência-de-interações" id="toc-modelos-de-inferência-de-interações" class="nav-link" data-scroll-target="#modelos-de-inferência-de-interações"><span class="header-section-number">7</span> Modelos de Inferência de Interações</a>
+  <ul class="collapse">
+  <li><a href="#modelo-spoke-de-raios" id="toc-modelo-spoke-de-raios" class="nav-link" data-scroll-target="#modelo-spoke-de-raios"><span class="header-section-number">7.1</span> Modelo Spoke (de Raios)</a></li>
+  <li><a href="#modelo-matrix" id="toc-modelo-matrix" class="nav-link" data-scroll-target="#modelo-matrix"><span class="header-section-number">7.2</span> Modelo Matrix</a></li>
+  </ul></li>
+  <li><a href="#métodos-computacionais-de-predição" id="toc-métodos-computacionais-de-predição" class="nav-link" data-scroll-target="#métodos-computacionais-de-predição"><span class="header-section-number">8</span> Métodos Computacionais de Predição</a>
+  <ul class="collapse">
+  <li><a href="#baseado-em-interólogos" id="toc-baseado-em-interólogos" class="nav-link" data-scroll-target="#baseado-em-interólogos"><span class="header-section-number">8.1</span> Baseado em Interólogos</a></li>
+  <li><a href="#predição-baseada-em-algoritmos-genéticos" id="toc-predição-baseada-em-algoritmos-genéticos" class="nav-link" data-scroll-target="#predição-baseada-em-algoritmos-genéticos"><span class="header-section-number">8.2</span> Predição Baseada em Algoritmos Genéticos</a></li>
+  <li><a href="#perfil-evolutivo" id="toc-perfil-evolutivo" class="nav-link" data-scroll-target="#perfil-evolutivo"><span class="header-section-number">8.3</span> Perfil Evolutivo</a></li>
+  </ul></li>
+  <li><a href="#bancos-de-dados-de-ppi" id="toc-bancos-de-dados-de-ppi" class="nav-link" data-scroll-target="#bancos-de-dados-de-ppi"><span class="header-section-number">9</span> Bancos de Dados de PPI</a>
+  <ul class="collapse">
+  <li><a href="#primários" id="toc-primários" class="nav-link" data-scroll-target="#primários"><span class="header-section-number">9.1</span> Primários</a></li>
+  <li><a href="#meta-base-de-dados" id="toc-meta-base-de-dados" class="nav-link" data-scroll-target="#meta-base-de-dados"><span class="header-section-number">9.2</span> Meta-base de Dados</a></li>
+  <li><a href="#dados-preditos" id="toc-dados-preditos" class="nav-link" data-scroll-target="#dados-preditos"><span class="header-section-number">9.3</span> Dados Preditos</a></li>
+  </ul></li>
+  <li><a href="#aplicações-das-redes-ppi" id="toc-aplicações-das-redes-ppi" class="nav-link" data-scroll-target="#aplicações-das-redes-ppi"><span class="header-section-number">10</span> Aplicações das Redes PPI</a>
+  <ul class="collapse">
+  <li><a href="#anotação-funcional-de-proteínas" id="toc-anotação-funcional-de-proteínas" class="nav-link" data-scroll-target="#anotação-funcional-de-proteínas"><span class="header-section-number">10.1</span> Anotação Funcional de Proteínas</a></li>
+  <li><a href="#identificação-de-módulos" id="toc-identificação-de-módulos" class="nav-link" data-scroll-target="#identificação-de-módulos"><span class="header-section-number">10.2</span> Identificação de Módulos</a></li>
+  <li><a href="#análise-evolutiva" id="toc-análise-evolutiva" class="nav-link" data-scroll-target="#análise-evolutiva"><span class="header-section-number">10.3</span> Análise Evolutiva</a></li>
+  <li><a href="#análise-de-hubs" id="toc-análise-de-hubs" class="nav-link" data-scroll-target="#análise-de-hubs"><span class="header-section-number">10.4</span> Análise de Hubs</a></li>
+  </ul></li>
+  <li><a href="#aplicação-em-doenças" id="toc-aplicação-em-doenças" class="nav-link" data-scroll-target="#aplicação-em-doenças"><span class="header-section-number">11</span> Aplicação em Doenças</a>
+  <ul class="collapse">
+  <li><a href="#interação-doença-doença" id="toc-interação-doença-doença" class="nav-link" data-scroll-target="#interação-doença-doença"><span class="header-section-number">11.1</span> Interação Doença-Doença</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo9.html">09 — Redes de Interação Proteína-Proteína</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">09 — Redes de Interação Proteína-Proteína</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">25 de agosto de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="redes-de-interação-proteína-proteína-ppi" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="redes-de-interação-proteína-proteína-ppi"><span class="header-section-number">1</span> Redes de Interação Proteína-Proteína (PPI)</h2>
+<ul>
+<li><strong>Vértices</strong>: proteínas</li>
+<li><strong>Arestas</strong>: interação entre proteínas</li>
+<li><strong>Tipo</strong>: grafos não-direcionados</li>
+</ul>
+</section>
+<section id="definição-de-interação-proteína-proteína" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="definição-de-interação-proteína-proteína"><span class="header-section-number">2</span> Definição de Interação Proteína-Proteína</h2>
+<p>Interação física entre proteínas <em>in vivo</em>.</p>
+<section id="critérios-de-exclusão" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="critérios-de-exclusão"><span class="header-section-number">2.1</span> Critérios de Exclusão</h3>
+<ul>
+<li>Interações que acontecem ao acaso</li>
+<li>Interações durante produção, dobra, checagem ou degradação</li>
+<li><strong>Exemplos</strong>: interações com ribossomo, chaperonas, proteassoma</li>
+</ul>
+</section>
+</section>
+<section id="definição-formal-de-ppi" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="definição-formal-de-ppi"><span class="header-section-number">3</span> Definição Formal de PPI</h2>
+<p>A interação deve considerar que:</p>
+<ol type="1">
+<li><strong>Interface intencional</strong>: resultado de eventos/forças biomoleculares selecionados</li>
+<li><strong>Interface não-genérica</strong>: desenvolvida para finalidade distinta de funções genéricas (produção, degradação)</li>
+</ol>
+</section>
+<section id="natureza-das-interações" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="natureza-das-interações"><span class="header-section-number">4</span> Natureza das Interações</h2>
+<ul>
+<li>Interações <strong>não precisam</strong> ser estáticas ou permanentes</li>
+<li>Podem ser <strong>interações transientes</strong> que dependem da função</li>
+</ul>
+</section>
+<section id="contexto-biológico-das-ppis" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="contexto-biológico-das-ppis"><span class="header-section-number">5</span> Contexto Biológico das PPIs</h2>
+<p>Nem todas as interações possíveis ocorrem em qualquer célula a qualquer momento.</p>
+<section id="fatores-que-influenciam" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="fatores-que-influenciam"><span class="header-section-number">5.1</span> Fatores que Influenciam</h3>
+<ul>
+<li>Tipo de célula</li>
+<li>Fase e estado do ciclo celular</li>
+<li>Estágio de desenvolvimento</li>
+<li>Condições ambientais</li>
+<li>Modificações de proteínas (ex: fosforilação)</li>
+<li>Presença de cofatores e outros parceiros de ligação</li>
+</ul>
+</section>
+</section>
+<section id="métodos-de-determinação-de-interações" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="métodos-de-determinação-de-interações"><span class="header-section-number">6</span> Métodos de Determinação de Interações</h2>
+<section id="binária" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="binária"><span class="header-section-number">6.1</span> Binária</h3>
+<ul>
+<li>Determinação de interação entre duas proteínas (par-a-par)</li>
+<li><strong>Método</strong>: Y2H (Yeast Two-Hybrid)</li>
+</ul>
+</section>
+<section id="co-complexo" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="co-complexo"><span class="header-section-number">6.2</span> Co-complexo</h3>
+<ul>
+<li>Determinação de interação entre grupos de proteínas</li>
+<li><strong>Métodos</strong>: AP-MS e CoIP</li>
+<li>Requer modelos que definem interações entre proteínas isoladas concomitantemente</li>
+</ul>
+</section>
+</section>
+<section id="modelos-de-inferência-de-interações" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="modelos-de-inferência-de-interações"><span class="header-section-number">7</span> Modelos de Inferência de Interações</h2>
+<section id="modelo-spoke-de-raios" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="modelo-spoke-de-raios"><span class="header-section-number">7.1</span> Modelo Spoke (de Raios)</h3>
+<ul>
+<li><strong>Foco</strong>: conservador</li>
+<li><strong>Interações inferidas</strong>: apenas isca-presa</li>
+<li><strong>Confiança</strong>: alta para isca-presa</li>
+<li><strong>Cobertura</strong>: menor</li>
+<li><strong>Uso típico</strong>: bancos de dados curados</li>
+</ul>
+</section>
+<section id="modelo-matrix" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="modelo-matrix"><span class="header-section-number">7.2</span> Modelo Matrix</h3>
+<ul>
+<li><strong>Foco</strong>: abrangente</li>
+<li><strong>Interações inferidas</strong>: todos contra todos</li>
+<li><strong>Confiança</strong>: baixa para muitos pares</li>
+<li><strong>Cobertura</strong>: maior</li>
+<li><strong>Uso típico</strong>: análises exploratórias</li>
+</ul>
+</section>
+</section>
+<section id="métodos-computacionais-de-predição" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="métodos-computacionais-de-predição"><span class="header-section-number">8</span> Métodos Computacionais de Predição</h2>
+<section id="baseado-em-interólogos" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="baseado-em-interólogos"><span class="header-section-number">8.1</span> Baseado em Interólogos</h3>
+<ul>
+<li><strong>Interólogos</strong>: interações PPI conservadas em duas espécies</li>
+<li><strong>Pressuposto</strong>: proteínas conservadas evolutivamente tendem a ter interação conservada</li>
+<li><strong>Base</strong>: buscas por homologia</li>
+</ul>
+</section>
+<section id="predição-baseada-em-algoritmos-genéticos" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="predição-baseada-em-algoritmos-genéticos"><span class="header-section-number">8.2</span> Predição Baseada em Algoritmos Genéticos</h3>
+<p>Técnicas de otimização inspiradas na evolução natural:</p>
+<p><strong>Processo iterativo:</strong> - <strong>Seleção</strong>: mantém pares com melhor aptidão - <strong>Cruzamento</strong>: combina características de pares promissores - <strong>Mutação</strong>: introduz variações aleatórias - <strong>Avaliação</strong>: testa nova geração de predições</p>
+<p><strong>Características usadas como “genes”:</strong> - Domínios conservados - Motivos de sequência - Perfis físico-químicos - Padrões de co-ocorrência</p>
+</section>
+<section id="perfil-evolutivo" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="perfil-evolutivo"><span class="header-section-number">8.3</span> Perfil Evolutivo</h3>
+<p>Analisa padrões de co-evolução entre proteínas:</p>
+<ul>
+<li><strong>Correlação filogenética</strong></li>
+<li><strong>Análise de ganho/perda conjunta</strong></li>
+<li><strong>Substituições compensatórias</strong></li>
+</ul>
+</section>
+</section>
+<section id="bancos-de-dados-de-ppi" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="bancos-de-dados-de-ppi"><span class="header-section-number">9</span> Bancos de Dados de PPI</h2>
+<section id="primários" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="primários"><span class="header-section-number">9.1</span> Primários</h3>
+<p>Dados experimentais diretos</p>
+</section>
+<section id="meta-base-de-dados" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="meta-base-de-dados"><span class="header-section-number">9.2</span> Meta-base de Dados</h3>
+<p>Reunião de dados de bases de dados primárias</p>
+</section>
+<section id="dados-preditos" class="level3" data-number="9.3">
+<h3 data-number="9.3" class="anchored" data-anchor-id="dados-preditos"><span class="header-section-number">9.3</span> Dados Preditos</h3>
+<p>Interações inferidas computacionalmente</p>
+</section>
+</section>
+<section id="aplicações-das-redes-ppi" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="aplicações-das-redes-ppi"><span class="header-section-number">10</span> Aplicações das Redes PPI</h2>
+<section id="anotação-funcional-de-proteínas" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="anotação-funcional-de-proteínas"><span class="header-section-number">10.1</span> Anotação Funcional de Proteínas</h3>
+<ul>
+<li>Baseado em proteínas adjacentes: <em>guilt-by-association</em></li>
+</ul>
+</section>
+<section id="identificação-de-módulos" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="identificação-de-módulos"><span class="header-section-number">10.2</span> Identificação de Módulos</h3>
+<ul>
+<li>Proteínas com mesmas funções ou parte de um complexo</li>
+<li>Investigação de subsistemas</li>
+<li>Associação com vias, respostas ou doenças específicas</li>
+</ul>
+</section>
+<section id="análise-evolutiva" class="level3" data-number="10.3">
+<h3 data-number="10.3" class="anchored" data-anchor-id="análise-evolutiva"><span class="header-section-number">10.3</span> Análise Evolutiva</h3>
+<ul>
+<li>Análise da relação entre proteínas com foco evolutivo</li>
+<li>Estudo de interólogos associados às funções</li>
+</ul>
+</section>
+<section id="análise-de-hubs" class="level3" data-number="10.4">
+<h3 data-number="10.4" class="anchored" data-anchor-id="análise-de-hubs"><span class="header-section-number">10.4</span> Análise de Hubs</h3>
+<ul>
+<li><strong>Regra da centralidade-letalidade</strong></li>
+<li><strong>Hubs party</strong>: interage com todos os parceiros ao mesmo tempo</li>
+<li><strong>Hubs date</strong>: interage com parceiros em diferentes tempos e localizações</li>
+</ul>
+<section id="tipos-de-hubs" class="level4" data-number="10.4.1">
+<h4 data-number="10.4.1" class="anchored" data-anchor-id="tipos-de-hubs"><span class="header-section-number">10.4.1</span> Tipos de Hubs</h4>
+<p><strong>Hubs Party</strong> - Interagem com todos os parceiros simultaneamente - Funcionam dentro de módulos na formação de complexos</p>
+<p><strong>Hubs Date</strong> - Interagem com parceiros em diferentes tempos e localizações - Conectam módulos e funções uns aos outros</p>
+</section>
+</section>
+</section>
+<section id="aplicação-em-doenças" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="aplicação-em-doenças"><span class="header-section-number">11</span> Aplicação em Doenças</h2>
+<section id="interação-doença-doença" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="interação-doença-doença"><span class="header-section-number">11.1</span> Interação Doença-Doença</h3>
+<ul>
+<li>Identificação de proteínas envolvidas em múltiplas doenças</li>
+<li>Potencial para co-tratamento de doenças</li>
+<li>Integração com dados de doenças para descobrir alvos terapêuticos</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

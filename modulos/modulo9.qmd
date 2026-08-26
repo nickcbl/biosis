@@ -1,0 +1,158 @@
+---
+title: "09 — Redes de Interação Proteína-Proteína"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    code-copy: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+editor: source
+---
+
+
+## Redes de Interação Proteína-Proteína (PPI)
+
+- **Vértices**: proteínas
+- **Arestas**: interação entre proteínas
+- **Tipo**: grafos não-direcionados
+
+## Definição de Interação Proteína-Proteína
+
+Interação física entre proteínas *in vivo*.
+
+### Critérios de Exclusão
+- Interações que acontecem ao acaso
+- Interações durante produção, dobra, checagem ou degradação
+- **Exemplos**: interações com ribossomo, chaperonas, proteassoma
+
+## Definição Formal de PPI
+
+A interação deve considerar que:
+
+1. **Interface intencional**: resultado de eventos/forças biomoleculares selecionados
+2. **Interface não-genérica**: desenvolvida para finalidade distinta de funções genéricas (produção, degradação)
+
+## Natureza das Interações
+
+- Interações **não precisam** ser estáticas ou permanentes
+- Podem ser **interações transientes** que dependem da função
+
+## Contexto Biológico das PPIs
+
+Nem todas as interações possíveis ocorrem em qualquer célula a qualquer momento.
+
+### Fatores que Influenciam
+- Tipo de célula
+- Fase e estado do ciclo celular
+- Estágio de desenvolvimento
+- Condições ambientais
+- Modificações de proteínas (ex: fosforilação)
+- Presença de cofatores e outros parceiros de ligação
+
+## Métodos de Determinação de Interações
+
+### Binária
+- Determinação de interação entre duas proteínas (par-a-par)
+- **Método**: Y2H (Yeast Two-Hybrid)
+
+### Co-complexo
+- Determinação de interação entre grupos de proteínas
+- **Métodos**: AP-MS e CoIP
+- Requer modelos que definem interações entre proteínas isoladas concomitantemente
+
+## Modelos de Inferência de Interações
+
+### Modelo Spoke (de Raios)
+- **Foco**: conservador
+- **Interações inferidas**: apenas isca-presa
+- **Confiança**: alta para isca-presa
+- **Cobertura**: menor
+- **Uso típico**: bancos de dados curados
+
+### Modelo Matrix
+- **Foco**: abrangente
+- **Interações inferidas**: todos contra todos
+- **Confiança**: baixa para muitos pares
+- **Cobertura**: maior
+- **Uso típico**: análises exploratórias
+
+## Métodos Computacionais de Predição
+
+### Baseado em Interólogos
+- **Interólogos**: interações PPI conservadas em duas espécies
+- **Pressuposto**: proteínas conservadas evolutivamente tendem a ter interação conservada
+- **Base**: buscas por homologia
+
+### Predição Baseada em Algoritmos Genéticos
+Técnicas de otimização inspiradas na evolução natural:
+
+**Processo iterativo:**
+- **Seleção**: mantém pares com melhor aptidão
+- **Cruzamento**: combina características de pares promissores
+- **Mutação**: introduz variações aleatórias
+- **Avaliação**: testa nova geração de predições
+
+**Características usadas como "genes":**
+- Domínios conservados
+- Motivos de sequência
+- Perfis físico-químicos
+- Padrões de co-ocorrência
+
+### Perfil Evolutivo
+Analisa padrões de co-evolução entre proteínas:
+
+- **Correlação filogenética**
+- **Análise de ganho/perda conjunta**
+- **Substituições compensatórias**
+
+## Bancos de Dados de PPI
+
+### Primários
+Dados experimentais diretos
+
+### Meta-base de Dados
+Reunião de dados de bases de dados primárias
+
+### Dados Preditos
+Interações inferidas computacionalmente
+
+## Aplicações das Redes PPI
+
+### Anotação Funcional de Proteínas
+- Baseado em proteínas adjacentes: *guilt-by-association*
+
+### Identificação de Módulos
+- Proteínas com mesmas funções ou parte de um complexo
+- Investigação de subsistemas
+- Associação com vias, respostas ou doenças específicas
+
+### Análise Evolutiva
+- Análise da relação entre proteínas com foco evolutivo
+- Estudo de interólogos associados às funções
+
+### Análise de Hubs
+- **Regra da centralidade-letalidade**
+- **Hubs party**: interage com todos os parceiros ao mesmo tempo
+- **Hubs date**: interage com parceiros em diferentes tempos e localizações
+
+#### Tipos de Hubs
+**Hubs Party**
+- Interagem com todos os parceiros simultaneamente
+- Funcionam dentro de módulos na formação de complexos
+
+**Hubs Date**
+- Interagem com parceiros em diferentes tempos e localizações
+- Conectam módulos e funções uns aos outros
+
+## Aplicação em Doenças
+
+### Interação Doença-Doença
+- Identificação de proteínas envolvidas em múltiplas doenças
+- Potencial para co-tratamento de doenças
+- Integração com dados de doenças para descobrir alvos terapêuticos

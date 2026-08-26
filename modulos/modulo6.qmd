@@ -1,0 +1,275 @@
+---
+title: "06 — Integração de Dados"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    code-copy: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+editor: source
+---
+
+## Geração e análise de dados
+
+- A geração e análise de dados são partes essenciais da biologia de sistemas.  
+- Grandes quantidades de dados ômicos podem ser gerados de forma rápida e econômica, graças ao desenvolvimento de técnicas modernas de medição de alto rendimento.  
+- Sua interpretação é desafiadora por causa da alta dimensionalidade e dos níveis substanciais de ruído.
+
+---
+
+## Necessidade de integração
+
+- A integração é necessária para capturar a complexidade dos sistemas biológicos, onde diferentes camadas (DNA, RNA, proteína, metabólito) interagem de forma não linear.  
+- O objetivo final é construir modelos preditivos e entender mecanismos emergentes que não são visíveis ao analisar uma única camada ômica.
+
+**Exemplo:**  
+Alterações no transcriptoma (RNA) podem não se traduzir em alterações no proteoma devido à regulação pós-traducional. Somente integrando ambas as camadas é possível compreender o estado funcional da célula.
+
+---
+
+## Análise integrativa
+
+Uma análise integrativa fornece uma estrutura para examinar dados ômicos a partir de uma perspectiva biológica — desde os dados brutos, passando pelo pré-processamento e análise estatística, até a interpretação dos resultados.
+
+---
+
+## Recursos de dados ômicos
+
+```{mermaid}
+---
+config:
+   theme:redux
+---
+flowchart LR
+    A["**DADOS!!!**"] ~~~ B("**ÔMICAS**")
+    A ~~~ C("**Recursos de dados**")
+    B --> A
+    C --> A
+```
+
+---
+
+## Etapas da análise integrativa
+
+1. **Recurso de dados**
+   - Ontologias  
+   - Vias  
+   - Redes  
+2. **Dados ômicos**
+   - Genômica  
+   - Transcritômica  
+   - Proteômica  
+3. **Análise integrativa**
+   - Construção de modelo  
+   - Predições do modelo  
+   - Geração de conhecimento  
+   - Insight biológico  
+
+---
+
+## Integração e redução de dimensionalidade
+
+A integração dos dados contribui para reduzir a dimensionalidade, resultando em:
+
+- Genes significativos  
+- Funções biológicas significativas  
+- Interpretação biológica  
+
+---
+
+## Etapas principais
+
+O processo de análise integrativa pode ser dividido em dois passos principais:
+
+1. **Processamento dos dados**
+2. **Integração dos dados**
+
+---
+
+### Processamento de Dados
+
+Aplica ferramentas computacionais e estatísticas aos dados ômicos de alta dimensionalidade para:
+
+- Eliminar erros e ruídos  
+- Identificar genes e componentes informativos  
+- Evitar propagação de erros para etapas posteriores  
+
+---
+
+#### Etapas do processamento
+
+1. Controle de qualidade, pré-processamento e limpeza  
+2. Alinhamento/mapeamento e quantificação  
+3. Normalização  
+4. Identificação de características significativas  
+
+---
+
+### Controle de qualidade (QC)
+
+- Inspeção sistemática dos dados brutos  
+- Correção de vieses técnicos e erros  
+- Limpeza com base nos resultados do QC  
+
+**Erros comuns:**
+- DNA-seq: baixa qualidade no final da leitura, substituições, inserções, deleções, adaptadores  
+- RNA-seq: todas as anteriores + excesso de rRNA  
+- Espectrometria de massa: espectros de baixa qualidade (pode gerar falsos positivos)
+
+---
+
+#### Ferramentas para QC e filtragem
+
+| Método | Propósito | Tipo de dado |
+|--------|------------|--------------|
+| FASTX toolkit | Controle de qualidade e filtragem | Genômica, transcritômica |
+| TrimGalore | Remoção de adaptadores e filtragem | Genômica, transcritômica |
+| NGS QC Toolkit | Controle de qualidade e filtragem | Genômica, transcritômica |
+| Spectrum Quality | Filtragem de espectros | Proteômica |
+
+---
+
+### Quantificação
+
+Transforma dados de qualidade em informações quantitativas sobre abundância.
+
+- **DNA:** mapeamento e verificação de variantes  
+- **RNA:** contagem de leituras em regiões gênicas  
+- **Proteína:** comparação de espectros observados com espectros de referência  
+
+---
+
+#### Ferramentas de quantificação
+
+| Método | Propósito | Tipo de dado |
+|--------|------------|--------------|
+| Bowtie2 | Mapeamento de leituras na referência | Genômica, transcritômica |
+| STAR | Mapeamento ciente de splicing | Transcritômica |
+| MASCOT | Mapeamento de espectros de massa | Proteômica |
+| InsPecT | Mapeamento de espectros de massa | Proteômica |
+
+---
+
+### Normalização
+
+- Remove variabilidade técnica e sistemática.  
+- Torna os dados mais comparáveis entre amostras.  
+- Essencial em transcriptômica e proteômica.  
+
+**Exemplos:**
+- RNA: FPKM/RPKM  
+- Proteínas: métodos de regressão, normalização pela intensidade total do íon  
+
+---
+
+#### Ferramentas de normalização
+
+| Método | Propósito | Tipo de dado |
+|--------|------------|--------------|
+| RPKM/FPKM | Normalização da abundância de transcritos | Transcritômica |
+| Regressão linear | Normalização de picos do espectro de massas | Proteômica |
+
+---
+
+### Análise estatística
+
+- Dados ômicos são de alta dimensionalidade.  
+- A análise estatística visa reduzir a dimensão e identificar características biologicamente relevantes.  
+
+---
+
+#### Exemplo de fluxo de processamento
+
+| Tipo de dado | Pré-processamento | Quantificação | Normalização | Análise estatística |
+|---------------|------------------|----------------|----------------|---------------------|
+| DNA-seq | Filtragem e trimagem | Mapeamento e chamada de variantes | — | Identificação de polimorfismos |
+| RNA-seq | Filtragem e trimagem | Mapeamento e contagem | Normalização intra/inter amostras | Identificação de transcritos diferenciais |
+| Proteômica | Remoção de espectros ruins | Comparação com banco de dados | Normalização | Identificação de proteínas diferenciais |
+
+---
+
+## Integração dos Dados
+
+Após o processamento, obtemos uma lista de genes relevantes que direcionam à resposta biológica de interesse.
+
+A lista de genes é usada para identificar funções e vias relevantes, integrando com bancos de dados biológicos (como Gene Ontology e KEGG).
+
+---
+
+### Integração funcional
+
+- Genes são anotados com vocabulários padronizados:  
+  - **Gene Ontology (GO)**  
+  - **KEGG/KOG**  
+- Agrupamento de genes com funções semelhantes.  
+- Facilita comparações entre experimentos.  
+
+---
+
+### Análise de Conjunto de Genes (GSA)
+
+Método usado para interpretar experimentos de larga escala, focando em grupos de genes com características biológicas comuns.
+
+**Pergunta central:**  
+“Dada uma lista de genes que mudaram em um experimento, quais processos biológicos estão sendo afetados significativamente?”
+
+**Etapas:**
+1. Calcular estatística para cada gene  
+2. Associar funções via banco de dados  
+3. Calcular score de enriquecimento  
+
+---
+
+## Estratégias de Integração
+
+### Integração Antecipada (ou completa)
+
+- Combina diferentes conjuntos de dados em uma única matriz antes da modelagem.  
+- Exige transformação para uma representação comum.  
+- Pode resultar em perda de informação e aumento de ruído.  
+
+---
+
+### Integração Tardia (ou de decisão)
+
+- Cria modelos independentes para cada conjunto de dados.  
+- Combina os resultados em um modelo unificado.  
+- Ignora as relações entre os conjuntos, perdendo sinergias biológicas.  
+
+---
+
+### Integração Intermediária (ou parcial)
+
+- Infere uma representação compartilhada (latente) entre todos os conjuntos simultaneamente.  
+- Captura sinergias entre camadas de dados.  
+- Gera resultados biologicamente mais ricos, mas depende fortemente do algoritmo utilizado.  
+
+---#
+
+## Integração de Redes
+
+- **Homogênea:** mesmas entidades, diferentes tipos de conexões.  
+- **Heterogênea:** diferentes tipos de entidades e relações.  
+
+---
+
+### Métodos de integração baseados em redes
+
+- **Projeção de Rede:** integração de redes heterogêneas (ex: Fármaco-Alvo → Alvo-Doença → Fármaco-Doença).  
+- **Propagação de Informação:** difunde escores através da rede, priorizando novos genes ou fármacos.  
+
+---
+
+### Outros métodos de integração
+
+- **Bayesianos:** modelos probabilísticos que representam dependências (genótipo → expressão → fenótipo).  
+- **Baseados em kernels:** usados para transformação e redução de dimensionalidade.  
+- **NMF (Non-negative Matrix Factorization):** fatoração de matriz para clusterização e descoberta de padrões.  
+
+---

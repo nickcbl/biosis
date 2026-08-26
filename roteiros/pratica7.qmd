@@ -1,0 +1,403 @@
+---
+title: "Aula Prática 7 – Quantificação e Normalização de RNA-seq"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     pdf-engine: xelatex
+editor: source
+---
+
+## Introdução
+
+Esta aula prática tem como objetivo realizar uma análise de expressão gênica a partir de dados de RNA-seq. O roteiro cobre a quantificação de _reads_ alinhados até a identificação de genes diferencialmente expressos, utilizando duas ferramentas: **featureCounts** para quantificação e **DESeq2** para análise estatística.
+
+A análise de expressão diferencial é uma das aplicações de transcriptômica, permitindo comparar perfis de expressão gênica entre diferentes condições experimentais (ex: tratamento vs. controle, diferentes tecidos, estágios de desenvolvimento). Durante esta aula vamos:
+
+1. **Quantificar** _reads_ mapeados em genes utilizando `featureCounts`
+2. **Compreender** os conceitos de normalização e sua importância
+3. **Aplicar** `DESeq2` para análise estatística e identificação de genes diferencialmente expressos
+4. **Interpretar** os resultados através de visualizações como PCA e _heatmaps_
+5. **Discutir** questões críticas sobre qualidade dos dados e reprodutibilidade
+
+Os dados utilizados consistem em arquivos BAM de um experimento com 3 condições experimentais e 3 réplicas biológicas cada, totalizando 9 amostras, com arquivo de anotação GTF correspondente.
+
+
+## Fluxograma
+
+```{mermaid}
+flowchart TD
+    A[Início: Aula Prática] --> B[Pré-requisitos]
+    B --> C[PARTE 1: Quantificação com featureCounts]
+    
+    C --> C1[Introdução teórica]
+    C1 --> C2[Comando básico e parâmetros]
+    C2 --> C3[Atividade prática: execução]
+    C3 --> C4[Análise dos arquivos de saída]
+    
+    C4 --> D[PARTE 2: Conceitos de Normalização]
+    
+    D --> D1[Contagens brutas e suas limitações]
+    D1 --> D2[Library size e profundidade]
+    D2 --> D3[Métodos de normalização]
+    
+    D3 --> E[PARTE 3: Análise com DESeq2 no R]
+    
+    E --> E1[Importação e preparação dos dados]
+    E1 --> E2[Análise exploratória e normalização]
+    E2 --> E3[PCA - Análise de Componentes]
+    E3 --> E4[Heatmap - Mapa de Calor]
+    E4 --> E5[Interpretação dos resultados]
+    
+    E5 --> F[DISCUSSÃO E PERGUNTAS]
+    
+    F --> F1[Análise de similaridade]
+    F1 --> F2[Identificação de outliers]
+    F2 --> F3[Dicas e próximos passos]
+    
+    F3 --> G[Fim]
+    
+    %% Estilo e cores
+    classDef intro fill:#f9f9f9,stroke:#333,stroke-width:2px
+    classDef part1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef part2 fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef part3 fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    classDef discuss fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef sub fill:#f5f5f5,stroke:#666,stroke-width:1px
+    
+    class A,B intro
+    class C,C1,C2,C3,C4 part1
+    class D,D1,D2,D3 part2
+    class E,E1,E2,E3,E4,E5 part3
+    class F,F1,F2,F3 discuss
+```
+
+
+### Detalhamento do Fluxograma
+
+1. **Parte 1** - Quantificação com featureCounts
+   - Introdução teórica sobre a ferramenta
+   - Demonstração do comando com parâmetros
+   - Execução prática pelos alunos
+   - Verificação e interpretação da saída
+
+2. **Parte 2** - Conceitos de Normalização
+   - Entendimento das contagens brutas
+   - Importância da library size
+   - Métodos de normalização (CPM, RPKM, TPM, DESeq2)
+
+3. **Parte 3** - Análise com DESeq2
+   - Importação de dados no R/RStudio
+   - Pré-filtragem e execução do DESeq2
+   - Visualização com PCA e Heatmap
+   - Interpretação inicial dos resultados
+
+
+4. **Discussão** - Análise e interpretação
+   - Identificação de similaridade entre amostras
+   - Detecção de outliers
+   - Orientações para análises futuras
+
+
+### Resultados Esperados
+
+- Matriz de contagens gerada pelo featureCounts
+- Objeto DESeqDataSet com dados normalizados
+- Gráficos de PCA e Heatmap
+- Interpretação dos resultados de similaridade e outliers
+- Conhecimento prático para análises futuras de RNA-seq
+
+
+## Objetivo
+
+ Capacitar os alunos a realizar uma análise de expressão gênica completa, desde a quantificação de reads até a identificação de genes diferencialmente expressos, passando pela normalização e análise exploratória dos dados.
+
+---
+
+## Parte 1 – Quantificação com featureCounts
+
+### Introdução
+
+O `featureCounts` faz parte do pacote **subread** e é uma ferramenta para quantificar _reads_ mapeados em regiões genômicas (genes, exons, etc.). Este programa conta o número de _reads_ que se sobrepõem a cada _feature_ (gene) no arquivo de anotação.
+
+
+### Comando Básico
+
+```bash
+
+# Exemplo de comando para gerar a matriz de contagens
+featureCounts -a annotation.gtf \
+              -o counts.txt \
+              -t exon \
+              -g gene_id \
+              -s 0 \
+              -p \
+              -T 4 \
+              sample1.bam sample2.bam sample3.bam
+```
+
+**Explicação das opções:**
+
+| Opção | Descrição                                                              |
+| :---- | :--------------------------------------------------------------------- |
+| `-a`  | Arquivo de anotação (GTF/GFF).                                         |
+| `-o`  | Arquivo de saída (matriz de contagens).                                |
+| `-t`  | Tipo de feature a ser contada (geralmente `exon`).                     |
+| `-g`  | Atributo de identificação (geralmente `gene_id`).                      |
+| `-s`  | Strand-specific: 0 (unstranded), 1 (stranded), 2 (reversely stranded). |
+| `-p`  | Contar fragmentos (útil para dados paired-end).                        |
+| `-T`  | Número de threads (para acelerar).                                     |
+
+
+### Atividade Prática
+
+- Navegar até o diretório com os arquivos BAM.
+- Executar o `featureCounts` com os parâmetros adequados para o experimento.
+- **Verificar a saída:** o arquivo `counts.txt` contém um sumário e, a partir da linha 2, a matriz de contagens.
+- **Dica:** usar `less -S counts.txt` para visualizar a matriz.
+
+
+### Arquivos de Saída
+
+- O arquivo principal (`counts.txt`) contém:
+    - Colunas com metadados (Geneid, Chr, Start, End, Strand, Length).
+    - Colunas com as contagens para cada amostra.
+- Um arquivo de sumário (`counts.txt.summary`) mostra o status da atribuição (assign, unassigned, multi-mapping, etc.).
+
+---
+
+
+## Parte 2 – Normalização
+
+### Contagens Brutas (Raw Counts)
+
+- São os números inteiros gerados pelo `featureCounts`.
+- **Problemas:**
+    - <span style="color: red;">Não são diretamente comparáveis entre amostras</span>.
+    - São influenciados pela profundidade de sequenciamento (_library size_) e pela **composição da biblioteca**.
+    - <span style="background-color: #D8F8FF;">Genes mais longos tendem a receber mais reads.</span>
+
+
+### Library Size
+- É o número total de reads mapeados em uma amostra.
+- Se a library size é maior em uma amostra, as contagens brutas tendem a ser maiores, mesmo que a expressão relativa seja a mesma.
+- **Exemplo:** Amostra A com 20M reads e Amostra B com 30M reads. Um gene com 1000 reads em A pode ter 1500 reads em B, mas a expressão é a mesma.
+
+
+### Normalização
+- É o processo de ajustar os dados para remover efeitos técnicos e permitir comparações biológicas válidas.
+- **Métodos comuns:**
+    - **CPM (Counts Per Million):** Divide pela library size (em milhões). É simples, mas não corrige para composição da biblioteca.
+    - **RPKM/FPKM:** Normaliza por library size e comprimento do gene. Útil para comparações dentro da amostra, mas não entre amostras.
+    - **TPM (Transcripts Per Million):** Similar ao RPKM, mas a ordem das operações é diferente, tornando a soma constante entre amostras.
+    - **Método do DESeq2 (RLE - Relative Log Expression):** Assume que a maioria dos genes não é diferencialmente expressa. Calcula um fator de normalização para cada amostra (_size factor_) com base na mediana da razão das contagens em relação a uma amostra de referência. É um dos métodos mais robustos.
+
+---
+
+
+## Parte 3 – Análise com DESeq2
+
+
+### Importação dos Dados e Preparação
+
+
+#### Roteiro no R/RStudio:
+
+```r
+
+# 1. Carregar os pacotes
+library(DESeq2)
+library(pheatmap)
+library(ggplot2)
+library(RColorBrewer)
+
+
+# 2. Definir o diretório de trabalho (caminho para a pasta com os dados)
+setwd("caminho/para/seu/diretorio")
+
+
+# 3. Importar a matriz de contagens gerada pelo featureCounts
+
+# Pular as primeiras linhas (1) que contêm o cabeçalho de sumário
+countData <- read.table("counts.txt", header = TRUE, row.names = 1, skip = 1)
+
+
+# Remover as colunas de metadados, mantendo apenas as colunas de contagens
+
+# As colunas de metadados são: Chr, Start, End, Strand, Length
+countData <- countData[, 6:ncol(countData)]  # Ajuste o índice se necessário
+
+
+# 4. Renomear as colunas para nomes mais curtos (opcional)
+colnames(countData) <- gsub(".bam", "", colnames(countData)) # Remove .bam
+
+
+# 5. Criar o colData (informações sobre as amostras)
+
+# Exemplo: 3 condições (A, B, C) com 3 réplicas cada
+condition <- factor(c(rep("A", 3), rep("B", 3), rep("C", 3)))
+colData <- data.frame(row.names = colnames(countData), condition = condition)
+
+
+# 6. Verificar se a ordem das colunas está correta
+all(rownames(colData) == colnames(countData)) # Deve retornar TRUE
+
+
+# 7. Criar o objeto DESeqDataSet (dds)
+dds <- DESeqDataSetFromMatrix(countData = countData,
+                              colData = colData,
+                              design = ~ condition)
+```
+
+
+### Análise Exploratória e Normalização
+
+```r
+
+# 1. Aplicar o pré-filtro: remover genes com poucas contagens
+
+# Mantém genes com pelo menos 10 reads no total
+keep <- rowSums(counts(dds)) >= 10
+dds <- dds[keep, ]
+
+
+# 2. Executar o DESeq2 (estima os size factors, dispersão e faz o teste)
+dds <- DESeq2::DESeq(dds)
+
+
+# 3. Extrair os dados normalizados (rlog ou vst)
+
+# rlog = regularized log transformation, melhor para amostras com poucas réplicas
+rld <- rlog(dds, blind = FALSE)
+
+# vsd <- vst(dds, blind = FALSE) # Alternativa mais rápida para muitos dados
+
+
+# 4. Extrair os resultados (comparações)
+
+# Por padrão, a comparação é com a primeira condição em levels(condition)
+res <- results(dds, contrast = c("condition", "B", "A")) # Comparar B vs A
+
+# Ordenar por p-valor
+resOrdered <- res[order(res$pvalue),]
+```
+
+
+### Análise de Componentes Principais (PCA)
+
+```r
+
+# 1. Plotar PCA usando o plotPCA do DESeq2
+pca_data <- plotPCA(rld, intgroup = "condition", returnData = TRUE)
+percentVar <- round(100 * attr(pca_data, "percentVar"))
+
+
+# 2. Criar um gráfico mais bonito com ggplot2
+pca_plot <- ggplot(pca_data, aes(PC1, PC2, color = condition)) +
+    geom_point(size = 4) +
+    xlab(paste0("PC1: ", percentVar[1], "% variance")) +
+    ylab(paste0("PC2: ", percentVar[2], "% variance")) +
+    theme_minimal() +
+    ggtitle("PCA - Amostras") +
+    coord_fixed() # Mantém a proporção dos eixos
+
+print(pca_plot)
+
+
+# 3. Salvar o gráfico
+ggsave("pca_plot.png", pca_plot, width = 8, height = 6, dpi = 300)
+```
+
+
+### Heatmap (Mapa de Calor)
+
+```r
+
+# 1. Selecionar os genes mais variáveis
+
+# Calcular a variância de cada gene nos dados transformados (rld)
+topVarGenes <- head(order(rowVars(assay(rld)), decreasing = TRUE), 30)
+
+
+# 2. Extrair a matriz de expressão para esses genes
+mat <- assay(rld)[topVarGenes, ]
+
+
+# 3. Padronizar os dados (escore z) para melhor visualização
+mat <- mat - rowMeans(mat)
+mat <- mat / rowSds(mat)  # Função rowSds do matrixStats, ou use: rowSds = apply(mat,1,sd)
+
+# Alternativa sem pacote adicional:
+
+# mat <- t(scale(t(mat))) # Isso padroniza as linhas
+
+
+# 4. Definir a anotação das colunas (condições)
+annotation_col <- data.frame(Condition = colData(dds)$condition)
+rownames(annotation_col) <- colnames(mat)
+
+
+# 5. Definir cores
+ann_colors <- list(Condition = c(A = "#1B9E77", B = "#D95F02", C = "#7570B3"))
+
+
+# 6. Plotar o heatmap
+pheatmap(mat,
+         annotation_col = annotation_col,
+         annotation_colors = ann_colors,
+         main = "Heatmap - Top 30 Genes Mais Variáveis",
+         fontsize_row = 8,
+         fontsize_col = 10,
+         scale = "none", # Já padronizamos
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         show_rownames = TRUE,
+         show_colnames = TRUE,
+         color = colorRampPalette(rev(brewer.pal(n = 7, name = "RdBu")))(100),
+         filename = "heatmap_top30.png" # Salva como arquivo
+)
+```
+
+---
+
+
+## Perguntas para Discussão
+
+
+### Quais amostras são mais semelhantes?
+
+**Como responder:**
+- **Observando o PCA:** As amostras que aparecem mais próximas umas das outras no gráfico de PCA são as mais semelhantes em termos de perfil de expressão gênica global.
+- **Observando o Heatmap:** Agrupamentos (clusters) no dendrograma indicam semelhança. Amostras no mesmo cluster ou com padrão de cores similar são mais semelhantes.
+- **Esperado:** As réplicas biológicas da mesma condição devem agrupar-se próximas.
+- **Interpretação:** Se as amostras A1, A2, A3 estão agrupadas, isso indica alta reprodutibilidade. Se uma amostra A3 está mais próxima das amostras B, pode indicar um problema (ex: erro de rotulagem, contaminação, ou variação biológica real).
+
+
+### Existem outliers?
+
+**Como responder:**
+- **No PCA:** Um ponto que está muito distante dos demais pontos do seu grupo (ou de todos) pode ser considerado um outlier.
+- **No Heatmap:** Uma amostra que apresenta um padrão de expressão completamente diferente das suas réplicas, e não se agrupa com elas, é um forte candidato a outlier.
+- **Análise de Distância:** Calcular a distância entre as amostras (ex: distância Euclidiana) e verificar se alguma tem uma distância média muito maior que as outras.
+- **Causas possíveis:** Baixa qualidade do sequenciamento, problemas na preparação da biblioteca, erros de alinhamento, ou erro na rotulagem da amostra.
+- **Ação:** Se um outlier for identificado, o ideal é investigar a causa. Em alguns casos, pode-se remover a amostra da análise (se a causa for técnica e não biológica), mas isso deve ser feito com cautela e documentado.
+
+---
+
+
+### Dicas
+
+- **Documentação:** Sempre consultem o manual do `featureCounts` (`featureCounts -h`) e a vignette do DESeq2 (`vignette("DESeq2")`).
+- **Interpretação:** A análise não termina no heatmap ou PCA. O próximo passo é a análise de expressão diferencial para identificar genes com mudanças significativas (usando `results()` e `lfcShrink()`).
+- **Visualização:** Usem gráficos de dispersão (MA-plot) e volcano plots para visualizar os genes diferencialmente expressos.
+

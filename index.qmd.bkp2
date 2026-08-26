@@ -1,0 +1,134 @@
+---
+title: ""
+page-layout: full
+---
+
+::: {.hero-section}
+
+<div>
+<p class="hero-eyebrow">CI0932 · UFC · Centro de Ciências</p>
+
+# [Biologia de Sistemas]{.hero-hl}
+
+<p class="hero-lede">Histórico, grafos, redes e modelos.</p>
+
+<p class="hero-meta">Prof. Nicholas Barroso · Departamento de Bioquímica e Biologia Molecular</p>
+
+<!-- <div class="cta-row">
+<a href="modulos/modulo1.qmd" class="btn btn-teal">Começar pelo Módulo 1 →</a>
+<a href="slides/aula1.qmd" class="btn btn-outline">Ver os slides</a>
+</div>
+</div> -->
+
+<div class="hero-art">
+![](imagens/hero-network.jpg)
+</div>
+
+:::
+
+
+<!-- ## Trilha do curso {#conteudo}
+
+::: {.modules-grid}
+
+<div class="mod-card">
+<div class="mod-node n-teal">01</div>
+<a class="stretched-link" href="modulos/modulo1.html"><strong>Histórico e conceitos</strong></a>
+<p>Origens e princípios da biologia de sistemas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-teal">02</div>
+<a class="stretched-link" href="modulos/modulo2.html"><strong>Grafos</strong></a>
+<p>Fundamentos de teoria dos grafos aplicada a redes biológicas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-green">03</div>
+<a class="stretched-link" href="modulos/modulo3.html"><strong>Redes biológicas</strong></a>
+<p>Como sistemas vivos são representados como redes.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-green">04</div>
+<a class="stretched-link" href="modulos/modulo4.html"><strong>Modelos</strong></a>
+<p>Modelagem matemática de sistemas biológicos.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-blue">05</div>
+<a class="stretched-link" href="modulos/modulo5.html"><strong>Obtenção de dados</strong></a>
+<p>Bancos de dados e fontes para biologia de sistemas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-blue">06</div>
+<a class="stretched-link" href="modulos/modulo6.html"><strong>Integração de dados</strong></a>
+<p>Combinando múltiplas camadas de dados ômicos.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">07</div>
+<a class="stretched-link" href="modulos/modulo7.html"><strong>Redes metabólicas</strong></a>
+<p>Vias e fluxos metabólicos como redes.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">08</div>
+<a class="stretched-link" href="modulos/modulo8.html"><strong>Redes de co-expressão</strong></a>
+<p>Coexpressão gênica e suas redes associadas.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">09</div>
+<a class="stretched-link" href="modulos/modulo9.html"><strong>Interação proteína-proteína</strong></a>
+<p>Redes PPI e sua análise topológica.</p>
+</div>
+
+::: -->
+
+## Recursos da disciplina
+
+::: {.res-grid}
+
+<div class="res-card">
+<div class="mod-node-long n-teal">Módulos</div>
+<a class="stretched-link" href="modulos/modulos.qmd"><strong>Módulos dos assuntos tratados</strong></a>
+<p>9 módulos referentes ao conteúdo da disciplina.</p>
+</div>
+
+<div class="res-card">
+<div class="mod-node-long n-blue">Slides</div>
+<a class="stretched-link" href="slides/slides.qmd"><strong>Slides das aulas</strong></a>
+<p>10 apresentações, uma por aula. Melhor visualização com o celular na horizontal.</p>
+</div>
+
+<div class="res-card">
+<div class="mod-node-long n-purple">Roteiros</div>
+<a class="stretched-link" href="roteiros/roteiros.qmd"><strong>Roteiros práticos</strong></a>
+<p>12 práticas guiadas, com os arquivos de entrada necessários.</p>
+</div>
+
+<div class="res-card">
+<div class="mod-node-long n-green">Listas</div>
+<a class="stretched-link" href="listas/listas.qmd"><strong>Listas de exercícios</strong></a>
+<p>Estudos dirigidos, lógica e biotecnologia.</p>
+</div>
+
+<div class="res-card res-card-soon">
+<div class="mod-node-long n-red">Referências</div>
+<strong>Leituras e vídeos</strong>
+<p>Material complementar organizado por módulo.</p>
+<span class="soon-badge">em breve</span>
+</div>
+
+:::
+
+::: {.stats-bar}
+<div><b>09</b><span>MÓDULOS</span></div>
+<div><b>10</b><span>AULAS EM SLIDES</span></div>
+<div><b>12</b><span>PRÁTICAS</span></div>
+<div><b>04</b><span>LISTAS</span></div>
+:::
+
+<!-- <p class="status-badge">em construção · v2 · 2026</p> -->

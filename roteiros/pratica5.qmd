@@ -1,0 +1,254 @@
+---
+title: "Aula Prática 5 – Anotação Funcional"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   pdf-engine: xelatex
+editor: source
+---
+
+# Introdução
+
+Aula para anotação de sequências:
+
+**Parte 1 - Preparação e Busca com BLAST:**
+- Download de bases de dados do NCBI pré-formatadas para BLAST
+- Criação de bancos de dados personalizados a partir de arquivos FASTA
+- Execução de buscas BLAST (blastp, blastn, etc.) com diferentes parâmetros e formatos de saída
+
+**Parte 2 - Anotação Funcional e Identificação de Domínios:**
+- Identificação de organismos homólogos e função através de buscas BLAST no banco NR (_non-redundant_)
+- Anotação detalhada de domínios e função utilizando InterProScan (recomendado)
+- Alternativa com hmmscan para busca específica em banco de dados Pfam
+
+---
+
+
+# Fluxograma
+
+```{mermaid}
+flowchart TD
+    A[Início] --> B[Preparação das Sequências]
+    B --> C{Qual fonte de dados?}
+    
+    C -->|NCBI| D[Baixar base de dados com update_blastdb.pl]
+    C -->|Própria| E[Criar banco personalizado com makeblastdb]
+    
+    D --> F[base_blast]
+    E --> F[base_blast]
+    
+    F --> G[Executar BLAST]
+    
+    G --> H{Qual tipo de análise?}
+    
+    H -->|Busca Homólogos| I[blastp/blastn com parâmetros básicos]
+    H -->|Filtro Taxonômico| J[blastp com -taxids]
+    H -->|Análise Completa| K[Análise detalhada]
+    
+    I --> L[Resultados BLAST<br/>Homólogos encontrados]
+    J --> M[Resultados BLAST<br/>Organismo específico]
+    
+    L --> N[Análise dos resultados]
+    M --> N
+    
+    N --> O{Anotação Funcional}
+    
+    O -->|InterProScan| P[interproscan.sh<br/>-goterms -iprlookup]
+    O -->|Pfam/HMMER| Q[hmmscan<br/>com banco Pfam-A.hmm]
+    
+    P --> R[Arquivos TSV/GFF3<br/>Domínios, GO termos, funções]
+    Q --> S[Arquivos tblout/domtblout<br/>Domínios Pfam identificados]
+    
+    R --> T[Interpretação dos Resultados]
+    S --> T
+    
+    T --> U[Identificação de:<br/>- Função molecular<br/>- Domínios proteicos<br/>- Organismo homólogo<br/>- Processos biológicos]
+    
+    U --> V[Fim]
+    
+    %% Estilos
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+    
+    class A,V inicio
+    class B,D,E,F,G,I,J,K,N,O,P,Q processo
+    class C,H decisao
+    class L,M,R,S,U resultado
+    class T final
+```
+
+---
+
+
+## Explicação do Fluxograma
+
+O fluxograma acima ilustra o _workflow_ completo do roteiro, com as seguintes etapas:
+
+1. **Início e Preparação**: O processo inicia com a preparação das sequências que serão analisadas.
+
+2. **Decisão da Fonte de Dados**: 
+   - Se a base de dados for do NCBI, utiliza-se `update_blastdb.pl` para baixar bases já pré-formatadas
+   - Se for um arquivo próprio, cria-se um banco personalizado com `makeblastdb`
+
+3. **Execução do BLAST**: Com a base de dados pronta, executa-se a busca com `blastp` (proteínas) ou outras variantes.
+
+4. **Tipos de Análise**: 
+   - Busca básica por homólogos
+   - Filtragem por organismo específico usando `-taxids`
+   - Análise mais detalhada conforme necessidade
+
+5. **Anotação Funcional**: 
+   - **InterProScan**: Ferramenta principal que integra múltiplas bases de dados (Pfam, CDD, PROSITE) e fornece GO termos
+   - **hmmscan**: Alternativa focada em buscas específicas no banco Pfam
+
+6. **Resultados**: Os arquivos gerados contêm informações sobre domínios, funções moleculares, processos biológicos e organismos homólogos.
+
+7. **Interpretação**: Consolidação das informações para identificação completa da função, domínios e organismo da sequência analisada.
+
+
+## Ferramentas
+
+- Blast
+- UniProt 
+
+---
+
+
+## Parte 1
+
+Para baixar sequências do NCBI, criar um banco de dados local para o BLAST e realizar uma busca, você pode seguir o fluxo de trabalho com as ferramentas de linha de comando do <mark>BLAST+</mark>. O processo consiste em três etapas principais.
+
+
+### Baixar uma Base de Dados do NCBI
+
+A maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script `update_blastdb.pl`, que acompanha a suíte BLAST+ .
+
+Para baixar a base de dados de proteínas não-redundante (`nr`), por exemplo, use o comando :
+
+```bash
+update_blastdb.pl --decompress nr
+```
+
+**Explicação:**
+*   `update_blastdb.pl`: É o script para baixar e atualizar bases de dados do NCBI .
+*   `--decompress`: Baixa e descompacta a base de dados no diretório atual .
+*   `nr`: É o nome da base de dados de proteínas não-redundante.
+
+Para ver a lista completa de bases de dados disponíveis para download, use :
+```bash
+update_blastdb.pl --showall pretty
+```
+Este comando exibirá uma lista com todas as opções, como `swissprot`, `refseq_protein`, entre outras .
+
+
+### Criar um Banco de Dados Personalizado
+
+Se você tem seu próprio arquivo de sequências em formato FASTA (por exemplo, `minhas_proteinas.faa`), pode criar um banco de dados BLAST com o comando `makeblastdb` .
+
+Para uma base de dados de proteínas, o comando é :
+```bash
+makeblastdb -in minhas_proteinas.faa -dbtype prot -out meu_banco -parse_seqids
+```
+
+**Explicação dos parâmetros :**
+*   `-in minhas_proteinas.faa`: Seu arquivo de entrada no formato FASTA.
+*   `-dbtype prot`: Define o tipo como proteína. Use `nucl` para nucleotídeos.
+*   `-out meu_banco`: Nome base para os arquivos do banco de dados que serão criados.
+*   `-parse_seqids`: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências .
+
+
+### Executar o BLAST
+
+Com o banco de dados criado (seja baixado do NCBI ou personalizado), você pode realizar a busca. Para uma busca de proteína contra uma base de dados de proteínas, use o comando `blastp` .
+
+```bash
+blastp -db meu_banco -query minha_sequencia.faa -out resultados.txt -outfmt 6 -evalue 1e-5
+```
+
+**Explicação dos parâmetros :**
+*   `-db meu_banco`: O nome do banco de dados que você criou.
+*   `-query minha_sequencia.faa`: O arquivo com a(s) sequência(s) que você quer pesquisar.
+*   `-out resultados.txt`: O arquivo onde os resultados serão salvos.
+*   `-outfmt 6`: Define o formato de saída como tabular, que é fácil de processar .
+*   `-evalue 1e-5`: O valor de corte para o *E-value* .
+
+> **Nota:** Para outros tipos de busca, use os comandos correspondentes: `blastn` para DNA contra DNA, `blastx` para DNA traduzido contra proteína, etc. .
+
+---
+
+
+## Parte 2
+
+Para identificar a função, domínios e organismo homólogo das suas sequências, você pode usar uma combinação de ferramentas de linha de comando. Um fluxo de trabalho comum envolve usar o BLAST para encontrar homólogos e, em seguida, ferramentas especializadas como o InterProScan para anotação funcional e de domínios.
+
+
+### Identificar Organismo Homólogo e Função com BLAST
+
+O BLAST (como `blastp` para proteínas) é a ferramenta padrão para encontrar sequências homólogas em bancos de dados. A identificação do organismo e uma primeira indicação da função vêm da análise dos hits retornados.
+
+*   **Comando básico para buscar homólogos:**
+```bash
+blastp -db nr -query sua_sequencia.faa -out resultados_blast.txt -outfmt 6 -evalue 1e-5 -max_target_seqs 1
+```
+- `-db nr`: Usa o banco de dados de proteínas não-redundante do NCBI (que você pode baixar com `update_blastdb.pl`).
+- `-query sua_sequencia.faa`: Seu arquivo de entrada.
+- `-out resultados_blast.txt`: Arquivo de saída.
+- `-outfmt 6`: Formato tabular simples e fácil de processar.
+- `-evalue 1e-5`: Valor de corte para significância estatística.
+- `-max_target_seqs 1`: Limita a saída ao melhor hit, útil para uma visão rápida.
+
+*   **Filtrando por um organismo específico:**
+    Se você quiser buscar apenas por homólogos em um organismo ou grupo taxonômico específico, pode usar a opção `-taxids` com o ID de táxon do NCBI. Por exemplo, para buscar apenas em bactérias (taxid `2`):
+```bash
+blastp -db nr -query sua_sequencia.faa -taxids 2 -out resultados_blast_filtrado.txt -outfmt 6 -evalue 1e-5
+```
+
+
+### Identificar Domínios e Função com InterProScan
+
+O InterProScan é uma ferramenta poderosa que integra várias bases de dados de domínios e famílias de proteínas (como Pfam, CDD, PROSITE, etc.) para fornecer uma anotação funcional rica. É a ferramenta ideal para a análise que você deseja.
+
+*   **Comando básico para anotar proteínas:**
+```bash
+interproscan.sh -i sua_sequencia.faa -f TSV,GFF3 -goterms -iprlookup -cpu 4
+```
+- `-i sua_sequencia.faa`: Arquivo de entrada com suas sequências de proteínas.
+- `-f TSV,GFF3`: Especifica os formatos de saída. O TSV é um formato tabular fácil de ler, e o GFF3 é útil para visualização em ferramentas de genômica.
+- `-goterms`: Adiciona termos de ontologia gênica (GO), que descrevem a função molecular, o processo biológico e o componente celular.
+- `-iprlookup`: Inclui anotações do banco de dados InterPro, que faz uma curadoria das informações de domínios e famílias.
+- `-cpu 4`: Número de núcleos de CPU para acelerar o processo.
+- **Nota sobre a conexão com a internet:** Por padrão, o InterProScan usa um serviço de *lookup* para verificar se a sequência já foi analisada, o que acelera o processo, mas requer internet. Para uso offline, adicione a opção `-dp` (disable precalc), o que fará com que todas as análises sejam executadas localmente (o que pode ser mais lento).
+
+
+### (Alternativa) Identificar Domínios com `hmmscan` e Pfam
+
+O `hmmscan`, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.
+
+*   **Preparar o banco de dados Pfam (fazer uma vez):**
+```bash
+wget ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+gunzip Pfam-A.hmm.gz
+hmmpress Pfam-A.hmm
+```
+  Isso criará os arquivos necessários para a busca.
+
+*   **Executar a busca de domínios:**
+```bash
+hmmscan --tblout saida_domains_tbl.txt --domtblout saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa
+```
+- `--tblout saida_domains_tbl.txt`: Saída resumida por sequência alvo.
+- `--domtblout saida_domains_domtbl.txt`: Saída detalhada por domínio encontrado, muito útil para análise.

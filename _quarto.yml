@@ -1,47 +1,89 @@
 project:
   type: website
 
+publish:
+  gh-pages:
+    branch: biosite
+
 website:
-  title: "**Biologia de Sistemas**"
+  title: "CI0932 - Biologia de Sistemas"
+  site-url: https://nickcbl.github.io/biosis/
+  favicon: imagens/favicon-32.png
+  image: imagens/social-preview.jpg
+  open-graph: true
+  twitter-card: true
   navbar:
     left:
       - href: index.qmd
         text: Início
-      - text: Módulos
-        menu: 
-          - href: modulos/aula01.qmd
-            text: 01 - Histórico e conceitos
-          - href: modulos/aula02.qmd
-            text: 02 - Grafos
-          - href: modulos/aula03.qmd
-            text: 03 - Redes Biológicas
-          - href: modulos/aula04.qmd
-            text: 04 - Modelos
-          - href: modulos/aula05.qmd
-            text: 05 - Obtenção de dados e banco de dados
-      - text: Slides
-        menu:
-          - href: slides/aula1.qmd
-            text: 01 - Histórico e conceitos
-      - text: Listas
-        menu:
-          - href: listas/ed1.qmd
-            text: Estudo Dirigido 1
-          - href: listas/ed2.qmd
-            text: Estudo Dirigido 2
-      - text: Leituras
-        menu:
-          - href: artigos/leitura1.pdf
-            text: Artigo 1
-      - href: referencias/referencias.qmd
-        text: Referências
+
+  sidebar:
+    - title: "Conteúdo"
+      style: docked
+      collapse-level: 1
+      contents:
+        - section: "Módulos"
+          contents:
+            - modulos/modulo1.qmd
+            - modulos/modulo2.qmd
+            - modulos/modulo3.qmd
+            - modulos/modulo4.qmd
+            - modulos/modulo5.qmd
+            - modulos/modulo6.qmd
+            - modulos/modulo7.qmd
+            - modulos/modulo8.qmd
+            - modulos/modulo9.qmd
+        - section: "Slides"
+          contents:
+            - slides/aula1.qmd
+            - slides/aula2.qmd
+            - slides/aula3.qmd
+            - slides/aula4.qmd
+            - slides/aula5.qmd
+            - slides/aula6.qmd
+            - slides/aula7.qmd
+            - slides/aula8.qmd
+            - slides/aula9.qmd
+            - slides/aula10.qmd
+        - section: "Roteiros"
+          contents:
+            - roteiros/input/input.qmd
+            - roteiros/pratica1.qmd
+            - roteiros/pratica2.qmd
+            - roteiros/pratica3.qmd
+            - roteiros/pratica4.qmd
+            - roteiros/pratica5.qmd
+            - roteiros/pratica6.qmd
+            - roteiros/pratica7.qmd
+            - roteiros/pratica8.qmd
+            - roteiros/pratica9.qmd
+            - roteiros/pratica10.qmd
+            - roteiros/pratica11.qmd
+            - roteiros/pratica12.qmd
+        - section: "Listas"
+          contents:
+            - listas/ed1.qmd
+            - listas/ed2.qmd
+            - listas/exercicios_fundamentos_logica.qmd
+            - listas/exercicios_biotecnologia.qmd
+        - section: Teste
+          contents:
+            - teste/teste.qmd
+            - teste/slides.qmd
   page-footer:
-    center: "© Prof. Nicholas Barroso<br>2025<br>EM CONTRUÇÃO"
+    <p class="status-badge">em construção · v2 · 2026</p>
 
 format:
   html:
-    theme: cosmo
-    toc: true
+    theme:
+      - minty
+      - custom.scss
+    highlight-style: github
+    grid:
+      sidebar-width: 260px
+      body-width: 1400px
+      margin-width: 200px
+      gutter-width: 1.5rem
     language: pt-Br
     bibliography: referencias/ref.bib
     csl: referencias/abnt.csl

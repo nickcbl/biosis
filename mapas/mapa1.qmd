@@ -1,0 +1,174 @@
+---
+title: "Histórico e Conceitos"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+
+<style>
+/* Estilo para o container do Mermaid */
+.mermaid-container {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: white;
+}
+
+/* Aumentar o tamanho de TODOS os elementos no gráfico Mermaid */
+.mermaid svg {
+  font-size: 16px !important;  /* Aumenta a fonte */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Aumentar específicamente o texto dos nós */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  font-size: 16px !important;
+}
+
+/* Botões de zoom flutuantes */
+.zoom-controls {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.zoom-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  background: #3498db;
+}
+</style>
+
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="zoomIn()">+</button>
+  <button class="zoom-btn" onclick="zoomOut()">−</button>
+  <button class="zoom-btn" onclick="resetZoom()">↺</button>
+</div>
+
+<div class="mermaid-container">
+```{mermaid}
+mindmap
+  root((Biologia de Sistemas))
+    Definição e Filosofia
+      [Abordagem holística]
+      [Foco nas interações]
+      [Propriedades emergentes]
+      [Ciclo iterativo: Teoria → Modelagem → Validação → Refinamento]
+
+    Fundamentos Conceituais
+      [Holismo]
+        Sistema > soma das partes
+        Exemplo: Glicólise como rede coordenada
+      [Reducionismo vs. Holismo]
+        Reducionismo: Partes isoladas
+        Holismo: Redes e interações
+      ["Teoria Geral dos Sistemas (Bertalanffy)"]
+        Sistema e Fronteiras
+        Homeostase e Adaptação
+        Transações Recíprocas
+        Retroalimentação
+        Taxa de Transferência
+
+    Abordagens de Modelagem
+      Top-down
+        Dados ômicos para modelos globais
+        Exemplo: Identificar alvos no câncer
+        Limitação: Depende de dados de qualidade
+      ["Middle-out (Noble)"]
+        Inicia em qualquer nível
+        Causalidades circulares entre escalas
+      Bottom-up
+        Constrói detalhes primeiro
+        Exemplo: Modelos metabólicos genômicos
+
+    Pioneiros e Modelos Históricos
+      A["Hodgkin & Huxley - (1952): Potencial de ação"]
+      B["Alan Turing - (1952): Modelo de reação-difusão"]
+      C["Denis Noble - (1960): Função cardíaca"]
+      D["Mihajlo Mesarović - (1966) Definição formal"]
+      E["Hiroaki Kitano - (2002): Popularização e ferramentas (CellDesigner, SBML)"]
+      
+
+    Aplicações
+      ["Modelos Metabólicos (ex: Yeast 8)"]
+      ["Medicina P4 (Personalizada, Preditiva...)"]
+      ["Oncologia (Redes de proteínas)"]
+      ["Interações Hospedeiro-Patógeno (ex: SARS-CoV-2)"]
+```
+</div>
+
+<script>
+// Funções de zoom
+let currentScale = 1;
+const minScale = 0.5;
+const maxScale = 3;
+const scaleStep = 0.2;
+
+function zoomIn() {
+  if (currentScale < maxScale) {
+    currentScale += scaleStep;
+    applyZoom();
+  }
+}
+
+function zoomOut() {
+  if (currentScale > minScale) {
+    currentScale -= scaleStep;
+    applyZoom();
+  }
+}
+
+function resetZoom() {
+  currentScale = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const container = document.querySelector('.mermaid-container');
+  if (container) {
+    container.style.transform = `scale(${currentScale})`;
+    container.style.transformOrigin = 'center top';
+  }
+}
+
+// Também permitir zoom com Ctrl + Scroll
+document.addEventListener('wheel', function(e) {
+  if (e.ctrlKey) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  }
+}, { passive: false });
+</script>

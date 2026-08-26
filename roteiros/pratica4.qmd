@@ -1,0 +1,400 @@
+---
+title: "Aula Prática 4 – Predição de Genes"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     pdf-engine: xelatex
+editor: source
+---
+
+
+# Introdução
+
+A anotação estrutural de genomas é uma etapa fundamental em projetos de bioinformática, permitindo a identificação e caracterização de elementos funcionais em sequências de DNA. Entre esses elementos, os Quadros Abertos de Leitura (ORFs - _Open Reading Frames_) representam regiões do genoma com potencial codificante, delimitadas por códon de início e de parada. A predição precisa de ORFs é essencial para a compreensão da organização genômica, identificação de novos genes e estudo da arquitetura molecular dos organismos.
+
+Nesta aula prática, utilizaremos: **BUSCO** (_Benchmarking Universal Single-Copy Orthologs_) para avaliação da completude do genoma, **Prodigal** para predição de genes em procariotos, e **Augustus** para predição em eucariotos. A combinação dessas ferramentas permitirá não apenas a identificação de ORFs, mas também a análise quantitativa e qualitativa das proteínas preditas, estabelecendo as bases para estudos posteriores de anotação funcional e genômica comparativa.
+
+
+# Fluxograma
+
+```{mermaid}
+flowchart TD
+    A[Início] --> B[Preparar arquivo contigs.fasta]
+    B --> C[Executar BUSCO]
+    C --> C1[Avaliar completude do genoma]
+    C1 --> D[Escolher ferramenta de predição]
+    
+    D --> E{Organismo alvo?}
+    E -->|Procarioto| F[Executar Prodigal]
+    E -->|Eucarioto| G[Executar Augustus]
+    
+    F --> F1[prodigal -i contigs.fasta -a proteins.faa -d genes.fna -f gff]
+    F1 --> F2[Gerar arquivos: proteins.faa, genes.fna, genes.gff]
+    
+    G --> G1[augustus --species=ESPECIE --gff3=on contigs.fasta]
+    G1 --> G2[Gerar arquivo genes.gff]
+    
+    F2 --> H[Interpretar arquivo genes.gff]
+    G2 --> H
+    
+    H --> I[Contar número total de genes]
+    I --> I1[Quantos genes foram encontrados?]
+    
+    H --> J[Contar número de proteínas preditas]
+    J --> J1[Quantas proteínas foram preditas?]
+    
+    H --> K[Analisar tamanhos das proteínas]
+    K --> L[Identificar maior proteína]
+    K --> M[Identificar menor proteína]
+    
+    L --> N[Extrair sequência da maior proteína]
+    M --> O[Extrair sequência da menor proteína]
+    
+    N --> P[Documentar resultados]
+    O --> P
+    
+    P --> Q[Responder questões propostas]
+    Q --> R[Fim]
+    
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+    
+    
+    class A inicio
+    class B,C,C1,D,E,F,F1,F2,G,G1,G2,H,I,I1,J,J1,K,L,M,N,O,P,Q,R processo
+    class E decisao
+    class I1,J1,L,M,N,O,P,Q,R resultado
+    class R final
+```
+
+
+# Pré-requisitos e Configuração Inicial
+
+**Arquivos necessários:**
+- `contigs.fasta` - arquivo com sequências genômicas em formato FASTA
+
+**Ambiente:** Terminal Linux com as ferramentas instaladas e configuradas
+
+**Verificação de dependências:**
+```bash
+# Verificar instalação das ferramentas
+which busco prodigal augustus
+```
+
+---
+
+
+# Parte 1 – Predição de Genes e ORFs
+
+
+## Avaliação da Qualidade do Genoma com BUSCO
+
+Manual: [BUSCO](https://busco.ezlab.org/busco_userguide.html)
+
+```bash
+busco \
+    -i contigs.fasta \
+    -o nome_da_analise \
+    -m genome \
+    -l linhagem_odb10 \
+    -c 8
+```
+
+**Argumentos:**
+- `-i`: arquivo de entrada (genoma)
+- `-o`: nome do diretório de saída
+- `-m`: modo de análise (genome, transcriptome, proteins)
+- `-l`: linhagem específica (ex: bacteria_odb10, fungi_odb10)
+- `-c`: número de threads para processamento paralelo
+
+**Saída esperada:** Relatório de completude do genoma em `nome_da_analise/short_summary.specific.*.txt`
+
+
+## Predição de Genes com Prodigal (Procariotos)
+
+Manual: [Prodigal](https://github.com/cobbie/Prodigal)
+
+```bash
+prodigal \
+    -i contigs.fasta \
+    -a proteins.faa \
+    -d genes.fna \
+    -f gff > genes.gff
+```
+
+**Argumentos:**
+- `-i`: arquivo de entrada
+- `-a`: sequências de proteínas preditas (formato FASTA)
+- `-d`: sequências de DNA codificante (formato FASTA)
+- `-f`: formato de saída (gff, sgf, gbk, sco)
+
+**Saída esperada:** Arquivo GFF com anotações estruturais
+
+
+## Predição de Genes com Augustus (Eucariotos)
+
+Manual: [Augustus](https://github.com/genomewide/Augustus)
+
+```bash
+augustus \
+    --species=ESPECIE \
+    --gff3=on \
+    contigs.fasta > genes.gff
+```
+
+**Argumentos:**
+- `--species`: espécie alvo (ex: saccharomyces, drosophila)
+- `--gff3=on`: formato de saída GFF3
+- Outras opções úteis: `--strand=both`, `--genemodel=complete`
+
+**Saída esperada:** Arquivo GFF com anotações estruturais
+
+---
+
+
+# Parte 2 – Interpretação dos Resultados
+
+
+## Análise do Arquivo GFF
+
+```bash
+
+# Visualizar conteúdo do arquivo
+less genes.gff
+
+
+# Contar número total de genes (linhas com 'gene' no atributo)
+grep -c "gene" genes.gff
+
+
+# Visualizar cabeçalho e primeiras 10 linhas
+head -20 genes.gff
+```
+
+
+## Estrutura do Arquivo GFF
+
+O arquivo GFF contém 9 colunas:
+
+1. **seqid** - identificador da sequência
+2. **source** - ferramenta que gerou a anotação
+3. **type** - tipo de anotação (gene, CDS, mRNA, exon)
+4. **start** - posição inicial
+5. **end** - posição final
+6. **score** - qualidade da predição
+7. **strand** - orientação (+ ou -)
+8. **phase** - fase de leitura
+9. **attributes** - atributos adicionais (ID, Name, etc.)
+
+
+## Questões para Responder
+
+**Pergunta 1: Quantos genes foram encontrados?**
+```bash
+
+# Para Prodigal
+grep -c "gene" genes.gff
+
+
+# Para Augustus
+grep -c "transcript" genes.gff
+```
+
+**Pergunta 2: Quantas proteínas foram preditas?**
+```bash
+
+# Contar sequências no arquivo FASTA
+grep -c "^>" proteins.faa
+
+
+# Ou para Augustus, contar CDS
+grep -c "CDS" genes.gff
+```
+
+---
+
+
+# Parte 3 – Análise Detalhada das Proteínas
+
+
+## Extração e Análise de Tamanhos
+
+```bash
+
+# Extrair tamanhos das proteínas
+grep "^>" proteins.faa | sed 's/.*len=//' | sort -n
+
+
+# Estatísticas descritivas
+awk '/^>/ {if (seqlen) print seqlen; seqlen=0;next} {seqlen += length($0)}END{print seqlen}' proteins.faa
+
+
+# Proteína mais curta e mais longa
+grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | head -1
+grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | tail -1
+```
+
+
+<!-- ### 3.2 Seleção da Maior e Menor Proteína
+
+```bash
+
+# Extrair IDs das proteínas
+grep "^>" proteins.faa > protein_ids.txt
+
+
+# Organizar por tamanho
+grep "^>" proteins.faa | sed 's/.*len=//' | sort -n > protein_sizes.txt
+
+
+# Identificar a menor proteína
+MENOR=$(grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | head -1)
+echo "Menor proteína: $MENOR aa"
+
+
+# Identificar a maior proteína
+MAIOR=$(grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | tail -1)
+echo "Maior proteína: $MAIOR aa"
+```
+
+
+### 3.3 Extração das Sequências
+
+```bash
+
+# Extrair sequência da menor proteína
+ID_MENOR=$(grep "^>" proteins.faa | awk -v len="$MENOR" '{if ($0 ~ "len=" len) print $1}' | sed 's/>//')
+awk -v id="$ID_MENOR" '/^>/ {flag=0} $0 ~ id {flag=1} flag' proteins.faa > menor_proteina.faa
+
+
+# Extrair sequência da maior proteína
+ID_MAIOR=$(grep "^>" proteins.faa | awk -v len="$MAIOR" '{if ($0 ~ "len=" len) print $1}' | sed 's/>//')
+awk -v id="$ID_MAIOR" '/^>/ {flag=0} $0 ~ id {flag=1} flag' proteins.faa > maior_proteina.faa
+```
+
+--- -->
+
+
+<!-- ## Parte 4 – Análise Comparativa e Visualização
+
+
+### 4.1 Estatísticas Resumidas
+
+```bash
+
+# Número total de proteínas
+TOTAL=$(grep -c "^>" proteins.faa)
+
+
+# Média de tamanho
+MEDIA=$(awk '/^>/ {if (seqlen) print seqlen; seqlen=0;next} {seqlen += length($0)}END{print seqlen}' proteins.faa | awk '{sum+=$1; count++} END {print sum/count}')
+
+
+# Mediana
+MEDIANA=$(grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | awk 'NR<mark>FNR{count++;next} {if (NR</mark>int((count+1)/2) || NR==int((count+2)/2)) sum+=$1} END {print sum/2}' - <(echo))
+
+
+# Gerar relatório
+echo "<mark>= RELATÓRIO DE ANOTAÇÃO ESTRUTURAL </mark>="
+echo "Total de proteínas preditas: $TOTAL"
+echo "Comprimento médio: $MEDIA aa"
+echo "Mediana: $MEDIANA aa"
+echo "Menor proteína: $MENOR aa"
+echo "Maior proteína: $MAIOR aa"
+echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>="
+```
+
+
+### 4.2 Visualização da Distribuição
+
+```bash
+
+# Criar histograma de tamanhos
+grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | \
+awk '{count[int($1/100)]++} END {for (i in count) print i*100 "-" (i+1)*100, count[i]}' | \
+sort -n > distribuicao.txt
+
+
+# Plotar com gnuplot ou Python para visualização
+``` -->
+
+---
+
+
+# Parte 4 – Validação e Documentação
+
+
+## Verificação de ORFs Completa
+
+```bash
+
+# Verificar presença de códon de início e parada
+grep -c "start_codon" genes.gff
+grep -c "stop_codon" genes.gff
+```
+
+
+<!-- ### 5.2 Documentação dos Resultados
+
+Criar arquivo `resultados_analise.md` com:
+
+```markdown
+
+# Análise de ORFs e Anotação Estrutural
+
+
+## Resumo
+- **Data da análise:** $(date)
+- **Arquivo analisado:** contigs.fasta
+- **Ferramentas utilizadas:** BUSCO, Prodigal/Augustus
+
+
+## Resultados Principais
+1. **Total de genes preditos:** [valor]
+2. **Total de proteínas preditas:** [valor]
+3. **Maior proteína:** [ID] - [comprimento] aa
+4. **Menor proteína:** [ID] - [comprimento] aa
+
+
+## Análise Estatística
+- **Média de tamanho:** [valor] aa
+- **Mediana:** [valor] aa
+- **Desvio padrão:** [valor]
+
+
+## Distribuição de Tamanhos
+[Incluir gráfico ou tabela]
+
+
+## Conclusões
+[Interpretação dos resultados]
+``` -->
+
+
+## Considerações Finais
+
+1. Sempre verificar a qualidade do genoma antes da predição
+2. Ajustar parâmetros específicos para cada organismo
+3. Validar resultados com dados experimentais quando disponíveis
+4. Documentar todas as etapas e parâmetros utilizados
+
+## Passos seguintes
+
+- Anotação funcional das proteínas preditas (BLAST, InterProScan)
+- Análise de vias metabólicas
+- Genômica comparativa com organismos relacionados
+- Validação experimental (RT-PCR, sequenciamento)

@@ -1,0 +1,614 @@
+---
+title: "Teste de funcionalidades - Quarto MD"
+format: live-html
+jupyter: python3
+theme: minty
+echo: true
+---
+
+<!--
+Um site para fazer fluxogramas **Mermaid**, inclusive com a possibilidade de fazer com GUI em vez de código.
+
+https://mermaid.live/
+
+Um site para fazer fluxogramas **GrapViz**, inclusive com a possibilidade de fazer com GUI em vez de código.
+
+https://dreampuf.github.io/GraphvizOnline/
+--->
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+from pyvis.network import Network
+import pandas as pd
+
+# Criar rede
+net = Network(notebook=True, height="600px", width="100%", cdn_resources="remote")
+
+# Adicionar nós com cores diferentes para tipos de personagens
+net.add_node(1, label="Frodo", color="#ff9999", title="Portador do Anel", size=30)
+net.add_node(2, label="Sam", color="#ff9999", title="Jardineiro e companheiro", size=25)
+net.add_node(3, label="Gandalf", color="#9999ff", title="Mago", size=35)
+net.add_node(4, label="Aragorn", color="#99ff99", title="Capitão dos Dúnedain", size=30)
+net.add_node(5, label="Legolas", color="#99ff99", title="Elfo de Valinor", size=25)
+net.add_node(6, label="Gimli", color="#99ff99", title="Anão de Erebor", size=25)
+net.add_node(7, label="Boromir", color="#ffcc99", title="Guerreiro de Gondor", size=25)
+net.add_node(8, label="Merry", color="#ff9999", title="Hobbit", size=20)
+net.add_node(9, label="Pippin", color="#ff9999", title="Hobbit", size=20)
+net.add_node(10, label="Galadriel", color="#cc99ff", title="Senhora de Lórien", size=30)
+net.add_node(11, label="Elrond", color="#cc99ff", title="Senhor de Rivendell", size=30)
+net.add_node(12, label="Sauron", color="#ff6666", title="Senhor do Escuro", size=35)
+net.add_node(13, label="Gollum", color="#666666", title="Criatura do Anel", size=20)
+net.add_node(14, label="Saruman", color="#ff6666", title="Mago Traidor", size=30)
+net.add_node(15, label="Théoden", color="#ffcc99", title="Rei de Rohan", size=25)
+net.add_node(16, label="Éowyn", color="#ffcc99", title="Princesa de Rohan", size=20)
+net.add_node(17, label="Faramir", color="#ffcc99", title="Capitão de Gondor", size=20)
+net.add_node(18, label="Arwen", color="#cc99ff", title="Filha de Elrond", size=20)
+
+# Adicionar arestas (relacionamentos)
+net.add_edge(1, 2, value=5, title="Melhores amigos", color="#ff9900")
+net.add_edge(1, 3, value=3, title="Mentor", color="#3366ff")
+net.add_edge(1, 4, value=2, title="Líder", color="#339966")
+net.add_edge(1, 10, value=2, title="Encontro em Lórien", color="#9966cc")
+net.add_edge(1, 13, value=4, title="Guia e traidor", color="#666666")
+net.add_edge(2, 3, value=2, title="Respeito mútuo", color="#3366ff")
+net.add_edge(3, 4, value=4, title="Estratégia e liderança", color="#339966")
+net.add_edge(3, 5, value=3, title="Aliados", color="#339966")
+net.add_edge(3, 6, value=3, title="Aliados", color="#339966")
+net.add_edge(3, 10, value=3, title="Conselheiros", color="#9966cc")
+net.add_edge(3, 11, value=4, title="Conselho", color="#9966cc")
+net.add_edge(3, 14, value=3, title="Confronto", color="#ff6666")
+net.add_edge(4, 5, value=4, title="Companheiros", color="#339966")
+net.add_edge(4, 6, value=4, title="Companheiros", color="#339966")
+net.add_edge(4, 7, value=2, title="Conflito e respeito", color="#ffcc66")
+net.add_edge(4, 11, value=3, title="Conselho", color="#9966cc")
+net.add_edge(4, 15, value=3, title="Aliança", color="#ffcc66")
+net.add_edge(4, 16, value=2, title="Respeito", color="#ffcc66")
+net.add_edge(4, 17, value=3, title="Estratégia", color="#ffcc66")
+net.add_edge(4, 18, value=4, title="Amor", color="#cc66ff")
+net.add_edge(5, 6, value=5, title="Amizade próxima", color="#339966")
+net.add_edge(7, 17, value=4, title="Irmãos", color="#ffcc66")
+net.add_edge(8, 9, value=5, title="Primos e amigos", color="#ff6666")
+net.add_edge(10, 11, value=4, title="Aliados élficos", color="#cc66ff")
+net.add_edge(12, 13, value=4, title="Influência do Anel", color="#ff3333")
+net.add_edge(12, 14, value=3, title="Aliança das trevas", color="#ff3333")
+net.add_edge(14, 15, value=2, title="Influência corruptora", color="#ff6666")
+net.add_edge(15, 16, value=4, title="Tio e sobrinha", color="#ffcc66")
+
+# Configurar opções para uma visualização mais atraente
+net.set_options("""
+var options = {
+  "nodes": {
+    "font": {
+      "size": 16,
+      "face": "Tahoma"
+    }
+  },
+  "edges": {
+    "color": {
+      "inherit": true
+    },
+    "smooth": {
+      "enabled": true,
+      "type": "continuous"
+    }
+  },
+  "physics": {
+    "enabled": true,
+    "stabilization": {
+      "iterations": 100
+    },
+    "repulsion": {
+      "nodeDistance": 200
+    }
+  },
+  "interaction": {
+    "hover": true,
+    "tooltipDelay": 200
+  }
+}
+""")
+
+# Mostrar a rede
+net.show("lotr_network.html")
+```
+
+<script>
+// Script para redimensionar a rede ao tamanho da janela
+window.addEventListener('load', function() {
+  const iframe = document.querySelector('iframe');
+  iframe.style.width = '100%';
+  iframe.style.height = '600px';
+  iframe.style.border = 'none';
+});
+</script>
+<iframe src="lotr_network.html" width="100%" height="600px" frameBorder="0"></iframe>
+
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Criar um grafo
+G = nx.Graph()
+
+# Adicionar nós e arestas (usando personagens de O Senhor dos Anéis)
+characters = ['Frodo', 'Sam', 'Gandalf', 'Aragorn', 'Legolas', 'Gimli', 'Boromir', 'Merry', 'Pippin']
+G.add_nodes_from(characters)
+
+# Adicionar relacionamentos
+edges = [
+    ('Frodo', 'Sam'), ('Frodo', 'Gandalf'), ('Frodo', 'Aragorn'),
+    ('Sam', 'Frodo'), ('Sam', 'Gandalf'),
+    ('Gandalf', 'Aragorn'), ('Gandalf', 'Legolas'), ('Gandalf', 'Gimli'),
+    ('Aragorn', 'Legolas'), ('Aragorn', 'Gimli'), ('Aragorn', 'Boromir'),
+    ('Legolas', 'Gimli'), ('Merry', 'Pippin')
+]
+G.add_edges_from(edges)
+
+# Visualizar o grafo
+plt.figure(figsize=(10, 8))
+pos = nx.spring_layout(G, seed=42)
+nx.draw(G, pos, with_labels=True, node_color='lightblue', 
+        node_size=2000, font_size=10, font_weight='bold')
+plt.title("Rede de Personagens de O Senhor dos Anéis")
+plt.show()
+
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+from pyvis.network import Network
+import pandas as pd
+
+# Criar rede
+net = Network(notebook=True, height="600px", width="100%")
+
+# Adicionar nós
+net.add_node(1, label="Frodo", color="#ff9999")
+net.add_node(2, label="Sam", color="#ff9999")
+net.add_node(3, label="Gandalf", color="#9999ff")
+net.add_node(4, label="Aragorn", color="#99ff99")
+net.add_node(5, label="Legolas", color="#99ff99")
+net.add_node(6, label="Gimli", color="#99ff99")
+net.add_node(7, label="Boromir", color="#ffcc99")
+net.add_node(8, label="Merry", color="#ff9999")
+net.add_node(9, label="Pippin", color="#ff9999")
+
+# Adicionar arestas
+net.add_edge(1, 2, value=5, title="Melhores amigos")
+net.add_edge(1, 3, value=3, title="Mentor")
+net.add_edge(1, 4, value=2, title="Líder")
+net.add_edge(2, 3, value=2)
+net.add_edge(3, 4, value=4)
+net.add_edge(3, 5, value=3)
+net.add_edge(3, 6, value=3)
+net.add_edge(4, 5, value=4, title="Companheiros")
+net.add_edge(4, 6, value=4, title="Companheiros")
+net.add_edge(4, 7, value=2)
+net.add_edge(5, 6, value=5, title="Amizade próxima")
+net.add_edge(8, 9, value=5, title="Primos e amigos")
+
+# Configurar opções
+net.set_options("""
+var options = {
+  "nodes": {
+    "font": {
+      "size": 20
+    }
+  },
+  "edges": {
+    "color": {
+      "inherit": true
+    },
+    "smooth": false
+  },
+  "physics": {
+    "enabled": true,
+    "stabilization": {
+      "iterations": 100
+    }
+  }
+}
+""")
+
+# Mostrar a rede
+net.show("lotr_network.html")
+```
+
+```{dot}
+//| echo: true
+graph G {
+  layout=neato
+  overlap=false
+  run -- intr;
+  intr -- runbl;
+  runbl -- run;
+  run -- kernel;
+  kernel -- zombie;
+  kernel -- sleep;
+  kernel -- runmem;
+  sleep -- swap;
+  swap -- runswap;
+  runswap -- new;
+  runswap -- runmem;
+  new -- runmem;
+  sleep -- runmem;
+}
+```
+
+::: {#fig-simple}
+
+```{dot}
+graph {
+  Frodo -- Gandalf
+  Frodo -- Aragorn
+  Frodo -- Boromir
+  Frodo -- Merry
+  Frodo -- Pippin
+  Frodo -- Elrond
+  Frodo -- Galadriel
+  Frodo -- Gollum
+  Sam -- Gandalf
+  Sam -- Aragorn
+  Sam -- Boromir
+  Sam -- Merry
+  Sam -- Pippin
+  Sam -- Faramir
+  Sam -- Galadriel
+  Sam -- Gollum
+  Gandalf -- Aragorn
+  Gandalf -- Boromir
+  Gandalf -- Legolas
+  Gandalf -- Gimli
+  Gandalf -- Merry
+  Gandalf -- Pippin
+  Gandalf -- Elrond
+  Gandalf -- Théoden
+  Gandalf -- Saruman
+  Gandalf -- Denethor
+  Aragorn -- Boromir
+  Aragorn -- Legolas
+  Aragorn -- Gimli
+  Aragorn -- Merry
+  Aragorn -- Pippin
+  Aragorn -- Elrond
+  Aragorn -- Arwen
+  Aragorn -- Théoden
+  Aragorn -- Éowyn
+  Aragorn -- Éomer
+  Aragorn -- Faramir
+  Aragorn -- Denethor
+  Legolas -- Gimli
+  Legolas -- Aragorn
+  Legolas -- Gandalf
+  Legolas -- Boromir
+  Legolas -- Théoden
+  Legolas -- Éomer
+  Gimli -- Aragorn
+  Gimli -- Gandalf
+  Gimli -- Boromir
+  Gimli -- Legolas
+  Gimli -- Théoden
+  Gimli -- Éomer
+  Gimli -- Galadriel
+  Boromir -- Aragorn
+  Boromir -- Gandalf
+  Boromir -- Frodo
+  Boromir -- Merry
+  Boromir -- Pippin
+  Merry -- Pippin
+  Merry -- Aragorn
+  Merry -- Gandalf
+  Merry -- Boromir
+  Merry -- Théoden
+  Merry -- Éowyn
+  Merry -- Treebeard
+  Pippin -- Aragorn
+  Pippin -- Gandalf
+  Pippin -- Boromir
+  Pippin -- Merry
+  Pippin -- Denethor
+  Pippin -- Treebeard
+  Gandalf -- Bilbo
+  Gandalf -- Balrog
+  Saruman -- Gandalf
+  Saruman -- Gríma
+  Théoden -- Gandalf
+  Théoden -- Éowyn
+  Théoden -- Éomer
+  Théoden -- Aragorn
+  Théoden -- Legolas
+  Théoden -- Gimli
+  Éowyn -- Aragorn
+  Éowyn -- Merry
+  Éowyn -- Théoden
+  Faramir -- Boromir
+  Faramir -- Denethor
+  Faramir -- Frodo
+  Faramir -- Sam
+  Denethor -- Gandalf
+  Denethor -- Pippin
+  Denethor -- Faramir
+  Elrond -- Gandalf
+  Elrond -- Aragorn
+  Elrond -- Arwen
+  Arwen -- Aragorn
+  Arwen -- Elrond
+  Galadriel -- Gandalf
+  Galadriel -- Frodo
+  Treebeard -- Merry
+  Treebeard -- Pippin
+}
+```
+
+Interações com fala entre personagens na Trilogia dos Anéis.
+:::
+
+```{mermaid}
+%%| echo: true
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+```{mermaid}
+flowchart TD
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+```{mermaid}
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+    John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts <br/>prevail!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+
+```{python}
+print("Oi!")
+```
+
+```{webr}
+
+
+```
+
+```{pyodide}
+for x in range(5):
+  print(x ** 2)
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+import networkx as nx
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Criar grafo
+G = nx.Graph()
+
+# Adicionar nós com propriedades
+characters = [
+    ("Frodo", {"group": "hobbit", "size": 25}),
+    ("Sam", {"group": "hobbit", "size": 22}),
+    ("Gandalf", {"group": "mago", "size": 30}),
+    ("Aragorn", {"group": "humano", "size": 28}),
+    ("Legolas", {"group": "elfo", "size": 26}),
+    ("Gimli", {"group": "anao", "size": 24}),
+    ("Boromir", {"group": "humano", "size": 24}),
+    ("Merry", {"group": "hobbit", "size": 20}),
+    ("Pippin", {"group": "hobbit", "size": 20}),
+    ("Gollum", {"group": "criatura", "size": 18}),
+    ("Galadriel", {"group": "elfo", "size": 26}),
+    ("Elrond", {"group": "elfo", "size": 26})
+]
+
+for char, attrs in characters:
+    G.add_node(char, **attrs)
+
+# Adicionar arestas com pesos
+edges = [
+    ("Frodo", "Sam", 5),
+    ("Frodo", "Gandalf", 4),
+    ("Frodo", "Aragorn", 3),
+    ("Frodo", "Gollum", 2),
+    ("Sam", "Gandalf", 3),
+    ("Gandalf", "Aragorn", 4),
+    ("Gandalf", "Legolas", 3),
+    ("Gandalf", "Gimli", 3),
+    ("Gandalf", "Galadriel", 3),
+    ("Gandalf", "Elrond", 3),
+    ("Aragorn", "Legolas", 4),
+    ("Aragorn", "Gimli", 4),
+    ("Aragorn", "Boromir", 3),
+    ("Legolas", "Gimli", 5),
+    ("Merry", "Pippin", 5),
+    ("Galadriel", "Elrond", 4)
+]
+
+for src, dst, weight in edges:
+    G.add_edge(src, dst, weight=weight)
+
+# Calcular layout
+pos = nx.spring_layout(G, k=1, iterations=50, seed=42)
+
+# Mapear grupos para cores
+group_colors = {
+    "hobbit": "#ff9999",
+    "mago": "#9999ff", 
+    "humano": "#99ff99",
+    "elfo": "#ff99ff",
+    "anao": "#ffcc99",
+    "criatura": "#cccccc"
+}
+
+# Criar traços para visualização
+edge_x = []
+edge_y = []
+for edge in G.edges():
+    x0, y0 = pos[edge[0]]
+    x1, y1 = pos[edge[1]]
+    edge_x.extend([x0, x1, None])
+    edge_y.extend([y0, y1, None])
+
+edge_trace = go.Scatter(
+    x=edge_x, y=edge_y,
+    line=dict(width=1, color='#888'),
+    hoverinfo='none',
+    mode='lines')
+
+node_x = []
+node_y = []
+node_text = []
+node_color = []
+node_size = []
+
+for node in G.nodes():
+    x, y = pos[node]
+    node_x.append(x)
+    node_y.append(y)
+    node_text.append(node)
+    node_color.append(group_colors[G.nodes[node]['group']])
+    node_size.append(G.nodes[node]['size'])
+
+node_trace = go.Scatter(
+    x=node_x, y=node_y,
+    mode='markers+text',
+    text=node_text,
+    textposition="middle center",
+    hoverinfo='text',
+    marker=dict(
+        color=node_color,
+        size=node_size,
+        line=dict(width=2, color='darkblue'))
+)
+
+# Criar figura
+fig = go.Figure(data=[edge_trace, node_trace],
+             layout=go.Layout(
+                title=dict(text='Rede de Personagens de O Senhor dos Anéis', font=dict(size=20)),
+                showlegend=False,
+                hovermode='closest',
+                margin=dict(b=20, l=5, r=5, t=40),
+                xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                height=600
+             ))
+
+fig.show()
+```
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+from pyvis.network import Network
+import base64
+
+# Criar rede PyVis
+net = Network(height="500px", width="100%", bgcolor="#222222", font_color="white")
+
+# Adicionar nós
+nodes = [
+    (1, "Frodo", "hobbit"),
+    (2, "Sam", "hobbit"),
+    (3, "Gandalf", "mago"),
+    (4, "Aragorn", "humano"),
+    (5, "Legolas", "elfo"),
+    (6, "Gimli", "anao"),
+    (7, "Boromir", "humano"),
+    (8, "Merry", "hobbit"),
+    (9, "Pippin", "hobbit"),
+    (10, "Gollum", "criatura"),
+    (11, "Galadriel", "elfo"),
+    (12, "Elrond", "elfo")
+]
+
+group_colors = {
+    "hobbit": "#ff9999",
+    "mago": "#9999ff", 
+    "humano": "#99ff99",
+    "elfo": "#ff99ff",
+    "anao": "#ffcc99",
+    "criatura": "#cccccc"
+}
+
+for id, label, group in nodes:
+    net.add_node(id, label=label, color=group_colors[group], size=25)
+
+# Adicionar arestas
+edges = [
+    (1, 2, 5, "Melhores amigos"),
+    (1, 3, 4, "Mentor"),
+    (1, 4, 3, "Líder"),
+    (1, 10, 2, "Guia/Inimigo"),
+    (2, 3, 3, "Respeito"),
+    (3, 4, 4, "Aliados"),
+    (3, 5, 3, "Respeito"),
+    (3, 6, 3, "Respeito"),
+    (3, 11, 3, "Conselheiros"),
+    (3, 12, 3, "Conselheiros"),
+    (4, 5, 4, "Companheiros"),
+    (4, 6, 4, "Companheiros"),
+    (4, 7, 3, "Conflito"),
+    (5, 6, 5, "Amizade próxima"),
+    (8, 9, 5, "Primos e amigos"),
+    (11, 12, 4, "Aliados élficos")
+]
+
+for source, target, value, title in edges:
+    net.add_edge(source, target, value=value, title=title)
+
+# Gerar HTML inline (evita problemas de caminho)
+net.set_options("""
+const options = {
+  "nodes": {
+    "font": {
+      "size": 16,
+      "face": "Tahoma"
+    }
+  },
+  "edges": {
+    "color": {
+      "inherit": true
+    },
+    "smooth": false
+  },
+  "physics": {
+    "enabled": true,
+    "stabilization": {
+      "iterations": 100
+    }
+  }
+}
+""")
+
+# Gerar e exibir a rede
+html_content = net.generate_html()
+print("Rede 2.")
+```

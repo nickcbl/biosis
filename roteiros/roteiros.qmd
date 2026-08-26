@@ -1,0 +1,81 @@
+---
+title: ""
+page-layout: full
+---
+
+# Roteiros
+
+::: {.modules-grid}
+
+<div class="mod-card">
+<div class="mod-node n-teal">01</div>
+<a class="stretched-link" href="pratica1.qmd"><strong>Aula Prática 1</strong></a>
+<p>Unix básico.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-teal">02</div>
+<a class="stretched-link" href="pratica2.qmd"><strong>Aula Prática 2</strong></a>
+<p>Fundamentos de Lógica de Programação.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-green">03</div>
+<a class="stretched-link" href="pratica3.qmd"><strong>Aula Prática 3</strong></a>
+<p>Contagem Genômica e Avaliação de Qualidade.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-green">04</div>
+<a class="stretched-link" href="pratica4.qmd"><strong>Aula Prática 4</strong></a>
+<p>Predição de genes.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-blue">05</div>
+<a class="stretched-link" href="pratica5.qmd"><strong>Aula Prática 5</strong></a>
+<p>Anotação Funcional.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-blue">06</div>
+<a class="stretched-link" href="pratica6.qmd"><strong>Aula Prática 6</strong></a>
+<p>RNA-seq, Controle de Qualidade e Mapeamento.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">07</div>
+<a class="stretched-link" href="pratica7.qmd"><strong>Aula Prática 7</strong></a>
+<p>Quantificação e Normalização de RNA-seq.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">08</div>
+<a class="stretched-link" href="pratica8.qmd"><strong>Aula Prática 8</strong></a>
+<p>Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">09</div>
+<a class="stretched-link" href="pratica9.qmd"><strong>Aula Prática 9</strong></a>
+<p>Redes de Coexpressão.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-red">10</div>
+<a class="stretched-link" href="pratica10.qmd"><strong>Aula Prática 10</strong></a>
+<p>Identificação de Genes de Virulência em Bactérias.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-red">11</div>
+<a class="stretched-link" href="pratica11.qmd"><strong>Aula Prática 11</strong></a>
+<p>Redes PPI com STRING e Cytoscape.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-red">12</div>
+<a class="stretched-link" href="pratica12.qmd"><strong>Aula Prática 12</strong></a>
+<p>CellDesigner e COPASI.</p>
+</div>
+:::

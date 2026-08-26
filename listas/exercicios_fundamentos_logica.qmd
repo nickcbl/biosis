@@ -1,0 +1,900 @@
+---
+title: "Exercícios Clássicos de Lógica de Programação"
+subtitle: "Fundamentos: resolução somente com if/else, for e while"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: false
+jupyter: python3
+---
+
+## Regras destes exercícios
+
+- **Permitido**: variáveis, `input()`/`print()`, operadores aritméticos e relacionais, `if`/`elif`/`else`, `for`, `while`.
+- **Não permitido**: funções prontas que resolvem o problema (`sum()`, `max()`, `min()`, `sorted()`, listas com métodos como `.append()`/`.count()`, dicionários, funções definidas pelo aluno, módulos externos).
+- **Sobre "leia N números"**: como este documento não usa `input()` interativo (para rodar sozinho), os valores de exemplo estão numa variável de apoio (ex.: `entradas = [7, -2, 15, ...]`) apenas para simular chamadas repetidas de `input()`. O algoritmo em si **não pode usar métodos de lista para resolver o problema** — cada valor deve ser processado um a um, dentro do laço, comparando com variáveis acumuladoras (`maior`, `soma`, `contador` etc.), exatamente como aconteceria lendo do teclado um valor por vez. Em aula, basta trocar `for valor in entradas:` por `for _ in range(10): valor = float(input())`.
+
+---
+
+# Exercícios 1–10: Sequência, entrada e saída
+
+### 1. Antecessor e sucessor
+
+Leia um número inteiro e mostre na tela o seu antecessor (o número imediatamente anterior) e o seu sucessor (o número imediatamente seguinte).
+
+<!-- ```{python}
+numero = 7
+antecessor = numero - 1
+sucessor = numero + 1
+print("Antecessor:", antecessor)
+print("Sucessor:", sucessor)
+``` -->
+
+### 2. Área do retângulo
+
+Leia a base e a altura de um retângulo e calcule a sua área (base × altura).
+
+<!-- ```{python}
+base = 5
+altura = 3.2
+area = base * altura
+print("Área:", area)
+``` -->
+
+### 3. Conversão de temperatura (Celsius → Fahrenheit)
+
+Leia uma temperatura em graus Celsius e converta-a para graus Fahrenheit, usando a fórmula F = C × 9/5 + 32.
+
+<!-- ```{python}
+celsius = 28
+fahrenheit = celsius * 9 / 5 + 32
+print("Fahrenheit:", fahrenheit)
+``` -->
+
+### 4. Média de quatro notas
+
+Leia quatro notas de um aluno, calcule a média aritmética entre elas e informe se o aluno foi aprovado (média maior ou igual a 7) ou reprovado.
+
+<!-- ```{python}
+n1, n2, n3, n4 = 7.5, 6.0, 8.5, 5.0
+media = (n1 + n2 + n3 + n4) / 4
+
+if media >= 7:
+    print("Média:", media, "- Aprovado")
+else:
+    print("Média:", media, "- Reprovado")
+``` -->
+
+### 5. Maior número (entre dois)
+
+Leia dois números inteiros e mostre qual dos dois é o maior.
+
+<!-- ```{python}
+a, b = 12, 9
+
+if a > b:
+    print("Maior:", a)
+else:
+    print("Maior:", b)
+``` -->
+
+### 6. Maior entre três
+
+Leia três números inteiros e mostre qual deles é o maior, usando apenas comparações (sem usar `max()`).
+
+<!-- ```{python}
+a, b, c = 4, 19, 11
+
+if a >= b and a >= c:
+    maior = a
+elif b >= a and b >= c:
+    maior = b
+else:
+    maior = c
+
+print("Maior:", maior)
+``` -->
+
+### 7. Par ou ímpar
+
+Leia um número inteiro e informe se ele é par ou ímpar.
+
+<!-- ```{python}
+numero = 17
+
+if numero % 2 == 0:
+    print("Par")
+else:
+    print("Ímpar")
+``` -->
+
+### 8. Ano bissexto
+
+Leia um ano e determine se ele é bissexto. Um ano é bissexto se for divisível por 4 e (não divisível por 100 ou divisível por 400).
+
+<!-- ```{python}
+ano = 2024
+
+if ano % 4 == 0 and (ano % 100 != 0 or ano % 400 == 0):
+    print("Bissexto")
+else:
+    print("Não bissexto")
+``` -->
+
+### 9. IMC
+
+Leia o peso (em kg) e a altura (em metros) de uma pessoa, calcule o seu Índice de Massa Corporal (IMC = peso / altura²) e classifique o resultado em: abaixo do peso (IMC < 18,5), normal (18,5 ≤ IMC < 25), sobrepeso (25 ≤ IMC < 30) ou obesidade (IMC ≥ 30).
+
+<!-- ```{python}
+peso = 68.0
+altura = 1.70
+
+imc = peso / (altura ** 2)
+
+if imc < 18.5:
+    categoria = "abaixo do peso"
+elif imc < 25:
+    categoria = "normal"
+elif imc < 30:
+    categoria = "sobrepeso"
+else:
+    categoria = "obesidade"
+
+print("IMC: %.2f -> %s" % (imc, categoria))
+``` -->
+
+### 10. Calculadora simples
+
+Leia dois números e um operador (`+`, `-`, `*` ou `/`) e calcule o resultado da operação correspondente entre os dois números.
+
+<!-- ```{python}
+num1 = 10
+operador = "*"
+num2 = 4
+
+if operador == "+":
+    resultado = num1 + num2
+elif operador == "-":
+    resultado = num1 - num2
+elif operador == "*":
+    resultado = num1 * num2
+elif operador == "/":
+    resultado = num1 / num2
+else:
+    resultado = None
+
+print("Resultado:", resultado)
+``` -->
+
+---
+
+# Exercícios 11–20: Repetição com `for`
+
+### 11. Contagem de 1 até 100
+
+Mostre na tela todos os números inteiros de 1 até 100, um por linha.
+
+<!-- ```{python}
+for i in range(1, 101):
+    print(i)
+``` -->
+
+### 12. Contagem regressiva de 100 até 0
+
+Mostre na tela todos os números inteiros de 100 até 0, em ordem decrescente.
+
+<!-- ```{python}
+for i in range(100, -1, -1):
+    print(i)
+``` -->
+
+### 13. Tabuada
+
+Leia um número e mostre a sua tabuada de multiplicação, de 1 até 10 (número × 1, número × 2, ..., número × 10).
+
+<!-- ```{python}
+numero = 7
+
+for i in range(1, 11):
+    print(numero, "x", i, "=", numero * i)
+``` -->
+
+### 14. Soma de 10 números
+
+Leia 10 números e calcule a soma de todos eles.
+
+<!-- ```{python}
+entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]   # simula 10 leituras via input()
+
+soma = 0
+for valor in entradas:
+    soma = soma + valor
+
+print("Soma:", soma)
+``` -->
+
+### 15. Média de 10 números
+
+Leia 10 números e calcule a média aritmética entre eles.
+
+<!-- ```{python}
+entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]
+
+soma = 0
+quantidade = 0
+for valor in entradas:
+    soma = soma + valor
+    quantidade = quantidade + 1
+
+media = soma / quantidade
+print("Média:", media)
+``` -->
+
+### 16. Contagem de positivos (entre 20 números)
+
+Leia 20 números e conte quantos deles são positivos.
+
+<!-- ```{python}
+entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,
+            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]
+
+positivos = 0
+for valor in entradas:
+    if valor > 0:
+        positivos = positivos + 1
+
+print("Quantidade de positivos:", positivos)
+``` -->
+
+### 17. Maior valor (entre 10 números, sem `max()`)
+
+Leia 10 números e determine qual é o maior deles, sem usar a função `max()`.
+
+<!-- ```{python}
+entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]
+
+maior = entradas[0]
+for valor in entradas:
+    if valor > maior:
+        maior = valor
+
+print("Maior valor:", maior)
+``` -->
+
+### 18. Menor valor (entre 10 números, sem `min()`)
+
+Leia 10 números e determine qual é o menor deles, sem usar a função `min()`.
+
+<!-- ```{python}
+entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]
+
+menor = entradas[0]
+for valor in entradas:
+    if valor < menor:
+        menor = valor
+
+print("Menor valor:", menor)
+``` -->
+
+### 19. Maior e menor juntos
+
+Leia 10 números e determine, em um único laço, tanto o maior quanto o menor valor entre eles.
+
+<!-- ```{python}
+entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]
+
+maior = entradas[0]
+menor = entradas[0]
+for valor in entradas:
+    if valor > maior:
+        maior = valor
+    if valor < menor:
+        menor = valor
+
+print("Maior:", maior, "| Menor:", menor)
+``` -->
+
+### 20. Soma dos pares de 1 até 100
+
+Calcule a soma de todos os números pares entre 1 e 100.
+
+<!-- ```{python}
+soma_pares = 0
+for i in range(1, 101):
+    if i % 2 == 0:
+        soma_pares = soma_pares + i
+
+print("Soma dos pares:", soma_pares)
+``` -->
+
+---
+
+# Exercícios 21–30: Repetição com decisão
+
+### 21. Contagem de pares (entre 20 números)
+
+Leia 20 números e conte quantos deles são pares.
+
+<!-- ```{python}
+entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,
+            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]
+
+pares = 0
+for valor in entradas:
+    if valor % 2 == 0:
+        pares = pares + 1
+
+print("Quantidade de pares:", pares)
+``` -->
+
+### 22. Contagem de ímpares (entre 20 números)
+
+Leia 20 números e conte quantos deles são ímpares.
+
+<!-- ```{python}
+entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,
+            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]
+
+impares = 0
+for valor in entradas:
+    if valor % 2 != 0:
+        impares = impares + 1
+
+print("Quantidade de ímpares:", impares)
+``` -->
+
+### 23. Soma dos positivos
+
+Leia uma sequência de números e calcule a soma apenas dos valores positivos.
+
+<!-- ```{python}
+entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6]
+
+soma_positivos = 0
+for valor in entradas:
+    if valor > 0:
+        soma_positivos = soma_positivos + valor
+
+print("Soma dos positivos:", soma_positivos)
+``` -->
+
+### 24. Quantos múltiplos de 3 (entre 20 números)
+
+Leia 20 números e conte quantos deles são múltiplos de 3.
+
+<!-- ```{python}
+entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,
+            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]
+
+multiplos_de_3 = 0
+for valor in entradas:
+    if valor % 3 == 0:
+        multiplos_de_3 = multiplos_de_3 + 1
+
+print("Múltiplos de 3:", multiplos_de_3)
+``` -->
+
+### 25. Fatorial
+
+Leia um número inteiro N e calcule o seu fatorial (N! = N × (N-1) × ... × 1).
+
+<!-- ```{python}
+n = 6
+
+fatorial = 1
+for i in range(1, n + 1):
+    fatorial = fatorial * i
+
+print(n, "! =", fatorial)
+``` -->
+
+### 26. Potência usando apenas repetição
+
+Leia uma base e um expoente inteiro e calcule o valor da potência (base elevado ao expoente), usando apenas um laço de repetição, sem o operador `**`.
+
+<!-- ```{python}
+base = 3
+expoente = 4
+
+resultado = 1
+for _ in range(expoente):
+    resultado = resultado * base
+
+print(base, "^", expoente, "=", resultado)
+``` -->
+
+### 27. Número primo
+
+Leia um número inteiro e determine se ele é primo (divisível apenas por 1 e por ele mesmo).
+
+<!-- ```{python}
+n = 29
+
+primo = True
+if n < 2:
+    primo = False
+else:
+    for i in range(2, n):
+        if n % i == 0:
+            primo = False
+
+if primo:
+    print(n, "é primo")
+else:
+    print(n, "não é primo")
+``` -->
+
+### 28. Quantos divisores
+
+Leia um número inteiro e conte quantos divisores inteiros positivos ele possui.
+
+<!-- ```{python}
+n = 36
+
+quantidade_divisores = 0
+for i in range(1, n + 1):
+    if n % i == 0:
+        quantidade_divisores = quantidade_divisores + 1
+
+print(n, "tem", quantidade_divisores, "divisores")
+``` -->
+
+### 29. Números primos até N
+
+Leia um número N e mostre todos os números primos entre 2 e N.
+
+<!-- ```{python}
+N = 30
+
+for numero in range(2, N + 1):
+    primo = True
+    for i in range(2, numero):
+        if numero % i == 0:
+            primo = False
+    if primo:
+        print(numero)
+``` -->
+
+### 30. Soma dos fatoriais (1! + 2! + ... + N!)
+
+Leia um número N e calcule a soma dos fatoriais de 1 até N (1! + 2! + 3! + ... + N!).
+
+<!-- ```{python}
+N = 5
+
+soma_fatoriais = 0
+for i in range(1, N + 1):
+    fatorial = 1
+    for j in range(1, i + 1):
+        fatorial = fatorial * j
+    soma_fatoriais = soma_fatoriais + fatorial
+
+print("Soma dos fatoriais de 1 a", N, ":", soma_fatoriais)
+``` -->
+
+---
+
+# Exercícios 31–40: `while`
+
+### 31. Senha
+
+Peça ao usuário para digitar uma senha repetidamente até que ele acerte a senha correta, exibindo cada tentativa antes de confirmar o acerto.
+
+<!-- ```{python}
+senha_correta = "1234"
+tentativas = ["1111", "0000", "1234"]   # simula digitações sucessivas
+
+i = 0
+acertou = False
+while acertou == False:
+    tentativa = tentativas[i]
+    print("Tentativa:", tentativa)
+    if tentativa == senha_correta:
+        acertou = True
+    else:
+        i = i + 1
+
+print("Senha correta!")
+``` -->
+
+### 32. Menu
+
+Simule um menu de opções (1 - Soma, 2 - Subtração, 3 - Sair) que continua exibindo as ações escolhidas pelo usuário até que ele selecione a opção de saída.
+
+<!-- ```{python}
+escolhas = [1, 2, 1, 3]   # simula opções escolhidas até sair
+i = 0
+opcao = 0
+
+while opcao != 3:
+    opcao = escolhas[i]
+    if opcao == 1:
+        print("Executando: Soma")
+    elif opcao == 2:
+        print("Executando: Subtração")
+    elif opcao == 3:
+        print("Saindo...")
+    i = i + 1
+``` -->
+
+### 33. Adivinhe o número
+
+O computador escolhe um número secreto. A cada palpite do usuário, informe se o palpite é maior, menor ou igual ao número secreto, repetindo até o usuário acertar.
+
+<!-- ```{python}
+secreto = 42
+tentativas = [10, 60, 42]   # simula os palpites do usuário
+
+i = 0
+acertou = False
+while acertou == False:
+    palpite = tentativas[i]
+    if palpite == secreto:
+        print(palpite, "-> Acertou!")
+        acertou = True
+    elif palpite < secreto:
+        print(palpite, "-> Maior")
+        i = i + 1
+    else:
+        print(palpite, "-> Menor")
+        i = i + 1
+``` -->
+
+### 34. Média indefinida (para com -1)
+
+Leia notas repetidamente e calcule a média entre elas, encerrando a leitura quando o valor digitado for -1.
+
+<!-- ```{python}
+notas = [8, 7, 9, 6, -1]   # -1 encerra a leitura
+
+i = 0
+soma = 0
+quantidade = 0
+nota = notas[i]
+
+while nota != -1:
+    soma = soma + nota
+    quantidade = quantidade + 1
+    i = i + 1
+    nota = notas[i]
+
+media = soma / quantidade
+print("Média:", media)
+``` -->
+
+### 35. Soma até zero
+
+Leia números repetidamente e calcule a soma entre eles, encerrando a leitura quando o valor digitado for 0.
+
+<!-- ```{python}
+numeros = [5, 8, -3, 12, 0]
+
+i = 0
+soma = 0
+valor = numeros[i]
+
+while valor != 0:
+    soma = soma + valor
+    i = i + 1
+    valor = numeros[i]
+
+print("Soma:", soma)
+``` -->
+
+### 36. Contador (quantos números antes do zero)
+
+Leia números repetidamente até que o valor digitado seja 0, e conte quantos números foram digitados antes do zero.
+
+<!-- ```{python}
+numeros = [5, 8, -3, 12, 0]
+
+i = 0
+contador = 0
+valor = numeros[i]
+
+while valor != 0:
+    contador = contador + 1
+    i = i + 1
+    valor = numeros[i]
+
+print("Quantidade digitada antes do zero:", contador)
+``` -->
+
+### 37. Maior número (até zero)
+
+Leia números repetidamente até que o valor digitado seja 0, e determine qual foi o maior número digitado.
+
+<!-- ```{python}
+numeros = [5, 8, -3, 12, 0]
+
+i = 0
+valor = numeros[i]
+maior = valor
+
+while valor != 0:
+    if valor > maior:
+        maior = valor
+    i = i + 1
+    valor = numeros[i]
+
+print("Maior número:", maior)
+``` -->
+
+### 38. Menor número (até zero)
+
+Leia números repetidamente até que o valor digitado seja 0, e determine qual foi o menor número digitado.
+
+<!-- ```{python}
+numeros = [5, 8, -3, 12, 0]
+
+i = 0
+valor = numeros[i]
+menor = valor
+
+while valor != 0:
+    if valor < menor:
+        menor = valor
+    i = i + 1
+    valor = numeros[i]
+
+print("Menor número:", menor)
+``` -->
+
+### 39. Quantos positivos (até zero)
+
+Leia números repetidamente até que o valor digitado seja 0, e conte quantos dos números digitados eram positivos.
+
+<!-- ```{python}
+numeros = [5, -8, -3, 12, 0]
+
+i = 0
+positivos = 0
+valor = numeros[i]
+
+while valor != 0:
+    if valor > 0:
+        positivos = positivos + 1
+    i = i + 1
+    valor = numeros[i]
+
+print("Quantidade de positivos:", positivos)
+``` -->
+
+### 40. Soma dos pares (até zero)
+
+Leia números repetidamente até que o valor digitado seja 0, e calcule a soma apenas dos números pares digitados.
+
+<!-- ```{python}
+numeros = [5, 8, -3, 12, 0]
+
+i = 0
+soma_pares = 0
+valor = numeros[i]
+
+while valor != 0:
+    if valor % 2 == 0:
+        soma_pares = soma_pares + valor
+    i = i + 1
+    valor = numeros[i]
+
+print("Soma dos pares:", soma_pares)
+``` -->
+
+---
+
+# Exercícios 41–50: Clássicos de programação em C
+
+### 41. Sequência de Fibonacci
+
+Leia um número N e mostre os primeiros N termos da sequência de Fibonacci (0, 1, 1, 2, 3, 5, 8, ...), na qual cada termo é a soma dos dois anteriores.
+
+<!-- ```{python}
+N = 10
+
+anterior = 0
+atual = 1
+
+for _ in range(N):
+    print(anterior)
+    proximo = anterior + atual
+    anterior = atual
+    atual = proximo
+``` -->
+
+### 42. MDC (algoritmo de Euclides)
+
+Leia dois números inteiros e calcule o Máximo Divisor Comum (MDC) entre eles, usando o algoritmo de Euclides.
+
+<!-- ```{python}
+a, b = 48, 18
+
+x, y = a, b
+while y != 0:
+    resto = x % y
+    x = y
+    y = resto
+
+print("MDC:", x)
+``` -->
+
+### 43. MMC
+
+Leia dois números inteiros e calcule o Mínimo Múltiplo Comum (MMC) entre eles, a partir do MDC (MMC = (a × b) / MDC).
+
+<!-- ```{python}
+a, b = 12, 18
+
+# calcula o MDC primeiro (Euclides)
+x, y = a, b
+while y != 0:
+    resto = x % y
+    x = y
+    y = resto
+mdc = x
+
+mmc = (a * b) // mdc
+print("MMC:", mmc)
+``` -->
+
+### 44. Número perfeito
+
+Leia um número inteiro e determine se ele é um número perfeito, ou seja, se a soma de seus divisores próprios (excluindo ele mesmo) é igual ao próprio número.
+
+<!-- ```{python}
+n = 28
+
+soma_divisores = 0
+for i in range(1, n):
+    if n % i == 0:
+        soma_divisores = soma_divisores + i
+
+if soma_divisores == n:
+    print(n, "é perfeito")
+else:
+    print(n, "não é perfeito")
+``` -->
+
+### 45. Número de Armstrong
+
+Leia um número inteiro e determine se ele é um número de Armstrong, ou seja, se é igual à soma de seus próprios dígitos, cada um elevado à quantidade total de dígitos do número.
+
+<!-- ```{python}
+n = 153
+
+# conta quantos dígitos o número tem
+copia = n
+n_digitos = 0
+while copia > 0:
+    n_digitos = n_digitos + 1
+    copia = copia // 10
+
+# soma cada dígito elevado à quantidade de dígitos
+copia = n
+soma = 0
+while copia > 0:
+    digito = copia % 10
+    soma = soma + digito ** n_digitos
+    copia = copia // 10
+
+if soma == n:
+    print(n, "é um número de Armstrong")
+else:
+    print(n, "não é um número de Armstrong")
+``` -->
+
+### 46. Conversão decimal → binário (sem funções prontas)
+
+Leia um número inteiro decimal e converta-o para sua representação em binário, sem usar funções prontas de conversão (como `bin()`).
+
+<!-- ```{python}
+n = 26
+
+binario = ""
+copia = n
+
+if copia == 0:
+    binario = "0"
+
+while copia > 0:
+    resto = copia % 2
+    binario = str(resto) + binario
+    copia = copia // 2
+
+print(n, "em binário:", binario)
+``` -->
+
+### 47. Caixa eletrônico
+
+Leia um valor inteiro a ser sacado e calcule a quantidade mínima de notas de cada tipo (100, 50, 20, 10, 5, 2 e 1) necessárias para compor esse valor.
+
+<!-- ```{python}
+valor = 287
+notas_disponiveis = [100, 50, 20, 10, 5, 2, 1]
+
+restante = valor
+for nota in notas_disponiveis:
+    quantidade = restante // nota
+    restante = restante % nota
+    if quantidade > 0:
+        print(quantidade, "nota(s) de", nota)
+``` -->
+
+### 48. Juros compostos usando repetição
+
+Leia um capital inicial, uma taxa de juros por período e um número de períodos, e calcule o montante acumulado ao final de cada período, aplicando os juros compostos período a período (sem usar a fórmula direta com potência).
+
+<!-- ```{python}
+capital = 1000.0
+taxa = 0.02      # 2% ao período
+tempo = 5        # períodos
+
+montante = capital
+for periodo in range(1, tempo + 1):
+    montante = montante * (1 + taxa)
+    print("Período", periodo, "-> montante: %.2f" % montante)
+``` -->
+
+### 49. Crescimento populacional (duas cidades)
+
+Leia a população inicial e a taxa de crescimento anual de duas cidades (A e B), sendo que a cidade A tem população menor, porém taxa de crescimento maior. Calcule em quantos anos a população da cidade A ultrapassará a da cidade B.
+
+<!-- ```{python}
+pop_a = 50000
+pop_b = 80000
+taxa_a = 0.05
+taxa_b = 0.02
+
+anos = 0
+while pop_a <= pop_b:
+    pop_a = pop_a * (1 + taxa_a)
+    pop_b = pop_b * (1 + taxa_b)
+    anos = anos + 1
+
+print("A cidade A ultrapassa a B em", anos, "anos")
+``` -->
+
+### 50. Aprovação de turma (30 alunos)
+
+Leia as notas de 30 alunos de uma turma e calcule: a média da turma, a maior nota, a menor nota, e a quantidade de aprovados (nota ≥ 6) e reprovados.
+
+<!-- ```{python}
+# simula 30 notas (poderia vir de 30 chamadas de input())
+notas = [7.5, 4.0, 8.2, 6.5, 9.0, 3.5, 7.0, 5.5, 6.0, 8.8,
+         2.0, 9.5, 7.2, 6.8, 4.5, 5.0, 8.0, 6.2, 7.8, 3.0,
+         9.2, 6.6, 5.8, 7.4, 8.5, 4.2, 6.9, 7.1, 5.3, 8.9]
+
+soma = 0
+maior = notas[0]
+menor = notas[0]
+aprovados = 0
+reprovados = 0
+
+for nota in notas:
+    soma = soma + nota
+    if nota > maior:
+        maior = nota
+    if nota < menor:
+        menor = nota
+    if nota >= 6:
+        aprovados = aprovados + 1
+    else:
+        reprovados = reprovados + 1
+
+media_turma = soma / len(notas)
+
+print("Média da turma: %.2f" % media_turma)
+print("Maior nota:", maior)
+print("Menor nota:", menor)
+print("Aprovados:", aprovados)
+print("Reprovados:", reprovados)
+``` -->
+
+---
+
+## Observações para a aula
+
+- Esta lista trabalha **apenas lógica pura** (números, contagens, algoritmos clássicos) e é o aquecimento antes de entrar em exercícios de biotecnologia (ver o outro documento, [exercicios_biotecnologia](../listas/exercicios_biotecnologia.qmd)).
+<!-- - Para uma única aula prática, sugiro selecionar um subconjunto: por exemplo, 1, 4, 6, 7, 9 (Nível condicional) + 13, 17, 19, 20 (Nível `for`) + 25, 27 (repetição + decisão) + 34, 37 (Nível `while`) + 41, 42 (clássicos) — cerca de 12 a 15 exercícios já rendem uma aula cheia.
+- Os exercícios 17, 18, 19, 37 e 38 são o momento certo para reforçar: "não usamos `max()`/`min()` porque o objetivo é *construir* a lógica de comparação, não chamar quem já resolve isso pra você".
+- Os exercícios 29 e 30 já são um bom prenúncio do "Nível 3.5" (laço aninhado + acumulador) do documento de biotecnologia — vale conectar os dois explicitamente em aula. -->

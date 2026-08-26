@@ -1,0 +1,170 @@
+---
+title: "03 — Redes Biológicas"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    code-copy: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+editor: source
+---
+# O que são redes?
+
+Redes são estruturas ou entidades que conotam a relação entre:
+
+- Objetos
+- Indivíduos
+- Entidades
+
+Onde:
+
+- **Nós/Vértices**: representam os indivíduos.
+- **Arestas**: representam as relações.
+
+# Alguns tipos de redes:
+- Redes sociais
+- Redes de computadores
+- Redes neurais
+- Redes de telecomunicações
+- **Redes biológicas**
+
+---
+
+# O que são redes biológicas?
+
+São redes em que os elementos são **dados biológicos** (animais, plantas, microorganismos, genes, proteínas, regulações, etc.) que tenham alguma relação entre si. Podemos fazer abstrações computacionais/matemáticas baseadas em dados experimentais.
+
+## Exemplos de redes biológicas:
+
+### Redes Metabólicas
+- **Nós**: substratos e produtos.
+- **Arestas**: reações metabólicas convertendo um composto em outro.
+- **Hiperaresta**: conceito avançado para representar reações com múltiplos substratos/produtos.
+
+### Redes de Co-expressão
+- Relação entre transcritos expressos ou reprimidos concomitantemente.
+- Genes co-expressos podem:
+  - Ser regulados pelo mesmo fator de transcrição;
+  - Estar funcionalmente relacionados;
+  - Ser membros da mesma via;
+  - Codificar proteínas do mesmo complexo proteico.
+
+### Redes de Interação Proteína-Proteína
+- Proteínas interagem para desempenhar funções celulares.
+- Interações podem significar formação de complexos ou participação em vias comuns.
+
+---
+
+## Propriedades Globais de Redes Complexas
+
+### Distância e Caminho Mais Curto (_Shortest Path_)
+- **Distância**: número de arestas no caminho mais curto entre dois vértices.
+- **Diâmetro**: a maior distância entre qualquer par de vértices.
+
+### Peso (_Weight Factor_)
+- Atributos ou valores atribuídos às arestas.
+- Exemplos em redes biológicas: fluxo, massa, probabilidade.
+- Grafos com pesos são chamados de **grafos valorados ou ponderados**.
+
+---
+
+## Centralidades
+
+Indicadores que identificam os vértices mais importantes em um grafo.
+
+### Centralidade de Grau (_Degree Centrality_)
+- Número de arestas adjacentes a um vértice.
+- Em redes direcionadas:
+  - Grau de entrada (in-degree);
+  - Grau de saída (out-degree);
+- **Interpretação**: nós com alta centralidade de grau são *hubs* – funcionalmente cruciais.
+
+### Centralidade de Proximidade (_Closeness Centrality_)
+- Mede quão próximo um nó está de todos os outros.
+- Considera a distância geodésica (caminho mais curto).
+- **Interpretação**: nós centrais para comunicação rápida ou disseminação de informação.
+
+### Centralidade de Intermediação (_Betweenness Centrality_)
+- Quantas vezes um vértice age como ponte no caminho mais curto entre dois outros nós.
+- **Interpretação**: nós com alto betweenness controlam o fluxo de informação; sua remoção pode fragmentar a rede.
+
+### Centralidade de Autovetor (_Eigenvector Centrality_)
+- Mede a influência de um nó considerando a importância dos nós aos quais está conectado.
+- **Aplicação**: identificar genes mestres em redes de regulação.
+
+### Centralidade de Alavancagem (_Leverage Centrality_)
+- Compara o grau de um nó com o grau médio de seus vizinhos.
+- **Aplicação**: identificar conectores periféricos críticos (ex.: proteínas de membrana em patógenos).
+
+### Centralidade de Difusão (_Katz Centrality_)
+- Generalização da centralidade de autovetor; considera todos os caminhos, penalizando os mais longos.
+- **Aplicação**: modelar sinalização ou difusão de metabólitos.
+
+### Centralidade de Intermediação de Fluxo (_Flow Betweenness Centrality_)
+- Considera todos os caminhos possíveis (não apenas os mais curtos).
+- **Aplicação**: analisar redes metabólicas com fluxo distribuído.
+
+### Resumo das Centralidades:
+
+| Centralidade               | Melhor para...                          | Exemplo de Aplicação Biotecnológica               |
+|----------------------------|-----------------------------------------|--------------------------------------------------|
+| Grau                       | Identificar hubs conectados             | Alvo antibiótico                                 |
+| Proximidade                | Identificar nós de comunicação rápida   | Otimização de vias metabólicas sintéticas        |
+| Intermediação              | Identificar gargalos e pontes           | Alvos terapêuticos que desconectam vias de doença|
+| Autovetor                  | Identificar influência hierárquica      | Engenharia de redes de regulação gênica          |
+| Alavancagem                | Identificar especializados críticos     | Desenvolvimento de vacinas                       |
+| Difusão (Katz)             | Modelar sinalização de longo alcance    | Prever resposta a hormônios ou fármacos          |
+| Intermediação de Fluxo     | Analisar redes de fluxo (metabolismo)   | Superar gargalos em produção de bioprodutos      |
+
+---
+
+## Características de Redes Biológicas
+
+### Mundo Pequeno (Small World)
+- A maioria dos vértices não são vizinhos, mas podem ser alcançados por poucos passos.
+- **Implicação**: perturbações ou sinais se espalham rapidamente pela rede.
+
+### Rede Livre de Escala (Scale-Free)
+- Distribuição de grau segue uma lei de potência.
+- Poucos vértices (hubs) têm muitas conexões; a maioria tem poucas.
+- **Implicação**: redes são resistentes a falhas aleatórias, mas vulneráveis a ataques direcionados aos hubs.
+
+### Coeficiente de Agrupamento (Clustering Coefficient)
+- Mede a tendência de formação de grupos coesos (alta densidade de conexões).
+- **Transitividade**: se A se conecta a B e B a C, é provável que A se conecte a C.
+- Em redes biológicas: pode indicar módulos funcionais ou complexos proteicos.
+
+### Robustez e Adaptabilidade
+- **Robustez**: capacidade de manter função apesar de perturbações.
+- **Adaptabilidade**: capacidade de mudar em resposta a perturbações.
+
+---
+
+## Motivos de Redes (Network Motifs)
+
+Padrões ou sub-grafos recorrentes e estatisticamente significativos que refletem funções eficientes.
+
+**Exemplos:**
+
+### _Feedback Loop_ (Laço de Retroalimentação)
+- **Estrutura**: ciclo onde um nó regula outro que eventualmente regula o primeiro.
+- **Tipos**:
+  - Positivo (→): cria estados estáveis irreversíveis (ex.: diferenciação celular).
+  - Negativo (⊣): gera oscilações ou mantém homeostase.
+- **Exemplo**: ciclo de divisão celular controlado por ciclinas e CDKs.
+
+### _Single Input Module_ (SIM - Módulo de Entrada Única)
+- **Estrutura**: um único regulador controla múltiplos alvos sem regulação entre eles.
+- **Função**: coordena expressão sincronizada de genes de uma mesma via.
+- **Exemplo**: operon em bactérias (ex.: operon lac).
+
+---
+
+
+*Baseado em slides de aula de Biologia de Sistemas.*

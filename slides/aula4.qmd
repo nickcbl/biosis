@@ -1,0 +1,258 @@
+---
+title: "Aula 4<br>Modelos"
+format: revealjs
+---
+
+![](04/slide1.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide2.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide3.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide4.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide5.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide6.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide7.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide8.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide9.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide10.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide11.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide12.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide13.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide14.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide15.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide16.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide17.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide18.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide19.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide20.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide21.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide22.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide23.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide24.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide25.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide26.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide27.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide28.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide29.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide30.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide31.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide32.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide33.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide34.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide35.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide36.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide37.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide38.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide39.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide40.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide41.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide42.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide43.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide44.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide45.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide46.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide47.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide48.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide49.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide50.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide51.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide52.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide53.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide54.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide55.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide56.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide57.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide58.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide59.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide60.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide61.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide62.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide63.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](04/slide64.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}

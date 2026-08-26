@@ -1,0 +1,114 @@
+---
+title: "Aula 9<br>Redes de Interação Proteína-Proteína"
+format: revealjs
+---
+
+![](09/slide1.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide2.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide3.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide4.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide5.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide6.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide7.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide8.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide9.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide10.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide11.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide12.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide13.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide14.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide15.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide16.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide17.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide18.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide19.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide20.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide21.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide22.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide23.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide24.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide25.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide26.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide27.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](09/slide28.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}

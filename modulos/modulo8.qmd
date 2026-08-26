@@ -1,0 +1,190 @@
+---
+title: "08 — Redes de Co-Expressão"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    code-copy: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+editor: source
+---
+
+## Rede de Co-expressão
+
+É uma rede de genes que possuem a tendência de serem co-expressos (ativados ou reprimidos) através de um grupo de amostras.
+
+## Características das Redes de Co-expressão
+
+- São grafos não-direcionados
+- **Vértices**: genes
+- **Arestas**: relação de co-expressão
+
+## Construção das Redes
+
+Para construir redes de co-expressão, precisamos de várias amostras.
+
+**Por quê?**
+- Para procurar pares de genes que mostram padrão de expressão similar entre amostras
+- Os níveis de transcrição de dois genes co-expressos podem subir ou descer juntos em amostras
+
+## Aplicações
+
+Podem ser usadas para:
+
+- Priorização de genes associados a doenças
+- Anotação funcional de genes
+- Identificação de correlação
+
+## Limitações
+
+Normalmente não são capazes de:
+
+- Conferir informação sobre causalidade
+- Genes podem estar ativos durante uma resposta biológica mas não necessariamente com efeito causativo
+- Não fazem diferença entre genes regulatórios e genes regulados
+
+## Construção de Redes de Co-expressão
+
+É feita em três passos:
+
+1. **Definir relações entre os genes**
+2. **Construir a rede**
+3. **Definição de módulos**
+
+## Passo 1: Definir relações entre genes
+
+- As relações são baseadas nas medidas de correlação
+- Comparação do padrão de um par de genes através das amostras
+- Medidas de correlação comuns:
+  - Correlação de Pearson
+  - Correlação de Spearman
+
+### Correlação de Pearson
+
+- Medida da correlação linear entre duas variáveis X e Y
+- Coeficiente = covariância das variáveis ÷ produto de seus desvios-padrão
+
+### Correlação de Spearman
+
+- Vê a correlação entre duas variáveis
+- Relação monotônica (linear ou não)
+- Menos restritiva que Pearson
+- Identifica se variáveis crescem juntas ou se uma cresce e a outra diminui
+
+## Passo 2: Construir a rede
+
+- **Vértices**: genes
+- **Arestas**: presença da correlação (podem refletir a força da correlação)
+
+## Tipos de Redes de Co-expressão
+
+- Redes com sinal e sem sinal
+- Redes ponderadas e não-ponderadas
+
+### Redes com Sinal vs Sem Sinal
+
+**Rede baseada em correlação:**
+- Valores entre -1 (correlação negativa perfeita) e 1 (correlação positiva perfeita)
+
+**Rede sem sinal:**
+- Usa valores absolutos da correlação
+- Perde informação sobre direção (positiva/negativa)
+
+**Rede com sinal:**
+- Escalona valores entre 0 e 1
+- <0,5: correlação negativa
+- =0,5: neutra/fraca
+- >0,5: correlação positiva
+
+### Redes Ponderadas vs Não-ponderadas
+
+**Rede ponderada:**
+- Todos os genes conectados
+- Conexões com valores contínuos entre 0 e 1
+- Indicam força de co-regulação
+
+**Rede não-ponderada:**
+- Interação binária (0 ou 1)
+- Pode ser criada a partir de rede ponderada aplicando limiar
+
+## Passo 3: Definição de Módulos
+
+- Módulos de genes co-expressos identificados usando técnicas de agrupamento (clusterização)
+- Grupos de genes com padrões de expressão similares
+- Podem ser interpretados por **Análise de Enriquecimento Funcional**
+
+### Considerações sobre Heterogeneidade
+
+**Módulos específicos:**
+- Podem não ser detectáveis em redes com múltiplos tecidos/condições
+- Sinal de correlação é diluído
+
+**Trade-off:**
+- Limitar análise a tecido específico reduz tamanho da amostra
+- Diminui poder estatístico para detectar módulos compartilhados
+
+**Solução:**
+- Métodos que não distinguem entre tecidos/condições para módulos comuns
+- Co-expressão diferencial para módulos exclusivos
+
+### Identificando Módulos
+
+**Ferramenta principal:** WGCNA (Weighted Gene Co-expression Network Analysis)
+
+- Constrói módulos usando agrupamento hierárquico
+- Divide clusters iterativamente em subclusters
+- Cria árvore com ramificações representando módulos
+- Módulos definidos cortando ramos a altura definida pelo usuário
+
+## Redes de Co-expressão Diferencial
+
+- Método que vai além das redes tradicionais
+- Identifica genes com diferentes parceiros de co-expressão sob diferentes condições:
+  - Estados de doença
+  - Tipos de tecido
+  - Estágios de desenvolvimento
+
+- Genes mais propensos a serem reguladores de diferenças fenotípicas
+- Papéis regulatórios investigados através de integração com outros dados
+
+## Identificando Hubs
+
+- Módulos são geralmente grandes
+- Importante identificar genes que melhor explicam comportamento do módulo
+
+**Hubs:**
+- Genes altamente conectados na rede
+- Frequentemente mais relevantes para funcionalidade
+- **Hubs intra-modulares**: centrais para módulos específicos
+- **Hubs intermodulares**: centrais para toda a rede
+
+- Usam-se medidas de centralidade para identificar hubs
+
+## Análise de Enriquecimento
+
+- Dentro de um módulo, encontram-se termos funcionais mais frequentes
+- Identifica função mais representativa do módulo
+
+## Predição de Culpados por Associação (GBA)
+
+- Determina enriquecimento funcional dos genes dentro de um módulo
+- Assume que genes co-expressos são funcionalmente relacionados
+- Funções enriquecidas atribuídas a genes mal anotados no mesmo módulo
+- Usada para identificar potenciais novas associações de genes com doenças
+
+## Considerações Técnicas
+
+**Dados de RNA-seq:**
+- Maneira comum: fundir todas as isoformas de um gene em versão única
+- Ideal: usar isoformas de splicing para construir rede
+- Problema: usar todas as isoformas aumenta muito tamanho da rede e tempo de análise
+
+## Ferramentas
+
+Para todos os passos descritos existem ferramentas prontas disponíveis.

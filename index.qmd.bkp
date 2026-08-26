@@ -1,0 +1,143 @@
+---
+title: ""
+format: html
+lang: pt-Br
+---
+
+## Bem-vindos
+
+Este é o site da disciplina **Biologia de Sistemas - CI0932**.
+
+<!--
+@klamt_2009.
+--->
+
+<span style="color: black;">Aqui você encontrará:</span>
+
+<!--
+As figuras abaixo são emoji https://emojipedia.org/
+--->
+
+- 🖺  Módulos
+- 📊 Slides das aulas (<span style="color: red;">Celular na horizontal</span>)
+- 🤯 Mapas Mentais
+- 🎥 Vídeos
+- 📝 Listas de exercícios
+- 📚 Leituras
+
+<!--
+:::{.column-margin}
+![](imagens/nick.jpeg){width=100% style="border: 3px solid black; border-radius: 8px;"}
+<center><br>**Nicholas Barroso**<br>nicholas@ufc.br</center>
+
+---
+
+![](imagens/BiS_Melhorado.png){width=100% style="border: 3px solid black; border-radius: 8px;"}
+<center><br>Laboratório de Análise de Dados Biológicos _in Silico_</center>
+:::
+--->
+<!--
+```{mermaid}
+flowchart TD
+A[Dados Brutos de RNA-seq] --> B[Controle de Qualidade<br>FastQC]
+B -- Identifica problemas --> C[Pré-processamento<br>Trimmomatic]
+C -- Remove adaptadores, trunca --> D[Alinhamento<br>HISAT2]
+D -- Mapeia reads ao genoma --> E[Quantificação<br>featureCounts]
+E -- Gera matriz de contagens --> F[Normalização<br>DESeq2/TPM]
+F -- Corrige vieses técnicos --> G[Análise Estatística<br>DESeq2/limma]
+G -- Identifica sinais biológicos --> H[Lista de Genes<br>Diferencialmente Expressos]
+```
+
+--->
+<!--
+```{mermaid}
+flowchart TD
+    A[Início] --> B{Processo de decisão}
+    B -->|Opção 1| C[Resultado 1]
+    B -->|Opção 2| D[Resultado 2]
+    C --> E[Fim]
+    D --> E
+```
+
+## Exemplo de Grafo Direcionado
+
+```{mermaid}
+graph LR
+    A[Node A] --> B[Node B]
+    A --> C[Node C]
+    B --> D[Node D]
+    C --> D
+    D --> E[Node E]
+    B --> F[Node F]
+    C --> F
+    E --> G[Node G]
+    F --> G
+    
+    style A fill:#f9f
+    style G fill:#bbf
+```
+
+## Exemplo de Sequência
+
+```{mermaid}
+sequenceDiagram
+    participant A as Alice
+    participant B as Bob
+    A->>B: Olá Bob, como você está?
+    B->>A: Estou bem, obrigado!
+```
+
+## Exemplo de Gráfico de Classes
+
+```{mermaid}
+classDiagram
+    Class01 <|-- Class02 : Herança
+    Class03 *-- Class04 : Composição
+    Class05 o-- Class06 : Agregação
+    Class07 .. Class08 : Ligação
+    Class09 -- Class10 : Associação
+```
+
+## Personalizando o Aspecto
+
+Você pode usar estilos diretamente na sintaxe Mermaid:
+
+```{mermaid}
+graph TB
+    subgraph Um [Subgrafo A]
+        A1[Node A1] --> A2[Node A2]
+        style Um fill:#f96
+    end
+    
+    subgraph Dois [Subgrafo B]
+        B1[Node B1] --> B2[Node B2]
+        style Dois fill:#9cf
+    end
+    
+    A2 --> B1
+    
+    style A1 fill:#9f9
+    style B2 fill:#f9f
+```
+
+--->
+<!--
+## Usando em Apresentações
+
+Em apresentações Quarto, os diagramas Mermaid funcionam perfeitamente:
+
+```markdown
+## Slide com Grafo
+
+```{mermaid}
+graph LR
+    Pesquisa[Revisão de Literatura] --\> Coleta[Coleta de Dados]
+    Coleta --\> Análise[Análise Estatística]
+    Análise --\> Resultados[Resultados]
+    Resultados --\> Discussão[Discussão]
+    
+    style Pesquisa fill:#e1f5fe
+    style Resultados fill:#e8f5e9
+```
+
+--->

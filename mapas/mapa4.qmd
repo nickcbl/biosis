@@ -1,0 +1,236 @@
+---
+title: "Modelos"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+<style>
+/* Estilo para o container do Mermaid */
+.mermaid-container {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: white;
+}
+
+/* Aumentar o tamanho de TODOS os elementos no gráfico Mermaid */
+.mermaid svg {
+  font-size: 16px !important;  /* Aumenta a fonte */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Aumentar específicamente o texto dos nós */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  font-size: 16px !important;
+}
+
+/* Botões de zoom flutuantes */
+.zoom-controls {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.zoom-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  background: #3498db;
+}
+</style>
+
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="zoomIn()">+</button>
+  <button class="zoom-btn" onclick="zoomOut()">−</button>
+  <button class="zoom-btn" onclick="resetZoom()">↺</button>
+</div>
+
+<div class="mermaid-container">
+```{mermaid}
+mindmap
+  root((Modelos Biológicos))
+    Modelos e Modelagem
+      Ajudam a entender processos biológicos
+      Permitem previsões futuras
+      O que é um Modelo?
+        Representação abstrata de objetos/processos
+        Explica características do sistema
+        São sempre aproximações da realidade
+        Capacidade de prever comportamento dinâmico
+        Validação experimental é crucial
+        Subjetivo e Seletivo
+            Representam aspectos específicos da realidade
+      Classificação por Generalidade
+        Modelos Gerais
+          Simplificados e amplamente aplicáveis
+        Modelos Específicos
+          Detalhados e contextualizados
+    Características dos Modelos
+      Dependem de hipóteses rigorosas
+      Revelam lacunas no conhecimento
+      Independência do objeto real
+      Flexibilidade temporal/espacial
+      Vantajosos economicamente
+      Mitigam questões éticas
+      Simulação de cenários inacessíveis
+      Análise temporal dinâmica
+      Perturbações controladas
+      Reprodutibilidade
+      Representação clara de resultados
+      Predições testáveis
+    Modelos Matemáticos e Computacionais
+      Descrição com linguagem matemática
+      Ferramentas para testar hipóteses
+      Simulam processos complexos
+    Noções Básicas
+      Escopo do Modelo
+        Descreve apenas alguns aspectos
+        Dificuldade em ignorar características
+      Declarações do Modelo
+      Restrições
+        Igualdade
+          Conservação de massa - ex: A + B → C
+        Desigualdade
+          Limitam fluxos - ex: 0 ≤ v₁ ≤ Vmax
+      Postulados de Otimalidade
+        Maximização/minimização de função objetivo - ex: FBA
+      Processos Estocásticos
+        Sistemas com aleatoriedade - ex: expressão gênica
+      Declarações Probabilísticas
+        Distribuições de probabilidade para parâmetros/estados
+      Estado do Sistema
+        Definição
+            Instante completo das propriedades relevantes
+            Variáveis: concentrações, números moleculares, etc.
+    Abordagens de Modelagem
+        Determinísticos
+          Vetor de concentrações contínuas
+        Estocásticos
+          Contagem discreta de moléculas
+        Booleanos
+          [":Vetor binário - 0/1 - para genes"]
+        Comportamento Temporal
+            Sistemas dinâmicos: estado futuro determinado pelo atual
+            Sistemas estocásticos: futuro probabilístico
+    Constantes, Parâmetros e Variáveis
+      Constante
+        Valor fixo universal - ex: velocidade da luz
+      Parâmetro
+        Valor fixo no modelo, variável entre contextos - ex: Vmax
+      Variável
+        Quantidade que muda no tempo - ex: glicose
+      Distinção Importante
+        Parâmetros constantes na simulação - ajustáveis
+        Variáveis de estado definem comportamento
+    Classificação de Modelos
+      Quanto à Previsibilidade
+        Determinístico
+          Estado futuro predito
+        Estocástico
+          Distribuição de probabilidade para futuro
+      Quanto à Natureza
+        Estrutural/Qualitativo
+          Componentes e interações sem quantificação
+        Discreto
+          Tempo/estado/espaço enumerável
+        Contínuo
+          Tempo/estado/espaço contínuo
+      Quanto à Reversibilidade
+        Reversível
+          Processo em ambas direções
+        Irreversível
+          Apenas uma direção
+      Quanto à Periodicidade
+        Periódico
+          Comportamentos repetitivos
+    ["Estado Estacionário (Steady State)"]
+    Não Unicidade dos Modelos
+      Mesmo processo modelado de múltiplas formas
+      Escolha depende da pergunta biológica
+      Integração multi-escala frequentemente necessária
+    Integração de Dados Multi-Ômicos
+      Grande volume de dados exige integração
+        Três Níveis de Integração
+            Baixo nível
+                Formatos, armazenamento, transferência
+            Alto nível
+                Representação unificada - ex: SBML, CellML
+            Interpretativo
+                Correlação e análise conjunto
+```
+</div>
+
+<script>
+// Funções de zoom
+let currentScale = 1;
+const minScale = 0.5;
+const maxScale = 3;
+const scaleStep = 0.2;
+
+function zoomIn() {
+  if (currentScale < maxScale) {
+    currentScale += scaleStep;
+    applyZoom();
+  }
+}
+
+function zoomOut() {
+  if (currentScale > minScale) {
+    currentScale -= scaleStep;
+    applyZoom();
+  }
+}
+
+function resetZoom() {
+  currentScale = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const container = document.querySelector('.mermaid-container');
+  if (container) {
+    container.style.transform = `scale(${currentScale})`;
+    container.style.transformOrigin = 'center top';
+  }
+}
+
+// Também permitir zoom com Ctrl + Scroll
+document.addEventListener('wheel', function(e) {
+  if (e.ctrlKey) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  }
+}, { passive: false });
+</script>

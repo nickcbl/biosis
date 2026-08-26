@@ -1,0 +1,15 @@
+---
+title: "Vídeos"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+# As Cunhãs - Episódio 261
+{{< video https://www.youtube.com/watch?v=Hs6FHW4FtV8 >}}

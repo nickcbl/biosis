@@ -1,0 +1,132 @@
+project:
+  type: website
+
+website:
+  title: "**CI0932 - Biologia de Sistemas**"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Início
+      - text: Módulos
+        menu: 
+          - href: modulos/modulo1.qmd
+            text: 01 - Histórico e conceitos
+          - href: modulos/modulo2.qmd
+            text: 02 - Grafos
+          - href: modulos/modulo3.qmd
+            text: 03 - Redes Biológicas
+          - href: modulos/modulo4.qmd
+            text: 04 - Modelos
+          - href: modulos/modulo5.qmd
+            text: 05 - Obtenção de dados e banco de dados
+          - href: modulos/modulo6.qmd
+            text: 06 - Integração de Dados
+          - href: modulos/modulo7.qmd
+            text: 07 - Redes Metabólicas
+          - href: modulos/modulo8.qmd
+            text: 08 - Redes de Co-Expressão
+          - href: modulos/modulo9.qmd
+            text: 09 - Redes de Interação Proteína-Proteína
+      - text: Slides
+        menu:
+          - href: slides/aula1.qmd
+            text: 01 - Histórico e conceitos
+          - href: slides/aula2.qmd
+            text: 02 - Grafos
+          - href: slides/aula3.qmd
+            text: 03 - Redes biológicas
+          - href: slides/aula4.qmd
+            text: 04 - Modelos
+          - href: slides/aula5.qmd
+            text: 05 - Obtenção de dados e banco de dados 
+          - href: slides/aula6.qmd
+            text: 06 - Integração de Dados
+          - href: slides/aula7.qmd
+            text: 07 - Redes Metabólicas
+          - href: slides/aula8.qmd
+            text: 08 - Redes de Co-Expressão
+          - href: slides/aula9.qmd
+            text: 09 - Redes de Interação Proteína-Proteína
+          - href: slides/aula10.qmd
+            text: 10 - Biologia Sintética
+      - text: Roteiros
+        menu:
+          - href: roteiros/input/input.qmd
+            text: Arquivos de Entrada
+          - href: roteiros/pratica1.qmd
+            text: Prática 01
+          - href: roteiros/pratica2.qmd
+            text: Prática 02
+          - href: roteiros/pratica3.qmd
+            text: Prática 03
+          - href: roteiros/pratica4.qmd
+            text: Prática 04
+          - href: roteiros/pratica5.qmd
+            text: Prática 05
+          - href: roteiros/pratica6.qmd
+            text: Prática 06
+          - href: roteiros/pratica7.qmd
+            text: Prática 07
+          - href: roteiros/pratica8.qmd
+            text: Prática 08
+          - href: roteiros/pratica9.qmd
+            text: Prática 09
+          - href: roteiros/pratica10.qmd
+            text: Prática 10
+          - href: roteiros/pratica11.qmd
+            text: Prática 11
+          - href: roteiros/pratica12.qmd
+            text: Prática 12
+      # - text: Mapas Mentais
+      #   menu: 
+      #     - href: mapas/mapa1.qmd
+      #       text: 01 - Histórico
+      #     - href: mapas/mapa2.qmd
+      #       text: 02 - Grafos
+      #     - href: mapas/mapa3.qmd
+      #       text: 03 - Redes Biológicas
+      #     - href: mapas/mapa4.qmd
+      #       text: 04 - Modelos
+      #     - href: mapas/mapa5.qmd
+      #       text: 05 - Obtenção de Dados
+      #     - href: mapas/mapa6.qmd
+      #       text: 06 - Integração de Dados
+      #     - href: mapas/mapa7.qmd
+      #       text: 07 - Redes Metabólicas
+      #     - href: mapas/mapa8.qmd
+      #       text: 08 - Redes de Co-expressão
+      #     - href: mapas/mapa9.qmd
+      #       text: 09 - Redes de Interação Proteína-Proteína
+      # - text: Vídeos
+      #   menu:
+      #     - href: videos/videos.qmd
+      #       text: Videos 1
+      - text: Listas
+        menu:
+          - href: listas/ed1.qmd
+            text: Estudo Dirigido 1
+          - href: listas/ed2.qmd
+            text: Estudo Dirigido 2
+          - href: listas/exercicios_fundamentos_logica.qmd
+            text: Lógica
+          - href: listas/exercicios_biotecnologia.qmd
+            text: Biotecnologia
+      # - text: Leituras
+      #   menu:
+      #     - href: referencias/leituras.qmd
+      # - text: Referências
+      #   href: referencias/referencias.qmd
+      - text: Teste
+        menu:
+          - href: teste/teste.qmd
+            text: Teste
+  page-footer:
+    center: "© Prof. Nicholas Barroso<br>2026<br>Versão 2<br>EM CONTRUÇÃO"
+
+format:
+  html:
+    theme: minty
+#    toc: true
+    language: pt-Br
+    bibliography: referencias/ref.bib
+    csl: referencias/abnt.csl

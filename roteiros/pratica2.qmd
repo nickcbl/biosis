@@ -1,0 +1,385 @@
+---
+title: "Aula Prática 2: Fundamentos de Lógica de Programação"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     pdf-engine: xelatex
+editor: source
+---
+
+## Fonte
+Documentação oficial da linguagem Python: [docs.python.org](https://docs.python.org)
+
+## Objetivos da Aula
+
+- Variáveis;
+- **Operadores** aritméticos, relacionais e lógicos;
+- **Listas** como forma simples de armazenar múltiplos valores;
+- **Raciocínio lógico** com estruturas condicionais (`if`/`elif`/`else`);
+- **Raciocínio lógico** com laços de repetição (`for` e `while`);
+
+---
+
+## Fluxograma
+
+```{mermaid}
+flowchart TD
+    A[Início da Aula] --> B[Objetivos da Aula]
+    B --> C[Introdução a Python]
+    C --> D[Tipos de Dados Nativos]
+
+    D --> D1[int]
+    D --> D2[float]
+    D --> D3[str]
+    D --> D4[bool]
+    D1 --> E[Operadores]
+    D2 --> E
+    D3 --> E
+    D4 --> E
+
+    E --> E1[Aritméticos]
+    E --> E2[Relacionais]
+    E --> E3[Lógicos: and / or / not]
+    E1 --> F[Listas como Armazenamento]
+    E2 --> F
+    E3 --> F
+
+    F --> G[Estruturas Condicionais]
+    G --> G1[if/elif/else]
+    G1 --> H[Laços de Repetição]
+
+    H --> H1[for - Iteração em Sequências]
+    H --> H2[while - Execução Condicional]
+
+    H1 --> I[Aplicação Prática: Cálculo GC]
+    H2 --> I
+
+    I --> J[Exercícios de Fixação]
+    J --> K[Conclusão e Bons Estudos!]
+    K --> L[Fim da Aula]
+
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+
+    class A inicio
+    class B,C,D,E,F,G,H,I,J,K processo
+    class D1,D2,D3,D4,E1,E2,E3,G1,H1,H2 resultado
+    class L final
+```
+
+<!-- ---
+
+## Sobre Python
+> *"Python é uma linguagem de programação orientada a objetos clara e poderosa, comparável a Perl, Ruby, Scheme ou Java."*
+> — Documentação Python
+
+**Por que Python para Bioinformática?**
+
+- Sintaxe legível e intuitiva, facilitando o aprendizado;
+- Ampla comunidade e bibliotecas especializadas (Biopython, Pandas, NumPy);
+- Excelente para prototipagem rápida e automação de análises. -->
+
+---
+
+## Parte 1 – Tipos de Dados Nativos
+
+Objetos tem um **tipo** que define suas características e comportamentos. Conhecer os tipos básicos é essencial para escrever qualquer lógica de programação.
+
+| Tipo                          | Descrição                        | Exemplo Biológico        |
+| ----------------------------- | --------------------------------- | ------------------------- |
+| **Inteiro (`int`)**           | Números sem casas decimais       | `num_genes = 2543`       |
+| **Ponto Flutuante (`float`)** | Números com casas decimais       | `gc_content = 62.5`      |
+| **Texto/String (`str`)**      | Sequência de caracteres          | `sequencia = "ATGCGTAA"` |
+| **Booleano (`bool`)**         | Valores lógicos Verdadeiro/Falso | `eucarioto = True`       |
+
+### Prática no Interpretador
+
+::: {.callout-tip}
+## Terminal
+Abra o terminal com `Ctrl+Alt+T` e digite `python3` para entrar no interpretador interativo ou digite `idle` e abra o IDLE.
+Ainda como opção, podemos abrir um arquivo texto, escrever o código e salvar com a extensão `.py`, depois rodar no terminal com `python3 nome_do_arquivo.py`.
+:::
+
+Digite os seguintes comandos:
+
+```python
+# Variáveis com dados biológicos
+gene = "lacZ"
+num_contigs = 3072
+diploide = True
+gc_percent = 57.75
+```
+
+Agora, use a função `type()` para confirmar os tipos:
+
+```python
+type(gene)          # <class 'str'>
+type(num_contigs)   # <class 'int'>
+type(diploide)      # <class 'bool'>
+type(gc_percent)    # <class 'float'>
+```
+
+**Observação:** A linguagem Python faz **tipagem dinâmica** — você não precisa **declarar** o tipo explicitamente; o interpretador infere automaticamente.
+
+---
+
+## Parte 2 – Operadores
+
+Operadores são a base de toda decisão e todo cálculo em um programa.
+
+### 1. Operadores Aritméticos
+
+| Operador | Significado         | Exemplo         |
+| -------- | -------------------- | ---------------- |
+| `+`      | Soma                 | `a + b`          |
+| `-`      | Subtração            | `a - b`          |
+| `*`      | Multiplicação        | `a * b`          |
+| `/`      | Divisão (float)      | `a / b`          |
+| `//`     | Divisão inteira      | `a // b`         |
+| `%`      | Resto da divisão     | `a % b`          |
+| `**`     | Potenciação          | `a ** b`         |
+
+### 2. Operadores Relacionais
+
+Comparam dois valores e sempre retornam um `bool` (`True` ou `False`).
+
+| Operador | Significado      |
+| -------- | ------------------ |
+| `==`     | Igual a            |
+| `!=`     | Diferente de       |
+| `>`      | Maior que          |
+| `<`      | Menor que          |
+| `>=`     | Maior ou igual a   |
+| `<=`     | Menor ou igual a   |
+
+### 3. Operadores Lógicos
+
+Combinam ou invertem valores booleanos — essenciais para condições compostas (ex.: verificar se um valor está *dentro de uma faixa*).
+
+| Operador | Significado                              |
+| -------- | ------------------------------------------ |
+| `and`    | Verdadeiro se **ambas** as condições forem verdadeiras |
+| `or`     | Verdadeiro se **pelo menos uma** condição for verdadeira |
+| `not`    | Inverte o valor lógico                    |
+
+<!-- ### Prática no Interpretador
+
+```python
+temperatura = -18
+
+# Operador relacional
+print(temperatura >= -25)   # True
+
+# Operador lógico: faixa segura de armazenamento
+print(temperatura >= -25 and temperatura <= -15)   # True
+```
+
+**Dica:** quase toda condição (`if`) e toda condição de parada de um `while` é, no fundo, uma combinação de operadores relacionais e lógicos. -->
+
+---
+
+::: {.callout-tip}
+## Função `print()`
+A função `print()` exibe informações na tela (STDOUT). Use `help(print)` no interpretador para ver mais detalhes.
+:::
+
+## Parte 3 – Listas: Armazenando Múltiplos Valores
+
+Antes de aprender loops, é preciso saber guardar **vários valores** em um único lugar. A lista é a estrutura mais simples para isso.
+
+- **Características:** ordenada, permite duplicatas, cada valor tem uma posição (índice), começando em `0`.
+- **Sintaxe:** `genes = ["BRCA1", "TP53", "EGFR"]`
+
+```python
+genes = ["BRCA1", "TP53", "EGFR"]
+
+print(genes[0])     # "BRCA1"  -> primeiro elemento
+print(genes[2])     # "EGFR"   -> terceiro elemento
+print(len(genes))   # 3        -> quantidade de elementos
+```
+
+<!-- ::: {.callout-tip}
+## Simulando `input()` com uma lista
+Quando um exercício pede para "ler vários valores do teclado" mas o código precisa rodar sozinho (sem alguém digitando), é comum guardar os valores de exemplo em uma lista e percorrê-la um a um — é exatamente como se cada posição fosse uma chamada de `input()`: -->
+
+```python
+entradas = [7, -2, 15, 3, 9]   # simula 5 chamadas de input()
+
+for valor in entradas:
+    print("Valor lido:", valor)
+```
+
+<!-- Em aula, basta trocar `for valor in entradas:` por algo como `for _ in range(5): valor = float(input())`. -->
+
+<!-- ::: -->
+
+**Importante:** por enquanto vamos usar listas apenas para **guardar e ler** valores. Não usaremos métodos prontos para trabalhar com listas por enquanto. Nosso objetivo é resolver **na mão**, com `if`/`for`/`while`, isso é o que os exercícios de lógica vão pedir.
+
+---
+
+## Parte 4 – Estruturas Condicionais (Decisões)
+
+Os condicionais permitem que seu código tome decisões com base em condições.
+
+### Sintaxe Básica
+
+```python
+if condicao:
+    # código executado se condicao for True
+elif outra_condicao:
+    # código executado se a primeira for False e esta for True
+else:
+    # código executado se todas as condições anteriores forem False
+```
+
+### Exemplo em Bioinformática: Classificação de Genes por Tamanho
+
+```python
+tamanho_gene = 4500  # em pares de bases
+
+if tamanho_gene > 5000:
+    print("Gene muito longo (> 5kb)")
+elif 3000 < tamanho_gene <= 5000:
+    print("Gene longo (3-5kb)")
+elif 1000 < tamanho_gene <= 3000:
+    print("Gene médio (1-3kb)")
+else:
+    print("Gene curto (≤ 1kb)")
+```
+
+---
+
+## Parte 5 – Laços de Repetição (Loops)
+
+Loops executam blocos de código repetidamente. São essenciais para processar grandes conjuntos de dados, como sequências de DNA ou listas de leituras de laboratório.
+
+### 1. Loop `for` – Iteração em Sequências
+
+Ideal quando você sabe quantas vezes repetir ou quer percorrer elementos de uma coleção.
+
+```python
+# Iterando sobre uma lista de genes
+genes = ["RuvA", "RuvB", "RuvC"]
+for gene in genes:
+    print(f"Processando gene: {gene}")
+```
+
+<!-- <details>
+<summary>output</summary>
+```{python}
+#| echo: false
+genes = ["RuvA", "RuvB", "RuvC"]
+for gene in genes:
+    print(f"Processando gene: {gene}")
+```
+</details> -->
+
+```python
+# Usando range() para repetir um número específico de vezes
+for i in range(1, 6):  # 1 a 5
+    print(f"Ciclo de PCR número {i}")
+```
+
+<!-- <details>
+<summary>output</summary>
+```{python}
+#| echo: false
+for i in range(1, 6):
+    print(f"Ciclo de PCR número {i}")
+```
+</details> -->
+
+### 2. Loop `while` – Execução Condicional
+
+Executa enquanto uma condição for verdadeira. Ideal quando **não se sabe de antemão** quantas repetições serão necessárias. **Atenção:** sempre atualize a variável de controle para evitar loops infinitos!
+
+<!-- ```{pyodide}
+# Simulando ciclos de PCR
+ciclos = 0
+while ciclos < 30:
+    ciclos += 1 # Incrementa o contador
+    print(f"Ciclo {ciclos} concluído")
+``` -->
+
+```python
+# Simulando ciclos de PCR
+ciclos = 0
+while ciclos < 30:
+    ciclos += 1 # Incrementa o contador
+    print(f"Ciclo {ciclos} concluído")
+```
+
+::: {.callout-tip}
+## `for` ou `while`?
+Use `for` quando você já sabe quantas vezes vai repetir (percorrer uma lista, um `range()`). Use `while` quando a repetição depende de uma condição que só será conhecida durante a execução (ex.: repetir até encontrar algo, repetir até um valor ultrapassar um limite).
+:::
+
+---
+
+## Parte 6 – Aplicação Prática: Cálculo do Conteúdo GC
+
+### Problema
+Calcular a porcentagem de bases Guanina (G) e Citosina (C) em uma sequência de DNA — juntando tipos, operadores, listas/strings, condicionais e loops em um único problema.
+
+### Código Comentado
+
+```python
+# Inicializa o contador
+gc_count = 0
+
+# Sequência de exemplo
+sequencia = "ACTGACTGACTGACTG"
+
+# Calcula o tamanho total
+tamanho = len(sequencia)
+
+# Percorre cada base da sequência
+for base in sequencia.upper():  # .upper() garante letras maiúsculas
+    if base == 'G' or base == 'C':
+        gc_count += 1
+
+# Calcula a porcentagem
+gc_percentual = (gc_count / tamanho) * 100
+
+# Exibe o resultado
+print(f"Tamanho da sequência: {tamanho} pb")
+print(f"Conteúdo GC: {gc_percentual:.2f}%")
+```
+
+### Desafio
+Modifique o código para:
+
+1. Aceitar uma sequência fornecida pelo usuário com `input()`;
+2. Calcular também o conteúdo de AT (Adenina + Timina);
+3. Exibir a proporção GC/AT.
+
+---
+
+## Próximos Passos: Exercícios de Fixação
+
+A teoria desta aula é a base necessária para resolver, na sequência:
+
+- [exercicios_fundamentos_logica](../listas/exercicios_fundamentos_logica.qmd) — 50 exercícios clássicos de lógica (sequência, condicionais, `for`, `while`) usando **apenas** variáveis, operadores, `if`/`elif`/`else`, `for` e `while`;
+- [exercicios_biotecnologia](../listas/exercicios_biotecnologia.qmd) — os mesmos conceitos aplicados a problemas de biotecnologia (bases nitrogenadas, conteúdo GC, diluições, microplacas, códons).
+
+---
+
+## Recursos Adicionais
+
+- **Documentação oficial:** [docs.python.org](https://docs.python.org)
+- **Biblioteca Biopython:** [biopython.org](https://biopython.org)
+- **Prática online:** [Replit](https://replit.com) ou [Google Colab](https://colab.research.google.com)

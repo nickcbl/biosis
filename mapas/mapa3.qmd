@@ -1,0 +1,169 @@
+---
+title: "Redes Biológicas"
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+
+<style>
+/* Estilo para o container do Mermaid */
+.mermaid-container {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: white;
+}
+
+/* Aumentar o tamanho de TODOS os elementos no gráfico Mermaid */
+.mermaid svg {
+  font-size: 16px !important;  /* Aumenta a fonte */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Aumentar específicamente o texto dos nós */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+  font-size: 16px !important;
+}
+
+/* Botões de zoom flutuantes */
+.zoom-controls {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.zoom-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  background: #3498db;
+}
+</style>
+
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="zoomIn()">+</button>
+  <button class="zoom-btn" onclick="zoomOut()">−</button>
+  <button class="zoom-btn" onclick="resetZoom()">↺</button>
+</div>
+
+<div class="mermaid-container">
+```{mermaid}
+mindmap
+  root((**Redes Biológicas**))
+    O que são Redes?
+      Estruturas que representam relações
+        Nós/Vértices
+        Arestas
+    Tipos de Redes
+      Redes Sociais
+      Redes de Computadores
+      Redes Neurais
+      Redes de Telecomunicações
+      Redes Biológicas
+        Dados biológicos como elementos
+            Tipos
+                Redes Metabólicas
+                    Nós: Substratos e produtos
+                      Arestas: sequência de reações
+                Redes de Co-expressão
+                    Nós: Genes
+                      Aresta: co-expressão
+                Redes de Interação Proteína-Proteína
+                    Nós: Proteínas
+                      Aresta: Interagem entre si
+    Propriedades Globais
+      Distância
+      Caminho Mais Curto
+      Diâmetro
+        Centralidades
+            Centralidade de Grau
+            Centralidade de Proximidade
+            Centralidade de Intermediação
+            Centralidade de Autovetor
+            Centralidade de Alavancagem
+            ["Centralidade de Difusão (Katz)"]
+            Centralidade de Intermediação de Fluxo
+    Características de Redes Biológicas
+      Mundo Pequeno
+      Rede Livre de Escala
+      Coeficiente de Agrupamento
+
+    Motivos de Redes
+      Padrões sub-gráficos significativos
+```
+</div>
+
+<script>
+// Funções de zoom
+let currentScale = 1;
+const minScale = 0.5;
+const maxScale = 3;
+const scaleStep = 0.2;
+
+function zoomIn() {
+  if (currentScale < maxScale) {
+    currentScale += scaleStep;
+    applyZoom();
+  }
+}
+
+function zoomOut() {
+  if (currentScale > minScale) {
+    currentScale -= scaleStep;
+    applyZoom();
+  }
+}
+
+function resetZoom() {
+  currentScale = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const container = document.querySelector('.mermaid-container');
+  if (container) {
+    container.style.transform = `scale(${currentScale})`;
+    container.style.transformOrigin = 'center top';
+  }
+}
+
+// Também permitir zoom com Ctrl + Scroll
+document.addEventListener('wheel', function(e) {
+  if (e.ctrlKey) {
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      zoomIn();
+    } else {
+      zoomOut();
+    }
+  }
+}, { passive: false });
+</script>

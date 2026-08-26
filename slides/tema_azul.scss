@@ -1,0 +1,242 @@
+/* =========================================================
+   Quarto / Reveal.js theme
+   Baseado no theme.scss da apresentação DAGStat 2022
+   de Mine Çetinkaya-Rundel
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. DEFAULTS
+   Variáveis do tema Quarto/Reveal.js
+   --------------------------------------------------------- */
+
+/*-- scss:defaults --*/
+
+// ---------------------------------------------------------
+// Fonte
+// ---------------------------------------------------------
+
+// Fonte utilizada em toda a apresentação.
+// A fonte é carregada diretamente do Google Fonts.
+@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+
+$font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
+
+
+// ---------------------------------------------------------
+// Cores
+// ---------------------------------------------------------
+
+// Cor principal dos títulos.
+$presentation-heading-color: #00589b;
+
+// Azul utilizado nos elementos personalizados.
+$custom-blue: #00589b;
+
+// Azul do Twitter.
+$twitter-blue: #1DA1F2;
+
+// Fundo dos blocos "in-out".
+$in-out-background: #E8E8E8;
+
+// Fundo dos blocos "goal".
+$goal-background: #ccddeb;
+
+
+// ---------------------------------------------------------
+// Alinhamento do slide inicial
+// ---------------------------------------------------------
+
+// Título e subtítulo alinhados à esquerda.
+$presentation-title-slide-text-align: "left";
+$presentation-subtitle-slide-text-align: "left";
+
+
+// ---------------------------------------------------------
+// Tamanhos tipográficos
+// ---------------------------------------------------------
+
+// Código dentro dos blocos de código.
+$code-block-font-size: 0.6em;
+
+// Cor do texto de código.
+$code-color: #5f5f5f;
+
+// Tamanho dos títulos H2.
+$presentation-h2-font-size: 1.4em;
+
+
+/* ---------------------------------------------------------
+   2. CUSTOM RULES
+   Classes específicas utilizadas na apresentação
+   --------------------------------------------------------- */
+
+/*-- scss:rules --*/
+
+
+// =========================================================
+// TÍTULO PERSONALIZADO
+// =========================================================
+//
+// Usado para posicionar manualmente um título na tela.
+// =========================================================
+
+.reveal .custom-title {
+  position: absolute;
+
+  color: $custom-blue;
+
+  font-size: 3em;
+  text-align: right;
+
+  right: 20px;
+  top: -200px;
+}
+
+
+// =========================================================
+// AUTOR PERSONALIZADO
+// =========================================================
+
+.reveal .custom-author {
+  position: absolute;
+
+  font-size: 1.4em;
+  text-align: right;
+
+  right: 20px;
+  top: 300px;
+}
+
+
+// =========================================================
+// TWITTER
+// =========================================================
+//
+// Aplica estilo ao link do Twitter no slide inicial.
+// =========================================================
+
+.reveal .custom-twitter a {
+  position: absolute;
+
+  color: $twitter-blue;
+
+  font-size: 1.3em;
+  text-align: right;
+
+  right: 20px;
+  top: 470px;
+}
+
+
+// =========================================================
+// URL
+// =========================================================
+//
+// Link do site/projeto no slide inicial.
+// =========================================================
+
+.reveal .custom-url a {
+  position: absolute;
+
+  color: $custom-blue;
+
+  font-size: 1.5em;
+  text-align: right;
+
+  right: 20px;
+  top: 570px;
+}
+
+
+// =========================================================
+// <details>
+// =========================================================
+//
+// Reduz o tamanho do texto do resumo de elementos
+// <details><summary>...</summary>.
+// =========================================================
+
+details > summary {
+  font-size: 0.75em;
+}
+
+
+// =========================================================
+// TEXTO PEQUENO
+// =========================================================
+//
+// Uso:
+//
+//   <span class="small">Texto pequeno</span>
+//
+// =========================================================
+
+.small {
+  font-size: 0.75em;
+}
+
+
+// =========================================================
+// BLOCO "IN / OUT"
+// =========================================================
+//
+// Classe utilizada para destacar informações de entrada/
+// saída, comandos ou trechos de código.
+//
+// Exemplo:
+//
+//   <div class="in-out">
+//     ...
+//   </div>
+// =========================================================
+
+.reveal .slide .in-out {
+
+  // Espaçamento externo.
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+  // Espaçamento interno.
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+
+  // Fundo cinza claro.
+  background: $in-out-background;
+
+  // Usa a fonte monoespaçada do tema.
+  font-family: $font-family-monospace;
+
+  // Texto menor.
+  font-size: 0.6em;
+}
+
+
+// =========================================================
+// BLOCO "GOAL"
+// =========================================================
+//
+// Destaca o objetivo de uma seção/slide.
+//
+// Exemplo:
+//
+//   <div class="goal">
+//     Goal: ...
+//   </div>
+// =========================================================
+
+.reveal .slide .goal {
+
+  // Espaçamento externo.
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+  // Espaçamento interno.
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+
+  // Fundo azul claro.
+  background: $goal-background;
+}

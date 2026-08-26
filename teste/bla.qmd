@@ -1,0 +1,20 @@
+---
+title: ""
+bibliography: ../referencias/ref.bib
+csl: ../referencias/abnt.csl
+reference-location: document
+lang: pt-Br
+nocite: |
+    @*
+---
+
+# Referências
+
+::: {#refs}
+:::
+
+<!--
+| Referência | PDF |
+|------------|-----|
+|[@klamt_2009]|[Download](../artigos/Kitano2002.pdf)|
+--->

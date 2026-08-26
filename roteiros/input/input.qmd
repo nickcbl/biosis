@@ -1,0 +1,374 @@
+---
+title: "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
+author: "Nicholas Barroso"
+date: "today"
+format: html
+lang: pt-Br
+---
+
+<!-- # 📦 Arquivos de Entrada para Download -->
+
+<!-- ## 📂 AULA 1 – UNIX BÁSICO -->
+
+1. [sequencias.fasta](#sequencias-fasta)
+2. [adapters.fa](#adapters-fa)
+3. [virulence_genes.txt](#virulence_genes-txt)
+4. [Dados RNA-seq](#srr390728)
+6. [Homo_sapiens.GRCh38.104.gtf.xz](#homo_sapiens-grch38-104-gtf-xz)
+7. [expressao_normalizada.txt](#expressao_normalizada-txt)
+8. [parametros_repressilator.txt](#parametros_repressilator-txt)
+
+---
+
+## AULA 1 – Unix Básico
+
+### sequencias.fasta {#sequencias-fasta}
+
+Arquivo FASTA com 5 sequências de exemplo (*E. coli, B. subtilis, P. aeruginosa*).
+
+**[sequencias.fasta ⬇️](roteiros/input/sequencias.fasta)**
+
+<details>
+<summary><b>📝 Visualizar conteúdo</b></summary>
+
+```fasta
+>seq1|Escherichia coli|gene:lacZ
+ATGCGTACGTAGCTAGCTAGCATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
+ATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG
+>seq2|Escherichia coli|gene:recA
+ATGGATCCAGATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGA
+>seq3|Bacillus subtilis|gene:spo0A
+ATGAGTGATCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+TCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+TCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG
+>seq4|Pseudomonas aeruginosa|gene:lasR
+ATGAATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGAT
+CGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+TCGATCGATCGATCGATCGATCGATCGATCGATCG
+>seq5|Bacillus subtilis|gene:comK
+ATGGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTAC
+GTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTA
+CGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
+```
+</details>
+
+---
+
+<!-- ## 📂 AULA 3 – MONTAGEM DE GENOMAS -->
+
+## AULA 3 – Montagem de Genomas
+
+### adapters.fa {#adapters-fa}
+
+Arquivo com sequências de adaptadores Illumina para o Trimmomatic.
+
+**[adapters.fa ⬇️](roteiros/input/adapters.fa)**
+
+<details>
+<summary><b>📝 Visualizar conteúdo</b></summary>
+
+```fasta
+>Illumina_PE_adaptor
+AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+>Illumina_PE_adaptor_rev
+AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+>Nextera_PE_adaptor
+CTGTCTCTTATACACATCT
+>Nextera_PE_adaptor_rev
+CTGTCTCTTATACACATCT
+```
+</details>
+
+---
+
+<!-- ## 📂 AULA 5 – ANOTAÇÃO FUNCIONAL -->
+
+## AULA 5 – Anotação Funcional
+
+### virulence_genes.txt {#virulence_genes-txt}
+
+Banco de dados de genes de virulência (VFDB) para anotação funcional.
+
+**[virulence_genes.txt ⬇️](roteiros/input/virulence_genes.txt)**
+
+<details>
+<summary><b>📝 Visualizar conteúdo</b></summary>
+
+```tsv
+gene	uniprot_id	function	category	organism
+lacI	P03023	Lactose operon repressor	Regulation	Escherichia coli
+recA	P0A7G6	DNA repair protein RecA	Metabolism	Escherichia coli
+lasR	Q9I4B3	Transcriptional regulator LasR	Regulation	Pseudomonas aeruginosa
+spo0A	P06534	Stage 0 sporulation protein A	Regulation	Bacillus subtilis
+comK	P40728	Competence transcription factor	Regulation	Bacillus subtilis
+toxA	P11439	Exotoxin A	Toxin	Pseudomonas aeruginosa
+algD	P19457	GDP-mannose 6-dehydrogenase	Metabolism	Pseudomonas aeruginosa
+pilA	P04782	Type IV pilin	Adhesion	Pseudomonas aeruginosa
+ompA	P0A910	Outer membrane protein A	Adhesion	Escherichia coli
+hlyA	P08756	Hemolysin A	Toxin	Escherichia coli
+```
+</details>
+
+---
+
+<!-- ## 📂 AULA 6 – RNA-SEQ -->
+
+## AULA 6 – RNA-Seq
+
+### Dados de RNA-seq de E. coli (SRR390728) {#srr390728}
+
+Arquivos FASTQ para o pipeline de RNA-seq (*paired-end*).
+
+**[SRR390728_1.fastq.gz ⬇️](roteiros/input/SRR390728_1.fastq.gz)** (*Forward reads*)
+
+**[SRR390728_2.fastq.gz ⬇️](roteiros/input/SRR390728_2.fastq.gz)** (*Reverse reads*)
+
+<details>
+<summary><b>📊 Informações dos dados</b></summary>
+
+| Propriedade | Valor |
+|-------------|-------|
+| **Accession** | SRR390728 |
+| **Organismo** | Escherichia coli str. K-12 substr. MG1655 |
+| **Tipo** | RNA-seq |
+| **Layout** | Paired-end |
+| **Plataforma** | Illumina HiSeq 2000 |
+| **Tamanho aprox.** | ~200 MB (cada) |
+| **Referência** | [NCBI SRA](https://www.ncbi.nlm.nih.gov/sra/?term=SRR390728) |
+
+</details>
+
+---
+
+<!-- ## 📂 AULA 7 – QUANTIFICAÇÃO DE RNA-SEQ -->
+
+## AULA 7 – Quantificação de RNA-Seq
+
+### Homo_sapiens.GRCh38.104.gtf.xz {#homo_sapiens-grch38-104-gtf-xz}
+
+Arquivo de anotação do genoma humano (Ensembl release 104). **Arquivo compactado (.xz)**.
+
+**[Homo_sapiens.GRCh38.104.gtf.xz ⬇️](roteiros/input/Homo_sapiens.GRCh38.104.gtf.xz)**
+
+<details>
+<summary><b>📊 Informações do arquivo</b></summary>
+
+| Propriedade | Valor |
+|-------------|-------|
+| **Genoma** | Homo sapiens GRCh38 |
+| **Versão** | 104 |
+| **Fonte** | Ensembl |
+| **Tamanho** | ~150 MB (compactado) / ~1200 MB (descompactado) |
+| **Formato** | GTF (Gene Transfer Format) |
+
+**Comando para descompactar:**
+```bash
+unxz Homo_sapiens.GRCh38.104.gtf.xz
+```
+</details>
+
+---
+
+<!-- ## 📂 AULA 8 – REDES DE COEXPRESSÃO (WGCNA) -->
+
+## AULA 8 – Redes de Coexpressão (WGCNA)
+
+### expressao_normalizada.txt {#expressao_normalizada-txt}
+
+Matriz de expressão gênica normalizada (genes × amostras) para análise de coexpressão.
+
+**[expressao_normalizada.txt ⬇️](roteiros/input/expressao_normalizada.txt)**
+
+<details>
+<summary><b>📝 Visualizar conteúdo (primeiras linhas)</b></summary>
+
+```tsv
+Gene	Control_1	Control_2	Control_3	Virulent_1	Virulent_2	Virulent_3	Time0_1	Time0_2	Time0_3
+BRCA1	245.6	234.1	256.3	12.4	15.6	11.2	567.8	589.2	545.3
+TP53	89.3	92.1	85.7	456.2	478.3	445.6	123.4	134.5	118.9
+EGFR	567.8	589.2	545.3	234.5	245.6	223.4	45.6	43.2	48.9
+MYC	432.1	445.6	421.3	789.2	801.5	776.4	234.5	245.6	223.4
+KRAS	45.2	43.1	47.8	123.4	134.5	118.9	567.8	589.2	545.3
+PTEN	123.4	134.5	118.9	567.8	589.2	545.3	234.5	245.6	223.4
+CDKN1A	67.8	65.4	69.2	345.6	356.7	334.5	78.9	76.5	80.1
+CCND1	234.5	245.6	223.4	67.8	65.4	69.2	456.7	467.8	445.6
+E2F1	345.6	356.7	334.5	78.9	76.5	80.1	123.4	134.5	118.9
+RB1	78.9	76.5	80.1	234.5	245.6	223.4	345.6	356.7	334.5
+AKT1	456.7	467.8	445.6	123.4	134.5	118.9	67.8	65.4	69.2
+PIK3CA	123.4	134.5	118.9	456.7	467.8	445.6	234.5	245.6	223.4
+MAPK1	567.8	589.2	545.3	345.6	356.7	334.5	78.9	76.5	80.1
+MAPK3	234.5	245.6	223.4	567.8	589.2	545.3	123.4	134.5	118.9
+JUN	345.6	356.7	334.5	234.5	245.6	223.4	456.7	467.8	445.6
+FOS	78.9	76.5	80.1	345.6	356.7	334.5	67.8	65.4	69.2
+SRC	456.7	467.8	445.6	78.9	76.5	80.1	234.5	245.6	223.4
+STAT3	123.4	134.5	118.9	567.8	589.2	545.3	345.6	356.7	334.5
+NFKB1	567.8	589.2	545.3	123.4	134.5	118.9	78.9	76.5	80.1
+TNF	234.5	245.6	223.4	456.7	467.8	445.6	234.5	245.6	223.4
+```
+</details>
+
+---
+
+<!-- ## 📂 AULA 11 – CELLDESIGNER E COPASI -->
+
+## AULA 11 – CellDesigner E COPASI
+
+### parametros_repressilator.txt {#parametros_repressilator-txt}
+
+Parâmetros cinéticos do repressilador para simulação no COPASI.
+
+**[parametros_repressilator.txt ⬇️](roteiros/input/parametros_repressilator.txt)**
+
+<details>
+<summary><b>📝 Visualizar conteúdo</b></summary>
+
+```txt
+# ============================================================
+# PARÂMETROS DO REPRESSILADOR
+# Fonte: Elowitz & Leibler (2000) - Nature 403:335-338
+# ============================================================
+
+# TAXAS DE PRODUÇÃO (proteínas por segundo)
+alpha_lacI = 50.0
+alpha_tetR = 50.0
+alpha_cI    = 50.0
+
+# CONSTANTES DE DISSOCIAÇÃO (concentração)
+K_lacI = 100.0
+K_tetR = 100.0
+K_cI    = 100.0
+
+# COEFICIENTES DE HILL (cooperatividade)
+n_lacI = 2.0
+n_tetR = 2.0
+n_cI    = 2.0
+
+# TAXAS DE DEGRADAÇÃO (por segundo)
+delta_lacI = 0.05
+delta_tetR = 0.05
+delta_cI    = 0.05
+
+# TAXAS DE DEGRADAÇÃO DO mRNA (por segundo)
+delta_mRNA_lacI = 0.10
+delta_mRNA_tetR = 0.10
+delta_mRNA_cI    = 0.10
+
+# TAXAS DE TRADUÇÃO (por segundo)
+beta_lacI = 0.10
+beta_tetR = 0.10
+beta_cI    = 0.10
+
+# CONCENTRAÇÕES INICIAIS (moléculas por célula)
+LacI_initial = 10.0
+TetR_initial = 10.0
+CI_initial   = 10.0
+
+# mRNA CONCENTRAÇÕES INICIAIS (moléculas por célula)
+mRNA_lacI_initial = 1.0
+mRNA_tetR_initial = 1.0
+mRNA_cI_initial   = 1.0
+
+# TEMPO DE SIMULAÇÃO
+simulation_duration = 5000.0  # segundos
+simulation_steps    = 10000
+```
+</details>
+
+---
+
+<!-- ## 📥 GUIA RÁPIDO DE DOWNLOAD -->
+
+## Guia Rápido de Download
+
+### Comando para baixar todos os arquivos de uma vez:
+
+```bash
+#!/bin/bash
+# download_all.sh
+
+# Criar diretório
+mkdir -p dados/{fasta,fastq,anotacoes,expressao}
+mkdir -p aulas/aula11
+
+# Download dos arquivos
+echo "Baixando sequencias.fasta..."
+wget -O dados/fasta/sequencias.fasta [URL_BASE]/sequencias.fasta
+
+echo "Baixando adapters.fa..."
+wget -O dados/anotacoes/adapters.fa [URL_BASE]/adapters.fa
+
+echo "Baixando virulence_genes.txt..."
+wget -O dados/anotacoes/virulence_genes.txt [URL_BASE]/virulence_genes.txt
+
+echo "Baixando SRR390728_1.fastq.gz..."
+wget -O dados/fastq/SRR390728_1.fastq.gz [URL_BASE]/SRR390728_1.fastq.gz
+
+echo "Baixando SRR390728_2.fastq.gz..."
+wget -O dados/fastq/SRR390728_2.fastq.gz [URL_BASE]/SRR390728_2.fastq.gz
+
+echo "Baixando Homo_sapiens.GRCh38.104.gtf.xz..."
+wget -O dados/anotacoes/Homo_sapiens.GRCh38.104.gtf.xz [URL_BASE]/Homo_sapiens.GRCh38.104.gtf.xz
+
+echo "Baixando expressao_normalizada.txt..."
+wget -O dados/expressao/expressao_normalizada.txt [URL_BASE]/expressao_normalizada.txt
+
+echo "Baixando parametros_repressilator.txt..."
+wget -O aulas/aula11/parametros_repressilator.txt [URL_BASE]/parametros_repressilator.txt
+
+echo "✅ Download concluído!"
+```
+
+---
+
+<!-- ## 📋 RESUMO DOS ARQUIVOS -->
+
+## Resumo dos Arquivos
+
+| # | Arquivo | Tamanho | Aula |
+|---|---------|---------|------|
+| 1 | `sequencias.fasta` | ~3 KB | 1 |
+| 2 | `adapters.fa` | ~200 B | 3 |
+| 3 | `virulence_genes.txt` | ~1 KB | 5 |
+| 4 | `SRR390728_1.fastq.gz` | ~200 MB | 6 |
+| 5 | `SRR390728_2.fastq.gz` | ~200 MB | 6 |
+| 6 | `Homo_sapiens.GRCh38.104.gtf.xz` | ~150 MB | 7 |
+| 7 | `expressao_normalizada.txt` | ~2 KB | 8 |
+| 8 | `parametros_repressilator.txt` | ~1 KB | 11 |
+
+---
+
+<!-- ## 🔧 INSTRUÇÕES DE DESCOMPACTAÇÃO -->
+
+## Instruções de Descompactação
+
+### Arquivos .gz (FASTQ)
+```bash
+# Os arquivos .gz NÃO precisam ser descompactados para uso
+# As ferramentas (HISAT2, Trimmomatic) trabalham diretamente com .gz
+```
+
+### Arquivo .xz (GTF)
+```bash
+# Descompactar o arquivo GTF
+unxz Homo_sapiens.GRCh38.104.gtf.xz
+# Resultado: Homo_sapiens.GRCh38.104.gtf
+```
+---
+
+<!-- ## 📚 REFERÊNCIAS -->
+
+## Referências
+
+| Arquivo | Fonte | Licença |
+|---------|-------|---------|
+| `SRR390728_*.fastq.gz` | [NCBI SRA](https://www.ncbi.nlm.nih.gov/sra/?term=SRR390728) | Público |
+| `Homo_sapiens.GRCh38.104.gtf.xz` | [Ensembl](https://ftp.ensembl.org/pub/release-104/gtf/homo_sapiens/) | [Ensembl License](https://www.ensembl.org/info/about/legal/disclaimer.html) |
+| Demais arquivos | Material didático | Uso educacional |
+
+---
+
+<!-- **📌 Nota:** Substitua `[URL_BASE]` pelo endereço onde os arquivos estão hospedados. Se estiver usando este arquivo localmente, os links apontarão para a pasta `data/` relativa ao arquivo QMD. -->
+
+**Nota:** Substitua `[URL_BASE]` pelo endereço onde os arquivos estão hospedados. Se estiver usando este arquivo localmente, os links apontarão para a pasta `data/` relativa ao arquivo QMD.

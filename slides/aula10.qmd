@@ -1,0 +1,58 @@
+---
+title: "Aula 10<br>Biologia Sintética"
+format: revealjs
+---
+
+![](10/slide1.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide2.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide3.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide4.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide5.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide6.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide7.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide8.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide9.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide10.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide11.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide12.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide13.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](10/slide14.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}

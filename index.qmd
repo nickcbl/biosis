@@ -1,20 +1,64 @@
 ---
 title: ""
-format: html
-lang: pt-Br
+page-layout: full
 ---
 
-## Bem-vindos
+::: {.hero-section}
+<!-- Coluna 1: Texto -->
+<div>
+  <p class="hero-eyebrow">CI0932 <br> Departamento de Bioquímica e Biologia Molecular · Centro de Ciências · UFC</p>
+  <h1> [Biologia de Sistemas]{.hero-hl} </h1>
+  <!-- <p class="hero-lede">Histórico, grafos, redes e modelos.</p> -->
+  <p class="hero-meta">Prof. Nicholas Barroso</p>
+</div>
 
-Este é o site da disciplina **Biologia de Sistemas - CI0932**.
+<!-- Coluna 2: Imagem -->
+<div class="hero-art">
+  ![](imagens/hero-network2.png)
+</div>
+:::
 
-<!--
-@klamt_2009.
---->
 
-<span style="color: black;">Aqui você encontrará:</span>
+## Recursos da disciplina
 
-- 📚 Módulos
-- 📊 Slides das aulas (<span style="color: red;">CELULAR NA HORIZONTAL</span>)
-- 📝 Listas de exercícios
-- 🔗 Leituras
+::: {.res-grid}
+
+<div class="res-card">
+<div class="mod-node-long n-teal">Módulos</div>
+<a class="stretched-link" href="modulos/modulos.qmd"><strong>Módulos dos assuntos tratados</strong></a>
+<p>9 módulos referentes ao conteúdo da disciplina.</p>
+</div>
+
+<div class="res-card">
+<div class="mod-node-long n-blue">Slides</div>
+<a class="stretched-link" href="slides/slides.qmd"><strong>Slides das aulas</strong></a>
+<p>10 apresentações, uma por aula. Melhor visualização com o celular na horizontal.</p>
+</div>
+
+<div class="res-card">
+<div class="mod-node-long n-purple">Roteiros</div>
+<a class="stretched-link" href="roteiros/roteiros.qmd"><strong>Roteiros práticos</strong></a>
+<p>12 práticas guiadas, com os arquivos de entrada necessários.</p>
+</div>
+
+<div class="res-card">
+<div class="mod-node-long n-green">Listas</div>
+<a class="stretched-link" href="listas/listas.qmd"><strong>Listas de exercícios</strong></a>
+<p>Estudos dirigidos, lógica e biotecnologia.</p>
+</div>
+
+<div class="res-card res-card-soon">
+<div class="mod-node-long n-red">Referências</div>
+<strong>Leituras e vídeos</strong>
+<p>Material complementar organizado por módulo.</p>
+<span class="soon-badge">em breve</span>
+</div>
+
+:::
+
+::: {.stats-bar}
+<div><b>09</b><span>MÓDULOS</span></div>
+<div><b>10</b><span>AULAS EM SLIDES</span></div>
+<div><b>12</b><span>PRÁTICAS</span></div>
+<div><b>04</b><span>LISTAS</span></div>
+:::

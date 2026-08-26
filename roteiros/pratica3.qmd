@@ -1,0 +1,378 @@
+---
+title: "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     pdf-engine: xelatex
+editor: source
+---
+
+## Introdução
+
+A montagem genômica permite reconstruir o genoma de um organismo a partir de milhões de pequenos fragmentos de DNA (_reads_) gerados por tecnologias de sequenciamento de nova geração (NGS). O desafio está em ordenar corretamente as leituras para obter o genoma completo.
+
+A qualidade da montagem depende diretamente da qualidade dos dados de entrada. Reads com baixa qualidade, presença de adaptadores ou contaminações podem levar a montagens fragmentadas, com erros e regiões não resolvidas. Por isso, o controle de qualidade e a limpeza (trimagem) dos dados são etapas fundamentais antes de qualquer montagem.
+
+Nesta aula prática faremos o fluxo de trabalho da montagem genômica, desde a avaliação inicial dos dados até a comparação de diferentes montadores (_assemblers_). Utilizaremos as seguintes ferramentas:
+
+- **FastQC**: para controle de qualidade dos reads;
+- **Trimmomatic**: para limpeza e remoção de adaptadores;
+- **SPAdes, Masurca e MEGAHIT**: três dos mais populares assemblers de genomas, cada um com abordagens algorítmicas distintas;
+- **QUAST**: para avaliação comparativa das montagens geradas.
+
+---
+
+## Objetivos
+
+- Realizar o controle de qualidade de dados de sequenciamento;
+- Executar a limpeza (trimagem) de reads;
+- Montar genomas utilizando diferentes montadores/_assemblers_ (SPAdes, Masurca e MEGAHIT);
+- Comparar e interpretar métricas de qualidade de montagens.
+
+---
+
+## Pré-requisitos
+
+- Conhecimento básico de linha de comando (Linux/Unix);
+- Ferramentas instaladas: FastQC, Trimmomatic, SPAdes, Masurca, MEGAHIT, QUAST;
+- Arquivos de entrada: `reads_R1.fastq.gz` e `reads_R2.fastq.gz` (dados paired-end);
+- Arquivo de adaptadores: `adapters.fa` (ex: TruSeq3-PE.fa).
+
+---
+
+## Fluxograma
+
+```{mermaid}
+flowchart TD
+    A[Início] --> B[Dados de Entrada<br>reads_R1.fastq.gz<br>reads_R2.fastq.gz]
+    
+    B --> C[Parte 1: Controle de Qualidade<br>FastQC]
+    C --> D{Qualidade dos reads<br>é aceitável?}
+    
+    D -->|Não| E[Parte 2: Limpeza<br>TrimmomaticPE]
+    D -->|Sim| F[Pular limpeza]
+    
+    E --> G[Remoção de Adaptadores<br>ILLUMINACLIP]
+    G --> H[Remoção de bases de baixa qualidade<br>LEADING / TRAILING]
+    H --> I[Corte por janela deslizante<br>SLIDINGWINDOW]
+    I --> J[Filtro por comprimento mínimo<br>MINLEN]
+    
+    J --> K[Reads Limpos<br>forward_paired.fastq.gz<br>reverse_paired.fastq.gz]
+    F --> K
+    
+    K --> L[Parte 3: Montagem<br>com SPAdes]
+    K --> M[Parte 4: Montagem<br>com Masurca]
+    K --> N[Parte 5: Montagem<br>com MEGAHIT]
+    
+    L --> O[contigs.fasta<br>SPAdes]
+    M --> P[primary.genome.scf.fasta<br>Masurca]
+    N --> Q[final.contigs.fa<br>MEGAHIT]
+    
+    O --> R[Parte 6: Avaliação<br>Inicial das Montagens]
+    P --> R
+    Q --> R
+    
+    R --> S[Contagem de contigs<br>Tamanho total<br>Maior contig]
+    S --> T[Tabela Comparativa<br>SPAdes vs Masurca vs MEGAHIT]
+    
+    T --> U[Parte 7: Avaliação Detalhada<br>com QUAST]
+    U --> V[Métricas N50, L50,<br>GC%, Mismatches]
+    
+    V --> W[Relatório QUAST<br>report.html]
+    W --> X[Parte 8: Discussão<br>e Interpretação]
+    
+    X --> Y[Qual assembler foi melhor?<br>Por quê?]
+    Y --> Z[Conclusão]
+    
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+
+    class A inicio
+    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y processo
+    class D decisao
+    class Y resultado
+    class Z final
+```
+
+---
+
+## Resumo do Fluxo de Trabalho
+
+```
+Dados Brutos → QC → Limpeza → Montagem → Avaliação → Comparação → Conclusão
+```
+
+---
+
+## Parte 1 – Controle de Qualidade com FastQC
+
+### Execução
+
+Manual: [FastQC Documentation](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
+```bash
+fastqc reads_R1.fastq.gz reads_R2.fastq.gz -o fastqc_results/
+```
+
+### Interpretação dos Relatórios
+
+Abra os arquivos HTML gerados e observe:
+
+- **Qualidade por base (_Per base sequence quality_)**: Boxplots mostrando a pontuação Phred em cada posição. Regiões com qualidade < 20 indicam necessidade de trimagem.
+- **Conteúdo GC (_Per sequence GC content_)**: A distribuição deve ser próxima a uma curva normal. Picos anômalos podem indicar contaminação.
+- **Presença de adaptadores (_Adapter Content_)**: Identifica se adaptadores não foram totalmente removidos.
+- **Níveis de duplicação (_Sequence Duplication Levels_)**: Altos níveis podem indicar viés de PCR.
+
+*Com base nos relatórios, quais etapas de limpeza você considera necessárias?*
+
+---
+
+
+## Parte 2 – Limpeza (Trimagem) com Trimmomatic
+
+
+### Comando
+
+ Trimmomatic é uma ferramenta flexível para remover adaptadores e bases de baixa qualidade. O comando abaixo realiza a trimagem em dados paired-end, gerando arquivos de reads limpos e descartando reads curtas.
+
+**Manual**: [Trimmomatic Manual](http://www.usadellab.org/cms/?page=trimmomatic)
+
+```bash
+TrimmomaticPE \
+    -threads 4 \
+    -phred33 \
+    reads_R1.fastq.gz \
+    reads_R2.fastq.gz \
+    forward_paired.fastq.gz \
+    forward_unpaired.fastq.gz \
+    reverse_paired.fastq.gz \
+    reverse_unpaired.fastq.gz \
+    ILLUMINACLIP:adapters.fa:2:30:10 \
+    LEADING:3 \
+    TRAILING:3 \
+    SLIDINGWINDOW:4:15 \
+    MINLEN:36
+```
+
+
+### Explicação dos Parâmetros
+
+| Parâmetro | Função |
+|-----------|--------|
+| `ILLUMINACLIP:adapters.fa:2:30:10` | Remove adaptadores. Parâmetros: mismatch máximo (2), palíndromo (30), simples (10) |
+| `LEADING:3` | Remove bases com qualidade < 3 no início da read |
+| `TRAILING:3` | Remove bases com qualidade < 3 no final da read |
+| `SLIDINGWINDOW:4:15` | Corta a read quando a média de qualidade em uma janela de 4 bases for < 15 |
+| `MINLEN:36` | Descarta reads com comprimento final < 36 bases |
+
+
+### Verificação Pós-Trimagem
+
+Execute novamente o FastQC nos arquivos `*_paired.fastq.gz` para confirmar a melhoria da qualidade.
+
+*Quantos reads foram descartados? Isso é esperado para seus dados?*
+
+---
+
+
+## Parte 3 – Montagem com SPAdes
+
+Manual: [SPAdes GitHub](https://github.com/ablab/spades)
+
+### Execução
+
+```bash
+spades.py \
+    -1 forward_paired.fastq.gz \
+    -2 reverse_paired.fastq.gz \
+    -o montagem_spades \
+    --careful \
+    -t 8 \
+    -m 64
+```
+
+
+### Parâmetros Importantes
+
+- `--careful`: Reduz erros em montagens de bactérias (modo mais rigoroso);
+- `-t 8`: Número de threads (ajuste conforme seu hardware);
+- `-m 64`: Limite de memória em GB.
+
+
+### Saída Principal
+
+O arquivo de contigs está em: `montagem_spades/contigs.fasta`
+
+---
+
+
+## Parte 4 – Montagem com Masurca
+
+Manual: [Masurca Documentation](https://masurca.readthedocs.io/en/latest/)
+
+### Execução
+
+```bash
+masurca \
+    -i "forward_paired.fastq.gz,reverse_paired.fastq.gz" \
+    -o montagem_masurca \
+    -t 8
+```
+
+
+### Processo
+
+O Masurca gera um script chamado `assemble.sh`. Execute-o para iniciar a montagem:
+
+```bash
+cd montagem_masurca
+./assemble.sh
+```
+
+**Importante:** Não use espaços após a vírgula na lista de arquivos!
+
+
+### Saída Principal
+
+O arquivo de contigs está em: `montagem_masurca/CA/primary.genome.scf.fasta`
+
+---
+
+
+## Parte 5 – Montagem com MEGAHIT
+
+Manual: [MEGAHIT GitHub](https://github.com/voutcn/megahit)
+
+### Execução
+
+```bash
+megahit \
+    -1 forward_paired.fastq.gz \
+    -2 reverse_paired.fastq.gz \
+    -o montagem_megahit \
+    -t 8 \
+    -m 0.9
+```
+
+
+### Parâmetros
+
+- `-m 0.9`: Usa 90% da memória total disponível (ajuste conforme necessário);
+- `-t 8`: Número de threads.
+
+
+### Saída Principal
+
+O arquivo de contigs está em: `montagem_megahit/final.contigs.fa`
+
+---
+
+
+## Parte 6 – Avaliação Inicial das Montagens
+
+Para cada montagem, analise:
+
+```bash
+
+# Contar número de contigs
+grep -c "^>" montagem_spades/contigs.fasta
+
+
+# Tamanho total da montagem
+grep -v "^>" montagem_spades/contigs.fasta | wc -c
+
+
+# Maior contig
+grep -v "^>" montagem_spades/contigs.fasta | awk '{print length($0)}' | sort -nr | head -1
+```
+
+**Monte uma tabela comparativa:**
+
+| Métrica | SPAdes | Masurca | MEGAHIT |
+|---------|--------|---------|---------|
+| Nº de contigs | | | |
+| Tamanho total (bp) | | | |
+| Maior contig (bp) | | | |
+
+---
+
+
+## Parte 7 – Avaliação Detalhada com QUAST
+
+Manual: [QUAST Documentation](http://quast.sourceforge.net/docs/manual.html)
+
+### Execução
+
+```bash
+quast.py \
+    -o quast_results \
+    -t 8 \
+    -m 500 \
+    montagem_spades/contigs.fasta \
+    montagem_masurca/CA/primary.genome.scf.fasta \
+    montagem_megahit/final.contigs.fa \
+    -l "SPAdes,Masurca,MEGAHIT"
+```
+
+
+### Métricas Chave a Interpretar
+
+| Métrica | O que significa | Valor ideal |
+|---------|----------------|-------------|
+| **N50** | Comprimento mínimo dos contigs que cobrem 50% do genoma | Quanto maior, melhor |
+| **L50** | Número de contigs necessários para atingir o N50 | Quanto menor, melhor |
+| **Nº de contigs** | Fragmentação da montagem | Menor é melhor |
+| **Maior contig** | Contig mais longo produzido | Quanto maior, melhor |
+| **GC (%)** | Conteúdo GC estimado | Deve ser compatível com a espécie |
+| **Mismatches por 100 kbp** | Erros de base na montagem | Quanto menor, melhor |
+
+
+### Análise Comparativa
+
+Abra o relatório HTML gerado (`quast_results/report.html`) e compare:
+
+1. Qual assembler produziu o melhor N50?
+2. Qual teve o menor número de contigs?
+3. Há diferenças significativas no conteúdo GC estimado?
+4. Qual montagem você consideraria a melhor e por quê?
+
+---
+
+
+## Parte 8 – Perguntas para Discussão Final
+
+1. **Qualidade dos dados**: Como a qualidade inicial dos reads afetou as montagens?
+2. **Desempenho dos assemblers**: Quais foram as principais diferenças entre SPAdes, Masurca e MEGAHIT?
+3. **Escolha do assembler**: Em quais situações você usaria cada um dos assemblers?
+4. **Limitações**: Quais informações ainda faltam para validar completamente a montagem?
+5. **Próximos passos**: O que você faria para melhorar ainda mais a montagem?
+
+---
+
+
+## Referências e Leituras Recomendadas
+
+- [FastQC Documentation](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- [Trimmomatic Manual](http://www.usadellab.org/cms/?page=trimmomatic)
+- [SPAdes GitHub](https://github.com/ablab/spades)
+- [Masurca Documentation](https://masurca.readthedocs.io/en/latest/)
+- [MEGAHIT GitHub](https://github.com/voutcn/megahit)
+- [QUAST Documentation](http://quast.sourceforge.net/docs/manual.html)
+
+
+---
+

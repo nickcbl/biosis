@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>04 — Modelos – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-88153311022f9caab94f4aecddd0fb53.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="04 — Modelos – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="04 — Modelos – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo4.html">04 — Modelos</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 — Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 — Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 — Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">04 — Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 — Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 — Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 — Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 — Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 — Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 1<br>Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 2<br>Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 3<br>Redes biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 4<br>Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 5<br>Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 6<br>Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 7<br>Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 8<br>Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 9<br>Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/aula10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula 10<br>Biologia Sintética</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Roteiros</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/input/input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 1: Unix Básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 2: Fundamentos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 4 – Predição de Genes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 5 – Anotação Funcional</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 7 – Quantificação e Normalização de RNA-seq</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 9 – Redes de Coexpressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 10 – Identificação de Genes de Virulência em Bactérias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 11 – Redes PPI com STRING e Cytoscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 12 – CellDesigner e COPASI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Listas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_fundamentos_logica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios Clássicos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_biotecnologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios de Lógica de Programação para Biotecnologia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Teste</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/teste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teste de funcionalidades - Quarto MD</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 - Histórico e Conceitos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#níveis-organizacionais-e-escalas-de-tempo" id="toc-níveis-organizacionais-e-escalas-de-tempo" class="nav-link active" data-scroll-target="#níveis-organizacionais-e-escalas-de-tempo"><span class="header-section-number">1</span> Níveis Organizacionais e Escalas de Tempo</a></li>
+  <li><a href="#evolução-e-organismos-modelo" id="toc-evolução-e-organismos-modelo" class="nav-link" data-scroll-target="#evolução-e-organismos-modelo"><span class="header-section-number">2</span> Evolução e Organismos Modelo</a>
+  <ul class="collapse">
+  <li><a href="#evolução" id="toc-evolução" class="nav-link" data-scroll-target="#evolução"><span class="header-section-number">2.1</span> Evolução</a></li>
+  <li><a href="#aplicações" id="toc-aplicações" class="nav-link" data-scroll-target="#aplicações"><span class="header-section-number">2.2</span> Aplicações</a></li>
+  <li><a href="#variações-genéticas" id="toc-variações-genéticas" class="nav-link" data-scroll-target="#variações-genéticas"><span class="header-section-number">2.3</span> Variações Genéticas</a></li>
+  </ul></li>
+  <li><a href="#complexidade-dos-fenômenos-biológicos" id="toc-complexidade-dos-fenômenos-biológicos" class="nav-link" data-scroll-target="#complexidade-dos-fenômenos-biológicos"><span class="header-section-number">3</span> Complexidade dos Fenômenos Biológicos</a></li>
+  <li><a href="#modelos-e-modelagem" id="toc-modelos-e-modelagem" class="nav-link" data-scroll-target="#modelos-e-modelagem"><span class="header-section-number">4</span> Modelos e Modelagem</a>
+  <ul class="collapse">
+  <li><a href="#o-que-é-um-modelo" id="toc-o-que-é-um-modelo" class="nav-link" data-scroll-target="#o-que-é-um-modelo"><span class="header-section-number">4.1</span> O que é um Modelo?</a>
+  <ul class="collapse">
+  <li><a href="#cuidado" id="toc-cuidado" class="nav-link" data-scroll-target="#cuidado"><span class="header-section-number">4.1.1</span> Cuidado</a></li>
+  <li><a href="#exemplos" id="toc-exemplos" class="nav-link" data-scroll-target="#exemplos"><span class="header-section-number">4.1.2</span> Exemplos</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#utilidade-dos-modelos-em-biologia-de-sistemas" id="toc-utilidade-dos-modelos-em-biologia-de-sistemas" class="nav-link" data-scroll-target="#utilidade-dos-modelos-em-biologia-de-sistemas"><span class="header-section-number">5</span> Utilidade dos Modelos em Biologia de Sistemas</a>
+  <ul class="collapse">
+  <li><a href="#afirmações-e-conhecimento" id="toc-afirmações-e-conhecimento" class="nav-link" data-scroll-target="#afirmações-e-conhecimento"><span class="header-section-number">5.1</span> Afirmações e Conhecimento</a></li>
+  <li><a href="#propósito-e-adequação-dos-modelos" id="toc-propósito-e-adequação-dos-modelos" class="nav-link" data-scroll-target="#propósito-e-adequação-dos-modelos"><span class="header-section-number">5.2</span> Propósito e Adequação dos Modelos</a>
+  <ul class="collapse">
+  <li><a href="#exemplos-de-objetivos" id="toc-exemplos-de-objetivos" class="nav-link" data-scroll-target="#exemplos-de-objetivos"><span class="header-section-number">5.2.1</span> Exemplos de Objetivos</a></li>
+  </ul></li>
+  <li><a href="#classificação-por-generalidade" id="toc-classificação-por-generalidade" class="nav-link" data-scroll-target="#classificação-por-generalidade"><span class="header-section-number">5.3</span> Classificação por Generalidade</a></li>
+  <li><a href="#modelagem-e-experimentação" id="toc-modelagem-e-experimentação" class="nav-link" data-scroll-target="#modelagem-e-experimentação"><span class="header-section-number">5.4</span> Modelagem e Experimentação</a></li>
+  <li><a href="#características-dos-modelos" id="toc-características-dos-modelos" class="nav-link" data-scroll-target="#características-dos-modelos"><span class="header-section-number">5.5</span> Características dos Modelos</a>
+  <ul class="collapse">
+  <li><a href="#vantagens-adicionais" id="toc-vantagens-adicionais" class="nav-link" data-scroll-target="#vantagens-adicionais"><span class="header-section-number">5.5.1</span> Vantagens Adicionais</a></li>
+  </ul></li>
+  <li><a href="#modelos-matemáticos-e-computacionais" id="toc-modelos-matemáticos-e-computacionais" class="nav-link" data-scroll-target="#modelos-matemáticos-e-computacionais"><span class="header-section-number">5.6</span> Modelos Matemáticos e Computacionais</a></li>
+  <li><a href="#noções-básicas-de-modelos-computacionais" id="toc-noções-básicas-de-modelos-computacionais" class="nav-link" data-scroll-target="#noções-básicas-de-modelos-computacionais"><span class="header-section-number">5.7</span> Noções Básicas de Modelos Computacionais</a>
+  <ul class="collapse">
+  <li><a href="#escopo-do-modelo" id="toc-escopo-do-modelo" class="nav-link" data-scroll-target="#escopo-do-modelo"><span class="header-section-number">5.7.1</span> Escopo do Modelo</a></li>
+  </ul></li>
+  <li><a href="#declarações-do-modelo" id="toc-declarações-do-modelo" class="nav-link" data-scroll-target="#declarações-do-modelo"><span class="header-section-number">5.8</span> Declarações do Modelo</a>
+  <ul class="collapse">
+  <li><a href="#restrições" id="toc-restrições" class="nav-link" data-scroll-target="#restrições"><span class="header-section-number">5.8.1</span> Restrições</a></li>
+  <li><a href="#postulados-de-otimalidade" id="toc-postulados-de-otimalidade" class="nav-link" data-scroll-target="#postulados-de-otimalidade"><span class="header-section-number">5.8.2</span> Postulados de Otimalidade</a></li>
+  <li><a href="#processos-estocásticos" id="toc-processos-estocásticos" class="nav-link" data-scroll-target="#processos-estocásticos"><span class="header-section-number">5.8.3</span> Processos Estocásticos</a></li>
+  <li><a href="#declarações-probabilísticas" id="toc-declarações-probabilísticas" class="nav-link" data-scroll-target="#declarações-probabilísticas"><span class="header-section-number">5.8.4</span> Declarações Probabilísticas</a></li>
+  </ul></li>
+  <li><a href="#estado-do-sistema" id="toc-estado-do-sistema" class="nav-link" data-scroll-target="#estado-do-sistema"><span class="header-section-number">5.9</span> Estado do Sistema</a>
+  <ul class="collapse">
+  <li><a href="#abordagens-de-modelagem" id="toc-abordagens-de-modelagem" class="nav-link" data-scroll-target="#abordagens-de-modelagem"><span class="header-section-number">5.9.1</span> Abordagens de Modelagem</a></li>
+  <li><a href="#comportamento-temporal" id="toc-comportamento-temporal" class="nav-link" data-scroll-target="#comportamento-temporal"><span class="header-section-number">5.9.2</span> Comportamento Temporal</a></li>
+  </ul></li>
+  <li><a href="#constantes-parâmetros-e-variáveis" id="toc-constantes-parâmetros-e-variáveis" class="nav-link" data-scroll-target="#constantes-parâmetros-e-variáveis"><span class="header-section-number">5.10</span> Constantes, Parâmetros e Variáveis</a>
+  <ul class="collapse">
+  <li><a href="#constante" id="toc-constante" class="nav-link" data-scroll-target="#constante"><span class="header-section-number">5.10.1</span> Constante</a></li>
+  <li><a href="#parâmetro" id="toc-parâmetro" class="nav-link" data-scroll-target="#parâmetro"><span class="header-section-number">5.10.2</span> Parâmetro</a></li>
+  <li><a href="#variável" id="toc-variável" class="nav-link" data-scroll-target="#variável"><span class="header-section-number">5.10.3</span> Variável</a></li>
+  <li><a href="#distinção-importante" id="toc-distinção-importante" class="nav-link" data-scroll-target="#distinção-importante"><span class="header-section-number">5.10.4</span> Distinção Importante</a></li>
+  </ul></li>
+  <li><a href="#comportamento-de-um-modelo" id="toc-comportamento-de-um-modelo" class="nav-link" data-scroll-target="#comportamento-de-um-modelo"><span class="header-section-number">5.11</span> Comportamento de um Modelo</a></li>
+  <li><a href="#classificação-de-modelos" id="toc-classificação-de-modelos" class="nav-link" data-scroll-target="#classificação-de-modelos"><span class="header-section-number">5.12</span> Classificação de Modelos</a>
+  <ul class="collapse">
+  <li><a href="#quanto-à-previsibilidade" id="toc-quanto-à-previsibilidade" class="nav-link" data-scroll-target="#quanto-à-previsibilidade"><span class="header-section-number">5.12.1</span> Quanto à Previsibilidade</a></li>
+  <li><a href="#quanto-à-natureza" id="toc-quanto-à-natureza" class="nav-link" data-scroll-target="#quanto-à-natureza"><span class="header-section-number">5.12.2</span> Quanto à Natureza</a></li>
+  <li><a href="#quanto-à-reversibilidade" id="toc-quanto-à-reversibilidade" class="nav-link" data-scroll-target="#quanto-à-reversibilidade"><span class="header-section-number">5.12.3</span> Quanto à Reversibilidade</a></li>
+  <li><a href="#quanto-à-periodicidade" id="toc-quanto-à-periodicidade" class="nav-link" data-scroll-target="#quanto-à-periodicidade"><span class="header-section-number">5.12.4</span> Quanto à Periodicidade</a></li>
+  </ul></li>
+  <li><a href="#estado-estacionário-steady-state" id="toc-estado-estacionário-steady-state" class="nav-link" data-scroll-target="#estado-estacionário-steady-state"><span class="header-section-number">5.13</span> Estado Estacionário (<em>Steady State</em>)</a>
+  <ul class="collapse">
+  <li><a href="#exemplos-biológicos" id="toc-exemplos-biológicos" class="nav-link" data-scroll-target="#exemplos-biológicos"><span class="header-section-number">5.13.1</span> Exemplos Biológicos</a></li>
+  </ul></li>
+  <li><a href="#não-unicidade-dos-modelos" id="toc-não-unicidade-dos-modelos" class="nav-link" data-scroll-target="#não-unicidade-dos-modelos"><span class="header-section-number">5.14</span> Não Unicidade dos Modelos</a></li>
+  <li><a href="#integração-de-dados-multi-ômicos" id="toc-integração-de-dados-multi-ômicos" class="nav-link" data-scroll-target="#integração-de-dados-multi-ômicos"><span class="header-section-number">5.15</span> Integração de Dados Multi-Ômicos</a></li>
+  <li><a href="#modelos-de-grafos" id="toc-modelos-de-grafos" class="nav-link" data-scroll-target="#modelos-de-grafos"><span class="header-section-number">5.16</span> Modelos de Grafos</a>
+  <ul class="collapse">
+  <li><a href="#comparação-redes-aleatórias-vs.-biológicas" id="toc-comparação-redes-aleatórias-vs.-biológicas" class="nav-link" data-scroll-target="#comparação-redes-aleatórias-vs.-biológicas"><span class="header-section-number">5.16.1</span> Comparação: Redes Aleatórias vs.&nbsp;Biológicas</a></li>
+  <li><a href="#modelo-watts-strogatz-ws" id="toc-modelo-watts-strogatz-ws" class="nav-link" data-scroll-target="#modelo-watts-strogatz-ws"><span class="header-section-number">5.16.2</span> Modelo Watts-Strogatz (WS)</a></li>
+  <li><a href="#modelo-barabási-albert-ba" id="toc-modelo-barabási-albert-ba" class="nav-link" data-scroll-target="#modelo-barabási-albert-ba"><span class="header-section-number">5.16.3</span> Modelo Barabási-Albert (BA)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo4.html">04 — Modelos</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">04 — Modelos</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">25 de agosto de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="níveis-organizacionais-e-escalas-de-tempo" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Níveis Organizacionais e Escalas de Tempo</h1>
+<p>As entidades biológicas e suas propriedades possuem diferentes níveis organizacionais e diferentes escalas de tempo.</p>
+<hr>
+</section>
+<section id="evolução-e-organismos-modelo" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Evolução e Organismos Modelo</h1>
+<section id="evolução" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="evolução"><span class="header-section-number">2.1</span> Evolução</h2>
+<ul>
+<li>As entidades biológicas evoluem.</li>
+<li>A similaridade entre organismos favorece o uso de <strong>organismos modelo</strong>.</li>
+<li>Transferência crítica de conhecimento entre organismos.</li>
+</ul>
+</section>
+<section id="aplicações" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="aplicações"><span class="header-section-number">2.2</span> Aplicações</h2>
+<ul>
+<li>Previsão da função de proteínas similares.</li>
+<li>Reconstrução de árvores filogenéticas.</li>
+<li>Identificação de sequências reguladoras de DNA.</li>
+</ul>
+</section>
+<section id="variações-genéticas" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="variações-genéticas"><span class="header-section-number">2.3</span> Variações Genéticas</h2>
+<ul>
+<li>O processo evolutivo também leva a variações genéticas.</li>
+<li>Exemplo: Medicina personalizada.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="complexidade-dos-fenômenos-biológicos" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Complexidade dos Fenômenos Biológicos</h1>
+<ul>
+<li>Fenômenos biológicos possuem processos complexos.</li>
+<li>Difícil prever o comportamento global a partir do conhecimento das partes.</li>
+<li>Muitas vezes não podem ser explicados por primeiros princípios ou intuição.</li>
+</ul>
+<hr>
+</section>
+<section id="modelos-e-modelagem" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Modelos e Modelagem</h1>
+<ul>
+<li>A modelagem matemática e as simulações computacionais ajudam a entender processos biológicos.</li>
+<li>Permitem previsões sobre desenvolvimento futuro e interações com o ambiente.</li>
+</ul>
+<hr>
+<section id="o-que-é-um-modelo" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="o-que-é-um-modelo"><span class="header-section-number">4.1</span> O que é um Modelo?</h2>
+<ul>
+<li>Representação abstrata de objetos ou processos.</li>
+<li>Explica características do sistema.</li>
+</ul>
+<section id="cuidado" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="cuidado"><span class="header-section-number">4.1.1</span> Cuidado</h3>
+<ul>
+<li>Modelos são sempre aproximações da realidade.</li>
+</ul>
+</section>
+<section id="exemplos" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="exemplos"><span class="header-section-number">4.1.2</span> Exemplos</h3>
+<ul>
+<li>Modelo gráfico de vias metabólicas.</li>
+<li>Modelo de metabolismo em rede.</li>
+<li>Modelo matemático de crescimento bacteriano (ex.: BacSim).</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="utilidade-dos-modelos-em-biologia-de-sistemas" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Utilidade dos Modelos em Biologia de Sistemas</h1>
+<ul>
+<li><strong>Fidelidade</strong>: capacidade de prever o comportamento dinâmico do sistema.</li>
+<li>Baseados em leis físicas (termodinâmica, cinética enzimática).</li>
+<li>Validação experimental é crucial.</li>
+</ul>
+<section id="afirmações-e-conhecimento" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="afirmações-e-conhecimento"><span class="header-section-number">5.1</span> Afirmações e Conhecimento</h2>
+<ul>
+<li>Modelos computacionais fazem afirmações específicas.</li>
+<li>Conhecimento é resumido em formulação matemática.</li>
+<li>O termo “modelo” também se refere a organismos ou linhagens celulares usados em experimentos.</li>
+</ul>
+<hr>
+</section>
+<section id="propósito-e-adequação-dos-modelos" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="propósito-e-adequação-dos-modelos"><span class="header-section-number">5.2</span> Propósito e Adequação dos Modelos</h2>
+<ul>
+<li>Processo subjetivo e seletivo.</li>
+<li>Representam aspectos específicos da realidade.</li>
+</ul>
+<section id="exemplos-de-objetivos" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="exemplos-de-objetivos"><span class="header-section-number">5.2.1</span> Exemplos de Objetivos</h3>
+<ul>
+<li><strong>Prever saídas a partir de entradas</strong>: modelo de caixa-preta (ex.: redes neurais).</li>
+<li><strong>Elucidar mecanismos</strong>: modelo mecanicista com estrutura interna realista.</li>
+</ul>
+</section>
+</section>
+<section id="classificação-por-generalidade" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="classificação-por-generalidade"><span class="header-section-number">5.3</span> Classificação por Generalidade</h2>
+<ul>
+<li><strong>Modelos Gerais</strong>: simplificados e amplamente aplicáveis (ex.: Michaelis-Menten).</li>
+<li><strong>Modelos Específicos</strong>: detalhados e contextualizados (ex.: via metabólica sob hipóxia).</li>
+</ul>
+<blockquote class="blockquote">
+<p>“Essencialmente, todos os modelos estão errados, mas alguns podem ser úteis” — George Box</p>
+</blockquote>
+<hr>
+</section>
+<section id="modelagem-e-experimentação" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="modelagem-e-experimentação"><span class="header-section-number">5.4</span> Modelagem e Experimentação</h2>
+<ul>
+<li>Modelos só têm valor quando comparados com experimentos.</li>
+<li>A qualidade da comparação depende da qualidade dos experimentos.</li>
+</ul>
+<hr>
+</section>
+<section id="características-dos-modelos" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="características-dos-modelos"><span class="header-section-number">5.5</span> Características dos Modelos</h2>
+<ul>
+<li>Dependem de hipóteses rigorosas.</li>
+<li>Revelam lacunas no conhecimento.</li>
+<li>Oferecem independência do objeto real.</li>
+<li>Flexibilidade temporal e espacial.</li>
+<li>Vantajosos economicamente.</li>
+<li>Mitigam questões éticas.</li>
+</ul>
+<section id="vantagens-adicionais" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="vantagens-adicionais"><span class="header-section-number">5.5.1</span> Vantagens Adicionais</h3>
+<ul>
+<li>Simulação de cenários inacessíveis.</li>
+<li>Análise temporal dinâmica.</li>
+<li>Perturbações controladas.</li>
+<li>Reprodutibilidade e varredura de condições.</li>
+<li>Representação clara de resultados.</li>
+<li>Predições testáveis.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="modelos-matemáticos-e-computacionais" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="modelos-matemáticos-e-computacionais"><span class="header-section-number">5.6</span> Modelos Matemáticos e Computacionais</h2>
+<ul>
+<li>Descrição de problemas biológicos com linguagem matemática.</li>
+<li>Ferramentas para testar hipóteses de forma controlada e quantitativa.</li>
+<li>Permitem simular processos complexos sob diversas condições.</li>
+</ul>
+<hr>
+</section>
+<section id="noções-básicas-de-modelos-computacionais" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="noções-básicas-de-modelos-computacionais"><span class="header-section-number">5.7</span> Noções Básicas de Modelos Computacionais</h2>
+<section id="escopo-do-modelo" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="escopo-do-modelo"><span class="header-section-number">5.7.1</span> Escopo do Modelo</h3>
+<ul>
+<li>Descreve apenas alguns aspectos do sistema.</li>
+<li>Exemplo: meio celular e concentração de metabólitos secundários.</li>
+<li>Dificuldade em ignorar características sem comprometer resultados.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="declarações-do-modelo" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="declarações-do-modelo"><span class="header-section-number">5.8</span> Declarações do Modelo</h2>
+<section id="restrições" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="restrições"><span class="header-section-number">5.8.1</span> Restrições</h3>
+<ul>
+<li><strong>Igualdade</strong>: conservação de massa (ex.: <span class="math inline">\(A + B → C\)</span>).</li>
+<li><strong>Desigualdade</strong>: limitam fluxos ou expressão gênica (ex.: <span class="math inline">\(0 ≤ v₁ ≤ V_{max}\)</span>).</li>
+</ul>
+</section>
+<section id="postulados-de-otimalidade" class="level3" data-number="5.8.2">
+<h3 data-number="5.8.2" class="anchored" data-anchor-id="postulados-de-otimalidade"><span class="header-section-number">5.8.2</span> Postulados de Otimalidade</h3>
+<ul>
+<li>Suposição de maximização/minimização de uma função objetivo (ex.: biomassa em FBA).</li>
+</ul>
+</section>
+<section id="processos-estocásticos" class="level3" data-number="5.8.3">
+<h3 data-number="5.8.3" class="anchored" data-anchor-id="processos-estocásticos"><span class="header-section-number">5.8.3</span> Processos Estocásticos</h3>
+<ul>
+<li>Descrevem sistemas com aleatoriedade (ex.: expressão gênica estocástica).</li>
+</ul>
+</section>
+<section id="declarações-probabilísticas" class="level3" data-number="5.8.4">
+<h3 data-number="5.8.4" class="anchored" data-anchor-id="declarações-probabilísticas"><span class="header-section-number">5.8.4</span> Declarações Probabilísticas</h3>
+<ul>
+<li>Atribuem distribuições de probabilidade a parâmetros ou estados.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="estado-do-sistema" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="estado-do-sistema"><span class="header-section-number">5.9</span> Estado do Sistema</h2>
+<ul>
+<li>Representa um instante completo das propriedades relevantes.</li>
+<li>Variáveis de estado: concentrações, números moleculares, níveis de atividade.</li>
+</ul>
+<section id="abordagens-de-modelagem" class="level3" data-number="5.9.1">
+<h3 data-number="5.9.1" class="anchored" data-anchor-id="abordagens-de-modelagem"><span class="header-section-number">5.9.1</span> Abordagens de Modelagem</h3>
+<ul>
+<li><strong>Determinísticos (EDOs)</strong>: vetor de concentrações contínuas.</li>
+<li><strong>Estocásticos (Gillespie)</strong>: contagem discreta de moléculas.</li>
+<li><strong>Booleanos</strong>: vetor binário (0 ou 1) para genes.</li>
+</ul>
+</section>
+<section id="comportamento-temporal" class="level3" data-number="5.9.2">
+<h3 data-number="5.9.2" class="anchored" data-anchor-id="comportamento-temporal"><span class="header-section-number">5.9.2</span> Comportamento Temporal</h3>
+<ul>
+<li>Em sistemas dinâmicos, o estado futuro é determinado pelo atual.</li>
+<li>Em sistemas estocásticos, estados futuros são probabilísticos.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="constantes-parâmetros-e-variáveis" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="constantes-parâmetros-e-variáveis"><span class="header-section-number">5.10</span> Constantes, Parâmetros e Variáveis</h2>
+<section id="constante" class="level3" data-number="5.10.1">
+<h3 data-number="5.10.1" class="anchored" data-anchor-id="constante"><span class="header-section-number">5.10.1</span> Constante</h3>
+<ul>
+<li>Valor fixo e universal (ex.: velocidade da luz, constante de Avogadro).</li>
+</ul>
+</section>
+<section id="parâmetro" class="level3" data-number="5.10.2">
+<h3 data-number="5.10.2" class="anchored" data-anchor-id="parâmetro"><span class="header-section-number">5.10.2</span> Parâmetro</h3>
+<ul>
+<li>Valor fixo dentro de um modelo, mas variável entre contextos (ex.: <span class="math inline">\(V_{max}\)</span> de uma enzima).</li>
+</ul>
+</section>
+<section id="variável" class="level3" data-number="5.10.3">
+<h3 data-number="5.10.3" class="anchored" data-anchor-id="variável"><span class="header-section-number">5.10.3</span> Variável</h3>
+<ul>
+<li>Quantidade que muda ao longo do tempo (ex.: concentração de glucose).</li>
+</ul>
+</section>
+<section id="distinção-importante" class="level3" data-number="5.10.4">
+<h3 data-number="5.10.4" class="anchored" data-anchor-id="distinção-importante"><span class="header-section-number">5.10.4</span> Distinção Importante</h3>
+<ul>
+<li>Parâmetros são constantes durante a simulação, mas podem ser ajustados.</li>
+<li>Variáveis de estado definem o comportamento do sistema.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="comportamento-de-um-modelo" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="comportamento-de-um-modelo"><span class="header-section-number">5.11</span> Comportamento de um Modelo</h2>
+<ul>
+<li>Influências do ambiente (entrada).</li>
+<li>Processos dentro do sistema.</li>
+</ul>
+<hr>
+</section>
+<section id="classificação-de-modelos" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="classificação-de-modelos"><span class="header-section-number">5.12</span> Classificação de Modelos</h2>
+<section id="quanto-à-previsibilidade" class="level3" data-number="5.12.1">
+<h3 data-number="5.12.1" class="anchored" data-anchor-id="quanto-à-previsibilidade"><span class="header-section-number">5.12.1</span> Quanto à Previsibilidade</h3>
+<ul>
+<li><strong>Determinístico</strong>: estado futuro predito a partir do atual.</li>
+<li><strong>Estocástico</strong>: distribuição de probabilidade para estados futuros.</li>
+</ul>
+</section>
+<section id="quanto-à-natureza" class="level3" data-number="5.12.2">
+<h3 data-number="5.12.2" class="anchored" data-anchor-id="quanto-à-natureza"><span class="header-section-number">5.12.2</span> Quanto à Natureza</h3>
+<ul>
+<li><strong>Estrutural/Qualitativo</strong>: descreve componentes e interações sem quantificação.</li>
+<li><strong>Discreto</strong>: tempo, estado e espaço em conjunto enumerável (ex.: redes Booleanas).</li>
+<li><strong>Contínuo</strong>: tempo, estado e espaço em intervalos contínuos (ex.: EDOs).</li>
+</ul>
+</section>
+<section id="quanto-à-reversibilidade" class="level3" data-number="5.12.3">
+<h3 data-number="5.12.3" class="anchored" data-anchor-id="quanto-à-reversibilidade"><span class="header-section-number">5.12.3</span> Quanto à Reversibilidade</h3>
+<ul>
+<li><strong>Reversível</strong>: processo pode ocorrer em ambas as direções (ex.: ligação receptor-ligante).</li>
+<li><strong>Irreversível</strong>: apenas uma direção é favorável (ex.: hidrólise de ATP).</li>
+</ul>
+</section>
+<section id="quanto-à-periodicidade" class="level3" data-number="5.12.4">
+<h3 data-number="5.12.4" class="anchored" data-anchor-id="quanto-à-periodicidade"><span class="header-section-number">5.12.4</span> Quanto à Periodicidade</h3>
+<ul>
+<li><strong>Periódico</strong>: comportamentos que se repetem em intervalos regulares (ex.: ciclos circadianos).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="estado-estacionário-steady-state" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="estado-estacionário-steady-state"><span class="header-section-number">5.13</span> Estado Estacionário (<em>Steady State</em>)</h2>
+<ul>
+<li>Variáveis de estado permanem constantes (d[X]/dt = 0).</li>
+<li>Fluxos ainda ocorrem, mas taxas de entrada e saída se equilibram.</li>
+<li>Conceito central em sistemas abertos (ex.: células).</li>
+</ul>
+<section id="exemplos-biológicos" class="level3" data-number="5.13.1">
+<h3 data-number="5.13.1" class="anchored" data-anchor-id="exemplos-biológicos"><span class="header-section-number">5.13.1</span> Exemplos Biológicos</h3>
+<ul>
+<li>Metabolismo: produção = consumo de metabólitos.</li>
+<li>Homeostase: nível constante de glicose no sangue.</li>
+<li>Expressão gênica: síntese = degradação de proteínas.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="não-unicidade-dos-modelos" class="level2" data-number="5.14">
+<h2 data-number="5.14" class="anchored" data-anchor-id="não-unicidade-dos-modelos"><span class="header-section-number">5.14</span> Não Unicidade dos Modelos</h2>
+<ul>
+<li>Um mesmo processo pode ser modelado de múltiplas formas.</li>
+<li>Diferentes escalas, perspectivas e abstrações.</li>
+<li>Escolha do modelo depende da pergunta biológica.</li>
+<li>Integração de modelos multi-escala é frequentemente necessária.</li>
+</ul>
+<hr>
+</section>
+<section id="integração-de-dados-multi-ômicos" class="level2" data-number="5.15">
+<h2 data-number="5.15" class="anchored" data-anchor-id="integração-de-dados-multi-ômicos"><span class="header-section-number">5.15</span> Integração de Dados Multi-Ômicos</h2>
+<ul>
+<li>Grande volume de dados exige integração.</li>
+<li>Três níveis de integração:
+<ol type="1">
+<li><strong>Baixo nível</strong>: formatos, armazenamento, transferência.</li>
+<li><strong>Alto nível</strong>: representação unificada (ex.: SBML, CellML).</li>
+<li><strong>Interpretativo</strong>: correlação e análise conjunta.</li>
+</ol></li>
+</ul>
+<p><strong>Exemplo de SBML</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">sbml</span> <span class="ot">xmlns=</span><span class="st">"http://www.sbml.org/sbml/level3/version1/core"</span> <span class="ot">level=</span><span class="st">"3"</span> <span class="ot">version=</span><span class="st">"1"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">model</span> <span class="ot">id=</span><span class="st">"simple_model"</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">listOfCompartments</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">compartment</span> <span class="ot">id=</span><span class="st">"compartment"</span> <span class="ot">size=</span><span class="st">"1"</span> <span class="ot">constant=</span><span class="st">"true"</span>/&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">listOfCompartments</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- ... restante do modelo SBML --&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">model</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">sbml</span>&gt;</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="modelos-de-grafos" class="level2" data-number="5.16">
+<h2 data-number="5.16" class="anchored" data-anchor-id="modelos-de-grafos"><span class="header-section-number">5.16</span> Modelos de Grafos</h2>
+<section id="comparação-redes-aleatórias-vs.-biológicas" class="level3" data-number="5.16.1">
+<h3 data-number="5.16.1" class="anchored" data-anchor-id="comparação-redes-aleatórias-vs.-biológicas"><span class="header-section-number">5.16.1</span> Comparação: Redes Aleatórias vs.&nbsp;Biológicas</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Característica</th>
+<th>Rede Erdös-Rényi</th>
+<th>Rede Biológica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Distribuição de graus</td>
+<td>Poisson</td>
+<td>Lei de Potência</td>
+</tr>
+<tr class="even">
+<td>Modularidade</td>
+<td>Ausente</td>
+<td>Presente</td>
+</tr>
+<tr class="odd">
+<td>Coesividade</td>
+<td>Baixa</td>
+<td>Alta</td>
+</tr>
+<tr class="even">
+<td>Mundo Pequeno</td>
+<td>Sim</td>
+<td>Sim</td>
+</tr>
+<tr class="odd">
+<td>Livre de Escala</td>
+<td>Não</td>
+<td>Sim</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="modelo-watts-strogatz-ws" class="level3" data-number="5.16.2">
+<h3 data-number="5.16.2" class="anchored" data-anchor-id="modelo-watts-strogatz-ws"><span class="header-section-number">5.16.2</span> Modelo Watts-Strogatz (WS)</h3>
+<ul>
+<li>Alto agrupamento local + baixo caminho médio.</li>
+<li>Construção: rede regular + reconexões aleatórias.</li>
+<li>Aplicação: espalhamento de doenças infecciosas.</li>
+</ul>
+</section>
+<section id="modelo-barabási-albert-ba" class="level3" data-number="5.16.3">
+<h3 data-number="5.16.3" class="anchored" data-anchor-id="modelo-barabási-albert-ba"><span class="header-section-number">5.16.3</span> Modelo Barabási-Albert (BA)</h3>
+<ul>
+<li>Explica a existência de hubs.</li>
+<li>Baseado em:
+<ul>
+<li><strong>Crescimento</strong>: rede se expande ao longo do tempo.</li>
+<li><strong>Ligação Preferencial</strong>: nós novos conectam-se a hubs.</li>
+</ul></li>
+<li>Gera redes <strong>livres de escala</strong> (distribuição de graus segue lei de potência).</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

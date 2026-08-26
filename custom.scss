@@ -1,0 +1,203 @@
+/*-- scss:defaults --*/
+
+// Paleta extraída das suas artes (logo + banner)
+$navy-0:      #08111f;   // fundo da página
+$navy-1:      #0c1c30;   // cards, navbar
+$navy-2:      #112846;   // hover / elementos elevados
+$border-soft: rgba(148,163,184,.14);
+
+$teal:   #2dd4bf;
+$green:  #3ddc97;
+$blue:   #4f8ff7;
+$purple: #9b7bf0;
+
+$text-0: #f3f6fa;   // texto principal
+$text-1: #a9b6c9;   // texto secundário
+$text-2: #6d7c92;   // texto apagado / legendas
+
+// Variáveis do Bootstrap/Quarto
+$body-bg:    $navy-0;
+$body-color: $text-0;
+$link-color: $teal;
+
+$navbar-bg: $navy-1;
+$navbar-fg: $text-0;
+$navbar-hl: $teal;
+
+$code-bg:    $navy-1;
+$code-color: $teal;
+$code-block-bg: $navy-1;
+
+$font-family-sans-serif: "Inter", -apple-system, "Segoe UI", sans-serif;
+$headings-font-family:   "Space Grotesk", "Segoe UI", sans-serif;
+$font-family-monospace:  "JetBrains Mono", "SFMono-Regular", monospace;
+
+$h1-font-size: 2.4rem;
+$headings-font-weight: 700;
+$border-radius: 10px;
+$headings-color: $text-0;
+
+/*-- scss:rules --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+body { line-height: 1.65; }
+
+// ---- Navbar ----
+.navbar {
+  border-bottom: 1px solid $border-soft;
+  backdrop-filter: blur(10px);
+}
+.navbar-brand { font-family: $headings-font-family; font-weight: 700; }
+.navbar-brand img { border-radius: 50%; border: 1px solid rgba(148,163,184,.28); }
+
+// ---- Sidebar (se você migrar Módulos/Slides/Roteiros para sidebar) ----
+.sidebar { background: $navy-1; border-right: 1px solid $border-soft; }
+.sidebar-item a { color: $text-1; }
+.sidebar-item a:hover, .sidebar-item a.active { color: $teal; }
+
+// ---- Cards de conteúdo (usadas na home e em grids de módulo) ----
+.card, .mod-card, .res-card {
+  background: $navy-1;
+  border: 1px solid $border-soft;
+  border-radius: 14px;
+  padding: 1.4rem;
+  transition: border-color .15s, transform .15s;
+}
+.mod-card, .res-card {
+  position: relative;
+}
+.res-card-soon { opacity: .55; }
+.soon-badge {
+  display: inline-block;
+  margin-top: .5rem;
+  font-family: $font-family-monospace;
+  font-size: .65rem;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.28);
+  color: $text-2;
+}
+
+.mod-card:hover, .res-card:hover {
+  border-color: rgba(148,163,184,.28);
+  transform: translateY(-2px);
+}
+
+// Badge circular numerado (o "nó" da rede) usado para numerar módulos
+.mod-node {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: $font-family-monospace;
+  font-weight: 500; font-size: .8rem;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
+.mod-node-long {
+  width: 110px; height: 38px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: $font-family-monospace;
+  font-weight: 500; font-size: .8rem;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
+.n-teal   { color: $teal;   border-color: $teal;   background: rgba(45,212,191,.08); }
+.n-green  { color: $green;  border-color: $green;  background: rgba(61,220,151,.08); }
+.n-blue   { color: $blue;   border-color: $blue;   background: rgba(79,143,247,.08); }
+.n-purple { color: $purple; border-color: $purple; background: rgba(155,123,240,.08); }
+.n-red    { color: $red;    border-color: $red;    background: rgba(240,82,82,.08); }
+
+// ---- Hero da home ----
+.hero-hl {
+  background: linear-gradient(90deg, $teal, $blue 55%, $purple);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// ---- Badge "em construção" no rodapé, no lugar do texto em caixa alta ----
+.status-badge {
+  font-family: $font-family-monospace;
+  font-size: .7rem;
+  padding: .3rem .7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.28);
+  color: $text-2;
+}
+
+footer.footer { border-top: 1px solid $border-soft; }
+
+// ---- Layout da home ----
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+.hero-eyebrow {
+  font-family: $font-family-monospace;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: $teal;
+}
+.hero-lede { color: $text-1; font-size: 1.05rem; max-width: 46ch; margin: 1rem 0 1.5rem; }
+.hero-meta { color: $text-1; font-size: .85rem; margin-bottom: 1.5rem; }
+// .hero-art { border-radius: 18px; overflow: hidden; border: 1px solid $border-soft; }
+// .hero-art img { width: 100%; display: block; }
+
+.hero-art {
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid $border-soft;
+    height: 500px;
+}
+
+.hero-art img {
+    width: auto;
+    height: 500px;
+    display: block;
+}
+
+.cta-row .btn {
+  font-family: $font-family-sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: .7rem 1.3rem;
+  margin-right: .6rem;
+}
+.btn-teal { background: $teal; color: #04211c; border: none; }
+.btn-outline { border: 1px solid rgba(148,163,184,.28); color: $text-0; background: transparent; }
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid $border-soft;
+  border-bottom: 1px solid $border-soft;
+  padding: 1.5rem 0;
+  margin: 1rem 0 3rem;
+  text-align: center;
+}
+.stats-bar div { border-left: 1px solid $border-soft; }
+.stats-bar div:first-child { border-left: none; }
+.stats-bar b { display: block; font-family: $headings-font-family; font-size: 1.6rem; }
+.stats-bar span { font-family: $font-family-monospace; font-size: .7rem; color: $text-2; }
+
+.modules-grid, .res-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1.5rem 0 3rem;
+}
+.res-grid { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 860px) {
+  .hero-section { grid-template-columns: 1fr; }
+  .modules-grid, .res-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .modules-grid, .res-grid { grid-template-columns: 1fr; }
+}

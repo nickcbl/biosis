@@ -1,6 +1,13 @@
 ---
-title: "Referências Completas"
+title: ""
 bibliography: ref.bib
 reference-location: document
 lang: pt-Br
+nocite: |
+    @*
 ---
+
+# Referências
+
+::: {#refs}
+:::
