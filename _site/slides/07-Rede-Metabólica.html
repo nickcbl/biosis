@@ -7,11 +7,14 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
-  <meta name="author" content="Author">
-  <title>CI0932 - Biologia de Sistemas – Presentation Title</title>
+  <meta name="author" content="Nicholas Barroso">
+  <title>CI0932 - Biologia de Sistemas – 07   Rede Metabólicas</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -21,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -32,6 +38,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -125,10 +197,10 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
+<meta property="og:title" content="07  Rede Metabólicas – CI0932 - Biologia de Sistemas">
 <meta property="og:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
 <meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
-<meta name="twitter:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="07  Rede Metabólicas – CI0932 - Biologia de Sistemas">
 <meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -137,177 +209,146 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Presentation Title</h1>
+  <h1 class="title">07 <br> Rede Metabólicas</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author 
+Nicholas Barroso
 </div>
 </div>
 </div>
 
 </section>
-<section id="biologia-de-sistemas" class="title-slide slide level1 center">
-<h1>Biologia de Sistemas</h1>
-
-</section>
-
-<section>
-<section id="rede-metabólica" class="title-slide slide level1 center">
-<h1>07 - Rede Metabólica</h1>
-
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
 <section id="redes-metabólicas" class="title-slide slide level1 center">
 <h1>Redes metabólicas</h1>
 <ul>
-<li class="fragment">Se refere a rede composta de metabólitos e suas interconversões.</li>
-<li class="fragment">As interconversões são usualmente catalisadas por enzimas (proteínas).</li>
-<li class="fragment"><strong>Via metabólica</strong> : é uma série de reações bioquímicas sucessivas ou intimamente relacionadas e ligadas a um propósito metabólico comum.
+<li>Se refere a rede composta de metabólitos e suas interconversões.</li>
+<li>As interconversões são usualmente catalisadas por enzimas (proteínas).</li>
+<li>Via metabólica : é uma série de reações bioquímicas sucessivas ou intimamente relacionadas e ligadas a um propósito metabólico comum.
 <ul>
-<li class="fragment">Pode ser considerada uma porção menor da rede metabólica;</li>
-<li class="fragment">Enquanto a rede metabólica dá uma visão mais completa do metabolismo celular.</li>
+<li>Pode ser considerada uma porção menor da rede metabólica;</li>
+<li>Enquanto a rede metabólica dá uma visão mais completa do metabolismo celular.</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="rede-metabólica-cont." class="title-slide slide level1 center">
 <h1>Rede metabólica (cont.)</h1>
-<p>Uma rede metabólica completa deve mostrar todos os possíveis modos de fluxo de material dentro da célula, indicando assim a capacidade e potencial metabólico da célula.</p>
-<p>A célula depende dessa rede metabólica para absorver e digerir substratos do meio e gerar energia ( na forma de ATP) e sintetizar componentes necessários para seu crescimento e sobrevivência.</p>
+<ul>
+<li><p>Uma rede metabólica completa deve mostrar todos os possíveis modos de fluxo de material dentro da célula, indicando assim a capacidade e potencial metabólico da célula.</p></li>
+<li><p>A célula depende dessa rede metabólica para absorver e digerir substratos do meio e gerar energia ( na forma de ATP) e sintetizar componentes necessários para seu crescimento e sobrevivência.</p></li>
+</ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="redes-metabólicas-cont." class="title-slide slide level1 center">
 <h1>Redes metabólicas (cont.)</h1>
-<p><strong>É de grande interesse estudar a </strong> <em>rede metabólica</em> __ por sua importância fundamental na biologia no geral mas em particular porque várias aplicações funcionam diretamente no uso do __ <em>metabolismo celular</em> <strong>.</strong></p>
+<ul>
+<li>É de grande interesse estudar a <em>rede metabólica</em> por sua importância fundamental na biologia no geral mas em particular porque várias aplicações funcionam diretamente no uso do <em>metabolismo celular</em>.</li>
+</ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="redes-metabólicas-cont.-1" class="title-slide slide level1 center">
 <h1>Redes metabólicas (cont.)</h1>
 <ul>
-<li class="fragment">Biotecnologistas modificam células:
+<li>Biotecnologistas modificam células:
 <ul>
-<li class="fragment">Fábricas celulares para produção, por exemplo, de produtos químicos, antibióticos, enzimas industriais e anticorpos.</li>
+<li>Fábricas celulares para produção, por exemplo, de produtos químicos, antibióticos, enzimas industriais e anticorpos.</li>
 </ul></li>
-<li class="fragment">Em biomedicina:
+<li>Em biomedicina:
 <ul>
-<li class="fragment">Melhor entendimento dos mecanismos metabólicos de doenças metabólicas humanas.</li>
-<li class="fragment">Controle de infecções bacterianas fazendo uso das diferenças metabólicas entre os seres humanos e os patógenos.</li>
+<li>Melhor entendimento dos mecanismos metabólicos de doenças metabólicas humanas.</li>
+<li>Controle de infecções bacterianas fazendo uso das diferenças metabólicas entre os seres humanos e os patógenos.</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-<p>Tornaram possível a <strong>reconstrução</strong> de redes metabólicas de um organismo específico em nível de <strong>genoma</strong> .</p>
-</section></section>
-<section id="ômicas" class="title-slide slide level1 center">
-<h1>Ômicas!</h1>
-
+<section id="ômicas-e-bioinformática" class="title-slide slide level1 center">
+<h1>Ômicas! <br> e bioinformática</h1>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Tornaram possível a reconstrução de redes metabólicas de um organismo específico em nível de genoma.</p>
+</div>
+</div>
+</div>
 </section>
 
-<section>
-<section id="e-bioinformática" class="title-slide slide level1 center">
-<h1>e bioinformática</h1>
-
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
 <section id="visualização-e-representação-em-grafo" class="title-slide slide level1 center">
 <h1>Visualização e representação em grafo</h1>
 <ul>
-<li class="fragment">Pode ser representado como um grafo com dois tipos diferentes de vértices em ordem alternada:
+<li>Pode ser representado como um grafo com dois tipos diferentes de vértices em ordem alternada:
 <ul>
-<li class="fragment">Metabólitos</li>
-<li class="fragment">Enzimas</li>
+<li>Metabólitos</li>
+<li>Enzimas</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="visualização-e-representação-em-grafo-cont." class="title-slide slide level1 center">
 <h1>Visualização e representação em grafo (cont.)</h1>
+<div class="columns">
+<div class="column">
 <ul>
-<li class="fragment"><strong>P</strong> <strong>odem também ser representadas por grafos direcionados com vértices representando metabólitos e arestas correspondendo a reações convertendo um metabólito em outro.</strong></li>
-<li class="fragment"><strong>Essa simplificação é útil para a análise estrutural</strong></li>
-<li class="fragment"><strong>PROBLEMA</strong>
+<li>Podem também ser representadas por grafos direcionados com vértices representando metabólitos e arestas correspondendo a reações convertendo um metabólito em outro.</li>
+<li>Essa simplificação é útil para a análise estrutural</li>
+<li><strong>PROBLEMA</strong>
 <ul>
-<li class="fragment"><strong>Nessa representação, </strong> <strong>metabólitos moeda</strong> __ podem oferecer pequenos caminhos espúrios.__</li>
+<li>Nessa representação, metabólitos moeda podem oferecer pequenos caminhos espúrios.</li>
 </ul></li>
 </ul>
+</div><div class="column">
+<p><a href="img/07-Rede-Metabolica_0.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/07-Rede-Metabolica_0.png"></a></p>
+</div></div>
 </section>
 <section class="slide level2">
 
-
-<img data-src="img/07 - Rede Metabólica_0.png" class="r-stretch"></section>
-<section class="slide level2">
-
-
-<img data-src="img/07 - Rede Metabólica_1.png" class="r-stretch"><p><strong>Com metabólitos moeda</strong></p>
-<p><strong>Sem</strong> __ metabólitos moeda__</p>
-</section>
-<section class="slide level2">
-
+<p><a href="img/07-Rede-Metabolica_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="img/07-Rede-Metabolica_1.png"></a></p>
+<!-- Aqui coloquei essa tag <pre> para poder ter os TABs e posicionar as palavras embaixo das figuras. É uma figura só com dois quadros. Então fica com um caption só -->
+<pre>                     <b>Com metabólitos moeda</b>                                      <b>Sem metabólitos moeda</b></pre>
+<!-- # Reconstrução metabólica em escala genômica{.nostretch} -->
 </section></section>
 <section>
-<section id="reconstrução-metabólica-em-escala-genômica" class="title-slide slide level1 center">
-<h1>Reconstrução metabólica em escala genômica</h1>
-<p><strong>Concatenação dos dados, disseminação e uso</strong></p>
-<p><strong>Criação de uma reconstrução rascunho</strong></p>
-<p><strong>Curadoria Manual</strong></p>
-<p><strong>Avaliação da rede</strong></p>
-<p><strong>Converter a rede para um modelo matemático</strong></p>
+<section id="reconstrução-metabólica-genômica" class="title-slide slide level1 center" data-background-iframe="about:blank">
+<h1>Reconstrução metabólica genômica</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="07-Rede-Metabólica_files/figure-revealjs/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="07-Rede-Metabólica_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%;height:100.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
 
-<img data-src="img/07 - Rede Metabólica_2.png" class="r-stretch"></section>
+<img data-src="img/07-Rede-Metabolica_2.png" class="r-stretch quarto-figure quarto-figure-center"></section>
 <section class="slide level2">
 
 
-<img data-src="img/07 - Rede Metabólica_3.png" class="r-stretch"></section>
-<section class="slide level2">
-
-<ul>
-<li class="fragment"><strong>O que precisamos para começar:</strong></li>
-<li class="fragment"><strong>Genoma anotado</strong>
-<ul>
-<li class="fragment">Coordenadas genômicas;</li>
-<li class="fragment">Funções conhecidas de produtos gênicos;</li>
-<li class="fragment">Isoformas de splicing;</li>
-</ul></li>
-<li class="fragment"><strong>Genes com função metabólica precisam ser identificados</strong>
-<ul>
-<li class="fragment">EC number;</li>
-<li class="fragment">Termos metabólicos (desidrogenase ou quinase por exemplo);</li>
-<li class="fragment">Ou termos do Gene Ontology relacionados ao metabolismo;</li>
-</ul></li>
-</ul>
-</section></section>
-<section>
+<img data-src="img/07-Rede-Metabolica_3.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
 <section id="estágio-1-criação-de-uma-reconstrução-rascunho" class="title-slide slide level1 center">
 <h1>Estágio 1: Criação de uma reconstrução rascunho</h1>
-
+<ul>
+<li>O que precisamos para começar:</li>
+<li>Genoma anotado
+<ul>
+<li>Coordenadas genômicas;</li>
+<li>Funções conhecidas de produtos gênicos;</li>
+<li>Isoformas de splicing;</li>
+</ul></li>
+<li>Genes com função metabólica precisam ser identificados
+<ul>
+<li>EC number;</li>
+<li>Termos metabólicos (desidrogenase ou quinase por exemplo);</li>
+<li>Ou termos do Gene Ontology relacionados ao metabolismo;</li>
+</ul></li>
+</ul>
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="estágio-1-criação-de-uma-reconstrução-rascunho-cont." class="title-slide slide level1 center">
 <h1>Estágio 1: Criação de uma reconstrução rascunho (cont.)</h1>
@@ -319,18 +360,12 @@ Author
 <section class="slide level2">
 
 
-<img data-src="img/07 - Rede Metabólica_4.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
+<img data-src="img/07-Rede-Metabolica_4.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
 <section id="de-onde-vem-essa-informação" class="title-slide slide level1 center">
 <h1>De onde vem essa informação?</h1>
 
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="bancos-de-dados" class="title-slide slide level1 center">
 <h1>Bancos de dados!</h1>
@@ -344,123 +379,95 @@ Author
 </section>
 <section class="slide level2">
 
-
-<img data-src="img/07 - Rede Metabólica_5.png" class="r-stretch"></section>
-<section class="slide level2">
-
+<p><a href="img/07-Rede-Metabolica_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="img/07-Rede-Metabolica_5.png"></a></p>
 </section></section>
-<section>
 <section id="estágio-2-curadoria-manual" class="title-slide slide level1 center">
 <h1>Estágio 2: Curadoria Manual</h1>
 <p>O processo de curadoria manual é feito na rede metabólica rascunho.</p>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="estágio-2-curadoria-manual-cont." class="title-slide slide level1 center">
 <h1>Estágio 2: Curadoria Manual (cont.)</h1>
-<p>Para a maioria dos organismos, a anotação é feita baseada em <strong>homologia</strong> .</p>
+<p>Para a maioria dos organismos, a anotação é feita baseada em homologia .</p>
 <p><em>Por isso, reconstruções baseadas somente na anotação do genoma podem conter vários erros propagados.</em></p>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="estágio-2-curadoria-manual-cont.-1" class="title-slide slide level1 center">
 <h1>Estágio 2: Curadoria Manual (cont.)</h1>
 <ul>
-<li class="fragment">Grande esforço precisa ser feito para:
+<li>Grande esforço precisa ser feito para:
 <ul>
-<li class="fragment">verificar se todas as reações</li>
-<li class="fragment">verificar se genes incluídos estão realmente presentes no organismo</li>
-<li class="fragment">verificar que todas as reações e genes estejam incluídas na reconstrução.</li>
+<li>verificar se todas as reações</li>
+<li>verificar se genes incluídos estão realmente presentes no organismo</li>
+<li>verificar que todas as reações e genes estejam incluídas na reconstrução.</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="e2---curadoria-manual-informações-adicionais-e-verificação" class="title-slide slide level1 center">
 <h1>E2 - Curadoria Manual: Informações adicionais e verificação</h1>
 <ul>
-<li class="fragment">Especificidade substrato-cofator, pode variar entre organismos
+<li>Especificidade substrato-cofator, pode variar entre organismos
 <ul>
-<li class="fragment">Literatura ou banco de dados.</li>
+<li>Literatura ou banco de dados.</li>
 </ul></li>
-<li class="fragment">Localização das reações.
+<li>Localização das reações.
 <ul>
-<li class="fragment">Algoritmos, literatura ou dados experimentais.</li>
-<li class="fragment">Determinar a localização, se for determinada, as reações devem ser colocadas no citosol.</li>
-<li class="fragment">Importante devido a disponibilidade de metabólitos em cada compartimento e por causa das reações de transporte.</li>
+<li>Algoritmos, literatura ou dados experimentais.</li>
+<li>Determinar a localização, se for determinada, as reações devem ser colocadas no citosol.</li>
+<li>Importante devido a disponibilidade de metabólitos em cada compartimento e por causa das reações de transporte.</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="e2---curadoria-manual-informações-adicionais-e-verificação-cont." class="title-slide slide level1 center">
 <h1>E2 - Curadoria Manual: Informações adicionais e verificação (cont.)</h1>
 <ul>
-<li class="fragment">A relação gene-proteína-reação ( <strong>GPR</strong> ) deve ser encontrada.
+<li>A relação gene-proteína-reação ( GPR ) deve ser encontrada.
 <ul>
-<li class="fragment">Dado em formato lógico.</li>
-<li class="fragment">Exemplos
+<li>Dado em formato lógico.</li>
+<li>Exemplos
 <ul>
-<li class="fragment">pykA e pykF: proteínas PykA e PykF.</li>
-<li class="fragment"><strong>Ambos podem catalisar a reação de piruvato quinase, assim pykA OU pykF.</strong></li>
-<li class="fragment">sdhA, sdhB, sdhC e sdhD são necessários para formação da proteína Sdh, que catalisa a reação irreversível da succinato desidrogenase na fosforilação oxidativa.</li>
-<li class="fragment"><strong>A</strong> <strong>ssim sdhA </strong> <strong>E sdhB </strong> <strong>E sdhC </strong> <strong>E sdhD são necessário para a reação.</strong></li>
+<li>pykA e pykF: proteínas PykA e PykF.</li>
+<li>Ambos podem catalisar a reação de piruvato quinase, assim pykA OU pykF.</li>
+<li>sdhA, sdhB, sdhC e sdhD são necessários para formação da proteína Sdh, que catalisa a reação irreversível da succinato desidrogenase na fosforilação oxidativa.</li>
+<li>A ssim sdhA E sdhB E sdhC E sdhD são necessário para a reação.</li>
 </ul></li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="e2---curadoria-manual-informações-adicionais-e-verificação-cont.-1" class="title-slide slide level1 center">
 <h1>E2 - Curadoria Manual: Informações adicionais e verificação (cont.)</h1>
 <ul>
-<li class="fragment">Confirmar a fórmula química de cada metabólito.
+<li>Confirmar a fórmula química de cada metabólito.
 <ul>
-<li class="fragment">Também determinar a fórmula carregada do metabólito no compartimento celular de acordo com o pH encontrado.</li>
+<li>Também determinar a fórmula carregada do metabólito no compartimento celular de acordo com o pH encontrado.</li>
 </ul></li>
-<li class="fragment">Verificar se as reações estão balanceadas em carga e massa.
+<li>Verificar se as reações estão balanceadas em carga e massa.
 <ul>
-<li class="fragment">Algumas reações podem requerer a adição de água ou prótons.</li>
+<li>Algumas reações podem requerer a adição de água ou prótons.</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-<p>Nem todas as reações são catalisadas por enzimas, além disso, alguns metabólitos difundem facilmente através da membrana.</p>
-<p><strong>Reações Espontâneas!</strong></p>
-<p><strong>Reações de Transporte!</strong></p>
-</section></section>
-<section>
 <section id="e2---curadoria-manual-incorporação-de-reações-espontâneas-e-de-transporte" class="title-slide slide level1 center">
 <h1>E2 - Curadoria Manual: Incorporação de reações espontâneas e de transporte</h1>
-
+<p>Nem todas as reações são catalisadas por enzimas, além disso, alguns metabólitos difundem facilmente através da membrana.</p>
+<p>Reações Espontâneas!</p>
+<p>Reações de Transporte!</p>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="e2---curadoria-manual-incorporação-de-reações-espontâneas-e-de-transporte-cont." class="title-slide slide level1 center">
 <h1>E2 - Curadoria Manual: Incorporação de reações espontâneas e de transporte (cont.)</h1>
-<p>Se existir evidência de transporte do meio para a célula, da célula para o meio e entre compartimentos, essas reações <strong>devem</strong> ser descritas.</p>
+<p>Se existir evidência de transporte do meio para a célula, da célula para o meio e entre compartimentos, essas reações devem ser descritas.</p>
 <p>Na eventualidade das reações de transporte não serem conhecidas, se pode fazer uma reação análoga se existir alguma parecida em outro organismo mas se deve anotar que a informação não é precisa.</p>
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="e2---curadoria-manual-a-reação-de-biomassa" class="title-slide slide level1 center">
 <h1>E2 - Curadoria Manual: a reação de biomassa</h1>
-<p><strong>Função objetivo de Biomassa</strong></p>
+<p>Função objetivo de Biomassa</p>
 <p>É um modelo de rede metabólica que simula crescimento.</p>
 <p>É uma representação matemática da quantidades molares de vários metabólitos necessários para fazer os componentes celulares para crescimento.</p>
 <p>É necessário saber a composição geral da célula em termos de lipídios, proteínas, carboidratos …</p>
@@ -470,102 +477,100 @@ Author
 <p>A Reação de Biomassa é uma reação artificial (não catalisada por uma enzima específica) adicionada ao modelo metabólico. Ela representa o conjunto de todos os componentes celulares necessários (em suas proporções molares exatas) para a célula formar uma nova unidade de biomassa, ou seja, para ela crescer e se dividir.</p>
 <p>Pense nela como uma <em>lista de compras</em> extremamente detalhada que a célula precisa ter para poder se duplicar.</p>
 
-<img data-src="img/07 - Rede Metabólica_6.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
+<img data-src="img/07-Rede-Metabolica_6.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
 <section id="fórmula-de-biomassa-para-bactérias-gram-negativas" class="title-slide slide level1 center">
 <h1>Fórmula de biomassa para bactérias gram-negativas</h1>
-<p>(0) Glutationa + (0) Ubiquinona-8 + (0.51) Glicina + (0.01) Fosfatidilglicerol dianteisoheptadecanoil + (0.03) Polímero de Peptidoglicano (n subunidades) + (0) Fosfato de Piridoxal + (0) Fe³⁺ + (0.38) L-Leucina + (0) ACP + (0.43) L-Alanina + (0) Hemo + (0) Biossíntese Proteica + (0) Cobinamida + (0) Replicação do DNA + (0.18) L-Serina + (0) 5-Metiltetrahidrofolato + (0.01) Fosfatidiletanolamina dioctadecanoil + (35.54) H₂O + (0) FAD + (0.01) Cardiolipina isoheptadecanoil + (0) Espermidina + (0) 2-Desmetilmenaquinona 8 + (0.24) L-Isoleucina + (0.35) L-Valina + (0) Menaquinona 8 + (0) 10-Formiltetrahidrofolato + (0) Coenzima A + (0.15) L-Fenilalanina + (0) Tetrahidrofolato + (0.29) L-Lisina + (0.01) dCTP + (0) Siroheme + (0.02) TTP + (0.01) Fosfatidilglicerol dioctadecanoil + (0) Co²⁺ + (40.11) ATP + (0) Mn²⁺ + (0) Transcrição de RNA + (0.01) Fosfatidiletanolamina dianteisoheptadecanoil + (0) Mg²⁺ + (0) S-Adenosil-L-Metionina + (0.09) UTP + (0.01) Fosfatidilglicerol diisoheptadecanoil + (0.01) Cardiolipina anteisoheptadecanoil + (0.13) L-Metionina + (0.08) L-Histidina + (0) TPP + (0.08) L-Cisteína + (0.08) CTP + (0) Fe²⁺ + (0) Sulfato + (0) Putrescina + (0) Cu²⁺ + (0.22) L-Glutamato + (0) Zn²⁺ + (0.20) L-Asparagina + (0.25) L-Arginina + (0.05) L-Triptofano + (0) Ca²⁺ + (0.18) L-Prolina + (0) Cl⁻ + (0.03) Bactoprenil Difosfato + (0.03) Oligossacarídeo Central do Lipídio A + (0.02) dATP + (0.22) L-Glutamina + (0) Riboflavina + (0.01) Cardiolipina estearoil + (0) NAD + (0.12) L-Tirosina + (0) K⁺ + (0.21) L-Treonina + (0.20) L-Aspartato + (0.01) Fosfatidiletanolamina diisoheptadecanoil + (0.14) GTP + (0) NADP + (0.01) dGTP</p>
+<ol start="0" type="1">
+<li>Glutationa + (0) Ubiquinona-8 + (0.51) Glicina + (0.01) Fosfatidilglicerol dianteisoheptadecanoil + (0.03) Polímero de Peptidoglicano (n subunidades) + (0) Fosfato de Piridoxal + (0) Fe³⁺ + (0.38) L-Leucina + (0) ACP + (0.43) L-Alanina + (0) Hemo + (0) Biossíntese Proteica + (0) Cobinamida + (0) Replicação do DNA + (0.18) L-Serina + (0) 5-Metiltetrahidrofolato + (0.01) Fosfatidiletanolamina dioctadecanoil + (35.54) H₂O + (0) FAD + (0.01) Cardiolipina isoheptadecanoil + (0) Espermidina + (0) 2-Desmetilmenaquinona 8 + (0.24) L-Isoleucina + (0.35) L-Valina + (0) Menaquinona 8 + (0) 10-Formiltetrahidrofolato + (0) Coenzima A + (0.15) L-Fenilalanina + (0) Tetrahidrofolato + (0.29) L-Lisina + (0.01) dCTP + (0) Siroheme + (0.02) TTP + (0.01) Fosfatidilglicerol dioctadecanoil + (0) Co²⁺ + (40.11) ATP + (0) Mn²⁺ + (0) Transcrição de RNA + (0.01) Fosfatidiletanolamina dianteisoheptadecanoil + (0) Mg²⁺ + (0) S-Adenosil-L-Metionina + (0.09) UTP + (0.01) Fosfatidilglicerol diisoheptadecanoil + (0.01) Cardiolipina anteisoheptadecanoil + (0.13) L-Metionina + (0.08) L-Histidina + (0) TPP + (0.08) L-Cisteína + (0.08) CTP + (0) Fe²⁺ + (0) Sulfato + (0) Putrescina + (0) Cu²⁺ + (0.22) L-Glutamato + (0) Zn²⁺ + (0.20) L-Asparagina + (0.25) L-Arginina + (0.05) L-Triptofano + (0) Ca²⁺ + (0.18) L-Prolina + (0) Cl⁻ + (0.03) Bactoprenil Difosfato + (0.03) Oligossacarídeo Central do Lipídio A + (0.02) dATP + (0.22) L-Glutamina + (0) Riboflavina + (0.01) Cardiolipina estearoil + (0) NAD + (0.12) L-Tirosina + (0) K⁺ + (0.21) L-Treonina + (0.20) L-Aspartato + (0.01) Fosfatidiletanolamina diisoheptadecanoil + (0.14) GTP + (0) NADP + (0.01) dGTP</li>
+</ol>
 <p>⟶</p>
-<p>(0.03) Polímero de Peptidoglicano (n-1 subunidades) + (0) Apo-ACP + (0) Dimetilbenzimidazol + (1.00) <strong>BIOMASSA</strong> + (40.00) Fosfato + (40.00) ADP + (40.00) H⁺ + (0.48) Pirofosfato + (0) Cobinamida</p>
+<p>(0.03) Polímero de Peptidoglicano (n-1 subunidades) + (0) Apo-ACP + (0) Dimetilbenzimidazol + (1.00) BIOMASSA + (40.00) Fosfato + (40.00) ADP + (40.00) H⁺ + (0.48) Pirofosfato + (0) Cobinamida</p>
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="fórmula-de-biomassa-para-bactérias-gram-negativas-cont." class="title-slide slide level1 center">
 <h1>Fórmula de biomassa para bactérias gram-negativas (cont.)</h1>
 <ul>
-<li class="fragment">- 1 unidade do metabólito BIOMASSA na verdade, simulando a produção das seguintes categorias de moléculas:</li>
-<li class="fragment"><strong>1. Macromoléculas Estruturais e Informacionais:</strong></li>
-<li class="fragment">Proteínas: A maior fração da biomassa (~55% do peso seco em muitas bactérias).</li>
-<li class="fragment">RNA: Ribossomal (rRNA), de transferência (tRNA) e mensageiro (mRNA).</li>
-<li class="fragment">DNA: O genoma celular.</li>
-<li class="fragment">Parede Celular: Principalmente Peptidoglicano (um polímero de açúcares e aminoácidos) em bactérias.</li>
-<li class="fragment">Membrana Celular: Composta por um dupla camada de Lipídios, incluindo:
-<ul>
-<li class="fragment">Fosfolipídios (ex: Fosfatidiletanolamina, Fosfatidilglicerol)</li>
-<li class="fragment">Cardiolipinas</li>
-<li class="fragment">Outros lipídios da membrana.</li>
+<li><ul>
+<li>1 unidade do metabólito BIOMASSA na verdade, simulando a produção das seguintes categorias de moléculas:</li>
 </ul></li>
-<li class="fragment"><strong>2. Moléculas Complexas e Cofatores:</strong></li>
-<li class="fragment">Cofatores Enzimáticos e Vitaminas: Moléculas essenciais para a função das enzimas.
+<li><ol type="1">
+<li>Macromoléculas Estruturais e Informacionais:</li>
+</ol></li>
+<li>Proteínas: A maior fração da biomassa (~55% do peso seco em muitas bactérias).</li>
+<li>RNA: Ribossomal (rRNA), de transferência (tRNA) e mensageiro (mRNA).</li>
+<li>DNA: O genoma celular.</li>
+<li>Parede Celular: Principalmente Peptidoglicano (um polímero de açúcares e aminoácidos) em bactérias.</li>
+<li>Membrana Celular: Composta por um dupla camada de Lipídios, incluindo:
 <ul>
-<li class="fragment">Exemplos: NAD, NADP, FAD, Coenzima A (CoA), Fosfato de Piridoxal, Hemo, Tetrahidrofolato.</li>
+<li>Fosfolipídios (ex: Fosfatidiletanolamina, Fosfatidilglicerol)</li>
+<li>Cardiolipinas</li>
+<li>Outros lipídios da membrana.</li>
 </ul></li>
-<li class="fragment">Pigmentos e Quinonas: Envolvidos em processos como a respiração.
+<li><ol start="2" type="1">
+<li>Moléculas Complexas e Cofatores:</li>
+</ol></li>
+<li>Cofatores Enzimáticos e Vitaminas: Moléculas essenciais para a função das enzimas.
 <ul>
-<li class="fragment">Exemplos: Ubiquinona, Menaquinona.</li>
+<li>Exemplos: NAD, NADP, FAD, Coenzima A (CoA), Fosfato de Piridoxal, Hemo, Tetrahidrofolato.</li>
 </ul></li>
-<li class="fragment">Íons Inorgânicos: Necessários como cofatores para enzimas e para o balanço iônico.
+<li>Pigmentos e Quinonas: Envolvidos em processos como a respiração.
 <ul>
-<li class="fragment">Exemplos: K⁺, Mg²⁺, Ca²⁺, Fe²⁺/³⁺, Zn²⁺.</li>
+<li>Exemplos: Ubiquinona, Menaquinona.</li>
 </ul></li>
-<li class="fragment"><strong>3. Metabólitos de Reserva e Pequenas Moléculas:</strong></li>
-<li class="fragment">Compostos de Armazenamento: Como glicogênio (açúcares) ou grânulos de lipídios, dependendo do organismo.</li>
-<li class="fragment">Moléculas Sinalizadoras e Intermediárias: Presentes no <em>pool</em> metabólico da célula.</li>
+<li>Íons Inorgânicos: Necessários como cofatores para enzimas e para o balanço iônico.
+<ul>
+<li>Exemplos: K⁺, Mg²⁺, Ca²⁺, Fe²⁺/³⁺, Zn²⁺.</li>
+</ul></li>
+<li><ol start="3" type="1">
+<li>Metabólitos de Reserva e Pequenas Moléculas:</li>
+</ol></li>
+<li>Compostos de Armazenamento: Como glicogênio (açúcares) ou grânulos de lipídios, dependendo do organismo.</li>
+<li>Moléculas Sinalizadoras e Intermediárias: Presentes no <em>pool</em> metabólico da célula.</li>
 </ul>
 </section>
 <section class="slide level2">
 
-
-<img data-src="img/07 - Rede Metabólica_7.png" class="r-stretch"></section>
-<section class="slide level2">
-
+<p><a href="img/07-Rede-Metabolica_7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="img/07-Rede-Metabolica_7.png"></a></p>
 </section></section>
-<section>
 <section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático" class="title-slide slide level1 center">
 <h1>Estágio 3: Convertendo a rede em um modelo matemático</h1>
 <ul>
-<li class="fragment">Para ser usada como uma <strong>ferramenta preditiva</strong> , a reconstrução deve ser convertida em um modelo matemático.</li>
-<li class="fragment">Um modelo metabólico é a forma computável da reconstrução da rede metabólica</li>
-<li class="fragment">Para ser um modelo matemático a rede deve:
+<li>Para ser usada como uma ferramenta preditiva , a reconstrução deve ser convertida em um modelo matemático.</li>
+<li>Um modelo metabólico é a forma computável da reconstrução da rede metabólica</li>
+<li>Para ser um modelo matemático a rede deve:
 <ul>
-<li class="fragment">Ser descrita matematicamente;</li>
-<li class="fragment">Fornecer os limites do modelo em relação ao que entra e ao que sai do modelo;</li>
+<li>Ser descrita matematicamente;</li>
+<li>Fornecer os limites do modelo em relação ao que entra e ao que sai do modelo;</li>
 </ul></li>
-<li class="fragment">A conversão da rede para sua forma matemática é feita na construção de uma <strong>matriz estequiométrica</strong> .</li>
+<li>A conversão da rede para sua forma matemática é feita na construção de uma matriz estequiométrica .</li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático-cont." class="title-slide slide level1 center">
 <h1>Estágio 3: Convertendo a rede em um modelo matemático (cont.)</h1>
 <ul>
-<li class="fragment">Matriz estequiométrica</li>
-<li class="fragment">Cada metabólito é posto numa linha.</li>
-<li class="fragment">Cada reação é uma coluna.</li>
-<li class="fragment">Os elementos são os coeficientes de cada metabólito em uma reação específica.
+<li>Matriz estequiométrica</li>
+<li>Cada metabólito é posto numa linha.</li>
+<li>Cada reação é uma coluna.</li>
+<li>Os elementos são os coeficientes de cada metabólito em uma reação específica.
 <ul>
-<li class="fragment">Metabólitos que são consumidos tem coeficiente negativo</li>
-<li class="fragment">Metabólitos que são sintetizados tem coeficiente positivo</li>
+<li>Metabólitos que são consumidos tem coeficiente negativo</li>
+<li>Metabólitos que são sintetizados tem coeficiente positivo</li>
 </ul></li>
-<li class="fragment">Metabólitos que são obtidos do meio ou secretados para ele são descritos em reações de troca.
+<li>Metabólitos que são obtidos do meio ou secretados para ele são descritos em reações de troca.
 <ul>
-<li class="fragment">Essas reações permitem que o sistema receba e exporte metabólitos.</li>
-<li class="fragment">Valores máximos e mínimos podem ser colocados para as reações de troca.</li>
+<li>Essas reações permitem que o sistema receba e exporte metabólitos.</li>
+<li>Valores máximos e mínimos podem ser colocados para as reações de troca.</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<p>Hefzi H et al .2013. <strong>Reconstruction of Genome Scale Metabolic Network. Hand Book of System Biology: Concept and Insight</strong> . First Edition. Elsevier</p>
-
-<img data-src="img/07 - Rede Metabólica_8.png" class="r-stretch"><p><strong>Matriz Estequiométrica</strong></p>
+<p>Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book of System Biology: Concept and Insight . First Edition. Elsevier</p>
+<p><a href="img/07-Rede-Metabolica_8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="img/07-Rede-Metabolica_8.png"></a></p>
+<p>Matriz Estequiométrica</p>
 <aside class="notes">
 <p>Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book of System Biology: Concept and Insight. First Edition. Elsevier</p>
 <style type="text/css">
@@ -579,186 +584,176 @@ Author
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático-cont.-1" class="title-slide slide level1 center">
 <h1>Estágio 3: Convertendo a rede em um modelo matemático (cont.)</h1>
 <ul>
-<li class="fragment">Matriz estequiométrica, mais detalhes:</li>
-<li class="fragment">Pseudo-reações podem ser adicionadas.</li>
-<li class="fragment">Essa reações são usadas quando sabemos que existem metabólitos que são gerados ou consumidos além do escopo do nosso modelo
+<li>Matriz estequiométrica, mais detalhes:</li>
+<li>Pseudo-reações podem ser adicionadas.</li>
+<li>Essa reações são usadas quando sabemos que existem metabólitos que são gerados ou consumidos além do escopo do nosso modelo
 <ul>
-<li class="fragment">Reações de demanda</li>
-<li class="fragment">Reações fornecimento</li>
+<li>Reações de demanda</li>
+<li>Reações fornecimento</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-
-<img data-src="img/07 - Rede Metabólica_9.png" class="r-stretch"></section>
-<section class="slide level2">
-
+<p><a href="img/07-Rede-Metabolica_9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="img/07-Rede-Metabolica_9.png"></a></p>
 </section></section>
 <section>
 <section id="depois-da-transformação-matemática" class="title-slide slide level1 center">
 <h1>Depois da transformação matemática</h1>
 <ul>
-<li class="fragment">O modelo pode ser usado para simular como as vias são usadas.</li>
-<li class="fragment"><em>Flux balance analysis</em> (FBA)
+<li>O modelo pode ser usado para simular como as vias são usadas.</li>
+<li><em>Flux balance analysis</em> (FBA)
 <ul>
-<li class="fragment">Assume um estado estacionário</li>
-<li class="fragment">S . v =0</li>
-<li class="fragment">v, o vetor de fluxo.</li>
+<li>Assume um estado estacionário</li>
+<li>S . v =0</li>
+<li>v, o vetor de fluxo.</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-
-<img data-src="img/07 - Rede Metabólica_10.png" class="r-stretch"></section>
-<section class="slide level2">
-
+<p><a href="img/07-Rede-Metabolica_10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="img/07-Rede-Metabolica_10.png"></a></p>
 </section></section>
-<section>
-<section id="estágio-4-avaliação-da-rede" class="title-slide slide level1 center">
+<section id="estágio-4-avaliação-da-rede" class="title-slide slide level1 smaller center">
 <h1>Estágio 4: Avaliação da rede</h1>
 <ul>
-<li class="fragment">Existem vários testes</li>
-<li class="fragment">Teste topológico
+<li>Existem vários testes
 <ul>
-<li class="fragment">Verificação de reações a mais ou faltando, assim como rever o balanço de massas e carga.</li>
-<li class="fragment">Verificação da localização dos metabólitos.</li>
+<li><strong>Teste topológico</strong>
+<ul>
+<li>Verificação de reações a mais ou faltando, assim como rever o balanço de massas e carga.</li>
+<li>Verificação da localização dos metabólitos.</li>
 </ul></li>
-<li class="fragment">Teste termodinâmico
+<li>Teste termodinâmico
 <ul>
-<li class="fragment">Verificar a reversibilidade das reações.</li>
-<li class="fragment">Informação em bancos de dados. Algoritmos especializados.</li>
+<li>Verificar a reversibilidade das reações.</li>
+<li>Informação em bancos de dados. Algoritmos especializados.</li>
 </ul></li>
-<li class="fragment">Teste Fenotípico
+<li>Teste Fenotípico
 <ul>
-<li class="fragment">Testar a habilidade do modelo de reproduzir algum aspecto fenotípico.</li>
+<li>Testar a habilidade do modelo de reproduzir algum aspecto fenotípico.</li>
 </ul></li>
-<li class="fragment">Teste Quantitativo
+<li>Teste Quantitativo
 <ul>
-<li class="fragment">É crítico testar o modelo na sua capacidade de predição de parâmetros quantitativos.
+<li>É crítico testar o modelo na sua capacidade de predição de parâmetros quantitativos.
 <ul>
-<li class="fragment">Erros: crescer quando não deveria, não crescer quando deveria, crescimento mais rápido ou mais devagar do que deveria.</li>
+<li>Erros: crescer quando não deveria, não crescer quando deveria, crescimento mais rápido ou mais devagar do que deveria.</li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-<p>GapFilling</p>
+<section id="gapfilling" class="title-slide slide level1 center">
+<h1>GapFilling</h1>
 <p>Nessa etapa, informações novas são usadas para preencher lacunas nos modelos.</p>
-</section></section>
-<section>
+</section>
+
 <section id="resolução" class="title-slide slide level1 center">
 <h1>Resolução</h1>
-
+<p><a href="img/07-Rede-Metabolica_11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="img/07-Rede-Metabolica_11.png"></a></p>
 </section>
-<section class="slide level2">
 
-
-<img data-src="img/07 - Rede Metabólica_11.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
 <section>
-<section id="estágio-5-concatenação-dos-dados-disseminação-e-uso" class="title-slide slide level1 center">
+<section id="estágio-5-concatenação-dos-dados-disseminação-e-uso" class="title-slide slide level1 smaller center">
 <h1>Estágio 5: Concatenação dos dados, disseminação e uso</h1>
-<p>Uma vez que a reconstrução termina, é importante que ela seja disponibilizada.</p>
-<p>Geralmente se usa o SBML</p>
-<p>BioModels Database</p>
-<p>BioPAX</p>
-<p>CellML</p>
-<p>MIASE</p>
-<p>MIRIAM</p>
-<p>Systems Biology Ontology</p>
-<p>Systems Biology Graphical Notation</p>
-<p>&lt;?xml version=“1.0” encoding=“UTF-8”?&gt;</p>
-<p>&lt;sbml xmlns=“http://www.sbml.org/sbml/level2/version4” level=“2” version=“4”&gt;</p>
-<p>&lt;model id=“modelo_exemplo” name=“Conversao_A_para_B”&gt;</p>
-<p>&lt;listOfCompartments&gt;</p>
-<p>&lt;compartment id=“compartimento” size=“1” constant=“true”/&gt;</p>
-<p>&lt;/listOfCompartments&gt;</p>
-<p>&lt;listOfSpecies&gt;</p>
-<p>&lt;species id=“A” compartment=“compartimento” initialConcentration=“10” boundaryCondition=“false”/&gt;</p>
-<p>&lt;species id=“B” compartment=“compartimento” initialConcentration=“0” boundaryCondition=“false”/&gt;</p>
-<p>&lt;/listOfSpecies&gt;</p>
-<p>&lt;listOfParameters&gt;</p>
-<p>&lt;parameter id=“k1” value=“0.1” constant=“true”/&gt;</p>
-<p>&lt;/listOfParameters&gt;</p>
-<p>&lt;listOfReactions&gt;</p>
-<p>&lt;reaction id=“reacao1” reversible=“false”&gt;</p>
-<p>&lt;listOfReactants&gt;</p>
-<p>&lt;speciesReference species=“A”/&gt;</p>
-<p>&lt;/listOfReactants&gt;</p>
-<p>&lt;listOfProducts&gt;</p>
-<p>&lt;speciesReference species=“B”/&gt;</p>
-<p>&lt;/listOfProducts&gt;</p>
-<p>&lt;kineticLaw&gt;</p>
-<p>&lt;math xmlns=“http://www.w3.org/1998/Math/MathML”&gt;</p>
-<p>&lt;apply&gt;</p>
-<p>&lt;times/&gt;</p>
-<p>&lt;ci&gt; k1 &lt;/ci&gt;</p>
-<p>&lt;ci&gt; A &lt;/ci&gt;</p>
-<p>&lt;/apply&gt;</p>
-<p>&lt;/math&gt;</p>
-<p>&lt;/kineticLaw&gt;</p>
-<p>&lt;/reaction&gt;</p>
-<p>&lt;/listOfReactions&gt;</p>
-<p>&lt;/model&gt;</p>
-<p>&lt;/sbml&gt;</p>
+<p>Uma vez que a reconstrução termina, é importante que ela seja disponibilizada. Geralmente se usa o SBML, mas também temos:</p>
+<ul>
+<li>BioModels Database</li>
+<li>BioPAX</li>
+<li>CellML</li>
+<li>MIASE</li>
+<li>MIRIAM</li>
+<li>Systems Biology Ontology</li>
+<li>Systems Biology Graphical Notation</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="op">&lt;</span><span class="ex">?xml</span> version=<span class="st">"1.0"</span> encoding=<span class="st">"UTF-8"</span><span class="pp">?</span><span class="op">&gt;</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="op">&lt;</span>sbml <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.sbml.org/sbml/level2/version4"</span> <span class="va">level</span><span class="op">=</span><span class="st">"2"</span> <span class="va">version</span><span class="op">=</span><span class="st">"4"</span><span class="op">&gt;</span></span>
+<span id="cb1-3"><a aria-label="3"></a>  <span class="op">&lt;</span>model <span class="va">id</span><span class="op">=</span><span class="st">"modelo_exemplo"</span> <span class="va">name</span><span class="op">=</span><span class="st">"Conversao_A_para_B"</span><span class="op">&gt;</span></span>
+<span id="cb1-4"><a aria-label="4"></a>    <span class="op">&lt;</span>listOfCompartments<span class="op">&gt;</span></span>
+<span id="cb1-5"><a aria-label="5"></a>      <span class="op">&lt;</span>compartment <span class="va">id</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">size</span><span class="op">=</span><span class="st">"1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-6"><a aria-label="6"></a>    <span class="op">&lt;</span>/listOfCompartments<span class="op">&gt;</span></span>
+<span id="cb1-7"><a aria-label="7"></a>    <span class="op">&lt;</span>listOfSpecies<span class="op">&gt;</span></span>
+<span id="cb1-8"><a aria-label="8"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"A"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"10"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-9"><a aria-label="9"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"B"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"0"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-10"><a aria-label="10"></a>    <span class="op">&lt;</span>/listOfSpecies<span class="op">&gt;</span></span>
+<span id="cb1-11"><a aria-label="11"></a>    <span class="op">&lt;</span>listOfParameters<span class="op">&gt;</span></span>
+<span id="cb1-12"><a aria-label="12"></a>      <span class="op">&lt;</span>parameter <span class="va">id</span><span class="op">=</span><span class="st">"k1"</span> <span class="va">value</span><span class="op">=</span><span class="st">"0.1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-13"><a aria-label="13"></a>    <span class="op">&lt;</span>/listOfParameters<span class="op">&gt;</span></span>
+<span id="cb1-14"><a aria-label="14"></a>    <span class="op">&lt;</span>listOfReactions<span class="op">&gt;</span></span>
+<span id="cb1-15"><a aria-label="15"></a>      <span class="op">&lt;</span>reaction <span class="va">id</span><span class="op">=</span><span class="st">"reacao1"</span> <span class="va">reversible</span><span class="op">=</span><span class="st">"false"</span><span class="op">&gt;</span></span>
+<span id="cb1-16"><a aria-label="16"></a>        <span class="op">&lt;</span>listOfReactants<span class="op">&gt;</span></span>
+<span id="cb1-17"><a aria-label="17"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"A"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-18"><a aria-label="18"></a>        <span class="op">&lt;</span>/listOfReactants<span class="op">&gt;</span></span>
+<span id="cb1-19"><a aria-label="19"></a>        <span class="op">&lt;</span>listOfProducts<span class="op">&gt;</span></span>
+<span id="cb1-20"><a aria-label="20"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"B"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-21"><a aria-label="21"></a>        <span class="op">&lt;</span>/listOfProducts<span class="op">&gt;</span></span>
+<span id="cb1-22"><a aria-label="22"></a>        <span class="op">&lt;</span>kineticLaw<span class="op">&gt;</span></span>
+<span id="cb1-23"><a aria-label="23"></a>          <span class="op">&lt;</span>math <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.w3.org/1998/Math/MathML"</span><span class="op">&gt;</span></span>
+<span id="cb1-24"><a aria-label="24"></a>            <span class="op">&lt;</span>apply<span class="op">&gt;</span></span>
+<span id="cb1-25"><a aria-label="25"></a>            <span class="op">&lt;</span>times/<span class="op">&gt;</span></span>
+<span id="cb1-26"><a aria-label="26"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> k1 <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
+<span id="cb1-27"><a aria-label="27"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> A <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
+<span id="cb1-28"><a aria-label="28"></a>            <span class="op">&lt;</span>/apply<span class="op">&gt;</span></span>
+<span id="cb1-29"><a aria-label="29"></a>          <span class="op">&lt;</span>/math<span class="op">&gt;</span></span>
+<span id="cb1-30"><a aria-label="30"></a>        <span class="op">&lt;</span>/kineticLaw<span class="op">&gt;</span></span>
+<span id="cb1-31"><a aria-label="31"></a>      <span class="op">&lt;</span>/reaction<span class="op">&gt;</span></span>
+<span id="cb1-32"><a aria-label="32"></a>    <span class="op">&lt;</span>/listOfReactions<span class="op">&gt;</span></span>
+<span id="cb1-33"><a aria-label="33"></a>  <span class="op">&lt;</span>/model<span class="op">&gt;</span></span>
+<span id="cb1-34"><a aria-label="34"></a><span class="op">&lt;</span>/sbml<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 
-<img data-src="img/07 - Rede Metabólica_12.png" class="r-stretch"></section>
+<img data-src="img/07-Rede-Metabolica_12.png" class="r-stretch quarto-figure quarto-figure-center"></section>
 <section class="slide level2">
 
 
-<img data-src="img/07 - Rede Metabólica_13.png" class="r-stretch"></section></section>
-<section>
+<img data-src="img/07-Rede-Metabolica_13.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
 <section id="aplicações-de-reconstruções-metabólicas" class="title-slide slide level1 center">
 <h1>Aplicações de Reconstruções metabólicas</h1>
 
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="modularidade" class="title-slide slide level1 center">
 <h1>Modularidade</h1>
 <p>A modularidade em redes metabólicas é um princípio organizacional fundamental que explica como a complexidade celular é gerenciada.</p>
 <p>A modularidade das redes metabólicas está associada a robustez, adaptabilidade e eficiência dos sistemas vivos.</p>
 <p>É uma ferramenta crucial para engenharia metabólica e para a medicina.</p>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section id="modularidade-exemplo" class="title-slide slide level1 center">
+<section id="modularidade-exemplo" class="title-slide slide level1 smaller center">
 <h1>Modularidade: exemplo</h1>
+<div class="columns">
+<div class="column">
 <ul>
-<li class="fragment">Condição 1: Oxigênio Pleno (Aerobiose)
+<li>Condição 1: Oxigênio Pleno (Aerobiose)
 <ul>
-<li class="fragment">Módulo Ativo 1: Glicólise (quebra a glicose até piruvato).</li>
-<li class="fragment">Módulo Ativo 2: Ciclo de Krebs (oxida o piruvato).</li>
-<li class="fragment">Módulo Ativo 3: Cadeia Transportadora de Elétrons (produz ATP).</li>
-<li class="fragment">Acoplamento: O módulo 1 alimenta o módulo 2 com piruvato, e o módulo 2 alimenta o módulo 3 com NADH. O resultado é uma produção eficiente de ATP.</li>
-</ul></li>
-<li class="fragment">Condição 2: Sem Oxigênio (Anaerobiose)
-<ul>
-<li class="fragment">Módulo Ativo 1: Glicólise (continua funcionando).</li>
-<li class="fragment">Módulo Inativo 2 e 3: Ciclo de Krebs e CTE são drasticamente reduzidos.</li>
-<li class="fragment">Módulo Ativo Alternativo: Fermentação (um módulo menor que recicla o NAD+ necessário para a glicólise continuar).</li>
-<li class="fragment">Mudança Modular: A célula desliga módulos inteiros que dependem de oxigênio e ativa um módulo alternativo para manter a produção de energia, mesmo que de forma menos eficiente.</li>
+<li>Módulo Ativo 1: Glicólise (quebra a glicose até piruvato).</li>
+<li>Módulo Ativo 2: Ciclo de Krebs (oxida o piruvato).</li>
+<li>Módulo Ativo 3: Cadeia Transportadora de Elétrons (produz ATP).</li>
+<li>Acoplamento: O módulo 1 alimenta o módulo 2 com piruvato, e o módulo 2 alimenta o módulo 3 com NADH. O resultado é uma produção eficiente de ATP.</li>
 </ul></li>
 </ul>
+</div><div class="column">
+<ul>
+<li>Condição 2: Sem Oxigênio (Anaerobiose)
+<ul>
+<li>Módulo Ativo 1: Glicólise (continua funcionando).</li>
+<li>Módulo Inativo 2 e 3: Ciclo de Krebs e CTE são drasticamente reduzidos.</li>
+<li>Módulo Ativo Alternativo: Fermentação (um módulo menor que recicla o NAD+ necessário para a glicólise continuar).</li>
+<li>Mudança Modular: A célula desliga módulos inteiros que dependem de oxigênio e ativa um módulo alternativo para manter a produção de energia, mesmo que de forma menos eficiente.</li>
+</ul></li>
+</ul>
+</div></div>
 
 
 </section>
@@ -766,7 +761,7 @@ Author
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Organization</p>
+<p>Nicholas Barroso</p>
 </div>
 </div></div>
 
@@ -978,6 +973,44 @@ Author
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
@@ -1146,6 +1179,38 @@ Author
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

@@ -70,7 +70,7 @@ Literatura
 :::
 
 
-# DNA $\rightarrow$ Genes
+# DNA $rightarrow$ Genes
 
 
 ::: {style="display: flex; width: 100%; margin: 2.5em auto; justify-content: center; align-items: center;"}
@@ -208,7 +208,7 @@ A diferença está no método de detecção:
 | **Reprodutibilidade** | Alta reprodutibilidade técnica entre plataformas. | Maior sensibilidade para mudanças biológicas sutis. | Microarranjo ideal para estudos longitudinais grandes. |
 | **Resolução** | Mede apenas o que foi projetado. | Resolução de nucleotídeo único (edição, alelos). | RNA-Seq mapeia a regulação pós-transcricional. |
 | **Custo & Computação** | Custo moderado; bioinformática simples. | Custo mais alto; exige infraestrutura robusta. | Orçamento e expertise limitam a escolha da plataforma. |
-| **Workflow** | Padronizado (qualidade $\rightarrow$ normalização $\rightarrow$ dif.). | Complexo (alinhamento, assembly, quantificação). | Requer pipelines robustos para integração em modelos. |
+| **Workflow** | Padronizado (qualidade $rightarrow$ normalização $rightarrow$ dif.). | Complexo (alinhamento, assembly, quantificação). | Requer pipelines robustos para integração em modelos. |
 | **Aplicação Ideal** | Validação em larga escala; painéis específicos. | Descoberta *ab initio*; integração multiômica. | RNA-Seq constrói modelos; Microarranjo valida hipóteses. |
 
 

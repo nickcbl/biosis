@@ -19,9 +19,9 @@ format:
 ---
 
 
-São redes em que temos proteínas como vértices e uma aresta quando as proteínas apresentarem interação entre si\.
+São redes em que temos proteínas como vértices e uma aresta quando as proteínas apresentarem interação entre si.
 
-São grafos não\-direcionados\.
+São grafos não-direcionados.
 
 # Redes de interação proteína-proteína (cont.)
 
@@ -29,7 +29,7 @@ São grafos não\-direcionados\.
 ---
 
 
-No foco das redes de interação proteína\-proteína definimos como  __interação __ quando um proteína interage fisicamente com outra proteína  _in vivo_ \.
+No foco das redes de interação proteína-proteína definimos como  interação  quando um proteína interage fisicamente com outra proteína  _in vivo_ .
 
 # Interação entre proteínas
 
@@ -43,20 +43,20 @@ No foco das redes de interação proteína\-proteína definimos como  __interaç
 
 
 
-* A interação entre as proteínas deve ser específica\, excluindo aquelas interações que acontecem ao acaso\.
-* Também é importante excluir aquelas interações da proteína de quando ela está sendo feita\, dobrada\, checada ou degrada\.
-  * Exemplo: as proteínas podem em algum momento tocar o ribossomo\, chaperonas e proteassoma\.
+* A interação entre as proteínas deve ser específica, excluindo aquelas interações que acontecem ao acaso.
+* Também é importante excluir aquelas interações da proteína de quando ela está sendo feita, dobrada, checada ou degrada.
+  * Exemplo: as proteínas podem em algum momento tocar o ribossomo, chaperonas e proteassoma.
 
 ---
 
 
 # Portanto...
 
-\.\.\. a definição de interação proteína\-proteína deve considerar que:
+... a definição de interação proteína-proteína deve considerar que:
 
-A interface de interação deve ser intencional e não acidental\, ou seja\, deve ser o resultado de eventos/forças biomoleculares selecionados; e
+A interface de interação deve ser intencional e não acidental, ou seja, deve ser o resultado de eventos/forças biomoleculares selecionados; e
 
-A interface de interação deve ser não\-genérica\, ou seja\, desenvolvido para uma finalidade distinta de funções totalmente genéricas\, como produção de proteínas\, degradação e entre outras\.
+A interface de interação deve ser não-genérica, ou seja, desenvolvido para uma finalidade distinta de funções totalmente genéricas, como produção de proteínas, degradação e entre outras.
 
 
 ---
@@ -64,13 +64,13 @@ A interface de interação deve ser não\-genérica\, ou seja\, desenvolvido par
 
 # Cuidado
 
-Isso não quer dizer que as interações devem ser estáticas ou permanentes\.
+Isso não quer dizer que as interações devem ser estáticas ou permanentes.
 
 
 ---
 
 
-Podemos ter também interações  __transientes__  que dependem da função
+Podemos ter também interações  transientes  que dependem da função
 
 # Cuidado (cont.)
 
@@ -84,15 +84,15 @@ Podemos ter também interações  __transientes__  que dependem da função
 
 * Nem todas as interações possíveis ocorrerão
   * Em qualquer célula
-  * A qualquer momento\.
-* Em vez disso\, as interações dependem
+  * A qualquer momento.
+* Em vez disso, as interações dependem
   * Do tipo de célula
   * Fase e estado do ciclo celular
   * Estágio de desenvolvimento
   * Condições ambientais
-  * Modificações de proteínas \(por exemplo\, fosforilação\)
-  * Presença de cofatores e presença de outros parceiros de ligação\.
-* Ou seja\, a interação pode ser específica de um momento celular\.
+  * Modificações de proteínas (por exemplo, fosforilação)
+  * Presença de cofatores e presença de outros parceiros de ligação.
+* Ou seja, a interação pode ser específica de um momento celular.
 
 ---
 
@@ -102,8 +102,8 @@ Podemos ter também interações  __transientes__  que dependem da função
 
 
 * Binária
-  * Determinação de interação entre duas proteínas\, par\-a\-par
-* Co\-complexo
+  * Determinação de interação entre duas proteínas, par-a-par
+* Co-complexo
   * Determinação de interação entre grupos de proteínas
 
 ---
@@ -114,19 +114,19 @@ Podemos ter também interações  __transientes__  que dependem da função
 
 
 * Binária
-  * Determinação de interação entre duas proteínas\, par\-a\-par
-    * __Y2H__
-* Co\-complexo
+  * Determinação de interação entre duas proteínas, par-a-par
+    * Y2H
+* Co-complexo
   * Determinação de interação entre grupos de proteínas
-    * __AP\-MS e CoIP__
-    * __Precisa de modelos que definem as interações entre as proteínas isoladas concomitantemente\.__
+    * AP-MS e CoIP
+    * Precisa de modelos que definem as interações entre as proteínas isoladas concomitantemente.
 
 ---
 
 
-__Modelo de __  __M__  __atri__  __z__
+Modelo de   M  atri  z
 
-__Modelo __  __S__  __poke \(__  __ de __  __raios\)__
+Modelo   S  poke (   de   raios)
 
 ![](img/09%20-%20Rede%20de%20intera%C3%A7%C3%A3o%20prote%C3%ADna-prote%C3%ADna_0.png)
 
@@ -142,11 +142,11 @@ __Modelo __  __S__  __poke \(__  __ de __  __raios\)__
 
 | Característica | Modelo Spoke | Modelo Matrix |
 | :-: | :-: | :-: |
-| __Foco__ | Conservador | Abrangente |
-| __Interações inferidas__ | Apenas isca\-presa | Todos contra todos |
-| __Confiança__ | Alta para isca\-presa | Baixa para muitos pares |
-| __Cobertura__ | Menor | Maior |
-| __Uso típico__ | Bancos de dados curados | Análises exploratórias |
+| Foco | Conservador | Abrangente |
+| Interações inferidas | Apenas isca-presa | Todos contra todos |
+| Confiança | Alta para isca-presa | Baixa para muitos pares |
+| Cobertura | Menor | Maior |
+| Uso típico | Bancos de dados curados | Análises exploratórias |
 
 
 ---
@@ -192,9 +192,9 @@ mediating interactions between the proteins from each family..
 
 
 * Método baseado em interólogos
-  * Interólogos são definidos como as interações proteína\-proteína que são  __conservadas em duas espécies__ \.
-  * O método baseado em interólogos baseia\-se no pressuposto de que proteínas conservadas evolutivamente tendem a ter sua interação também conservada\.
-  * Depende de buscas por homologia\.
+  * Interólogos são definidos como as interações proteína-proteína que são  conservadas em duas espécies .
+  * O método baseado em interólogos baseia-se no pressuposto de que proteínas conservadas evolutivamente tendem a ter sua interação também conservada.
+  * Depende de buscas por homologia.
 
 ---
 
@@ -206,38 +206,38 @@ mediating interactions between the proteins from each family..
 * Características usadas como "genes":
   * Domínios conservados
   * Motivos de sequência
-  * Perfis físico\-químicos
-  * Padrões de co\-ocorrência
+  * Perfis físico-químicos
+  * Padrões de co-ocorrência
 * Processo iterativo:
   * Seleção: Mantém os pares com melhor  _aptidão_
   * Cruzamento: Combina características de pares promissores
   * Mutação: Introduz variações aleatórias
   * Avaliação: Testa a nova geração de predições
 * Predição baseada em algoritmos genéticos
-  * Algoritmos genéticos são técnicas de otimização inspiradas na evolução natural que usam seleção\, cruzamento e mutação para encontrar soluções\.
+  * Algoritmos genéticos são técnicas de otimização inspiradas na evolução natural que usam seleção, cruzamento e mutação para encontrar soluções.
 
 ---
 
 
 # Métodos computacionais (cont.)
 
-Cromossomo\_Pai₁: \[0\.85\, 0\.72\, 0\.91\, 0\.68\, 0\.95\, 0\.33\]
+Cromossomo_Pai₁: [0.85, 0.72, 0.91, 0.68, 0.95, 0.33]
 
-Cromossomo\_Pai₂: \[0\.42\, 0\.88\, 0\.67\, 0\.91\, 0\.54\, 0\.71\]
+Cromossomo_Pai₂: [0.42, 0.88, 0.67, 0.91, 0.54, 0.71]
 
-↓ \(cruzamento no ponto 3\)
+↓ (cruzamento no ponto 3)
 
-Cromossomo\_Filho: \[0\.85\, 0\.72\, 0\.91\, 0\.91\, 0\.54\, 0\.71\]
+Cromossomo_Filho: [0.85, 0.72, 0.91, 0.91, 0.54, 0.71]
 
 Gene₁: Similaridade de Domínios
 
-Gene₂: Co\-expressão Gênica
+Gene₂: Co-expressão Gênica
 
 Gene₃: Conservação de Resíduos na Interface
 
 Gene₄: Complementaridade Eletrostática
 
-Gene₅: Co\-ocorrência Filogenética
+Gene₅: Co-ocorrência Filogenética
 
 Gene₆: Distância na Rede Funcional
 
@@ -256,7 +256,7 @@ Substituições compensatórias
 
 
 * Perfil Evolutivo:
-  * Analisa padrões de co\-evolução entre proteínas \- se duas proteínas evoluem de forma correlacionada ao longo da evolução\, é sinal que podem interagir\.
+  * Analisa padrões de co-evolução entre proteínas - se duas proteínas evoluem de forma correlacionada ao longo da evolução, é sinal que podem interagir.
 
 ---
 
@@ -308,11 +308,11 @@ Substituições compensatórias
 
 
 * Anotação funcional de proteínas
-  * Baseado em proteínas adjacentes:  _guilt\-by\-association\._
+  * Baseado em proteínas adjacentes:  _guilt-by-association._
 * Módulos
   * Proteínas que possuem as mesmas funções ou fazem parte de um complexo
-* Investigação de subsistemas\.
-  * Associados com alguma via\, resposta ou doença específica\.
+* Investigação de subsistemas.
+  * Associados com alguma via, resposta ou doença específica.
 
 ---
 
@@ -322,9 +322,9 @@ Substituições compensatórias
 
 
 * Análise evolutiva
-  * Análise da relação entre as proteínas com foco evolutivo nos interólogos associados às suas funções\.
+  * Análise da relação entre as proteínas com foco evolutivo nos interólogos associados às suas funções.
 * Análise de hubs
-  * Regra da centralidade\-letalidade
+  * Regra da centralidade-letalidade
   * Hubs  _party_
   * Hubs  _date_
 
@@ -336,10 +336,10 @@ Substituições compensatórias
 
 
 * Hubs  _party_
-  * Interage com todos os seus parceiros ao mesmo tempo\.
-  * Funcionam dentro de módulos na formação de complexos\.
+  * Interage com todos os seus parceiros ao mesmo tempo.
+  * Funcionam dentro de módulos na formação de complexos.
 * Hubs  _date_
-  * Interage com seus parceiros em diferentes tempos e localizações\.
+  * Interage com seus parceiros em diferentes tempos e localizações.
   * Funcionam para conectar módulos e funções uns aos outros
 
 ---
@@ -347,5 +347,5 @@ Substituições compensatórias
 
 # Interação doença-doença
 
-Podem ainda ser usados integrados com dados de doenças para achar proteínas que podem estar envolvidas em mais de uma doença\, podendo servir de foco para o co\-tratamento das doenças\.
+Podem ainda ser usados integrados com dados de doenças para achar proteínas que podem estar envolvidas em mais de uma doença, podendo servir de foco para o co-tratamento das doenças.
 

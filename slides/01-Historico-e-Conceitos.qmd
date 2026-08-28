@@ -48,7 +48,7 @@ Propriedades emergentes são aquelas que surgem das interações entre os compon
 # Área da ciência que Modela Complexos Sistemas Biológicos
 
 **Área multidisciplinar** <br>
-<span style="color:#00ff00; font-weight:bold;">Biologia</span>  \+  <span style="color:#e69138; font-weight:bold;">Computação</span>  \+  <span style="color:#ff0000; font-weight:bold;">Matemática</span>
+<span style="color:#00ff00; font-weight:bold;">Biologia</span>  +  <span style="color:#e69138; font-weight:bold;">Computação</span>  +  <span style="color:#ff0000; font-weight:bold;">Matemática</span>
 
 # Campo de estudos
 
@@ -67,9 +67,9 @@ Usualmente usado como contraponto a o que é chamado de  _reducionismo_.
 
 
 ::: {.callout}
-_“O <span style="color:#ff9900; font-weight:bold;">reducionismo</span> é a abordagem que busca compreender sistemas biológicos complexos dissecando\-os em suas partes componentes\, partindo do pressuposto de que entender cada parte levará à compreensão do todo\.”_
+_“O <span style="color:#ff9900; font-weight:bold;">reducionismo</span> é a abordagem que busca compreender sistemas biológicos complexos dissecando-os em suas partes componentes, partindo do pressuposto de que entender cada parte levará à compreensão do todo.”_
 
-**Kitano\, H\. \(2002\)\. Systems Biology\: A Brief Overview\. Science\, 295\(5560\)\, 1662–1664\. https\://doi\.org/10\.1126/science\.1069492**
+**Kitano, H. (2002). Systems Biology: A Brief Overview. Science, 295(5560), 1662–1664. https://doi.org/10.1126/science.1069492**
 :::
 
 # Protocolos operacionais
@@ -113,7 +113,7 @@ Modelos dinâmicos do ciclo celular em leveduras (Tyson et al., 2002, Current Bi
 
 
 # Fenômeno sócio-científico
-Definido pela estratégia de integrar dados complexos da interação, em sistemas biológicos\, de diversas fontes usando ferramentas e pessoal interdisciplinar.
+Definido pela estratégia de integrar dados complexos da interação, em sistemas biológicos, de diversas fontes usando ferramentas e pessoal interdisciplinar.
 
 # Disciplinas associadas
 
@@ -136,7 +136,7 @@ Definido pela estratégia de integrar dados complexos da interação, em sistema
 ::: {.column}
 
 * Biólogo Austríaco
-* Desenvolveu a  <span style="color:#4169E1; font-weight:bold;">Teoria Geral dos Sistemas</span> \.
+* Desenvolveu a  <span style="color:#4169E1; font-weight:bold;">Teoria Geral dos Sistemas</span> .
   * Trabalhos entre 1950 e 1968
 * A base para o conceito de Biologia de Sistemas.
 :::
@@ -191,7 +191,7 @@ Taxa de transferência
 ::: {.column}
 - Uma entidade organizada composta de partes interrelacionadas e interdependentes.
 
-- **Alternativamente:** Conjunto de componentes interconectados (genes, proteínas, células etc.) que atuam como uma unidade funcional\, exibindo propriedades que não existem nos elementos isolados.
+- **Alternativamente:** Conjunto de componentes interconectados (genes, proteínas, células etc.) que atuam como uma unidade funcional, exibindo propriedades que não existem nos elementos isolados.
 :::
 :::
 
@@ -493,7 +493,7 @@ Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-A
 ::: {.column}
 * Engenheiro sérvio
 * Em 1966, Mesarović (engenheiro e teórico de sistemas sérvio-americano) publicou o artigo seminal:
-  * "Systems Theory and Biology" (Springer-Verlag), onde propôs a Biologia de Sistemas como uma disciplina formal\, aplicando a Teoria Geral dos Sistemas (de Ludwig von Bertalanffy) à biologia.
+  * "Systems Theory and Biology" (Springer-Verlag), onde propôs a Biologia de Sistemas como uma disciplina formal, aplicando a Teoria Geral dos Sistemas (de Ludwig von Bertalanffy) à biologia.
 :::
 :::
 
@@ -518,7 +518,7 @@ Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-A
 
 # Biologia de Sistemas: Oscilações no Uso e Consolidação
 
-A disciplina passou por dois momentos distintos\, impulsionados por avanços tecnológicos e mudanças de paradigma:
+A disciplina passou por dois momentos distintos, impulsionados por avanços tecnológicos e mudanças de paradigma:
 
 ::: {.columns}
 
@@ -564,7 +564,7 @@ O número de artigos com "Biologia de Sistemas" no título aumentou 20× entre 2
 
 1. **Contexto da Popularização (2002)**
   * Publicação Seminal: Kitano foi autor do artigo "Systems Biology: A Brief Overview" (_Science_, 2002), que definiu os pilares da disciplina: "A biologia de sistemas busca entender os sistemas vivos como redes dinâmicas de interações, integrando modelagem computacional e experimentos."
-  * **DOI**: [10\.1126/science\.1069492](https://doi.org/10.1126/science.1069492).
+  * **DOI**: [10.1126/science.1069492](https://doi.org/10.1126/science.1069492).
 * **Criação do Systems Biology Institute (SBI)**:
   * Instituto líder em pesquisas interdisciplinares (Tóquio, Japão), focado em modelagem de redes biológicas e inteligência artificial aplicada à biologia.
 
@@ -616,7 +616,7 @@ O número de artigos com "Biologia de Sistemas" no título aumentou 20× entre 2
 3. **Estudo do Câncer**
 * Projeto Cancer Cell Map Initiative (CCMI):
   * Mapeou redes de interação proteica em tumores para identificar "nós críticos" (ex.: proteína _MYC_).
-  * Resultado: Inibidores de _MYC_ em testes clínicos para leucemia (Krogan et al\., 2020, _Science_).
+  * Resultado: Inibidores de _MYC_ em testes clínicos para leucemia (Krogan et al., 2020, _Science_).
 * Ferramenta: _Cytoscape_ para visualização de redes.
 * "Modelos de câncer de pâncreas preveem resistência a gemcitabina com 92% de acurácia (Rahman et al., 2022)."
 
@@ -649,15 +649,15 @@ O número de artigos com "Biologia de Sistemas" no título aumentou 20× entre 2
 
 8. BRO, C. et al. _In silico_ aided metabolic engineering of _Saccharomyces cerevisiae_ for improved bioethanol production. Metabolic Engineering, v. 8, n. 2, p. 102-111, 2006. DOI:10.1016/j.ymben.2005.09.007.
 
-9. HOOD\, L.; FLORES, M. A personal view on systems medicine. Nature Reviews Genetics, v. 13, n. 9, p. 647-650, 2012. DOI:10.1038/nrg3368. (Conceito de Medicina P4)
+9. HOOD, L.; FLORES, M. A personal view on systems medicine. Nature Reviews Genetics, v. 13, n. 9, p. 647-650, 2012. DOI:10.1038/nrg3368. (Conceito de Medicina P4)
 
-10. KROGAN\, N. J. et al. The Cancer Cell Map Initiative. Science, v. 369, n. 6509, eaba4902, 2020. DOI:10.1126/science.aba4902.
+10. KROGAN, N. J. et al. The Cancer Cell Map Initiative. Science, v. 369, n. 6509, eaba4902, 2020. DOI:10.1126/science.aba4902.
 
-11. HOFFMANN\, M. et al. SARS-CoV-2 cell entry depends on ACE2 and TMPRSS2. Cell\, v. 181, n. 2, p. 271-280, 2020. DOI:10.1016/j.cell.2020.02.052.
+11. HOFFMANN, M. et al. SARS-CoV-2 cell entry depends on ACE2 and TMPRSS2. Cell, v. 181, n. 2, p. 271-280, 2020. DOI:10.1016/j.cell.2020.02.052.
 
-12. HODGKIN\, A. L.; HUXLEY, A. F. A quantitative description of membrane current and its application to conduction and excitation in nerve. The Journal of Physiology, v. 117, n. 4, p. 500-544\, 1952. DOI:10.1113/jphysiol.1952.sp004764. (Modelo pioneiro)
+12. HODGKIN, A. L.; HUXLEY, A. F. A quantitative description of membrane current and its application to conduction and excitation in nerve. The Journal of Physiology, v. 117, n. 4, p. 500-544, 1952. DOI:10.1113/jphysiol.1952.sp004764. (Modelo pioneiro)
 
-13. TURING\, A. M. The chemical basis of morphogenesis. Philosophical Transactions of the Royal Society B, v. 237, n. 641, p. 37-72, 1952. DOI:10.1098/rstb.1952.0012. (Padrões de Turing)
+13. TURING, A. M. The chemical basis of morphogenesis. Philosophical Transactions of the Royal Society B, v. 237, n. 641, p. 37-72, 1952. DOI:10.1098/rstb.1952.0012. (Padrões de Turing)
 
 <!-- Isso deu certo. -->
 <!-- 

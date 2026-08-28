@@ -7,8 +7,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Nicholas Barroso">
   <title>CI0932 - Biologia de Sistemas – 02   Grafos</title>
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -142,7 +145,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Nicholas Barroso 
+Nicholas Barroso
 </div>
 </div>
 </div>
@@ -172,13 +175,31 @@ Nicholas Barroso
 <section>
 <section id="grafo-versus-gráfico" class="title-slide slide level1 center">
 <h1>Grafo versus Gráfico</h1>
+<div class="quarto-layout-panel" data-layout-ncol="2" data-layout-lcol="0.6">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/02-Grafos_0.png"></p>
-<p><img data-src="img/02-0Grafos_1.png"></p>
+<figcaption>Gráfico</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/02-Grafos_1.png"></p>
+<figcaption>Grafo</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
 
-<img data-src="img/02-Grafos_2.png" class="r-stretch"><p><strong>É possível andar pela cidade atravessando cada ponte </strong> <em>exatamente uma vez</em> <strong>?</strong></p>
+<img data-src="img/02-Grafos_2.png" class="r-stretch"><p>É possível andar pela cidade atravessando cada ponte <em>exatamente uma vez</em> ?</p>
 </section>
 <section class="slide level2">
 
@@ -187,24 +208,24 @@ Nicholas Barroso
 <section id="pontes-de-kaliningrado" class="title-slide slide level1 center">
 <h1>Pontes de Kaliningrado</h1>
 
-<img data-src="img/02-Grafos_3.png" class="r-stretch"><p><strong>Leonhard Euler</strong></p>
+<img data-src="img/02-Grafos_3.png" class="r-stretch"><p>Leonhard Euler</p>
 <p>Matemático e físico Suíço</p>
 <p>Tentou responder a questão sobre as pontes de Kaliningrado.</p>
-<p>Para tanto desenvolveu a <strong>Teoria dos Grafos</strong> .</p>
+<p>Para tanto desenvolveu a Teoria dos Grafos .</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="img/02-Grafos_4.png" class="r-stretch"><p><strong>É possível andar pela cidade atravessando cada ponte </strong> <em>exatamente uma vez</em> <strong>?</strong></p>
+<img data-src="img/02-Grafos_4.png" class="r-stretch"><p>É possível andar pela cidade atravessando cada ponte <em>exatamente uma vez</em> ?</p>
 </section>
 <section class="slide level2">
 
 
-<img data-src="img/02-Grafos_5.png" class="r-stretch"><p><strong>É possível andar pela cidade atravessando cada ponte </strong> <em>exatamente uma vez</em> <strong>?</strong></p>
+<img data-src="img/02-Grafos_5.png" class="r-stretch"><p>É possível andar pela cidade atravessando cada ponte <em>exatamente uma vez</em> ?</p>
 </section>
 <section class="slide level2">
 
-<p>Um grafo é uma representação matemática de um objeto consistindo de <strong>vértices</strong> __ __ (nós) e <strong>arestas</strong> representando elementos e conexões, respectivamente.</p>
+<p>Um grafo é uma representação matemática de um objeto consistindo de vértices (nós) e arestas representando elementos e conexões, respectivamente.</p>
 <p>V: Vértices (ex.: genes, proteínas, metabólitos).</p>
 <p>E: Arestas (ex.: interações, reações químicas).</p>
 </section></section>
@@ -221,7 +242,7 @@ Nicholas Barroso
 <section class="slide level2">
 
 <p><em>G = (V,E)</em></p>
-<p>O grafo <em>G</em> é um <strong>conjunto</strong> formado por um conjunto de vértices <em>V</em> e um conjunto de arestas <em>E</em></p>
+<p>O grafo <em>G</em> é um conjunto formado por um conjunto de vértices <em>V</em> e um conjunto de arestas <em>E</em></p>
 <p>Exemplo</p>
 <p>Grafo de Regulação Gênica:</p>
 <p>V = {GeneA, GeneB, GeneC}</p>
@@ -240,7 +261,7 @@ Nicholas Barroso
 <section class="slide level2">
 
 <p><em>G = (V,E)</em></p>
-<p>O grafo <em>G</em> é um conjunto formado por um conjunto de vértices V = {v1,v2,v3,...,vn} e um conjunto de arestas E = {(v1,v2),(v3,vn),...,(vx,vz)}</p>
+<p>O grafo <em>G</em> é um conjunto formado por um conjunto de vértices V = {v1,v2,v3,…,vn} e um conjunto de arestas E = {(v1,v2),(v3,vn),…,(vx,vz)}</p>
 </section></section>
 <section id="grafo-2" class="title-slide slide level1 center">
 <h1>Grafo</h1>
@@ -275,7 +296,7 @@ Nicholas Barroso
 <p><img data-src="img/02-Grafos_6.jpg"></p>
 <p><img data-src="img/02-Grafos_7.jpg"></p>
 <p><img data-src="img/02-Grafos_8.jpg"></p>
-<p><strong>Sua representação gráfica pode ser um ponto ou um círculo que pode, ou não, conter algum símbolo interno.</strong></p>
+<p>Sua representação gráfica pode ser um ponto ou um círculo que pode, ou não, conter algum símbolo interno.</p>
 <p><img data-src="img/02-Grafos_9.jpg"></p>
 </section>
 <section class="slide level2">
@@ -285,21 +306,21 @@ Nicholas Barroso
 <section id="arestas" class="title-slide slide level1 center">
 <h1>Arestas</h1>
 <ul>
-<li class="fragment">As arestas indicam <strong>relações</strong> entre os elementos. O significado da relação pode mudar dependendo dos elementos.</li>
+<li class="fragment">As arestas indicam relações entre os elementos. O significado da relação pode mudar dependendo dos elementos.</li>
 <li class="fragment">Por isso as arestas podem ser:</li>
-<li class="fragment"><strong>Não-direcionadas:</strong> (v1,v2) <strong>=</strong> (v2,v1), relações simétrica.
+<li class="fragment">Não-direcionadas: (v1,v2) = (v2,v1), relações simétrica.
 <ul>
-<li class="fragment"><strong>Quando a ligação não exibe precedência, somente relação.</strong></li>
-<li class="fragment"><strong>Complexo proteico onde A interage com B e vice-versa.</strong></li>
+<li class="fragment">Quando a ligação não exibe precedência, somente relação.</li>
+<li class="fragment">Complexo proteico onde A interage com B e vice-versa.</li>
 </ul></li>
-<li class="fragment"><strong>Direcionadas:</strong> <strong>(v</strong> <strong>1</strong> <strong>,v</strong> <strong>2</strong> <strong>) </strong> <strong>≠</strong> __ (v__ <strong>2</strong> <strong>,v</strong> <strong>1</strong> <strong>)</strong>
+<li class="fragment">Direcionadas: (v 1 ,v 2 ) ≠ (v 2 ,v 1 )
 <ul>
-<li class="fragment"><strong>Quando a ligação entre os dados indica precedência ou ordem</strong>
+<li class="fragment">Quando a ligação entre os dados indica precedência ou ordem
 <ul>
-<li class="fragment"><strong>causa e efeito;</strong></li>
-<li class="fragment"><strong>antes ou depois;</strong></li>
-<li class="fragment"><strong>substrato → produto.</strong></li>
-<li class="fragment"><strong>GeneX ativa a expressão de GeneY (GeneX → GeneY).</strong></li>
+<li class="fragment">causa e efeito;</li>
+<li class="fragment">antes ou depois;</li>
+<li class="fragment">substrato → produto.</li>
+<li class="fragment">GeneX ativa a expressão de GeneY (GeneX → GeneY).</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -310,15 +331,15 @@ Nicholas Barroso
 <section>
 <section id="arestas-cont." class="title-slide slide level1 center">
 <h1>Arestas (cont.)</h1>
-<p><strong>Não-direcionadas</strong></p>
-<p><strong>Relação sem precedência</strong></p>
-<p><strong>Direcionadas</strong></p>
-<p><strong>Relação com precedência</strong></p>
+<p>Não-direcionadas</p>
+<p>Relação sem precedência</p>
+<p>Direcionadas</p>
+<p>Relação com precedência</p>
 </section>
 <section class="slide level2">
 
-<p>Grafos com arestas direcionadas são <strong>grafos direcionados</strong> .</p>
-<p>Grafos com arestas não-direcionadas são <strong>grafos não-direcionados</strong> .</p>
+<p>Grafos com arestas direcionadas são grafos direcionados .</p>
+<p>Grafos com arestas não-direcionadas são grafos não-direcionados .</p>
 </section></section>
 <section id="por-consequência" class="title-slide slide level1 center">
 <h1>Por consequência</h1>
@@ -351,10 +372,10 @@ Nicholas Barroso
 </section>
 <section class="slide level2">
 
-<p><strong>Conectado:</strong> Todos os vértices estão ligados (ex.: rede metabólica essencial).</p>
-<p><strong>Desconectado:</strong> Componentes isolados (ex.: vias metabólicas independentes).</p>
+<p>Conectado: Todos os vértices estão ligados (ex.: rede metabólica essencial).</p>
+<p>Desconectado: Componentes isolados (ex.: vias metabólicas independentes).</p>
 <p>Exemplo:</p>
-<p><strong>Rede de Coexpressão Gênica:</strong> Se desconectada, indica grupos de genes com funções distintas.</p>
+<p>Rede de Coexpressão Gênica: Se desconectada, indica grupos de genes com funções distintas.</p>
 </section></section>
 <section id="grafo-4" class="title-slide slide level1 center">
 <h1>Grafo</h1>
@@ -444,9 +465,9 @@ Nicholas Barroso
 <section id="layout-1" class="title-slide slide level1 center">
 <h1>Layout</h1>
 <p>Por que o Layout é Importante?</p>
-<p><strong>Clareza:</strong> Evita sobreposição de arestas (ex.: em redes densas como interações proteicas).</p>
-<p><strong>Análise:</strong> Layouts específicos revelam propriedades (ex.: hubs em redes livres de escala).</p>
-<p><strong>Comunicação:</strong> Facilita a apresentação de dados complexos em artigos ou relatórios.</p>
+<p>Clareza: Evita sobreposição de arestas (ex.: em redes densas como interações proteicas).</p>
+<p>Análise: Layouts específicos revelam propriedades (ex.: hubs em redes livres de escala).</p>
+<p>Comunicação: Facilita a apresentação de dados complexos em artigos ou relatórios.</p>
 </section>
 <section class="slide level2">
 
@@ -552,9 +573,9 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 </section>
 <section class="slide level2">
 
-<p><strong>Homologia Estrutural:</strong> Identifica padrões conservados na evolução (ex.: redes de interação proteica em eucariotos vs. bactérias).</p>
-<p><strong>Engenharia Metabólica:</strong> Redes isomorfas em microrganismos podem ser “copiadas” para organismos-modelo.</p>
-<p><strong>Descoberta de Drogas:</strong> Alvos farmacológicos em uma espécie podem ser inferidos a partir de redes isomorfas em outras.</p>
+<p>Homologia Estrutural: Identifica padrões conservados na evolução (ex.: redes de interação proteica em eucariotos vs.&nbsp;bactérias).</p>
+<p>Engenharia Metabólica: Redes isomorfas em microrganismos podem ser “copiadas” para organismos-modelo.</p>
+<p>Descoberta de Drogas: Alvos farmacológicos em uma espécie podem ser inferidos a partir de redes isomorfas em outras.</p>
 </section></section>
 <section>
 <section id="por-que-isomorfismo-é-importante-na-biologia" class="title-slide slide level1 center">
@@ -575,7 +596,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section>
 <section id="passeio---walk" class="title-slide slide level1 center">
 <h1>Passeio - Walk</h1>
-<p>Um <strong>passeio</strong> de distância <em>k</em> em um grafo é uma sequência alternante de vértices e arestas v0, e0, v1, e1, v2, e2, … , vk-1, ek-1, vk, que começa e termina em vértices.</p>
+<p>Um passeio de distância <em>k</em> em um grafo é uma sequência alternante de vértices e arestas v0, e0, v1, e1, v2, e2, … , vk-1, ek-1, vk, que começa e termina em vértices.</p>
 </section>
 <section class="slide level2">
 
@@ -583,11 +604,11 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section>
 <section id="passeio---walk-cont." class="title-slide slide level1 center">
 <h1>Passeio - Walk (cont.)</h1>
-<p>Um <strong>passeio (</strong> <em>walk</em> <strong>)</strong> de comprimento <em>k</em> em um grafo é uma sequência alternada de vértices e arestas:</p>
-<p><em>v</em> <em>0</em> <em>, e</em> <em>0</em> <em>, v</em> <em>1</em> <em>, v</em> <em>2</em> <em>, ..., v</em> <em>k-1</em> <em>, e</em> <em>k-1</em> <em>, v</em> <em>k</em></p>
+<p>Um passeio ( <em>walk</em> ) de comprimento <em>k</em> em um grafo é uma sequência alternada de vértices e arestas:</p>
+<p><em>v</em> <em>0</em> <em>, e</em> <em>0</em> <em>, v</em> <em>1</em> <em>, v</em> <em>2</em> <em>, …, v</em> <em>k-1</em> <em>, e</em> <em>k-1</em> <em>, v</em> <em>k</em></p>
 <p>onde:</p>
 <p>Cada aresta <em>e</em> <em>i</em> conecta os vértices <em>v</em> <em>i</em> e <em>v</em> <em>i+1</em> .</p>
-<p><strong>Vértices e arestas podem se repetir.</strong></p>
+<p>Vértices e arestas podem se repetir.</p>
 <p>Começa e termina em vértices</p>
 </section>
 <section class="slide level2">
@@ -605,15 +626,15 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section id="tipos-de-passeio" class="title-slide slide level1 center">
 <h1>Tipos de Passeio</h1>
 <ul>
-<li class="fragment"><strong>Trilha</strong> ( <em>Trail</em> ): Passeio sem arestas repetidas (vértices podem repetir).
+<li class="fragment">Trilha ( <em>Trail</em> ): Passeio sem arestas repetidas (vértices podem repetir).
 <ul>
 <li class="fragment">Exemplo: <em>A,</em> _ _ <em>e</em> <em>1</em> <em>,</em> _ _ <em>B,</em> _ _ <em>e</em> <em>2</em> <em>,</em> _ _ <em>C,</em> _ _ <em>e</em> <em>3</em> <em>,</em> _ _ <em>A,</em> _ _ <em>e</em> <em>4</em> <em>,</em> _ _ <em>D</em> ( <em>usa cada aresta apenas uma vez</em> ).</li>
 </ul></li>
-<li class="fragment"><strong>Caminho</strong> ( <em>Path</em> ): Passeio sem vértices repetidos ( <em>e, portanto, sem arestas repetidas</em> ).
+<li class="fragment">Caminho ( <em>Path</em> ): Passeio sem vértices repetidos ( <em>e, portanto, sem arestas repetidas</em> ).
 <ul>
 <li class="fragment">Exemplo: <em>A,</em> _ _ <em>e</em> <em>1</em> <em>,</em> _ _ <em>B,</em> _ _ <em>e</em> <em>2</em> <em>,</em> _ _ <em>C</em> ( <em>vértices distintos</em> ).</li>
 </ul></li>
-<li class="fragment"><strong>Ciclo</strong> ( <em>Cycle</em> ): Passeio fechado (v0=vk​) sem repetir arestas e com vértices distintos ( <em>exceto o primeiro/último</em> ).
+<li class="fragment">Ciclo ( <em>Cycle</em> ): Passeio fechado (v0=vk​) sem repetir arestas e com vértices distintos ( <em>exceto o primeiro/último</em> ).
 <ul>
 <li class="fragment">Exemplo: <em>A,</em> _ _ <em>e</em> <em>1</em> <em>,</em> _ _ <em>B,</em> _ _ <em>e</em> <em>2</em> <em>,</em> _ _ <em>C,</em> _ _ <em>e</em> <em>3</em> <em>,</em> _ _ <em>A</em> .</li>
 <li class="fragment">Exemplo: Ciclo de Krebs (rede metabólica circular).</li>
@@ -631,7 +652,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section class="slide level2">
 
 <p>Sequência de vértices conectados por arestas, sem repetição de vértices ou arestas.</p>
-<p><strong>Exemplo:</strong> Em uma rede metabólica, um caminho simples pode representar uma rota linear de reações enzimáticas (e.g., Glicose → Glicose-6P → Frutose-6P).</p>
+<p>Exemplo: Em uma rede metabólica, um caminho simples pode representar uma rota linear de reações enzimáticas (e.g., Glicose → Glicose-6P → Frutose-6P).</p>
 </section></section>
 <section>
 <section id="caminho-simples" class="title-slide slide level1 center">
@@ -644,8 +665,8 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section>
 <section id="caminho-euleriano" class="title-slide slide level1 center">
 <h1>Caminho Euleriano</h1>
-<p><strong>Caminho que passa por </strong> <em>todas as arestas</em> __ do grafo exatamente uma vez.__</p>
-<p><strong>Exemplo:</strong> Modelar a trajetória de um metabólito que percorre todas as reações de uma via sem repetições (raro em redes biológicas devido a ciclos).</p>
+<p>Caminho que passa por <em>todas as arestas</em> do grafo exatamente uma vez.</p>
+<p>Exemplo: Modelar a trajetória de um metabólito que percorre todas as reações de uma via sem repetições (raro em redes biológicas devido a ciclos).</p>
 </section>
 <section class="slide level2">
 
@@ -653,8 +674,8 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section>
 <section id="caminho-hamiltoniano" class="title-slide slide level1 center">
 <h1>Caminho Hamiltoniano</h1>
-<p><strong>Caminho que visita todos os vértices exatamente uma vez.</strong></p>
-<p><strong>Exemplo:</strong> Identificar uma ordem de ativação de proteínas em uma cascata de sinalização (e.g., Receptor → Kinase A → Kinase B → TF).</p>
+<p>Caminho que visita todos os vértices exatamente uma vez.</p>
+<p>Exemplo: Identificar uma ordem de ativação de proteínas em uma cascata de sinalização (e.g., Receptor → Kinase A → Kinase B → TF).</p>
 </section>
 <section class="slide level2">
 
@@ -663,7 +684,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section id="comprimento" class="title-slide slide level1 center">
 <h1>Comprimento</h1>
 <p>É dado pelo número de arestas <em>atravessadas</em> de um vértice inicial a um vértice final.</p>
-<p>A distância entre dois vértices é o comprimento do <strong>menor caminho</strong> entre eles ou ∞ se não existir um menor caminho.</p>
+<p>A distância entre dois vértices é o comprimento do menor caminho entre eles ou ∞ se não existir um menor caminho.</p>
 </section>
 <section class="slide level2">
 
@@ -671,8 +692,8 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section>
 <section id="menor-caminho" class="title-slide slide level1 center">
 <h1>Menor caminho</h1>
-<p><strong>É um caminho de tamanho mínimo entre dois vértices.</strong></p>
-<p><strong>Pode existir vários menores caminhos entre dois vértices</strong> __ __ __ (passando por diferentes vértices)__ <strong>.</strong></p>
+<p>É um caminho de tamanho mínimo entre dois vértices.</p>
+<p>Pode existir vários menores caminhos entre dois vértices (passando por diferentes vértices) .</p>
 
 <img data-src="img/02-Grafos_15.png" class="r-stretch"><aside class="notes">
 <p>Fazer a distância entre 6 e 2 passando por 5 e por 3. Depois fazer a distância entre 6 e 1 passando por 5 e por 3.</p>
@@ -702,8 +723,8 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section>
 <section id="grafos-mistos" class="title-slide slide level1 center">
 <h1>Grafos Mistos</h1>
-<p><strong>Um grafo que possui arestas direcionadas e não direcionadas.</strong></p>
-<p><strong>Exemplo:</strong> Rede de sinalização com interações bidirecionais (e.g., feedback) e unidirecionais (e.g., fosforilação).</p>
+<p>Um grafo que possui arestas direcionadas e não direcionadas.</p>
+<p>Exemplo: Rede de sinalização com interações bidirecionais (e.g., feedback) e unidirecionais (e.g., fosforilação).</p>
 <p><img data-src="img/02-Grafos_16.png"></p>
 <p><img data-src="img/02-Grafos_17.png"></p>
 </section>
@@ -714,7 +735,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section id="multigrafo" class="title-slide slide level1 center">
 <h1>Multigrafo</h1>
 <p>É um grafo onde dois vértices podem ser ligados por mais de uma aresta.</p>
-<p><strong>Exemplo:</strong> Proteínas que interagem por diferentes domínios ou em diferentes condições.</p>
+<p>Exemplo: Proteínas que interagem por diferentes domínios ou em diferentes condições.</p>
 
 <img data-src="img/02-Grafos_18.png" class="r-stretch"><aside class="notes">
 <p>Nesse caso o pseudografo seria um grafo dirigido com pares de arestas paralelas dirigidas conectando cidades para mostrar que é possível voar para e a partir destas locações.</p>
@@ -737,18 +758,18 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section id="grafo-valorado-ou-ponderado" class="title-slide slide level1 center">
 <h1>Grafo Valorado ou Ponderado</h1>
 <p>São grafos nos quais as arestas possuem valores associados dando peso a cada conexão/interação.</p>
-<p><strong>Exemplo:</strong> Rede metabólica com fluxos (peso = taxa de produção) ou redes de coexpressão gênica (peso = correlação).</p>
+<p>Exemplo: Rede metabólica com fluxos (peso = taxa de produção) ou redes de coexpressão gênica (peso = correlação).</p>
 
 <img data-src="img/02-Grafos_19.png" class="r-stretch"></section>
 <section class="slide level2">
 
 
-<img data-src="img/02-Grafos_20.png" class="r-stretch"><p><strong>Aldeído-redutase</strong></p>
+<img data-src="img/02-Grafos_20.png" class="r-stretch"><p>Aldeído-redutase</p>
 </section></section>
 <section>
 <section id="hipergrafo" class="title-slide slide level1 center">
 <h1>Hipergrafo</h1>
-<p>No hipergrafo, uma única aresta pode ligar <strong>mais de dois</strong> vértices.</p>
+<p>No hipergrafo, uma única aresta pode ligar mais de dois vértices.</p>
 </section>
 <section class="slide level2">
 
@@ -756,7 +777,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section>
 <section id="grafos-bipartidos" class="title-slide slide level1 center">
 <h1>Grafos Bipartidos</h1>
-<p>Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos são aqueles que podem ser divididos em dois subgrafos disjuntos. <strong>Exemplo:</strong> Interação fármaco-proteína (conjunto A = <em>fármacos</em> , Conjunto B = <em>proteínas-alvo</em> ).</p>
+<p>Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos são aqueles que podem ser divididos em dois subgrafos disjuntos. Exemplo: Interação fármaco-proteína (conjunto A = <em>fármacos</em> , Conjunto B = <em>proteínas-alvo</em> ).</p>
 <p><img data-src="img/02-Grafos_21.png"></p>
 <p><img data-src="img/02-Grafos_22.png"></p>
 </section>
@@ -771,16 +792,16 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section id="árvores" class="title-slide slide level1 center">
 <h1>Árvores</h1>
 <ul>
-<li class="fragment"><strong>Definição:</strong> __ é um grafo sem ciclos e conectado.__</li>
-<li class="fragment"><strong>Exemplo:</strong>
+<li class="fragment">Definição: é um grafo sem ciclos e conectado.</li>
+<li class="fragment">Exemplo:
 <ul>
-<li class="fragment"><strong>R</strong> <strong>elações evolutivas entre as espécies como uma árvore filogenética.</strong></li>
+<li class="fragment">R elações evolutivas entre as espécies como uma árvore filogenética.</li>
 </ul></li>
-<li class="fragment"><strong>V</strong> <strong>értices de </strong> <strong>grau 1: folhas.</strong></li>
-<li class="fragment"><strong>Todos os outros vértices são vértices internos.</strong></li>
-<li class="fragment"><strong>P</strong> <strong>rofundidade</strong> <strong>:</strong> __ comprimento do caminho entre a raiz e este vértice__</li>
-<li class="fragment"><strong>Altura:</strong> __ é a profundidade máxima de um vértice.__</li>
-<li class="fragment"><strong>Uma árvore binária é uma árvore onde cada vértice tem no máximo grau 3.</strong></li>
+<li class="fragment">V értices de grau 1: folhas.</li>
+<li class="fragment">Todos os outros vértices são vértices internos.</li>
+<li class="fragment">P rofundidade : comprimento do caminho entre a raiz e este vértice</li>
+<li class="fragment">Altura: é a profundidade máxima de um vértice.</li>
+<li class="fragment">Uma árvore binária é uma árvore onde cada vértice tem no máximo grau 3.</li>
 </ul>
 
 <img data-src="img/02-Grafos_24.png" class="r-stretch"></section>
@@ -800,8 +821,8 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <h1>Matriz de adjacência</h1>
 <p><img data-src="img/02-Grafos_25.png"></p>
 <p><img data-src="img/02-Grafos_26.png"></p>
-<p><strong>Quando o grafo é não-direcionado:</strong> matriz de adjacência simétrica.</p>
-<p><strong>Quando o grafo é direcionado:</strong> matriz de adjacência assimétrica.</p>
+<p>Quando o grafo é não-direcionado: matriz de adjacência simétrica.</p>
+<p>Quando o grafo é direcionado: matriz de adjacência assimétrica.</p>
 </section>
 <section class="slide level2">
 
@@ -809,14 +830,14 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <section id="lista-de-adjacência" class="title-slide slide level1 center">
 <h1>Lista de adjacência</h1>
 <p>= {1, 2, 5}</p>
-<p><strong>= {1, 3, 5}</strong></p>
-<p><strong>= {2, 4)}</strong></p>
-<p><strong>= {3, 5, 6}</strong></p>
-<p><strong>= {1, 2, 4)}</strong></p>
-<p><strong>= {4}</strong></p>
+<p>= {1, 3, 5}</p>
+<p>= {2, 4)}</p>
+<p>= {3, 5, 6}</p>
+<p>= {1, 2, 4)}</p>
+<p>= {4}</p>
 
-<img data-src="img/02-Grafos_27.png" class="r-stretch"><p><strong>Quando o grafo é não-direcionado:</strong> a lista repete as arestas para cada vértice.</p>
-<p><strong>Quando o grafo é direcionado:</strong> a lista para cada vértice indica do vértice para onde a ligação vai.</p>
+<img data-src="img/02-Grafos_27.png" class="r-stretch"><p>Quando o grafo é não-direcionado: a lista repete as arestas para cada vértice.</p>
+<p>Quando o grafo é direcionado: a lista para cada vértice indica do vértice para onde a ligação vai.</p>
 
 
 </section>

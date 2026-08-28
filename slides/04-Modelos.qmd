@@ -21,7 +21,7 @@ format:
 
 # Biologia
 
-__As entidades biológicas e suas propriedades possuem diferentes níveis organizacionais e diferentes escalas de tempo\.__
+As entidades biológicas e suas propriedades possuem diferentes níveis organizacionais e diferentes escalas de tempo.
 
 
 ---
@@ -39,7 +39,7 @@ __As entidades biológicas e suas propriedades possuem diferentes níveis organi
 
 As entidades biológicas evoluem;
 
-__Uma consequência da evolução é a similaridade da biologia entre os organismos\.__
+Uma consequência da evolução é a similaridade da biologia entre os organismos.
 
 
 ---
@@ -53,13 +53,13 @@ __Uma consequência da evolução é a similaridade da biologia entre os organis
 
 * A semelhança favorece o uso de
   * Organismos modelo
-  * Transferência crítica de conhecimento obtido em um organismo para outro\.
+  * Transferência crítica de conhecimento obtido em um organismo para outro.
 * Aplicações
   * Previsão da função de proteínas de similares;
   * Reconstrução de árvores filogenéticas;
-  * Identificação de seqüências reguladoras de DNA através de comparações\.
-* No entanto\, precisamos ter em mente que o processo evolutivo também leva a variações genéticas:
-  * Medicina personalizada\.
+  * Identificação de seqüências reguladoras de DNA através de comparações.
+* No entanto, precisamos ter em mente que o processo evolutivo também leva a variações genéticas:
+  * Medicina personalizada.
 
 ---
 
@@ -71,7 +71,7 @@ __Uma consequência da evolução é a similaridade da biologia entre os organis
 ---
 
 
-A modelagem matemática e as simulações computacionais podem nos ajudar a entender a natureza interna e a dinâmica desses processos e chegar a previsões sobre seu desenvolvimento futuro e o efeito das interações com o ambiente\.
+A modelagem matemática e as simulações computacionais podem nos ajudar a entender a natureza interna e a dinâmica desses processos e chegar a previsões sobre seu desenvolvimento futuro e o efeito das interações com o ambiente.
 
 # Modelos e modelagem
 
@@ -79,7 +79,7 @@ A modelagem matemática e as simulações computacionais podem nos ajudar a ente
 ---
 
 
-__De maneira geral\, um modelo é uma representação abstrata de objetos ou processos que consegue explicar alguma característica dos mesmos\.__
+De maneira geral, um modelo é uma representação abstrata de objetos ou processos que consegue explicar alguma característica dos mesmos.
 
 # O que é um modelo?
 
@@ -87,7 +87,7 @@ __De maneira geral\, um modelo é uma representação abstrata de objetos ou pro
 ---
 
 
-Modelos são sempre  __aproximações__  do real\, gerando  _comportamento ou respostas_  também  __aproximadas__ \.
+Modelos são sempre  aproximações  do real, gerando  _comportamento ou respostas_  também  aproximadas .
 
 # CUIDADO
 
@@ -103,9 +103,9 @@ Modelos são sempre  __aproximações__  do real\, gerando  _comportamento ou re
 ---
 
 
-__Exemplo:__
+Exemplo:
 
-__M__  __odelo de metabolismo em rede__
+M  odelo de metabolismo em rede
 
 ![](img/04%20-%20Modelos_4.png)
 
@@ -117,7 +117,7 @@ __M__  __odelo de metabolismo em rede__
 
 ![](img/04%20-%20Modelos_5.png)
 
-Kreft\, Jan\-Ulrich\, Ginger Booth\, and Julian WT Wimpenny\. "BacSim\, a simulator for individual\-based modelling of bacterial colony growth\." Microbiology 144\, no\. 12 \(1998\): 3275\-3287\.
+Kreft, Jan-Ulrich, Ginger Booth, and Julian WT Wimpenny. "BacSim, a simulator for individual-based modelling of bacterial colony growth." Microbiology 144, no. 12 (1998): 3275-3287.
 
 
 ---
@@ -130,8 +130,8 @@ Kreft\, Jan\-Ulrich\, Ginger Booth\, and Julian WT Wimpenny\. "BacSim\, a simula
 
 
 * Para que um modelo em Biologia de Sistemas seja útil em simulações:
-  * É essencial garantir sua fidelidade\, ou seja\, sua capacidade de prever corretamente o comportamento dinâmico do sistema biológico — pelo menos nos aspectos relevantes aos objetivos do estudo\.
-* Muitos modelos são construídos com base em leis físicas bem\-estabelecidas\, como a termodinâmica de reações químicas e a cinética enzimática\, o que confere robustez teórica à sua estrutura matemática\.  _No entanto\, a validação experimental contínua é crucial\, pois a complexidade dos sistemas biológicos frequentemente exige simplificações que devem ser criticamente avaliadas\._
+  * É essencial garantir sua fidelidade, ou seja, sua capacidade de prever corretamente o comportamento dinâmico do sistema biológico — pelo menos nos aspectos relevantes aos objetivos do estudo.
+* Muitos modelos são construídos com base em leis físicas bem-estabelecidas, como a termodinâmica de reações químicas e a cinética enzimática, o que confere robustez teórica à sua estrutura matemática.  _No entanto, a validação experimental contínua é crucial, pois a complexidade dos sistemas biológicos frequentemente exige simplificações que devem ser criticamente avaliadas._
 
 ---
 
@@ -140,13 +140,13 @@ Kreft\, Jan\-Ulrich\, Ginger Booth\, and Julian WT Wimpenny\. "BacSim\, a simula
 
 # Modelos (cont.)
 
-Modelos computacionais podem fazer afirmações específicas sobre um sistema de interesse\.
+Modelos computacionais podem fazer afirmações específicas sobre um sistema de interesse.
 
-Suas previsões podem ser parcialmente justificadas por experimentos e conhecimento bioquímico direto\, e parcialmente por extrapolação a partir de outros sistemas biológicos\.
+Suas previsões podem ser parcialmente justificadas por experimentos e conhecimento bioquímico direto, e parcialmente por extrapolação a partir de outros sistemas biológicos.
 
-O conhecimento estabelecido sobre um sistema pode assim ser resumido em uma formulação matemática coerente\.
+O conhecimento estabelecido sobre um sistema pode assim ser resumido em uma formulação matemática coerente.
 
-Na biologia experimental\, o termo 'modelo' também é usado para denotar um organismo ou linhagem celular que é especialmente adequado para a realização de experimentos\.
+Na biologia experimental, o termo 'modelo' também é usado para denotar um organismo ou linhagem celular que é especialmente adequado para a realização de experimentos.
 
 
 ---
@@ -156,13 +156,13 @@ Na biologia experimental\, o termo 'modelo' também é usado para denotar um org
 
 
 
-* __A modelagem é um processo subjetivo e seletivo\.__
-* Um modelo representa apenas aspectos específicos da realidade\, mas pode ser suficiente se construído para responder a uma pergunta particular\.
-* __Exemplos__ :
-* Objetivo: Prever saídas do sistema a partir de entradas\.
-  * Neste caso\, o modelo precisa apenas capturar a relação entrada\-saída correta\, podendo ser tratado como uma caixa\-preta \(ex\.: redes neurais\)\.
-* Objetivo: Elucidar um mecanismo biológico\.
-  * Aqui\, a estrutura interna e as interações entre componentes devem ser representadas de forma realista e mecanicista\.
+* A modelagem é um processo subjetivo e seletivo.
+* Um modelo representa apenas aspectos específicos da realidade, mas pode ser suficiente se construído para responder a uma pergunta particular.
+* Exemplos :
+* Objetivo: Prever saídas do sistema a partir de entradas.
+  * Neste caso, o modelo precisa apenas capturar a relação entrada-saída correta, podendo ser tratado como uma caixa-preta (ex.: redes neurais).
+* Objetivo: Elucidar um mecanismo biológico.
+  * Aqui, a estrutura interna e as interações entre componentes devem ser representadas de forma realista e mecanicista.
 
 ---
 
@@ -172,11 +172,11 @@ Na biologia experimental\, o termo 'modelo' também é usado para denotar um org
 
 
 * Os modelos podem ser:
-* __Gerais__
-  * O modelo cinético de Michaelis\-Menten\.
-* __Específicos__
-  * Modelos de estrutura de proteínas\.
-  * Modelos de deterioração de mitocôndrias\.
+* Gerais
+  * O modelo cinético de Michaelis-Menten.
+* Específicos
+  * Modelos de estrutura de proteínas.
+  * Modelos de deterioração de mitocôndrias.
 
 
 ![](img/04%20-%20Modelos_8.png)
@@ -189,13 +189,13 @@ Na biologia experimental\, o termo 'modelo' também é usado para denotar um org
 
 # Propósito e adequação dos modelos (cont.)
 
-__Modelos Gerais:__
+Modelos Gerais:
 
-São simplificados e amplamente aplicáveis\, focando em princípios universais \(ex\.: redes de interação proteína\-proteína conservadas em múltiplas espécies\)\. Capturam padrões gerais\, mas omitem detalhes específicos\.
+São simplificados e amplamente aplicáveis, focando em princípios universais (ex.: redes de interação proteína-proteína conservadas em múltiplas espécies). Capturam padrões gerais, mas omitem detalhes específicos.
 
-__Modelos Específicos:__
+Modelos Específicos:
 
-São detalhados e contextualizados\, incorporando parâmetros e condições particulares de um sistema biológico \(ex\.: modelo cinético de uma via metabólica em uma linhagem celular humana sob hipóxia\)\. Buscam representar fielmente um cenário experimental concreto\.
+São detalhados e contextualizados, incorporando parâmetros e condições particulares de um sistema biológico (ex.: modelo cinético de uma via metabólica em uma linhagem celular humana sob hipóxia). Buscam representar fielmente um cenário experimental concreto.
 
 ![](img/04%20-%20Modelos_10.png)
 
@@ -215,7 +215,7 @@ São detalhados e contextualizados\, incorporando parâmetros e condições part
 ---
 
 
-__Modelos só possuem valor real quando podem ser comparados com experimentos e\, para tanto\, tal comparação depende da qualidade de tais experimentos\.__
+Modelos só possuem valor real quando podem ser comparados com experimentos e, para tanto, tal comparação depende da qualidade de tais experimentos.
 
 # Modelagem e Experimentação
 
@@ -225,17 +225,17 @@ __Modelos só possuem valor real quando podem ser comparados com experimentos e\
 
 # Modelo: algumas características
 
-__Modelos dependem de hipóteses específicas e rigorosas__ \, que definem claramente o escopo e as premissas do estudo\.
+Modelos dependem de hipóteses específicas e rigorosas , que definem claramente o escopo e as premissas do estudo.
 
-__Modelos revelam lacunas no conhecimento:__  durante sua construção\, a necessidade de quantificar interações ou componentes expõe falhas no entendimento atual do sistema\.
+Modelos revelam lacunas no conhecimento:  durante sua construção, a necessidade de quantificar interações ou componentes expõe falhas no entendimento atual do sistema.
 
-__Modelagem oferece independência do objeto real:__  o sistema pode ser estudado de forma abstrata\, sem interferência direta ou limitações experimentais imediatas\.
+Modelagem oferece independência do objeto real:  o sistema pode ser estudado de forma abstrata, sem interferência direta ou limitações experimentais imediatas.
 
-__Tempo e espaço são flexíveis:__  escalas temporais \(ex\.: milissegundos a anos\) e espaciais \(ex\.: molecular a organismal\) podem ser comprimidas ou expandidas conforme a necessidade\.
+Tempo e espaço são flexíveis:  escalas temporais (ex.: milissegundos a anos) e espaciais (ex.: molecular a organismal) podem ser comprimidas ou expandidas conforme a necessidade.
 
-__Modelagem é economicamente vantajosa:__  simulações computacionais têm custo reduzido comparado a experimentos laboratoriais complexos ou de longa duração\.
+Modelagem é economicamente vantajosa:  simulações computacionais têm custo reduzido comparado a experimentos laboratoriais complexos ou de longa duração.
 
-__Modelos mitigam questões éticas:__  reduzem ou eliminam o uso de organismos vivos\, células primárias ou tecidos em fases exploratórias de pesquisa\.
+Modelos mitigam questões éticas:  reduzem ou eliminam o uso de organismos vivos, células primárias ou tecidos em fases exploratórias de pesquisa.
 
 
 ---
@@ -245,25 +245,25 @@ __Modelos mitigam questões éticas:__  reduzem ou eliminam o uso de organismos 
 
 
 
-* __Simulação de Cenários Inacessíveis:__  Permitem testar condições extremas\, perigosas ou eticamente inviáveis no mundo real\.
-* __Análise Temporal Dinâmica:__  Facilitam o rastreamento da evolução de compostos ou moléculas ao longo do tempo\.
-* __Perturbações Controladas:__
-  * Permitem manipular o ambiente de formas impossíveis experimentalmente\.
-  * Habilitam a alteração seletiva de elementos específicos sem afetar outros componentes do sistema\.
-* __Reprodutibilidade e Varredura de Condições:__  Simulações podem ser repetidas infinitamente e sob diversas condições\.
-* __Representação Clara de Resultados:__
-  * Os resultados são expressos em termos matemáticos precisos\.
-  * Visualizações gráficas simplificam a interpretação do comportamento do sistema\.
-* __Predições Testáveis:__  Geram hipóteses quantitativas e fundamentadas para validação experimental\.
+* Simulação de Cenários Inacessíveis:  Permitem testar condições extremas, perigosas ou eticamente inviáveis no mundo real.
+* Análise Temporal Dinâmica:  Facilitam o rastreamento da evolução de compostos ou moléculas ao longo do tempo.
+* Perturbações Controladas:
+  * Permitem manipular o ambiente de formas impossíveis experimentalmente.
+  * Habilitam a alteração seletiva de elementos específicos sem afetar outros componentes do sistema.
+* Reprodutibilidade e Varredura de Condições:  Simulações podem ser repetidas infinitamente e sob diversas condições.
+* Representação Clara de Resultados:
+  * Os resultados são expressos em termos matemáticos precisos.
+  * Visualizações gráficas simplificam a interpretação do comportamento do sistema.
+* Predições Testáveis:  Geram hipóteses quantitativas e fundamentadas para validação experimental.
 
 ---
 
 
 # Modelos: matemáticos e computacionais
 
-A tentativa de descrever problemas biológicos usando linguagem matemática frequentemente revela lacunas em nosso conhecimento e exige uma clarificação conceitual rigorosa\.
+A tentativa de descrever problemas biológicos usando linguagem matemática frequentemente revela lacunas em nosso conhecimento e exige uma clarificação conceitual rigorosa.
 
-Modelos computacionais surgem como ferramentas para testar hipóteses sobre fenômenos biológicos de forma controlada e quantitativa\. Além disso\, eles permitem simular processos biológicos complexos sob condições variadas\, oferecendo insights inalcançáveis apenas por métodos experimentais tradicionais\.
+Modelos computacionais surgem como ferramentas para testar hipóteses sobre fenômenos biológicos de forma controlada e quantitativa. Além disso, eles permitem simular processos biológicos complexos sob condições variadas, oferecendo insights inalcançáveis apenas por métodos experimentais tradicionais.
 
 
 ---
@@ -281,9 +281,9 @@ Modelos computacionais surgem como ferramentas para testar hipóteses sobre fen�
 
 
 
-* Um modelo pode descrever somente alguns aspectos do sistema e todas as outras propriedades do sistema  __podem ser simplificadas ou negligenciadas totalmente\.__
-  * Exemplo: o meio celular e concentração de metabólitos secundários\.
-* É difícil construir modelos de maneira que as características que foram ignoradas não comprometam os resultados básicos do modelo\.
+* Um modelo pode descrever somente alguns aspectos do sistema e todas as outras propriedades do sistema  podem ser simplificadas ou negligenciadas totalmente.
+  * Exemplo: o meio celular e concentração de metabólitos secundários.
+* É difícil construir modelos de maneira que as características que foram ignoradas não comprometam os resultados básicos do modelo.
 
 ---
 
@@ -299,9 +299,9 @@ Modelos computacionais surgem como ferramentas para testar hipóteses sobre fen�
 
 
 * Restrições de Igualdade e Desigualdade:
-  * Fundamentais em modelos baseados em restrições \(ex\.: Análise de Balanço de Fluxo \- FBA\)\.
-  * __Igualdade__ : Representam conservação de massa \(ex\.: A \+ B → C\)\.
-  * __Desigualdade__ : Limitam intervalos de fluxo metabólico ou expressão gênica \(ex\.: 0 ≤ v₁ ≤ V\_max\)\.
+  * Fundamentais em modelos baseados em restrições (ex.: Análise de Balanço de Fluxo - FBA).
+  * Igualdade : Representam conservação de massa (ex.: A + B → C).
+  * Desigualdade : Limitam intervalos de fluxo metabólico ou expressão gênica (ex.: 0 ≤ v₁ ≤ V_max).
 
 ---
 
@@ -311,7 +311,7 @@ Modelos computacionais surgem como ferramentas para testar hipóteses sobre fen�
 
 
 * Postulados de Otimalidade:
-  * Supõem que o sistema evolui para maximizar/minimizar uma função objetivo \(ex\.: maximização de biomassa em FBA\)\.
+  * Supõem que o sistema evolui para maximizar/minimizar uma função objetivo (ex.: maximização de biomassa em FBA).
 
 ---
 
@@ -321,7 +321,7 @@ Modelos computacionais surgem como ferramentas para testar hipóteses sobre fen�
 
 
 * Processos Estocásticos:
-  * Descrevem sistemas onde a aleatoriedade é crucial \(ex\.: expressão gênica estocástica\, modelada por Equações Mestras ou Simulação de Gillespie\)\.
+  * Descrevem sistemas onde a aleatoriedade é crucial (ex.: expressão gênica estocástica, modelada por Equações Mestras ou Simulação de Gillespie).
 
 ---
 
@@ -331,7 +331,7 @@ Modelos computacionais surgem como ferramentas para testar hipóteses sobre fen�
 
 
 * Declarações Probabilísticas:
-  * Atribuem distribuições de probabilidade a parâmetros ou estados do sistema para capturar variabilidade \(ex\.: entre células em uma população ou incerteza experimental\)\.
+  * Atribuem distribuições de probabilidade a parâmetros ou estados do sistema para capturar variabilidade (ex.: entre células em uma população ou incerteza experimental).
 
 ---
 
@@ -340,23 +340,23 @@ Modelos computacionais surgem como ferramentas para testar hipóteses sobre fen�
 
 
 
-* O estado de um sistema representa um instante completo de todas as suas propriedades relevantes em um dado momento\.
-* É formalmente descrito por um conjunto de variáveis de estado \(ex\.: concentrações\, números moleculares\, níveis de atividade\)\, cujos valores definem unequivomente a condição atual do sistema\.
-* Um modelo deve encapsular informação suficiente para\, a partir do estado atual\, prever unequivocamente a evolução temporal do sistema sob condições definidas\.
+* O estado de um sistema representa um instante completo de todas as suas propriedades relevantes em um dado momento.
+* É formalmente descrito por um conjunto de variáveis de estado (ex.: concentrações, números moleculares, níveis de atividade), cujos valores definem unequivomente a condição atual do sistema.
+* Um modelo deve encapsular informação suficiente para, a partir do estado atual, prever unequivocamente a evolução temporal do sistema sob condições definidas.
 * A definição específica do estado varia conforme a abordagem de modelagem:
-* Modelos Determinísticos \(ex\.: EDOs\):
-  * O estado é um vetor de concentrações contínuas de todas as espécies bioquímicas relevantes \(ex\.: \[S\]\(t\)\,\[P\]\(t\)\)\.
-* Modelos Estocásticos \(ex\.: Gillespie\):
-  * O estado é a contagem discreta de moléculas de cada espécie \(ex\.: nX\,nY\)\, ou uma distribuição de probabilidade sobre possíveis contagens\.
+* Modelos Determinísticos (ex.: EDOs):
+  * O estado é um vetor de concentrações contínuas de todas as espécies bioquímicas relevantes (ex.: [S](t),[P](t)).
+* Modelos Estocásticos (ex.: Gillespie):
+  * O estado é a contagem discreta de moléculas de cada espécie (ex.: nX,nY), ou uma distribuição de probabilidade sobre possíveis contagens.
 * Modelos Booleanos de Redes Gênicas:
-  * O estado é um vetor binário \(ex\.: \{0\,1\}n\{0\,1\}n\)\, onde cada entrada indica se um gene está ativo \(1\) ou inativo \(0\)\.
+  * O estado é um vetor binário (ex.: {0,1}n{0,1}n), onde cada entrada indica se um gene está ativo (1) ou inativo (0).
 
 ---
 
 
-E um sistema dinâmico\, o estado futuro é determinado pelo estado atual\.
+E um sistema dinâmico, o estado futuro é determinado pelo estado atual.
 
-Em um sistema estocástico\, os estados futuros não são precisamente predeterminados\. Ao invés disso\, cada possível futuro exibe uma certa probabilidade de acontecer\.
+Em um sistema estocástico, os estados futuros não são precisamente predeterminados. Ao invés disso, cada possível futuro exibe uma certa probabilidade de acontecer.
 
 # Estado do sistema (cont.)
 
@@ -368,7 +368,7 @@ Em um sistema estocástico\, os estados futuros não são precisamente predeterm
 
 # Constantes, parâmetros e variáveis
 
-__São as quantidades dentro de um modelo\.__
+São as quantidades dentro de um modelo.
 
 
 ---
@@ -378,33 +378,33 @@ __São as quantidades dentro de um modelo\.__
 
 
 
-* __Constante:__  Um valor fixo e universal que não muda entre diferentes contextos ou sistemas\.
-  * Exemplo: A velocidade da luz \(c\)\, a constante de Avogadro\, ou a carga do elétron\.
-* __Parâmetro:__  Um valor que é fixo dentro de um determinado modelo ou contexto experimental\, mas que pode variar quando o modelo é aplicado a uma nova situação\.
-  * Exemplo: A taxa máxima de reação \(Vₘₐₓ\) de uma enzima\, que é constante para uma enzima purificada sob condições específicas de pH e temperatura\, mas muda se essas condições forem alteradas ou se uma isoenzima diferente for considerada\.
-* __Variável:__  Uma quantidade que muda ao longo do tempo ou em resposta a outras variáveis dentro do escopo do modelo\.
-  * Exemplo: A concentração de glucose em uma célula \(\[GLC\]\)\, que varia conforme é consumida na glicólise\.
+* Constante:  Um valor fixo e universal que não muda entre diferentes contextos ou sistemas.
+  * Exemplo: A velocidade da luz (c), a constante de Avogadro, ou a carga do elétron.
+* Parâmetro:  Um valor que é fixo dentro de um determinado modelo ou contexto experimental, mas que pode variar quando o modelo é aplicado a uma nova situação.
+  * Exemplo: A taxa máxima de reação (Vₘₐₓ) de uma enzima, que é constante para uma enzima purificada sob condições específicas de pH e temperatura, mas muda se essas condições forem alteradas ou se uma isoenzima diferente for considerada.
+* Variável:  Uma quantidade que muda ao longo do tempo ou em resposta a outras variáveis dentro do escopo do modelo.
+  * Exemplo: A concentração de glucose em uma célula ([GLC]), que varia conforme é consumida na glicólise.
 
 ---
 
 
 # Constantes, parâmetros e variáveis (cont.)
 
-A distinção entre  __Parâmetro__  e  __Constante__  é especialmente importante\.
+A distinção entre  Parâmetro  e  Constante  é especialmente importante.
 
-Um parâmetro \(como a meia\-vida de uma proteína\) é tratado como constante durante uma simulação para simplificar o modelo\, mas seu valor é frequentemente estimado a partir de dados experimentais e pode ser ajustado para diferentes cenários \(ex\.: um mutante com uma proteína mais estável teria um parâmetro de meia\-vida diferente\)\.
+Um parâmetro (como a meia-vida de uma proteína) é tratado como constante durante uma simulação para simplificar o modelo, mas seu valor é frequentemente estimado a partir de dados experimentais e pode ser ajustado para diferentes cenários (ex.: um mutante com uma proteína mais estável teria um parâmetro de meia-vida diferente).
 
 
 ---
 
 
-Uma constante é uma quantidade com valor fixo\.
+Uma constante é uma quantidade com valor fixo.
 
 Exemplos:
 
-O número natural  _e_ \.
+O número natural  _e_ .
 
-A constante de Avogadro\.
+A constante de Avogadro.
 
 A constante de Planck
 
@@ -416,7 +416,7 @@ A constante de Planck
 ---
 
 
-São quantidades que tem um dado valor\, como o valor  _K_  _m_  de uma enzima em uma reação\. Esse valor depende do método usado e das condições experimentais e por isso pode mudar\.
+São quantidades que tem um dado valor, como o valor  _K_  _m_  de uma enzima em uma reação. Esse valor depende do método usado e das condições experimentais e por isso pode mudar.
 
 # Constantes, parâmetros e variáveis
 
@@ -426,11 +426,11 @@ São quantidades que tem um dado valor\, como o valor  _K_  _m_  de uma enzima e
 ---
 
 
-São quantidades com valor mutável para o qual o modelo estabelece relações\.
+São quantidades com valor mutável para o qual o modelo estabelece relações.
 
-As variáveis de estado descrevem o comportamento completo do sistema\. Podem assumir valor independentes e cada uma das variáveis é necessária para definir o sistema\.
+As variáveis de estado descrevem o comportamento completo do sistema. Podem assumir valor independentes e cada uma das variáveis é necessária para definir o sistema.
 
-Por exemplo\, o diâmetro  _d_  e o volume  _V_  de uma esfera obedece a relação  _V _ = π _d_ 3/6\, onde π e 6 são constantes\,  _V_  e  _d_  são variáveis\, mas somente uma delas é a variável de estado já que a relação entre elas determina unicamente a outra\.
+Por exemplo, o diâmetro  _d_  e o volume  _V_  de uma esfera obedece a relação  _V _ = π _d_ 3/6, onde π e 6 são constantes,  _V_  e  _d_  são variáveis, mas somente uma delas é a variável de estado já que a relação entre elas determina unicamente a outra.
 
 # Constantes, parâmetros e variáveis
 
@@ -440,9 +440,9 @@ Por exemplo\, o diâmetro  _d_  e o volume  _V_  de uma esfera obedece a relaç�
 ---
 
 
-Influências do ambiente \(entrada\)\.
+Influências do ambiente (entrada).
 
-Processos dentro do sistema\.
+Processos dentro do sistema.
 
 # Comportamento de um modelo
 
@@ -454,13 +454,13 @@ Processos dentro do sistema\.
 
 # Classificação de modelos
 
-__Modelo determinístico__
+Modelo determinístico
 
-A evolução do sistema através dos estados seguintes podem ser predita com o conhecimento do estado atual\.
+A evolução do sistema através dos estados seguintes podem ser predita com o conhecimento do estado atual.
 
-__Modelo estocástico__
+Modelo estocástico
 
-__Já o modelo estocástico nos dá a distribuição de probabilidade para os possíveis estados futuros\.__
+Já o modelo estocástico nos dá a distribuição de probabilidade para os possíveis estados futuros.
 
 
 ---
@@ -470,31 +470,13 @@ __Já o modelo estocástico nos dá a distribuição de probabilidade para os po
 
 ![](img/04%20-%20Modelos_14.png)
 
-__Modelo estrutural ou qualitativo__
+Modelo estrutural ou qualitativo
 
-É uma representação que descreve:\- Componentes de um sistema biológico \(como genes\, proteínas ou metabólitos\)
+É uma representação que descreve:- Componentes de um sistema biológico (como genes, proteínas ou metabólitos)
 
-\- Suas interações ou relações\, sem quantificar dinâmicas temporais ou valores numéricos\.
+- Suas interações ou relações, sem quantificar dinâmicas temporais ou valores numéricos.
 
-\- Seu foco está na topologia da rede \(quem interage com quem\) e na lógica das interações \(ativação\, inibição\, regulação\)\, permitindo explorar propriedades emergentes como modularidade\, robustez e fluxo de informação\.
-
-
----
-
-
-# Classificação de modelos (cont.)
-
-__M__  __odelo Discreto__
-
-__Definição:__  Tempo\, estado e espaço assumem valores em um conjunto enumerável \(ex\.: números inteiros\, categorias finitas\)\.
-
-__Exemplos:__
-
-__Redes Booleanas:__  Genes representados como "LIGADO" \(1\) ou "DESLIGADO" \(0\)\.
-
-__Autômatos Celulares:__  Células em estados discretos \(ex\.: saudável/infectada/morta\) em uma grade espacial\.
-
-__Cadeias de Markov Temporais:__  Eventos em tempos discretos \(ex\.: gerações em modelos populacionais\)\.
+- Seu foco está na topologia da rede (quem interage com quem) e na lógica das interações (ativação, inibição, regulação), permitindo explorar propriedades emergentes como modularidade, robustez e fluxo de informação.
 
 
 ---
@@ -502,15 +484,33 @@ __Cadeias de Markov Temporais:__  Eventos em tempos discretos \(ex\.: gerações
 
 # Classificação de modelos (cont.)
 
-__Modelo Contínuo__
+M  odelo Discreto
 
-__Definição:__  Tempo\, estado e espaço assumem valores em intervalos contínuos \(ex\.: números reais\)\.
+Definição:  Tempo, estado e espaço assumem valores em um conjunto enumerável (ex.: números inteiros, categorias finitas).
 
 Exemplos:
 
-__Equações Diferenciais Ordinárias \(__  __ED__  __Os\):__  Concentrações de metabólitos variando continuamente no tempo \(ex\.: modelo de cinética enzimática de Michaelis\-Menten\)\.
+Redes Booleanas:  Genes representados como "LIGADO" (1) ou "DESLIGADO" (0).
 
-__Modelos Baseados em __  __Equações Diferenciais Parciais \(EDP__  __s__  __\)__  __:__  Variação espacial contínua de gradientes de morfogenes em desenvolvimento embrionário\.
+Autômatos Celulares:  Células em estados discretos (ex.: saudável/infectada/morta) em uma grade espacial.
+
+Cadeias de Markov Temporais:  Eventos em tempos discretos (ex.: gerações em modelos populacionais).
+
+
+---
+
+
+# Classificação de modelos (cont.)
+
+Modelo Contínuo
+
+Definição:  Tempo, estado e espaço assumem valores em intervalos contínuos (ex.: números reais).
+
+Exemplos:
+
+Equações Diferenciais Ordinárias (  ED  Os):  Concentrações de metabólitos variando continuamente no tempo (ex.: modelo de cinética enzimática de Michaelis-Menten).
+
+Modelos Baseados em   Equações Diferenciais Parciais (EDP  s  )  :  Variação espacial contínua de gradientes de morfogenes em desenvolvimento embrionário.
 
 ::: {.notes}
 
@@ -542,19 +542,19 @@ Características Principais:
 
 # Classificação de modelos (cont.)
 
-__Reversibilidade__
+Reversibilidade
 
-__Definição:__  Um processo é reversível se pode ocorrer tanto na direção direta quanto na inversa\, frequentemente mantendo as mesmas propriedades dinâmicas \(ex\.: taxas de reação\)\.
+Definição:  Um processo é reversível se pode ocorrer tanto na direção direta quanto na inversa, frequentemente mantendo as mesmas propriedades dinâmicas (ex.: taxas de reação).
 
-__Irreversibilidade__
+Irreversibilidade
 
-__Definição:__  Ocorre quando apenas uma direção é termodinamicamente ou cineticamente favorável\, frequentemente devido a perda de energia ou condições celulares específicas \(ex\.: hidrólise de ATP\)\.
+Definição:  Ocorre quando apenas uma direção é termodinamicamente ou cineticamente favorável, frequentemente devido a perda de energia ou condições celulares específicas (ex.: hidrólise de ATP).
 
-__Exemplo Biológico__
+Exemplo Biológico
 
-__Reversível:__  A ligação de uma molécula sinalizadora a um receptor \(que pode dissociar\)\.
+Reversível:  A ligação de uma molécula sinalizadora a um receptor (que pode dissociar).
 
-__Irreversível:__  A ativação proteolítica de uma caspase em uma cascata apoptótica\.
+Irreversível:  A ativação proteolítica de uma caspase em uma cascata apoptótica.
 
 
 ---
@@ -562,17 +562,17 @@ __Irreversível:__  A ativação proteolítica de uma caspase em uma cascata apo
 
 # Classificação de modelos (cont.)
 
-__Periodicidade__
+Periodicidade
 
-__Definição:__  Refere\-se a comportamentos que se repetem em intervalos regulares de tempo\, forming ciclos previsíveis\.
+Definição:  Refere-se a comportamentos que se repetem em intervalos regulares de tempo, forming ciclos previsíveis.
 
-__Exemplo Biológico__
+Exemplo Biológico
 
-__Ciclos circadianos:__  Oscilações de ~24 horas na expressão gênica \(ex\.: genes Clock e Bmal1\)\.
+Ciclos circadianos:  Oscilações de ~24 horas na expressão gênica (ex.: genes Clock e Bmal1).
 
-__Ciclo celular:__  Transições entre fases \(G1\, S\, G2\, M\) controladas por ciclinas e cinases\.
+Ciclo celular:  Transições entre fases (G1, S, G2, M) controladas por ciclinas e cinases.
 
-__Oscilações de cálcio:__  Pulsos de liberação de Ca²⁺ em células excitáveis\.
+Oscilações de cálcio:  Pulsos de liberação de Ca²⁺ em células excitáveis.
 
 
 ---
@@ -580,7 +580,7 @@ __Oscilações de cálcio:__  Pulsos de liberação de Ca²⁺ em células excit
 
 # Estado estacionário - Steady state
 
-Um estado estacionário é atingido quando todas as variáveis de estado de um sistema \(ex\.: concentrações de metabólitos\, níveis de expressão gênica\) permanecem constantes ao longo do tempo\, ou seja\, suas derivadas temporais são zero \(d\[X\]/dt=0\)\.
+Um estado estacionário é atingido quando todas as variáveis de estado de um sistema (ex.: concentrações de metabólitos, níveis de expressão gênica) permanecem constantes ao longo do tempo, ou seja, suas derivadas temporais são zero (d[X]/dt=0).
 
 
 ---
@@ -588,15 +588,15 @@ Um estado estacionário é atingido quando todas as variáveis de estado de um s
 
 # Estado estacionário - Steady state (cont.)
 
-__Equilíbrio Dinâmico \(≠ Equilíbrio Termodinâmico\)__
+Equilíbrio Dinâmico (≠ Equilíbrio Termodinâmico)
 
-No estado estacionário\,  __fluxos ainda ocorrem__  \(ex\.: reações químicas\, produção e degradação de proteínas\)\, mas as taxas de entrada e saída para cada pool se equilibram perfeitamente\, resultando em concentrações constantes\.
+No estado estacionário,  fluxos ainda ocorrem  (ex.: reações químicas, produção e degradação de proteínas), mas as taxas de entrada e saída para cada pool se equilibram perfeitamente, resultando em concentrações constantes.
 
-É um conceito central em sistemas abertos \(como células\)\, que trocam matéria e energia com o meio\.
+É um conceito central em sistemas abertos (como células), que trocam matéria e energia com o meio.
 
-__Estabilidade__ :
+Estabilidade :
 
-Um estado estacionário pode ser estável \(o sistema retorna a ele após uma pequena perturbação\) ou instável \(uma pequena perturbação afasta o sistema irreversivelmente\)\.
+Um estado estacionário pode ser estável (o sistema retorna a ele após uma pequena perturbação) ou instável (uma pequena perturbação afasta o sistema irreversivelmente).
 
 
 ---
@@ -604,17 +604,17 @@ Um estado estacionário pode ser estável \(o sistema retorna a ele após uma pe
 
 # Estado estacionário - Steady state (cont.)
 
-__Metabolismo__ : Em uma via metabólica\, um estado estacionário é alcançado quando a taxa de produção de um metabólito é igual à sua taxa de consumo \(ex\.: concentração de ATP constante sob demanda energética estável\)\.
+Metabolismo : Em uma via metabólica, um estado estacionário é alcançado quando a taxa de produção de um metabólito é igual à sua taxa de consumo (ex.: concentração de ATP constante sob demanda energética estável).
 
-__Homeostase__ : A manutenção de um nível constante de glicose no sangue é um estado estacionário dinâmico\, equilibrando ingestão\, secreção de insulina/glucagon e consumo celular\.
+Homeostase : A manutenção de um nível constante de glicose no sangue é um estado estacionário dinâmico, equilibrando ingestão, secreção de insulina/glucagon e consumo celular.
 
-__Expressão Gênica__ : O nível de uma proteína pode atingir um estado estacionário onde sua taxa de síntese é igual à sua taxa de degradação\.
+Expressão Gênica : O nível de uma proteína pode atingir um estado estacionário onde sua taxa de síntese é igual à sua taxa de degradação.
 
 
 ---
 
 
-A modelagem de sistemas biológicos é inerentemente não única\, significando que um mesmo processo ou entidade biológica pode ser representado por múltiplos modelos formais\, cada um com  __diferentes níveis de abstração\, pressupostos e objetivos\.__
+A modelagem de sistemas biológicos é inerentemente não única, significando que um mesmo processo ou entidade biológica pode ser representado por múltiplos modelos formais, cada um com  diferentes níveis de abstração, pressupostos e objetivos.
 
 # A atribuição de modelos não é única
 
@@ -626,7 +626,7 @@ A modelagem de sistemas biológicos é inerentemente não única\, significando 
 
 Múltiplas Escalas e Perspectivas:
 
-Uma mesma entidade \(ex\.: uma proteína\) pode ser modelada em escalas atômicas \(dinâmica molecular\)\, celulares \(cinética enzimática\) ou de redes \(interações proteína\-proteína\)\.
+Uma mesma entidade (ex.: uma proteína) pode ser modelada em escalas atômicas (dinâmica molecular), celulares (cinética enzimática) ou de redes (interações proteína-proteína).
 
 # A atribuição de modelos não é única
 
@@ -638,7 +638,7 @@ Uma mesma entidade \(ex\.: uma proteína\) pode ser modelada em escalas atômica
 
 Abstração Seletiva:
 
-Diferentes modelos destacam aspectos distintos do sistema\, como sua estrutura topológica \(modelos qualitativos\) ou dinâmica temporal quantitativa \(modelos baseados em EDOs\)\.
+Diferentes modelos destacam aspectos distintos do sistema, como sua estrutura topológica (modelos qualitativos) ou dinâmica temporal quantitativa (modelos baseados em EDOs).
 
 # A atribuição de modelos não é única
 
@@ -650,7 +650,7 @@ Diferentes modelos destacam aspectos distintos do sistema\, como sua estrutura t
 
 Diversidade de Dados Experimentais:
 
-Diferentes técnicas experimentais \(ex\.: microscopia\, espectrometria de massa\, RNA\-seq\) geram dados heterogêneos\, que podem demandar frameworks de modelagem distintos para sua interpretação\.
+Diferentes técnicas experimentais (ex.: microscopia, espectrometria de massa, RNA-seq) geram dados heterogêneos, que podem demandar frameworks de modelagem distintos para sua interpretação.
 
 # A atribuição de modelos não é única
 
@@ -662,13 +662,13 @@ Diferentes técnicas experimentais \(ex\.: microscopia\, espectrometria de massa
 
 # A atribuição de modelos não é única
 
-__Implicações__
+Implicações
 
-\- A escolha do modelo depende criticalmente da pergunta biológica específica\.
+- A escolha do modelo depende criticalmente da pergunta biológica específica.
 
-\- Modelos concorrentes podem ser igualmente válidos para explicar um fenômeno\, mas sob contextos diferentes\.
+- Modelos concorrentes podem ser igualmente válidos para explicar um fenômeno, mas sob contextos diferentes.
 
-\- A integração de múltiplos modelos \(ex\.: multi\-escala\) é frequentemente necessária para uma compreensão abrangente\.
+- A integração de múltiplos modelos (ex.: multi-escala) é frequentemente necessária para uma compreensão abrangente.
 
 
 ---
@@ -676,15 +676,15 @@ __Implicações__
 
 # Integração de dados multi-ômicos
 
-Uma parte importante da Biologia de Sistemas é a integração de dados devido ao grande volume de dados ômicos\.
+Uma parte importante da Biologia de Sistemas é a integração de dados devido ao grande volume de dados ômicos.
 
-A integração ocorre em três níveis \(não universalmente padronizados\, mas amplamente aceitos\):
+A integração ocorre em três níveis (não universalmente padronizados, mas amplamente aceitos):
 
-__Baixo nível:__  Foco em formatos\, armazenamento e transferência de dados brutos ou pré\-processados\.
+Baixo nível:  Foco em formatos, armazenamento e transferência de dados brutos ou pré-processados.
 
-__Alto nível:__  Representação unificada de modelos e vias biológicas \(ex\.: SBML\, CellML\)\.
+Alto nível:  Representação unificada de modelos e vias biológicas (ex.: SBML, CellML).
 
-__Nível mais alto \(interpretativo\):__  Correlação e análise conjunta de dados multi\-ômicos para extrair significado biológico\.
+Nível mais alto (interpretativo):  Correlação e análise conjunta de dados multi-ômicos para extrair significado biológico.
 
 
 ---
@@ -692,11 +692,11 @@ __Nível mais alto \(interpretativo\):__  Correlação e análise conjunta de da
 
 # Integração de dados multi-ômicos (cont.)
 
-Uma parte importante da Biologia de Sistemas é a integração de dados devido ao grande volume de dados ômicos\.
+Uma parte importante da Biologia de Sistemas é a integração de dados devido ao grande volume de dados ômicos.
 
-A integração ocorre em três níveis \(não universalmente padronizados\, mas amplamente aceitos\):
+A integração ocorre em três níveis (não universalmente padronizados, mas amplamente aceitos):
 
-__Integração nível baixo__
+Integração nível baixo
 
 Esquema comum de repositório de informação
 
@@ -728,13 +728,13 @@ Transferência de dados
 
 ![](img/04%20-%20Modelos_18.png)
 
-| Característica | Rede Erdös\-Rényi \(Aleatória\) | Redes Reais \(Biológicas\) |
+| Característica | Rede Erdös-Rényi (Aleatória) | Redes Reais (Biológicas) |
 | :-: | :-: | :-: |
-| __Distribuição de graus__ | Homogênea \(Poisson\) | Heterogênea \(hubs \+ nós pouco conectados\) |
-| __Modularidade__ | Ausente | Presente \(módulos funcionais\) |
-| __Coesividade__ | Baixa | Alta \(clusters de interação\) |
-| __Mundo Pequeno__ | Sim | Sim |
-| __Livre de Escala__ | Não | Sim |
+| Distribuição de graus | Homogênea (Poisson) | Heterogênea (hubs + nós pouco conectados) |
+| Modularidade | Ausente | Presente (módulos funcionais) |
+| Coesividade | Baixa | Alta (clusters de interação) |
+| Mundo Pequeno | Sim | Sim |
+| Livre de Escala | Não | Sim |
 
 ![](img/04%20-%20Modelos_19.png)
 
@@ -744,11 +744,11 @@ Transferência de dados
 
 # Modelos de grafos (cont.)
 
-__Watts\-Strogatz \(WS\)__
+Watts-Strogatz (WS)
 
-__É um modelo de rede que gera redes com alto agrupamento local \(__  _modularidade_  __\) e baixo caminho médio \(__  _efeito "mundo pequeno"_  __\)\.__
+É um modelo de rede que gera redes com alto agrupamento local (  _modularidade_  ) e baixo caminho médio (  _efeito "mundo pequeno"_  ).
 
-__Imagine uma rede onde a maioria das conexões é com vizinhos próximos \(formando "panelinhas" ou clusters\)\, mas com alguns poucos atalhos que conectam grupos distantes\.__
+Imagine uma rede onde a maioria das conexões é com vizinhos próximos (formando "panelinhas" ou clusters), mas com alguns poucos atalhos que conectam grupos distantes.
 
 ![](img/04%20-%20Modelos_20.png)
 
@@ -758,11 +758,11 @@ __Imagine uma rede onde a maioria das conexões é com vizinhos próximos \(form
 
 # Modelos de grafos (cont.)
 
-_Watts\-Strogatz \(WS\)_  _:_   __Como é construído?__
+_Watts-Strogatz (WS)_  _:_   Como é construído?
 
-__Começa com uma rede regular:__  __ Os vértices são dispostos em um anel \(ou grade\)\, cada um conectado aos seus k vizinhos mais próximos \(ex\.: k=2 para cada lado\)\. Isso cria clusters locais muito coesos\.__
+Começa com uma rede regular:   Os vértices são dispostos em um anel (ou grade), cada um conectado aos seus k vizinhos mais próximos (ex.: k=2 para cada lado). Isso cria clusters locais muito coesos.
 
-__Reconectação aleatória:__  __ Com uma probabilidade p\, cada aresta é "reatribuída" a um vértice escolhido aleatoriamente em toda a rede\. Esses reconexões aleatórias criam atalhos entre clusters distantes\.__
+Reconectação aleatória:   Com uma probabilidade p, cada aresta é "reatribuída" a um vértice escolhido aleatoriamente em toda a rede. Esses reconexões aleatórias criam atalhos entre clusters distantes.
 
 ![](img/04%20-%20Modelos_21.png)
 
@@ -772,23 +772,13 @@ __Reconectação aleatória:__  __ Com uma probabilidade p\, cada aresta é "rea
 
 # Modelos de grafos (cont.)
 
-_Watts\-Strogatz \(WS\)_  _:_   __Aplicação no Espalhamento de Doenças Infecciosas__
+_Watts-Strogatz (WS)_  _:_   Aplicação no Espalhamento de Doenças Infecciosas
 
-__Alto Agrupamento \(Alta Modularidade\):__  __ Representa bem como as infecções se espalham rapidamente em grupos fechados \(famílias\, escolas\, locais de trabalho\)\.__
+Alto Agrupamento (Alta Modularidade):   Representa bem como as infecções se espalham rapidamente em grupos fechados (famílias, escolas, locais de trabalho).
 
-__Atalhos \(Mundo Pequeno\):__  __ Modela os "super\-espalhadores" ou viagens que conectam cidades ou países distantes\, permitindo que a doença se propague globalmente em pouco tempo\.__
+Atalhos (Mundo Pequeno):   Modela os "super-espalhadores" ou viagens que conectam cidades ou países distantes, permitindo que a doença se propague globalmente em pouco tempo.
 
-__Exemplo:__  __ Uma doença pode se espalhar lentamente em uma cidade \(dentro dos clusters\) até que um indivíduo infectado pegue um avião \(atalho\) e inicie um novo surto em outro continente\, conectando os dois clusters e acelerando a pandemia\.__
-
-
----
-
-
-# Modelos de grafos (cont.)
-
-__Barabási\-Albert \(BA\)__  __: o__  problema que o Modelo BA resolve:
-
-Os modelos  _Erdös\-Rényi \(ER\)_  e  _Watts\-Strogatz \(WS\)_  não conseguiam explicar uma propriedade fundamental de redes reais \(como a internet\, redes sociais e redes biológicas\):  __a existência de hubs \(nós superconectados\)__ \. O modelo BA foi criado para explicar justamente como essas redes livres de escala surgem\.
+Exemplo:   Uma doença pode se espalhar lentamente em uma cidade (dentro dos clusters) até que um indivíduo infectado pegue um avião (atalho) e inicie um novo surto em outro continente, conectando os dois clusters e acelerando a pandemia.
 
 
 ---
@@ -796,17 +786,27 @@ Os modelos  _Erdös\-Rényi \(ER\)_  e  _Watts\-Strogatz \(WS\)_  não conseguia
 
 # Modelos de grafos (cont.)
 
-__Barabási\-Albert \(BA\)__
+Barabási-Albert (BA)  : o  problema que o Modelo BA resolve:
 
-__O modelo é baseado em dois princípios simples que imitam o crescimento de redes reais:__
+Os modelos  _Erdös-Rényi (ER)_  e  _Watts-Strogatz (WS)_  não conseguiam explicar uma propriedade fundamental de redes reais (como a internet, redes sociais e redes biológicas):  a existência de hubs (nós superconectados) . O modelo BA foi criado para explicar justamente como essas redes livres de escala surgem.
 
-__Crescimento \(Growth\):__  __ __  __A rede não é estática\. Ela começa com um pequeno número de nós e novos nós são adicionados um a um ao longo do tempo\.__
 
-_Uma rede de interação proteína\-proteína não surgiu completa; novos genes e proteínas foram adicionados ao longo da evolução\._
+---
 
-__Ligação Preferencial \(Preferential Attachment\):__  __ __  __Quando um novo nó é adicionado\, ele tende a se conectar preferencialmente a nós que já são bem conectados \(que têm um grau alto\)\.__  __ E__  __feito "o rico ficam mais ricos" \(rich\-get\-richer\)\.__
 
-_Em uma rede de interação\, uma proteína que já tem muitas conexões \(um "hub"\) é mais provável de ser recrutada para novas funções e interações do que uma proteína pouco conectada\._
+# Modelos de grafos (cont.)
+
+Barabási-Albert (BA)
+
+O modelo é baseado em dois princípios simples que imitam o crescimento de redes reais:
+
+Crescimento (Growth):     A rede não é estática. Ela começa com um pequeno número de nós e novos nós são adicionados um a um ao longo do tempo.
+
+_Uma rede de interação proteína-proteína não surgiu completa; novos genes e proteínas foram adicionados ao longo da evolução._
+
+Ligação Preferencial (Preferential Attachment):     Quando um novo nó é adicionado, ele tende a se conectar preferencialmente a nós que já são bem conectados (que têm um grau alto).   E  feito "o rico ficam mais ricos" (rich-get-richer).
+
+_Em uma rede de interação, uma proteína que já tem muitas conexões (um "hub") é mais provável de ser recrutada para novas funções e interações do que uma proteína pouco conectada._
 
 
 ---
@@ -825,7 +825,7 @@ _Em uma rede de interação\, uma proteína que já tem muitas conexões \(um "h
 
 
 * O Resultado: Redes Livres de Escala
-* Essas duas regras simples geram redes com uma distribuição de graus que segue uma lei de potência\. Isso significa:
-  * A maioria dos nós tem poucas conexões\.
-  * Uns poucos nós \(os hubs\) têm um número extraordinariamente alto de conexões\.
-  * Não há um  _típico_  número de conexões\, a rede é  _livre de escala_ \.
+* Essas duas regras simples geram redes com uma distribuição de graus que segue uma lei de potência. Isso significa:
+  * A maioria dos nós tem poucas conexões.
+  * Uns poucos nós (os hubs) têm um número extraordinariamente alto de conexões.
+  * Não há um  _típico_  número de conexões, a rede é  _livre de escala_ .

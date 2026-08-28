@@ -19,7 +19,7 @@ format:
 ---
 
 
-É uma rede de genes que possuem a tendência de serem co\-expressos \( __ativados__  ou  __reprimidos__ \) através de um grupo de amostras\.
+É uma rede de genes que possuem a tendência de serem co-expressos ( ativados  ou  reprimidos ) através de um grupo de amostras.
 
 # Rede de co-expressão
 
@@ -31,11 +31,11 @@ format:
 
 # Redes de co-expressão (cont.)
 
-São grafos não\-direcionados\.
+São grafos não-direcionados.
 
-__Vértices__ : genes\.
+Vértices : genes.
 
-__Arestas__ : relação de co\-expressão\.
+Arestas : relação de co-expressão.
 
 
 ---
@@ -45,8 +45,8 @@ __Arestas__ : relação de co\-expressão\.
 
 
 
-* Para construir redes de co\-expressão\, precisamos de várias amostras\.
-  * __Para quê?__
+* Para construir redes de co-expressão, precisamos de várias amostras.
+  * Para quê?
 
 ---
 
@@ -55,15 +55,15 @@ __Arestas__ : relação de co\-expressão\.
 
 
 
-* Uma rede de co\-expressão gênica pode ser construída procurando pares de genes que mostram:
-  * __P__  __adrão de expressão similar entre amostras__ \, já que os níveis de  __transcrição de dois genes co\-expressos podem subir ou descer juntos em amostras__ \.
+* Uma rede de co-expressão gênica pode ser construída procurando pares de genes que mostram:
+  * P  adrão de expressão similar entre amostras , já que os níveis de  transcrição de dois genes co-expressos podem subir ou descer juntos em amostras .
 
 ---
 
 
 # Redes de co-expressão (cont.)
 
-__Podem ser usadas para:__
+Podem ser usadas para:
 
 Priorização de genes associados a doenças;
 
@@ -77,10 +77,10 @@ Identificação de correlação;
 
 
 
-* __Normalmente não são capazes de:__
+* Normalmente não são capazes de:
 * Conferir informação sobre causalidade;
-  * Genes podem estar ativos durante uma resposta biológica mas não necessariamente com efeito causativo entre o gene e a resposta\.
-* Não fazem diferença entre genes  __regulatórios__  e genes  __regulados__ ;
+  * Genes podem estar ativos durante uma resposta biológica mas não necessariamente com efeito causativo entre o gene e a resposta.
+* Não fazem diferença entre genes  regulatórios  e genes  regulados ;
 
 
 # Redes de co-expressão (cont.)
@@ -91,13 +91,13 @@ Identificação de correlação;
 
 # Construção de redes de co-expressão
 
-__É feita em três passos:__
+É feita em três passos:
 
-Definir relações entre os genes\.
+Definir relações entre os genes.
 
-Construir a rede\.
+Construir a rede.
 
-Definição de módulos\.
+Definição de módulos.
 
 
 ---
@@ -107,20 +107,20 @@ Definição de módulos\.
 
 
 
-* As relações entre os genes são baseadas nas  __medidas de correlação__ \.
-* As medidas de correlação fazem a comparação do padrão de um par de genes através das amostras\.
+* As relações entre os genes são baseadas nas  medidas de correlação .
+* As medidas de correlação fazem a comparação do padrão de um par de genes através das amostras.
 * Existem várias medidas de correlação:
-  * Correlação de Pearson\.
-  * Correlação de Spearman\.
+  * Correlação de Pearson.
+  * Correlação de Spearman.
 
 ---
 
 
 # Correlação de Pearson
 
-É uma medida da  __correlação __  __linear__  entre duas variáveis X e Y \.
+É uma medida da  correlação   linear  entre duas variáveis X e Y .
 
-O coeficiente de correlação de Pearson é a covariância das duas variáveis ​​dividida pelo produto de seus desvios\-padrão\.
+O coeficiente de correlação de Pearson é a covariância das duas variáveis ​​dividida pelo produto de seus desvios-padrão.
 
 ::: {.notes}
 
@@ -138,7 +138,7 @@ http://lcb.fflch.usp.br/sites/lcb.fflch.usp.br/files/upload/paginas/AULA5-correl
 
 
 * Vê a correlação entre duas variáveis
-* A relação entre as variáveis é monotônica\, sejam lineares ou não\, o que é menos restritivo que uma relação como seria com a correlação de Pearson\.
+* A relação entre as variáveis é monotônica, sejam lineares ou não, o que é menos restritivo que uma relação como seria com a correlação de Pearson.
   * Se elas crescem juntas;
   * Ou se uma cresce e a outra diminui;
 
@@ -164,7 +164,7 @@ https://support.minitab.com/pt-br/minitab/18/help-and-how-to/statistics/basic-st
 
 # Passo 2: Construir a rede
 
-As associações de co\-expressão são usadas para reconstruir a rede\. Vértices são genes e arestas são a presença da correlação \(além da presença podem refletir a  __força da correlação__ \)\.
+As associações de co-expressão são usadas para reconstruir a rede. Vértices são genes e arestas são a presença da correlação (além da presença podem refletir a  força da correlação ).
 
 ![](img/08%20-%20Rede%20de%20Co-express%C3%A3o_3.png)
 
@@ -174,9 +174,9 @@ As associações de co\-expressão são usadas para reconstruir a rede\. Vértic
 
 # Tipos de redes de co-expressão
 
-Redes com sinal e sem sinal\.
+Redes com sinal e sem sinal.
 
-Redes ponderadas e não\-ponderadas
+Redes ponderadas e não-ponderadas
 
 
 ---
@@ -184,13 +184,13 @@ Redes ponderadas e não\-ponderadas
 
 # Redes de co-expressão com sinal e sem sinal
 
-Numa rede de co\-expressão baseada em correlação\, às medidas de correlação têm valores entre:
+Numa rede de co-expressão baseada em correlação, às medidas de correlação têm valores entre:
 
-\-1:	correlação negativa perfeita
+-1:	correlação negativa perfeita
 
-1:	correlação positiva perfeita\.
+1:	correlação positiva perfeita.
 
-Em uma  __rede sem sinal__ \, os absolutos dos valores de correlação são usados\. Então teremos somente a informação de correlação mas não saberemos se são positiviamente ou negativamente co\-expressos\.
+Em uma  rede sem sinal , os absolutos dos valores de correlação são usados. Então teremos somente a informação de correlação mas não saberemos se são positiviamente ou negativamente co-expressos.
 
 
 ---
@@ -198,21 +198,21 @@ Em uma  __rede sem sinal__ \, os absolutos dos valores de correlação são usad
 
 # Redes de co-expressão com sinal e sem sinal (cont.)
 
-Uma  __rede com sinal__  resolve esse problema escalonando os valores de correlação entre 0 e 1
+Uma  rede com sinal  resolve esse problema escalonando os valores de correlação entre 0 e 1
 
-<0\,5:		indicam correlação negativa
+<0,5:		indicam correlação negativa
 
-=0\,5:		neutra/fraca
+=0,5:		neutra/fraca
 
->0\,5:		indicam correlação positiva\.
+>0,5:		indicam correlação positiva.
 
-Assim\, um valor escalonado próximo de 0 indica uma correlação forte e  negativa\, uma característica que pode ser particularmente interessante quando o transcrito exerce sua função principalmente através da regulação negativa de outros genes\.
+Assim, um valor escalonado próximo de 0 indica uma correlação forte e  negativa, uma característica que pode ser particularmente interessante quando o transcrito exerce sua função principalmente através da regulação negativa de outros genes.
 
 ::: {.notes}
 
 https://peterlangfelder.com/2018/11/25/signed-or-unsigned-which-network-type-is-preferable/
 https://peterlangfelder.com/2019/05/30/signed-network-from-signed-topological-overlap/
-https://peterlangfelder.com/2018/11/25/__trashed/
+https://peterlangfelder.com/2018/11/25/trashed/
 
 
 :::
@@ -223,15 +223,15 @@ https://peterlangfelder.com/2018/11/25/__trashed/
 
 # Redes de co-expressão com peso e sem peso
 
-Em uma rede ponderada\, todos os genes são conectados uns aos outros\, e essas conexões têm valores de peso contínuos entre 0 e 1 que indicam a força de co\-regulação entre os genes\.
+Em uma rede ponderada, todos os genes são conectados uns aos outros, e essas conexões têm valores de peso contínuos entre 0 e 1 que indicam a força de co-regulação entre os genes.
 
-Em uma rede não\-ponderada\, a interação entre pares de genes é binária\, ou seja\, 0 ou 1\, Não\-conectados e conectados\, respectivamente\.
+Em uma rede não-ponderada, a interação entre pares de genes é binária, ou seja, 0 ou 1, Não-conectados e conectados, respectivamente.
 
-Uma rede não\-ponderada pode ser criada a partir de uma rede ponderada\, por exemplo\, considerando todos os genes com uma correlação acima de um certo limiar a ser conectado e todos os outros desconectados\.
+Uma rede não-ponderada pode ser criada a partir de uma rede ponderada, por exemplo, considerando todos os genes com uma correlação acima de um certo limiar a ser conectado e todos os outros desconectados.
 
 ![](img/08%20-%20Rede%20de%20Co-express%C3%A3o_4.png)
 
-van Dam S\, Võsa U\, van der Graaf A\, Franke L\, de Magalhães JP\. \(2017\) Gene co\-expression analysis for functional classification and gene\-disease predictions\. Brief Bioinform
+van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform
 
 
 ---
@@ -241,10 +241,10 @@ van Dam S\, Võsa U\, van der Graaf A\, Franke L\, de Magalhães JP\. \(2017\) G
 
 
 
-* Módulos de genes co\-expressos são identificados usando técnicas de agrupamento \(clusterização\)\.
-* O agrupamento é usado para fazer grupos de genes com padrões de expressão similares entre as amostras\.
-* Os módulos podem ser subsequentemente interpretados por Análise de Enriquecimento Funcional\.
-  * Um método que identifica e ranqueia categorias funcionais super representadas em uma lista de genes\.
+* Módulos de genes co-expressos são identificados usando técnicas de agrupamento (clusterização).
+* O agrupamento é usado para fazer grupos de genes com padrões de expressão similares entre as amostras.
+* Os módulos podem ser subsequentemente interpretados por Análise de Enriquecimento Funcional.
+  * Um método que identifica e ranqueia categorias funcionais super representadas em uma lista de genes.
 
 ---
 
@@ -253,18 +253,18 @@ van Dam S\, Võsa U\, van der Graaf A\, Franke L\, de Magalhães JP\. \(2017\) G
 
 
 
-* É importante considerar a heterogeneidade das amostras\.
-* Módulos de co\-expressão específicos de tecido ou de condição:
-  * Podem não ser detectáveis em uma rede de co\-expressão construída a partir de múltiplos tecidos ou condições porque o sinal de correlação dos módulos específicos é diluído por uma falta de correlação em outros tecidos/condições\.
+* É importante considerar a heterogeneidade das amostras.
+* Módulos de co-expressão específicos de tecido ou de condição:
+  * Podem não ser detectáveis em uma rede de co-expressão construída a partir de múltiplos tecidos ou condições porque o sinal de correlação dos módulos específicos é diluído por uma falta de correlação em outros tecidos/condições.
 
 ---
 
 
 # Passo 3: Definição de módulos (cont.)
 
-É importante considerar a heterogeneidade das amostras\.
+É importante considerar a heterogeneidade das amostras.
 
-MAS\, limitar a análise de co\-expressão a um tecido ou condição específica também reduz o tamanho da amostra\, diminuindo também o poder estatístico para detectar módulos de co\-expressão compartilhados\.
+MAS, limitar a análise de co-expressão a um tecido ou condição específica também reduz o tamanho da amostra, diminuindo também o poder estatístico para detectar módulos de co-expressão compartilhados.
 
 
 ---
@@ -272,9 +272,9 @@ MAS\, limitar a análise de co\-expressão a um tecido ou condição específica
 
 # Passo 3: Definição de módulos (cont.)
 
-É importante considerar a heterogeneidade das amostras\.
+É importante considerar a heterogeneidade das amostras.
 
-Portanto\, métodos que não distinguem entre tecidos ou condições devem ser usados para a identificação de módulos comuns de co\-expressão\, enquanto a co\-expressão diferencial comparando diferentes condições ou tecidos será melhor para a identificação de módulos exclusivos de uma condição ou tecido específico\.
+Portanto, métodos que não distinguem entre tecidos ou condições devem ser usados para a identificação de módulos comuns de co-expressão, enquanto a co-expressão diferencial comparando diferentes condições ou tecidos será melhor para a identificação de módulos exclusivos de uma condição ou tecido específico.
 
 
 ---
@@ -284,13 +284,13 @@ Portanto\, métodos que não distinguem entre tecidos ou condições devem ser u
 
 ![](img/08%20-%20Rede%20de%20Co-express%C3%A3o_5.png)
 
-O pacote de clustering mais usado para a análise de redes co\-expressão é o Análise Ponderada de Rede de Correlação de Genes \( __WGCNA__ \,  _W_  _eighted _  _G_  _ene _  _C_  _o\-expression _  _N_  _etwork _  _A_  _nalysis_ \)\.
+O pacote de clustering mais usado para a análise de redes co-expressão é o Análise Ponderada de Rede de Correlação de Genes ( WGCNA ,  _W_  _eighted _  _G_  _ene _  _C_  _o-expression _  _N_  _etwork _  _A_  _nalysis_ ).
 
-Essa ferramenta fácil de usar constrói módulos de co\-expressão usando o agrupamento hierárquico em uma rede de correlação criada a partir de dados de expressão\.
+Essa ferramenta fácil de usar constrói módulos de co-expressão usando o agrupamento hierárquico em uma rede de correlação criada a partir de dados de expressão.
 
-O agrupamento em clusters hierárquicos divide iterativamente cada cluster em subclusters para criar uma árvore com ramificações representando módulos de co\-expressão\. Os módulos são definidos cortando os ramos a uma certa altura \(valor de corte\) definida pelo usuário\.
+O agrupamento em clusters hierárquicos divide iterativamente cada cluster em subclusters para criar uma árvore com ramificações representando módulos de co-expressão. Os módulos são definidos cortando os ramos a uma certa altura (valor de corte) definida pelo usuário.
 
-El\-Sharkawy\, Islam & Liang\, Dong & Xu\, Kenong\. \(2015\)\. Transcriptome analysis of an apple \(Malus × domestica\) yellow fruit somatic mutation identifies a gene network module highly associated with anthocyanin and epigenetic regulation\. Journal of Experimental Botany\. 66\. 10\.1093/jxb/erv433\.
+El-Sharkawy, Islam & Liang, Dong & Xu, Kenong. (2015). Transcriptome analysis of an apple (Malus × domestica) yellow fruit somatic mutation identifies a gene network module highly associated with anthocyanin and epigenetic regulation. Journal of Experimental Botany. 66. 10.1093/jxb/erv433.
 
 
 ---
@@ -298,7 +298,7 @@ El\-Sharkawy\, Islam & Liang\, Dong & Xu\, Kenong\. \(2015\)\. Transcriptome ana
 
 ![](img/08%20-%20Rede%20de%20Co-express%C3%A3o_6.png)
 
-van Dam S\, Võsa U\, van der Graaf A\, Franke L\, de Magalhães JP\. \(2017\) Gene co\-expression analysis for functional classification and gene\-disease predictions\. Brief Bioinform
+van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform
 
 
 ---
@@ -306,7 +306,7 @@ van Dam S\, Võsa U\, van der Graaf A\, Franke L\, de Magalhães JP\. \(2017\) G
 
 # Redes de co-expressão diferencial
 
-Um método cada vez mais utilizado que vai além das redes tradicionais de co\-expressão\.
+Um método cada vez mais utilizado que vai além das redes tradicionais de co-expressão.
 
 
 ---
@@ -316,28 +316,28 @@ Um método cada vez mais utilizado que vai além das redes tradicionais de co\-e
 
 
 
-* Identifica genes com diferentes parceiros de co\-expressão sob diferentes condições
+* Identifica genes com diferentes parceiros de co-expressão sob diferentes condições
   * Estados de doença
   * Tipos de tecido
   * Estágios de desenvolvimento
-* Esses genes são mais propensos a serem reguladores que fundamentam as diferenças fenotípicas\.
+* Esses genes são mais propensos a serem reguladores que fundamentam as diferenças fenotípicas.
 * Os papéis regulatórios de tais genes podem ser investigados através da integração de outros tipos de dados
-  * Interações proteína\-proteína
+  * Interações proteína-proteína
   * Metiloma
-  * Interações entre fatores de transcrição \(TFs\) e seus alvos
+  * Interações entre fatores de transcrição (TFs) e seus alvos
 
 ---
 
 
 # Identificando hubs
 
-Módulos de co\-expressão identificados por clustering são geralmente grandes e\, portanto\, é importante identificar qual gene\(s\) em cada módulo melhor explica seu comportamento\.
+Módulos de co-expressão identificados por clustering são geralmente grandes e, portanto, é importante identificar qual gene(s) em cada módulo melhor explica seu comportamento.
 
-Uma abordagem amplamente utilizada é identificar genes altamente conectados em uma rede de co\-expressão \(genes hub\)\. Os hubs são freqüentemente mais relevantes para a funcionalidade das redes do que outros nós\.
+Uma abordagem amplamente utilizada é identificar genes altamente conectados em uma rede de co-expressão (genes hub). Os hubs são freqüentemente mais relevantes para a funcionalidade das redes do que outros nós.
 
-Hubs intra\-modulares: centrais para módulos específicos na rede\.
+Hubs intra-modulares: centrais para módulos específicos na rede.
 
-Hubs intermodulares: centrais para toda a rede\.
+Hubs intermodulares: centrais para toda a rede.
 
 
 ---
@@ -345,7 +345,7 @@ Hubs intermodulares: centrais para toda a rede\.
 
 # Identificando hubs (cont.)
 
-São usadas medidas de centralidade para identificar os hubs\.
+São usadas medidas de centralidade para identificar os hubs.
 
 
 ---
@@ -361,19 +361,19 @@ São usadas medidas de centralidade para identificar os hubs\.
 
 
 
-* Dentro de um módulo são encontrados os termos funcionais mais frequentes\.
-  * Assim pode se ter uma ideia de qual função\, dentro de um módulo na rede\, pode ser mais frequente e representativa daquele módulo\.
+* Dentro de um módulo são encontrados os termos funcionais mais frequentes.
+  * Assim pode se ter uma ideia de qual função, dentro de um módulo na rede, pode ser mais frequente e representativa daquele módulo.
 
 ---
 
 
 # Predição de culpados por associação
 
-Uma abordagem amplamente utilizada para dar significado biológico aos módulos é determinar o enriquecimento funcional dos genes dentro de um módulo\.
+Uma abordagem amplamente utilizada para dar significado biológico aos módulos é determinar o enriquecimento funcional dos genes dentro de um módulo.
 
-Assumindo que os genes co\-expressos são funcionalmente relacionados\, funções enriquecidas podem ser atribuídas a genes mal anotados dentro do mesmo módulo de co\-expressão\, uma abordagem comumente referida como  _culpado por associação_  \(GBA\,  _guilt by association_ \)\.
+Assumindo que os genes co-expressos são funcionalmente relacionados, funções enriquecidas podem ser atribuídas a genes mal anotados dentro do mesmo módulo de co-expressão, uma abordagem comumente referida como  _culpado por associação_  (GBA,  _guilt by association_ ).
 
-Abordagens GBA também são amplamente usadas para identificar potenciais novas associações de genes se uma proporção substancial dos genes dentro de um módulo estiver associada a uma condição\, como uma doença em particular\, por exemplo\.
+Abordagens GBA também são amplamente usadas para identificar potenciais novas associações de genes se uma proporção substancial dos genes dentro de um módulo estiver associada a uma condição, como uma doença em particular, por exemplo.
 
 ![](img/08%20-%20Rede%20de%20Co-express%C3%A3o_8.png)
 
@@ -383,9 +383,9 @@ Abordagens GBA também são amplamente usadas para identificar potenciais novas 
 
 # Redes de co-expressão
 
-A maneira mais comum de construir redes de co\-expressão baseadas em dados de RNA\-seq é fundir todas as isoformas de um gene em uma única versão e só depois construir a rede usando o nível de genes\.
+A maneira mais comum de construir redes de co-expressão baseadas em dados de RNA-seq é fundir todas as isoformas de um gene em uma única versão e só depois construir a rede usando o nível de genes.
 
-O ideal\, e mais interessante\, é que usássemos as isoformas de splicing para construir a rede\, porém usar todas as isoformas de um gene  aumenta muito o tamanho da rede de co\-expressão o que aumenta o tempo de análise\.
+O ideal, e mais interessante, é que usássemos as isoformas de splicing para construir a rede, porém usar todas as isoformas de um gene  aumenta muito o tamanho da rede de co-expressão o que aumenta o tempo de análise.
 
 
 ---
@@ -393,9 +393,9 @@ O ideal\, e mais interessante\, é que usássemos as isoformas de splicing para 
 
 # Ferramentas
 
-Pré\-processamento: WGCNA para construção da rede
+Pré-processamento: WGCNA para construção da rede
 
-Identificação de módulos: WGCNA ou clusterMaker2 \(Cytoscape\)
+Identificação de módulos: WGCNA ou clusterMaker2 (Cytoscape)
 
 Análise de hubs: CytoHubba ou igraph
 
