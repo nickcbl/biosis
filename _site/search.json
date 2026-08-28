@@ -3716,5 +3716,82 @@
     "title": "05 - Obtenção de dados e bancos de dados",
     "section": "RNA-seq vs Microarranjo",
     "text": "RNA-seq vs Microarranjo\n\n\n\n\n\n\n\n\n\nCaracterística\nMicroarranjo de DNA (Gene Chip)\nRNA-Sequenciamento (RNA-Seq)\nImplicação para a Biologia de Sistemas\n\n\n\n\nPrincípio Fundamental\nHibridização de sequências complementares. Moléculas de RNA são marcadas com fluorescência e hibridizam com sondas fixadas em uma lâmina.\nSequenciamento de nova geração (NGS). As moléculas de RNA são convertidas em cDNA e sequenciadas diretamente, gerando “leituras” (reads).\nRNA-Seq é uma medida direta (sequência), Microarranjo é uma medida indireta (hibridização). Isso afeta a confiança nos dados para a construção de modelos.\n\n\nPré-requisito de Conhecimento\nRequer conhecimento prévio do genoma. Sondas são projetadas para genes/transcritos conhecidos ou previstos.\nNão requer conhecimento prévio do genoma (descoberta). Pode identificar transcritos novos, variantes de splicing, fusões gênicas.\nRNA-Seq é superior para sistemas não-modelo ou para descobrir nova biologia (e.g., novas isoformas que podem ser componentes críticos de uma rede).\n\n\nFaixa Dinâmica\nLimitada. Sofre de saturação de sinal para genes altamente expressos e baixa sensibilidade para genes de baixa expressão.\nMuito ampla. Capaz de quantificar desde transcritos muito abundantes até raros sem saturação.\nCrucial para modelar redes regulatórias. Fatores de transcrição (baixa expressão) são frequentemente chave nos modelos, e o RNA-Seq os detecta melhor."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#pathguide",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#pathguide",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "Pathguide",
+    "text": "Pathguide\n\n\n\n\n\nPathguide contém informação sobre 702 recursos sobre vias biológicas e interações moleculares\nOs bancos de dados listados são de acesso livre.\nAlguns suportam linguagens de padronização e integração como: BioPAX, CellML, PSI-MI or SBML."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#kegg",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#kegg",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "KEGG",
+    "text": "KEGG\n\n\n\n\n\nO KEGG é um banco de dados de recursos biológicos.\nInterpretar funções e processos complexos (de alto nível) em sistemas biológicos, como células, organismos e ecossistemas.\nIntegra e analisa dados moleculares.\nInterpretar dados de larga escala, como os gerados por:\n\nSequenciamento de genoma.\nOutras tecnologias experimentais de alto rendimento (ômicas).\n\nPago."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#gene-ontology-go",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#gene-ontology-go",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "Gene Ontology (GO)",
+    "text": "Gene Ontology (GO)\n\n\n\nObjetivo Principal: Desenvolver um modelo computacional abrangente de sistemas biológicos, cobrindo todos os níveis (molecular, celular, de organismo) e abrangendo múltiplas espécies.\nO Gene Ontology (GO) é a maior e mais importante fonte de informações sobre as funções de genes.\nServe como base fundamental para a análise e interpretação de dados de experimentos de larga escala (ômicos) em pesquisa biomédica."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#metacyc",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#metacyc",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "MetaCyc",
+    "text": "MetaCyc\n\n\n\n\n\nO MetaCyc é um banco de dados curado de vias metabólicas experimentalmente elucidadas de todos os domínios da vida.\nContém 2666 vias de 2960 diferentes organismos.\nMetabolismo:\n\nPrimário e secundário.\nMetabólitos.\nReações.\nEnzimas.\nGenes associados.\n\nAs aplicações do MetaCyc incluem:\n\nEnciclopédia on-line do metabolismo.\nPrever as vias metabólicas em genomas sequenciados.\nApoiar engenharia metabólica via banco de dados de enzimas.\nBanco de dados Metabolite ajuda a pesquisa metabolômica."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#transfac",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#transfac",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "TRANSFAC",
+    "text": "TRANSFAC\n\n\n\n\n\nBanco de dados pago.\nContém informação sobre fatores de transcrição, seus sítios de ligação no genoma e seus perfis de ligação.\nBanco de dados curado."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#string",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#string",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "STRING",
+    "text": "STRING\n\n\n\n\n\nBanco de dados de interações proteína-proteína conhecidas ou preditas.\nInterações\n\nDireta: física.\nIndireta: funcional\n\nA interações podem ter vindo de predição computacional, de transferência de conhecimento entre organismos e de interações descritas em outros bancos de dados."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#reactome",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#reactome",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "Reactome",
+    "text": "Reactome\n\n\n\n\n\nOpen-source\nAcesso aberto\nCurado manualmente e revisado por pares\nFornece ferramentas intuitivas de bioinformática para a visualização, interpretação e análise do conhecimento de vias para apoiar a pesquisa básica e clínica, análise do genoma, modelagem, biologia de sistemas e educação."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#intact",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#intact",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "IntAct",
+    "text": "IntAct\n\n\n\n\n\nAcesso aberto.\nBanco de dados e ferramentas de análise.\nInterações derivadas da literatura de maneira curada.\nInterações também podem vir de submissão direta."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#biogrid",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#biogrid",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "BioGRID",
+    "text": "BioGRID\n\n\n\n\n\nDados de interação.\nCurado.\nDado:\n\n69.031 publicações\n1.676.780 interações proteicas e genéticas\n28.093 associações químicas\n726.378 modificações pós-traducionais.\n\nAcesso livre."
+  },
+  {
+    "objectID": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#mineração-de-texto",
+    "href": "slides/05-Obtenção-de-dados-e-banco-de-dados.html#mineração-de-texto",
+    "title": "05 - Obtenção de dados e bancos de dados",
+    "section": "Mineração de texto",
+    "text": "Mineração de texto\nUma técnica computacional que extrai automaticamente informações e descobre padrões com significado (significância) em grandes volumes de texto.\nProcura automaticamente na literatura científica (ex.: artigos do PubMed) por palavras-chave e termos específicos para encontrar informações relevantes.\nPrincipais Aplicações em Biologia:\n\nFunção de genes/proteínas: Identificar a que processo biológico um gene está associado.\nVias metabólicas: Descobrir em quais vias uma enzima ou metabólito está envolvido.\nInterações: Revelar interações entre proteínas (PPIs), genes ou outros biomoléculas descritas no texto.\nRegulação: Identificar quem regula quem (ex.: qual fator de transcrição regula qual gene)."
+  },
+  {
+    "objectID": "slides/06-Integração-e-dados.html#situação",
+    "href": "slides/06-Integração-e-dados.html#situação",
+    "title": "06 - Integração de dados",
+    "section": "Situação",
+    "text": "Situação\nOs dados ômicos são de alta dimensionalidade, onde milhares de características (por exemplo, variantes genéticas, transcritos ou proteínas) são medidas simultaneamente e onde apenas uma minoria delas contém informações que são valiosas para o estudo."
   }
 ]

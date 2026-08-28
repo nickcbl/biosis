@@ -612,3 +612,152 @@ const options = {
 html_content = net.generate_html()
 print("Rede 2.")
 ```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(DiagrammeR)
+
+grViz("
+digraph funil {
+  graph [layout = dot, rankdir = LR, bgcolor = transparent]
+
+  # Configuração geral dos nós (sem forcing de fundo preenchido globalmente)
+  node [shape = rectangle, fontname = 'Helvetica', color = black]
+
+  # Nós principais com preenchimento individual
+  A [label = 'Dados ômicosnbrutos', style = filled, fillcolor = '#e0e0e0', width = 2, height = 2]
+  B [label = 'Genesnsignificativos', style = filled, fillcolor = '#cccccc', width = 1.7, height = 1.6]
+  C [label = 'Funções biológicasnsignificativas', style = filled, fillcolor = '#a6a6a6', width = 1.4, height = 1.2]
+
+  # Nós de texto (sem fundo)
+  D [label = 'InterpretaçãonBiológica', shape = none, width = 1.2]
+  Recursos [label = 'Recursos denDados', shape = plaintext, fontname = 'Helvetica-Bold']
+
+  # Conexões
+  A -> B [label = ' Processamenton de Dados ', fontname = 'Helvetica', fontsize = 10]
+  B -> C [label = ' Integraçãon de Dados ', fontname = 'Helvetica', fontsize = 10]
+  C -> D [penwidth = 2.5]
+  Recursos -> C [constraint = false, style = dashed]
+}
+")
+```
+---
+```{r}
+library(DiagrammeR)
+
+grViz("
+digraph funil {
+  graph [layout = dot, rankdir = LR, bgcolor = transparent]
+
+  node [shape = rectangle, fontname = 'Helvetica', color = black]
+
+  A [label = 'Dados ômicosnbrutos', style = filled, fillcolor = '#e0e0e0', width = 2, height = 2]
+  B [label = 'Genesnsignificativos', style = filled, fillcolor = '#cccccc', width = 1.7, height = 1.6]
+  C [label = 'Funções biológicasnsignificativas', style = filled, fillcolor = '#a6a6a6', width = 1.4, height = 1.2]
+  D [label = 'InterpretaçãonBiológica', shape = none, width = 1.2]
+
+  Recursos [label = 'Recursos denDados', shape = plaintext, fontname = 'Helvetica-Bold']
+
+  # PONTO INVISÍVEL NA CONEXÃO
+  ponto_mid [shape = point, width = 0, weight = 10]
+
+  # Conexão principal passando pelo ponto
+  A -> ponto_mid [arrowhead = none, label = ' Processamenton de Dados ', fontsize = 10]
+  ponto_mid -> B 
+
+  B -> C [label = ' Integraçãon de Dados ', fontsize = 10]
+  C -> D [penwidth = 2.5]
+
+  # Seta apontando exatamente para a conexão (ponto invisível)
+  Recursos -> ponto_mid [style = dashed]
+}
+")
+```
+
+---
+
+```{r}
+library(DiagrammeR)
+
+grViz("
+digraph alinhamento_avancado {
+  # Definindo curvatura ortogonal (90 graus) e direção
+  graph [layout = dot, rankdir = LR, splines = ortho, nodesep = 0.5, ranksep = 0.8]
+
+  node [shape = rectangle, style = filled, fillcolor = '#f0f0f0', fontname = 'Helvetica']
+
+  # Alinhamento em linha reta com a propriedade 'group'
+  A [label = 'Entrada A', group = 'principal']
+  B [label = 'Processo B', group = 'principal']
+  C [label = 'Saída C', group = 'principal']
+  
+  D [label = 'Entrada Secundária D']
+  E [label = 'Validação E']
+
+  # ALINHAMENTO 1: Força D e A no mesmo nível vertical
+  { rank = same; A; D }
+
+  # ALINHAMENTO 2: Força E e B no mesmo nível vertical
+  { rank = same; B; E }
+
+  # CONEXÕES COM PORTAS ESPECÍFICAS (headport/tailport)
+  A -> B [label = ' fluxo 1 ']
+  B -> C [label = ' fluxo 2 ']
+
+  # Entra na porta Superior (n) de B
+  D -> B [headport = 'n', style = dashed]
+
+  # Seta de retorno (feedback) com constraint=false para não quebrar o layout
+  C -> E [tailport = 's', headport = 'e', constraint = false, color = 'red']
+}
+")
+```
+
+---
+
+```{r}
+library(ggplot2)
+
+# Definição dos blocos no plano cartesiano (xmin, xmax, ymin, ymax)
+df_caixas <- data.frame(
+  xmin = c(1, 4, 7),
+  xmax = c(3, 5.7, 8.4),
+  ymin = c(1, 2, 3),
+  ymax = c(9, 8, 7),
+  label = c("Dados ômicosnbrutos", "Genesnsignificativos", "Funções biológicasnsignificativas"),
+  fill = c("#e0e0e0", "#cccccc", "#a6a6a6")
+)
+
+# Conexões/Setas
+df_setas <- data.frame(
+  x = c(3, 5.7, 8.4),
+  xend = c(4, 7, 9.5),
+  y = c(5, 5, 5),
+  yend = c(5, 5, 5)
+)
+
+ggplot() +
+  # Renderiza as caixas do funil
+  geom_rect(data = df_caixas, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), 
+            fill = df_caixas$fill, color = "black") +
+  geom_text(data = df_caixas, aes(x = (xmin+xmax)/2, y = (ymin+ymax)/2, label = label), size = 3.5) +
+  
+  # Setas entre as caixas
+  geom_segment(data = df_setas, aes(x=x, xend=xend, y=y, yend=yend),
+               arrow = arrow(length = unit(0.25, "cm")), color = "black", linewidth = 0.8) +
+  
+  # Texto do nó D no final
+  annotate("text", x = 10.2, y = 5, label = "InterpretaçãonBiológica", fontface = "bold") +
+  
+  # Seta de Recursos apontando para o meio da PRIMEIRA CONEXÃO (X = 3.5, Y = 5)
+  annotate("text", x = 3.5, y = 9.5, label = "Recursos de Dados", fontface = "bold") +
+  geom_segment(aes(x = 3.5, xend = 3.5, y = 9.1, yend = 5.1), 
+               linetype = "dashed", arrow = arrow(length = unit(0.2, "cm"))) +
+  
+  # Configuração dos Eixos Pedidos
+  labs(x = "Redução de dimensão", y = "Dimensão") +
+  theme_classic() +
+  theme(axis.text = element_blank(), axis.ticks = element_blank())
+```
