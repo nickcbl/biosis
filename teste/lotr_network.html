@@ -2,204 +2,10 @@
     <head>
         <meta charset="utf-8">
         
-            <script>function neighbourhoodHighlight(params) {
-  // console.log("in nieghbourhoodhighlight");
-  allNodes = nodes.get({ returnType: "Object" });
-  // originalNodes = JSON.parse(JSON.stringify(allNodes));
-  // if something is selected:
-  if (params.nodes.length > 0) {
-    highlightActive = true;
-    var i, j;
-    var selectedNode = params.nodes[0];
-    var degrees = 2;
-
-    // mark all nodes as hard to read.
-    for (let nodeId in allNodes) {
-      // nodeColors[nodeId] = allNodes[nodeId].color;
-      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
-      if (allNodes[nodeId].hiddenLabel === undefined) {
-        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
-        allNodes[nodeId].label = undefined;
-      }
-    }
-    var connectedNodes = network.getConnectedNodes(selectedNode);
-    var allConnectedNodes = [];
-
-    // get the second degree nodes
-    for (i = 1; i < degrees; i++) {
-      for (j = 0; j < connectedNodes.length; j++) {
-        allConnectedNodes = allConnectedNodes.concat(
-          network.getConnectedNodes(connectedNodes[j])
-        );
-      }
-    }
-
-    // all second degree nodes get a different color and their label back
-    for (i = 0; i < allConnectedNodes.length; i++) {
-      // allNodes[allConnectedNodes[i]].color = "pink";
-      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
-      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
-        allNodes[allConnectedNodes[i]].label =
-          allNodes[allConnectedNodes[i]].hiddenLabel;
-        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
-      }
-    }
-
-    // all first degree nodes get their own color and their label back
-    for (i = 0; i < connectedNodes.length; i++) {
-      // allNodes[connectedNodes[i]].color = undefined;
-      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
-      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
-        allNodes[connectedNodes[i]].label =
-          allNodes[connectedNodes[i]].hiddenLabel;
-        allNodes[connectedNodes[i]].hiddenLabel = undefined;
-      }
-    }
-
-    // the main node gets its own color and its label back.
-    // allNodes[selectedNode].color = undefined;
-    allNodes[selectedNode].color = nodeColors[selectedNode];
-    if (allNodes[selectedNode].hiddenLabel !== undefined) {
-      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
-      allNodes[selectedNode].hiddenLabel = undefined;
-    }
-  } else if (highlightActive === true) {
-    // console.log("highlightActive was true");
-    // reset all nodes
-    for (let nodeId in allNodes) {
-      // allNodes[nodeId].color = "purple";
-      allNodes[nodeId].color = nodeColors[nodeId];
-      // delete allNodes[nodeId].color;
-      if (allNodes[nodeId].hiddenLabel !== undefined) {
-        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
-        allNodes[nodeId].hiddenLabel = undefined;
-      }
-    }
-    highlightActive = false;
-  }
-
-  // transform the object into an array
-  var updateArray = [];
-  if (params.nodes.length > 0) {
-    for (let nodeId in allNodes) {
-      if (allNodes.hasOwnProperty(nodeId)) {
-        // console.log(allNodes[nodeId]);
-        updateArray.push(allNodes[nodeId]);
-      }
-    }
-    nodes.update(updateArray);
-  } else {
-    // console.log("Nothing was selected");
-    for (let nodeId in allNodes) {
-      if (allNodes.hasOwnProperty(nodeId)) {
-        // console.log(allNodes[nodeId]);
-        // allNodes[nodeId].color = {};
-        updateArray.push(allNodes[nodeId]);
-      }
-    }
-    nodes.update(updateArray);
-  }
-}
-
-function filterHighlight(params) {
-  allNodes = nodes.get({ returnType: "Object" });
-  // if something is selected:
-  if (params.nodes.length > 0) {
-    filterActive = true;
-    let selectedNodes = params.nodes;
-
-    // hiding all nodes and saving the label
-    for (let nodeId in allNodes) {
-      allNodes[nodeId].hidden = true;
-      if (allNodes[nodeId].savedLabel === undefined) {
-        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
-        allNodes[nodeId].label = undefined;
-      }
-    }
-
-    for (let i=0; i < selectedNodes.length; i++) {
-      allNodes[selectedNodes[i]].hidden = false;
-      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
-        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
-        allNodes[selectedNodes[i]].savedLabel = undefined;
-      }
-    }
-
-  } else if (filterActive === true) {
-    // reset all nodes
-    for (let nodeId in allNodes) {
-      allNodes[nodeId].hidden = false;
-      if (allNodes[nodeId].savedLabel !== undefined) {
-        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
-        allNodes[nodeId].savedLabel = undefined;
-      }
-    }
-    filterActive = false;
-  }
-
-  // transform the object into an array
-  var updateArray = [];
-  if (params.nodes.length > 0) {
-    for (let nodeId in allNodes) {
-      if (allNodes.hasOwnProperty(nodeId)) {
-        updateArray.push(allNodes[nodeId]);
-      }
-    }
-    nodes.update(updateArray);
-  } else {
-    for (let nodeId in allNodes) {
-      if (allNodes.hasOwnProperty(nodeId)) {
-        updateArray.push(allNodes[nodeId]);
-      }
-    }
-    nodes.update(updateArray);
-  }
-}
-
-function selectNode(nodes) {
-  network.selectNodes(nodes);
-  neighbourhoodHighlight({ nodes: nodes });
-  return nodes;
-}
-
-function selectNodes(nodes) {
-  network.selectNodes(nodes);
-  filterHighlight({nodes: nodes});
-  return nodes;
-}
-
-function highlightFilter(filter) {
-  let selectedNodes = []
-  let selectedProp = filter['property']
-  if (filter['item'] === 'node') {
-    let allNodes = nodes.get({ returnType: "Object" });
-    for (let nodeId in allNodes) {
-      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
-        selectedNodes.push(nodeId)
-      }
-    }
-  }
-  else if (filter['item'] === 'edge'){
-    let allEdges = edges.get({returnType: 'object'});
-    // check if the selected property exists for selected edge and select the nodes connected to the edge
-    for (let edge in allEdges) {
-      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
-        selectedNodes.push(allEdges[edge]['from'])
-        selectedNodes.push(allEdges[edge]['to'])
-      }
-    }
-  }
-  selectNodes(selectedNodes)
-}</script>
+            <script src="lib/bindings/utils.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             
-            
-            
-            
-            
-            
-
         
 <center>
 <h1></h1>
@@ -282,8 +88,8 @@ function highlightFilter(filter) {
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#ff9999", "id": 1, "label": "Frodo", "shape": "dot", "size": 30, "title": "Portador do Anel"}, {"color": "#ff9999", "id": 2, "label": "Sam", "shape": "dot", "size": 25, "title": "Jardineiro e companheiro"}, {"color": "#9999ff", "id": 3, "label": "Gandalf", "shape": "dot", "size": 35, "title": "Mago"}, {"color": "#99ff99", "id": 4, "label": "Aragorn", "shape": "dot", "size": 30, "title": "Capit\u00e3o dos D\u00fanedain"}, {"color": "#99ff99", "id": 5, "label": "Legolas", "shape": "dot", "size": 25, "title": "Elfo de Valinor"}, {"color": "#99ff99", "id": 6, "label": "Gimli", "shape": "dot", "size": 25, "title": "An\u00e3o de Erebor"}, {"color": "#ffcc99", "id": 7, "label": "Boromir", "shape": "dot", "size": 25, "title": "Guerreiro de Gondor"}, {"color": "#ff9999", "id": 8, "label": "Merry", "shape": "dot", "size": 20, "title": "Hobbit"}, {"color": "#ff9999", "id": 9, "label": "Pippin", "shape": "dot", "size": 20, "title": "Hobbit"}, {"color": "#cc99ff", "id": 10, "label": "Galadriel", "shape": "dot", "size": 30, "title": "Senhora de L\u00f3rien"}, {"color": "#cc99ff", "id": 11, "label": "Elrond", "shape": "dot", "size": 30, "title": "Senhor de Rivendell"}, {"color": "#ff6666", "id": 12, "label": "Sauron", "shape": "dot", "size": 35, "title": "Senhor do Escuro"}, {"color": "#666666", "id": 13, "label": "Gollum", "shape": "dot", "size": 20, "title": "Criatura do Anel"}, {"color": "#ff6666", "id": 14, "label": "Saruman", "shape": "dot", "size": 30, "title": "Mago Traidor"}, {"color": "#ffcc99", "id": 15, "label": "Th\u00e9oden", "shape": "dot", "size": 25, "title": "Rei de Rohan"}, {"color": "#ffcc99", "id": 16, "label": "\u00c9owyn", "shape": "dot", "size": 20, "title": "Princesa de Rohan"}, {"color": "#ffcc99", "id": 17, "label": "Faramir", "shape": "dot", "size": 20, "title": "Capit\u00e3o de Gondor"}, {"color": "#cc99ff", "id": 18, "label": "Arwen", "shape": "dot", "size": 20, "title": "Filha de Elrond"}]);
-                  edges = new vis.DataSet([{"color": "#ff9900", "from": 1, "title": "Melhores amigos", "to": 2, "value": 5}, {"color": "#3366ff", "from": 1, "title": "Mentor", "to": 3, "value": 3}, {"color": "#339966", "from": 1, "title": "L\u00edder", "to": 4, "value": 2}, {"color": "#9966cc", "from": 1, "title": "Encontro em L\u00f3rien", "to": 10, "value": 2}, {"color": "#666666", "from": 1, "title": "Guia e traidor", "to": 13, "value": 4}, {"color": "#3366ff", "from": 2, "title": "Respeito m\u00fatuo", "to": 3, "value": 2}, {"color": "#339966", "from": 3, "title": "Estrat\u00e9gia e lideran\u00e7a", "to": 4, "value": 4}, {"color": "#339966", "from": 3, "title": "Aliados", "to": 5, "value": 3}, {"color": "#339966", "from": 3, "title": "Aliados", "to": 6, "value": 3}, {"color": "#9966cc", "from": 3, "title": "Conselheiros", "to": 10, "value": 3}, {"color": "#9966cc", "from": 3, "title": "Conselho", "to": 11, "value": 4}, {"color": "#ff6666", "from": 3, "title": "Confronto", "to": 14, "value": 3}, {"color": "#339966", "from": 4, "title": "Companheiros", "to": 5, "value": 4}, {"color": "#339966", "from": 4, "title": "Companheiros", "to": 6, "value": 4}, {"color": "#ffcc66", "from": 4, "title": "Conflito e respeito", "to": 7, "value": 2}, {"color": "#9966cc", "from": 4, "title": "Conselho", "to": 11, "value": 3}, {"color": "#ffcc66", "from": 4, "title": "Alian\u00e7a", "to": 15, "value": 3}, {"color": "#ffcc66", "from": 4, "title": "Respeito", "to": 16, "value": 2}, {"color": "#ffcc66", "from": 4, "title": "Estrat\u00e9gia", "to": 17, "value": 3}, {"color": "#cc66ff", "from": 4, "title": "Amor", "to": 18, "value": 4}, {"color": "#339966", "from": 5, "title": "Amizade pr\u00f3xima", "to": 6, "value": 5}, {"color": "#ffcc66", "from": 7, "title": "Irm\u00e3os", "to": 17, "value": 4}, {"color": "#ff6666", "from": 8, "title": "Primos e amigos", "to": 9, "value": 5}, {"color": "#cc66ff", "from": 10, "title": "Aliados \u00e9lficos", "to": 11, "value": 4}, {"color": "#ff3333", "from": 12, "title": "Influ\u00eancia do Anel", "to": 13, "value": 4}, {"color": "#ff3333", "from": 12, "title": "Alian\u00e7a das trevas", "to": 14, "value": 3}, {"color": "#ff6666", "from": 14, "title": "Influ\u00eancia corruptora", "to": 15, "value": 2}, {"color": "#ffcc66", "from": 15, "title": "Tio e sobrinha", "to": 16, "value": 4}]);
+                  nodes = new vis.DataSet([{"color": "#ff9999", "id": 1, "label": "Frodo", "shape": "dot"}, {"color": "#ff9999", "id": 2, "label": "Sam", "shape": "dot"}, {"color": "#9999ff", "id": 3, "label": "Gandalf", "shape": "dot"}, {"color": "#99ff99", "id": 4, "label": "Aragorn", "shape": "dot"}, {"color": "#99ff99", "id": 5, "label": "Legolas", "shape": "dot"}, {"color": "#99ff99", "id": 6, "label": "Gimli", "shape": "dot"}, {"color": "#ffcc99", "id": 7, "label": "Boromir", "shape": "dot"}, {"color": "#ff9999", "id": 8, "label": "Merry", "shape": "dot"}, {"color": "#ff9999", "id": 9, "label": "Pippin", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"from": 1, "title": "Melhores amigos", "to": 2, "value": 5}, {"from": 1, "title": "Mentor", "to": 3, "value": 3}, {"from": 1, "title": "L\u00edder", "to": 4, "value": 2}, {"from": 2, "to": 3, "value": 2}, {"from": 3, "to": 4, "value": 4}, {"from": 3, "to": 5, "value": 3}, {"from": 3, "to": 6, "value": 3}, {"from": 4, "title": "Companheiros", "to": 5, "value": 4}, {"from": 4, "title": "Companheiros", "to": 6, "value": 4}, {"from": 4, "to": 7, "value": 2}, {"from": 5, "title": "Amizade pr\u00f3xima", "to": 6, "value": 5}, {"from": 8, "title": "Primos e amigos", "to": 9, "value": 5}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
@@ -294,7 +100,7 @@ function highlightFilter(filter) {
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"nodes": {"font": {"size": 16, "face": "Tahoma"}}, "edges": {"color": {"inherit": true}, "smooth": {"enabled": true, "type": "continuous"}}, "physics": {"enabled": true, "stabilization": {"iterations": 100}, "repulsion": {"nodeDistance": 200}}, "interaction": {"hover": true, "tooltipDelay": 200}};
+                  var options = {"nodes": {"font": {"size": 20}}, "edges": {"color": {"inherit": true}, "smooth": false}, "physics": {"enabled": true, "stabilization": {"iterations": 100}}};
 
                   
 

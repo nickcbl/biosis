@@ -1,5 +1,5 @@
 ---
-title: "06 - Integração de dados"
+title: "06 <br> Integração de dados"
 author: "Nicholas Barroso"
 format: 
   revealjs:

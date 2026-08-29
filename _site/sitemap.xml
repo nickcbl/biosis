@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/aula11.html</loc>
-    <lastmod>2026-05-25T20:50:51.775Z</lastmod>
+    <lastmod>2026-08-28T20:24:04.193Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/aula2.html</loc>
@@ -234,7 +234,7 @@
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/01-Historico-e-Conceitos.html</loc>
-    <lastmod>2026-08-26T18:17:38.578Z</lastmod>
+    <lastmod>2026-08-28T20:22:09.131Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/02-Grafos.html</loc>
@@ -242,7 +242,7 @@
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/03-Redes-Biológicas.html</loc>
-    <lastmod>2026-08-26T17:33:15.051Z</lastmod>
+    <lastmod>2026-08-29T13:43:44.832Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/05-Obtenção-de-dados-e-banco-de-dados.html</loc>
@@ -255,5 +255,25 @@
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/07-Rede-Metabólica.html</loc>
     <lastmod>2026-08-28T14:10:59.159Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/08-Rede-de-Co-expressão.html</loc>
+    <lastmod>2026-08-29T12:46:36.178Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/teste/simulacao_teste.html</loc>
+    <lastmod>2026-08-29T13:10:48.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/teste/centralidade_apresentacao.html</loc>
+    <lastmod>2026-08-29T13:29:07.301Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/teste/cu.html</loc>
+    <lastmod>2026-08-29T13:30:15.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/teste/centralidades_grafos.html</loc>
+    <lastmod>2026-08-29T13:46:11.650Z</lastmod>
   </url>
 </urlset>

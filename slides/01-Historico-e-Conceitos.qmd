@@ -10,25 +10,26 @@ format:
     footer: "Nicholas Barroso"
     incremental: false
     theme: tema_azul.scss
+    lightbox: true
 ---
 
 # Definição de Biologia de Sistemas
 
-```{r}
+<!-- ```{r}
 #| echo: false
 #| fig-width: 6
 DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
-```
+``` -->
 
 :::: {.columns}
 ::: {.column width="40%"}
+::: {.callout}
 Abordagem  _holista_  para o estudo de sistemas biológicos
 :::
-
+:::
 ::: {.column width="60%"}
 Holismo é a ideia de que as propriedades de um sistema, quer se trate de seres humanos ou outros organismos, não podem ser explicadas apenas pela soma dos seus componentes. O sistema como um todo determina como se comportam as partes.
 :::
-
 ::::
 
 # Holismo

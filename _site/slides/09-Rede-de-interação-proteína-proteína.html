@@ -1,305 +1,267 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>09   Rede de Interação Proteína-Proteína – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-78b242ce82a07460c57699654087b134.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-303d58362c24fe1a41852777efc51427.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
-  <meta name="author" content="Author">
-  <title>CI0932 - Biologia de Sistemas – Presentation Title</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-      vertical-align: middle;
-    }
-  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-    .reveal div.sourceCode {
-      margin: 0;
-      overflow: auto;
-    }
-    .reveal div.hanging-indent {
-      margin-left: 1em;
-      text-indent: -1em;
-    }
-    .reveal .slide:not(.center) {
-      height: 100%;
-    }
-    .reveal .slide.scrollable {
-      overflow-y: auto;
-    }
-    .reveal .footnotes {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide .absolute {
-      position: absolute;
-      display: block;
-    }
-    .reveal .footnotes ol {
-      counter-reset: ol;
-      list-style-type: none; 
-      margin-left: 0;
-    }
-    .reveal .footnotes ol li:before {
-      counter-increment: ol;
-      content: counter(ol) ". "; 
-    }
-    .reveal .footnotes ol li > p:first-child {
-      display: inline-block;
-    }
-    .reveal .slide ul,
-    .reveal .slide ol {
-      margin-bottom: 0.5em;
-    }
-    .reveal .slide ul li,
-    .reveal .slide ol li {
-      margin-top: 0.4em;
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide ul[role="tablist"] li {
-      margin-bottom: 0;
-    }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
-      margin-block-start: 0;
-    }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
-      margin-block-end: 0;
-    }
-    .reveal .slide .columns:nth-child(3) {
-      margin-block-start: 0.8em;
-    }
-    .reveal blockquote {
-      box-shadow: none;
-    }
-    .reveal .tippy-content>* {
-      margin-top: 0.2em;
-      margin-bottom: 0.7em;
-    }
-    .reveal .tippy-content>*:last-child {
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
-      display: block;
-      margin-left: 0;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
-      display: block;
-      margin-left: auto;
-      margin-right: 0; 
-    }
-  </style>
-<meta property="og:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
-<meta property="og:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+
+<meta property="og:title" content="09  Rede de Interação Proteína-Proteína – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/slides/img/09 - Rede de interação proteína-proteína_0.png">
 <meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
-<meta name="twitter:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
-<meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+<meta name="twitter:title" content="09  Rede de Interação Proteína-Proteína – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/img/09 - Rede de interação proteína-proteína_0.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
-  <div class="reveal">
-    <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Presentation Title</h1>
+<body class="nav-fixed quarto-light">
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Author 
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="09-Rede-de-interação-proteína-proteína.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">09 <br> Rede de Interação Proteína-Proteína</h1>
 </div>
 
-</section>
-<section id="biologia-de-sistemas" class="title-slide slide level1 center">
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="biologia-de-sistemas" class="level1">
 <h1>Biologia de Sistemas</h1>
-
 </section>
-
-<section>
-<section id="rede-de-interação-proteína-proteína" class="title-slide slide level1 center">
+<section id="rede-de-interação-proteína-proteína" class="level1">
 <h1>08 - Rede de interação proteína-proteína</h1>
-
-</section>
-<section class="slide level2">
-
+<hr>
 <p>São redes em que temos proteínas como vértices e uma aresta quando as proteínas apresentarem interação entre si.</p>
 <p>São grafos não-direcionados.</p>
-</section></section>
-<section>
-<section id="redes-de-interação-proteína-proteína-cont." class="title-slide slide level1 center">
+</section>
+<section id="redes-de-interação-proteína-proteína-cont." class="level1">
 <h1>Redes de interação proteína-proteína (cont.)</h1>
-
+<hr>
+<p>No foco das redes de interação proteína-proteína definimos como interação quando um proteína interage fisicamente com outra proteína <em>in vivo</em> .</p>
 </section>
-<section class="slide level2">
-
-<p>No foco das redes de interação proteína-proteína definimos como <strong>interação </strong> quando um proteína interage fisicamente com outra proteína <em>in vivo</em> .</p>
-</section></section>
-<section id="interação-entre-proteínas" class="title-slide slide level1 center">
+<section id="interação-entre-proteínas" class="level1">
 <h1>Interação entre proteínas</h1>
-
 </section>
-
-<section>
-<section id="ppi" class="title-slide slide level1 center">
+<section id="ppi" class="level1">
 <h1>PPI</h1>
-
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="mais-sobre-interações" class="title-slide slide level1 center">
+<section id="mais-sobre-interações" class="level1">
 <h1>Mais sobre interações</h1>
 <ul>
-<li class="fragment">A interação entre as proteínas deve ser específica, excluindo aquelas interações que acontecem ao acaso.</li>
-<li class="fragment">Também é importante excluir aquelas interações da proteína de quando ela está sendo feita, dobrada, checada ou degrada.
+<li>A interação entre as proteínas deve ser específica, excluindo aquelas interações que acontecem ao acaso.</li>
+<li>Também é importante excluir aquelas interações da proteína de quando ela está sendo feita, dobrada, checada ou degrada.
 <ul>
-<li class="fragment">Exemplo: as proteínas podem em algum momento tocar o ribossomo, chaperonas e proteassoma.</li>
+<li>Exemplo: as proteínas podem em algum momento tocar o ribossomo, chaperonas e proteassoma.</li>
 </ul></li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="portanto" class="title-slide slide level1 center">
+<section id="portanto" class="level1">
 <h1>Portanto…</h1>
-<p>... a definição de interação proteína-proteína deve considerar que:</p>
+<p>… a definição de interação proteína-proteína deve considerar que:</p>
 <p>A interface de interação deve ser intencional e não acidental, ou seja, deve ser o resultado de eventos/forças biomoleculares selecionados; e</p>
 <p>A interface de interação deve ser não-genérica, ou seja, desenvolvido para uma finalidade distinta de funções totalmente genéricas, como produção de proteínas, degradação e entre outras.</p>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="cuidado" class="title-slide slide level1 center">
+<section id="cuidado" class="level1">
 <h1>Cuidado</h1>
 <p>Isso não quer dizer que as interações devem ser estáticas ou permanentes.</p>
+<hr>
+<p>Podemos ter também interações transientes que dependem da função</p>
 </section>
-<section class="slide level2">
-
-<p>Podemos ter também interações <strong>transientes</strong> que dependem da função</p>
-</section></section>
-<section>
-<section id="cuidado-cont." class="title-slide slide level1 center">
+<section id="cuidado-cont." class="level1">
 <h1>Cuidado (cont.)</h1>
-
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="contexto-biológico-de-ppis" class="title-slide slide level1 center">
+<section id="contexto-biológico-de-ppis" class="level1">
 <h1>Contexto biológico de PPIs</h1>
 <ul>
-<li class="fragment">Nem todas as interações possíveis ocorrerão
+<li>Nem todas as interações possíveis ocorrerão
 <ul>
-<li class="fragment">Em qualquer célula</li>
-<li class="fragment">A qualquer momento.</li>
+<li>Em qualquer célula</li>
+<li>A qualquer momento.</li>
 </ul></li>
-<li class="fragment">Em vez disso, as interações dependem
+<li>Em vez disso, as interações dependem
 <ul>
-<li class="fragment">Do tipo de célula</li>
-<li class="fragment">Fase e estado do ciclo celular</li>
-<li class="fragment">Estágio de desenvolvimento</li>
-<li class="fragment">Condições ambientais</li>
-<li class="fragment">Modificações de proteínas (por exemplo, fosforilação)</li>
-<li class="fragment">Presença de cofatores e presença de outros parceiros de ligação.</li>
+<li>Do tipo de célula</li>
+<li>Fase e estado do ciclo celular</li>
+<li>Estágio de desenvolvimento</li>
+<li>Condições ambientais</li>
+<li>Modificações de proteínas (por exemplo, fosforilação)</li>
+<li>Presença de cofatores e presença de outros parceiros de ligação.</li>
 </ul></li>
-<li class="fragment">Ou seja, a interação pode ser específica de um momento celular.</li>
+<li>Ou seja, a interação pode ser específica de um momento celular.</li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="determinando-interações-entre-proteínas" class="title-slide slide level1 center">
+<section id="determinando-interações-entre-proteínas" class="level1">
 <h1>Determinando interações entre proteínas</h1>
 <ul>
-<li class="fragment">Binária
+<li>Binária
 <ul>
-<li class="fragment">Determinação de interação entre duas proteínas, par-a-par</li>
+<li>Determinação de interação entre duas proteínas, par-a-par</li>
 </ul></li>
-<li class="fragment">Co-complexo
+<li>Co-complexo
 <ul>
-<li class="fragment">Determinação de interação entre grupos de proteínas</li>
+<li>Determinação de interação entre grupos de proteínas</li>
 </ul></li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="determinando-interações-entre-proteínas-cont." class="title-slide slide level1 center">
+<section id="determinando-interações-entre-proteínas-cont." class="level1">
 <h1>Determinando interações entre proteínas (cont.)</h1>
 <ul>
-<li class="fragment">Binária
+<li>Binária
 <ul>
-<li class="fragment">Determinação de interação entre duas proteínas, par-a-par
+<li>Determinação de interação entre duas proteínas, par-a-par
 <ul>
-<li class="fragment"><strong>Y2H</strong></li>
+<li>Y2H</li>
 </ul></li>
 </ul></li>
-<li class="fragment">Co-complexo
+<li>Co-complexo
 <ul>
-<li class="fragment">Determinação de interação entre grupos de proteínas
+<li>Determinação de interação entre grupos de proteínas
 <ul>
-<li class="fragment"><strong>AP-MS e CoIP</strong></li>
-<li class="fragment"><strong>Precisa de modelos que definem as interações entre as proteínas isoladas concomitantemente.</strong></li>
+<li>AP-MS e CoIP</li>
+<li>Precisa de modelos que definem as interações entre as proteínas isoladas concomitantemente.</li>
 </ul></li>
 </ul></li>
 </ul>
-</section>
-<section class="slide level2">
-
-<p><strong>Modelo de </strong> <strong>M</strong> <strong>atri</strong> <strong>z</strong></p>
-<p><strong>Modelo </strong> <strong>S</strong> <strong>poke (</strong> __ de __ <strong>raios)</strong></p>
-<p><img data-src="img/09 - Rede de interação proteína-proteína_0.png"></p>
-<p><img data-src="img/09 - Rede de interação proteína-proteína_1.png"></p>
-</section>
-<section class="slide level2">
-
-<p><img data-src="img/09 - Rede de interação proteína-proteína_2.png"></p>
-<p><img data-src="img/09 - Rede de interação proteína-proteína_3.png"></p>
-<table class="caption-top">
+<hr>
+<p>Modelo de M atri z</p>
+<p>Modelo S poke ( de raios)</p>
+<p><img src="img/09 - Rede de interação proteína-proteína_0.png" class="img-fluid"></p>
+<p><img src="img/09 - Rede de interação proteína-proteína_1.png" class="img-fluid"></p>
+<hr>
+<p><img src="img/09 - Rede de interação proteína-proteína_2.png" class="img-fluid"></p>
+<p><img src="img/09 - Rede de interação proteína-proteína_3.png" class="img-fluid"></p>
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;">Característica</th>
@@ -309,107 +271,83 @@ Author
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><strong>Foco</strong></td>
+<td style="text-align: center;">Foco</td>
 <td style="text-align: center;">Conservador</td>
 <td style="text-align: center;">Abrangente</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><strong>Interações inferidas</strong></td>
+<td style="text-align: center;">Interações inferidas</td>
 <td style="text-align: center;">Apenas isca-presa</td>
 <td style="text-align: center;">Todos contra todos</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>Confiança</strong></td>
+<td style="text-align: center;">Confiança</td>
 <td style="text-align: center;">Alta para isca-presa</td>
 <td style="text-align: center;">Baixa para muitos pares</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><strong>Cobertura</strong></td>
+<td style="text-align: center;">Cobertura</td>
 <td style="text-align: center;">Menor</td>
 <td style="text-align: center;">Maior</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><strong>Uso típico</strong></td>
+<td style="text-align: center;">Uso típico</td>
 <td style="text-align: center;">Bancos de dados curados</td>
 <td style="text-align: center;">Análises exploratórias</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<p><img src="img/09 - Rede de interação proteína-proteína_4.png" class="img-fluid"></p>
+<hr>
 </section>
-<section class="slide level2">
-
-
-<img data-src="img/09 - Rede de interação proteína-proteína_4.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="métodos-computacionais" class="title-slide slide level1 center">
+<section id="métodos-computacionais" class="level1">
 <h1>Métodos computacionais</h1>
 <p>Método baseado em interólogos</p>
 <p>Predição baseada em algoritmos genéticos</p>
 <p>Perfil evolutivo</p>
-<aside class="notes">
+<div class="notes">
 <p>Figure 1 Prediction of functional linkages between proteins, based on different methods. (A) Method of domain fusion. The figure shows proteins predicted to interact by the Rosetta stone method (domain fusion). Each protein is shown schematically with boxes representing domains. Proteins P2 and P3 in Genomes 2 and 3 are predicted to interact because their homologues are fused in the first genome. (B) Gene neighbourhood. The figure shows four hypothetical genomes, containing one or more of the genes A, B and C. Since the genes A and B are co-localised in multiple genomes (1–4), they are likely to be functionally linked with one another. (C) Phylogenetic profiles. The figure shows five hypothetical genomes, each containing one or more of the proteins A, B, C and D. The presence or absence of each protein is indicated by 1 or 0, respectively, in the phylogenetic profiles given on the right. Identical profiles are highlighted — proteins A and B are functionally linked (dotted line), whereas proteins C and D, which have different phylogenetic profiles (shown in grey) are not likely to be functionally linked. (D) Correlated mutations. The alignments of two protein families are shown; conserved residues in either alignment are shown in the same colour (blue and green). Correlated mutations in either alignment (coloured red) are indicated by arrow marks. Common sub-trees of the phylogenetic trees are highlighted in yellow. The presence of correlated mutations in each family suggests that the corresponding sites may be involved in mediating interactions between the proteins from each family..</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+</div>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="métodos-computacionais-cont." class="title-slide slide level1 center">
+<section id="métodos-computacionais-cont." class="level1">
 <h1>Métodos computacionais (cont.)</h1>
 <ul>
-<li class="fragment">Método baseado em interólogos
+<li>Método baseado em interólogos
 <ul>
-<li class="fragment">Interólogos são definidos como as interações proteína-proteína que são <strong>conservadas em duas espécies</strong> .</li>
-<li class="fragment">O método baseado em interólogos baseia-se no pressuposto de que proteínas conservadas evolutivamente tendem a ter sua interação também conservada.</li>
-<li class="fragment">Depende de buscas por homologia.</li>
+<li>Interólogos são definidos como as interações proteína-proteína que são conservadas em duas espécies .</li>
+<li>O método baseado em interólogos baseia-se no pressuposto de que proteínas conservadas evolutivamente tendem a ter sua interação também conservada.</li>
+<li>Depende de buscas por homologia.</li>
 </ul></li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="métodos-computacionais-cont.-1" class="title-slide slide level1 center">
+<section id="métodos-computacionais-cont.-1" class="level1">
 <h1>Métodos computacionais (cont.)</h1>
 <ul>
-<li class="fragment">Características usadas como “genes”:
+<li>Características usadas como “genes”:
 <ul>
-<li class="fragment">Domínios conservados</li>
-<li class="fragment">Motivos de sequência</li>
-<li class="fragment">Perfis físico-químicos</li>
-<li class="fragment">Padrões de co-ocorrência</li>
+<li>Domínios conservados</li>
+<li>Motivos de sequência</li>
+<li>Perfis físico-químicos</li>
+<li>Padrões de co-ocorrência</li>
 </ul></li>
-<li class="fragment">Processo iterativo:
+<li>Processo iterativo:
 <ul>
-<li class="fragment">Seleção: Mantém os pares com melhor <em>aptidão</em></li>
-<li class="fragment">Cruzamento: Combina características de pares promissores</li>
-<li class="fragment">Mutação: Introduz variações aleatórias</li>
-<li class="fragment">Avaliação: Testa a nova geração de predições</li>
+<li>Seleção: Mantém os pares com melhor <em>aptidão</em></li>
+<li>Cruzamento: Combina características de pares promissores</li>
+<li>Mutação: Introduz variações aleatórias</li>
+<li>Avaliação: Testa a nova geração de predições</li>
 </ul></li>
-<li class="fragment">Predição baseada em algoritmos genéticos
+<li>Predição baseada em algoritmos genéticos
 <ul>
-<li class="fragment">Algoritmos genéticos são técnicas de otimização inspiradas na evolução natural que usam seleção, cruzamento e mutação para encontrar soluções.</li>
+<li>Algoritmos genéticos são técnicas de otimização inspiradas na evolução natural que usam seleção, cruzamento e mutação para encontrar soluções.</li>
 </ul></li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="métodos-computacionais-cont.-2" class="title-slide slide level1 center">
+<section id="métodos-computacionais-cont.-2" class="level1">
 <h1>Métodos computacionais (cont.)</h1>
 <p>Cromossomo_Pai₁: [0.85, 0.72, 0.91, 0.68, 0.95, 0.33]</p>
 <p>Cromossomo_Pai₂: [0.42, 0.88, 0.67, 0.91, 0.54, 0.71]</p>
@@ -421,511 +359,518 @@ Author
 <p>Gene₄: Complementaridade Eletrostática</p>
 <p>Gene₅: Co-ocorrência Filogenética</p>
 <p>Gene₆: Distância na Rede Funcional</p>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="métodos-computacionais-cont.-3" class="title-slide slide level1 center">
+<section id="métodos-computacionais-cont.-3" class="level1">
 <h1>Métodos computacionais (cont.)</h1>
 <p>Correlação filogenética</p>
 <p>Análise de ganho/perda conjunta</p>
 <p>Substituições compensatórias</p>
 <ul>
-<li class="fragment">Perfil Evolutivo:
+<li>Perfil Evolutivo:
 <ul>
-<li class="fragment">Analisa padrões de co-evolução entre proteínas - se duas proteínas evoluem de forma correlacionada ao longo da evolução, é sinal que podem interagir.</li>
+<li>Analisa padrões de co-evolução entre proteínas - se duas proteínas evoluem de forma correlacionada ao longo da evolução, é sinal que podem interagir.</li>
 </ul></li>
 </ul>
+<hr>
+<p><img src="img/09 - Rede de interação proteína-proteína_5.png" class="img-fluid"></p>
+<hr>
 </section>
-<section class="slide level2">
-
-
-<img data-src="img/09 - Rede de interação proteína-proteína_5.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="bancos-de-dados-de-ppi-primários" class="title-slide slide level1 center">
+<section id="bancos-de-dados-de-ppi-primários" class="level1">
 <h1>Bancos de dados de PPI: Primários</h1>
-
-<img data-src="img/09 - Rede de interação proteína-proteína_6.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="bancos-de-dados-de-ppi-meta-base-de-dados-reunião-de-dados-de-bases-de-dados-primárias" class="title-slide slide level1 center">
+<p><img src="img/09 - Rede de interação proteína-proteína_6.png" class="img-fluid"></p>
+<hr>
+</section>
+<section id="bancos-de-dados-de-ppi-meta-base-de-dados-reunião-de-dados-de-bases-de-dados-primárias" class="level1">
 <h1>Bancos de dados de PPI: Meta-base de dados, reunião de dados de bases de dados primárias</h1>
-
-<img data-src="img/09 - Rede de interação proteína-proteína_7.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="bancos-de-dados-de-ppi-dados-preditos." class="title-slide slide level1 center">
+<p><img src="img/09 - Rede de interação proteína-proteína_7.png" class="img-fluid"></p>
+<hr>
+</section>
+<section id="bancos-de-dados-de-ppi-dados-preditos." class="level1">
 <h1>Bancos de dados de PPI: dados preditos.</h1>
-
-<img data-src="img/09 - Rede de interação proteína-proteína_8.png" class="r-stretch"></section>
-<section class="slide level2">
-
-
-<img data-src="img/09 - Rede de interação proteína-proteína_9.png" class="r-stretch"></section>
-<section class="slide level2">
-
-
-<img data-src="img/09 - Rede de interação proteína-proteína_10.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="aplicações" class="title-slide slide level1 center">
+<p><img src="img/09 - Rede de interação proteína-proteína_8.png" class="img-fluid"></p>
+<hr>
+<p><img src="img/09 - Rede de interação proteína-proteína_9.png" class="img-fluid"></p>
+<hr>
+<p><img src="img/09 - Rede de interação proteína-proteína_10.png" class="img-fluid"></p>
+<hr>
+</section>
+<section id="aplicações" class="level1">
 <h1>Aplicações</h1>
 <ul>
-<li class="fragment">Anotação funcional de proteínas
+<li>Anotação funcional de proteínas
 <ul>
-<li class="fragment">Baseado em proteínas adjacentes: <em>guilt-by-association.</em></li>
+<li>Baseado em proteínas adjacentes: <em>guilt-by-association.</em></li>
 </ul></li>
-<li class="fragment">Módulos
+<li>Módulos
 <ul>
-<li class="fragment">Proteínas que possuem as mesmas funções ou fazem parte de um complexo</li>
+<li>Proteínas que possuem as mesmas funções ou fazem parte de um complexo</li>
 </ul></li>
-<li class="fragment">Investigação de subsistemas.
+<li>Investigação de subsistemas.
 <ul>
-<li class="fragment">Associados com alguma via, resposta ou doença específica.</li>
+<li>Associados com alguma via, resposta ou doença específica.</li>
 </ul></li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="aplicações-cont." class="title-slide slide level1 center">
+<section id="aplicações-cont." class="level1">
 <h1>Aplicações (cont.)</h1>
 <ul>
-<li class="fragment">Análise evolutiva
+<li>Análise evolutiva
 <ul>
-<li class="fragment">Análise da relação entre as proteínas com foco evolutivo nos interólogos associados às suas funções.</li>
+<li>Análise da relação entre as proteínas com foco evolutivo nos interólogos associados às suas funções.</li>
 </ul></li>
-<li class="fragment">Análise de hubs
+<li>Análise de hubs
 <ul>
-<li class="fragment">Regra da centralidade-letalidade</li>
-<li class="fragment">Hubs <em>party</em></li>
-<li class="fragment">Hubs <em>date</em></li>
+<li>Regra da centralidade-letalidade</li>
+<li>Hubs <em>party</em></li>
+<li>Hubs <em>date</em></li>
 </ul></li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="aplicações-cont.-1" class="title-slide slide level1 center">
+<section id="aplicações-cont.-1" class="level1">
 <h1>Aplicações (cont.)</h1>
 <ul>
-<li class="fragment">Hubs <em>party</em>
+<li>Hubs <em>party</em>
 <ul>
-<li class="fragment">Interage com todos os seus parceiros ao mesmo tempo.</li>
-<li class="fragment">Funcionam dentro de módulos na formação de complexos.</li>
+<li>Interage com todos os seus parceiros ao mesmo tempo.</li>
+<li>Funcionam dentro de módulos na formação de complexos.</li>
 </ul></li>
-<li class="fragment">Hubs <em>date</em>
+<li>Hubs <em>date</em>
 <ul>
-<li class="fragment">Interage com seus parceiros em diferentes tempos e localizações.</li>
-<li class="fragment">Funcionam para conectar módulos e funções uns aos outros</li>
+<li>Interage com seus parceiros em diferentes tempos e localizações.</li>
+<li>Funcionam para conectar módulos e funções uns aos outros</li>
 </ul></li>
 </ul>
+<hr>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section id="interação-doença-doença" class="title-slide slide level1 center">
+<section id="interação-doença-doença" class="level1">
 <h1>Interação doença-doença</h1>
 <p>Podem ainda ser usados integrados com dados de doenças para achar proteínas que podem estar envolvidas em mais de uma doença, podendo servir de foco para o co-tratamento das doenças.</p>
 
 
 </section>
-    </div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="img/logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p>Organization</p>
-</div>
-</div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
-
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
- 
-        // Display controls in the bottom right corner
-        controls: false,
-
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
-
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
-
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
-
-        // Display a presentation progress bar
-        progress: true,
-
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
-
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
-
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
-
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
-
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
-
-        // Push each slide change to the browser history
-        history: true,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: false,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1600,
-
-        height: 900,
-
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
-
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
-    </script>
-    <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          return false;
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
-          return codeEl.innerText;
         }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
             } else {
-              return "";
+              container.appendChild(child.cloneNode(true));
+              break;
             }
-          });
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
             }
           } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
             });
           }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
         }
+      }, function(instance) {
       });
-      </script>
-    
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
 
 </body></html>

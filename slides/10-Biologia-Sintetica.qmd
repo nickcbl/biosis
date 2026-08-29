@@ -1,15 +1,16 @@
 ---
-title: "Presentation Title"
-author: "Author"
+title: "10 <br> Biologia Sintética"
+author: "Nicholas Barroso"
 format: 
   revealjs:
     slide-number: c/t
     width: 1600
     height: 900
     logo: img/logo.png
-    footer: "Organization"
-    incremental: true
-    theme: [simple]
+    footer: "Nicholas Barroso"
+    incremental: false
+    theme: tema_azul.scss
+    lightbox: true
 ---
 # Biologia de Sistemas
 

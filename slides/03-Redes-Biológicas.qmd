@@ -1,33 +1,20 @@
----
-title: "Presentation Title"
-author: "Author"
+
+title: "03 <br> Redes Biológicas"
+author: "Nicholas Barroso"
 format: 
   revealjs:
     slide-number: c/t
     width: 1600
     height: 900
     logo: img/logo.png
-    footer: "Organization"
-    incremental: true
-    theme: [simple]
----
-# Biologia de Sistemas
-
-# 03 - Redes Biológicas
-
-
----
-
+    footer: "Nicholas Barroso"
+    incremental: false
+    theme: tema_azul.scss
+    lightbox: true
 
 # O que são redes?
 
-
----
-
-
 # Redes
-
-
 
 * Redes são estruturas ou entidades que conotam a relação entre:
   * Objetos
@@ -35,9 +22,6 @@ format:
   * Entidades.
 * Os indivíduos são representados por nós/vértices.
 * As relações são representadas por arestas.
-
----
-
 
 # Redes: alguns tipos
 
@@ -51,27 +35,15 @@ Redes biológicas
 
 Redes de telecomunicações
 
-![](img/03-Redes-Biol%C3%B3gicas_0.png)
-
-
----
-
+![](img/03-Redes-Biologicas_0.png)
 
 # O que são redes biológicas?
 
 Algum exemplo?
 
-
----
-
-
 # Rede de predação: Carnaúba por inseto
 
-![](img/03-Redes-Biol%C3%B3gicas_1.png)
-
-
----
-
+![](img/03-Redes-Biologicas_1.png)
 
 São redes em que os elementos são  dados biológicos  . São abstrações computacionais/matemáticas baseadas em dados experimentais.
 
@@ -80,7 +52,7 @@ São redes em que os elementos são  dados biológicos  . São abstrações comp
 # Formalmente
 
 
----
+
 
 
 # Redes biológicas
@@ -92,24 +64,24 @@ São dados sobre animais, plantas, microorganismos, genes, proteínas, regulaç�
 … que tenham alguma relação entre si.
 
 
----
+
 
 
 # Redes biológicas (cont.)
 
 Dependendo do tipo de dado e das relações podemos ter diferentes tipos de redes biológicas.
 
-![](img/03-Redes-Biol%C3%B3gicas_2.png)
+![](img/03-Redes-Biologicas_2.png)
 
 Jeong et al. Nature 2001. 411 ( _[link](https://www.ebi.ac.uk/training/online/course/network-analysis-protein-interaction-data-introduction/references)_ ) and Rual et al. Nature 2005: 437 ( _[link](https://www.ebi.ac.uk/training/online/course/network-analysis-protein-interaction-data-introduction/references)_ ).
 
 
----
+
 
 
 # Redes Metabólicas
 
-![](img/03-Redes-Biol%C3%B3gicas_3.png)
+![](img/03-Redes-Biologicas_3.png)
 
 É o conjunto completo de processos metabólicos:
 
@@ -120,7 +92,7 @@ E as arestas como as reações metabólicas convertendo um composto em outro.
 Zhang, Cheng & Hua, Qiang. (2015). Applications of Genome-Scale Metabolic Models in Biotechnology and Systems Medicine. Frontiers in Physiology. 6. 10.3389/fphys.2015.00413.
 
 
----
+
 
 
 # Redes de co-expressão
@@ -135,14 +107,14 @@ Zhang, Cheng & Hua, Qiang. (2015). Applications of Genome-Scale Metabolic Models
   * Codificar proteínas do mesmo complexo proteico.
 
 
-![](img/03-Redes-Biol%C3%B3gicas_4.png)
+![](img/03-Redes-Biologicas_4.png)
 
 Human gene co-expression landscape: confident network derived from tissue transcriptomic profiles
 
 Carlos PRIETO, Alberto RISUENO, Celia FONTANILLO and Javier DE LAS RIVAS
 
 
----
+
 
 
 # Redes de interação proteína-proteína
@@ -153,36 +125,36 @@ Proteínas interagem formando complexos ou participando de vias comuns.
 
 Interação entre proteínas podem significar a formação de um  complexo proteico  ou  proteínas que funcionam no mesmo processo celular .
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_5.png)
+![](img/03-Redes-Biologicas_5.png)
 
 
----
+
 
 
 # Propriedades globais de redes complexas
 
 
----
+
 
 
 # Distância - Relembrando
 
 A distância entre dois vértices em um grafo é o número de arestas em um  caminho mais curto  ( _shortest path_ ) conectando-os.
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_6.png)
+![](img/03-Redes-Biologicas_6.png)
 
 
----
+
 
 
 # Shortest Path - O caminho mais curto - Relembrando
 
 Dos caminhos possíveis de serem caminhados entre um vértice e outro, o menor caminho é aquele com o menor número de vértices ou arestas atravessados da origem ao destino.
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_7.png)
+![](img/03-Redes-Biologicas_7.png)
 
 
----
+
 
 
 # Diâmetro
@@ -193,10 +165,10 @@ Dos caminhos possíveis de serem caminhados entre um vértice e outro, o menor c
   * Para encontrar o diâmetro de um grafo, primeiro encontre o caminho mais curto entre cada par de vértices. O maior comprimento de qualquer desses caminhos é o diâmetro do grafo.
 
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_8.png)
+![](img/03-Redes-Biologicas_8.png)
 
 
----
+
 
 
 # Weight factor - Peso
@@ -207,10 +179,10 @@ Quando o grafo possui arestas com pesos, o grafo é chamado de  grafo valorado o
 
 Alguém consegue dar um exemplo de possíveis valores que podem ser atribuídos a arestas em redes biológicas?
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_9.png)
+![](img/03-Redes-Biologicas_9.png)
 
 
----
+
 
 
 # Weight factor - Peso (cont.)
@@ -225,10 +197,10 @@ Massa
 
 Probabilidade
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_10.png)
+![](img/03-Redes-Biologicas_10.png)
 
 
----
+
 
 
 # Centralidades
@@ -237,11 +209,11 @@ Indicadores de centralidade identificam os vértices mais importantes dentro de 
 
 As mais importantes para nós são:
 
-Centralidade de  G  rau  ( _Degree centrality_ )
+Centralidade de  Grau  ( _Degree centrality_ )
 
-Centralidade de  P  roximidade  ( _Closeness centrality_ )
+Centralidade de  Proximidade  ( _Closeness centrality_ )
 
-Centralidade de  I  ntermediação  ( _Betweenness centrality_ )
+Centralidade de  Intermediação  ( _Betweenness centrality_ )
 
 Centralidade de  Autovetor  ( _Eigenvector_ )
 
@@ -252,7 +224,7 @@ Centralidade de  Difusão  ( _Diffusion Centrality / Katz Centrality_ )
 Centralidade de  Intermediação de Fluxo  ( _Flow Betweenness Centrality_ )
 
 
----
+
 
 
 # Centralidade de grau
@@ -260,7 +232,7 @@ Centralidade de  Intermediação de Fluxo  ( _Flow Betweenness Centrality_ )
 É definida como o número de arestas adjacentes a um vértice, ou seja, o número de arestas que um vértice possui.
 
 
----
+
 
 
 # Centralidade de grau (cont.)
@@ -270,7 +242,7 @@ Grau (Degree) : Número absoluto de conexões.
 Centralidade de Grau Normalizada : O grau absoluto dividido pelo número máximo de conexões possíveis (que é n-1, onde n é o número total de nós na rede). Isso permite comparar nós de redes de tamanhos diferentes, resultando em um valor entre 0 e 1.
 
 
----
+
 
 
 # Centralidade de grau (cont.)
@@ -282,7 +254,7 @@ Centralidade de Grau Normalizada : O grau absoluto dividido pelo número máximo
   * Centralidade de grau de entrada
   * Centralidade de grau de saída.
 
----
+
 
 
 # Centralidade de grau (cont.)
@@ -290,7 +262,7 @@ Centralidade de Grau Normalizada : O grau absoluto dividido pelo número máximo
 Interpretação:  Um nó com alta centralidade de grau é um "conector" ou um "hub" da rede. Ele tem interação direta com muitos outros elementos. Na biologia, isso frequentemente indica um elemento funcionalmente crucial – se ele for perturbado, o impacto na rede (e, por consequência, no sistema biológico) tende a ser grande.
 
 
----
+
 
 
 # Centralidades de proximidade - Closeness centrality
@@ -300,7 +272,7 @@ A  Centralidade de Proximidade  é uma medida de centralidade em teoria de redes
 Diferente da centralidade de grau (que conta conexões diretas), a de proximidade leva em conta a distância geodésica (o caminho mais curto) para alcançar todos os outros nós.
 
 
----
+
 
 
 # Centralidades de proximidade - Closeness centrality (cont.)
@@ -310,13 +282,13 @@ Um nó com alta centralidade de proximidade pode alcançar todos os outros nós 
 Ele está no  _centro_  da rede no sentido de eficiência de comunicação ou disseminação de informação.
 
 
----
+
 
 
 # Centralidades de proximidade - Closeness centrality (cont.)
 
 
----
+
 
 
 # Centralidades de proximidade - Closeness centrality (cont.)
@@ -328,7 +300,7 @@ A alta centralidade de proximidade do α-KG indica que ele é um ponto de conflu
 Modificar a disponibilidade deste metabólito (por exemplo, superexpressando a enzima que o produz ou  _knockdown_  de uma enzima que o consome para outras vias) pode ter um impacto amplo e eficiente em redirecionar o fluxo de carbono de várias fontes diferentes em direção à via sintética de interesse.
 
 
----
+
 
 
 # Centralidades de proximidade - Closeness centrality (cont.)
@@ -344,31 +316,31 @@ Modificar a disponibilidade deste metabólito (por exemplo, superexpressando a e
   * 1→7: 1
   * Média: 1,83
 
----
+
 
 
 # Centralidades de intermediação
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_11.png)
+![](img/03-Redes-Biologicas_11.png)
 
 A centralidade de intermediação quantifica o número de vezes que um vértice age como uma ponte ao longo do caminho mais curto entre dois outros nós.
 
 TRADUZINDO : A medida de centralidade de intermediação diz quantas vezes um vértice  _i_  faz parte dos menores caminhos entre os outros vértices do grafo.
 
 
----
+
 
 
 # Centralidades de intermediação (cont.)
 
-![](img/03%20-%20Redes%20Biol%C3%B3gicas_12.png)
+![](img/03-Redes-Biologicas_12.png)
 
 Um nó com alta centralidade de intermediação tem um poder de controle desproporcional sobre o fluxo de informação, recursos ou influência na rede.
 
 Se esse nó for removido, a rede pode se fragmentar, e a comunicação entre diferentes grupos se tornará muito menos eficiente ou até impossível.
 
 
----
+
 
 
 # Centralidades de intermediação (cont.)
@@ -383,13 +355,13 @@ Se esse nó for removido, a rede pode se fragmentar, e a comunicação entre dif
     * 5 → 1: 0; 5 → 4:0; 5 → 3: 4
     * Somando: 18
 
----
+
 
 
 # Centralidades de intermediação (cont.)
 
 
----
+
 
 
 # Centralidade Autovetor (Eigenvector)
@@ -401,7 +373,7 @@ Aplicação : É perfeita para identificar genes mestres ou proteínas-chave em 
 Exemplo : Identificar os  _pontos de controle mestres_  em uma rede de regulação gênica de uma planta para aumentar a produção de um metabólito secundário de interesse (ex.: um corante natural). Manipular um nó com alta centralidade de autovetor pode causar um efeito cascata desejado em toda a rede regulatória.
 
 
----
+
 
 
 # Centralidade Alavancagem (Leverage Centrality)
@@ -413,7 +385,7 @@ Aplicação : Excelente para identificar nós periféricos críticos ou "conecto
 Exemplo : Em uma rede de interação proteína-proteína de um patógeno, um nó com alta alavancagem pode ser uma proteína de membrana que é essencial para a virulência, mas que não é um hub central. Ela poderia ser um ótimo alvo para uma vacina ou anticorpo monoclonal, pois sua inibição pode isolar um módulo funcional crítico sem perturbar drasticamente todo o sistema.
 
 
----
+
 
 
 # Centralidade de Difusão (Diffusion Centrality / Katz Centrality)
@@ -425,7 +397,7 @@ Aplicação : Útil para modelar processos de sinalização ou difusão de metab
 Exemplo : Modelar como um sinal hormonal (ex.: auxina em plantas) se espalha por uma rede de tecidos para iniciar um processo de crescimento. Identificar os nós com maior centralidade de difusão pode ajudar a prever quais células ou genes responderão mais fortemente ao sinal, permitindo o desenho de estratégias para modular esse processo.
 
 
----
+
 
 
 # Centralidade de Intermediação de Fluxo(Flow Betweenness Centrality)
@@ -437,7 +409,7 @@ Aplicação : Extremamente poderosa para analisar redes metabólicas. O fluxo de
 Exemplo : Ao tentar redirecionar o fluxo metabólico em uma bactéria para maximizar a produção de um bioplástico (ex.: PHA), calcular a centralidade de intermediação de fluxo pode identificar quais enzimas são gargalos reais que controlam a maior parte do fluxo de carbono em direção ao produto desejado, mesmo que não estejam no caminho mais curto. Essas enzimas são os alvos prioritários para a engenharia metabólica.
 
 
----
+
 
 
 # Centralidade: Resumo
@@ -453,13 +425,13 @@ Exemplo : Ao tentar redirecionar o fluxo metabólico em uma bactéria para maxim
 | Intermediação de Fluxo | Analisar redes de fluxo (metabolismo). | Superar gargalos em produção de bioproductos. |
 
 
----
+
 
 
 # Características de Redes Biológicas
 
 
----
+
 
 
 # Seis graus de separação
@@ -471,7 +443,7 @@ Se fizermos uma cadeia de “ _amigo de um amigo”_  poderíamos conectar duas 
 Foi originalmente estabelecido por Frigyes Karinthy em 1929.
 
 
----
+
 
 
 # Seis graus de separação - redes
@@ -481,7 +453,7 @@ A ideia dos  _seis graus de separação_  pode ser aplicada para várias  _redes
 Em uma rede biológica, a comunicação ou a separação entre um vértice e outro é, em média, muito baixo.
 
 
----
+
 
 
 # Mundo Pequeno - Redes
@@ -489,7 +461,7 @@ Em uma rede biológica, a comunicação ou a separação entre um vértice e out
 Uma rede de mundo pequeno é um tipo de grafo no qual a maioria dos vértices não são vizinhos uns dos outros,  MAS  os vizinhos de qualquer  vértices  são vizinhos entre si e a  _maioria dos vértices pode ser alcançada por todos os outros vértices por um pequeno número de passos._
 
 
----
+
 
 
 # Implica que...
@@ -497,7 +469,7 @@ Uma rede de mundo pequeno é um tipo de grafo no qual a maioria dos vértices n�
 todos os vértices de uma rede biológica são facilmente alcançados por outros vértices, assim qualquer perturbação ou sinal em um ponto da rede é rapidamente percebido pelo restante da rede.
 
 
----
+
 
 
 # Rede livre de escala
@@ -513,7 +485,7 @@ Nestas redes a probabilidade de um nó ter k ligações decai quando k aumenta, 
 ![](img/03%20-%20Redes%20Biol%C3%B3gicas_14.png)
 
 
----
+
 
 
 # Rede livre de escala (cont.)
@@ -527,7 +499,7 @@ Alguém sabe dizer porque?
 ![](img/03%20-%20Redes%20Biol%C3%B3gicas_15.png)
 
 
----
+
 
 
 # Coeficiente de Agrupamento
@@ -543,7 +515,7 @@ O agrupamento é uma propriedade muito comum nas redes sociais; círculos de ami
 Se os dados são biológicos, o que isso pode significar?
 
 
----
+
 
 
 # Robustez e adaptabilidade de sistemas biológicos
@@ -557,7 +529,7 @@ Adaptabilidade
 Capacidade de fazer mudanças no sistema em resposta a perturbações do meio.
 
 
----
+
 
 
 # Motivos de redes
@@ -576,7 +548,7 @@ Motifs are subgraphs of complex networks that occur significantly more frequentl
 :::
 
 
----
+
 
 
 # Motivos de redes (cont.)
@@ -593,7 +565,7 @@ Motifs are subgraphs of complex networks that occur significantly more frequentl
 :::
 
 
----
+
 
 
 # Motivos de redes (cont.)
@@ -606,7 +578,7 @@ Motifs are subgraphs of complex networks that occur significantly more frequentl
 :::
 
 
----
+
 
 
 
@@ -629,7 +601,7 @@ Motifs are subgraphs of complex networks that occur significantly more frequentl
 :::
 
 
----
+
 
 
 # Motivos de redes (cont.)
@@ -642,7 +614,7 @@ Motifs are subgraphs of complex networks that occur significantly more frequentl
 :::
 
 
----
+
 
 
 Single Input Module ( SIM - Módulo de Entrada Única )

@@ -8,8 +8,9 @@ format:
     height: 900
     logo: img/logo.png
     footer: "Nicholas Barroso"
-    incremental: true
+    incremental: false
     theme: tema_azul.scss
+    lightbox: true
 ---
 # Biologia de Sistemas
 

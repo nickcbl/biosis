@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador Interativo de Centralidades em Grafos</title>
+<style>
+:root{
+  --bg:#0f172a; --card:#1e293b; --panel:#0b1120; --text:#f8fafc;
+  --muted:#94a3b8; --border:#334155; --blue:#38bdf8; --green:#10b981;
+  --amber:#f59e0b; --purple:#a855f7; --red:#ef4444; --cyan:#22d3ee;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:24px}
+header{max-width:1250px;margin:0 auto 22px;text-align:center}
+h1{color:var(--blue);margin:0 0 8px;font-size:2rem}
+.subtitle{color:var(--muted);margin:0}
+.container{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(390px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 10px 20px #0003}
+.card h2{font-size:1.15rem;margin:0 0 12px}
+.degree h2{color:var(--blue)} .closeness h2{color:var(--green)}
+.betweenness h2{color:var(--amber)} .eigen h2{color:var(--purple)}
+.leverage h2{color:var(--cyan)} .diffusion h2{color:#fb7185}
+.flow h2{color:#f97316}
+.graph{height:270px;background:var(--panel);border:1px solid var(--border);border-radius:9px;margin-bottom:12px}
+svg{width:100%;height:100%}.edge{stroke:#475569;stroke-width:2.5;transition:.25s}
+.edge.active{stroke:#fff;stroke-width:4}.edge.path{stroke:var(--amber);stroke-width:5;stroke-dasharray:7 5}
+.node{cursor:pointer}.node circle{fill:#334155;stroke:#94a3b8;stroke-width:2.5;transition:.25s}
+.node text{fill:#fff;font-size:13px;font-weight:700;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.node.focus circle{fill:var(--blue);stroke:#fff;stroke-width:4}.node.neighbor circle{fill:#0284c7;stroke:#e0f2fe;stroke-width:3}
+.node.hot circle{fill:var(--amber);stroke:#fff;stroke-width:3}.node.high circle{fill:var(--purple);stroke:#fff;stroke-width:3}
+.node.good circle{fill:var(--cyan);stroke:#fff;stroke-width:3}.node.low circle{fill:#64748b}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button,select{background:#334155;color:#fff;border:1px solid #475569;border-radius:7px;padding:8px 11px;font-weight:650}
+button{cursor:pointer}button:hover{background:#475569}
+.info{background:var(--panel);border-left:3px solid var(--border);border-radius:7px;padding:12px;line-height:1.45;font-size:.9rem;min-height:112px}
+.degree .info{border-left-color:var(--blue)} .closeness .info{border-left-color:var(--green)}
+.betweenness .info{border-left-color:var(--amber)} .eigen .info{border-left-color:var(--purple)}
+.leverage .info{border-left-color:var(--cyan)} .diffusion .info{border-left-color:#fb7185}
+.flow .info{border-left-color:#f97316}
+.formula{display:inline-block;background:#1e293b;padding:3px 7px;border-radius:5px;color:var(--blue);font-family:"Courier New",monospace;margin:4px 0}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.82rem}
+th,td{padding:5px;border-bottom:1px solid var(--border);text-align:left} th{color:var(--muted)}
+.small{color:var(--muted);font-size:.8rem}.full{grid-column:1/-1}
+footer{max-width:1250px;margin:24px auto 0;color:var(--muted);text-align:center;font-size:.82rem}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulador Interativo de Centralidades em Grafos</h1>
+<p class="subtitle">Sete métricas calculadas sobre a mesma rede, com valores normalizados e explicação matemática.</p>
+</header>
+
+<div class="container">
+<section class="card degree"><h2>1. Centralidade de Grau (Degree)</h2><div class="graph"><svg id="g-degree" viewBox="0 0 400 250"></svg></div>
+<div class="controls"><button onclick="degreeNext()">Próximo nó</button><button onclick="degreeReset()">Resetar</button></div>
+<div class="info" id="i-degree"></div></section>
+
+<section class="card closeness"><h2>2. Centralidade de Proximidade (Closeness)</h2><div class="graph"><svg id="g-closeness" viewBox="0 0 400 250"></svg></div>
+<div class="controls"><button onclick="showMetric('closeness','D')">Analisar D</button><button onclick="showMetric('closeness','A')">Analisar A</button><button onclick="resetMetric('closeness')">Resetar</button></div>
+<div class="info" id="i-closeness"></div></section>
+
+<section class="card betweenness"><h2>3. Centralidade de Intermediação (Betweenness)</h2><div class="graph"><svg id="g-betweenness" viewBox="0 0 400 250"></svg></div>
+<div class="controls"><button onclick="showPath('A','E')">Menor caminho A → E</button><button onclick="showPath('A','F')">Menor caminho A → F</button><button onclick="resetMetric('betweenness')">Resetar</button></div>
+<div class="info" id="i-betweenness"></div></section>
+
+<section class="card eigen"><h2>4. Centralidade de Autovetor (Eigenvector)</h2><div class="graph"><svg id="g-eigen" viewBox="0 0 400 250"></svg></div>
+<div class="controls"><button onclick="showRanking('eigen')">Calcular ranking</button><button onclick="resetMetric('eigen')">Resetar</button></div>
+<div class="info" id="i-eigen"></div></section>
+
+<section class="card leverage"><h2>5. Centralidade de Alavancagem (Leverage)</h2><div class="graph"><svg id="g-leverage" viewBox="0 0 400 250"></svg></div>
+<div class="controls"><button onclick="showRanking('leverage')">Calcular ranking</button><button onclick="showLeverage('D')">Analisar D</button><button onclick="resetMetric('leverage')">Resetar</button></div>
+<div class="info" id="i-leverage"></div></section>
+
+<section class="card diffusion"><h2>6. Centralidade de Difusão (Diffusion / Katz)</h2><div class="graph"><svg id="g-diffusion" viewBox="0 0 400 250"></svg></div>
+<div class="controls"><label>α <select id="alpha"><option value="0.15">0,15</option><option value="0.20" selected>0,20</option><option value="0.25">0,25</option></select></label>
+<button onclick="showDiffusion()">Calcular</button><button onclick="resetMetric('diffusion')">Resetar</button></div>
+<div class="info" id="i-diffusion"></div></section>
+
+<section class="card flow full"><h2>7. Centralidade de Intermediação de Fluxo (Flow Betweenness)</h2><div class="graph"><svg id="g-flow" viewBox="0 0 400 250"></svg></div>
+<div class="controls"><button onclick="showFlow()">Calcular fluxo</button><button onclick="showFlowNode('D')">Dependência do nó D</button><button onclick="resetMetric('flow')">Resetar</button></div>
+<div class="info" id="i-flow"></div></section>
+</div>
+<footer>Rede não direcionada, sem pesos e com capacidade unitária nas arestas. Os cálculos são feitos no navegador a partir da matriz de adjacência.</footer>
+
+<script>
+const nodes=['A','B','C','D','E','F'];
+const pos={A:[70,75],B:[175,55],C:[120,180],D:[260,120],E:[345,65],F:[345,180]};
+const edges=[['A','B'],['A','C'],['B','C'],['B','D'],['C','D'],['D','E'],['D','F']];
+const idx=Object.fromEntries(nodes.map((n,i)=>[n,i]));
+const A=nodes.map(()=>nodes.map(()=>0));
+edges.forEach(([u,v])=>{A[idx[u]][idx[v]]=1;A[idx[v]][idx[u]]=1});
+
+function graph(svgId, metric){
+ const svg=document.getElementById(svgId); svg.innerHTML='';
+ edges.forEach(([u,v])=>{
+   const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+   l.setAttribute('x1',pos[u][0]);l.setAttribute('y1',pos[u][1]);l.setAttribute('x2',pos[v][0]);l.setAttribute('y2',pos[v][1]);
+   l.classList.add('edge');l.dataset.edge=u+v;svg.appendChild(l);
+ });
+ nodes.forEach(n=>{
+   const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.classList.add('node');g.dataset.node=n;
+   const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',pos[n][0]);c.setAttribute('cy',pos[n][1]);c.setAttribute('r',16);
+   const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',pos[n][0]);t.setAttribute('y',pos[n][1]);t.textContent=n;
+   g.append(c,t);svg.appendChild(g);
+ });
+}
+['degree','closeness','betweenness','eigen','leverage','diffusion','flow'].forEach(m=>graph('g-'+m,m));
+
+function clearGraph(metric){const s=document.getElementById('g-'+metric);s.querySelectorAll('.node').forEach(n=>n.classList.remove('focus','neighbor','hot','high','good','low'));s.querySelectorAll('.edge').forEach(e=>e.classList.remove('active','path'))}
+function fmt(x){return Number(x).toFixed(4)}
+function ranking(obj){return Object.entries(obj).sort((a,b)=>b[1]-a[1])}
+function distFrom(s){
+ const d=Object.fromEntries(nodes.map(n=>[n,Infinity]));d[s]=0;const q=[s];
+ while(q.length){const u=q.shift();for(const v of nodes)if(A[idx[u]][idx[v]]&&d[v]===Infinity){d[v]=d[u]+1;q.push(v)}}
+ return d;
+}
+function degreeScores(){return Object.fromEntries(nodes.map(n=>[n,A[idx[n]].reduce((a,b)=>a+b,0)]))}
+function closenessScores(){return Object.fromEntries(nodes.map(n=>{const d=distFrom(n),sum=nodes.filter(v=>v!==n).reduce((s,v)=>s+d[v],0);return [n,(nodes.length-1)/sum]}))}
+function shortestPaths(s,t){
+ const d=Object.fromEntries(nodes.map(n=>[n,Infinity])), paths=Object.fromEntries(nodes.map(n=>[n,[]]));
+ d[s]=0;paths[s]=[[s]];const q=[s];
+ while(q.length){const u=q.shift();for(const v of nodes)if(A[idx[u]][idx[v]]){
+   if(d[v]===Infinity){d[v]=d[u]+1;q.push(v);paths[v]=paths[u].map(p=>[...p,v]);}
+   else if(d[v]===d[u]+1)paths[v].push(...paths[u].map(p=>[...p,v]));
+ }}
+ return paths[t]||[];
+}
+function betweennessScores(){
+ const b=Object.fromEntries(nodes.map(n=>[n,0]));
+ for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+   const ps=shortestPaths(nodes[i],nodes[j]);
+   for(const v of nodes)if(v!==nodes[i]&&v!==nodes[j])b[v]+=ps.filter(p=>p.includes(v)).length/ps.length;
+ }
+ const norm=(nodes.length-1)*(nodes.length-2)/2;
+ return Object.fromEntries(nodes.map(n=>[n,b[n]/norm]));
+}
+function powerEigen(){
+ let x=nodes.map(()=>1/Math.sqrt(nodes.length));
+ for(let k=0;k<500;k++){let y=A.map(r=>r.reduce((s,v,j)=>s+v*x[j],0));let norm=Math.sqrt(y.reduce((s,v)=>s+v*v,0));y=y.map(v=>v/norm);let err=Math.max(...y.map((v,i)=>Math.abs(v-x[i])));x=y;if(err<1e-10)break}
+ return Object.fromEntries(nodes.map((n,i)=>[n,x[i]]));
+}
+function leverageScores(){
+ const deg=degreeScores(); const out={};
+ nodes.forEach(v=>{const kv=deg[v];out[v]=kv?nodes.filter(u=>A[idx[v]][idx[u]]).reduce((s,u)=>s+(kv-deg[u])/(kv+deg[u]),0)/kv:0});
+ return out;
+}
+function lambdaMax(){
+ let x=nodes.map(()=>1/Math.sqrt(nodes.length)),lam=0;
+ for(let k=0;k<300;k++){let y=A.map(r=>r.reduce((s,v,j)=>s+v*x[j],0));let norm=Math.sqrt(y.reduce((s,v)=>s+v*v,0));x=y.map(v=>v/norm);lam=x.reduce((s,v,i)=>s+v*A[i].reduce((a,z,j)=>a+z*x[j],0),0)}
+ return lam;
+}
+function katzScores(alpha,T=80){
+ const beta=1,x=nodes.map(()=>0);
+ for(let i=0;i<nodes.length;i++)x[i]=beta;
+ let y=[...x],walk=nodes.map(()=>beta);
+ for(let t=1;t<=T;t++){const z=A.map(r=>r.reduce((s,v,j)=>s+v*y[j],0));y=z.map(v=>alpha*v);for(let i=0;i<nodes.length;i++)walk[i]+=y[i]}
+ const max=Math.max(...walk);return Object.fromEntries(nodes.map((n,i)=>[n,walk[i]/max]));
+}
+// Max-flow (Edmonds-Karp) with unit edge capacities.
+function maxFlow(source,sink,removed=null){
+ const cap=nodes.map((_,i)=>nodes.map((_,j)=>A[i][j] && nodes[i]!==removed && nodes[j]!==removed ? 1:0));
+ if(removed===source||removed===sink)return 0;
+ let flow=0;
+ while(true){
+   const parent=Array(nodes.length).fill(-1),q=[idx[source]];parent[idx[source]]=idx[source];
+   while(q.length&&parent[idx[sink]]<0){const u=q.shift();for(let v=0;v<nodes.length;v++)if(parent[v]<0&&cap[u][v]>0){parent[v]=u;q.push(v);if(v===idx[sink])break}}
+   if(parent[idx[sink]]<0)break;
+   let v=idx[sink];while(v!==idx[source]){const u=parent[v];cap[u][v]-=1;cap[v][u]+=1;v=u}flow++;
+ }
+ return flow;
+}
+function flowScores(){
+ const f=Object.fromEntries(nodes.map(n=>[n,0])), pairs=[];
+ let denom=0;
+ for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+   const s=nodes[i],t=nodes[j],F=maxFlow(s,t); if(!F)continue;denom+=F;
+   nodes.filter(v=>v!==s&&v!==t).forEach(v=>{f[v]+=(F-maxFlow(s,t,v))/F});
+   pairs.push([s,t,F]);
+ }
+ return {scores:Object.fromEntries(nodes.map(n=>[n,denom?f[n]/denom:0])),pairs};
+}
+function paint(metric,scores,focus=null){
+ clearGraph(metric);const r=ranking(scores);const max=r[0][1]||1;
+ r.forEach(([n,val],i)=>{const el=document.querySelector(`#g-${metric} .node[data-node="${n}"]`);el.classList.add(i===0?'hot':i<3?'high':'low');el.querySelector('circle').setAttribute('r',12+18*(val/max));});
+ if(focus){const el=document.querySelector(`#g-${metric} .node[data-node="${focus}"]`);el.classList.add('focus')}
+}
+function table(scores){return '<table><tr><th>Nó</th><th>Valor</th><th>Ranking</th></tr>'+ranking(scores).map(([n,v],i)=>`<tr><td><b>${n}</b></td><td>${fmt(v)}</td><td>${i+1}º</td></tr>`).join('')+'</table>'}
+
+const deg=degreeScores();
+let degreeI=0;
+function degreeNext(){const n=nodes[degreeI++%nodes.length];clearGraph('degree');document.querySelector(`#g-degree .node[data-node="${n}"]`).classList.add('focus');nodes.filter(v=>A[idx[n]][idx[v]]).forEach(v=>document.querySelector(`#g-degree .node[data-node="${v}"]`).classList.add('neighbor'));document.querySelectorAll('#g-degree .edge').forEach(e=>{if(e.dataset.edge.includes(n))e.classList.add('active')});document.getElementById('i-degree').innerHTML=`<b>Nó ${n}</b>: grau = <b>${deg[n]}</b>.<br>Vizinhos: ${nodes.filter(v=>A[idx[n]][idx[v]]).join(', ')}<br><span class="formula">C_D(${n}) = ${deg[n]}; &nbsp; C'_D(${n}) = ${fmt(deg[n]/(nodes.length-1))}</span>`}
+function degreeReset(){clearGraph('degree');document.getElementById('i-degree').innerHTML='<b>Conceito:</b> número de conexões diretas. <span class="formula">C_D(v)=k_v</span><br>Para comparação entre redes, usa-se também a versão normalizada: k_v/(N−1).';}
+degreeReset();
+
+function showMetric(metric,n){const scores=metric==='closeness'?closenessScores():{};paint(metric,scores,n);document.getElementById('i-'+metric).innerHTML=`<b>Nó ${n}</b>: ${fmt(scores[n])}.<br><span class="formula">C_C(v)=(N−1)/Σd(v,u)</span><br>${table(scores)}`}
+function resetMetric(metric){clearGraph(metric);document.getElementById('i-'+metric).innerHTML='Clique em <b>Calcular</b> para obter os valores da métrica.'}
+resetMetric('closeness');
+
+function showPath(s,t){clearGraph('betweenness');const ps=shortestPaths(s,t),p=ps[0];p.forEach((n,i)=>document.querySelector(`#g-betweenness .node[data-node="${n}"]`).classList.add('hot'));for(let i=0;i<p.length-1;i++){const key=p[i]+p[i+1],rev=p[i+1]+p[i];document.querySelectorAll('#g-betweenness .edge').forEach(e=>{if(e.dataset.edge===key||e.dataset.edge===rev)e.classList.add('path')})}const b=betweennessScores();document.getElementById('i-betweenness').innerHTML=`<b>${s} → ${t}</b>: ${ps.length} menor(es) caminho(s). Exemplo: ${p.join(' → ')}.<br><span class="formula">C_B(v)=Σ σ_st(v)/σ_st</span><br>${table(b)}`}
+resetMetric('betweenness');
+
+function showRanking(metric){const scores=metric==='eigen'?powerEigen():leverageScores();paint(metric,scores);document.getElementById('i-'+metric).innerHTML=table(scores)}
+resetMetric('eigen');
+function showLeverage(n){const s=leverageScores();paint('leverage',s,n);document.getElementById('i-leverage').innerHTML=`<b>Nó ${n}</b>: ${fmt(s[n])}.<br><span class="formula">L(v)=1/k_v Σ[(k_v−k_u)/(k_v+k_u)]</span><br>Valor positivo: v tende a estar ligado a nós de menor grau; negativo: a nós de maior grau.<br>${table(s)}`}
+resetMetric('leverage');
+
+function showDiffusion(){const alpha=Number(document.getElementById('alpha').value),lm=lambdaMax();const s=katzScores(alpha);paint('diffusion',s);document.getElementById('i-diffusion').innerHTML=`<b>Katz/Difusão</b> com α=${alpha}. O maior autovalor aproximado é λmax=${fmt(lm)}; αλmax=${fmt(alpha*lm)} &lt; 1, condição usada para convergência do Katz infinito.<br><span class="formula">K=β1+αA1+α²A²1+…</span><br>${table(s)}<div class="small">Aqui a visualização usa uma soma truncada de 80 passos. Diffusion Centrality é relacionada ao mesmo princípio de caminhadas; Katz corresponde à soma infinita quando a condição de convergência é satisfeita.</div>`}
+resetMetric('diffusion');
+
+function showFlow(){const r=flowScores();paint('flow',r.scores);document.getElementById('i-flow').innerHTML=`<b>Fluxo:</b> a capacidade de cada aresta é 1. Para cada par (s,t), calcula-se o fluxo máximo F_st e quanto ele diminui quando o nó v é removido.<br><span class="formula">FB(v)=Σ[(F_st−F_st^{−v})/F_st]</span><br>${table(r.scores)}<div class="small">Esta implementação usa a definição de dependência do fluxo máximo por remoção do nó. É uma escolha operacional de Flow Betweenness; diferentes pacotes podem usar normalizações/definições ligeiramente diferentes.</div>`}
+function showFlowNode(n){const r=flowScores();paint('flow',r.scores,n);document.getElementById('i-flow').innerHTML=`<b>Nó ${n}</b>: ${fmt(r.scores[n])} na medida de dependência do fluxo máximo.<br>O valor aumenta quando a remoção de ${n} reduz significativamente o fluxo máximo entre muitos pares.<br>${table(r.scores)}`}
+resetMetric('flow');
+</script>
+</body>
+</html>

@@ -7,11 +7,14 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
-  <meta name="author" content="Author">
-  <title>CI0932 - Biologia de Sistemas – Presentation Title</title>
+  <meta name="author" content="Nicholas Barroso">
+  <title>CI0932 - Biologia de Sistemas – 08   Rede de co-expressão</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -21,10 +24,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -32,8 +38,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-89d05c9c7f8a0a1d591afc160e5fe99d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -125,10 +197,10 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
+<meta property="og:title" content="08  Rede de co-expressão – CI0932 - Biologia de Sistemas">
 <meta property="og:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
 <meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
-<meta name="twitter:title" content="Presentation Title – CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="08  Rede de co-expressão – CI0932 - Biologia de Sistemas">
 <meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -137,135 +209,165 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Presentation Title</h1>
+  <h1 class="title">08 <br> Rede de co-expressão</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Author 
+Nicholas Barroso
 </div>
 </div>
 </div>
 
 </section>
-<section id="biologia-de-sistemas" class="title-slide slide level1 center">
-<h1>Biologia de Sistemas</h1>
-
-</section>
-
-<section>
 <section id="rede-de-co-expressão" class="title-slide slide level1 center">
-<h1>08 - Rede de co-expressão</h1>
-
-</section>
-<section class="slide level2">
-
-<p>É uma rede de genes que possuem a tendência de serem co-expressos ( <strong>ativados</strong> ou <strong>reprimidos</strong> ) através de um grupo de amostras.</p>
-</section></section>
-<section>
-<section id="rede-de-co-expressão-1" class="title-slide slide level1 center">
 <h1>Rede de co-expressão</h1>
-
+<p>É uma rede de genes que possuem a tendência de serem co-expressos (<span style="color:#4169E1; font-weight:bold;">ativados</span> ou <span style="color:#4169E1; font-weight:bold;">reprimidos</span>) através de um grupo de amostras.</p>
 </section>
-<section class="slide level2">
 
-
-<img data-src="img/08 - Rede de Co-expressão_0.png" class="r-stretch"></section></section>
-<section>
 <section id="redes-de-co-expressão-cont." class="title-slide slide level1 center">
 <h1>Redes de co-expressão (cont.)</h1>
+<div class="columns">
+<div class="column">
 <p>São grafos não-direcionados.</p>
-<p><strong>Vértices</strong> : genes.</p>
-<p><strong>Arestas</strong> : relação de co-expressão.</p>
+<ul>
+<li><strong>Vértices</strong>: genes.</li>
+<li><strong>Arestas</strong>: relação de co-expressão.</li>
+</ul>
+</div><div class="column">
+<p><a href="img/08-Rede-de-Co-expressao_0.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/08-Rede-de-Co-expressao_0.png"></a></p>
+</div></div>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="redes-de-co-expressão-cont.-1" class="title-slide slide level1 center">
 <h1>Redes de co-expressão (cont.)</h1>
 <ul>
-<li class="fragment">Para construir redes de co-expressão, precisamos de várias amostras.
+<li>Para construir redes de co-expressão, precisamos de várias amostras.
 <ul>
-<li class="fragment"><strong>Para quê?</strong></li>
+<li><strong>Para quê?</strong></li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="redes-de-co-expressão-cont.-2" class="title-slide slide level1 center">
 <h1>Redes de co-expressão (cont.)</h1>
 <ul>
-<li class="fragment">Uma rede de co-expressão gênica pode ser construída procurando pares de genes que mostram:
+<li>Uma rede de co-expressão gênica pode ser construída procurando pares de genes que mostram:
 <ul>
-<li class="fragment"><strong>P</strong> <strong>adrão de expressão similar entre amostras</strong> , já que os níveis de <strong>transcrição de dois genes co-expressos podem subir ou descer juntos em amostras</strong> .</li>
+<li><span style="color:#4169E1; font-weight:bold;">Padrão de expressão similar entre amostras</span>
+<ul>
+<li>Dois genes co-expressos podem subir ou descer juntos em amostras.</li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="redes-de-co-expressão-cont.-3" class="title-slide slide level1 center">
 <h1>Redes de co-expressão (cont.)</h1>
+<div class="columns">
+<div class="column">
 <p><strong>Podem ser usadas para:</strong></p>
-<p>Priorização de genes associados a doenças;</p>
-<p>Anotação funcional de genes;</p>
-<p>Identificação de correlação;</p>
-</section>
-<section class="slide level2">
-
 <ul>
-<li class="fragment"><strong>Normalmente não são capazes de:</strong></li>
-<li class="fragment">Conferir informação sobre causalidade;
-<ul>
-<li class="fragment">Genes podem estar ativos durante uma resposta biológica mas não necessariamente com efeito causativo entre o gene e a resposta.</li>
-</ul></li>
-<li class="fragment">Não fazem diferença entre genes <strong>regulatórios</strong> e genes <strong>regulados</strong> ;</li>
+<li>Priorização de genes associados a doenças;</li>
+<li>Anotação funcional de genes;</li>
+<li>Identificação de correlação;</li>
 </ul>
-</section></section>
-<section>
-<section id="redes-de-co-expressão-cont.-4" class="title-slide slide level1 center">
-<h1>Redes de co-expressão (cont.)</h1>
-
+</div><div class="column">
+<p><strong>Normalmente não são capazes de:</strong></p>
+<ul>
+<li>Conferir informação sobre causalidade;
+<ul>
+<li>Genes podem estar ativos durante uma resposta biológica mas não necessariamente com efeito causativo entre o gene e a resposta.</li>
+</ul></li>
+<li>Não fazem diferença entre genes <strong>regulatórios</strong> e genes <strong>regulados</strong>;</li>
+</ul>
+</div></div>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="construção-de-redes-de-co-expressão" class="title-slide slide level1 center">
 <h1>Construção de redes de co-expressão</h1>
 <p><strong>É feita em três passos:</strong></p>
-<p>Definir relações entre os genes.</p>
-<p>Construir a rede.</p>
-<p>Definição de módulos.</p>
+<div style="display: flex; flex-direction: column; gap: 15px; width: 60%; margin: 2em auto;">
+<div style="background-color: #005689; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<ol type="1">
+<li>Definir relações entre os genes.</li>
+</ol>
+</div>
+<div style="background-color: #00873e; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<ol start="2" type="1">
+<li>Construir a rede.</li>
+</ol>
+</div>
+<div style="background-color: #e67e15; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<ol start="3" type="1">
+<li>Definição de módulos.</li>
+</ol>
+</div>
+</div>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="passo-1-definir-relações-entre-genes" class="title-slide slide level1 center">
 <h1>Passo 1: Definir relações entre genes</h1>
 <ul>
-<li class="fragment">As relações entre os genes são baseadas nas <strong>medidas de correlação</strong> .</li>
-<li class="fragment">As medidas de correlação fazem a comparação do padrão de um par de genes através das amostras.</li>
-<li class="fragment">Existem várias medidas de correlação:
+<li>As relações entre os genes são baseadas nas medidas de correlação .</li>
+<li>As medidas de correlação fazem a comparação do padrão de um par de genes através das amostras.</li>
+<li>Existem várias medidas de correlação:
 <ul>
-<li class="fragment">Correlação de Pearson.</li>
-<li class="fragment">Correlação de Spearman.</li>
+<li>Correlação de Pearson.</li>
+<li>Correlação de Spearman.</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
-<section id="correlação-de-pearson" class="title-slide slide level1 center">
+<section id="correlação-de-pearson" class="title-slide slide level1 smaller center">
 <h1>Correlação de Pearson</h1>
-<p>É uma medida da <strong>correlação </strong> <strong>linear</strong> entre duas variáveis X e Y .</p>
-<p>O coeficiente de correlação de Pearson é a covariância das duas variáveis ​​dividida pelo produto de seus desvios-padrão.</p>
+<ul>
+<li><p>É uma medida da correlação linear entre duas variáveis X e Y .</p></li>
+<li><p>O coeficiente de correlação de Pearson é a covariância das duas variáveis ​​dividida pelo produto de seus desvios-padrão.</p></li>
+</ul>
+<div class="columns v-align-middle">
+<div class="column">
+<center>
+<br><br><br><br><span class="math inline">\(\huge \displaystyle \rho_{X,Y} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}\)</span>
+</center>
+</div><div class="column">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Símbolo</th>
+<th style="text-align: center;">O que é</th>
+<th style="text-align: center;">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\rho_{X,Y}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho\)</span>.</td>
+<td style="text-align: center;">Coeficiente de correlação de Pearson</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\text{Cov}(X,Y)\)</span></td>
+<td style="text-align: center;">Covariância entre X e Y.</td>
+<td style="text-align: center;">Mede como as duas variáveis variam juntas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sigma_X\)</span></td>
+<td style="text-align: center;">Desvio padrão da variável X</td>
+<td style="text-align: center;">Dispersão de X em torno da média</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\sigma_Y\)</span></td>
+<td style="text-align: center;">Desvio padrão da variável Y</td>
+<td style="text-align: center;">Dispersão de Y em torno da média</td>
+</tr>
+</tbody>
+</table>
+</div></div>
 <aside class="notes">
 <p>Uma relação é linear quando a mudança em uma variável é associada a uma mudança proporcional na outra variável. http://lcb.fflch.usp.br/sites/lcb.fflch.usp.br/files/upload/paginas/AULA5-correla%C3%A7%C3%A3o_0.pdf</p>
 <style type="text/css">
@@ -280,22 +382,19 @@ Author
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="correlação-de-spearman" class="title-slide slide level1 center">
 <h1>Correlação de Spearman</h1>
 <ul>
-<li class="fragment">Vê a correlação entre duas variáveis</li>
-<li class="fragment">A relação entre as variáveis é monotônica, sejam lineares ou não, o que é menos restritivo que uma relação como seria com a correlação de Pearson.
+<li>Vê a correlação entre duas variáveis.</li>
+<li>A relação entre as variáveis é monotônica, sejam lineares ou não, o que é menos restritivo que uma relação como seria com a correlação de Pearson.
 <ul>
-<li class="fragment">Se elas crescem juntas;</li>
-<li class="fragment">Ou se uma cresce e a outra diminui;</li>
+<li>Se elas crescem ou diminuim juntas.</li>
 </ul></li>
 </ul>
 
-<img data-src="img/08 - Rede de Co-expressão_1.png" class="r-stretch"><aside class="notes">
+<img data-src="img/08-Rede-de-Co-expressao_1.png" class="r-stretch quarto-figure quarto-figure-center"><aside class="notes">
 <p>Em uma relação monotônica, as variáveis tendem a mudar juntas mas não necessariamente a uma taxa constante. https://support.minitab.com/pt-br/minitab/18/help-and-how-to/statistics/basic-statistics/supporting-topics/correlation-and-covariance/a-comparison-of-the-pearson-and-spearman-correlation-methods/</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -312,51 +411,164 @@ Author
 <section class="slide level2">
 
 
-<img data-src="img/08 - Rede de Co-expressão_2.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
+<img data-src="img/08-Rede-de-Co-expressao_2.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
 <section id="passo-2-construir-a-rede" class="title-slide slide level1 center">
 <h1>Passo 2: Construir a rede</h1>
-<p>As associações de co-expressão são usadas para reconstruir a rede. Vértices são genes e arestas são a presença da correlação (além da presença podem refletir a <strong>força da correlação</strong> ).</p>
+<p>As associações de co-expressão são usadas para reconstruir a rede. Vértices são genes e arestas são a presença da correlação (além da presença podem refletir a <strong>força da correlação</strong>).</p>
 
-<img data-src="img/08 - Rede de Co-expressão_3.png" class="r-stretch"></section>
-<section class="slide level2">
+<img data-src="img/08-Rede-de-Co-expressao_3.png" class="r-stretch quarto-figure quarto-figure-center"></section>
 
-</section></section>
-<section>
 <section id="tipos-de-redes-de-co-expressão" class="title-slide slide level1 center">
 <h1>Tipos de redes de co-expressão</h1>
-<p>Redes com sinal e sem sinal.</p>
-<p>Redes ponderadas e não-ponderadas</p>
+<ul>
+<li><p>Redes com sinal e sem sinal.</p></li>
+<li><p>Redes ponderadas e não-ponderadas</p></li>
+</ul>
 </section>
-<section class="slide level2">
 
-</section></section>
-<section>
 <section id="redes-de-co-expressão-com-sinal-e-sem-sinal" class="title-slide slide level1 center">
 <h1>Redes de co-expressão com sinal e sem sinal</h1>
 <p>Numa rede de co-expressão baseada em correlação, às medidas de correlação têm valores entre:</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Valor</strong></p>
+</div>
+<div class="callout-content">
 <p>-1: correlação negativa perfeita</p>
 <p>1: correlação positiva perfeita.</p>
-<p>Em uma <strong>rede sem sinal</strong> , os absolutos dos valores de correlação são usados. Então teremos somente a informação de correlação mas não saberemos se são positiviamente ou negativamente co-expressos.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Em uma rede sem sinal , os absolutos dos valores de correlação são usados. Então teremos somente a informação de correlação mas não saberemos se são positiviamente ou negativamente co-expressos.</li>
+<li>Mas teremos a relação de crescem juntos, decrescem juntos ou aumentam e diminuem ao mesmo tempo na mesma proporção.</li>
+</ul>
+</section>
+
+<section id="redes-de-co-expressão-com-sinal-e-sem-sinal-cont." class="title-slide slide level1 center">
+<h1>Redes de co-expressão com sinal e sem sinal (cont.)</h1>
+<p>Uma rede com sinal resolve esse problema escalonando os valores de correlação entre 0 e 1.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Valores</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>&lt;0,5</strong>: indicam correlação negativa</p>
+<p><strong>=0,5</strong>: neutra/fraca</p>
+<p><strong>&gt;0,5</strong>: indicam correlação positiva.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Assim, um valor escalonado próximo de 0 indica uma correlação forte e negativa, uma característica que pode ser particularmente interessante quando o transcrito exerce sua função principalmente através da regulação negativa de outros genes.</li>
+<li>Na rede com sinal só teremos relações de crescem ou diminuim juntos.</li>
+</ul>
+<aside class="notes">
+<p>https://peterlangfelder.com/2018/11/25/signed-or-unsigned-which-network-type-is-preferable/ https://peterlangfelder.com/2019/05/30/signed-network-from-signed-topological-overlap/ https://peterlangfelder.com/2018/11/25/trashed/</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section>
+<section id="redes-de-co-expressão-com-peso-e-sem-peso" class="title-slide slide level1 smaller center">
+<h1>Redes de co-expressão com peso e sem peso</h1>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Em uma rede ponderada:
+<ul>
+<li>todos os genes são conectados uns aos outros</li>
+<li>conexões têm valores de peso contínuos entre 0 e 1 que indicam a força de co-regulação entre os genes.</li>
+</ul></li>
+<li>Em uma rede não-ponderada:
+<ul>
+<li>a interação entre pares de genes é binária, ou seja, 0 ou 1, não-conectados e conectados, respectivamente.</li>
+</ul></li>
+<li>Uma rede não-ponderada pode ser criada a partir de uma rede ponderada: considerando acima de um certo limiar de correlação a ser conectado e todos os outros desconectados.</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/08-Rede-de-Co-expressao_4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="img/08-Rede-de-Co-expressao_4.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section class="slide level2">
 
-</section></section>
-<section>
-<section id="redes-de-co-expressão-com-sinal-e-sem-sinal-cont." class="title-slide slide level1 center">
-<h1>Redes de co-expressão com sinal e sem sinal (cont.)</h1>
-<p>Uma <strong>rede com sinal</strong> resolve esse problema escalonando os valores de correlação entre 0 e 1</p>
-<p>&lt;0,5: indicam correlação negativa</p>
-<p>=0,5: neutra/fraca</p>
-<blockquote>
-<p>0,5: indicam correlação positiva.</p>
-</blockquote>
-<p>Assim, um valor escalonado próximo de 0 indica uma correlação forte e negativa, uma característica que pode ser particularmente interessante quando o transcrito exerce sua função principalmente através da regulação negativa de outros genes.</p>
 <aside class="notes">
-<p>https://peterlangfelder.com/2018/11/25/signed-or-unsigned-which-network-type-is-preferable/ https://peterlangfelder.com/2019/05/30/signed-network-from-signed-topological-overlap/ https://peterlangfelder.com/2018/11/25/__trashed/</p>
+<p>van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="passo-3-definição-de-módulos" class="title-slide slide level1 center">
+<h1>Passo 3: Definição de módulos</h1>
+<ul>
+<li>Módulos de genes co-expressos são identificados usando técnicas de agrupamento (clusterização).</li>
+<li>O agrupamento é usado para fazer grupos de genes com padrões de expressão similares entre as amostras.</li>
+<li>Os módulos podem ser subsequentemente interpretados por Análise de Enriquecimento Funcional.
+<ul>
+<li>Um método que identifica e ranqueia categorias funcionais super representadas em uma lista de genes.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="passo-3-definição-de-módulos-cont." class="title-slide slide level1 smaller center">
+<h1>Passo 3: Definição de módulos (cont.)</h1>
+<p><strong>É importante considerar a heterogeneidade das amostras.</strong></p>
+<p>Análises de co-expressão enfrentam um <em>troca</em>: redes <strong>multitecido/multicondição</strong> diluem o sinal e escondem módulos específicos, enquanto redes de <strong>tecido/condição única</strong> reduzem o tamanho da amostra e perdem poder estatístico para detectar módulos compartilhados.</p>
+<p><strong>Solução:</strong></p>
+<ul>
+<li><strong>Métodos gerais (sem distinção):</strong> ideais para identificar módulos de co-expressão <strong>comuns/compartilhados</strong>.</li>
+<li><strong>Co-expressão diferencial (comparativa):</strong> ideal para identificar módulos <strong>específicos/exclusivos</strong>.</li>
+</ul>
+</section>
+
+<section>
+<section id="identificando-módulos" class="title-slide slide level1 smaller center">
+<h1>Identificando módulos</h1>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>O pacote de clustering mais usado para a análise de redes co-expressão é o Análise Ponderada de Rede de Correlação de Genes (WGCNA, <em>Weighted Gene Co-expression Network Analysis</em>).</p></li>
+<li><p>Essa ferramenta fácil de usar constrói módulos de co-expressão usando o agrupamento hierárquico em uma rede de correlação criada a partir de dados de expressão.</p></li>
+<li><p>O agrupamento em clusters hierárquicos divide iterativamente cada cluster em subclusters para criar uma árvore com ramificações representando módulos de co-expressão. Os módulos são definidos cortando os ramos a uma certa altura (valor de corte) definida pelo usuário.</p></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/08-Rede-de-Co-expressao_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="img/08-Rede-de-Co-expressao_5.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>El-Sharkawy, Islam &amp; Liang, Dong &amp; Xu, Kenong. (2015). Transcriptome analysis of an apple (Malus × domestica) yellow fruit somatic mutation identifies a gene network module highly associated with anthocyanin and epigenetic regulation. Journal of Experimental Botany. 66. 10.1093/jxb/erv433.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -371,184 +583,156 @@ Author
 </section>
 <section class="slide level2">
 
+
+<img data-src="img/08-Rede-de-Co-expressao_6.png" class="r-stretch quarto-figure quarto-figure-center"><div class="footer">
+<p>van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform</p>
+</div>
 </section></section>
-<section>
-<section id="redes-de-co-expressão-com-peso-e-sem-peso" class="title-slide slide level1 center">
-<h1>Redes de co-expressão com peso e sem peso</h1>
-<p>Em uma rede ponderada, todos os genes são conectados uns aos outros, e essas conexões têm valores de peso contínuos entre 0 e 1 que indicam a força de co-regulação entre os genes.</p>
-<p>Em uma rede não-ponderada, a interação entre pares de genes é binária, ou seja, 0 ou 1, Não-conectados e conectados, respectivamente.</p>
-<p>Uma rede não-ponderada pode ser criada a partir de uma rede ponderada, por exemplo, considerando todos os genes com uma correlação acima de um certo limiar a ser conectado e todos os outros desconectados.</p>
-
-<img data-src="img/08 - Rede de Co-expressão_4.png" class="r-stretch"><p>van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="passo-3-definição-de-módulos" class="title-slide slide level1 center">
-<h1>Passo 3: Definição de módulos</h1>
-<ul>
-<li class="fragment">Módulos de genes co-expressos são identificados usando técnicas de agrupamento (clusterização).</li>
-<li class="fragment">O agrupamento é usado para fazer grupos de genes com padrões de expressão similares entre as amostras.</li>
-<li class="fragment">Os módulos podem ser subsequentemente interpretados por Análise de Enriquecimento Funcional.
-<ul>
-<li class="fragment">Um método que identifica e ranqueia categorias funcionais super representadas em uma lista de genes.</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="passo-3-definição-de-módulos-cont." class="title-slide slide level1 center">
-<h1>Passo 3: Definição de módulos (cont.)</h1>
-<ul>
-<li class="fragment">É importante considerar a heterogeneidade das amostras.</li>
-<li class="fragment">Módulos de co-expressão específicos de tecido ou de condição:
-<ul>
-<li class="fragment">Podem não ser detectáveis em uma rede de co-expressão construída a partir de múltiplos tecidos ou condições porque o sinal de correlação dos módulos específicos é diluído por uma falta de correlação em outros tecidos/condições.</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="passo-3-definição-de-módulos-cont.-1" class="title-slide slide level1 center">
-<h1>Passo 3: Definição de módulos (cont.)</h1>
-<p>É importante considerar a heterogeneidade das amostras.</p>
-<p>MAS, limitar a análise de co-expressão a um tecido ou condição específica também reduz o tamanho da amostra, diminuindo também o poder estatístico para detectar módulos de co-expressão compartilhados.</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="passo-3-definição-de-módulos-cont.-2" class="title-slide slide level1 center">
-<h1>Passo 3: Definição de módulos (cont.)</h1>
-<p>É importante considerar a heterogeneidade das amostras.</p>
-<p>Portanto, métodos que não distinguem entre tecidos ou condições devem ser usados para a identificação de módulos comuns de co-expressão, enquanto a co-expressão diferencial comparando diferentes condições ou tecidos será melhor para a identificação de módulos exclusivos de uma condição ou tecido específico.</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="identificando-módulos" class="title-slide slide level1 center">
-<h1>Identificando módulos</h1>
-
-<img data-src="img/08 - Rede de Co-expressão_5.png" class="r-stretch"><p>O pacote de clustering mais usado para a análise de redes co-expressão é o Análise Ponderada de Rede de Correlação de Genes ( <strong>WGCNA</strong> , <em>W</em> <em>eighted </em> <em>G</em> <em>ene </em> <em>C</em> <em>o-expression </em> <em>N</em> <em>etwork </em> <em>A</em> <em>nalysis</em> ).</p>
-<p>Essa ferramenta fácil de usar constrói módulos de co-expressão usando o agrupamento hierárquico em uma rede de correlação criada a partir de dados de expressão.</p>
-<p>O agrupamento em clusters hierárquicos divide iterativamente cada cluster em subclusters para criar uma árvore com ramificações representando módulos de co-expressão. Os módulos são definidos cortando os ramos a uma certa altura (valor de corte) definida pelo usuário.</p>
-<p>El-Sharkawy, Islam &amp; Liang, Dong &amp; Xu, Kenong. (2015). Transcriptome analysis of an apple (Malus × domestica) yellow fruit somatic mutation identifies a gene network module highly associated with anthocyanin and epigenetic regulation. Journal of Experimental Botany. 66. 10.1093/jxb/erv433.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="img/08 - Rede de Co-expressão_6.png" class="r-stretch"><p>van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
 <section id="redes-de-co-expressão-diferencial" class="title-slide slide level1 center">
 <h1>Redes de co-expressão diferencial</h1>
-<p>Um método cada vez mais utilizado que vai além das redes tradicionais de co-expressão.</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="redes-de-co-expressão-diferencial-cont." class="title-slide slide level1 center">
-<h1>Redes de co-expressão diferencial (cont.)</h1>
+<p><strong>Além da Co-Expressão Tradicional: Análise Diferencial de Redes</strong></p>
 <ul>
-<li class="fragment">Identifica genes com diferentes parceiros de co-expressão sob diferentes condições
+<li><p>O que faz: Mapeia genes que alteram dinamicamente seus parceiros de co-expressão conforme a condição (tecidos, doenças ou estágios de desenvolvimento).</p></li>
+<li><p>Importância Biológica: Genes com conexões flexíveis têm maior potencial regulatório e são chaves para explicar diferenças fenotípicas.</p></li>
+<li><p>Validação Multi-Ômica: O papel regulatório desses genes é investigado integrando:</p>
 <ul>
-<li class="fragment">Estados de doença</li>
-<li class="fragment">Tipos de tecido</li>
-<li class="fragment">Estágios de desenvolvimento</li>
-</ul></li>
-<li class="fragment">Esses genes são mais propensos a serem reguladores que fundamentam as diferenças fenotípicas.</li>
-<li class="fragment">Os papéis regulatórios de tais genes podem ser investigados através da integração de outros tipos de dados
-<ul>
-<li class="fragment">Interações proteína-proteína</li>
-<li class="fragment">Metiloma</li>
-<li class="fragment">Interações entre fatores de transcrição (TFs) e seus alvos</li>
+<li>Interações Proteína-Proteína (PPI)</li>
+<li>Perfil de Metilação do DNA (Metiloma)</li>
+<li>Redes Regulatórias de Fatores de Transcrição (TF-alvo)</li>
 </ul></li>
 </ul>
 </section>
-<section class="slide level2">
 
-</section></section>
 <section>
 <section id="identificando-hubs" class="title-slide slide level1 center">
 <h1>Identificando hubs</h1>
-<p>Módulos de co-expressão identificados por clustering são geralmente grandes e, portanto, é importante identificar qual gene(s) em cada módulo melhor explica seu comportamento.</p>
-<p>Uma abordagem amplamente utilizada é identificar genes altamente conectados em uma rede de co-expressão (genes hub). Os hubs são freqüentemente mais relevantes para a funcionalidade das redes do que outros nós.</p>
-<p>Hubs intra-modulares: centrais para módulos específicos na rede.</p>
-<p>Hubs intermodulares: centrais para toda a rede.</p>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="identificando-hubs-cont." class="title-slide slide level1 center">
-<h1>Identificando hubs (cont.)</h1>
-<p>São usadas medidas de centralidade para identificar os hubs.</p>
-</section>
-<section class="slide level2">
-
-
-<img data-src="img/08 - Rede de Co-expressão_7.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="análise-de-enriquecimento" class="title-slide slide level1 center">
-<h1>Análise de enriquecimento</h1>
+<p><strong>Priorização e Papel dos Genes Hub em Redes de Co-Expressão</strong></p>
 <ul>
-<li class="fragment">Dentro de um módulo são encontrados os termos funcionais mais frequentes.
+<li><p><strong>Desafio</strong>: Módulos de clustering costumam ser extensos, exigindo a identificação dos genes que melhor explicam o comportamento do grupo.</p></li>
+<li><p><strong>Solução</strong>: Identificação de genes hub — nós altamente conectados e biologicamente mais relevantes para a topologia da rede.</p></li>
+<li><p><strong>Classificação Topológica</strong>:</p>
 <ul>
-<li class="fragment">Assim pode se ter uma ideia de qual função, dentro de um módulo na rede, pode ser mais frequente e representativa daquele módulo.</li>
+<li><strong>Hubs Intramodulares</strong>: exercem centralidade dentro de um módulo específico.</li>
+<li><strong>Hubs Intermodulares</strong>: atuam como pontes e reguladores globais entre diferentes módulos da rede.</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
-</section></section>
-<section>
-<section id="predição-de-culpados-por-associação" class="title-slide slide level1 center">
-<h1>Predição de culpados por associação</h1>
-<p>Uma abordagem amplamente utilizada para dar significado biológico aos módulos é determinar o enriquecimento funcional dos genes dentro de um módulo.</p>
-<p>Assumindo que os genes co-expressos são funcionalmente relacionados, funções enriquecidas podem ser atribuídas a genes mal anotados dentro do mesmo módulo de co-expressão, uma abordagem comumente referida como <em>culpado por associação</em> (GBA, <em>guilt by association</em> ).</p>
-<p>Abordagens GBA também são amplamente usadas para identificar potenciais novas associações de genes se uma proporção substancial dos genes dentro de um módulo estiver associada a uma condição, como uma doença em particular, por exemplo.</p>
+<p>São usadas medidas de centralidade para identificar os hubs.</p>
 
-<img data-src="img/08 - Rede de Co-expressão_8.png" class="r-stretch"></section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="redes-de-co-expressão" class="title-slide slide level1 center">
-<h1>Redes de co-expressão</h1>
-<p>A maneira mais comum de construir redes de co-expressão baseadas em dados de RNA-seq é fundir todas as isoformas de um gene em uma única versão e só depois construir a rede usando o nível de genes.</p>
-<p>O ideal, e mais interessante, é que usássemos as isoformas de splicing para construir a rede, porém usar todas as isoformas de um gene aumenta muito o tamanho da rede de co-expressão o que aumenta o tempo de análise.</p>
+<img data-src="img/08-Rede-de-Co-expressao_7.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
+<section id="análise-de-enriquecimento" class="title-slide slide level1 center">
+<h1>Análise de enriquecimento</h1>
+<ul>
+<li>Dentro de um módulo são encontrados os termos funcionais mais frequentes.
+<ul>
+<li>Assim pode se ter uma ideia de qual função, dentro de um módulo na rede, pode ser mais frequente e representativa daquele módulo.</li>
+</ul></li>
+</ul>
 </section>
-<section class="slide level2">
 
-</section></section>
+<section id="predição-de-culpados-por-associação" class="title-slide slide level1 smaller center">
+<h1>Predição de culpados por associação</h1>
+<div class="columns">
+<div class="column">
+<p><strong>Significado Biológico e o Princípio GBA</strong></p>
+<ul>
+<li><p>Enriquecimento Funcional: Principal método para traduzir uma lista de genes em uma função biológica compreensível (o “papel” do módulo).</p></li>
+<li><p>Princípio GBA (Guilt by Association / “Culpado por Associação”): Premissa de que genes co-expressos participam do mesmo processo biológico.</p></li>
+<li><p>Anotação Funcional: Permite inferir a função de genes desconhecidos (mal anotados) com base nos genes bem conhecidos do mesmo grupo.</p></li>
+<li><p>Aplicações Clínicas: Identifica novos genes candidatos para doenças se o módulo como um todo apresentar forte ligação com uma patologia.</p></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/08-Rede-de-Co-expressao_8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="img/08-Rede-de-Co-expressao_8.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+<!-- # Redes de co-expressão
+
+A maneira mais comum de construir redes de co-expressão baseadas em dados de RNA-seq é fundir todas as isoformas de um gene em uma única versão e só depois construir a rede usando o nível de genes.
+
+O ideal, e mais interessante, é que usássemos as isoformas de splicing para construir a rede, porém usar todas as isoformas de um gene  aumenta muito o tamanho da rede de co-expressão o que aumenta o tempo de análise. -->
+</section>
+
 <section id="ferramentas" class="title-slide slide level1 center">
 <h1>Ferramentas</h1>
-<p>Pré-processamento: WGCNA para construção da rede</p>
-<p>Identificação de módulos: WGCNA ou clusterMaker2 (Cytoscape)</p>
-<p>Análise de hubs: CytoHubba ou igraph</p>
-<p>Enriquecimento funcional: clusterProfiler ou g:Profiler</p>
-<p>Visualização final: Cytoscape ou ggplot2/ggraph</p>
-
-
+<ul>
+<li><p>Pré-processamento: WGCNA para construção da rede</p></li>
+<li><p>Identificação de módulos: WGCNA ou clusterMaker2 (Cytoscape)</p></li>
+<li><p>Análise de hubs: CytoHubba ou igraph</p></li>
+<li><p>Enriquecimento funcional: clusterProfiler ou g:Profiler</p></li>
+<li><p>Visualização final: Cytoscape ou ggplot2/ggraph</p></li>
+</ul>
 </section>
+
+<section id="testa-simulação" class="title-slide slide level1 center">
+<h1>Testa: simulação</h1>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a aria-label="1"></a>#| echo: false</span>
+<span id="cb1-2"><a aria-label="2"></a>#| fig-align: "center"</span>
+<span id="cb1-3"><a aria-label="3"></a>#| output-location: slide</span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a>library(igraph)</span>
+<span id="cb1-6"><a aria-label="6"></a>library(ggraph)</span>
+<span id="cb1-7"><a aria-label="7"></a>library(tidygraph)</span>
+<span id="cb1-8"><a aria-label="8"></a></span>
+<span id="cb1-9"><a aria-label="9"></a># 1. Simulação de 6 genes em 30 amostras</span>
+<span id="cb1-10"><a aria-label="10"></a>set.seed(42)</span>
+<span id="cb1-11"><a aria-label="11"></a>amostras &lt;- 30</span>
+<span id="cb1-12"><a aria-label="12"></a>GeneA &lt;- rnorm(amostras, mean=10, sd=2)</span>
+<span id="cb1-13"><a aria-label="13"></a>GeneB &lt;- GeneA * 0.8 + rnorm(amostras, sd=0.5)  # Forte correlação positiva com A</span>
+<span id="cb1-14"><a aria-label="14"></a>GeneC &lt;- -GeneA * 0.9 + rnorm(amostras, sd=0.5) # Forte correlação negativa com A</span>
+<span id="cb1-15"><a aria-label="15"></a>GeneD &lt;- rnorm(amostras, mean=10, sd=2)         # Independente</span>
+<span id="cb1-16"><a aria-label="16"></a>GeneE &lt;- GeneD * 0.85 + rnorm(amostras, sd=0.3) # Correlacionado com D</span>
+<span id="cb1-17"><a aria-label="17"></a>GeneF &lt;- rnorm(amostras, mean=5, sd=1)          # Ruído</span>
+<span id="cb1-18"><a aria-label="18"></a></span>
+<span id="cb1-19"><a aria-label="19"></a>matriz_exp &lt;- data.frame(GeneA, GeneB, GeneC, GeneD, GeneE, GeneF)</span>
+<span id="cb1-20"><a aria-label="20"></a></span>
+<span id="cb1-21"><a aria-label="21"></a># 2. Matriz de Correlação de Pearson</span>
+<span id="cb1-22"><a aria-label="22"></a>matriz_cor &lt;- cor(matriz_exp, method = "pearson")</span>
+<span id="cb1-23"><a aria-label="23"></a></span>
+<span id="cb1-24"><a aria-label="24"></a># 3. Criar Rede Não-Ponderada com Limiar (|r| &gt; 0.6)</span>
+<span id="cb1-25"><a aria-label="25"></a>adj_matrix &lt;- abs(matriz_cor) &gt; 0.6</span>
+<span id="cb1-26"><a aria-label="26"></a>diag(adj_matrix) &lt;- 0 # Remover auto-conexões</span>
+<span id="cb1-27"><a aria-label="27"></a></span>
+<span id="cb1-28"><a aria-label="28"></a># 4. Plot da Rede com destaque para Hubs</span>
+<span id="cb1-29"><a aria-label="29"></a>rede &lt;- graph_from_adjacency_matrix(adj_matrix, mode = "undirected")</span>
+<span id="cb1-30"><a aria-label="30"></a></span>
+<span id="cb1-31"><a aria-label="31"></a>ggraph(rede, layout = 'stress') + </span>
+<span id="cb1-32"><a aria-label="32"></a>  geom_edge_link(color = "gray70", width = 1) + </span>
+<span id="cb1-33"><a aria-label="33"></a>  geom_node_point(aes(size = degree(rede)), color = "#005689") + </span>
+<span id="cb1-34"><a aria-label="34"></a>  geom_node_text(aes(label = name), vjust = -1, fontface = "bold") +</span>
+<span id="cb1-35"><a aria-label="35"></a>  theme_void() +</span>
+<span id="cb1-36"><a aria-label="36"></a>  labs(title = "Simulação de Rede de Co-expressão (|r| &gt; 0.6)",</span>
+<span id="cb1-37"><a aria-label="37"></a>       size = "Grau (Hub)")</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+
+<section>
+<section id="exemplo-prático-código-python-networkx-matplotlib" class="title-slide slide level1 center">
+<h1>Exemplo Prático: Código Python (NetworkX + Matplotlib)</h1>
+<p>Se você utiliza o engine de Python no Quarto (Jupyter Engine), pode usar o script abaixo no slide de <strong>Identificação de Hubs</strong>:</p>
+</section>
+<section class="slide level2">
+
+<div id="ffe6f47a" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="08-Rede-de-Co-expressão_files/figure-revealjs/cell-2-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="08-Rede-de-Co-expressão_files/figure-revealjs/cell-2-output-1.png" class="quarto-figure quarto-figure-center" width="589" height="418"></a></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Organization</p>
+<p>Nicholas Barroso</p>
 </div>
 </div></div>
 
@@ -928,6 +1112,38 @@ Author
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>

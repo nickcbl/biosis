@@ -1,226 +1,195 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>07   Rede Metabólicas – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-78b242ce82a07460c57699654087b134.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-303d58362c24fe1a41852777efc51427.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
-  <meta name="author" content="Nicholas Barroso">
-  <title>CI0932 - Biologia de Sistemas – 07   Rede Metabólicas</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-      vertical-align: middle;
-    }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-    .reveal div.sourceCode {
-      margin: 0;
-      overflow: auto;
-    }
-    .reveal div.hanging-indent {
-      margin-left: 1em;
-      text-indent: -1em;
-    }
-    .reveal .slide:not(.center) {
-      height: 100%;
-    }
-    .reveal .slide.scrollable {
-      overflow-y: auto;
-    }
-    .reveal .footnotes {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide .absolute {
-      position: absolute;
-      display: block;
-    }
-    .reveal .footnotes ol {
-      counter-reset: ol;
-      list-style-type: none; 
-      margin-left: 0;
-    }
-    .reveal .footnotes ol li:before {
-      counter-increment: ol;
-      content: counter(ol) ". "; 
-    }
-    .reveal .footnotes ol li > p:first-child {
-      display: inline-block;
-    }
-    .reveal .slide ul,
-    .reveal .slide ol {
-      margin-bottom: 0.5em;
-    }
-    .reveal .slide ul li,
-    .reveal .slide ol li {
-      margin-top: 0.4em;
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide ul[role="tablist"] li {
-      margin-bottom: 0;
-    }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
-      margin-block-start: 0;
-    }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
-      margin-block-end: 0;
-    }
-    .reveal .slide .columns:nth-child(3) {
-      margin-block-start: 0.8em;
-    }
-    .reveal blockquote {
-      box-shadow: none;
-    }
-    .reveal .tippy-content>* {
-      margin-top: 0.2em;
-      margin-bottom: 0.7em;
-    }
-    .reveal .tippy-content>*:last-child {
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
-      display: block;
-      margin-left: 0;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
-      display: block;
-      margin-left: auto;
-      margin-right: 0; 
-    }
-  </style>
+
 <meta property="og:title" content="07  Rede Metabólicas – CI0932 - Biologia de Sistemas">
-<meta property="og:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/slides/img/07-Rede-Metabolica_0.png">
 <meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta property="og:image:height" content="1892">
+<meta property="og:image:width" content="2500">
 <meta name="twitter:title" content="07  Rede Metabólicas – CI0932 - Biologia de Sistemas">
-<meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/img/07-Rede-Metabolica_0.png">
+<meta name="twitter:image-height" content="1892">
+<meta name="twitter:image-width" content="2500">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
-  <div class="reveal">
-    <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">07 <br> Rede Metabólicas</h1>
+<body class="nav-fixed quarto-light">
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Nicholas Barroso
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="07-Rede-Metabólica.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">07 <br> Rede Metabólicas</h1>
 </div>
 
-</section>
-<section id="redes-metabólicas" class="title-slide slide level1 center">
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="redes-metabólicas" class="level1">
 <h1>Redes metabólicas</h1>
 <ul>
 <li>Se refere a rede composta de metabólitos e suas interconversões.</li>
@@ -232,23 +201,20 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section id="rede-metabólica-cont." class="title-slide slide level1 center">
+<section id="rede-metabólica-cont." class="level1">
 <h1>Rede metabólica (cont.)</h1>
 <ul>
 <li><p>Uma rede metabólica completa deve mostrar todos os possíveis modos de fluxo de material dentro da célula, indicando assim a capacidade e potencial metabólico da célula.</p></li>
 <li><p>A célula depende dessa rede metabólica para absorver e digerir substratos do meio e gerar energia ( na forma de ATP) e sintetizar componentes necessários para seu crescimento e sobrevivência.</p></li>
 </ul>
 </section>
-
-<section id="redes-metabólicas-cont." class="title-slide slide level1 center">
+<section id="redes-metabólicas-cont." class="level1">
 <h1>Redes metabólicas (cont.)</h1>
 <ul>
 <li>É de grande interesse estudar a <em>rede metabólica</em> por sua importância fundamental na biologia no geral mas em particular porque várias aplicações funcionam diretamente no uso do <em>metabolismo celular</em>.</li>
 </ul>
 </section>
-
-<section id="redes-metabólicas-cont.-1" class="title-slide slide level1 center">
+<section id="redes-metabólicas-cont.-1" class="level1">
 <h1>Redes metabólicas (cont.)</h1>
 <ul>
 <li>Biotecnologistas modificam células:
@@ -262,19 +228,20 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section id="ômicas-e-bioinformática" class="title-slide slide level1 center">
+<section id="ômicas-e-bioinformática" class="level1">
 <h1>Ômicas! <br> e bioinformática</h1>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>Tornaram possível a reconstrução de redes metabólicas de um organismo específico em nível de genoma.</p>
 </div>
 </div>
 </div>
 </section>
-
-<section id="visualização-e-representação-em-grafo" class="title-slide slide level1 center">
+<section id="visualização-e-representação-em-grafo" class="level1">
 <h1>Visualização e representação em grafo</h1>
 <ul>
 <li>Pode ser representado como um grafo com dois tipos diferentes de vértices em ordem alternada:
@@ -284,9 +251,7 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section>
-<section id="visualização-e-representação-em-grafo-cont." class="title-slide slide level1 center">
+<section id="visualização-e-representação-em-grafo-cont." class="level1">
 <h1>Visualização e representação em grafo (cont.)</h1>
 <div class="columns">
 <div class="column">
@@ -299,38 +264,40 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </div><div class="column">
-<p><a href="img/07-Rede-Metabolica_0.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/07-Rede-Metabolica_0.png"></a></p>
-</div></div>
-</section>
-<section class="slide level2">
-
-<p><a href="img/07-Rede-Metabolica_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="img/07-Rede-Metabolica_1.png"></a></p>
+<p><img src="img/07-Rede-Metabolica_0.png" class="img-fluid"></p>
+</div>
+</div>
+<hr>
+<p><img src="img/07-Rede-Metabolica_1.png" class="img-fluid"></p>
 <!-- Aqui coloquei essa tag <pre> para poder ter os TABs e posicionar as palavras embaixo das figuras. É uma figura só com dois quadros. Então fica com um caption só -->
 <pre>                     <b>Com metabólitos moeda</b>                                      <b>Sem metabólitos moeda</b></pre>
 <!-- # Reconstrução metabólica em escala genômica{.nostretch} -->
-</section></section>
-<section>
-<section id="reconstrução-metabólica-genômica" class="title-slide slide level1 center" data-background-iframe="about:blank">
-<h1>Reconstrução metabólica genômica</h1>
+</section>
+<section id="reconstrução-metabólica-genômica" class="level1" data-background-iframe="about:blank">
+<h1 data-background-iframe="about:blank">Reconstrução metabólica genômica</h1>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="07-Rede-Metabólica_files/figure-revealjs/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="07-Rede-Metabólica_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%;height:100.0%"></a></p>
+<figure class="figure">
+<p><img src="07-Rede-Metabólica_files/figure-html/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center figure-img" style="width:100.0%;height:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_2.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_3.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
-<section class="slide level2">
-
-
-<img data-src="img/07-Rede-Metabolica_2.png" class="r-stretch quarto-figure quarto-figure-center"></section>
-<section class="slide level2">
-
-
-<img data-src="img/07-Rede-Metabolica_3.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
-<section id="estágio-1-criação-de-uma-reconstrução-rascunho" class="title-slide slide level1 center">
+<section id="estágio-1-criação-de-uma-reconstrução-rascunho" class="level1">
 <h1>Estágio 1: Criação de uma reconstrução rascunho</h1>
 <ul>
 <li>O que precisamos para começar:</li>
@@ -348,26 +315,23 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section>
-<section id="estágio-1-criação-de-uma-reconstrução-rascunho-cont." class="title-slide slide level1 center">
+<section id="estágio-1-criação-de-uma-reconstrução-rascunho-cont." class="level1">
 <h1>Estágio 1: Criação de uma reconstrução rascunho (cont.)</h1>
 <p>As reações de genes metabólicos devem ser estabelecidas.</p>
 <p>Ou seja, se o gene codificar uma enzima, qual reação esta enzima catalisa.</p>
 <p>Criação de uma reconstrução rascunho preliminar.</p>
 <p>Preparação para fase seguinte.</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_4.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
-<section class="slide level2">
-
-
-<img data-src="img/07-Rede-Metabolica_4.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
-<section id="de-onde-vem-essa-informação" class="title-slide slide level1 center">
+<section id="de-onde-vem-essa-informação" class="level1">
 <h1>De onde vem essa informação?</h1>
-
 </section>
-
-<section>
-<section id="bancos-de-dados" class="title-slide slide level1 center">
+<section id="bancos-de-dados" class="level1">
 <h1>Bancos de dados!</h1>
 <p>KEGGThe SEED ViewerBRENDA</p>
 <p>BiGG Models</p>
@@ -376,23 +340,19 @@ Nicholas Barroso
 <p>MetaCyc</p>
 <p>MEMOTE</p>
 <p>AGORA</p>
+<hr>
+<p><img src="img/07-Rede-Metabolica_5.png" class="img-fluid"></p>
 </section>
-<section class="slide level2">
-
-<p><a href="img/07-Rede-Metabolica_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="img/07-Rede-Metabolica_5.png"></a></p>
-</section></section>
-<section id="estágio-2-curadoria-manual" class="title-slide slide level1 center">
+<section id="estágio-2-curadoria-manual" class="level1">
 <h1>Estágio 2: Curadoria Manual</h1>
 <p>O processo de curadoria manual é feito na rede metabólica rascunho.</p>
 </section>
-
-<section id="estágio-2-curadoria-manual-cont." class="title-slide slide level1 center">
+<section id="estágio-2-curadoria-manual-cont." class="level1">
 <h1>Estágio 2: Curadoria Manual (cont.)</h1>
 <p>Para a maioria dos organismos, a anotação é feita baseada em homologia .</p>
 <p><em>Por isso, reconstruções baseadas somente na anotação do genoma podem conter vários erros propagados.</em></p>
 </section>
-
-<section id="estágio-2-curadoria-manual-cont.-1" class="title-slide slide level1 center">
+<section id="estágio-2-curadoria-manual-cont.-1" class="level1">
 <h1>Estágio 2: Curadoria Manual (cont.)</h1>
 <ul>
 <li>Grande esforço precisa ser feito para:
@@ -403,8 +363,7 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section id="e2---curadoria-manual-informações-adicionais-e-verificação" class="title-slide slide level1 center">
+<section id="e2---curadoria-manual-informações-adicionais-e-verificação" class="level1">
 <h1>E2 - Curadoria Manual: Informações adicionais e verificação</h1>
 <ul>
 <li>Especificidade substrato-cofator, pode variar entre organismos
@@ -419,8 +378,7 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section id="e2---curadoria-manual-informações-adicionais-e-verificação-cont." class="title-slide slide level1 center">
+<section id="e2---curadoria-manual-informações-adicionais-e-verificação-cont." class="level1">
 <h1>E2 - Curadoria Manual: Informações adicionais e verificação (cont.)</h1>
 <ul>
 <li>A relação gene-proteína-reação ( GPR ) deve ser encontrada.
@@ -436,8 +394,7 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section id="e2---curadoria-manual-informações-adicionais-e-verificação-cont.-1" class="title-slide slide level1 center">
+<section id="e2---curadoria-manual-informações-adicionais-e-verificação-cont.-1" class="level1">
 <h1>E2 - Curadoria Manual: Informações adicionais e verificação (cont.)</h1>
 <ul>
 <li>Confirmar a fórmula química de cada metabólito.
@@ -450,35 +407,33 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section id="e2---curadoria-manual-incorporação-de-reações-espontâneas-e-de-transporte" class="title-slide slide level1 center">
+<section id="e2---curadoria-manual-incorporação-de-reações-espontâneas-e-de-transporte" class="level1">
 <h1>E2 - Curadoria Manual: Incorporação de reações espontâneas e de transporte</h1>
 <p>Nem todas as reações são catalisadas por enzimas, além disso, alguns metabólitos difundem facilmente através da membrana.</p>
 <p>Reações Espontâneas!</p>
 <p>Reações de Transporte!</p>
 </section>
-
-<section id="e2---curadoria-manual-incorporação-de-reações-espontâneas-e-de-transporte-cont." class="title-slide slide level1 center">
+<section id="e2---curadoria-manual-incorporação-de-reações-espontâneas-e-de-transporte-cont." class="level1">
 <h1>E2 - Curadoria Manual: Incorporação de reações espontâneas e de transporte (cont.)</h1>
 <p>Se existir evidência de transporte do meio para a célula, da célula para o meio e entre compartimentos, essas reações devem ser descritas.</p>
 <p>Na eventualidade das reações de transporte não serem conhecidas, se pode fazer uma reação análoga se existir alguma parecida em outro organismo mas se deve anotar que a informação não é precisa.</p>
 </section>
-
-<section>
-<section id="e2---curadoria-manual-a-reação-de-biomassa" class="title-slide slide level1 center">
+<section id="e2---curadoria-manual-a-reação-de-biomassa" class="level1">
 <h1>E2 - Curadoria Manual: a reação de biomassa</h1>
 <p>Função objetivo de Biomassa</p>
 <p>É um modelo de rede metabólica que simula crescimento.</p>
 <p>É uma representação matemática da quantidades molares de vários metabólitos necessários para fazer os componentes celulares para crescimento.</p>
 <p>É necessário saber a composição geral da célula em termos de lipídios, proteínas, carboidratos …</p>
-</section>
-<section class="slide level2">
-
+<hr>
 <p>A Reação de Biomassa é uma reação artificial (não catalisada por uma enzima específica) adicionada ao modelo metabólico. Ela representa o conjunto de todos os componentes celulares necessários (em suas proporções molares exatas) para a célula formar uma nova unidade de biomassa, ou seja, para ela crescer e se dividir.</p>
 <p>Pense nela como uma <em>lista de compras</em> extremamente detalhada que a célula precisa ter para poder se duplicar.</p>
-
-<img data-src="img/07-Rede-Metabolica_6.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
-<section id="fórmula-de-biomassa-para-bactérias-gram-negativas" class="title-slide slide level1 center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_6.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="fórmula-de-biomassa-para-bactérias-gram-negativas" class="level1">
 <h1>Fórmula de biomassa para bactérias gram-negativas</h1>
 <ol start="0" type="1">
 <li>Glutationa + (0) Ubiquinona-8 + (0.51) Glicina + (0.01) Fosfatidilglicerol dianteisoheptadecanoil + (0.03) Polímero de Peptidoglicano (n subunidades) + (0) Fosfato de Piridoxal + (0) Fe³⁺ + (0.38) L-Leucina + (0) ACP + (0.43) L-Alanina + (0) Hemo + (0) Biossíntese Proteica + (0) Cobinamida + (0) Replicação do DNA + (0.18) L-Serina + (0) 5-Metiltetrahidrofolato + (0.01) Fosfatidiletanolamina dioctadecanoil + (35.54) H₂O + (0) FAD + (0.01) Cardiolipina isoheptadecanoil + (0) Espermidina + (0) 2-Desmetilmenaquinona 8 + (0.24) L-Isoleucina + (0.35) L-Valina + (0) Menaquinona 8 + (0) 10-Formiltetrahidrofolato + (0) Coenzima A + (0.15) L-Fenilalanina + (0) Tetrahidrofolato + (0.29) L-Lisina + (0.01) dCTP + (0) Siroheme + (0.02) TTP + (0.01) Fosfatidilglicerol dioctadecanoil + (0) Co²⁺ + (40.11) ATP + (0) Mn²⁺ + (0) Transcrição de RNA + (0.01) Fosfatidiletanolamina dianteisoheptadecanoil + (0) Mg²⁺ + (0) S-Adenosil-L-Metionina + (0.09) UTP + (0.01) Fosfatidilglicerol diisoheptadecanoil + (0.01) Cardiolipina anteisoheptadecanoil + (0.13) L-Metionina + (0.08) L-Histidina + (0) TPP + (0.08) L-Cisteína + (0.08) CTP + (0) Fe²⁺ + (0) Sulfato + (0) Putrescina + (0) Cu²⁺ + (0.22) L-Glutamato + (0) Zn²⁺ + (0.20) L-Asparagina + (0.25) L-Arginina + (0.05) L-Triptofano + (0) Ca²⁺ + (0.18) L-Prolina + (0) Cl⁻ + (0.03) Bactoprenil Difosfato + (0.03) Oligossacarídeo Central do Lipídio A + (0.02) dATP + (0.22) L-Glutamina + (0) Riboflavina + (0.01) Cardiolipina estearoil + (0) NAD + (0.12) L-Tirosina + (0) K⁺ + (0.21) L-Treonina + (0.20) L-Aspartato + (0.01) Fosfatidiletanolamina diisoheptadecanoil + (0.14) GTP + (0) NADP + (0.01) dGTP</li>
@@ -486,9 +441,7 @@ Nicholas Barroso
 <p>⟶</p>
 <p>(0.03) Polímero de Peptidoglicano (n-1 subunidades) + (0) Apo-ACP + (0) Dimetilbenzimidazol + (1.00) BIOMASSA + (40.00) Fosfato + (40.00) ADP + (40.00) H⁺ + (0.48) Pirofosfato + (0) Cobinamida</p>
 </section>
-
-<section>
-<section id="fórmula-de-biomassa-para-bactérias-gram-negativas-cont." class="title-slide slide level1 center">
+<section id="fórmula-de-biomassa-para-bactérias-gram-negativas-cont." class="level1">
 <h1>Fórmula de biomassa para bactérias gram-negativas (cont.)</h1>
 <ul>
 <li><ul>
@@ -528,12 +481,10 @@ Nicholas Barroso
 <li>Compostos de Armazenamento: Como glicogênio (açúcares) ou grânulos de lipídios, dependendo do organismo.</li>
 <li>Moléculas Sinalizadoras e Intermediárias: Presentes no <em>pool</em> metabólico da célula.</li>
 </ul>
+<hr>
+<p><img src="img/07-Rede-Metabolica_7.png" class="img-fluid"></p>
 </section>
-<section class="slide level2">
-
-<p><a href="img/07-Rede-Metabolica_7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="img/07-Rede-Metabolica_7.png"></a></p>
-</section></section>
-<section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático" class="title-slide slide level1 center">
+<section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático" class="level1">
 <h1>Estágio 3: Convertendo a rede em um modelo matemático</h1>
 <ul>
 <li>Para ser usada como uma ferramenta preditiva , a reconstrução deve ser convertida em um modelo matemático.</li>
@@ -546,9 +497,7 @@ Nicholas Barroso
 <li>A conversão da rede para sua forma matemática é feita na construção de uma matriz estequiométrica .</li>
 </ul>
 </section>
-
-<section>
-<section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático-cont." class="title-slide slide level1 center">
+<section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático-cont." class="level1">
 <h1>Estágio 3: Convertendo a rede em um modelo matemático (cont.)</h1>
 <ul>
 <li>Matriz estequiométrica</li>
@@ -565,28 +514,15 @@ Nicholas Barroso
 <li>Valores máximos e mínimos podem ser colocados para as reações de troca.</li>
 </ul></li>
 </ul>
-</section>
-<section class="slide level2">
-
+<hr>
 <p>Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book of System Biology: Concept and Insight . First Edition. Elsevier</p>
-<p><a href="img/07-Rede-Metabolica_8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="img/07-Rede-Metabolica_8.png"></a></p>
+<p><img src="img/07-Rede-Metabolica_8.png" class="img-fluid"></p>
 <p>Matriz Estequiométrica</p>
-<aside class="notes">
+<div class="notes">
 <p>Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book of System Biology: Concept and Insight. First Edition. Elsevier</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático-cont.-1" class="title-slide slide level1 center">
+</div>
+</section>
+<section id="estágio-3-convertendo-a-rede-em-um-modelo-matemático-cont.-1" class="level1">
 <h1>Estágio 3: Convertendo a rede em um modelo matemático (cont.)</h1>
 <ul>
 <li>Matriz estequiométrica, mais detalhes:</li>
@@ -597,13 +533,10 @@ Nicholas Barroso
 <li>Reações fornecimento</li>
 </ul></li>
 </ul>
+<hr>
+<p><img src="img/07-Rede-Metabolica_9.png" class="img-fluid"></p>
 </section>
-<section class="slide level2">
-
-<p><a href="img/07-Rede-Metabolica_9.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="img/07-Rede-Metabolica_9.png"></a></p>
-</section></section>
-<section>
-<section id="depois-da-transformação-matemática" class="title-slide slide level1 center">
+<section id="depois-da-transformação-matemática" class="level1">
 <h1>Depois da transformação matemática</h1>
 <ul>
 <li>O modelo pode ser usado para simular como as vias são usadas.</li>
@@ -614,13 +547,11 @@ Nicholas Barroso
 <li>v, o vetor de fluxo.</li>
 </ul></li>
 </ul>
+<hr>
+<p><img src="img/07-Rede-Metabolica_10.png" class="img-fluid"></p>
 </section>
-<section class="slide level2">
-
-<p><a href="img/07-Rede-Metabolica_10.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="img/07-Rede-Metabolica_10.png"></a></p>
-</section></section>
-<section id="estágio-4-avaliação-da-rede" class="title-slide slide level1 smaller center">
-<h1>Estágio 4: Avaliação da rede</h1>
+<section id="estágio-4-avaliação-da-rede" class="level1 smaller">
+<h1 class="smaller">Estágio 4: Avaliação da rede</h1>
 <ul>
 <li>Existem vários testes
 <ul>
@@ -648,20 +579,16 @@ Nicholas Barroso
 </ul></li>
 </ul>
 </section>
-
-<section id="gapfilling" class="title-slide slide level1 center">
+<section id="gapfilling" class="level1">
 <h1>GapFilling</h1>
 <p>Nessa etapa, informações novas são usadas para preencher lacunas nos modelos.</p>
 </section>
-
-<section id="resolução" class="title-slide slide level1 center">
+<section id="resolução" class="level1">
 <h1>Resolução</h1>
-<p><a href="img/07-Rede-Metabolica_11.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="img/07-Rede-Metabolica_11.png"></a></p>
+<p><img src="img/07-Rede-Metabolica_11.png" class="img-fluid"></p>
 </section>
-
-<section>
-<section id="estágio-5-concatenação-dos-dados-disseminação-e-uso" class="title-slide slide level1 smaller center">
-<h1>Estágio 5: Concatenação dos dados, disseminação e uso</h1>
+<section id="estágio-5-concatenação-dos-dados-disseminação-e-uso" class="level1 smaller">
+<h1 class="smaller">Estágio 5: Concatenação dos dados, disseminação e uso</h1>
 <p>Uma vez que a reconstrução termina, é importante que ela seja disponibilizada. Geralmente se usa o SBML, mas também temos:</p>
 <ul>
 <li>BioModels Database</li>
@@ -672,70 +599,69 @@ Nicholas Barroso
 <li>Systems Biology Ontology</li>
 <li>Systems Biology Graphical Notation</li>
 </ul>
+<hr>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">?xml</span> version=<span class="st">"1.0"</span> encoding=<span class="st">"UTF-8"</span><span class="pp">?</span><span class="op">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>sbml <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.sbml.org/sbml/level2/version4"</span> <span class="va">level</span><span class="op">=</span><span class="st">"2"</span> <span class="va">version</span><span class="op">=</span><span class="st">"4"</span><span class="op">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>model <span class="va">id</span><span class="op">=</span><span class="st">"modelo_exemplo"</span> <span class="va">name</span><span class="op">=</span><span class="st">"Conversao_A_para_B"</span><span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>listOfCompartments<span class="op">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>compartment <span class="va">id</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">size</span><span class="op">=</span><span class="st">"1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>/listOfCompartments<span class="op">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>listOfSpecies<span class="op">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"A"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"10"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"B"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"0"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>/listOfSpecies<span class="op">&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>listOfParameters<span class="op">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>parameter <span class="va">id</span><span class="op">=</span><span class="st">"k1"</span> <span class="va">value</span><span class="op">=</span><span class="st">"0.1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>/listOfParameters<span class="op">&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>listOfReactions<span class="op">&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>reaction <span class="va">id</span><span class="op">=</span><span class="st">"reacao1"</span> <span class="va">reversible</span><span class="op">=</span><span class="st">"false"</span><span class="op">&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>listOfReactants<span class="op">&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"A"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>/listOfReactants<span class="op">&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>listOfProducts<span class="op">&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"B"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>/listOfProducts<span class="op">&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>kineticLaw<span class="op">&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span>math <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.w3.org/1998/Math/MathML"</span><span class="op">&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>apply<span class="op">&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>times/<span class="op">&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> k1 <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> A <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>/apply<span class="op">&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>          <span class="op">&lt;</span>/math<span class="op">&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>/kineticLaw<span class="op">&gt;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>/reaction<span class="op">&gt;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>/listOfReactions<span class="op">&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>/model<span class="op">&gt;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>/sbml<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_12.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_13.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
-<section class="slide level2">
-
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="op">&lt;</span><span class="ex">?xml</span> version=<span class="st">"1.0"</span> encoding=<span class="st">"UTF-8"</span><span class="pp">?</span><span class="op">&gt;</span></span>
-<span id="cb1-2"><a aria-label="2"></a><span class="op">&lt;</span>sbml <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.sbml.org/sbml/level2/version4"</span> <span class="va">level</span><span class="op">=</span><span class="st">"2"</span> <span class="va">version</span><span class="op">=</span><span class="st">"4"</span><span class="op">&gt;</span></span>
-<span id="cb1-3"><a aria-label="3"></a>  <span class="op">&lt;</span>model <span class="va">id</span><span class="op">=</span><span class="st">"modelo_exemplo"</span> <span class="va">name</span><span class="op">=</span><span class="st">"Conversao_A_para_B"</span><span class="op">&gt;</span></span>
-<span id="cb1-4"><a aria-label="4"></a>    <span class="op">&lt;</span>listOfCompartments<span class="op">&gt;</span></span>
-<span id="cb1-5"><a aria-label="5"></a>      <span class="op">&lt;</span>compartment <span class="va">id</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">size</span><span class="op">=</span><span class="st">"1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-6"><a aria-label="6"></a>    <span class="op">&lt;</span>/listOfCompartments<span class="op">&gt;</span></span>
-<span id="cb1-7"><a aria-label="7"></a>    <span class="op">&lt;</span>listOfSpecies<span class="op">&gt;</span></span>
-<span id="cb1-8"><a aria-label="8"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"A"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"10"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-9"><a aria-label="9"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"B"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"0"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-10"><a aria-label="10"></a>    <span class="op">&lt;</span>/listOfSpecies<span class="op">&gt;</span></span>
-<span id="cb1-11"><a aria-label="11"></a>    <span class="op">&lt;</span>listOfParameters<span class="op">&gt;</span></span>
-<span id="cb1-12"><a aria-label="12"></a>      <span class="op">&lt;</span>parameter <span class="va">id</span><span class="op">=</span><span class="st">"k1"</span> <span class="va">value</span><span class="op">=</span><span class="st">"0.1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-13"><a aria-label="13"></a>    <span class="op">&lt;</span>/listOfParameters<span class="op">&gt;</span></span>
-<span id="cb1-14"><a aria-label="14"></a>    <span class="op">&lt;</span>listOfReactions<span class="op">&gt;</span></span>
-<span id="cb1-15"><a aria-label="15"></a>      <span class="op">&lt;</span>reaction <span class="va">id</span><span class="op">=</span><span class="st">"reacao1"</span> <span class="va">reversible</span><span class="op">=</span><span class="st">"false"</span><span class="op">&gt;</span></span>
-<span id="cb1-16"><a aria-label="16"></a>        <span class="op">&lt;</span>listOfReactants<span class="op">&gt;</span></span>
-<span id="cb1-17"><a aria-label="17"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"A"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-18"><a aria-label="18"></a>        <span class="op">&lt;</span>/listOfReactants<span class="op">&gt;</span></span>
-<span id="cb1-19"><a aria-label="19"></a>        <span class="op">&lt;</span>listOfProducts<span class="op">&gt;</span></span>
-<span id="cb1-20"><a aria-label="20"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"B"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-21"><a aria-label="21"></a>        <span class="op">&lt;</span>/listOfProducts<span class="op">&gt;</span></span>
-<span id="cb1-22"><a aria-label="22"></a>        <span class="op">&lt;</span>kineticLaw<span class="op">&gt;</span></span>
-<span id="cb1-23"><a aria-label="23"></a>          <span class="op">&lt;</span>math <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.w3.org/1998/Math/MathML"</span><span class="op">&gt;</span></span>
-<span id="cb1-24"><a aria-label="24"></a>            <span class="op">&lt;</span>apply<span class="op">&gt;</span></span>
-<span id="cb1-25"><a aria-label="25"></a>            <span class="op">&lt;</span>times/<span class="op">&gt;</span></span>
-<span id="cb1-26"><a aria-label="26"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> k1 <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
-<span id="cb1-27"><a aria-label="27"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> A <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
-<span id="cb1-28"><a aria-label="28"></a>            <span class="op">&lt;</span>/apply<span class="op">&gt;</span></span>
-<span id="cb1-29"><a aria-label="29"></a>          <span class="op">&lt;</span>/math<span class="op">&gt;</span></span>
-<span id="cb1-30"><a aria-label="30"></a>        <span class="op">&lt;</span>/kineticLaw<span class="op">&gt;</span></span>
-<span id="cb1-31"><a aria-label="31"></a>      <span class="op">&lt;</span>/reaction<span class="op">&gt;</span></span>
-<span id="cb1-32"><a aria-label="32"></a>    <span class="op">&lt;</span>/listOfReactions<span class="op">&gt;</span></span>
-<span id="cb1-33"><a aria-label="33"></a>  <span class="op">&lt;</span>/model<span class="op">&gt;</span></span>
-<span id="cb1-34"><a aria-label="34"></a><span class="op">&lt;</span>/sbml<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section class="slide level2">
-
-
-<img data-src="img/07-Rede-Metabolica_12.png" class="r-stretch quarto-figure quarto-figure-center"></section>
-<section class="slide level2">
-
-
-<img data-src="img/07-Rede-Metabolica_13.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
-<section id="aplicações-de-reconstruções-metabólicas" class="title-slide slide level1 center">
+<section id="aplicações-de-reconstruções-metabólicas" class="level1">
 <h1>Aplicações de Reconstruções metabólicas</h1>
-
 </section>
-
-<section id="modularidade" class="title-slide slide level1 center">
+<section id="modularidade" class="level1">
 <h1>Modularidade</h1>
 <p>A modularidade em redes metabólicas é um princípio organizacional fundamental que explica como a complexidade celular é gerenciada.</p>
 <p>A modularidade das redes metabólicas está associada a robustez, adaptabilidade e eficiência dos sistemas vivos.</p>
 <p>É uma ferramenta crucial para engenharia metabólica e para a medicina.</p>
 </section>
-
-<section id="modularidade-exemplo" class="title-slide slide level1 smaller center">
-<h1>Modularidade: exemplo</h1>
+<section id="modularidade-exemplo" class="level1 smaller">
+<h1 class="smaller">Modularidade: exemplo</h1>
 <div class="columns">
 <div class="column">
 <ul>
-<li>Condição 1: Oxigênio Pleno (Aerobiose)
+<li><strong>Condição 1: Oxigênio Pleno (Aerobiose)</strong>
 <ul>
 <li>Módulo Ativo 1: Glicólise (quebra a glicose até piruvato).</li>
 <li>Módulo Ativo 2: Ciclo de Krebs (oxida o piruvato).</li>
@@ -745,7 +671,7 @@ Nicholas Barroso
 </ul>
 </div><div class="column">
 <ul>
-<li>Condição 2: Sem Oxigênio (Anaerobiose)
+<li><strong>Condição 2: Sem Oxigênio (Anaerobiose)</strong>
 <ul>
 <li>Módulo Ativo 1: Glicólise (continua funcionando).</li>
 <li>Módulo Inativo 2 e 3: Ciclo de Krebs e CTE são drasticamente reduzidos.</li>
@@ -753,464 +679,431 @@ Nicholas Barroso
 <li>Mudança Modular: A célula desliga módulos inteiros que dependem de oxigênio e ativa um módulo alternativo para manter a produção de energia, mesmo que de forma menos eficiente.</li>
 </ul></li>
 </ul>
-</div></div>
+</div>
+</div>
 
 
 </section>
-    </div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="img/logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p>Nicholas Barroso</p>
-</div>
-</div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
-
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
- 
-        // Display controls in the bottom right corner
-        controls: false,
-
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
-
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
-
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
-
-        // Display a presentation progress bar
-        progress: true,
-
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
-
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
-
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
-
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
-
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
-
-        // Push each slide change to the browser history
-        history: true,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: false,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1600,
-
-        height: 900,
-
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
-
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
-    </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-
-      })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
-          return false;
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
-        }
-        const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
             } else {
-              return "";
+              container.appendChild(child.cloneNode(true));
+              break;
             }
-          });
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
             }
           } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
             });
           }
-        }
-      });
-      </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-    (function() {
-      let previousOnload = window.onload;
-      window.onload = () => {
-        if (previousOnload) {
-          previousOnload();
-        }
-        lightboxQuarto.on('slide_before_load', (data) => {
-          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-          const href = trigger.getAttribute('href');
-          if (href !== null) {
-            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-            if (imgEl !== null) {
-              const srcAttr = imgEl.getAttribute("src");
-              if (srcAttr && srcAttr.startsWith("data:")) {
-                slideConfig.href = srcAttr;
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
               }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
             }
-          } 
-        });
-      
-        lightboxQuarto.on('slide_after_load', (data) => {
-          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(slideNode);
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
           }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
         });
-      
-      };
-      
-    })();
-              </script>
-    
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
 
 </body></html>

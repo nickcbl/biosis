@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-78b242ce82a07460c57699654087b134.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dfa9e29798b7e35d0549a5533169485c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-303d58362c24fe1a41852777efc51427.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -120,14 +123,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="slide" class="level1">
-<h1>Slide</h1>
+<section id="roteiros" class="level1">
+<h1>Roteiros</h1>
 <div class="modules-grid">
 <div class="mod-card">
 <div class="mod-node n-teal">
 01
 </div>
-<a class="stretched-link" href="../slides/aula1.html"><strong>Histórico e conceitos</strong></a>
+<a class="stretched-link" href="aula1.qmd"><strong>Histórico e Cocneitos</strong></a>
 <p>
 Origens e princípios da biologia de sistemas.
 </p>
@@ -136,7 +139,7 @@ Origens e princípios da biologia de sistemas.
 <div class="mod-node n-teal">
 02
 </div>
-<a class="stretched-link" href="../slides/aula2.html"><strong>Grafos</strong></a>
+<a class="stretched-link" href="aula2.qmd"><strong>Grafos</strong></a>
 <p>
 Fundamentos de teoria dos grafos aplicada a redes biológicas.
 </p>
@@ -145,7 +148,7 @@ Fundamentos de teoria dos grafos aplicada a redes biológicas.
 <div class="mod-node n-green">
 03
 </div>
-<a class="stretched-link" href="../slides/aula3.html"><strong>Redes biológicas</strong></a>
+<a class="stretched-link" href="aula3.qmd"><strong>Redes biológicas</strong></a>
 <p>
 Como sistemas vivos são representados como redes.
 </p>
@@ -154,7 +157,7 @@ Como sistemas vivos são representados como redes.
 <div class="mod-node n-green">
 04
 </div>
-<a class="stretched-link" href="../slides/aula4.html"><strong>Modelos</strong></a>
+<a class="stretched-link" href="aula4.qmd"><strong>Modelos</strong></a>
 <p>
 Modelagem matemática de sistemas biológicos.
 </p>
@@ -163,7 +166,7 @@ Modelagem matemática de sistemas biológicos.
 <div class="mod-node n-blue">
 05
 </div>
-<a class="stretched-link" href="../slides/aula5.html"><strong>Obtenção de dados</strong></a>
+<a class="stretched-link" href="aula5.qmd"><strong>Obtenção de dados</strong></a>
 <p>
 Bancos de dados e fontes para biologia de sistemas.
 </p>
@@ -172,7 +175,7 @@ Bancos de dados e fontes para biologia de sistemas.
 <div class="mod-node n-blue">
 06
 </div>
-<a class="stretched-link" href="../slides/aula6.html"><strong>Integração de dados</strong></a>
+<a class="stretched-link" href="aula6.qmd"><strong>Integração de dados</strong></a>
 <p>
 Combinando múltiplas camadas de dados ômicos.
 </p>
@@ -181,7 +184,7 @@ Combinando múltiplas camadas de dados ômicos.
 <div class="mod-node n-purple">
 07
 </div>
-<a class="stretched-link" href="../slides/aula7.html"><strong>Redes metabólicas</strong></a>
+<a class="stretched-link" href="aula7.qmd"><strong>Redes metabólicas</strong></a>
 <p>
 Vias e fluxos metabólicos como redes.
 </p>
@@ -190,16 +193,16 @@ Vias e fluxos metabólicos como redes.
 <div class="mod-node n-purple">
 08
 </div>
-<a class="stretched-link" href="../slides/aula8.html"><strong>Redes de co-expressão</strong></a>
+<a class="stretched-link" href="aula8.qmd"><strong>Redes de co-expressão</strong></a>
 <p>
-Coexpressão gênica e suas redes associadas.
+Co-expressão gênica e suas redes associadas.
 </p>
 </div>
 <div class="mod-card">
 <div class="mod-node n-purple">
 09
 </div>
-<a class="stretched-link" href="../slides/aula9.html"><strong>Interação proteína-proteína</strong></a>
+<a class="stretched-link" href="aula9.qmd"><strong>Integração proteína-proteína</strong></a>
 <p>
 Redes PPI e sua análise topológica.
 </p>
@@ -208,18 +211,9 @@ Redes PPI e sua análise topológica.
 <div class="mod-node n-red">
 10
 </div>
-<a class="stretched-link" href="../slides/aula10.html"><strong>Biologia Sintética</strong></a>
+<a class="stretched-link" href="aula10.qmd"><strong>Biologia Sintética</strong></a>
 <p>
 Design e construção de sistemas biológicos artificiais.
-</p>
-</div>
-<div class="mod-card">
-<div class="mod-node n-red">
-11
-</div>
-<a class="stretched-link" href="../slides/aula11.html"><strong>Teste</strong></a>
-<p>
-Teste.
 </p>
 </div>
 </div>

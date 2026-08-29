@@ -9,7 +9,7 @@ format:
     logo: img/logo.png
     footer: "Nicholas Barroso"
     incremental: false
-    theme: [simple]
+    theme: tema_azul.scss
     lightbox: true
 ---
 
