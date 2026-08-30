@@ -10,7 +10,6 @@ format:
     width: 1600
     height: 900
     logo: img/logo.png
-    footer: "Nicholas Barroso"
     incremental: false
     theme: tema_azul.scss
     lightbox: true
