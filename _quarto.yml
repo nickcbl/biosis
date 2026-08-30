@@ -35,16 +35,16 @@ website:
             - modulos/modulo9.qmd
         - section: "Slides"
           contents:
-            - slides/aula1.qmd
-            - slides/aula2.qmd
-            - slides/aula3.qmd
-            - slides/aula4.qmd
-            - slides/aula5.qmd
-            - slides/aula6.qmd
-            - slides/aula7.qmd
-            - slides/aula8.qmd
-            - slides/aula9.qmd
-            - slides/aula10.qmd
+            - slides/01-historico-e-conceitos.qmd
+            - slides/02-grafos.qmd
+            - slides/03-redes-biologicas.qmd
+            - slides/04-modelos.qmd
+            - slides/05-obtencao-de-dados-e-banco-de-dados.qmd
+            - slides/06-integracao-e-dados.qmd
+            - slides/07-rede-metabolica.qmd
+            - slides/08-rede-de-co-expressao.qmd
+            - slides/09-rede-de-interacao-proteina-proteina.qmd
+            - slides/10-biologia-sintetica.qmd
         - section: "Roteiros"
           contents:
             - roteiros/input/input.qmd

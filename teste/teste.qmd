@@ -612,7 +612,7 @@ const options = {
 html_content = net.generate_html()
 print("Rede 2.")
 ```
-
+<!-- 
 ```{r}
 #| echo: false
 #| message: false
@@ -644,6 +644,7 @@ digraph funil {
 ")
 ```
 ---
+
 ```{r}
 library(DiagrammeR)
 
@@ -760,4 +761,4 @@ ggplot() +
   labs(x = "Redução de dimensão", y = "Dimensão") +
   theme_classic() +
   theme(axis.text = element_blank(), axis.ticks = element_blank())
-```
+``` -->

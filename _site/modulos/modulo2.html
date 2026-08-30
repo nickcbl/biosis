@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b9ba88a9f6fc9cc2fbfa5ae4c974fa14.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-78b242ce82a07460c57699654087b134.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-88153311022f9caab94f4aecddd0fb53.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-862338101c11ff6e8e049d42ecd24e3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -237,62 +240,59 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 1<br>Histórico e Conceitos</span></a>
+  <a href="../slides/01-historico-e-conceitos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 <br> Histórico e Conceitos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 2<br>Grafos</span></a>
+  <a href="../slides/02-grafos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 <br> Grafos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 3<br>Redes biológicas</span></a>
+  <a href="../slides/03-redes-biologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 <br> Redes Biológicas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 4<br>Modelos</span></a>
+  <a href="../slides/04-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 <br> Modelos</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 5<br>Obtenção de dados e banco de dados</span></a>
+  <a href="../slides/05-obtencao-de-dados-e-banco-de-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 <br> Obtenção de dados e bancos de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">slides/06-integração-e-dados.qmd</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/07-rede-metabólica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 <br> Rede Metabólicas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 6<br>Integração de Dados</span></a>
+  <a href="../slides/08-rede-de-co-expressao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 <br> Rede de co-expressão</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 7<br>Redes Metabólicas</span></a>
+  <a href="../slides/09-rede-de-interacao-proteina-proteina.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 <br> Rede de Interação Proteína-Proteína</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../slides/aula8.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 8<br>Redes de Co-Expressão</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../slides/aula9.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 9<br>Redes de Interação Proteína-Proteína</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../slides/aula10.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aula 10<br>Biologia Sintética</span></a>
+  <a href="../slides/10-biologia-sintetica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10 <br> Biologia Sintética</span></a>
   </div>
 </li>
       </ul>
@@ -437,11 +437,8 @@ window.Quarto = {
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../teste/slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">01 - Histórico e Conceitos</span></a>
-  </div>
-</li>
+ <span class="menu-text">teste/slides.qmd</span>
+  </li>
       </ul>
   </li>
     </ul>
@@ -543,7 +540,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">25 de agosto de 2026</p>
+      <p class="date">29 de agosto de 2026</p>
     </div>
   </div>
   

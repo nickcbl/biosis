@@ -2656,9 +2656,9 @@
   {
     "objectID": "slides/slides.html",
     "href": "slides/slides.html",
-    "title": "Slide",
+    "title": "Roteiros",
     "section": "",
-    "text": "Slide\n\n\n\n01\n\nHistórico e conceitos\n\nOrigens e princípios da biologia de sistemas.\n\n\n\n\n02\n\nGrafos\n\nFundamentos de teoria dos grafos aplicada a redes biológicas.\n\n\n\n\n03\n\nRedes biológicas\n\nComo sistemas vivos são representados como redes.\n\n\n\n\n04\n\nModelos\n\nModelagem matemática de sistemas biológicos.\n\n\n\n\n05\n\nObtenção de dados\n\nBancos de dados e fontes para biologia de sistemas.\n\n\n\n\n06\n\nIntegração de dados\n\nCombinando múltiplas camadas de dados ômicos.\n\n\n\n\n07\n\nRedes metabólicas\n\nVias e fluxos metabólicos como redes.\n\n\n\n\n08\n\nRedes de co-expressão\n\nCoexpressão gênica e suas redes associadas.\n\n\n\n\n09\n\nInteração proteína-proteína\n\nRedes PPI e sua análise topológica.\n\n\n\n\n10\n\nBiologia Sintética\n\nDesign e construção de sistemas biológicos artificiais.\n\n\n\n\n11\n\nTeste\n\nTeste."
+    "text": "Roteiros\n\n\n\n01\n\nHistórico e Conceitos\n\nOrigens e princípios da biologia de sistemas.\n\n\n\n\n02\n\nGrafos\n\nFundamentos de teoria dos grafos aplicada a redes biológicas.\n\n\n\n\n03\n\nRedes biológicas\n\nComo sistemas vivos são representados como redes.\n\n\n\n\n04\n\nModelos\n\nModelagem matemática de sistemas biológicos.\n\n\n\n\n05\n\nObtenção de dados\n\nBancos de dados e fontes para biologia de sistemas.\n\n\n\n\n06\n\nIntegração de dados\n\nCombinando múltiplas camadas de dados ômicos.\n\n\n\n\n07\n\nRedes metabólicas\n\nVias e fluxos metabólicos como redes.\n\n\n\n\n08\n\nRedes de co-expressão\n\nCo-expressão gênica e suas redes associadas.\n\n\n\n\n09\n\nIntegração proteína-proteína\n\nRedes PPI e sua análise topológica.\n\n\n\n\n10\n\nBiologia Sintética\n\nDesign e construção de sistemas biológicos artificiais."
   },
   {
     "objectID": "videos/videos.html",
