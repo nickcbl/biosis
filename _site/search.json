@@ -4059,5 +4059,229 @@
     "title": "Cálculo e Animação Visual de Centralidades em Grafos",
     "section": "Observação metodológica",
     "text": "Observação metodológica\nOs valores não devem ser comparados diretamente entre métricas diferentes como se estivessem na mesma escala. A comparação adequada é feita dentro de cada métrica, observando ranking, interpretação e, quando aplicável, normalização."
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#que-dados-são-esses",
+    "href": "slides/v2-05-Obtencao-de-dados.html#que-dados-são-esses",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "Que dados são esses?",
+    "text": "Que dados são esses?\n\nDados ômicos de genoma, transcriptoma, proteoma, metaboloma\nAnotação funcional de genes (EC number, domínios)\nTranscritos (Qualitativo e Quantitativo)\nInteração entre moléculas (Proteína-Proteína, Proteína-DNA)\nDados de associação a doenças"
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#podemos-obter-os-dados-por",
+    "href": "slides/v2-05-Obtencao-de-dados.html#podemos-obter-os-dados-por",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "Podemos obter os dados por:",
+    "text": "Podemos obter os dados por:\n\n\n\n\n\n\nExperimentos\n\n\n\n\n\n\n\n\n\nBancos de dados\n\n\n\n\n\n\n\n\n\nLiteratura"
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#rna-seq-vs-microarranjo-técnico",
+    "href": "slides/v2-05-Obtencao-de-dados.html#rna-seq-vs-microarranjo-técnico",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "RNA-seq vs Microarranjo (Técnico)",
+    "text": "RNA-seq vs Microarranjo (Técnico)\n\n\n\n\n\n\n\n\nCaracterística\nMicroarranjo\nRNA-Seq\n\n\n\n\nPrincípio\nHibridização (indireto)\nSequenciamento direto (NGS)\n\n\nConhecimento\nRequer genoma/sondas conhecidas\nNão requer (descobre novos transcritos)\n\n\nFaixa Dinâmica\nLimitada (saturação)\nAmpla (sem saturação)\n\n\nTipo de Dado\nIntensidade de fluorescência\nContagens de reads"
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#rna-seq-vs-microarranjo-prática",
+    "href": "slides/v2-05-Obtencao-de-dados.html#rna-seq-vs-microarranjo-prática",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "RNA-seq vs Microarranjo (Prática)",
+    "text": "RNA-seq vs Microarranjo (Prática)\n\n\n\n\n\n\n\n\nCaracterística\nMicroarranjo\nRNA-Seq\n\n\n\n\nResolução\nMede o que foi projetado\nResolução de nucleotídeo único\n\n\nWorkflow\nPadronizado\nComplexo (alinhamento, assembly)\n\n\nAplicação Ideal\nValidação em larga escala\nDescoberta ab initio; modelos"
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#co-imunoprecipitação-co-ip",
+    "href": "slides/v2-05-Obtencao-de-dados.html#co-imunoprecipitação-co-ip",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "Co-Imunoprecipitação (Co-IP)",
+    "text": "Co-Imunoprecipitação (Co-IP)\n\n\n\nIsola complexos proteicos nativos.\nUsa um anticorpo para “pescar” a proteína-isca e seus parceiros.\nIdentifica interações estáveis.\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLimitação: Epítopos ocultos podem impedir a captura do complexo inteiro."
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#imunoprecipitação-da-cromatina-chip-seq",
+    "href": "slides/v2-05-Obtencao-de-dados.html#imunoprecipitação-da-cromatina-chip-seq",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "Imunoprecipitação da cromatina (ChIP-seq)",
+    "text": "Imunoprecipitação da cromatina (ChIP-seq)\n\n\n\nMapeia interações Proteína-DNA em escala genômica.\nFixação com formaldeído e fragmentação.\nEnriquecimento com anticorpos específicos.\nSequenciamento massivo (NGS)."
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#o-sistema-de-duplo-híbrido-de-levedura-y2h",
+    "href": "slides/v2-05-Obtencao-de-dados.html#o-sistema-de-duplo-híbrido-de-levedura-y2h",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "O Sistema de Duplo-Híbrido de Levedura (Y2H)",
+    "text": "O Sistema de Duplo-Híbrido de Levedura (Y2H)\n\n\n\nIdentifica interações proteína-proteína.\nDivide um fator de transcrição em:\n\nIsca (BD): Domínio de Ligação ao DNA.\nPresa (AD): Domínio de Ativação.\n\nInteração ativa gene repórter (crescimento/fluorescência)."
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#interólogos-e-coevolução",
+    "href": "slides/v2-05-Obtencao-de-dados.html#interólogos-e-coevolução",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "Interólogos e Coevolução",
+    "text": "Interólogos e Coevolução\n\nInterólogo: Interação proteína-proteína conservada evolutivamente entre espécies.\nCoevolução: Proteínas que interagem tendem a evoluir juntas na superfície de contato.\nPermite inferir interações em novas espécies baseadas em organismos-modelo."
+  },
+  {
+    "objectID": "slides/v2-05-Obtencao-de-dados.html#principais-bancos-de-dados",
+    "href": "slides/v2-05-Obtencao-de-dados.html#principais-bancos-de-dados",
+    "title": "05  Obtenção de dados e bancos de dados",
+    "section": "Principais Bancos de Dados",
+    "text": "Principais Bancos de Dados\n\n\n\nKEGG: Vias biológicas e metabólicas.\nGene Ontology (GO): Funções de genes padronizadas.\nSTRING: Interações proteína-proteína (conhecidas e preditas).\n\n\n\nMetaCyc: Vias metabólicas elucidadas.\nBioGRID: Interações genéticas e proteicas curadas.\nReactome: Vias e reações revisadas por pares.\n\n\n\n\n\n\n\n\nTip\n\n\nMineração de texto: Extração automática de conhecimento da literatura científica para alimentar esses bancos."
+  },
+  {
+    "objectID": "slides/v2-06-Integracao-de-dados.html#pipeline-multi-ômico",
+    "href": "slides/v2-06-Integracao-de-dados.html#pipeline-multi-ômico",
+    "title": "06  Integração de dados",
+    "section": "Pipeline Multi-ômico",
+    "text": "Pipeline Multi-ômico"
+  },
+  {
+    "objectID": "slides/v2-06-Integracao-de-dados.html#etapas-por-tipo-de-dado",
+    "href": "slides/v2-06-Integracao-de-dados.html#etapas-por-tipo-de-dado",
+    "title": "06  Integração de dados",
+    "section": "Etapas por tipo de dado",
+    "text": "Etapas por tipo de dado\n\n\n\n\n\n\n\n\n\nDados Ômicos\nQuantificação\nNormalização\nAnálise\n\n\n\n\nDNA-Seq\nMapeamento com genoma de referência\n-\nVariantes estruturais e polimorfismos\n\n\nRNA-Seq\nMapeamento ciente de splicing\nIntra e inter amostras\nTranscritos diferenciais\n\n\nProteômica (MS)\nComparação de espectro com banco\nIntra e inter amostras\nProteínas diferenciais"
+  },
+  {
+    "objectID": "slides/v2-06-Integracao-de-dados.html#estratégias-de-integração",
+    "href": "slides/v2-06-Integracao-de-dados.html#estratégias-de-integração",
+    "title": "06  Integração de dados",
+    "section": "Estratégias de Integração",
+    "text": "Estratégias de Integração\n\n\nAntecipada (Completa) Funde todos os dados em uma única matriz antes do modelo. Desafio: Pode gerar ruído e perda de informação na transformação.\n\nTardia (Decisão) Cria modelos isolados e depois os combina. Desafio: Ignora a sinergia e relações diretas entre as camadas ômicas.\n\nIntermediária (Parcial) Aprende representações conjuntas (latentes) de todos os dados simultaneamente. Vantagem: Modela a sinergia biológica de forma ideal."
+  },
+  {
+    "objectID": "slides/v2-06-Integracao-de-dados.html#métodos-avançados-de-integração",
+    "href": "slides/v2-06-Integracao-de-dados.html#métodos-avançados-de-integração",
+    "title": "06  Integração de dados",
+    "section": "Métodos Avançados de Integração",
+    "text": "Métodos Avançados de Integração\n\nProjeção de Rede: Integra redes heterogêneas (ex: Rede Fármaco-Alvo projetada em Alvo-Doença).\nPropagação de Informação: Difusão de sinais em redes para priorização de nós.\nModelos Bayesianos: Probabilidades explícitas entre camadas (Genótipo \\(\\rightarrow\\) Expressão \\(\\rightarrow\\) Fenótipo).\nFatoração de Matriz (NMF): Extração de padrões latentes e agrupamentos através de aproximações."
+  },
+  {
+    "objectID": "slides/v2-08-Rede-de-Co-expressao.html#tipos-de-redes",
+    "href": "slides/v2-08-Rede-de-Co-expressao.html#tipos-de-redes",
+    "title": "08  Rede de Co-expressão",
+    "section": "Tipos de Redes",
+    "text": "Tipos de Redes\n\nCom sinal vs Sem sinal:\n\nSem sinal usa valor absoluto (ignora se correlação é positiva ou negativa).\nCom sinal escala valores para separar genes que sobem juntos daqueles que são opostos.\n\nPonderadas vs Não-ponderadas:\n\nPonderada: Arestas recebem peso contínuo \\(0 \\rightarrow 1\\) (ex: WGCNA).\nNão-ponderada: Aplica um ponto de corte (limiar); conexões são 1 ou 0."
+  },
+  {
+    "objectID": "slides/v2-08-Rede-de-Co-expressao.html#identificação-de-módulos-clustering",
+    "href": "slides/v2-08-Rede-de-Co-expressao.html#identificação-de-módulos-clustering",
+    "title": "08  Rede de Co-expressão",
+    "section": "Identificação de Módulos (Clustering)",
+    "text": "Identificação de Módulos (Clustering)\n\nFerramentas como WGCNA realizam agrupamento hierárquico.\nCada ramo vira um módulo.\nÉ ideal para identificar módulos comuns (todas as amostras) ou realizar análises de co-expressão diferencial (mudanças específicas entre condições)."
+  },
+  {
+    "objectID": "slides/v2-08-Rede-de-Co-expressao.html#identificação-de-genes-hub",
+    "href": "slides/v2-08-Rede-de-Co-expressao.html#identificação-de-genes-hub",
+    "title": "08  Rede de Co-expressão",
+    "section": "Identificação de Genes Hub",
+    "text": "Identificação de Genes Hub\nGenes centrais (“Hubs”) ajudam a resumir grandes módulos.\n\nIntramodulares: Essenciais dentro de um módulo específico.\nIntermodulares: Reguladores que conectam diferentes módulos.\n\n\n\n\n\n\n\nNote\n\n\nFerramentas de centralidade (como CytoHubba e igraph) são usadas para isolar esses genes principais."
+  },
+  {
+    "objectID": "slides/v2-08-Rede-de-Co-expressao.html#enriquecimento-e-guilt-by-association",
+    "href": "slides/v2-08-Rede-de-Co-expressao.html#enriquecimento-e-guilt-by-association",
+    "title": "08  Rede de Co-expressão",
+    "section": "Enriquecimento e Guilt-by-Association",
+    "text": "Enriquecimento e Guilt-by-Association\n\n\nAnálise de Enriquecimento: Revela quais processos biológicos são os mais dominantes dentro de um módulo construído.\n\nPrincípio GBA (Guilt by Association): Genes desconhecidos que co-expressam no mesmo módulo de genes bem caracterizados muito provavelmente compartilham a mesma função celular ou via de doença."
+  },
+  {
+    "objectID": "slides/v2-09-Rede-de-interacao-proteina-proteina.html#tipos-de-hubs-na-rede-ppi",
+    "href": "slides/v2-09-Rede-de-interacao-proteina-proteina.html#tipos-de-hubs-na-rede-ppi",
+    "title": "09  Rede de Interação Proteína-Proteína",
+    "section": "Tipos de Hubs na Rede PPI",
+    "text": "Tipos de Hubs na Rede PPI\n\nHubs Party (Festivos):\n\nInteragem com seus parceiros ao mesmo tempo.\nFuncionam na estabilização de complexos proteicos singulares (locais).\n\nHubs Date (Encontro):\n\nInteragem em momentos e locais diferentes.\nFuncionam conectando módulos funcionais ao longo do tempo (globais)."
+  },
+  {
+    "objectID": "slides/v2-09-Rede-de-interacao-proteina-proteina.html#usos-da-rede-ppi",
+    "href": "slides/v2-09-Rede-de-interacao-proteina-proteina.html#usos-da-rede-ppi",
+    "title": "09  Rede de Interação Proteína-Proteína",
+    "section": "Usos da Rede PPI",
+    "text": "Usos da Rede PPI\n\nAnotação Funcional: Via Guilt-by-Association (proteínas vizinhas têm função parecida).\nInteração Doença-Doença: Identificar proteínas centrais que causam pleiotropia ou são pontes para co-tratamentos em múltiplas doenças.\nAnálise de Letalidade: Nocaute de Hubs tende a ser mais letal à célula do que nós periféricos."
+  },
+  {
+    "objectID": "slides/v2-10-Biologia-Sintetica.html#ferramentas-da-biologia-sintética",
+    "href": "slides/v2-10-Biologia-Sintetica.html#ferramentas-da-biologia-sintética",
+    "title": "10  Biologia Sintética",
+    "section": "Ferramentas da Biologia Sintética",
+    "text": "Ferramentas da Biologia Sintética\n\nEdição Genômica: CRISPR/Cas9.\nMontagem de DNA: Métodos padronizados como Golden Gate e Gibson Assembly.\nPeças Standard: BioBricks, promotores calibrados, riboswitches."
+  },
+  {
+    "objectID": "slides/v2-10-Biologia-Sintetica.html#referências",
+    "href": "slides/v2-10-Biologia-Sintetica.html#referências",
+    "title": "10  Biologia Sintética",
+    "section": "Referências",
+    "text": "Referências\n\nNielsen, J. et al. (2017). Systems Biology.\nEndy, D. (2005). Foundations for engineering biology. Nature.\nCameron, D. E. et al. (2014). A brief history of synthetic biology. Nature Reviews Microbiology."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#objetivos",
+    "href": "slides/centralidades_grafos.html#objetivos",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "Objetivos",
+    "text": "Objetivos\nNesta versão, o mesmo grafo é usado para calcular sete métricas:\n\nGrau (Degree)\nProximidade (Closeness)\nIntermediação (Betweenness)\nAutovetor (Eigenvector)\nAlavancagem (Leverage)\nDifusão / Katz\nIntermediação de Fluxo (Flow Betweenness)\n\nA implementação é feita no navegador a partir da matriz de adjacência, evitando valores “estimados” previamente."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#grafo-de-referência",
+    "href": "slides/centralidades_grafos.html#grafo-de-referência",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "Grafo de referência",
+    "text": "Grafo de referência\n\nNós: \\(V=\\{A,B,C,D,E,F\\}\\).\nArestas: \\(AB, AC, BC, BD, CD, DE, DF\\).\nGrafo não direcionado e não ponderado.\nPara Flow Betweenness, as arestas recebem capacidade unitária."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#simulador",
+    "href": "slides/centralidades_grafos.html#simulador",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "Simulador",
+    "text": "Simulador"
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#grau",
+    "href": "slides/centralidades_grafos.html#grau",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "1. Grau",
+    "text": "1. Grau\n\\[\nC_D(v)=k_v\n\\]\nVersão normalizada:\n\\[\nC'_D(v)=\\frac{k_v}{N-1}\n\\]\nNo grafo, \\(D\\) tem grau 4 e, portanto, centralidade de grau normalizada \\(4/5=0,80\\)."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#proximidade",
+    "href": "slides/centralidades_grafos.html#proximidade",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "2. Proximidade",
+    "text": "2. Proximidade\n\\[\nC_C(v)=\\frac{N-1}{\\sum_{u\\neq v}d(v,u)}\n\\]\nQuanto menor a distância média do nó para o restante da rede, maior sua proximidade.\nPara \\(D\\):\n\\[\n\\sum d(D,u)=2+1+1+1+1=6\n\\]\ne\n\\[\nC_C(D)=5/6\\approx0,8333.\n\\]"
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#intermediação",
+    "href": "slides/centralidades_grafos.html#intermediação",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "3. Intermediação",
+    "text": "3. Intermediação\n\\[\nC_B(v)=\\sum_{s\\neq v\\neq t}\n\\frac{\\sigma_{st}(v)}{\\sigma_{st}}\n\\]\nA implementação enumera os menores caminhos entre todos os pares e divide pela quantidade de menores caminhos existentes. Para um grafo não direcionado, também é apresentada a normalização pelo número de pares possíveis."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#autovetor",
+    "href": "slides/centralidades_grafos.html#autovetor",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "4. Autovetor",
+    "text": "4. Autovetor\n\\[\nAx=\\lambda x\n\\]\nou, componente a componente,\n\\[\n\\lambda x_i=\\sum_j A_{ij}x_j.\n\\]\nO valor é obtido por iteração de potência e normalizado pela norma euclidiana."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#alavancagem",
+    "href": "slides/centralidades_grafos.html#alavancagem",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "5. Alavancagem",
+    "text": "5. Alavancagem\nPara a versão não direcionada:\n\\[\nL(v)=\\frac{1}{k_v}\n\\sum_{u\\in N(v)}\n\\frac{k_v-k_u}{k_v+k_u}.\n\\]\nA interpretação depende do contraste entre o grau de \\(v\\) e os graus de seus vizinhos."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#difusão-katz",
+    "href": "slides/centralidades_grafos.html#difusão-katz",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "6. Difusão / Katz",
+    "text": "6. Difusão / Katz\nA implementação usa a soma truncada:\n\\[\nK_T=\\beta\\mathbf{1}+\\sum_{t=1}^{T}\\alpha^tA^t\\mathbf{1}.\n\\]\nPara o Katz infinito, é necessária a condição:\n\\[\n\\alpha\\lambda_{\\max}(A)&lt;1.\n\\]\nAtenção: Diffusion Centrality e Katz Centrality são conceitos relacionados, mas não são sinônimos em todas as definições da literatura. O código explicita que está usando a formulação Katz como operacionalização da família de medidas baseada em caminhadas."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#intermediação-de-fluxo",
+    "href": "slides/centralidades_grafos.html#intermediação-de-fluxo",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "7. Intermediação de Fluxo",
+    "text": "7. Intermediação de Fluxo\nPara cada par \\((s,t)\\), calcula-se o fluxo máximo \\(F_{st}\\) em uma rede de capacidades unitárias. Para cada nó intermediário \\(v\\), mede-se a perda relativa do fluxo quando \\(v\\) é removido:\n\\[\nFB(v)=\n\\sum_{s\\neq v\\neq t}\n\\frac{F_{st}-F_{st}^{-v}}{F_{st}}.\n\\]\nEssa é uma escolha operacional explícita para a medida. Diferentes softwares e artigos podem adotar normalizações ou definições de Flow Betweenness diferentes."
+  },
+  {
+    "objectID": "slides/centralidades_grafos.html#observação-metodológica",
+    "href": "slides/centralidades_grafos.html#observação-metodológica",
+    "title": "Cálculo e Animação Visual de Centralidades em Grafos",
+    "section": "Observação metodológica",
+    "text": "Observação metodológica\nOs valores não devem ser comparados diretamente entre métricas diferentes como se estivessem na mesma escala. A comparação adequada é feita dentro de cada métrica, observando ranking, interpretação e, quando aplicável, normalização."
   }
 ]

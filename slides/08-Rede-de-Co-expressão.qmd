@@ -204,8 +204,6 @@ https://peterlangfelder.com/2018/11/25/trashed/
 :::
 :::
 
----
-
 ::: {.notes}
 van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform
 :::
@@ -330,7 +328,7 @@ O ideal, e mais interessante, é que usássemos as isoformas de splicing para co
 
 - Visualização final: Cytoscape ou ggplot2/ggraph
 
-# Testa: simulação
+<!-- # Testa: simulação
 
 ```{r}
 #| echo: false
@@ -412,4 +410,4 @@ plt.colorbar(nodes, label="Conexões (Grau do Hub)")
 plt.title("Identificação de Genes Hub em Rede Simulada", fontsize=12)
 plt.axis("off")
 plt.show()
-```
+``` -->

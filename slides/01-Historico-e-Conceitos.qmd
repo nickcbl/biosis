@@ -118,7 +118,7 @@ Definido pela estratégia de integrar dados complexos da interação, em sistema
 
 # Disciplinas associadas
 
-![](img/Picture1.png){fig-align="center"}
+![](img/Picture1.png){.r-stretch fig-align="center"}
 
 
 # Histórico
@@ -130,7 +130,7 @@ Definido pela estratégia de integrar dados complexos da interação, em sistema
 
 ::: {.column}
 
-![](img/01-Histórico-e-Conceitos-0.png){fig-align="center"}
+![](img/01-Historico-e-Conceitos-0.png){.r-stretch fig-align="center"}
 
 :::
 
@@ -144,8 +144,6 @@ Definido pela estratégia de integrar dados complexos da interação, em sistema
 
 :::
 
-
-
 - Um sistema é um conglomerado coeso de partes <span style="color:#4169E1; font-weight:bold;">inter-relacionadas</span> e interdependentes que pode ser natural ou feito pelo homem.
 
 - Todo sistema é delineado por seus limites espaciais e temporais, cercados e influenciados por seu <span style="color:#4169E1; font-weight:bold;">ambiente</span>, descritos por sua estrutura e propósito ou natureza e expressos em seu funcionamento.
@@ -156,7 +154,7 @@ Definido pela estratégia de integrar dados complexos da interação, em sistema
 
 ::: {.columns}
 ::: {.column}
-![](img/01-Histórico-e-Conceitos-0.png){fig-align="center"}
+![](img/01-Historico-e-Conceitos-0.png){.r-stretch fig-align="center"}
 :::
 ::: {.column}
 <span style="color:#00000; font-weight:bold;">CONCEITOS CHAVE EM TEORIA DE SISTEMAS</span>
@@ -243,7 +241,6 @@ Taxa de transferência
 - **Alternativamente**: Capacidade do sistema de manter equilíbrio dinâmico frente a perturbações, via mecanismos de feedback.
 :::
 :::
-
 
 ::: {.callout}
 <span style="color:#4169E1; font-weight:bold;">Regulação do pH sanguíneo</span>: Sistemas tampão (ex.: bicarbonato) e trocas gasosas nos pulmões mantêm pH ~7,4 mesmo sob variações metabólica (Hamm et al., 2015, Physiological Reviews).
@@ -346,17 +343,17 @@ Taxa de transferência
 :::
 
 
-# Alan Hodgkin e Andrew Huxley
+# Alan Hodgkin e Andrew Huxley{.smaller}
 
 
 ::: {.columns}
 
 ::: {.column}
-![**Alan Hodgkin**](img/01-Histórico-e-Conceitos-1.png)
+![**Alan Hodgkin**](img/01-Historico-e-Conceitos-1.png){.r-stretch fig-align="center"}
 :::
 
 ::: {.column}
-![**Andrew Huxley**](img/01-Histórico-e-Conceitos-2.png)
+![**Andrew Huxley**](img/01-Historico-e-Conceitos-2.png){.r-stretch fig-align="center"}
 :::
 
 :::
@@ -374,10 +371,10 @@ Combinaram experimentos eletrofisiológicos (com técnicas de voltage clamp) com
 Modelaram a dinâmica dos canais iônicos de sódio (Na⁺) e potássio (K⁺), prevendo como variações de voltagem controlam o fluxo de íons.
 
 
-# 
+# {.smaller}
 ::: {.columns}
 ::: {.column}
-![](img/01-Histórico-e-Conceitos-3.png)
+![](img/01-Historico-e-Conceitos-3.png){.r-stretch fig-align="center"}
 :::
 ::: {.column}
 **Impacto Científico**:
@@ -396,33 +393,47 @@ Modelos derivados são usados para otimizar estimulação cerebral profunda em p
 :::
 :::
 
-# Alan Turing
+# Alan Turing{.smaller}
 
-![](img/01-Histórico-e-Conceitos-4.png)
-
+:::{.columns}
+:::{.column}
+![](img/01-Historico-e-Conceitos-4.png){.r-stretch fig-align="center"}
+:::
+:::{.column}
 * Matemático inglês;
 * O Modelo de Reação-Difusão (1952)
   * Artigo Original: Turing propôs que padrões como listras (ex.: pelagem de animais) ou manchas (ex.: conchas de moluscos) surgem da interação entre dois morfógenos (moléculas sinalizadoras) com propriedades distintas:
     * **Ativador**: Auto-reforça sua própria produção.
     * **Inibidor**: Suprime o ativador e difunde-se mais rapidamente
 * Seu modelo matemático descreve como pequenas perturbações em um sistema homogêneo levam a padrões espaciais estáveis (Turing, 1952).
+:::
+:::
 
-# Alan Turing
+# Alan Turing{.smaller}
 
-![](img/01-Histórico-e-Conceitos-4.png)
-
+:::{.columns}
+:::{.column}
+![](img/01-Historico-e-Conceitos-4.png){.r-stretch fig-align="center"}
+:::
+:::{.column}
 * Impacto na Biologia de Sistemas:
   * Padrões em Desenvolvimento Embrionário: Ex.: Formação de dígitos em membros de vertebrados (Sheth et al., 2012, Science).
 * Engenharia de tecidos para regeneração de estruturas padronizadas (cartilagem, folículos capilares).
 * Síntese de Padrões em Biologia Sintética:
   * Células geneticamente modificadas para produzir padrões Turing  *in vitro* (Sick et al., 2020, Nature Chemical Biology).
+:::
+:::
 
 # Alan Turing
-
-![](img/01-Histórico-e-Conceitos-4.png)
-
+:::{.columns}
+:::{.column}
+![](img/01-Historico-e-Conceitos-4.png){fig-align="center"}
+:::
+:::{.column}
 * **Agricultura**: Manipulação de padrões florais para aumentar atratividade a polinizadores (Reichelt & Burdet, 2023, Plant Biotechnology Journal).
 * **Ferramentas Computacionais Derivadas**:  Softwares como Morpheus (Starruß et al., 2014) usam as equações de Turing para prever padrões em tecidos.
+:::
+:::
 
 # Denis Noble
 
@@ -432,12 +443,12 @@ Modelos derivados são usados para otimizar estimulação cerebral profunda em p
 * Utilizou supercomputadores para a criação de um coração virtual.
 * Contribuiu para difundir a nível internacional o uso de modelos computacionais para simular quantitativamente funções fisiológicas ao nível do genoma.
 
-![](img/01-Histórico-e-Conceitos-5.png)
+![](img/01-Historico-e-Conceitos-5.png){.r-stretch fig-align="center"}
 
 # 
 ::::{.columns}
 ::::{.column}
-![](img/01-Histórico-e-Conceitos-6.png)
+![](img/01-Historico-e-Conceitos-6.png){.r-stretch fig-align="center"}
 ::::
 ::::{.column}
 * Música da Vida
@@ -455,7 +466,7 @@ Modelos derivados são usados para otimizar estimulação cerebral profunda em p
 
 <span style="color:#222222">Abordagem que parte de dados experimentais em larga escala (ômicos) para reconstruir modelos integrados de sistemas biológicos, priorizando uma visão global (genoma, proteoma, metaboloma) antes de investigar componentes individuais.</span>
 
-# Top-down
+# Top-down{.smaller}
 
 ::::{.callout}
 <span style="color:#222222">Dados ômicos → Rede de interações → Modelo matemático → Hipóteses testáveis → Validação experimental</span>
@@ -465,15 +476,12 @@ Modelos derivados são usados para otimizar estimulação cerebral profunda em p
   * **Dependência da qualidade dos dados**: Ruído em dados ômicos pode gerar modelos imprecisos.
   * **Complexidade computacional**: Modelos de genoma completo exigem supercomputadores (ex.: modelo _Recon3D_ humano).
 
-
 * **Modelagem**:
   * **Modelagem do Câncer de Mama**<br>
 Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-AKT).
   * **Entrada → Dados ômicos**: Sequenciamento de tumor (genômica) + perfis de expressão gênica (transcriptômica).
   * **Saída**:
     * Identificação de alvos terapêuticos (ex.: inibidores de AKT). Fonte: Thiele et al., 2013 (Nature Biotechnology).
-
-
 
 # Middle-out
 
@@ -489,7 +497,7 @@ Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-A
 
 ::: {.columns}
 ::: {.column}
-![](img/01-Histórico-e-Conceitos-7.png)
+![](img/01-Historico-e-Conceitos-7.png){.r-stretch fig-align="center"}
 :::
 ::: {.column}
 * Engenheiro sérvio
@@ -498,11 +506,11 @@ Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-A
 :::
 :::
 
-# Mihajlo Mesarovic
+# Mihajlo Mesarovic{.smaller}
 
 ::: {.columns}
 ::: {.column}
-![](img/01-Histórico-e-Conceitos-7.png)
+![](img/01-Historico-e-Conceitos-7.png){fig-align="center"}
 :::
 ::: {.column}
 * **Contribuições Chave no Trabalho de 1966**:
@@ -517,14 +525,14 @@ Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-A
 :::
 :::
 
-# Biologia de Sistemas: Oscilações no Uso e Consolidação
+# Biologia de Sistemas: Oscilações no Uso e Consolidação{.smaller}
 
 A disciplina passou por dois momentos distintos, impulsionados por avanços tecnológicos e mudanças de paradigma:
 
 ::: {.columns}
 
 ::: {.column}
-1. Fase de "Desuso"(Décadas de 1970–1990)
+1. **Fase de "Desuso"(Décadas de 1970–1990)**
   * Causas:
     * Dominância do reducionismo: Foco da comunidade científica na Biologia Molecular (ex.: sequenciamento de DNA individual, PCR).
     * Limitações tecnológicas: Dificuldade em gerar/processar dados complexos (sem técnicas ômicas ou computação poderosa).
@@ -532,7 +540,7 @@ A disciplina passou por dois momentos distintos, impulsionados por avanços tecn
 :::
 
 ::: {.column}
-2. Fase de "Reuso" e Expansão (A partir dos anos 2000)
+2. **Fase de "Reuso" e Expansão (A partir dos anos 2000)**
   * Gatilhos:
     * Revolução das ômicas:
       * Sequenciamento de genomas completos (ex.: Projeto Genoma Humano, 2003).
@@ -553,15 +561,15 @@ O número de artigos com "Biologia de Sistemas" no título aumentou 20× entre 2
 
 ::: {.columns}
 ::: {.column}
-![](img/01-Histórico-e-Conceitos-8.png)
+![](img/01-Historico-e-Conceitos-8.png){fig-align="center"}
 :::
 ::: {.column}
-![](img/01-Histórico-e-Conceitos-9.png)
+![](img/01-Historico-e-Conceitos-9.png){fig-align="center"}
 :::
 :::
 
 
-# Hiroaki Kitano: Pioneiro na Popularização da Biologia de Sistemas
+# Hiroaki Kitano: Pioneiro na Popularização da Biologia de Sistemas{.smaller}
 
 1. **Contexto da Popularização (2002)**
   * Publicação Seminal: Kitano foi autor do artigo "Systems Biology: A Brief Overview" (_Science_, 2002), que definiu os pilares da disciplina: "A biologia de sistemas busca entender os sistemas vivos como redes dinâmicas de interações, integrando modelagem computacional e experimentos."
@@ -570,7 +578,7 @@ O número de artigos com "Biologia de Sistemas" no título aumentou 20× entre 2
   * Instituto líder em pesquisas interdisciplinares (Tóquio, Japão), focado em modelagem de redes biológicas e inteligência artificial aplicada à biologia.
 
 
-# Hiroaki Kitano: Pioneiro na Popularização da Biologia de Sistemas
+# Hiroaki Kitano: Pioneiro na Popularização da Biologia de Sistemas{.smaller}
 
 2. **Contribuições Chave**
 * **Ferramentas e Plataformas**:
@@ -581,17 +589,6 @@ O número de artigos com "Biologia de Sistemas" no título aumentou 20× entre 2
 
 3. **Aplicação Prática**
 * Modelagem do Câncer: Kitano desenvolveu modelos de redes de sinalização em tumores, mostrando como falhas em vias como PI3K-AKT geram resistência a terapias (_Kitano, 2004, Cancer Research_).
-
-::: {.columns}
-::: {.column}
-![](img/01-Histórico-e-Conceitos-9.png)
-:::
-::: {.column}
-
-:::
-:::
-
-
 
 # Aplicações
 

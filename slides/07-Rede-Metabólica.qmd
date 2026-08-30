@@ -233,19 +233,15 @@ Preparação para fase seguinte.
 
 # Bancos de dados!
 
-KEGGThe SEED ViewerBRENDA
-
-BiGG Models
-
-Gene Ontology
-
-Reactome
-
-MetaCyc
-
-MEMOTE
-
-AGORA
+- KEGG
+- The SEED Viewer
+- BRENDA
+- BiGG Models
+- Gene Ontology
+- Reactome
+- MetaCyc
+- MEMOTE
+- AGORA
 
 ---
 
@@ -257,15 +253,13 @@ O processo de curadoria manual é feito na rede metabólica rascunho.
 
 # Estágio 2: Curadoria Manual (cont.)
 
-Para a maioria dos organismos, a anotação é feita baseada em  homologia .
+Para a maioria dos organismos, a anotação é feita baseada em **homologia** .
 
 _Por isso, reconstruções baseadas somente na anotação do genoma podem conter vários erros propagados._
 
 # Estágio 2: Curadoria Manual (cont.)
 
 * Grande esforço precisa ser feito para:
-  * verificar se todas as reações
-  * verificar se genes incluídos estão realmente presentes no organismo
   * verificar que todas as reações e genes estejam incluídas na reconstrução.
 
 # E2 - Curadoria Manual: Informações adicionais e verificação
@@ -274,88 +268,95 @@ _Por isso, reconstruções baseadas somente na anotação do genoma podem conter
   * Literatura ou banco de dados.
 * Localização das reações.
   * Algoritmos, literatura ou dados experimentais.
-  * Determinar a localização, se for determinada, as reações devem ser colocadas no citosol.
+  * Determinar a localização, se for indeterminada, as reações devem ser colocadas no citosol.
   * Importante devido a disponibilidade de metabólitos em cada compartimento e por causa das reações de transporte.
 
 # E2 - Curadoria Manual: Informações adicionais e verificação (cont.)
 
-* A relação gene-proteína-reação ( GPR ) deve ser encontrada.
+* A relação gene-proteína-reação (GPR) deve ser encontrada.
   * Dado em formato lógico.
   * Exemplos
     * pykA e pykF: proteínas PykA e PykF.
-    * Ambos podem catalisar a reação de piruvato quinase, assim pykA OU pykF.
-    * sdhA, sdhB, sdhC e sdhD são necessários para formação da proteína Sdh, que catalisa a reação irreversível da succinato desidrogenase na fosforilação oxidativa.
-    * A  ssim sdhA   E sdhB   E sdhC   E sdhD são necessário para a reação.
+    * Ambos podem catalisar a reação de piruvato quinase, assim *pykA* **OU** *pykF*.
+    * *sdhA*, *sdhB*, *sdhC* e *sdhD* são necessários para formação da proteína Sdh, que catalisa a reação irreversível da succinato desidrogenase na fosforilação oxidativa.
+    * Assim *sdhA* **E** *sdhB* **E** *sdhC* **E** *sdhD* são necessário para a reação.
 
 # E2 - Curadoria Manual: Informações adicionais e verificação (cont.)
 
 * Confirmar a fórmula química de cada metabólito.
-  * Também determinar a fórmula carregada do metabólito no compartimento celular de acordo com o pH encontrado.
-* Verificar se as reações estão balanceadas em carga e massa.
+  * Carga do metabólito no devido compartimento celular de acordo com o pH encontrado.
+* Reações balanceadas em carga e massa.
   * Algumas reações podem requerer a adição de água ou prótons.
 
-# E2 - Curadoria Manual: Incorporação de reações espontâneas e de transporte
+# E2 - Curadoria Manual: reações espontâneas e de transporte
 
-Nem todas as reações são catalisadas por enzimas, além disso, alguns metabólitos difundem facilmente através da membrana.
+[Nem todas as reações são catalisadas por enzimas, além disso, alguns metabólitos difundem facilmente através da membrana.]{style="color: blue"}
 
 Reações Espontâneas!
 
 Reações de Transporte!
 
-# E2 - Curadoria Manual: Incorporação de reações espontâneas e de transporte (cont.)
+# E2 - Curadoria Manual: reações espontâneas e de transporte (cont.)
 
 Se existir evidência de transporte do meio para a célula, da célula para o meio e entre compartimentos, essas reações  devem  ser descritas.
 
-Na eventualidade das reações de transporte não serem conhecidas, se pode fazer uma reação análoga se existir alguma parecida em outro organismo mas se deve anotar que a informação não é precisa.
+Na eventualidade das reações de transporte não serem conhecidas, se pode fazer uma reação análoga, se existir alguma parecida em outro organismo, mas se deve anotar que a informação não é precisa.
 
 # E2 - Curadoria Manual: a reação de biomassa
 
-Função objetivo de Biomassa
+**Função objetivo de Biomassa**
 
-É um modelo de rede metabólica que simula crescimento.
+- É um modelo de rede metabólica que simula crescimento.
 
-É uma representação matemática da quantidades molares de vários metabólitos necessários para fazer os componentes celulares para crescimento.
+- É uma representação matemática da quantidades molares de vários metabólitos necessários para fazer os componentes celulares para crescimento.
 
-É necessário saber a composição geral da célula em termos de lipídios, proteínas, carboidratos …
+- É necessário saber a composição geral da célula em termos de lipídios, proteínas, carboidratos, ácidos nucleicos e demais metabólicos.
 
 ---
 
-A Reação de Biomassa é uma reação artificial (não catalisada por uma enzima específica) adicionada ao modelo metabólico. Ela representa o conjunto de todos os componentes celulares necessários (em suas proporções molares exatas) para a célula formar uma nova unidade de biomassa, ou seja, para ela crescer e se dividir.
+A Reação de Biomassa é uma reação artificial (não enzimática) incluída em modelos metabólicos. Ela representa, em proporções molares exatas, o conjunto de todos os componentes necessários para a célula formar uma nova unidade de si mesma — ou seja, para crescer e se dividir.
 
-Pense nela como uma  _lista de compras_  extremamente detalhada que a célula precisa ter para poder se duplicar.
+Funciona como uma _lista de compras_ ultra detalhada do que a célula precisa para se duplicar.
 
-![](img/07-Rede-Metabolica_6.png){.r-stretch fig-align="center"}
+![](img/07-Rede-Metabolica_6.png){fig-align="center"}
 
-# Fórmula de biomassa para bactérias gram-negativas
+# Fórmula de biomassa para bactérias gram-negativas {.smaller}
 
-(0) Glutationa + (0) Ubiquinona-8 + (0.51) Glicina + (0.01) Fosfatidilglicerol dianteisoheptadecanoil + (0.03) Polímero de Peptidoglicano (n subunidades) + (0) Fosfato de Piridoxal + (0) Fe³⁺ + (0.38) L-Leucina + (0) ACP + (0.43) L-Alanina + (0) Hemo + (0) Biossíntese Proteica + (0) Cobinamida + (0) Replicação do DNA + (0.18) L-Serina + (0) 5-Metiltetrahidrofolato + (0.01) Fosfatidiletanolamina dioctadecanoil + (35.54) H₂O + (0) FAD + (0.01) Cardiolipina isoheptadecanoil + (0) Espermidina + (0) 2-Desmetilmenaquinona 8 + (0.24) L-Isoleucina + (0.35) L-Valina + (0) Menaquinona 8 + (0) 10-Formiltetrahidrofolato + (0) Coenzima A + (0.15) L-Fenilalanina + (0) Tetrahidrofolato + (0.29) L-Lisina + (0.01) dCTP + (0) Siroheme + (0.02) TTP + (0.01) Fosfatidilglicerol dioctadecanoil + (0) Co²⁺ + (40.11) ATP + (0) Mn²⁺ + (0) Transcrição de RNA + (0.01) Fosfatidiletanolamina dianteisoheptadecanoil + (0) Mg²⁺ + (0) S-Adenosil-L-Metionina + (0.09) UTP + (0.01) Fosfatidilglicerol diisoheptadecanoil + (0.01) Cardiolipina anteisoheptadecanoil + (0.13) L-Metionina + (0.08) L-Histidina + (0) TPP + (0.08) L-Cisteína + (0.08) CTP + (0) Fe²⁺ + (0) Sulfato + (0) Putrescina + (0) Cu²⁺ + (0.22) L-Glutamato + (0) Zn²⁺ + (0.20) L-Asparagina + (0.25) L-Arginina + (0.05) L-Triptofano + (0) Ca²⁺ + (0.18) L-Prolina + (0) Cl⁻ + (0.03) Bactoprenil Difosfato + (0.03) Oligossacarídeo Central do Lipídio A + (0.02) dATP + (0.22) L-Glutamina + (0) Riboflavina + (0.01) Cardiolipina estearoil + (0) NAD + (0.12) L-Tirosina + (0) K⁺ + (0.21) L-Treonina + (0.20) L-Aspartato + (0.01) Fosfatidiletanolamina diisoheptadecanoil + (0.14) GTP + (0) NADP + (0.01) dGTP
+<span style="color: red">(0) Glutationa + (0) Ubiquinona-8 + (0.51) Glicina + (0.01) Fosfatidilglicerol dianteisoheptadecanoil + (0.03) Polímero de Peptidoglicano (n subunidades) + (0) Fosfato de Piridoxal + (0) Fe³⁺ + (0.38) L-Leucina + (0) ACP + (0.43) L-Alanina + (0) Hemo + (0) Biossíntese Proteica + (0) Cobinamida + (0) Replicação do DNA + (0.18) L-Serina + (0) 5-Metiltetrahidrofolato + (0.01) Fosfatidiletanolamina dioctadecanoil + (35.54) H₂O + (0) FAD + (0.01) Cardiolipina isoheptadecanoil + (0) Espermidina + (0) 2-Desmetilmenaquinona 8 + (0.24) L-Isoleucina + (0.35) L-Valina + (0) Menaquinona 8 + (0) 10-Formiltetrahidrofolato + (0) Coenzima A + (0.15) L-Fenilalanina + (0) Tetrahidrofolato + (0.29) L-Lisina + (0.01) dCTP + (0) Siroheme + (0.02) TTP + (0.01) Fosfatidilglicerol dioctadecanoil + (0) Co²⁺ + (40.11) ATP + (0) Mn²⁺ + (0) Transcrição de RNA + (0.01) Fosfatidiletanolamina dianteisoheptadecanoil + (0) Mg²⁺ + (0) S-Adenosil-L-Metionina + (0.09) UTP + (0.01) Fosfatidilglicerol diisoheptadecanoil + (0.01) Cardiolipina anteisoheptadecanoil + (0.13) L-Metionina + (0.08) L-Histidina + (0) TPP + (0.08) L-Cisteína + (0.08) CTP + (0) Fe²⁺ + (0) Sulfato + (0) Putrescina + (0) Cu²⁺ + (0.22) L-Glutamato + (0) Zn²⁺ + (0.20) L-Asparagina + (0.25) L-Arginina + (0.05) L-Triptofano + (0) Ca²⁺ + (0.18) L-Prolina + (0) Cl⁻ + (0.03) Bactoprenil Difosfato + (0.03) Oligossacarídeo Central do Lipídio A + (0.02) dATP + (0.22) L-Glutamina + (0) Riboflavina + (0.01) Cardiolipina estearoil + (0) NAD + (0.12) L-Tirosina + (0) K⁺ + (0.21) L-Treonina + (0.20) L-Aspartato + (0.01) Fosfatidiletanolamina diisoheptadecanoil + (0.14) GTP + (0) NADP + (0.01) dGTP</span>  **(COSUMO)**
 
 ⟶
 
-(0.03) Polímero de Peptidoglicano (n-1 subunidades) + (0) Apo-ACP + (0) Dimetilbenzimidazol + (1.00)  BIOMASSA  + (40.00) Fosfato + (40.00) ADP + (40.00) H⁺ + (0.48) Pirofosfato + (0) Cobinamida
+<span style="color: purple">(0.03) Polímero de Peptidoglicano (n-1 subunidades) + (0) Apo-ACP + (0) Dimetilbenzimidazol + (1.00)  BIOMASSA  + (40.00) Fosfato + (40.00) ADP + (40.00) H⁺ + (0.48) Pirofosfato + (0) Cobinamida</span> **(PRODUÇÃO)**
 
 # Fórmula de biomassa para bactérias gram-negativas (cont.)
 
-* - 1 unidade do metabólito BIOMASSA na verdade, simulando a produção das seguintes categorias de moléculas:
-* 1. Macromoléculas Estruturais e Informacionais:
-* Proteínas: A maior fração da biomassa (~55% do peso seco em muitas bactérias).
-* RNA: Ribossomal (rRNA), de transferência (tRNA) e mensageiro (mRNA).
-* DNA: O genoma celular.
-* Parede Celular: Principalmente Peptidoglicano (um polímero de açúcares e aminoácidos) em bactérias.
-* Membrana Celular: Composta por um dupla camada de Lipídios, incluindo:
-  * Fosfolipídios (ex: Fosfatidiletanolamina, Fosfatidilglicerol)
-  * Cardiolipinas
-  * Outros lipídios da membrana.
-* 2. Moléculas Complexas e Cofatores:
-* Cofatores Enzimáticos e Vitaminas: Moléculas essenciais para a função das enzimas.
-  * Exemplos: NAD, NADP, FAD, Coenzima A (CoA), Fosfato de Piridoxal, Hemo, Tetrahidrofolato.
-* Pigmentos e Quinonas: Envolvidos em processos como a respiração.
-  * Exemplos: Ubiquinona, Menaquinona.
-* Íons Inorgânicos: Necessários como cofatores para enzimas e para o balanço iônico.
-  * Exemplos: K⁺, Mg²⁺, Ca²⁺, Fe²⁺/³⁺, Zn²⁺.
-* 3. Metabólitos de Reserva e Pequenas Moléculas:
-* Compostos de Armazenamento: Como glicogênio (açúcares) ou grânulos de lipídios, dependendo do organismo.
-* Moléculas Sinalizadoras e Intermediárias: Presentes no  _pool_  metabólico da célula.
+Na prática, a produção de 1 unidade do metabólito BIOMASSA no modelo equivale à síntese equilibrada das seguintes classes de componentes celulares:
+
+**1. Macromoléculas Estruturais e Informacionais**
+
+  - **Proteínas** — principal fração da biomassa, representando cerca de 55% do peso seco em muitas bactérias.  
+  - **RNA** — incluindo rRNA, tRNA e mRNA.  
+  - **DNA** — todo o material genético.  
+  - **Parede celular** — essencialmente peptidoglicano (polímero de açúcares e aminoácidos) em bactérias.  
+  - **Membrana celular** — formada por uma bicamada lipídica que inclui fosfolipídios (como fosfatidiletanolamina e fosfatidilglicerol), cardiolipinas e outros lipídios de membrana.
+
+---
+
+::: {.columns}
+::: {.column}
+**2. Moléculas Complexas e Cofatores**
+
+  - **Cofatores enzimáticos e vitaminas** — indispensáveis para a atividade enzimática, como NAD, NADP, FAD, coenzima A, fosfato de piridoxal, hemo e tetrahidrofolato.  
+  - **Pigmentos e quinonas** — atuam em processos energéticos, como a respiração (ex.: ubiquinona e menaquinona).  
+  - **Íons inorgânicos** — essenciais como cofatores e para o equilíbrio iônico (K⁺, Mg²⁺, Ca²⁺, Fe²⁺/³⁺, Zn²⁺, entre outros).
+:::
+::: {.column}
+**3. Metabólitos de Reserva e Pequenas Moléculas**
+
+  - **Compostos de armazenamento** — como glicogênio ou grânulos lipídicos, variando conforme o organismo.  
+  - **Moléculas sinalizadoras e intermediárias** — integrantes do *pool* metabólico celular.
+:::
+:::
 
 ---
 
@@ -363,24 +364,31 @@ Pense nela como uma  _lista de compras_  extremamente detalhada que a célula pr
 
 # Estágio 3: Convertendo a rede em um modelo matemático
 
-* Para ser usada como uma  ferramenta preditiva , a reconstrução deve ser convertida em um modelo matemático.
+* Para ser usada como uma  ferramenta preditiva, a reconstrução deve ser convertida em um modelo matemático.
 * Um modelo metabólico é a forma computável da reconstrução da rede metabólica
 * Para ser um modelo matemático a rede deve:
   * Ser descrita matematicamente;
   * Fornecer os limites do modelo em relação ao que entra e ao que sai do modelo;
-* A conversão da rede para sua forma matemática é feita na construção de uma  matriz estequiométrica .
+* A conversão da rede para sua forma matemática é feita na construção de uma matriz estequiométrica.
 
-# Estágio 3: Convertendo a rede em um modelo matemático (cont.)
+# Estágio 3: Convertendo a rede em um modelo matemático (cont.){.smaller}
 
+::: {.columns}
+::: {.column}
 * Matriz estequiométrica
-* Cada metabólito é posto numa linha.
-* Cada reação é uma coluna.
-* Os elementos são os coeficientes de cada metabólito em uma reação específica.
-  * Metabólitos que são consumidos tem coeficiente negativo
-  * Metabólitos que são sintetizados tem coeficiente positivo
-* Metabólitos que são obtidos do meio ou secretados para ele são descritos em reações de troca.
-  * Essas reações permitem que o sistema receba e exporte metabólitos.
-  * Valores máximos e mínimos podem ser colocados para as reações de troca.
+  * Cada metabólito é posto numa linha.
+  * Cada reação é uma coluna.
+  * Os elementos são os coeficientes de cada metabólito em uma reação específica.
+    * Metabólitos que são consumidos tem coeficiente negativo
+    * Metabólitos que são sintetizados tem coeficiente positivo
+  * Metabólitos que são obtidos do meio ou secretados para ele são descritos em reações de troca.
+    * Essas reações permitem que o sistema receba e exporte metabólitos.
+    * Valores máximos e mínimos podem ser colocados para as reações de troca.
+:::
+::: {.column}
+![](img/07-Rede-Metabolica_8.1.png){.r-stretch}
+:::
+:::
 
 ---
 
@@ -391,9 +399,7 @@ Hefzi H et al .2013.  Reconstruction of Genome Scale Metabolic Network. Hand Boo
 Matriz Estequiométrica
 
 ::: {.notes}
-
 Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book of System Biology: Concept and Insight. First Edition. Elsevier
-
 :::
 
 # Estágio 3: Convertendo a rede em um modelo matemático (cont.)
@@ -426,16 +432,16 @@ Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book
   * **Teste topológico**
     * Verificação de reações a mais ou faltando, assim como rever o balanço de massas e carga.
     * Verificação da localização dos metabólitos.
-  * Teste termodinâmico
+  * **Teste termodinâmico**
     * Verificar a reversibilidade das reações.
     * Informação em bancos de dados. Algoritmos especializados.
-  * Teste Fenotípico
+  * **Teste Fenotípico**
     * Testar a habilidade do modelo de reproduzir algum aspecto fenotípico.
-  * Teste Quantitativo
+  * **Teste Quantitativo**
     * É crítico  testar o modelo na sua capacidade de predição de parâmetros quantitativos.
       * Erros: crescer quando não deveria, não crescer quando deveria, crescimento mais rápido ou mais devagar do que deveria.
 
-# GapFilling
+# *Gap Filling*
 
 Nessa etapa, informações novas são usadas para preencher lacunas nos modelos.
 
@@ -530,6 +536,3 @@ A modularidade das redes metabólicas está associada a robustez, adaptabilidade
   * Mudança Modular: A célula desliga módulos inteiros que dependem de oxigênio e ativa um módulo alternativo para manter a produção de energia, mesmo que de forma menos eficiente.
 :::
 :::
-
-
-

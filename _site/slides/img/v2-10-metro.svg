@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="446" height="222" viewBox="0 0 446 222" style="color-scheme: light dark">
+<defs>
+</defs>
+<metadata id="diagram-manifest" data-schema-version="1.0"><![CDATA[{"groups":[{"color":"#ec4899","id":"dbtl","label":"Ciclo de Engenharia"}],"height":222,"match":{"flags":"i","target":"fqProcessName","type":"regex"},"nodes":[{"groups":["dbtl"],"h":10.0,"id":"design","label":"Design (Projeto)","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":80.0,"y":120.0},{"groups":["dbtl"],"h":10.0,"id":"build","label":"Build (Construção)","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":182.1,"y":120.0},{"groups":["dbtl"],"h":10.0,"id":"test","label":"Test (Teste)","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":284.2,"y":120.0},{"groups":["dbtl"],"h":10.0,"id":"learn","label":"Learn (Aprendizado) -> Retorna ao Design","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":386.3,"y":120.0}],"regions":[],"title":"Ciclo DBTL (Biologia Sintética)","version":"1.0","width":446}]]></metadata>
+<style>.nf-metro-bg { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }
+.nf-metro-title { fill: var(--nfm-map-title-color, light-dark(#111111, #ffffff)); }
+.nf-metro-station-label { fill: var(--nfm-map-label-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-section-box { fill: var(--nfm-map-section-fill, light-dark(#ededed, #373737)); stroke: var(--nfm-map-section-stroke, light-dark(#e6e6e6, #595959)); }
+.nf-metro-section-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-underline { stroke: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-legend-bg { fill: var(--nfm-map-legend-bg, light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.3))); }
+.nf-metro-legend-text { fill: var(--nfm-map-legend-text-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-marker-stroke { stroke: var(--nfm-map-marker-stroke, light-dark(#333333, #f0f0f0)); }
+.nf-metro-label-halo { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); stroke: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }</style>
+<rect x="0" y="0" width="446" height="222" fill="#2b2b2b" class="nf-metro-bg" />
+<text x="60.0" y="30.0" font-size="24.0" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" class="nf-metro-title">Ciclo DBTL (Biologia Sintética)</text>
+<path d="M80.0,120.0 L182.1,120.0" stroke="#ec4899" stroke-width="3.0" stroke-linecap="round" class="metro-line-dbtl" data-line-id="dbtl" stroke-dasharray="8,4" />
+<path d="M182.1,120.0 L284.2,120.0" stroke="#ec4899" stroke-width="3.0" stroke-linecap="round" class="metro-line-dbtl" data-line-id="dbtl" stroke-dasharray="8,4" />
+<path d="M284.2,120.0 L386.29999999999995,120.0" stroke="#ec4899" stroke-width="3.0" stroke-linecap="round" class="metro-line-dbtl" data-line-id="dbtl" stroke-dasharray="8,4" />
+<g class="nf-metro-station-group" data-node-id="design" data-node-cx="80.0" data-node-cy="120.0" data-node-r="5.0" data-node-groups="dbtl" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="75.0" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="design" data-station-lines="dbtl" data-station-label="Design (Projeto)" />
+</g>
+<g class="nf-metro-station-group" data-node-id="build" data-node-cx="182.1" data-node-cy="120.0" data-node-r="5.0" data-node-groups="dbtl" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="177.1" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="build" data-station-lines="dbtl" data-station-label="Build (Construção)" />
+</g>
+<g class="nf-metro-station-group" data-node-id="test" data-node-cx="284.2" data-node-cy="120.0" data-node-r="5.0" data-node-groups="dbtl" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="279.2" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="test" data-station-lines="dbtl" data-station-label="Test (Teste)" />
+</g>
+<g class="nf-metro-station-group" data-node-id="learn" data-node-cx="386.3" data-node-cy="120.0" data-node-r="5.0" data-node-groups="dbtl" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="381.29999999999995" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="learn" data-station-lines="dbtl" data-station-label="Learn (Aprendizado) -&gt; Retorna ao Design" />
+</g>
+<text x="80.0" y="131.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Design (Projeto)</text>
+<text x="80.0" y="131.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="design" class="nf-metro-station-label">Design (Projeto)</text>
+<text x="182.1" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Build (Construção)</text>
+<text x="182.1" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="build" class="nf-metro-station-label">Build (Construção)</text>
+<text x="284.2" y="131.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging"><tspan x="284.2" dy="0em">Test</tspan><tspan x="284.2" dy="1.2em">(Teste)</tspan></text>
+<text x="284.2" y="131.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="test" class="nf-metro-station-label"><tspan x="284.2" dy="0em">Test</tspan><tspan x="284.2" dy="1.2em">(Teste)</tspan></text>
+<text x="386.29999999999995" y="144.2" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging"><tspan x="386.29999999999995" dy="0em">Learn</tspan><tspan x="386.29999999999995" dy="1.2em">(Aprendizad-</tspan><tspan x="386.29999999999995" dy="1.2em">o) -&gt;</tspan><tspan x="386.29999999999995" dy="1.2em">Retorna ao</tspan><tspan x="386.29999999999995" dy="1.2em">Design</tspan></text>
+<text x="386.29999999999995" y="144.2" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="learn" class="nf-metro-station-label"><tspan x="386.29999999999995" dy="0em">Learn</tspan><tspan x="386.29999999999995" dy="1.2em">(Aprendizad-</tspan><tspan x="386.29999999999995" dy="1.2em">o) -&gt;</tspan><tspan x="386.29999999999995" dy="1.2em">Retorna ao</tspan><tspan x="386.29999999999995" dy="1.2em">Design</tspan></text>
+<rect x="60.0" y="150.0" width="206.3" height="48.0" rx="6" ry="6" fill="rgba(0, 0, 0, 0.3)" class="nf-metro-legend-bg" />
+<path d="M72.0,174.0 L96.0,174.0" stroke="#ec4899" stroke-width="3.0" stroke-linecap="round" stroke-dasharray="8,4" />
+<text x="108.0" y="174.0" font-size="14.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Ciclo de Engenharia</text>
+<text x="416.0" y="214.0" font-size="8" fill="rgba(150, 150, 150, 0.6)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="end">created with nf-metro v1.1.0</text>
+</svg>

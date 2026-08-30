@@ -1,0 +1,65 @@
+---
+title: "09 <br> Rede de Interação Proteína-Proteína"
+author: "Nicholas Barroso"
+format: 
+  revealjs:
+    slide-number: c/t
+    width: 1600
+    height: 900
+    logo: img/logo.png
+    footer: "Nicholas Barroso"
+    incremental: false
+    theme: tema_azul.scss
+    lightbox: true
+---
+
+# Redes de Interação Proteína-Proteína (PPI)
+
+Grafos não direcionados conectando proteínas que interagem fisicamente *in vivo*.
+
+- A interação deve ser **específica e intencional**, resultado da evolução (exclui contato aleatório ou maquinaria genérica como ribossomos/proteassoma).
+- As PPIs são **dinâmicas** e dependem de: tipo celular, ciclo celular, ambiente e modificações pós-traducionais.
+
+# Modelagem Computacional de Complexos
+
+Quando experimentos isolam grupos de proteínas inteiros (Co-IP, AP-MS), usam-se modelos para inferir as interações:
+
+::: {.columns}
+::: {.column width="50%"}
+**Modelo Spoke (Raios):**
+- A isca conecta-se a todas as presas.
+- Mais conservador, gera menos falsos positivos.
+- Usado em bases de dados curadas.
+:::
+::: {.column width="50%"}
+**Modelo Matrix:**
+- Assume-se que todas as proteínas isoladas interagem entre si (Grafo completo).
+- Maior cobertura, mas baixa confiança para pares indiretos.
+- Usado em análises exploratórias.
+:::
+:::
+
+# Predição Computacional de PPIs
+
+A identificação experimental é lenta, então modelos preditivos entram em ação:
+
+- **Interólogos:** Se proteínas A e B interagem em humanos, e possuem genes homólogos no rato, assume-se que os homólogos também interagem.
+- **Perfil Evolutivo:** Proteínas que são ganhas ou perdidas juntas na árvore da vida provavelmente cooperam funcionalmente.
+- **Algoritmos Genéticos:** Avaliam características conjugadas (domínios, sequências, metilação) otimizando predições ao longo de "gerações".
+
+# Hubs Proteicos e Aplicações
+
+## Tipos de Hubs na Rede PPI
+
+- **Hubs *Party* (Festivos):**
+  - Interagem com seus parceiros ao mesmo tempo.
+  - Funcionam na estabilização de complexos proteicos singulares (locais).
+- **Hubs *Date* (Encontro):**
+  - Interagem em momentos e locais diferentes.
+  - Funcionam conectando módulos funcionais ao longo do tempo (globais).
+
+## Usos da Rede PPI
+
+- **Anotação Funcional:** Via *Guilt-by-Association* (proteínas vizinhas têm função parecida).
+- **Interação Doença-Doença:** Identificar proteínas centrais que causam pleiotropia ou são pontes para co-tratamentos em múltiplas doenças.
+- **Análise de Letalidade:** Nocaute de *Hubs* tende a ser mais letal à célula do que nós periféricos.

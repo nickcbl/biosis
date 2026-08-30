@@ -234,7 +234,7 @@
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/01-Historico-e-Conceitos.html</loc>
-    <lastmod>2026-08-28T20:22:09.131Z</lastmod>
+    <lastmod>2026-08-30T01:13:17.864Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/02-Grafos.html</loc>
@@ -250,15 +250,15 @@
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/06-Integração-e-dados.html</loc>
-    <lastmod>2026-08-28T11:56:28.219Z</lastmod>
+    <lastmod>2026-08-30T00:54:16.764Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/07-Rede-Metabólica.html</loc>
-    <lastmod>2026-08-28T14:10:59.159Z</lastmod>
+    <lastmod>2026-08-30T00:47:46.480Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/slides/08-Rede-de-Co-expressão.html</loc>
-    <lastmod>2026-08-29T12:46:36.178Z</lastmod>
+    <lastmod>2026-08-30T00:57:56.609Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/teste/simulacao_teste.html</loc>
@@ -275,5 +275,37 @@
   <url>
     <loc>https://nickcbl.github.io/biosis/teste/centralidades_grafos.html</loc>
     <lastmod>2026-08-29T13:46:11.650Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-05-Obtencao-de-dados.html</loc>
+    <lastmod>2026-08-29T18:21:37.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-06-Integracao-de-dados.html</loc>
+    <lastmod>2026-08-29T14:25:11.284Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-08-Rede-de-Co-expressao.html</loc>
+    <lastmod>2026-08-29T18:21:19.859Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-09-Rede-de-interacao-proteina-proteina.html</loc>
+    <lastmod>2026-08-29T14:27:40.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-10-Biologia-Sintetica.html</loc>
+    <lastmod>2026-08-29T14:26:50.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/centralidades_grafos.html</loc>
+    <lastmod>2026-08-29T18:22:22.762Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/10-Biologia-Sintetica.html</loc>
+    <lastmod>2026-08-29T18:30:32.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/09-Rede-de-interação-proteína-proteína.html</loc>
+    <lastmod>2026-08-30T00:01:20.261Z</lastmod>
   </url>
 </urlset>

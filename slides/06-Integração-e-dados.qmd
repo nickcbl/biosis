@@ -252,9 +252,6 @@ Passo vital e deve sempre ser feito independente do tipo de dados
 | Spectrum quality | Filtragem de Espectro de MS | Proteômica |
 
 
----
-
-
 # Quantificação
 
 * O passo de quantificação transforma o dado que já passou por uma avaliação de qualidade em dado quantitativo que descreve a abundância de variantes genéticas, transcritos ou proteínas.
@@ -276,10 +273,6 @@ Passo vital e deve sempre ser feito independente do tipo de dados
 | MASCOT | Mapeamento de espectros de massa ao banco de dados | Proteômica |
 | InsPecT | Mapeamento de espectros de massa ao banco de dados | Proteômica |
 
-
----
-
-
 # Normalização
 
 Os dados ômicos exibem grandes variações e vieses, dos quais uma parte substancial é de natureza técnica introduzida pelas técnicas de medição e as etapas experimentais sensíveis necessárias para a preparação da amostra. O objetivo da normalização é remover essa variabilidade indesejada para tornar o dado mais uniforme e comparável.
@@ -289,8 +282,6 @@ Os dados ômicos exibem grandes variações e vieses, dos quais uma parte substa
 ## Importante
 Isto é especialmente importante para transcriptômica e proteômica, onde os dados são frequentemente gerados em um cenário comparativo usando múltiplas replicatas técnicas e/ou biológicas.
 :::
-
----
 
 # Normalização (cont.)
 

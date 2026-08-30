@@ -1,0 +1,142 @@
+---
+title: "Cálculo e Animação Visual de Centralidades em Grafos"
+subtitle: "Apresentação Interativa para Teoria das Redes"
+author: "Professor / Pesquisador"
+date: "2026-08-29"
+format:
+  revealjs:
+    theme: dark
+    transition: slide
+    slide-number: true
+    embed-resources: true
+    width: 1280
+    height: 720
+---
+
+## Objetivos
+
+Nesta versão, o mesmo grafo é usado para calcular sete métricas:
+
+1. **Grau (Degree)**
+2. **Proximidade (Closeness)**
+3. **Intermediação (Betweenness)**
+4. **Autovetor (Eigenvector)**
+5. **Alavancagem (Leverage)**
+6. **Difusão / Katz**
+7. **Intermediação de Fluxo (Flow Betweenness)**
+
+A implementação é feita no navegador a partir da matriz de adjacência, evitando valores "estimados" previamente.
+
+## Grafo de referência
+
+- Nós: $V=\{A,B,C,D,E,F\}$.
+- Arestas: $AB, AC, BC, BD, CD, DE, DF$.
+- Grafo não direcionado e não ponderado.
+- Para Flow Betweenness, as arestas recebem capacidade unitária.
+
+## Simulador
+
+```{=html}
+<iframe src="simulador_centralidades.html" width="100%" height="650px" style="border:none;border-radius:10px"></iframe>
+```
+
+## 1. Grau
+
+$$
+C_D(v)=k_v
+$$
+
+Versão normalizada:
+
+$$
+C'_D(v)=\frac{k_v}{N-1}
+$$
+
+No grafo, $D$ tem grau 4 e, portanto, centralidade de grau normalizada $4/5=0,80$.
+
+## 2. Proximidade
+
+$$
+C_C(v)=\frac{N-1}{\sum_{u\neq v}d(v,u)}
+$$
+
+Quanto menor a distância média do nó para o restante da rede, maior sua proximidade.
+
+Para $D$:
+
+$$
+\sum d(D,u)=2+1+1+1+1=6
+$$
+
+e
+
+$$
+C_C(D)=5/6\approx0,8333.
+$$
+
+## 3. Intermediação
+
+$$
+C_B(v)=\sum_{s\neq v\neq t}
+\frac{\sigma_{st}(v)}{\sigma_{st}}
+$$
+
+A implementação enumera os menores caminhos entre todos os pares e divide pela quantidade de menores caminhos existentes. Para um grafo não direcionado, também é apresentada a normalização pelo número de pares possíveis.
+
+## 4. Autovetor
+
+$$
+Ax=\lambda x
+$$
+
+ou, componente a componente,
+
+$$
+\lambda x_i=\sum_j A_{ij}x_j.
+$$
+
+O valor é obtido por iteração de potência e normalizado pela norma euclidiana.
+
+## 5. Alavancagem
+
+Para a versão não direcionada:
+
+$$
+L(v)=\frac{1}{k_v}
+\sum_{u\in N(v)}
+\frac{k_v-k_u}{k_v+k_u}.
+$$
+
+A interpretação depende do contraste entre o grau de $v$ e os graus de seus vizinhos.
+
+## 6. Difusão / Katz
+
+A implementação usa a soma truncada:
+
+$$
+K_T=\beta\mathbf{1}+\sum_{t=1}^{T}\alpha^tA^t\mathbf{1}.
+$$
+
+Para o Katz infinito, é necessária a condição:
+
+$$
+\alpha\lambda_{\max}(A)<1.
+$$
+
+Atenção: **Diffusion Centrality e Katz Centrality são conceitos relacionados, mas não são sinônimos em todas as definições da literatura**. O código explicita que está usando a formulação Katz como operacionalização da família de medidas baseada em caminhadas.
+
+## 7. Intermediação de Fluxo
+
+Para cada par $(s,t)$, calcula-se o fluxo máximo $F_{st}$ em uma rede de capacidades unitárias. Para cada nó intermediário $v$, mede-se a perda relativa do fluxo quando $v$ é removido:
+
+$$
+FB(v)=
+\sum_{s\neq v\neq t}
+\frac{F_{st}-F_{st}^{-v}}{F_{st}}.
+$$
+
+Essa é uma escolha operacional explícita para a medida. Diferentes softwares e artigos podem adotar normalizações ou definições de Flow Betweenness diferentes.
+
+## Observação metodológica
+
+Os valores não devem ser comparados diretamente entre métricas diferentes como se estivessem na mesma escala. A comparação adequada é feita **dentro de cada métrica**, observando ranking, interpretação e, quando aplicável, normalização.

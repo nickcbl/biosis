@@ -12,13 +12,6 @@ format:
     theme: tema_azul.scss
     lightbox: true
 ---
-# Biologia de Sistemas
-
-# 04 - Modelos
-
-
----
-
 
 # Biologia
 

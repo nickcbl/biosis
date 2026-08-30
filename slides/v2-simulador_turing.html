@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Padrões de Turing (Reação-Difusão)</title>
+<style>
+  body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h2 { color: #38bdf8; }
+  #container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  canvas {
+    border: 2px solid #334155;
+    border-radius: 8px;
+    background: #000;
+  }
+  .controls {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+  }
+  .controls p { font-size: 14px; line-height: 1.5; color: #cbd5e1; }
+  label {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  input[type=range] { width: 100%; margin-top: 5px; }
+  button {
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+  }
+  button:hover { background-color: #0284c7; }
+</style>
+</head>
+<body>
+  <h2>Simulador de Padrões de Turing</h2>
+  <div id="container">
+    <canvas id="simCanvas" width="400" height="400"></canvas>
+    <div class="controls">
+      <p>Simulação baseada no modelo Gray-Scott de reação-difusão. Ajuste os parâmetros para ver diferentes padrões emergindo (manchas, labirintos, listras).</p>
+      
+      <label>Taxa de Alimentação (Feed) <span id="fVal">0.055</span></label>
+      <input type="range" id="fParam" min="0.010" max="0.100" step="0.001" value="0.055">
+      
+      <label>Taxa de Morte (Kill) <span id="kVal">0.062</span></label>
+      <input type="range" id="kParam" min="0.045" max="0.070" step="0.001" value="0.062">
+      
+      <div style="display:flex; gap:10px; margin-top:15px;">
+        <button id="presetSpots">Manchas</button>
+        <button id="presetStripes">Listras</button>
+      </div>
+      
+      <button id="resetBtn">Reiniciar Simulação</button>
+    </div>
+  </div>
+
+<script>
+const canvas = document.getElementById('simCanvas');
+const ctx = canvas.getContext('2d');
+const width = 200;
+const height = 200;
+
+let grid = [];
+let nextGrid = [];
+
+const dA = 1.0;
+const dB = 0.5;
+let feed = 0.055;
+let k = 0.062;
+let dt = 1.0;
+
+const fParam = document.getElementById('fParam');
+const kParam = document.getElementById('kParam');
+const fVal = document.getElementById('fVal');
+const kVal = document.getElementById('kVal');
+
+function updateDisplays() {
+  feed = parseFloat(fParam.value);
+  k = parseFloat(kParam.value);
+  fVal.textContent = feed.toFixed(3);
+  kVal.textContent = k.toFixed(3);
+}
+
+fParam.addEventListener('input', updateDisplays);
+kParam.addEventListener('input', updateDisplays);
+
+document.getElementById('presetSpots').addEventListener('click', () => {
+  fParam.value = 0.036; kParam.value = 0.062; updateDisplays(); init();
+});
+document.getElementById('presetStripes').addEventListener('click', () => {
+  fParam.value = 0.055; kParam.value = 0.062; updateDisplays(); init();
+});
+document.getElementById('resetBtn').addEventListener('click', init);
+
+function init() {
+  for (let x = 0; x < width; x++) {
+    grid[x] = [];
+    nextGrid[x] = [];
+    for (let y = 0; y < height; y++) {
+      grid[x][y] = { a: 1, b: 0 };
+      nextGrid[x][y] = { a: 1, b: 0 };
+    }
+  }
+
+  // Seed center
+  for (let x = width/2 - 10; x < width/2 + 10; x++) {
+    for (let y = height/2 - 10; y < height/2 + 10; y++) {
+      grid[x][y].b = 1;
+    }
+  }
+}
+
+function laplace(x, y, chemical) {
+  let sum = 0;
+  sum += grid[x][y][chemical] * -1;
+  sum += grid[(x - 1 + width) % width][y][chemical] * 0.2;
+  sum += grid[(x + 1) % width][y][chemical] * 0.2;
+  sum += grid[x][(y - 1 + height) % height][chemical] * 0.2;
+  sum += grid[x][(y + 1) % height][chemical] * 0.2;
+  sum += grid[(x - 1 + width) % width][(y - 1 + height) % height][chemical] * 0.05;
+  sum += grid[(x + 1) % width][(y - 1 + height) % height][chemical] * 0.05;
+  sum += grid[(x - 1 + width) % width][(y + 1) % height][chemical] * 0.05;
+  sum += grid[(x + 1) % width][(y + 1) % height][chemical] * 0.05;
+  return sum;
+}
+
+function step() {
+  for(let iter=0; iter<15; iter++){
+    for (let x = 0; x < width; x++) {
+      for (let y = 0; y < height; y++) {
+        const a = grid[x][y].a;
+        const b = grid[x][y].b;
+        nextGrid[x][y].a = a + (dA * laplace(x, y, 'a') - a * b * b + feed * (1 - a)) * dt;
+        nextGrid[x][y].b = b + (dB * laplace(x, y, 'b') + a * b * b - (k + feed) * b) * dt;
+      }
+    }
+    let temp = grid;
+    grid = nextGrid;
+    nextGrid = temp;
+  }
+}
+
+function draw() {
+  step();
+  const imgData = ctx.createImageData(width, height);
+  const data = imgData.data;
+  
+  for (let x = 0; x < width; x++) {
+    for (let y = 0; y < height; y++) {
+      const idx = (y * width + x) * 4;
+      const c = Math.floor((grid[x][y].a - grid[x][y].b) * 255);
+      const val = Math.max(0, Math.min(255, c));
+      data[idx] = val;     // R
+      data[idx+1] = val;   // G
+      data[idx+2] = val;   // B
+      data[idx+3] = 255;   // A
+    }
+  }
+  
+  // Scale up when drawing
+  const tempCanvas = document.createElement('canvas');
+  tempCanvas.width = width;
+  tempCanvas.height = height;
+  tempCanvas.getContext('2d').putImageData(imgData, 0, 0);
+  
+  ctx.save();
+  ctx.scale(2, 2);
+  ctx.drawImage(tempCanvas, 0, 0);
+  ctx.restore();
+  
+  requestAnimationFrame(draw);
+}
+
+init();
+draw();
+</script>
+</body>
+</html>

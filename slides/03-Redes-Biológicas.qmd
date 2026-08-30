@@ -1,4 +1,4 @@
-
+---
 title: "03 <br> Redes Biológicas"
 author: "Nicholas Barroso"
 format: 
@@ -11,6 +11,7 @@ format:
     incremental: false
     theme: tema_azul.scss
     lightbox: true
+---
 
 # O que são redes?
 

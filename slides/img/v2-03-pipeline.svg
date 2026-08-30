@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="866" height="286" viewBox="0 0 866 286" style="color-scheme: light dark">
+<defs>
+</defs>
+<metadata id="diagram-manifest" data-schema-version="1.0"><![CDATA[{"groups":[{"color":"#ef4444","id":"exp","label":"Experimental"},{"color":"#3b82f6","id":"comp","label":"Computacional"}],"height":286,"match":{"flags":"i","target":"fqProcessName","type":"regex"},"nodes":[{"groups":["exp"],"h":10.0,"id":"e1","label":"Experimento","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":80.0,"y":120.0},{"groups":["comp","exp"],"h":14.0,"id":"e2","label":"Dados brutos","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":201.0,"y":122.0},{"groups":["comp","exp"],"h":14.0,"id":"e3","label":"Pré-processamento","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":322.0,"y":122.0},{"groups":["comp"],"h":10.0,"id":"e4","label":"Construção da rede","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":443.0,"y":164.0},{"groups":["comp"],"h":10.0,"id":"e5","label":"Análise de centralidades","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":564.0,"y":164.0},{"groups":["comp","exp"],"h":14.0,"id":"e6","label":"Identificação de módulos","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":685.0,"y":122.0},{"groups":["comp","exp"],"h":14.0,"id":"e7","label":"Interpretação biológica","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":806.0,"y":122.0}],"regions":[],"title":"Pipeline de análise de redes biológicas","version":"1.0","width":866}]]></metadata>
+<style>.nf-metro-bg { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }
+.nf-metro-title { fill: var(--nfm-map-title-color, light-dark(#111111, #ffffff)); }
+.nf-metro-station-label { fill: var(--nfm-map-label-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-section-box { fill: var(--nfm-map-section-fill, light-dark(#ededed, #373737)); stroke: var(--nfm-map-section-stroke, light-dark(#e6e6e6, #595959)); }
+.nf-metro-section-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-underline { stroke: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-legend-bg { fill: var(--nfm-map-legend-bg, light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.3))); }
+.nf-metro-legend-text { fill: var(--nfm-map-legend-text-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-marker-stroke { stroke: var(--nfm-map-marker-stroke, light-dark(#333333, #f0f0f0)); }
+.nf-metro-label-halo { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); stroke: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }</style>
+<rect x="0" y="0" width="866" height="286" fill="#2b2b2b" class="nf-metro-bg" />
+<text x="60.0" y="30.0" font-size="24.0" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" class="nf-metro-title">Pipeline de análise de redes biológicas</text>
+<path d="M201.0,124.0 L322.0,124.0" stroke="#3b82f6" stroke-width="3.0" stroke-linecap="round" class="metro-line-comp" data-line-id="comp" />
+<path d="M322.0,124.0 L357.5,124.0 Q367.5,124.0,373.5,132.0 L391.5,156.0 Q397.5,164.0,407.5,164.0 L443.0,164.0" stroke="#3b82f6" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-comp" data-line-id="comp" />
+<path d="M443.0,164.0 L564.0,164.0" stroke="#3b82f6" stroke-width="3.0" stroke-linecap="round" class="metro-line-comp" data-line-id="comp" />
+<path d="M564.0,164.0 L599.5,164.0 Q609.5,164.0,615.5,156.0 L633.5,132.0 Q639.5,124.0,649.5,124.0 L685.0,124.0" stroke="#3b82f6" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-comp" data-line-id="comp" />
+<path d="M685.0,124.0 L806.0,124.0" stroke="#3b82f6" stroke-width="3.0" stroke-linecap="round" class="metro-line-comp" data-line-id="comp" />
+<path d="M80.0,120.0 L201.0,120.0" stroke="#ef4444" stroke-width="3.0" stroke-linecap="round" class="metro-line-exp" data-line-id="exp" />
+<path d="M201.0,120.0 L322.0,120.0" stroke="#ef4444" stroke-width="3.0" stroke-linecap="round" class="metro-line-exp" data-line-id="exp" />
+<path d="M685.0,120.0 L806.0,120.0" stroke="#ef4444" stroke-width="3.0" stroke-linecap="round" class="metro-line-exp" data-line-id="exp" />
+<g class="nf-metro-station-group" data-node-id="e1" data-node-cx="80.0" data-node-cy="120.0" data-node-r="5.0" data-node-groups="exp" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="75.0" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="e1" data-station-lines="exp" data-station-label="Experimento" />
+</g>
+<g class="nf-metro-station-group" data-node-id="e2" data-node-cx="201.0" data-node-cy="122.0" data-node-r="5.0" data-node-groups="comp,exp" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="196.0" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="e2" data-station-lines="comp,exp" data-station-label="Dados brutos" />
+</g>
+<g class="nf-metro-station-group" data-node-id="e3" data-node-cx="322.0" data-node-cy="122.0" data-node-r="5.0" data-node-groups="comp,exp" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="317.0" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="e3" data-station-lines="comp,exp" data-station-label="Pré-processamento" />
+</g>
+<g class="nf-metro-station-group" data-node-id="e4" data-node-cx="443.0" data-node-cy="164.0" data-node-r="5.0" data-node-groups="comp" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="438.0" y="159.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="e4" data-station-lines="comp" data-station-label="Construção da rede" />
+</g>
+<g class="nf-metro-station-group" data-node-id="e5" data-node-cx="564.0" data-node-cy="164.0" data-node-r="5.0" data-node-groups="comp" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="559.0" y="159.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="e5" data-station-lines="comp" data-station-label="Análise de centralidades" />
+</g>
+<g class="nf-metro-station-group" data-node-id="e6" data-node-cx="685.0" data-node-cy="122.0" data-node-r="5.0" data-node-groups="comp,exp" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="680.0" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="e6" data-station-lines="comp,exp" data-station-label="Identificação de módulos" />
+</g>
+<g class="nf-metro-station-group" data-node-id="e7" data-node-cx="806.0" data-node-cy="122.0" data-node-r="5.0" data-node-groups="comp,exp" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="801.0" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="e7" data-station-lines="comp,exp" data-station-label="Interpretação biológica" />
+</g>
+<text x="80.0" y="131.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Experimento</text>
+<text x="80.0" y="131.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="e1" class="nf-metro-station-label">Experimento</text>
+<text x="201.0" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Dados brutos</text>
+<text x="201.0" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="e2" class="nf-metro-station-label">Dados brutos</text>
+<text x="322.0" y="135.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Pré-processamento</text>
+<text x="322.0" y="135.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="e3" class="nf-metro-station-label">Pré-processamento</text>
+<text x="443.0" y="175.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Construção da rede</text>
+<text x="443.0" y="175.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="e4" class="nf-metro-station-label">Construção da rede</text>
+<text x="564.0" y="150.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Análise de centralidades</text>
+<text x="564.0" y="150.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="e5" class="nf-metro-station-label">Análise de centralidades</text>
+<text x="685.0" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Identificação de módulos</text>
+<text x="685.0" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="e6" class="nf-metro-station-label">Identificação de módulos</text>
+<text x="806.0" y="135.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Interpretação biológica</text>
+<text x="806.0" y="135.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="e7" class="nf-metro-station-label">Interpretação biológica</text>
+<rect x="60.0" y="190.0" width="160.10000000000002" height="72.0" rx="6" ry="6" fill="rgba(0, 0, 0, 0.3)" class="nf-metro-legend-bg" />
+<path d="M72.0,214.0 L96.0,214.0" stroke="#ef4444" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="214.0" font-size="14.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Experimental</text>
+<path d="M72.0,238.0 L96.0,238.0" stroke="#3b82f6" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="238.0" font-size="14.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Computacional</text>
+<text x="836.0" y="278.0" font-size="8" fill="rgba(150, 150, 150, 0.6)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="end">created with nf-metro v1.1.0</text>
+</svg>

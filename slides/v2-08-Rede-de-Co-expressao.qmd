@@ -1,0 +1,79 @@
+---
+title: "08 <br> Rede de Co-expressão"
+author: "Nicholas Barroso"
+format: 
+  revealjs:
+    slide-number: c/t
+    width: 1600
+    height: 900
+    logo: img/logo.png
+    footer: "Nicholas Barroso"
+    incremental: false
+    theme: tema_azul.scss
+    lightbox: true
+---
+
+# Rede de Co-expressão
+
+Grafo não-direcionado de genes que tendem a ser ativados ou reprimidos conjuntamente através de múltiplas amostras.
+
+::: {.columns}
+::: {.column width="50%"}
+**Utilidades:**
+- Priorizar genes associados a doenças.
+- Anotação funcional de genes desconhecidos.
+- Agrupar genes do mesmo módulo funcional.
+:::
+::: {.column width="50%"}
+**Limitações:**
+- Não confere causalidade.
+- Não distingue gene regulador de gene regulado.
+:::
+:::
+
+# Construção da Rede em 3 Passos
+
+1. **Definir relações:** Medidas de correlação entre os perfis de expressão (Pearson, Spearman).
+2. **Construir a rede:** Vértices são genes e arestas são a força da correlação.
+3. **Definição de módulos:** Agrupamento de genes em clusters fortemente conectados.
+
+## Tipos de Redes
+
+- **Com sinal vs Sem sinal:**
+  - Sem sinal usa valor absoluto (ignora se correlação é positiva ou negativa).
+  - Com sinal escala valores para separar genes que sobem juntos daqueles que são opostos.
+- **Ponderadas vs Não-ponderadas:**
+  - Ponderada: Arestas recebem peso contínuo $0 \rightarrow 1$ (ex: WGCNA).
+  - Não-ponderada: Aplica um ponto de corte (limiar); conexões são 1 ou 0.
+
+# Módulos e Hubs
+
+## Identificação de Módulos (Clustering)
+
+- Ferramentas como **WGCNA** realizam agrupamento hierárquico.
+- Cada ramo vira um módulo.
+- É ideal para identificar módulos comuns (todas as amostras) ou realizar análises de co-expressão diferencial (mudanças específicas entre condições).
+
+## Identificação de Genes Hub
+
+Genes centrais ("Hubs") ajudam a resumir grandes módulos.
+
+- **Intramodulares:** Essenciais dentro de um módulo específico.
+- **Intermodulares:** Reguladores que conectam diferentes módulos.
+
+::: {.callout-note}
+Ferramentas de centralidade (como CytoHubba e igraph) são usadas para isolar esses genes principais.
+:::
+
+## Enriquecimento e Guilt-by-Association
+
+::: {.columns}
+::: {.column width="50%"}
+**Análise de Enriquecimento:**
+Revela quais processos biológicos são os mais dominantes dentro de um módulo construído.
+:::
+::: {.column width="50%"}
+**Princípio GBA (Guilt by Association):**
+Genes desconhecidos que co-expressam no mesmo módulo de genes bem caracterizados muito provavelmente compartilham a mesma função celular ou via de doença.
+:::
+:::
