@@ -1,36 +1,248 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nickcbl.github.io/biosis/referencias/referencias.html</loc>
-    <lastmod>2026-08-25T15:11:04.975Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/teste/centralidades_grafos.html</loc>
+    <lastmod>2026-08-29T13:46:11.650Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/mapas/mapa5.html</loc>
-    <lastmod>2025-12-11T12:47:11.391Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/teste/teste.html</loc>
+    <lastmod>2026-08-30T01:34:51.829Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/mapas/mapa2.html</loc>
-    <lastmod>2025-12-11T11:44:31.230Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/teste/bla.html</loc>
+    <lastmod>2026-07-02T19:02:02.876Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica4.html</loc>
+    <lastmod>2026-07-18T13:34:13.861Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica8.html</loc>
+    <lastmod>2026-07-18T14:16:58.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica6.html</loc>
+    <lastmod>2026-07-18T13:34:55.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica3.html</loc>
+    <lastmod>2026-07-18T13:34:36.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica9.html</loc>
+    <lastmod>2026-07-18T20:52:13.267Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica12.html</loc>
+    <lastmod>2026-07-18T13:35:42.449Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/input/input.html</loc>
+    <lastmod>2026-06-30T11:53:42.458Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/referencias/leituras.html</loc>
+    <lastmod>2025-12-12T19:07:09.198Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/modulos/modulo8.html</loc>
+    <lastmod>2026-07-18T20:09:18.879Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/modulos/modulo9.html</loc>
+    <lastmod>2026-07-18T20:09:25.847Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/modulos/modulo2.html</loc>
+    <lastmod>2026-07-18T20:08:33.249Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/modulos/modulo4.html</loc>
+    <lastmod>2026-07-18T20:08:46.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/modulos/modulo6.html</loc>
+    <lastmod>2026-07-18T20:09:01.962Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/01-historico-e-conceitos.html</loc>
+    <lastmod>2026-08-30T01:13:17.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-06-Integracao-de-dados.html</loc>
+    <lastmod>2026-08-29T14:25:11.284Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-09-Rede-de-interacao-proteina-proteina.html</loc>
+    <lastmod>2026-08-29T14:27:40.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-centralidades_grafos.html</loc>
+    <lastmod>2026-08-29T14:18:20.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/06-integracao-e-dados.html</loc>
+    <lastmod>2026-08-30T00:55:36.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-10-Biologia-Sintetica.html</loc>
+    <lastmod>2026-08-29T14:26:50.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-05-Obtencao-de-dados.html</loc>
+    <lastmod>2026-08-29T18:21:37.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/centralidades_grafos.html</loc>
+    <lastmod>2026-08-29T18:22:22.762Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/02-grafos.html</loc>
+    <lastmod>2026-08-28T20:26:33.370Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula1.html</loc>
+    <lastmod>2026-08-25T15:11:04.897Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula9.html</loc>
+    <lastmod>2025-10-24T14:09:15.785Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula4.html</loc>
+    <lastmod>2025-09-10T13:19:32.785Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula10.html</loc>
+    <lastmod>2025-10-24T14:09:52.672Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula3.html</loc>
+    <lastmod>2025-09-10T13:19:11.995Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/aula11.html</loc>
+    <lastmod>2026-08-28T20:24:04.193Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/mapas/mapa3.html</loc>
     <lastmod>2025-12-11T11:43:34.910Z</lastmod>
   </url>
   <url>
+    <loc>https://nickcbl.github.io/biosis/mapas/mapa7.html</loc>
+    <lastmod>2025-12-11T13:56:26.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/mapas/mapa4.html</loc>
+    <lastmod>2025-12-11T11:42:37.156Z</lastmod>
+  </url>
+  <url>
     <loc>https://nickcbl.github.io/biosis/mapas/mapa1.html</loc>
     <lastmod>2025-12-11T11:45:17.153Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/mapas/mapa6.html</loc>
-    <lastmod>2025-12-11T13:40:01.456Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/mapas/mapa5.html</loc>
+    <lastmod>2025-12-11T12:47:11.391Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/listas/ed1.html</loc>
+    <lastmod>2026-08-25T15:11:04.975Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/listas/exercicios_fundamentos_logica.html</loc>
+    <lastmod>2026-07-08T18:27:32.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/listas/ed2.html</loc>
+    <lastmod>2026-08-25T15:11:04.975Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/listas/listas.html</loc>
     <lastmod>2026-07-15T12:28:46.352Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/listas/exercicios_fundamentos_logica.html</loc>
-    <lastmod>2026-07-08T18:27:32.472Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/listas/exercicios_biotecnologia.html</loc>
+    <lastmod>2026-07-05T19:23:03.519Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/videos/videos.html</loc>
+    <lastmod>2025-12-12T18:58:26.170Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/mapas/mapa9.html</loc>
+    <lastmod>2025-12-11T14:24:39.553Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/mapas/mapa8.html</loc>
+    <lastmod>2025-12-11T14:20:50.128Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/mapas/mapa6.html</loc>
+    <lastmod>2025-12-11T13:40:01.456Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/mapas/mapa2.html</loc>
+    <lastmod>2025-12-11T11:44:31.230Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-08-Rede-de-Co-expressao.html</loc>
+    <lastmod>2026-08-29T18:21:19.859Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/10-biologia-sintetica.html</loc>
+    <lastmod>2026-08-29T18:30:32.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula2.html</loc>
+    <lastmod>2025-09-10T12:43:48.103Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula7.html</loc>
+    <lastmod>2025-10-24T14:08:10.725Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula8.html</loc>
+    <lastmod>2025-10-24T14:08:51.422Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula5.html</loc>
+    <lastmod>2025-09-10T13:20:24.942Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/backup/aula6.html</loc>
+    <lastmod>2025-10-24T14:07:46.384Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/07-rede-metabolica.html</loc>
+    <lastmod>2026-08-30T00:52:04.850Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/05-obtencao-de-dados-e-banco-de-dados.html</loc>
+    <lastmod>2026-08-28T20:29:03.285Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/04-modelos.html</loc>
+    <lastmod>2026-08-29T18:24:58.199Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/slides.html</loc>
+    <lastmod>2026-08-30T01:36:05.398Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/09-rede-de-interacao-proteina-proteina.html</loc>
+    <lastmod>2026-08-30T00:01:46.758Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/08-rede-de-co-expressao.html</loc>
+    <lastmod>2026-08-30T00:58:09.656Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/03-redes-biologicas.html</loc>
+    <lastmod>2026-08-29T18:24:39.596Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/slides/v2-07-Rede-Metabolica.html</loc>
+    <lastmod>2026-08-29T14:18:49.148Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/modulos/modulo1.html</loc>
@@ -41,56 +253,40 @@
     <lastmod>2026-07-18T20:08:56.187Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/modulos/modulo6.html</loc>
-    <lastmod>2026-07-18T20:09:01.962Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/modulos/modulos.html</loc>
+    <lastmod>2026-07-18T20:10:32.116Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/modulos/modulo9.html</loc>
-    <lastmod>2026-07-18T20:09:25.847Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/modulos/modulo7.html</loc>
+    <lastmod>2026-07-18T20:09:12.849Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/modulos/modulo3.html</loc>
     <lastmod>2026-07-18T20:08:39.508Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/teste/teste.html</loc>
-    <lastmod>2026-08-25T12:28:56.854Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/teste/slides.html</loc>
-    <lastmod>2026-08-24T19:48:36.488Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula11.html</loc>
-    <lastmod>2026-05-25T20:50:51.775Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula2.html</loc>
-    <lastmod>2025-09-10T12:43:48.103Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula1.html</loc>
-    <lastmod>2026-08-25T15:11:04.897Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula8.html</loc>
-    <lastmod>2025-10-24T14:08:51.422Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula4.html</loc>
-    <lastmod>2025-09-10T13:19:32.785Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula3.html</loc>
-    <lastmod>2025-09-10T13:19:11.995Z</lastmod>
-  </url>
-  <url>
     <loc>https://nickcbl.github.io/biosis/index.html</loc>
     <lastmod>2026-08-25T15:11:04.975Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica3.html</loc>
-    <lastmod>2026-07-18T13:34:36.588Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/referencias/referencias.html</loc>
+    <lastmod>2026-08-25T15:11:04.975Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica11.html</loc>
+    <lastmod>2026-07-18T13:35:35.733Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica2.html</loc>
+    <lastmod>2026-07-18T13:34:39.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica10.html</loc>
+    <lastmod>2026-07-18T20:53:35.466Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nickcbl.github.io/biosis/roteiros/pratica7.html</loc>
+    <lastmod>2026-07-18T13:35:02.246Z</lastmod>
   </url>
   <url>
     <loc>https://nickcbl.github.io/biosis/roteiros/pratica5.html</loc>
@@ -101,131 +297,15 @@
     <lastmod>2026-07-16T20:25:18.150Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica2.html</loc>
-    <lastmod>2026-07-18T13:34:39.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica12.html</loc>
-    <lastmod>2026-07-18T13:35:42.449Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica10.html</loc>
-    <lastmod>2026-07-18T20:53:35.466Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica6.html</loc>
-    <lastmod>2026-07-18T13:34:55.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica9.html</loc>
-    <lastmod>2026-07-18T20:52:13.267Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/input/input.html</loc>
-    <lastmod>2026-06-30T11:53:42.458Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica11.html</loc>
-    <lastmod>2026-07-18T13:35:35.733Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica7.html</loc>
-    <lastmod>2026-07-18T13:35:02.246Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica8.html</loc>
-    <lastmod>2026-07-18T14:16:58.299Z</lastmod>
-  </url>
-  <url>
     <loc>https://nickcbl.github.io/biosis/roteiros/pratica1.html</loc>
     <lastmod>2026-07-18T13:34:44.001Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/roteiros/pratica4.html</loc>
-    <lastmod>2026-07-18T13:34:13.861Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/teste/cu.html</loc>
+    <lastmod>2026-08-29T13:51:17.905Z</lastmod>
   </url>
   <url>
-    <loc>https://nickcbl.github.io/biosis/slides/slides.html</loc>
-    <lastmod>2026-07-16T19:43:52.930Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula7.html</loc>
-    <lastmod>2025-10-24T14:08:10.725Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula5.html</loc>
-    <lastmod>2025-09-10T13:20:24.942Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula10.html</loc>
-    <lastmod>2025-10-24T14:09:52.672Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula6.html</loc>
-    <lastmod>2025-10-24T14:07:46.384Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/slides/aula9.html</loc>
-    <lastmod>2025-10-24T14:09:15.785Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/videos/videos.html</loc>
-    <lastmod>2025-12-12T18:58:26.170Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/teste/bla.html</loc>
-    <lastmod>2026-07-02T19:02:02.876Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/modulos/modulo8.html</loc>
-    <lastmod>2026-07-18T20:09:18.879Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/modulos/modulos.html</loc>
-    <lastmod>2026-07-18T20:10:32.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/modulos/modulo7.html</loc>
-    <lastmod>2026-07-18T20:09:12.849Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/modulos/modulo4.html</loc>
-    <lastmod>2026-07-18T20:08:46.633Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/modulos/modulo2.html</loc>
-    <lastmod>2026-07-18T20:08:33.249Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/listas/ed1.html</loc>
-    <lastmod>2026-08-25T15:11:04.975Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/listas/ed2.html</loc>
-    <lastmod>2026-08-25T15:11:04.975Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/listas/exercicios_biotecnologia.html</loc>
-    <lastmod>2026-07-05T19:23:03.519Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/mapas/mapa9.html</loc>
-    <lastmod>2025-12-11T14:24:39.553Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/mapas/mapa4.html</loc>
-    <lastmod>2025-12-11T11:42:37.156Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/mapas/mapa7.html</loc>
-    <lastmod>2025-12-11T13:56:26.337Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/mapas/mapa8.html</loc>
-    <lastmod>2025-12-11T14:20:50.128Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nickcbl.github.io/biosis/referencias/leituras.html</loc>
-    <lastmod>2025-12-12T19:07:09.198Z</lastmod>
+    <loc>https://nickcbl.github.io/biosis/teste/centralidade_apresentacao.html</loc>
+    <lastmod>2026-08-29T13:29:07.301Z</lastmod>
   </url>
 </urlset>
