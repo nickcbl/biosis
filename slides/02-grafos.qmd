@@ -10,6 +10,11 @@ format:
     incremental: false
     theme: tema_azul.scss
     lightbox: true
+    menu:
+      custom:
+        - title: "Navegação"
+          icon: '🏠'
+          content: '<p><a href="slides.html">&larr; Voltar para a Home do Biosis</a></p>'
 ---
 
 # Grafo *versus* Gráfico
@@ -155,15 +160,15 @@ Sua representação gráfica pode ser um ponto ou um círculo que pode, ou não,
 ::: {.column}
 * As arestas indicam  relações  entre os elementos. O significado da relação pode mudar dependendo dos elementos.
 * Por isso as arestas podem ser:
-* Não-direcionadas:  (v1,v2)  =  (v2,v1), relações simétrica.
+* **Não-direcionadas**:  $(v_1,v_2) = (v_2,v_1)$, relações simétricas.
   * Quando a ligação não exibe precedência, somente relação.
   * Complexo proteico onde A interage com B e vice-versa.
-* Direcionadas:   (v  1  ,v  2  )   ≠   (v  2  ,v  1  )
+* **Direcionadas**: $(v_1, v_2) ≠ (v_2,v_1)$
   * Quando a ligação entre os dados indica precedência ou ordem
     * causa e efeito;
     * antes ou depois;
     * substrato → produto.
-    * GeneX ativa a expressão de GeneY (GeneX → GeneY).
+    * GeneX ativa a expressão de GeneY $(GeneX \rightarrow GeneY)$.
 :::
 
 ::: {.column}
@@ -242,15 +247,59 @@ Para o grafo direcionado, o grau do vértice pode ser dividido em grau de entrad
 ![](img/02-Grafos_11.png){.r-stretch fig-align="center"}
 
 
-
-
 # Laço
 
 Quando uma aresta começa e termina em um mesmo vértice ela é chamada de laço (loop)
 
-Exemplo: Autofosforilação de uma quinase (ex.: receptor EGFR).
 
-![](img/02-Grafos_13.png)
+::: {.callout}
+# Exemplo
+Autofosforilação de uma quinase (ex.: receptor EGFR).
+:::
+
+```{dot}
+graph G {
+    // Define o layout circular simétrico
+    layout=circo
+    size="10,8"
+    ratio=fill
+    
+    // Ajuste da fonte proporcional ao nó de 2.0 polegadas
+    node [
+        shape=circle, 
+        style=filled, 
+        fillcolor="#0066ff", 
+        fontcolor=white, 
+        width=2.0, 
+        height=2.0, 
+        fixedsize=true, 
+        fontsize=72
+    ]
+    
+    edge [color=black, penwidth=6]
+
+    A [label="1"]
+    B [label="2"]
+    C [label="3"]
+    D [label="4"]
+    E [label="5"]
+    F [label="6"]
+
+    // Aresta do laço expandida (len aumenta a distância/arco)
+    A:s -- A:e [color=red]
+    
+    A -- B
+    A -- C
+    B -- C
+    B -- D
+    D -- E
+    C -- E
+    E -- F
+}
+```
+<!-- 
+![](img/02-Grafos_13.png){.r-stretch fig-align="center"} -->
+
 
 # Layout
 
@@ -289,8 +338,30 @@ Disposição visual dos vértices (nós) e arestas (conexões) no espaço (geral
 | Circular | Vértices em um círculo | Interações proteína-DNA para destacar elementos centrais. |
 | Radial | Vértices dispostos em anéis concêntricos | Árvores filogenéticas (evolução de patógenos). |
 
-::: {.notes}
+# Layout (cont.)
 
+::: {.panel-tabset}
+### Force-Directed e Hierárquico
+:::{layout-ncol="2"}
+![Force-Directed](img/02-Grafos_28.png)
+
+![Hierárquico](img/02-Grafos_29.png)
+:::
+### Circular e Radial
+:::{layout-ncol="2"}
+![Circular](img/02-Grafos_30.png)
+
+![Radial](img/02-Grafos_31.png)
+:::
+:::
+
+<!-- {width="100%" height="800px" style="object-fit: contain;"} -->
+
+::: aside
+[yfiles: simulação de redes](https://www.yfiles.com/demos/showcase/layoutstyles/index.html)
+:::
+
+::: {.notes}
 Ferramentas para Layout de Grafos
 
     Cytoscape: Oferece algoritmos como Prefuse Force-Directed para redes biológicas.
@@ -304,7 +375,6 @@ Dica: Em biotecnologia, escolha o layout com base no objetivo:
     Se quer identificar comunidades, use force-directed.
 
     Se quer mostrar fluxos, use hierárquico.
-
 :::
 
 
@@ -534,13 +604,13 @@ Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos 
 ::: {.columns}
 
 ::: {.column}
-![](img/02-Grafos_25.png){.r-stretch}
+![](img/02-Grafos_25.png){width="100%" height="600px" style="object-fit: contain;"}
 
 
 :::
 
 ::: {.column}
-![](img/02-Grafos_26.png){.r-stretch}
+![](img/02-Grafos_26.png){width="100%" height="600px" style="object-fit: contain;"}
 
 
 :::
@@ -568,7 +638,7 @@ Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos 
 = {4}<br>
 :::
 ::: {.column}
-![](img/02-Grafos_27.png){.r-stretch fig-align="center"}
+![](img/02-Grafos_27.png){width="100%" height="500px" style="object-fit: contain;"}
 :::
 :::
 

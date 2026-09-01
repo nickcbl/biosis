@@ -1,0 +1,225 @@
+/*-- scss:defaults --*/
+
+// Nova Paleta de Cores (Paper / Bio-Computational Theme)
+$paper:       #f6f5ef;   // Fundo principal da página (off-white)
+$navy-1:      #ffffff;   // Cards, navbar e elementos em destaque (branco limpo)
+$navy-2:      #eae8de;   // Hover / elementos elevados
+$border-soft: #d3d1c7;   // Bordas e divisores estruturais
+
+$slate:       #536b7d;   // Módulos / Azul Slate
+$slate-dark:  #354957;   // Títulos e texto forte
+$sage-dark:   #718b73;   // Roteiros Práticos / Verde Sálvia
+$terra:       #bd7243;   // Apresentações e Destaques / Terracota
+$ink:         #20201e;   // Texto principal (quase preto, alta legibilidade)
+$muted:       #5f676b;   // Texto secundário e legendas
+
+// Variáveis do Bootstrap/Quarto
+$body-bg:    $paper;
+$body-color: $ink;
+$link-color: $terra;
+
+$navbar-bg: $navy-1;
+$navbar-fg: $ink;
+$navbar-hl: $terra;
+
+$code-bg:    #eae8de;
+$code-color: $slate-dark;
+$code-block-bg: #ffffff;
+
+$font-family-sans-serif: "Inter", -apple-system, "Segoe UI", sans-serif;
+$headings-font-family:   "Source Serif 4", Georgia, "Times New Roman", serif;
+$font-family-monospace:  "JetBrains Mono", "SFMono-Regular", monospace;
+
+$h1-font-size: 2.4rem;
+$headings-font-weight: 700;
+$border-radius: 10px;
+$headings-color: $ink;
+
+/*-- scss:rules --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+body { 
+  line-height: 1.65; 
+}
+
+// ---- Textura Sutil de Grade no Fundo (Estilo Papel Milimetrado Científico) ----
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(83, 107, 125, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(83, 107, 125, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+  z-index: -1;
+}
+
+// ---- Navbar ----
+.navbar {
+  border-bottom: 1.5px solid $border-soft;
+  backdrop-filter: blur(10px);
+}
+.navbar-brand { font-family: $headings-font-family; font-weight: 700; color: $ink !important; }
+.navbar-brand img { border-radius: 50%; border: 1px solid $border-soft; }
+
+// ---- Sidebar ----
+.sidebar { background: $navy-1; border-right: 1.5px solid $border-soft; }
+.sidebar-item a { color: $muted; }
+.sidebar-item a:hover, .sidebar-item a.active { color: $terra; }
+
+// ---- Cards de Conteúdo ----
+.card, .mod-card, .res-card {
+  background: $navy-1;
+  border: 1.5px solid $border-soft;
+  border-radius: 10px;
+  padding: 1.4rem;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.mod-card, .res-card {
+  position: relative;
+}
+.res-card-soon { opacity: .6; }
+
+.soon-badge {
+  display: inline-block;
+  margin-top: .5rem;
+  font-family: $font-family-monospace;
+  font-size: .65rem;
+  font-weight: 600;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  border: 1px solid $border-soft;
+  color: $muted;
+  background: $paper;
+}
+
+.mod-card:hover, .res-card:hover {
+  border-color: $slate;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(83, 107, 125, 0.08);
+}
+
+// Badge circular numerado (Nós da Rede)
+.mod-node {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: $font-family-monospace;
+  font-weight: 700; font-size: .85rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid;
+}
+.mod-node-long {
+  width: 110px; height: 38px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: $font-family-monospace;
+  font-weight: 700; font-size: .8rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid;
+}
+
+// Cores mapeadas para o novo padrão
+.n-teal, .cat-modulo   { color: $slate;       border-color: $slate;       background: rgba(83, 107, 125, 0.08); }
+.n-green, .cat-pratica { color: $sage-dark;   border-color: $sage-dark;   background: rgba(113, 139, 115, 0.12); }
+.n-blue, .cat-slides   { color: $terra;       border-color: $terra;       background: rgba(189, 114, 67, 0.08); }
+.n-purple, .cat-estudos{ color: $slate-dark;  border-color: $slate-dark;  background: rgba(53, 73, 87, 0.08); }
+
+// ---- Hero da Home ----
+.hero-hl {
+  color: $slate-dark;
+  font-family: $headings-font-family;
+  font-style: italic;
+}
+
+.status-badge {
+  font-family: $font-family-monospace;
+  font-size: .7rem;
+  font-weight: 600;
+  padding: .3rem .7rem;
+  border-radius: 999px;
+  border: 1px solid $border-soft;
+  color: $muted;
+  background: $navy-1;
+}
+
+footer.footer { border-top: 1.5px solid $border-soft; background: $navy-1; }
+
+// ---- Layout da Home ----
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+.hero-eyebrow {
+  font-family: $font-family-monospace;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: $slate;
+}
+.hero-lede { color: $ink; font-size: 1.1rem; max-width: 46ch; margin: 1rem 0 1.5rem; }
+.hero-meta { color: $muted; font-size: .85rem; margin-bottom: 1.5rem; }
+
+.hero-art {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid $border-soft;
+    height: 500px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+.hero-art img {
+    width: auto;
+    height: 500px;
+    display: block;
+}
+
+.cta-row .btn {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: .7rem 1.3rem;
+  margin-right: .6rem;
+}
+.btn-teal { background: $slate-dark; color: #ffffff; border: none; }
+.btn-teal:hover { background: $slate; color: #ffffff; }
+.btn-outline { border: 1.5px solid $border-soft; color: $ink; background: $navy-1; }
+.btn-outline:hover { background: $navy-2; }
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1.5px solid $border-soft;
+  border-bottom: 1.5px solid $border-soft;
+  padding: 1.5rem 0;
+  margin: 1rem 0 3rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.4);
+}
+.stats-bar div { border-left: 1.5px solid $border-soft; }
+.stats-bar div:first-child { border-left: none; }
+.stats-bar b { display: block; font-family: $headings-font-family; font-size: 1.8rem; color: $slate-dark; }
+.stats-bar span { font-family: $font-family-monospace; font-size: .7rem; font-weight: 600; color: $muted; }
+
+.modules-grid, .res-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1.5rem 0 3rem;
+}
+.res-grid { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 860px) {
+  .hero-section { grid-template-columns: 1fr; }
+  .modules-grid, .res-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .modules-grid, .res-grid { grid-template-columns: 1fr; }
+}

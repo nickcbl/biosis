@@ -10,6 +10,11 @@ format:
     incremental: false
     theme: tema_azul.scss
     lightbox: true
+    menu:
+      custom:
+        - title: "Navegação"
+          icon: '🏠'
+          content: '<p><a href="slides.html">&larr; Voltar para a Home do Biosis</a></p>'
 ---
 
 #

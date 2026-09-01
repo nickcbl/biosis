@@ -69,15 +69,14 @@ website:
         - section: Teste
           contents:
             - teste/teste.qmd
-            - teste/slides.qmd
   page-footer:
     <p class="status-badge">em construção · v2 · 2026</p>
 
 format:
   html:
     theme:
-      - minty
-      - custom.scss
+      - sandstone
+      - custom-bege.scss
     highlight-style: github
     grid:
       sidebar-width: 260px

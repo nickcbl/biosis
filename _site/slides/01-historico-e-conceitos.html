@@ -7,11 +7,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="">
   <title>CI0932 - Biologia de Sistemas – 01   Histórico e Conceitos</title>
@@ -24,13 +24,10 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -270,7 +267,7 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 
 </section>
 
-<section id="ludwig-von-bertalanffy" class="title-slide slide level1 center">
+<section id="ludwig-von-bertalanffy" class="title-slide slide level1 smaller center">
 <h1>Ludwig von Bertalanffy</h1>
 <div class="columns">
 <div class="column">
@@ -282,7 +279,7 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 </div><div class="column">
 <ul>
 <li>Biólogo Austríaco</li>
-<li>Desenvolveu a <span style="color:#4169E1; font-weight:bold;">Teoria Geral dos Sistemas</span> .
+<li>Desenvolveu a <span style="color:#4169E1; font-weight:bold;">Teoria Geral dos Sistemas</span>.
 <ul>
 <li>Trabalhos entre 1950 e 1968</li>
 </ul></li>
@@ -544,7 +541,7 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 <p>Em 1952, <strong>Hodgkin</strong> e <strong>Huxley</strong> publicaram um marco da biologia de sistemas: um modelo matemático quantitativo que descreve a geração e propagação do potencial de ação em neurônios do axônio gigante da lula (<em>Loligo pealei</em>).</p>
 <p><strong>Metodologia</strong>:</p>
 <p>Combinaram experimentos eletrofisiológicos (com técnicas de voltage clamp) com equações diferenciais.</p>
-<p>Modelaram a dinâmica dos canais iônicos de sódio (Na⁺) e potássio (K⁺), prevendo como variações de voltagem controlam o fluxo de íons.</p>
+<p>Modelaram a dinâmica dos canais iônicos de sódio (<span class="math inline">\(Na⁺\)</span>) e potássio (<span class="math inline">\(K⁺\)</span>), prevendo como variações de voltagem controlam o fluxo de íons.</p>
 </section>
 
 <section id="section" class="title-slide slide level1 smaller center">
@@ -558,10 +555,12 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 </div>
 </div><div class="column">
 <p><strong>Impacto Científico</strong>:</p>
-<p><strong>Fundamentos da Neurociência Computacional</strong>: Seu modelo (equações de Hodgkin-Huxley) é a base para simulações de redes neuronais modernas, incluindo estudos sobre epilepsia e Parkinson (Dayan &amp; Abbott, 2001).</p>
-<p><strong>Biotecnologia</strong>: Inspirou o desenvolvimento de interfaces cérebro-máquina e próteses neurais (Nicolelis, 2003).</p>
-<p><strong>Prêmio Nobel (1963)</strong>: Receberam o Nobel de Fisiologia/Medicina por revelar os “mecanismos iônicos envolvidos na excitação e inibição de neurônios”.</p>
-<p><strong>Exemplo Atual</strong>: Modelos derivados são usados para otimizar estimulação cerebral profunda em pacientes com Parkinson (Mainen &amp; Sejnowski, 1996).</p>
+<ul>
+<li><p><strong>Fundamentos da Neurociência Computacional</strong>: Seu modelo (equações de Hodgkin-Huxley) é a base para simulações de redes neuronais modernas, incluindo estudos sobre epilepsia e Parkinson (Dayan &amp; Abbott, 2001).</p></li>
+<li><p><strong>Biotecnologia</strong>: Inspirou o desenvolvimento de interfaces cérebro-máquina e próteses neurais (Nicolelis, 2003).</p></li>
+<li><p><strong>Prêmio Nobel (1963)</strong>: Receberam o Nobel de Fisiologia/Medicina por revelar os “mecanismos iônicos envolvidos na excitação e inibição de neurônios”.</p></li>
+<li><p><strong>Exemplo Atual</strong>: Modelos derivados são usados para otimizar estimulação cerebral profunda em pacientes com Parkinson (Mainen &amp; Sejnowski, 1996).</p></li>
+</ul>
 </div></div>
 </section>
 
@@ -633,6 +632,8 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 
 <section id="denis-noble" class="title-slide slide level1 center">
 <h1>Denis Noble</h1>
+<div class="columns">
+<div class="column">
 <ul>
 <li>Biólogo inglês;</li>
 <li><strong>Principal contribuição</strong>: modelo matemático da função cardíaca (1960).</li>
@@ -640,18 +641,16 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 <li>Utilizou supercomputadores para a criação de um coração virtual.</li>
 <li>Contribuiu para difundir a nível internacional o uso de modelos computacionais para simular quantitativamente funções fisiológicas ao nível do genoma.</li>
 </ul>
-
-<img data-src="img/01-Historico-e-Conceitos-5.png" class="r-stretch quarto-figure quarto-figure-center"></section>
+</div><div class="column">
+<p><a href="img/01-Historico-e-Conceitos-5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="img/01-Historico-e-Conceitos-5.png" style="object-fit: contain;;width:100.0%" height="800"></a></p>
+</div></div>
+</section>
 
 <section id="section-1" class="title-slide slide level1 center">
 <h1></h1>
 <div class="columns">
 <div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="img/01-Historico-e-Conceitos-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="img/01-Historico-e-Conceitos-6.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
-</figure>
-</div>
+<p><a href="img/01-Historico-e-Conceitos-6.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="img/01-Historico-e-Conceitos-6.png" style="object-fit: contain;;width:100.0%" height="800"></a></p>
 </div><div class="column">
 <ul>
 <li>Música da Vida
@@ -723,11 +722,7 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 <h1>Mihajlo Mesarovic</h1>
 <div class="columns">
 <div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="img/01-Historico-e-Conceitos-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="img/01-Historico-e-Conceitos-7.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
-</figure>
-</div>
+<p><a href="img/01-Historico-e-Conceitos-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="img/01-Historico-e-Conceitos-7.png" style="object-fit: contain;;width:100.0%" height="800"></a></p>
 </div><div class="column">
 <ul>
 <li>Engenheiro sérvio</li>
@@ -743,11 +738,7 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 <h1>Mihajlo Mesarovic</h1>
 <div class="columns">
 <div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="img/01-Historico-e-Conceitos-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="img/01-Historico-e-Conceitos-7.png" class="quarto-figure quarto-figure-center"></a></p>
-</figure>
-</div>
+<p><a href="img/01-Historico-e-Conceitos-7.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="img/01-Historico-e-Conceitos-7.png" style="object-fit: contain;;width:100.0%" height="800"></a></p>
 </div><div class="column">
 <ul>
 <li><strong>Contribuições Chave no Trabalho de 1966</strong>:
@@ -940,7 +931,7 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 </ul>
 </section>
 
-<section id="referências" class="title-slide slide level1 scrollable center">
+<section id="referências" class="title-slide slide level1 smaller center">
 <h1>Referências</h1>
 <ol type="1">
 <li><p>MESAROVIĆ, M. D. (Ed.). Systems Theory and Biology. Berlin: Springer-Verlag, 1966. (Obra seminal que definiu a disciplina)</p></li>
@@ -1044,7 +1035,7 @@ DiagrammeR::grViz("digraph G { A -> B; B -> C; A -> C; }")
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Navegação","icon":"🏠","content":"<p><a href=\"https://nickcbl.github.io/biosis/\">&larr; Voltar para a Home do Biosis</a></p>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner

@@ -10,6 +10,11 @@ format:
     incremental: false
     theme: tema_azul.scss
     lightbox: true
+    menu:
+      custom:
+        - title: "Navegação"
+          icon: '🏠'
+          content: '<p><a href="slides.html">&larr; Voltar para a Home do Biosis</a></p>'
 ---
 
 # Definição de Biologia de Sistemas
@@ -122,7 +127,7 @@ Definido pela estratégia de integrar dados complexos da interação, em sistema
 
 # Histórico
 
-# Ludwig von Bertalanffy
+# Ludwig von Bertalanffy{.smaller}
 
 
 ::: {.columns}
@@ -136,7 +141,7 @@ Definido pela estratégia de integrar dados complexos da interação, em sistema
 ::: {.column}
 
 * Biólogo Austríaco
-* Desenvolveu a  <span style="color:#4169E1; font-weight:bold;">Teoria Geral dos Sistemas</span> .
+* Desenvolveu a <span style="color:#4169E1; font-weight:bold;">Teoria Geral dos Sistemas</span>.
   * Trabalhos entre 1950 e 1968
 * A base para o conceito de Biologia de Sistemas.
 :::
@@ -344,17 +349,13 @@ Taxa de transferência
 
 # Alan Hodgkin e Andrew Huxley{.smaller}
 
-
 ::: {.columns}
-
 ::: {.column}
 ![**Alan Hodgkin**](img/01-Historico-e-Conceitos-1.png){.r-stretch fig-align="center"}
 :::
-
 ::: {.column}
 ![**Andrew Huxley**](img/01-Historico-e-Conceitos-2.png){.r-stretch fig-align="center"}
 :::
-
 :::
 
 **Modelagem Matemática do Impulso Nervoso (1952)**
@@ -367,7 +368,7 @@ Em 1952, **Hodgkin** e **Huxley** publicaram um marco da biologia de sistemas: u
 
 Combinaram experimentos eletrofisiológicos (com técnicas de voltage clamp) com equações diferenciais.
 
-Modelaram a dinâmica dos canais iônicos de sódio (Na⁺) e potássio (K⁺), prevendo como variações de voltagem controlam o fluxo de íons.
+Modelaram a dinâmica dos canais iônicos de sódio ($Na⁺$) e potássio ($K⁺$), prevendo como variações de voltagem controlam o fluxo de íons.
 
 
 # {.smaller}
@@ -378,16 +379,16 @@ Modelaram a dinâmica dos canais iônicos de sódio (Na⁺) e potássio (K⁺), 
 ::: {.column}
 **Impacto Científico**:
 
-**Fundamentos da Neurociência Computacional**:
+- **Fundamentos da Neurociência Computacional**:
 Seu modelo (equações de Hodgkin-Huxley) é a base para simulações de redes neuronais modernas, incluindo estudos sobre epilepsia e Parkinson (Dayan & Abbott, 2001).
 
-**Biotecnologia**:
+- **Biotecnologia**:
 Inspirou o desenvolvimento de interfaces cérebro-máquina e próteses neurais (Nicolelis, 2003).
 
-**Prêmio Nobel (1963)**:
+- **Prêmio Nobel (1963)**:
 Receberam o Nobel de Fisiologia/Medicina por revelar os "mecanismos iônicos envolvidos na excitação e inibição de neurônios".
 
-**Exemplo Atual**:
+- **Exemplo Atual**:
 Modelos derivados são usados para otimizar estimulação cerebral profunda em pacientes com Parkinson (Mainen & Sejnowski, 1996).
 :::
 :::
@@ -436,18 +437,24 @@ Modelos derivados são usados para otimizar estimulação cerebral profunda em p
 
 # Denis Noble
 
+
+::: {.columns}
+::: {.column}
 * Biólogo inglês;
 * **Principal contribuição**: modelo matemático da função cardíaca (1960).
 * Usou modelos de computador de órgãos e sistemas de órgãos para interpretar a função molecular ao nível de todo o organismo.
 * Utilizou supercomputadores para a criação de um coração virtual.
 * Contribuiu para difundir a nível internacional o uso de modelos computacionais para simular quantitativamente funções fisiológicas ao nível do genoma.
-
-![](img/01-Historico-e-Conceitos-5.png){.r-stretch fig-align="center"}
+:::
+::: {.column}
+![](img/01-Historico-e-Conceitos-5.png){width="100%" height="800px" style="object-fit: contain;"}
+:::
+:::
 
 # 
 ::::{.columns}
 ::::{.column}
-![](img/01-Historico-e-Conceitos-6.png){.r-stretch fig-align="center"}
+![](img/01-Historico-e-Conceitos-6.png){width="100%" height="800px" style="object-fit: contain;"}
 ::::
 ::::{.column}
 * Música da Vida
@@ -496,7 +503,7 @@ Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-A
 
 ::: {.columns}
 ::: {.column}
-![](img/01-Historico-e-Conceitos-7.png){.r-stretch fig-align="center"}
+![](img/01-Historico-e-Conceitos-7.png){width="100%" height="800px" style="object-fit: contain;"}
 :::
 ::: {.column}
 * Engenheiro sérvio
@@ -509,7 +516,7 @@ Rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-A
 
 ::: {.columns}
 ::: {.column}
-![](img/01-Historico-e-Conceitos-7.png){fig-align="center"}
+![](img/01-Historico-e-Conceitos-7.png){width="100%" height="800px" style="object-fit: contain;"}
 :::
 ::: {.column}
 * **Contribuições Chave no Trabalho de 1966**:
@@ -628,7 +635,7 @@ O número de artigos com "Biologia de Sistemas" no título aumentou 20× entre 2
 
 
 
-# Referências {.scrollable}
+# Referências {.smaller}
 
 1. MESAROVIĆ, M. D. (Ed.). Systems Theory and Biology. Berlin: Springer-Verlag, 1966. (Obra seminal que definiu a disciplina)
 
