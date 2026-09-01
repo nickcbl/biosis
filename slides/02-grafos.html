@@ -7,11 +7,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Nicholas Barroso">
   <title>CI0932 - Biologia de Sistemas – 02   Grafos</title>
@@ -24,13 +24,10 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -148,7 +145,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Nicholas Barroso
+Nicholas Barroso 
 </div>
 </div>
 </div>
@@ -390,19 +387,19 @@ Nicholas Barroso
 <ul>
 <li>As arestas indicam relações entre os elementos. O significado da relação pode mudar dependendo dos elementos.</li>
 <li>Por isso as arestas podem ser:</li>
-<li>Não-direcionadas: (v1,v2) = (v2,v1), relações simétrica.
+<li><strong>Não-direcionadas</strong>: <span class="math inline">\((v_1,v_2) = (v_2,v_1)\)</span>, relações simétricas.
 <ul>
 <li>Quando a ligação não exibe precedência, somente relação.</li>
 <li>Complexo proteico onde A interage com B e vice-versa.</li>
 </ul></li>
-<li>Direcionadas: (v 1 ,v 2 ) ≠ (v 2 ,v 1 )
+<li><strong>Direcionadas</strong>: <span class="math inline">\((v_1, v_2) ≠ (v_2,v_1)\)</span>
 <ul>
 <li>Quando a ligação entre os dados indica precedência ou ordem
 <ul>
 <li>causa e efeito;</li>
 <li>antes ou depois;</li>
 <li>substrato → produto.</li>
-<li>GeneX ativa a expressão de GeneY (GeneX → GeneY).</li>
+<li>GeneX ativa a expressão de GeneY <span class="math inline">\((GeneX \rightarrow GeneY)\)</span>.</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -522,8 +519,110 @@ Nicholas Barroso
 <section id="laço" class="title-slide slide level1 center">
 <h1>Laço</h1>
 <p>Quando uma aresta começa e termina em um mesmo vértice ela é chamada de laço (loop)</p>
-<p>Exemplo: Autofosforilação de uma quinase (ex.: receptor EGFR).</p>
-<p><a href="img/02-Grafos_13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="img/02-Grafos_13.png"></a></p>
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Exemplo</strong></p>
+</div>
+<div class="callout-content">
+<p>Autofosforilação de uma quinase (ex.: receptor EGFR).</p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 718.03 576.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(0.986301 0.986301) rotate(0) translate(4 580)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-580 724,-580 724,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="#0066ff" stroke="black" cx="317.57" cy="-88.06" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="317.57" y="-66.46" font-family="Times,serif" font-size="72.00" fill="white">1</text>
+</g>
+<!-- A&#45;&#45;A -->
+<g id="edge1" class="edge">
+<title>A:s--A:e</title>
+<path fill="none" stroke="red" stroke-width="6" d="M317.57,-16.06C347.57,-7.06 407.57,-7.06 407.57,-52.06 407.57,-97.06 395.57,-97.06 389.57,-88.06"></path>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse fill="#0066ff" stroke="black" cx="86.55" cy="-411.57" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="86.55" y="-389.97" font-family="Times,serif" font-size="72.00" fill="white">2</text>
+</g>
+<!-- A&#45;&#45;B -->
+<g id="edge2" class="edge">
+<title>A--B</title>
+<path fill="none" stroke="black" stroke-width="6" d="M275.46,-147.02C233.75,-205.43 170.24,-294.38 128.56,-352.74"></path>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<ellipse fill="#0066ff" stroke="black" cx="86.55" cy="-164.43" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="86.55" y="-142.83" font-family="Times,serif" font-size="72.00" fill="white">3</text>
+</g>
+<!-- A&#45;&#45;C -->
+<g id="edge3" class="edge">
+<title>A--C</title>
+<path fill="none" stroke="black" stroke-width="6" d="M249.19,-110.66C219.52,-120.47 184.85,-131.94 155.15,-141.75"></path>
+</g>
+<!-- B&#45;&#45;C -->
+<g id="edge4" class="edge">
+<title>B--C</title>
+<path fill="none" stroke="black" stroke-width="6" d="M86.55,-339.42C86.55,-307.08 86.55,-269.02 86.55,-236.67"></path>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<ellipse fill="#0066ff" stroke="black" cx="317.57" cy="-487.94" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="317.57" y="-466.34" font-family="Times,serif" font-size="72.00" fill="white">4</text>
+</g>
+<!-- B&#45;&#45;D -->
+<g id="edge5" class="edge">
+<title>B--D</title>
+<path fill="none" stroke="black" stroke-width="6" d="M154.93,-434.17C184.6,-443.98 219.27,-455.45 248.97,-465.26"></path>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<ellipse fill="#0066ff" stroke="black" cx="460.34" cy="-288" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="460.34" y="-266.4" font-family="Times,serif" font-size="72.00" fill="white">5</text>
+</g>
+<!-- C&#45;&#45;E -->
+<g id="edge7" class="edge">
+<title>C--E</title>
+<path fill="none" stroke="black" stroke-width="6" d="M155.11,-187.1C222.45,-209.36 324.61,-243.13 391.9,-265.37"></path>
+</g>
+<!-- D&#45;&#45;E -->
+<g id="edge6" class="edge">
+<title>D--E</title>
+<path fill="none" stroke="black" stroke-width="6" d="M359.44,-429.3C378.04,-403.26 399.88,-372.68 418.47,-346.64"></path>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<ellipse fill="#0066ff" stroke="black" cx="633.45" cy="-288" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="633.45" y="-266.4" font-family="Times,serif" font-size="72.00" fill="white">6</text>
+</g>
+<!-- E&#45;&#45;F -->
+<g id="edge8" class="edge">
+<title>E--F</title>
+<path fill="none" stroke="black" stroke-width="6" d="M532.5,-288C542.06,-288 551.85,-288 561.41,-288"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<!-- 
+![](img/02-Grafos_13.png){.r-stretch fig-align="center"} -->
 </section>
 
 <section id="layout" class="title-slide slide level1 center">
@@ -608,6 +707,61 @@ Nicholas Barroso
 </tr>
 </tbody>
 </table>
+</section>
+
+<section id="layout-cont.-1" class="title-slide slide level1 center">
+<h1>Layout (cont.)</h1>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Force-Directed e Hierárquico</a></li><li><a href="#tabset-1-2">Circular e Radial</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/02-Grafos_28.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Force-Directed"><img data-src="img/02-Grafos_28.png" alt="Force-Directed"></a></p>
+<figcaption>Force-Directed</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/02-Grafos_29.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Hierárquico"><img data-src="img/02-Grafos_29.png" alt="Hierárquico"></a></p>
+<figcaption>Hierárquico</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/02-Grafos_30.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Circular"><img data-src="img/02-Grafos_30.png" alt="Circular"></a></p>
+<figcaption>Circular</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/02-Grafos_31.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Radial"><img data-src="img/02-Grafos_31.png" alt="Radial"></a></p>
+<figcaption>Radial</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- {width="100%" height="800px" style="object-fit: contain;"} -->
+
 <aside class="notes">
 <p>Ferramentas para Layout de Grafos</p>
 <pre><code>Cytoscape: Oferece algoritmos como Prefuse Force-Directed para redes biológicas.
@@ -630,7 +784,9 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
+<aside><div>
+<p><a href="https://www.yfiles.com/demos/showcase/layoutstyles/index.html">yfiles: simulação de redes</a></p>
+</div></aside></section>
 
 <section id="subgrafo" class="title-slide slide level1 center">
 <h1>Subgrafo</h1>
@@ -841,14 +997,14 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="img/02-Grafos_16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="img/02-Grafos_16.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+<p><a href="img/02-Grafos_16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img data-src="img/02-Grafos_16.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="img/02-Grafos_17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img data-src="img/02-Grafos_17.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+<p><a href="img/02-Grafos_17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="img/02-Grafos_17.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
 </figure>
 </div>
 </div>
@@ -921,14 +1077,14 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="img/02-Grafos_21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="img/02-Grafos_21.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+<p><a href="img/02-Grafos_21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="img/02-Grafos_21.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="img/02-Grafos_22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img data-src="img/02-Grafos_22.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+<p><a href="img/02-Grafos_22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="img/02-Grafos_22.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
 </figure>
 </div>
 </div>
@@ -942,7 +1098,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <div class="column">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="img/02-Grafos_24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img data-src="img/02-Grafos_24.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+<p><a href="img/02-Grafos_24.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="img/02-Grafos_24.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
 </figure>
 </div>
 </div><div class="column">
@@ -970,9 +1126,9 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <h1>Matriz de adjacência</h1>
 <div class="columns">
 <div class="column">
-<p><a href="img/02-Grafos_25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="img/02-Grafos_25.png" class="r-stretch"></a></p>
+<p><a href="img/02-Grafos_25.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img data-src="img/02-Grafos_25.png" style="object-fit: contain;;width:100.0%" height="600"></a></p>
 </div><div class="column">
-<p><a href="img/02-Grafos_26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img data-src="img/02-Grafos_26.png" class="r-stretch"></a></p>
+<p><a href="img/02-Grafos_26.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img data-src="img/02-Grafos_26.png" style="object-fit: contain;;width:100.0%" height="600"></a></p>
 </div></div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -998,11 +1154,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 <div class="column">
 <p>= {1, 2, 5}<br> = {1, 3, 5}<br> = {2, 4}<br> = {3, 5, 6}<br> = {1, 2, 4}<br> = {4}<br></p>
 </div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><a href="img/02-Grafos_27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img data-src="img/02-Grafos_27.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
-</figure>
-</div>
+<p><a href="img/02-Grafos_27.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img data-src="img/02-Grafos_27.png" style="object-fit: contain;;width:100.0%" height="500"></a></p>
 </div></div>
 <div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
@@ -1053,7 +1205,7 @@ Se quer mostrar fluxos, use hierárquico.</code></pre>
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Navegação","icon":"🏠","content":"<p><a href=\"slides.html\">&larr; Voltar para a Home do Biosis</a></p>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner

@@ -7,11 +7,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.18">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Nicholas Barroso">
   <title>CI0932 - Biologia de Sistemas – 07   Rede Metabólicas</title>
@@ -24,13 +24,10 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
+    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -214,7 +211,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Nicholas Barroso
+Nicholas Barroso 
 </div>
 </div>
 </div>
@@ -684,40 +681,40 @@ Nicholas Barroso
 </section>
 <section class="slide level2">
 
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a aria-label="1"></a><span class="op">&lt;</span><span class="ex">?xml</span> version=<span class="st">"1.0"</span> encoding=<span class="st">"UTF-8"</span><span class="pp">?</span><span class="op">&gt;</span></span>
-<span id="cb1-2"><a aria-label="2"></a><span class="op">&lt;</span>sbml <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.sbml.org/sbml/level2/version4"</span> <span class="va">level</span><span class="op">=</span><span class="st">"2"</span> <span class="va">version</span><span class="op">=</span><span class="st">"4"</span><span class="op">&gt;</span></span>
-<span id="cb1-3"><a aria-label="3"></a>  <span class="op">&lt;</span>model <span class="va">id</span><span class="op">=</span><span class="st">"modelo_exemplo"</span> <span class="va">name</span><span class="op">=</span><span class="st">"Conversao_A_para_B"</span><span class="op">&gt;</span></span>
-<span id="cb1-4"><a aria-label="4"></a>    <span class="op">&lt;</span>listOfCompartments<span class="op">&gt;</span></span>
-<span id="cb1-5"><a aria-label="5"></a>      <span class="op">&lt;</span>compartment <span class="va">id</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">size</span><span class="op">=</span><span class="st">"1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-6"><a aria-label="6"></a>    <span class="op">&lt;</span>/listOfCompartments<span class="op">&gt;</span></span>
-<span id="cb1-7"><a aria-label="7"></a>    <span class="op">&lt;</span>listOfSpecies<span class="op">&gt;</span></span>
-<span id="cb1-8"><a aria-label="8"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"A"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"10"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-9"><a aria-label="9"></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"B"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"0"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-10"><a aria-label="10"></a>    <span class="op">&lt;</span>/listOfSpecies<span class="op">&gt;</span></span>
-<span id="cb1-11"><a aria-label="11"></a>    <span class="op">&lt;</span>listOfParameters<span class="op">&gt;</span></span>
-<span id="cb1-12"><a aria-label="12"></a>      <span class="op">&lt;</span>parameter <span class="va">id</span><span class="op">=</span><span class="st">"k1"</span> <span class="va">value</span><span class="op">=</span><span class="st">"0.1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-13"><a aria-label="13"></a>    <span class="op">&lt;</span>/listOfParameters<span class="op">&gt;</span></span>
-<span id="cb1-14"><a aria-label="14"></a>    <span class="op">&lt;</span>listOfReactions<span class="op">&gt;</span></span>
-<span id="cb1-15"><a aria-label="15"></a>      <span class="op">&lt;</span>reaction <span class="va">id</span><span class="op">=</span><span class="st">"reacao1"</span> <span class="va">reversible</span><span class="op">=</span><span class="st">"false"</span><span class="op">&gt;</span></span>
-<span id="cb1-16"><a aria-label="16"></a>        <span class="op">&lt;</span>listOfReactants<span class="op">&gt;</span></span>
-<span id="cb1-17"><a aria-label="17"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"A"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-18"><a aria-label="18"></a>        <span class="op">&lt;</span>/listOfReactants<span class="op">&gt;</span></span>
-<span id="cb1-19"><a aria-label="19"></a>        <span class="op">&lt;</span>listOfProducts<span class="op">&gt;</span></span>
-<span id="cb1-20"><a aria-label="20"></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"B"</span>/<span class="op">&gt;</span></span>
-<span id="cb1-21"><a aria-label="21"></a>        <span class="op">&lt;</span>/listOfProducts<span class="op">&gt;</span></span>
-<span id="cb1-22"><a aria-label="22"></a>        <span class="op">&lt;</span>kineticLaw<span class="op">&gt;</span></span>
-<span id="cb1-23"><a aria-label="23"></a>          <span class="op">&lt;</span>math <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.w3.org/1998/Math/MathML"</span><span class="op">&gt;</span></span>
-<span id="cb1-24"><a aria-label="24"></a>            <span class="op">&lt;</span>apply<span class="op">&gt;</span></span>
-<span id="cb1-25"><a aria-label="25"></a>            <span class="op">&lt;</span>times/<span class="op">&gt;</span></span>
-<span id="cb1-26"><a aria-label="26"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> k1 <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
-<span id="cb1-27"><a aria-label="27"></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> A <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
-<span id="cb1-28"><a aria-label="28"></a>            <span class="op">&lt;</span>/apply<span class="op">&gt;</span></span>
-<span id="cb1-29"><a aria-label="29"></a>          <span class="op">&lt;</span>/math<span class="op">&gt;</span></span>
-<span id="cb1-30"><a aria-label="30"></a>        <span class="op">&lt;</span>/kineticLaw<span class="op">&gt;</span></span>
-<span id="cb1-31"><a aria-label="31"></a>      <span class="op">&lt;</span>/reaction<span class="op">&gt;</span></span>
-<span id="cb1-32"><a aria-label="32"></a>    <span class="op">&lt;</span>/listOfReactions<span class="op">&gt;</span></span>
-<span id="cb1-33"><a aria-label="33"></a>  <span class="op">&lt;</span>/model<span class="op">&gt;</span></span>
-<span id="cb1-34"><a aria-label="34"></a><span class="op">&lt;</span>/sbml<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="op">&lt;</span><span class="ex">?xml</span> version=<span class="st">"1.0"</span> encoding=<span class="st">"UTF-8"</span><span class="pp">?</span><span class="op">&gt;</span></span>
+<span id="cb1-2"><a></a><span class="op">&lt;</span>sbml <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.sbml.org/sbml/level2/version4"</span> <span class="va">level</span><span class="op">=</span><span class="st">"2"</span> <span class="va">version</span><span class="op">=</span><span class="st">"4"</span><span class="op">&gt;</span></span>
+<span id="cb1-3"><a></a>  <span class="op">&lt;</span>model <span class="va">id</span><span class="op">=</span><span class="st">"modelo_exemplo"</span> <span class="va">name</span><span class="op">=</span><span class="st">"Conversao_A_para_B"</span><span class="op">&gt;</span></span>
+<span id="cb1-4"><a></a>    <span class="op">&lt;</span>listOfCompartments<span class="op">&gt;</span></span>
+<span id="cb1-5"><a></a>      <span class="op">&lt;</span>compartment <span class="va">id</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">size</span><span class="op">=</span><span class="st">"1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-6"><a></a>    <span class="op">&lt;</span>/listOfCompartments<span class="op">&gt;</span></span>
+<span id="cb1-7"><a></a>    <span class="op">&lt;</span>listOfSpecies<span class="op">&gt;</span></span>
+<span id="cb1-8"><a></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"A"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"10"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-9"><a></a>      <span class="op">&lt;</span>species <span class="va">id</span><span class="op">=</span><span class="st">"B"</span> <span class="va">compartment</span><span class="op">=</span><span class="st">"compartimento"</span> <span class="va">initialConcentration</span><span class="op">=</span><span class="st">"0"</span> <span class="va">boundaryCondition</span><span class="op">=</span><span class="st">"false"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-10"><a></a>    <span class="op">&lt;</span>/listOfSpecies<span class="op">&gt;</span></span>
+<span id="cb1-11"><a></a>    <span class="op">&lt;</span>listOfParameters<span class="op">&gt;</span></span>
+<span id="cb1-12"><a></a>      <span class="op">&lt;</span>parameter <span class="va">id</span><span class="op">=</span><span class="st">"k1"</span> <span class="va">value</span><span class="op">=</span><span class="st">"0.1"</span> <span class="va">constant</span><span class="op">=</span><span class="st">"true"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-13"><a></a>    <span class="op">&lt;</span>/listOfParameters<span class="op">&gt;</span></span>
+<span id="cb1-14"><a></a>    <span class="op">&lt;</span>listOfReactions<span class="op">&gt;</span></span>
+<span id="cb1-15"><a></a>      <span class="op">&lt;</span>reaction <span class="va">id</span><span class="op">=</span><span class="st">"reacao1"</span> <span class="va">reversible</span><span class="op">=</span><span class="st">"false"</span><span class="op">&gt;</span></span>
+<span id="cb1-16"><a></a>        <span class="op">&lt;</span>listOfReactants<span class="op">&gt;</span></span>
+<span id="cb1-17"><a></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"A"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-18"><a></a>        <span class="op">&lt;</span>/listOfReactants<span class="op">&gt;</span></span>
+<span id="cb1-19"><a></a>        <span class="op">&lt;</span>listOfProducts<span class="op">&gt;</span></span>
+<span id="cb1-20"><a></a>          <span class="op">&lt;</span>speciesReference <span class="va">species</span><span class="op">=</span><span class="st">"B"</span>/<span class="op">&gt;</span></span>
+<span id="cb1-21"><a></a>        <span class="op">&lt;</span>/listOfProducts<span class="op">&gt;</span></span>
+<span id="cb1-22"><a></a>        <span class="op">&lt;</span>kineticLaw<span class="op">&gt;</span></span>
+<span id="cb1-23"><a></a>          <span class="op">&lt;</span>math <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.w3.org/1998/Math/MathML"</span><span class="op">&gt;</span></span>
+<span id="cb1-24"><a></a>            <span class="op">&lt;</span>apply<span class="op">&gt;</span></span>
+<span id="cb1-25"><a></a>            <span class="op">&lt;</span>times/<span class="op">&gt;</span></span>
+<span id="cb1-26"><a></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> k1 <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
+<span id="cb1-27"><a></a>              <span class="op">&lt;</span>ci<span class="op">&gt;</span> A <span class="op">&lt;</span>/ci<span class="op">&gt;</span></span>
+<span id="cb1-28"><a></a>            <span class="op">&lt;</span>/apply<span class="op">&gt;</span></span>
+<span id="cb1-29"><a></a>          <span class="op">&lt;</span>/math<span class="op">&gt;</span></span>
+<span id="cb1-30"><a></a>        <span class="op">&lt;</span>/kineticLaw<span class="op">&gt;</span></span>
+<span id="cb1-31"><a></a>      <span class="op">&lt;</span>/reaction<span class="op">&gt;</span></span>
+<span id="cb1-32"><a></a>    <span class="op">&lt;</span>/listOfReactions<span class="op">&gt;</span></span>
+<span id="cb1-33"><a></a>  <span class="op">&lt;</span>/model<span class="op">&gt;</span></span>
+<span id="cb1-34"><a></a><span class="op">&lt;</span>/sbml<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
@@ -802,7 +799,7 @@ Nicholas Barroso
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Navegação","icon":"🏠","content":"<p><a href=\"slides.html\">&larr; Voltar para a Home do Biosis</a></p>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
