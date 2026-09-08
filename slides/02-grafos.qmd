@@ -331,6 +331,8 @@ Disposição visual dos vértices (nós) e arestas (conexões) no espaço (geral
 
 # Layout (cont.)
 
+::: {.panel-tabset}
+### Tabela
 | Tipo de Layout | Características | Aplicação em Biotecnologia |
 | :-: | :-: | :-: |
 | Force-Directed | Arestas como molas, vértices se repelem | Redes de coexpressão gênica (identifica módulos funcionais). |
@@ -338,28 +340,26 @@ Disposição visual dos vértices (nós) e arestas (conexões) no espaço (geral
 | Circular | Vértices em um círculo | Interações proteína-DNA para destacar elementos centrais. |
 | Radial | Vértices dispostos em anéis concêntricos | Árvores filogenéticas (evolução de patógenos). |
 
-# Layout (cont.)
 
-::: {.panel-tabset}
 ### Force-Directed e Hierárquico
 :::{layout-ncol="2"}
-![Force-Directed](img/02-Grafos_28.png)
+![Force-Directed](img/02-Grafos_28.png){width="100%" height="600px" style="object-fit: contain;"}
 
-![Hierárquico](img/02-Grafos_29.png)
+![Hierárquico](img/02-Grafos_29.png){width="100%" height="600px" style="object-fit: contain;"}
+
+[yfiles: simulação de redes](https://www.yfiles.com/demos/showcase/layoutstyles/index.html)
 :::
 ### Circular e Radial
 :::{layout-ncol="2"}
-![Circular](img/02-Grafos_30.png)
+![Circular](img/02-Grafos_30.png){width="100%" height="600px" style="object-fit: contain;"}
 
-![Radial](img/02-Grafos_31.png)
+![Radial](img/02-Grafos_31.png){width="100%" height="600px" style="object-fit: contain;"}
+
+[yfiles: simulação de redes](https://www.yfiles.com/demos/showcase/layoutstyles/index.html)
 :::
 :::
 
 <!-- {width="100%" height="800px" style="object-fit: contain;"} -->
-
-::: aside
-[yfiles: simulação de redes](https://www.yfiles.com/demos/showcase/layoutstyles/index.html)
-:::
 
 ::: {.notes}
 Ferramentas para Layout de Grafos
@@ -401,8 +401,18 @@ Se G’  é um subgrafo de G e E’ possui todas as arestas de E que ligam os v�
 
 # Isomorfismo
 
-Dois grafos $G_1=(V_1,E_1)$ e $G_2=(V_2,E_2)$ são isomorfos se existir uma bijeção (mapeamento um-para-um) entre seus vértices que preserve as adjacências.
 
+::: {.columns}
+
+::: {.column}
+Dois grafos $G_1=(V_1,E_1)$ e $G_2=(V_2,E_2)$ são isomorfos se existir uma bijeção (mapeamento um-para-um) entre seus vértices que preserve as adjacências.
+:::
+
+::: {.column}
+![](img/02-Grafos_32.png){.r-stretch fig-align="center"}
+:::
+
+:::
 
 ::: {.callout}
 # Ou seja:
@@ -412,6 +422,10 @@ Cada vértice em G1​ tem um correspondente único em G2.
 Duas arestas são conectadas em G1​ se e somente se suas correspondentes em G2 também estiverem conectadas.
 
 Em outras palavras: Os grafos têm a mesma "forma" ou topologia, mas podem diferir nos rótulos dos vértices/arestas.
+:::
+
+::: footer
+[Referência: Figura](https://www.wolfram.com/mathematica/new-in-8/graph-and-network-analysis/find-an-isomorphism.html.pt-br)
 :::
 
 # Por que Isomorfismo é Importante na Biologia?
@@ -648,3 +662,13 @@ Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos 
 
 - Quando o grafo é direcionado:  a lista para cada vértice indica do vértice para onde a ligação vai.
 :::
+
+# Simulador de Grafos
+
+<iframe src="v2-simulador_grafos.html" width="100%" height="900px" style="object-fit: contain;">
+</iframe>
+
+# Simulador de Redes
+
+<iframe src="v2-simulador_redes.html" width="100%" height="900px" style="object-fit: contain;">
+</iframe>

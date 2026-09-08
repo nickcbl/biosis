@@ -221,13 +221,13 @@ ggplot() +
 
 # Estágio 1: Criação de uma reconstrução rascunho (cont.)
 
-As reações de genes metabólicos devem ser estabelecidas.
+- As reações de genes metabólicos devem ser estabelecidas.
 
-Ou seja, se o gene codificar uma enzima, qual reação esta enzima catalisa.
+  - Ou seja, se o gene codificar uma enzima, qual reação esta enzima catalisa.
 
-Criação de uma reconstrução rascunho preliminar.
+- Criação de uma reconstrução rascunho preliminar.
 
-Preparação para fase seguinte.
+- Preparação para fase seguinte.
 
 ---
 
@@ -257,9 +257,9 @@ O processo de curadoria manual é feito na rede metabólica rascunho.
 
 # Estágio 2: Curadoria Manual (cont.)
 
-Para a maioria dos organismos, a anotação é feita baseada em **homologia** .
+- Para a maioria dos organismos, a anotação é feita baseada em **homologia** .
 
-_Por isso, reconstruções baseadas somente na anotação do genoma podem conter vários erros propagados._
+- _Por isso, reconstruções baseadas somente na anotação do genoma podem conter vários erros propagados._
 
 # Estágio 2: Curadoria Manual (cont.)
 
@@ -268,16 +268,16 @@ _Por isso, reconstruções baseadas somente na anotação do genoma podem conter
 
 # E2 - Curadoria Manual: Informações adicionais e verificação
 
-* Especificidade substrato-cofator, pode variar entre organismos
+* **Especificidade substrato-cofator, pode variar entre organismos**
   * Literatura ou banco de dados.
-* Localização das reações.
+* **Localização das reações.**
   * Algoritmos, literatura ou dados experimentais.
   * Determinar a localização, se for indeterminada, as reações devem ser colocadas no citosol.
   * Importante devido a disponibilidade de metabólitos em cada compartimento e por causa das reações de transporte.
 
 # E2 - Curadoria Manual: Informações adicionais e verificação (cont.)
 
-* A relação gene-proteína-reação (GPR) deve ser encontrada.
+* A relação **gene-proteína-reação** (GPR) deve ser encontrada.
   * Dado em formato lógico.
   * Exemplos
     * pykA e pykF: proteínas PykA e PykF.
@@ -326,7 +326,7 @@ Funciona como uma _lista de compras_ ultra detalhada do que a célula precisa pa
 
 # Fórmula de biomassa para bactérias gram-negativas {.smaller}
 
-<span style="color: red">(0) Glutationa + (0) Ubiquinona-8 + (0.51) Glicina + (0.01) Fosfatidilglicerol dianteisoheptadecanoil + (0.03) Polímero de Peptidoglicano (n subunidades) + (0) Fosfato de Piridoxal + (0) Fe³⁺ + (0.38) L-Leucina + (0) ACP + (0.43) L-Alanina + (0) Hemo + (0) Biossíntese Proteica + (0) Cobinamida + (0) Replicação do DNA + (0.18) L-Serina + (0) 5-Metiltetrahidrofolato + (0.01) Fosfatidiletanolamina dioctadecanoil + (35.54) H₂O + (0) FAD + (0.01) Cardiolipina isoheptadecanoil + (0) Espermidina + (0) 2-Desmetilmenaquinona 8 + (0.24) L-Isoleucina + (0.35) L-Valina + (0) Menaquinona 8 + (0) 10-Formiltetrahidrofolato + (0) Coenzima A + (0.15) L-Fenilalanina + (0) Tetrahidrofolato + (0.29) L-Lisina + (0.01) dCTP + (0) Siroheme + (0.02) TTP + (0.01) Fosfatidilglicerol dioctadecanoil + (0) Co²⁺ + (40.11) ATP + (0) Mn²⁺ + (0) Transcrição de RNA + (0.01) Fosfatidiletanolamina dianteisoheptadecanoil + (0) Mg²⁺ + (0) S-Adenosil-L-Metionina + (0.09) UTP + (0.01) Fosfatidilglicerol diisoheptadecanoil + (0.01) Cardiolipina anteisoheptadecanoil + (0.13) L-Metionina + (0.08) L-Histidina + (0) TPP + (0.08) L-Cisteína + (0.08) CTP + (0) Fe²⁺ + (0) Sulfato + (0) Putrescina + (0) Cu²⁺ + (0.22) L-Glutamato + (0) Zn²⁺ + (0.20) L-Asparagina + (0.25) L-Arginina + (0.05) L-Triptofano + (0) Ca²⁺ + (0.18) L-Prolina + (0) Cl⁻ + (0.03) Bactoprenil Difosfato + (0.03) Oligossacarídeo Central do Lipídio A + (0.02) dATP + (0.22) L-Glutamina + (0) Riboflavina + (0.01) Cardiolipina estearoil + (0) NAD + (0.12) L-Tirosina + (0) K⁺ + (0.21) L-Treonina + (0.20) L-Aspartato + (0.01) Fosfatidiletanolamina diisoheptadecanoil + (0.14) GTP + (0) NADP + (0.01) dGTP</span>  **(COSUMO)**
+<span style="color: red">(0) Glutationa + (0) Ubiquinona-8 + (0.51) Glicina + (0.01) Fosfatidilglicerol dianteisoheptadecanoil + (0.03) Polímero de Peptidoglicano (n subunidades) + (0) Fosfato de Piridoxal + (0) Fe³⁺ + (0.38) L-Leucina + (0) ACP + (0.43) L-Alanina + (0) Hemo + (0) Biossíntese Proteica + (0) Cobinamida + (0) Replicação do DNA + (0.18) L-Serina + (0) 5-Metiltetrahidrofolato + (0.01) Fosfatidiletanolamina dioctadecanoil + (35.54) H₂O + (0) FAD + (0.01) Cardiolipina isoheptadecanoil + (0) Espermidina + (0) 2-Desmetilmenaquinona 8 + (0.24) L-Isoleucina + (0.35) L-Valina + (0) Menaquinona 8 + (0) 10-Formiltetrahidrofolato + (0) Coenzima A + (0.15) L-Fenilalanina + (0) Tetrahidrofolato + (0.29) L-Lisina + (0.01) dCTP + (0) Siroheme + (0.02) TTP + (0.01) Fosfatidilglicerol dioctadecanoil + (0) Co²⁺ + (40.11) ATP + (0) Mn²⁺ + (0) Transcrição de RNA + (0.01) Fosfatidiletanolamina dianteisoheptadecanoil + (0) Mg²⁺ + (0) S-Adenosil-L-Metionina + (0.09) UTP + (0.01) Fosfatidilglicerol diisoheptadecanoil + (0.01) Cardiolipina anteisoheptadecanoil + (0.13) L-Metionina + (0.08) L-Histidina + (0) TPP + (0.08) L-Cisteína + (0.08) CTP + (0) Fe²⁺ + (0) Sulfato + (0) Putrescina + (0) Cu²⁺ + (0.22) L-Glutamato + (0) Zn²⁺ + (0.20) L-Asparagina + (0.25) L-Arginina + (0.05) L-Triptofano + (0) Ca²⁺ + (0.18) L-Prolina + (0) Cl⁻ + (0.03) Bactoprenil Difosfato + (0.03) Oligossacarídeo Central do Lipídio A + (0.02) dATP + (0.22) L-Glutamina + (0) Riboflavina + (0.01) Cardiolipina estearoil + (0) NAD + (0.12) L-Tirosina + (0) K⁺ + (0.21) L-Treonina + (0.20) L-Aspartato + (0.01) Fosfatidiletanolamina diisoheptadecanoil + (0.14) GTP + (0) NADP + (0.01) dGTP</span>  **(CONSUMO)**
 
 ⟶
 
