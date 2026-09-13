@@ -409,10 +409,10 @@ Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book
 # Estágio 3: Convertendo a rede em um modelo matemático (cont.)
 
 * Matriz estequiométrica, mais detalhes:
-* Pseudo-reações podem ser adicionadas.
-* Essa reações são usadas quando sabemos que existem metabólitos que são gerados ou consumidos além do escopo do nosso modelo
-  * Reações de demanda
-  * Reações fornecimento
+  * Pseudo-reações podem ser adicionadas.
+  * Essa reações são usadas quando sabemos que existem metabólitos que são gerados ou consumidos além do escopo do nosso modelo
+    * Reações de demanda
+    * Reações fornecimento
 
 ---
 
@@ -423,8 +423,8 @@ Hefzi H et al .2013. Reconstruction of Genome Scale Metabolic Network. Hand Book
 * O modelo pode ser usado para simular como as vias são usadas.
 * _Flux balance analysis_  (FBA)
   * Assume um estado estacionário
-  * S . v =0
-  * v, o vetor de fluxo.
+  * $S \times v = 0$
+  * $v$, o vetor de fluxo.
 
 ---
 
@@ -516,11 +516,11 @@ Uma vez que a reconstrução termina, é importante que ela seja disponibilizada
 
 # Modularidade
 
-A modularidade em redes metabólicas é um princípio organizacional fundamental que explica como a complexidade celular é gerenciada.
+- A modularidade em redes metabólicas é um princípio organizacional fundamental que explica como a complexidade celular é gerenciada.
 
-A modularidade das redes metabólicas está associada a robustez, adaptabilidade e eficiência dos sistemas vivos.
+- A modularidade das redes metabólicas está associada a robustez, adaptabilidade e eficiência dos sistemas vivos.
 
-É uma ferramenta crucial para engenharia metabólica e para a medicina.
+- É uma ferramenta crucial para engenharia metabólica e para a medicina.
 
 # Modularidade: exemplo{.smaller}
 
