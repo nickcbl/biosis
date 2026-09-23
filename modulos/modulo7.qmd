@@ -17,51 +17,57 @@ editor: source
 
 ## Redes Metabólicas
 
-Rede composta de metabólitos e suas interconversões.
+Refere-se à rede composta de metabólitos e suas interconversões.
 
-- **Interconversões**: catalisadas por enzimas (proteínas)
-- **Via metabólica**: série de reações bioquímicas sucessivas com propósito metabólico comum
-- **Rede metabólica**: visão mais completa do metabolismo celular
+- **Interconversões**: usualmente catalisadas por enzimas (proteínas).
+- **Via metabólica**: série de reações bioquímicas sucessivas, ou intimamente relacionadas, ligadas a um propósito metabólico comum — pode ser considerada uma porção menor da rede metabólica.
+- **Rede metabólica**: dá uma visão mais completa do metabolismo celular.
 
 ## Importância das Redes Metabólicas
 
-Rede metabólica completa mostra todos os possíveis modos de fluxo de material dentro da célula, indicando:
+Uma rede metabólica completa deve mostrar todos os possíveis modos de fluxo de material dentro da célula, indicando assim:
 
-- Capacidade e potencial metabólico da célula
-- Absorção e digestão de substratos do meio
-- Geração de energia (ATP)
-- Síntese de componentes para crescimento e sobrevivência
+- A capacidade e o potencial metabólico da célula.
+- A absorção e digestão de substratos do meio.
+- A geração de energia (na forma de ATP).
+- A síntese de componentes necessários para crescimento e sobrevivência.
+
+É de grande interesse estudar a rede metabólica por sua importância fundamental na biologia em geral, mas em particular porque várias aplicações funcionam diretamente com o uso do metabolismo celular.
 
 ## Aplicações Práticas
 
 ### Biotecnologia
-- Fábricas celulares para produção de:
-  - Produtos químicos
-  - Antibióticos
-  - Enzimas industriais
-  - Anticorpos
+Biotecnologistas modificam células para funcionarem como fábricas celulares, produzindo, por exemplo:
+
+- Produtos químicos
+- Antibióticos
+- Enzimas industriais
+- Anticorpos
 
 ### Biomedicina
-- Melhor entendimento de doenças metabólicas humanas
-- Controle de infecções bacterianas explorando diferenças metabólicas entre humanos e patógenos
+- Melhor entendimento dos mecanismos metabólicos de doenças metabólicas humanas.
+- Controle de infecções bacterianas, fazendo uso das diferenças metabólicas entre humanos e patógenos.
 
 ## Ômicas e Bioinformática
 
-Tornaram possível a reconstrução de redes metabólicas de organismos específicos em nível de genoma.
+::: {.callout}
+Tornaram possível a reconstrução de redes metabólicas de um organismo específico em nível de genoma.
+:::
 
 ## Visualização e Representação em Grafo
 
-### Representação 1:
-- Dois tipos de vértices alternados:
-  - Metabólitos
-  - Enzimas
+### Representação 1
+Pode ser representada como um grafo com dois tipos diferentes de vértices em ordem alternada:
 
-### Representação 2 (simplificada):
-- Grafos direcionados
-- **Vértices**: metabólitos
-- **Arestas**: reações convertendo um metabólito em outro
+- Metabólitos
+- Enzimas
 
-**Problema**: metabólitos moeda podem oferecer pequenos caminhos espúrios
+### Representação 2 (simplificada)
+Podem também ser representadas por grafos direcionados, com vértices representando metabólitos e arestas correspondendo a reações que convertem um metabólito em outro. Essa simplificação é útil para a análise estrutural.
+
+**Problema**: nessa representação, metabólitos moeda (ex.: ATP, NADH, H₂O) podem oferecer pequenos caminhos espúrios, distorcendo a análise topológica se não forem tratados adequadamente (ex.: removidos ou reponderados).
+
+---
 
 ## Reconstrução Metabólica em Escala Genômica
 
@@ -103,138 +109,130 @@ flowchart LR
     style I fill:transparent
     style J fill:transparent
     style K fill:transparent
-    ```
+```
 
-## Estágio 1: Criação da Reconstrução Rascunho
+### Estágio 1: Criação da Reconstrução Rascunho
 
-### Genoma Anotado
-- Coordenadas genômicas
-- Funções conhecidas de produtos gênicos
-- Isoformas de splicing
+**O que precisamos para começar:**
 
-### Identificação de Genes Metabólicos
-- EC number
-- Termos metabólicos (desidrogenase, quinase)
-- Termos do Gene Ontology relacionados ao metabolismo
+**Genoma anotado:**
+- Coordenadas genômicas.
+- Funções conhecidas de produtos gênicos.
+- Isoformas de *splicing*.
 
-### Estabelecimento
-- Reações de genes metabólicos
-- Reconstrução rascunho preliminar
+**Identificação de genes metabólicos** — genes com função metabólica precisam ser identificados através de:
+- EC number.
+- Termos metabólicos (ex.: desidrogenase, quinase).
+- Termos do Gene Ontology relacionados ao metabolismo.
 
-## Fontes de Informação
+**Estabelecimento das reações** — as reações de genes metabólicos devem ser estabelecidas: se o gene codifica uma enzima, qual reação essa enzima catalisa. Isso resulta na criação de uma reconstrução rascunho preliminar, preparando para a fase seguinte.
 
-### Bancos de Dados
-- metaSHARK
+#### De onde vem essa informação? Bancos de dados!
 - KEGG
-- modelSEED
+- The SEED Viewer / modelSEED
 - BRENDA
+- BiGG Models
 - Gene Ontology
 - Reactome
+- MetaCyc
+- MEMOTE
+- AGORA
+- metaSHARK
 
-## Estágio 2: Curadoria Manual
+### Estágio 2: Curadoria Manual
 
-### Necessidade
-- Anotação baseada em homologia pode conter erros propagados
-- Verificação de presença real de reações e genes no organismo
+O processo de curadoria manual é feito na rede metabólica rascunho.
 
-### Informações Adicionais e Verificação
+**Necessidade:** para a maioria dos organismos, a anotação é feita com base em **homologia** — por isso, reconstruções baseadas somente na anotação do genoma podem conter vários erros propagados. Um grande esforço precisa ser feito para verificar que todas as reações e genes estejam corretamente incluídos na reconstrução.
 
-#### Especificidade substrato-cofator
-- Pode variar entre organismos
-- Fontes: literatura ou banco de dados
+**Informações adicionais e verificação:**
 
-#### Localização das reações
-- Algoritmos, literatura ou dados experimentais
-- Importante devido à disponibilidade de metabólitos em cada compartimento
-- Reações de transporte
+- **Especificidade substrato-cofator**: pode variar entre organismos; verificada via literatura ou banco de dados.
+- **Localização das reações**: determinada via algoritmos, literatura ou dados experimentais. Se indeterminada, as reações devem ser colocadas no citosol. É importante devido à disponibilidade de metabólitos em cada compartimento e por causa das reações de transporte.
+- **Relação Gene-Proteína-Reação (GPR)**: dada em formato lógico.
+  - **Exemplo OU**: *pykA* **OU** *pykF* — ambas as proteínas (PykA e PykF) podem catalisar a reação da piruvato quinase.
+  - **Exemplo E**: *sdhA* **E** *sdhB* **E** *sdhC* **E** *sdhD* — todos os quatro genes são necessários para formar a proteína Sdh, que catalisa a reação irreversível da succinato desidrogenase na fosforilação oxidativa.
+- **Balanceamento químico**: confirmar a fórmula química de cada metabólito, determinando a carga do metabólito no devido compartimento celular de acordo com o pH encontrado; garantir que as reações estejam balanceadas em carga e massa (algumas podem requerer a adição de água ou prótons).
 
-#### Relação Gene-Proteína-Reação (GPR)
-- Dado em formato lógico
-- **Exemplo OU**: pykA OU pykF (ambos catalisam piruvato quinase)
-- **Exemplo E**: sdhA E sdhB E sdhC E sdhD (necessários para succinato desidrogenase)
+**Incorporação de reações espontâneas e de transporte:** nem todas as reações são catalisadas por enzimas; além disso, alguns metabólitos difundem facilmente através da membrana (reações espontâneas e reações de transporte). Se existir evidência de transporte do meio para a célula, da célula para o meio, ou entre compartimentos, essas reações devem ser descritas. Na eventualidade de as reações de transporte não serem conhecidas, pode-se usar uma reação análoga de outro organismo, desde que se anote que a informação não é precisa.
 
-#### Balanceamento Químico
-- Confirmar fórmula química de cada metabólito
-- Determinar fórmula carregada conforme pH do compartimento
-- Verificar balanço de carga e massa
-- Adição de água ou prótons quando necessário
+**A reação de biomassa (função objetivo):**
 
-### Incorporação de Reações Espontâneas e de Transporte
+- Modelo de rede metabólica que simula o crescimento.
+- Representação matemática das quantidades molares de vários metabólitos necessários para formar os componentes celulares.
+- É necessário saber a composição geral da célula em termos de lipídios, proteínas, carboidratos, ácidos nucleicos e demais metabólitos.
 
-- Nem todas as reações são catalisadas por enzimas
-- Alguns metabólitos difundem facilmente através da membrana
-- Evidência de transporte: meio↔célula, entre compartimentos
-- Reações análogas quando informação precisa não disponível
+A Reação de Biomassa é uma reação artificial (não enzimática) incluída em modelos metabólicos. Ela representa, em proporções molares exatas, o conjunto de todos os componentes necessários para a célula formar uma nova unidade de si mesma — ou seja, para crescer e se dividir. Funciona como uma "lista de compras" ultradetalhada do que a célula precisa para se duplicar.
 
-### Reação de Biomassa
+**Exemplo simplificado — fórmula de biomassa para bactérias gram-negativas:** o lado do consumo soma dezenas de metabólitos precursores em proporções molares definidas — aminoácidos (ex.: 0,51 glicina, 0,43 L-alanina, 0,38 L-leucina...), nucleotídeos trifosfatados (ATP, GTP, CTP, UTP e seus análogos desoxirribonucleotídeos), lipídios de membrana (fosfatidiletanolamina, fosfatidilglicerol, cardiolipinas), componentes da parede celular (polímero de peptidoglicano, oligossacarídeo do Lipídio A), cofatores (NAD, NADP, FAD, coenzima A, tetrahidrofolato) e íons inorgânicos — junto com uma grande quantidade de ATP e água (40,11 ATP e 35,54 H₂O), refletindo o custo energético da síntese. O lado da produção gera 1 unidade de BIOMASSA, além de ADP, fosfato, H⁺ e pirofosfato (os subprodutos da hidrólise de ATP que sustenta o processo).
 
-- **Função objetivo**: simula crescimento
-- Representação matemática das quantidades molares de metabólitos necessários para componentes celulares
-- Necessário conhecer composição celular (lipídios, proteínas, carboidratos...)
+Na prática, a produção de 1 unidade do metabólito BIOMASSA no modelo equivale à síntese equilibrada das seguintes classes de componentes celulares:
 
-**Exemplo**: Fórmula complexa para bactérias gram-negativas incluindo aminoácidos, nucleotídeos, cofatores, etc.
+**1. Macromoléculas estruturais e informacionais**
+- **Proteínas** — principal fração da biomassa, representando cerca de 55% do peso seco em muitas bactérias.
+- **RNA** — incluindo rRNA, tRNA e mRNA.
+- **DNA** — todo o material genético.
+- **Parede celular** — essencialmente peptidoglicano (polímero de açúcares e aminoácidos) em bactérias.
+- **Membrana celular** — bicamada lipídica que inclui fosfolipídios (fosfatidiletanolamina, fosfatidilglicerol), cardiolipinas e outros lipídios de membrana.
 
-## Estágio 3: Convertendo para Modelo Matemático
+**2. Moléculas complexas e cofatores**
+- **Cofatores enzimáticos e vitaminas** — indispensáveis para a atividade enzimática, como NAD, NADP, FAD, coenzima A, fosfato de piridoxal, hemo e tetrahidrofolato.
+- **Pigmentos e quinonas** — atuam em processos energéticos, como a respiração (ex.: ubiquinona e menaquinona).
+- **Íons inorgânicos** — essenciais como cofatores e para o equilíbrio iônico (K⁺, Mg²⁺, Ca²⁺, Fe²⁺/³⁺, Zn²⁺, entre outros).
 
-### Requisitos
-- Descrição matemática
-- Limites do modelo (entradas e saídas)
-- Construção de matriz estequiométrica
+**3. Metabólitos de reserva e pequenas moléculas**
+- **Compostos de armazenamento** — como glicogênio ou grânulos lipídicos, variando conforme o organismo.
+- **Moléculas sinalizadoras e intermediárias** — integrantes do *pool* metabólico celular.
 
-### Matriz Estequiométrica
-- **Linhas**: metabólitos
-- **Colunas**: reações
-- **Elementos**: coeficientes de cada metabólito em reação específica
-  - **Negativo**: metabólitos consumidos
-  - **Positivo**: metabólitos sintetizados
+### Estágio 3: Convertendo a Rede em um Modelo Matemático
 
-### Reações de Troca
-- Permitem sistema receber e exportar metabólitos
-- Valores máximos e mínimos podem ser definidos
+Para ser usada como ferramenta preditiva, a reconstrução deve ser convertida em um modelo matemático. Um modelo metabólico é a forma computável da reconstrução da rede metabólica. Para ser um modelo matemático, a rede deve:
 
-### Pseudo-reações
+- Ser descrita matematicamente.
+- Fornecer os limites do modelo em relação ao que entra e ao que sai dele.
+
+A conversão da rede para sua forma matemática é feita na construção de uma **matriz estequiométrica**.
+
+**Matriz Estequiométrica:**
+
+- Cada metabólito é posto em uma linha; cada reação é uma coluna.
+- Os elementos são os coeficientes de cada metabólito em uma reação específica:
+  - Metabólitos consumidos têm coeficiente **negativo**.
+  - Metabólitos sintetizados têm coeficiente **positivo**.
+- Metabólitos obtidos do meio ou secretados para ele são descritos em **reações de troca**, que permitem que o sistema receba e exporte metabólitos; valores máximos e mínimos podem ser definidos para essas reações.
+
+*(Hefzi, H. et al., 2013. Reconstruction of Genome Scale Metabolic Network. In: Handbook of System Biology: Concept and Insight. 1ª ed. Elsevier.)*
+
+**Pseudo-reações:** podem ser adicionadas quando sabemos que existem metabólitos gerados ou consumidos além do escopo do nosso modelo:
+
 - Reações de demanda
 - Reações de fornecimento
-- Usadas para metabólitos gerados/consumidos além do escopo do modelo
 
-## Após Transformação Matemática
+### Após a Transformação Matemática
 
 O modelo pode ser usado para simular como as vias são usadas.
 
-### Flux Balance Analysis (FBA)
-- Assume estado estacionário
+**Flux Balance Analysis (FBA):**
+
+- Assume um estado estacionário.
 - Equação: **S · v = 0**
-- Onde **v** é o vetor de fluxo
+- Onde **v** é o vetor de fluxo.
 
-## Estágio 4: Avaliação da Rede
+### Estágio 4: Avaliação da Rede
 
-### Testes Realizados
+**Testes realizados:**
 
-#### Teste Topológico
-- Verificação de reações a mais ou faltando
-- Revisão do balanço de massas e carga
-- Verificação da localização dos metabólitos
+- **Teste Topológico**: verificação de reações a mais ou faltando, revisão do balanço de massas e carga, e verificação da localização dos metabólitos.
+- **Teste Termodinâmico**: verificar a reversibilidade das reações, usando informações de bancos de dados ou algoritmos especializados.
+- **Teste Fenotípico**: testar a habilidade do modelo de reproduzir algum aspecto fenotípico.
+- **Teste Quantitativo**: crítico para testar a capacidade de predição de parâmetros quantitativos do modelo — identificando erros como crescer quando não deveria, não crescer quando deveria, ou crescer mais rápido ou mais devagar do que o esperado.
 
-#### Teste Termodinâmico
-- Verificar reversibilidade das reações
-- Fontes: bancos de dados, algoritmos especializados
+**Resolução de problemas — *Gap Filling*:** nessa etapa, informações novas são usadas para preencher lacunas nos modelos.
 
-#### Teste Fenotípico
-- Habilidade do modelo de reproduzir aspectos fenotípicos
+### Estágio 5: Concatenação, Disseminação e Uso
 
-#### Teste Quantitativo
-- Capacidade de predição de parâmetros quantitativos
-- Identificação de erros: crescimento inadequado
+Uma vez que a reconstrução termina, é importante que ela seja disponibilizada. Geralmente se usa o formato **SBML** (*Systems Biology Markup Language*), mas também existem outros padrões e recursos:
 
-### Resolução de Problemas
-- **GapFilling**: preenchimento de lacunas nos modelos
-
-## Estágio 5: Concatenação, Disseminação e Uso
-
-### Disponibilização
-- Formato comum: **SBML** (Systems Biology Markup Language)
-
-### Padrões e Recursos
 - BioModels Database
 - BioPAX
 - CellML
@@ -243,9 +241,68 @@ O modelo pode ser usado para simular como as vias são usadas.
 - Systems Biology Ontology
 - Systems Biology Graphical Notation
 
+**Exemplo de SBML:**
+```{.bash}
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="modelo_exemplo" name="Conversao_A_para_B">
+    <listOfCompartments>
+      <compartment id="compartimento" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="A" compartment="compartimento" initialConcentration="10" boundaryCondition="false"/>
+      <species id="B" compartment="compartimento" initialConcentration="0" boundaryCondition="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="k1" value="0.1" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="reacao1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="A"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="B"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+            <times/>
+              <ci> k1 </ci>
+              <ci> A </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
+```
+
+---
+
 ## Tópicos Adicionais
 
 - Aplicações de Reconstruções Metabólicas
-- Elementary Flux Modes and Extreme Pathways
+- *Elementary Flux Modes* e *Extreme Pathways*
 - Modularidade
 
+### Modularidade
+
+- A modularidade em redes metabólicas é um princípio organizacional fundamental que explica como a complexidade celular é gerenciada.
+- A modularidade das redes metabólicas está associada à robustez, adaptabilidade e eficiência dos sistemas vivos.
+- É uma ferramenta crucial para engenharia metabólica e para a medicina.
+
+**Exemplo:**
+
+**Condição 1 — Oxigênio pleno (Aerobiose):**
+- Módulo Ativo 1: Glicólise (quebra a glicose até piruvato).
+- Módulo Ativo 2: Ciclo de Krebs (oxida o piruvato).
+- Módulo Ativo 3: Cadeia Transportadora de Elétrons (produz ATP).
+- **Acoplamento**: o módulo 1 alimenta o módulo 2 com piruvato, e o módulo 2 alimenta o módulo 3 com NADH. O resultado é uma produção eficiente de ATP.
+
+**Condição 2 — Sem oxigênio (Anaerobiose):**
+- Módulo Ativo 1: Glicólise (continua funcionando).
+- Módulos Inativos 2 e 3: Ciclo de Krebs e Cadeia Transportadora de Elétrons são drasticamente reduzidos.
+- Módulo Ativo Alternativo: Fermentação (um módulo menor que recicla o NAD⁺ necessário para a glicólise continuar).
+- **Mudança modular**: a célula desliga módulos inteiros que dependem de oxigênio e ativa um módulo alternativo para manter a produção de energia, mesmo que de forma menos eficiente.

@@ -15,81 +15,73 @@ format:
 editor: source
 ---
 
-# Introdução
+# Antes de gerar as redes
 
-Antes de gerar as redes, precisamos obter os dados porque:
-- Precisamos saber quais, quantos e qual a relação entre os elementos biológicos.
-
----
-
-# Tipos de Dados
-
-## Dados Ômicos
-- Conjuntos completos de DNA, RNA, Proteínas, Metabólitos
-- Anotação funcional de genes
-- EC number
-- Domínios funcionais
-- Transcritos
-
-## Natureza dos Dados
-- **Qualitativo**: o que é?
-- **Quantitativo**: quanto de cada
-
-## Dados de Interação
-- Interação de proteínas
-- Interação proteínas-ácidos nucleicos
-- Associação à doenças
+Precisamos obter os dados porque precisamos saber **quais**, **quantos** e **qual a relação** entre os elementos biológicos.
 
 ---
 
-## Fontes de Dados
+# Que dados são esses?
 
-- Experimentos
-- Bancos de dados
-- Literatura
-
----
-
-## Fluxo de Trabalho: DNA → Genes
-
-1. **Sequenciamento**
-   - Obtenção da sequência de DNA do organismo de interesse
-
-2. **Montagem**
-   - Reconstituição da molécula de DNA inicial
-
-3. **Predição Gênica**
-   - Busca pelas porções codificantes do genoma
-   - Predição de outros elementos funcionais
-
-4. **Anotação Funcional**
-   - Designa a função dos genes
+- Dados ômicos de conjuntos completos de DNA, RNA, proteínas, metabólitos.
+- Anotação funcional de genes:
+  - EC number
+  - Domínios funcionais
+- Transcritos:
+  - **Qualitativo**: o que é?
+  - **Quantitativo**: quanto de cada.
+- Interação de proteínas:
+  - Proteínas
+  - Ácidos nucleicos
+- Dados de associação a doenças.
 
 ---
 
-# Tecnologias de Sequenciamento
+# Podemos obter os dados por:
 
-## Empresas Principais
+- **Experimentos**
+- **Bancos de dados**
+- **Literatura**
+
+---
+
+# DNA → Genes
+
+O fluxo típico de obtenção de genes a partir do DNA passa por quatro etapas:
+
+1. **Sequenciamento** — obtenção da sequência de DNA do organismo de interesse.
+2. **Montagem** — reconstituição da molécula de DNA inicial da maneira mais contínua e fidedigna possível.
+3. **Predição Gênica** — busca pelas porções codificantes do genoma; pode-se fazer também a predição de outros elementos funcionais.
+4. **Anotação Funcional** — designa a função dos genes.
+
+## Sequenciamento
+
+**Sequenciadores** — empresas mais frequentes:
+
 - Illumina
 - MGI
 - PacBio
 - Nanopore
 - Element Biosciences
 
-## Tipos de Leituras
+**Leituras** — a diferença está no método de detecção:
+
 - Curtas
 - Longas
 
-## Métodos de Sequenciamento
+**Tipo de sequenciamento:**
+
 - Sequenciamento por síntese
 - Sequenciamento em tempo real
-- Sequenciamento em nanoporo
+- Sequenciamento em nanoporo (não envolve síntese)
 
 ---
 
-## Microarranjos (Microarray)
+# Microarranjos (Microarray)
 
-### Fluxo do Experimento
+O microarranjo de DNA é uma técnica que permite medir simultaneamente os níveis de expressão de milhares de transcritos, por hibridização com sondas conhecidas.
+
+## Fluxo do experimento
 1. Extração de RNA
 2. Seleção de mRNA
 3. Transcrição reversa
@@ -97,142 +89,209 @@ Antes de gerar as redes, precisamos obter os dados porque:
 5. Ligação de fluoróforo
 6. Hibridização
 
----
+# RNA-Seq
 
-## Comparação: Microarray vs RNA-Seq
+O RNA-Seq utiliza sequenciamento de nova geração (NGS) para medir diretamente a abundância de transcritos, sem depender de sondas pré-definidas.
 
-| Característica | Microarray | RNA-Seq | Implicação para Biologia de Sistemas |
+## Comparação: Microarranjo *vs.* RNA-Seq — aspectos técnicos
+
+| Característica | Microarranjo de DNA | RNA-Seq | Implicação (Biologia de Sistemas) |
 |----------------|------------|---------|--------------------------------------|
-| **Princípio** | Hibridização | Sequenciamento NGS | RNA-Seq é medida direta, mais confiável |
-| **Pré-requisito** | Requer conhecimento prévio | Não requer conhecimento prévio | RNA-Seq superior para sistemas não-modelo |
-| **Faixa Dinâmica** | Limitada | Muito ampla | RNA-Seq detecta melhor genes de baixa expressão |
-| **Dados Obtidos** | Sinal de fluorescência | Contagens de reads | Dados discretos do RNA-Seq requerem modelos estatísticos específicos |
-| **Resolução** | Baixa para variantes | Resolução de nucleotídeo único | RNA-Seq permite modelar regulação pós-transcricional |
-| **Custo** | Moderado | Mais alto (mas caindo) | Microarray mais acessível para conjuntos gênicos definidos |
+| **Princípio** | Hibridização por fluorescência (indireto) | Sequenciamento direto (NGS, reads) | RNA-Seq oferece maior confiança nos dados |
+| **Conhecimento prévio** | Requer genoma/sondas conhecidas | Não requer (descoberta de transcritos novos/isoformas) | RNA-Seq é superior para novos componentes da rede |
+| **Faixa dinâmica** | Limitada (saturação / baixa sensibilidade) | Muito ampla (sem saturação) | RNA-Seq capta fatores de transcrição de baixa expressão |
+| **Tipo de dado** | Intensidade de fluorescência (contínuo, relativo) | Contagens de *reads* (discreto, quantificável) | Exige modelos estatísticos distintos (ex.: DESeq2) |
+| **Vieses técnicos** | Hibridização e especificidade de sonda | Composição de GC e amplificação por PCR | Ambos exigem correções computacionais específicas |
+
+## Comparação: Microarranjo *vs.* RNA-Seq — aspectos práticos e aplicações
+
+| Característica | Microarranjo de DNA | RNA-Seq | Implicação (Biologia de Sistemas) |
+|----------------|------------|---------|--------------------------------------|
+| **Reprodutibilidade** | Alta reprodutibilidade técnica entre plataformas | Maior sensibilidade para mudanças biológicas sutis | Microarranjo ideal para estudos longitudinais grandes |
+| **Resolução** | Mede apenas o que foi projetado | Resolução de nucleotídeo único (edição, alelos) | RNA-Seq mapeia a regulação pós-transcricional |
+| **Custo & computação** | Custo moderado; bioinformática simples | Custo mais alto (mas caindo); exige infraestrutura robusta | Orçamento e expertise limitam a escolha da plataforma |
+| **Workflow** | Padronizado (qualidade → normalização → diferencial) | Complexo (alinhamento, *assembly*, quantificação) | Requer pipelines robustos para integração em modelos |
+| **Aplicação ideal** | Validação em larga escala; painéis específicos | Descoberta *ab initio*; integração multiômica | RNA-Seq constrói modelos; microarranjo valida hipóteses |
 
 ---
 
-## Técnicas para Estudo de Interações
+# Técnicas para Estudo de Interações
 
-### Co-Imunoprecipitação (Co-IP)
-- Técnica para isolar complexos proteicos nativos
-- Usa anticorpo específico para "pescar" proteína-alvo e seus parceiros
-- **Limitação**: Epítopo oculto, visão parcial
-- **Validação**: Rodada reversa necessária
+## Co-Imunoprecipitação (Co-IP)
 
-### Imunoprecipitação da Cromatina (ChIP)
-- Fixa DNA às proteínas da cromatina
-- Enriquecimento com anticorpos específicos
-- **Variantes**:
-  - ChIP-PCR (qualitativo, obsoleto)
-  - ChIP-qPCR (quantitativo, para validação)
-  - ChIP-chip (genome-wide com microarranjo)
-  - ChIP-seq (padrão-ouro atual)
+**Princípio básico:** técnica clássica para isolar complexos proteicos nativos de uma amostra biológica. Funciona como um *pull-down*: usa um anticorpo específico para "pescar" uma proteína-alvo (isca) e todas as proteínas que estão firmemente ligadas a ela.
 
-### Purificação por Afinidade
-- Captura de material biológico com ligante específico
-- Múltiplos tipos de ligandos: DNA/RNA, químicos, lipídios, peptídeos, anticorpos
+**Como funciona:**
 
-### Espectrometria de Massa
-- Identifica e quantifica compostos
-- **Etapas**: Ionização, Separação, Detecção
-- **AP-MS**: Purificação por afinidade acoplada a espectrometria de massa
+- Um anticorpo é projetado para se ligar a uma proteína conhecida (a isca, ou *bait*) que se acredita fazer parte de um complexo maior.
+- O anticorpo, fixado em uma esfera, é adicionado à amostra.
+- A proteína-isca e seus parceiros de ligação são capturados e puxados para fora da solução.
+- O complexo é purificado e analisado (ex.: por Western Blot ou espectrometria de massa) para identificar as proteínas associadas.
 
-### Duplo Híbrido em Levedura (Y2H)
-- Detecta interações proteína-proteína
-- **Princípio**: Reconstituição de fator de transcrição funcional
-- **Componentes**: Isca (BD) e Presa (AD)
-- **Leitura**: Ativação de gene repórter
+**Limitações importantes:**
+
+- **Epítopo oculto**: um anticorpo só captura proteínas que têm o epítopo acessível; complexos proteicos podem esconder esse epítopo, levando a uma captura incompleta.
+- **Visão parcial**: a técnica pode isolar apenas uma subpopulação dos complexos presentes na célula.
+
+**Estratégia crucial — validação por "rodada reversa"**: para confirmar se uma proteína identificada é um parceiro legítimo, o experimento deve ser repetido visando diferentes membros do complexo proposto.
+
+- **Resultado válido**: se ao direcionar a proteína B, você captura a proteína A (e vice-versa), a interação é confirmada.
+- **Resultado questionável**: se a proteína X só é capturada com uma isca, mas não com outra, ela pode não ser um membro direto do complexo estável.
+
+## Imunoprecipitação da Cromatina (ChIP)
+
+A base para a imunoprecipitação da cromatina é fixar o DNA às proteínas da cromatina:
+
+- Tratamento com formaldeído para ligar as histonas ao DNA.
+- Extração da cromatina.
+- Corte em fragmentos viáveis.
+- Enriquecimento para fragmentos de cromatina de interesse por imunoprecipitação, com anticorpos específicos para proteínas da cromatina ou para modificações nessas proteínas.
+
+**Variantes:**
+
+1. **ChIP-PCR** (obsoleto): a etapa final de detecção usa PCR convencional (eletroforese em gel); o resultado é visualizado como uma "banda" em um gel. É apenas qualitativo (mostra se a região está presente, mas não o quanto), pouco sensível e propenso a artefatos — foi amplamente substituído pelo ChIP-qPCR.
+2. **ChIP-qPCR** (*Real-Time Quantitative PCR*): usa PCR quantitativo em tempo real para medir com precisão a quantidade de uma região genômica específica presente na amostra imunoprecipitada. É altamente sensível e quantitativo, permitindo comparar o enriquecimento entre condições. É o método ideal para **validar** descobertas feitas por ChIP-seq ou ChIP-chip.
+3. **ChIP-chip** (*Chromatin Immunoprecipitation on Chip*): o DNA purificado do ChIP é hibridizado em um microarranjo (chip) com sondas representando milhares de regiões genômicas conhecidas. Foi a primeira tecnologia a permitir perfis *genome-wide*, mas só detecta ligações em regiões com sonda no chip, tem resolução espacial limitada e faixa dinâmica menor comparada ao sequenciamento — quase totalmente substituída pelo ChIP-seq.
+4. **ChIP-seq** (*Chromatin Immunoprecipitation followed by Sequencing* — padrão-ouro atual): o DNA purificado do ChIP é sequenciado de forma massiva (NGS); todos os fragmentos são lidos e mapeados computacionalmente ao genoma. Vantagens: é *genome-wide* e imparcial (não precisa de conhecimento prévio, descobre novos locais de ligação), tem alta resolução (mapeamento com precisão de base única) e ampla faixa dinâmica.
+
+## Purificação por Afinidade
+
+Técnica de captura de material biológico via enriquecimento específico com um ligante acoplado a um suporte sólido. Muitos tipos de ligantes podem ser usados:
+
+- DNA e RNA (na maioria das vezes oligonucleotídeos)
+- Produtos químicos
+- Lipídios
+- Peptídeos ou proteínas (incluindo anticorpos)
+
+## Espectrometria de Massa
+
+Técnica analítica poderosa, utilizada para identificar e quantificar compostos em uma amostra, além de elucidar sua estrutura e pureza. Baseia-se em três etapas fundamentais:
+
+- **Ionização**: as moléculas da amostra são convertidas em íons gasosos (geralmente carregados positivamente).
+- **Separação**: os íons são separados no espaço ou no tempo com base em sua relação massa-carga (m/z) dentro de um analisador de massas.
+- **Detecção**: os íons separados são detectados, gerando um espectro que representa a abundância de cada íon em função de sua relação m/z.
+
+**AP-MS** (Purificação por Afinidade acoplada a Espectrometria de Massa): combina a captura seletiva de um complexo proteico via purificação por afinidade com a identificação de todos os seus componentes por espectrometria de massa.
+
+## Duplo-Híbrido em Levedura (Y2H)
+
+O Duplo-Híbrido de Levedura (*Yeast Two-Hybrid* — Y2H) é uma técnica de biologia molecular usada para descobrir interações proteína-proteína (PPIs) e interações proteína-DNA, testando interações físicas entre duas proteínas, ou entre uma proteína e uma molécula de DNA. É baseado na reconstituição de um fator de transcrição funcional, que só ocorre quando duas proteínas de interesse interagem.
+
+**Princípio**: divide-se um fator de transcrição em duas partes inativas:
+
+- **Domínio de Ligação ao DNA (BD)** — a **Isca**: liga-se a uma sequência específica de DNA, mas sozinha não pode iniciar a transcrição.
+- **Domínio de Ativação (AD)** — a **Presa**: capaz de recrutar a maquinaria de transcrição, mas não pode se prender ao DNA sozinha.
+
+Essas duas partes são fusionadas a proteínas de interesse: a proteína X é fundida ao BD (Isca-X), e a proteína Y é fundida ao AD (Presa-Y).
+
+**Teste da interação**: se a proteína X interage com a proteína Y, o BD e o AD são aproximados, formando um fator de transcrição funcional e completo, que se liga ao DNA e ativa a transcrição de um gene repórter.
+
+**Leitura do resultado** — a ativação do gene repórter produz um sinal detectável, como:
+
+- Crescimento em meio de cultura deficiente (ex.: sem histidina).
+- Mudança de cor (ex.: produção de β-galactosidase, que torna a colônia azul).
+- Produção de luz fluorescente.
+
+Se não houver interação, o gene repórter não é ativado e nenhum sinal é produzido.
+
+**Aplicações**: a principal aplicação do Y2H é a descoberta em larga escala de interações proteína-proteína, sendo uma ferramenta fundamental para mapear redes de interação em biologia celular e sistemas.
 
 ---
 
-## Conceitos Computacionais
+# Conceitos Computacionais
 
-### Interólogos
-- Interação conservada entre pares de proteínas homólogas
-- **Pré-requisitos**:
-  - Homologia par-a-par
-  - Conservação da interação
-- **Aplicações**: Predição de interações, inferência funcional, mapeamento de redes
+## Interólogos
 
-### Coevolução
-- Proteínas que interagem coevoluem na superfície de interação
-- Métodos computacionais usam alinhamentos múltiplos, árvores filogenéticas
+Um interólogo é uma interação conservada entre um par de proteínas que possuem homólogos interativos em outro organismo. Se duas proteínas (A e B) interagem em um organismo, e seus homólogos (A' e B') também interagem em outro organismo, então a interação A-B é um interólogo da interação A'-B'.
 
-### EC-number
-- Sistema de classificação numérica para enzimas
-- Baseado nas reações químicas catalisadas
+**Pré-requisitos para ser um interólogo** — para que um par de interações seja considerado interólogo, todas as condições abaixo devem ser verdadeiras:
+
+- **Homologia par-a-par**: a proteína A deve ser homóloga à proteína A', e a proteína B deve ser homóloga à proteína B'.
+- **Conservação da interação**: a interação física entre o par de proteínas deve ser conservada nas duas espécies (A interage com B, e A' interage com B').
+
+**Importância e aplicação em Biologia de Sistemas** — o conceito de interólogo é extremamente poderoso porque permite prever interações proteicas em uma espécie com base em dados de outra:
+
+- **Predição de interações**: se sabemos que a proteína A interage com a proteína B em humanos, e identificamos os homólogos de A e B em um rato (A' e B'), podemos prever que A' e B' também interagem no rato — fundamental para extrapolar conhecimento de organismos-modelo (como levedura) para humanos.
+- **Inferência funcional**: a conservação de uma interação através da evolução é um forte indício de que ela é funcionalmente importante.
+- **Mapeamento de redes de interação**: é a base para transferir informações e construir redes de interação proteica (interatomas) para espécies pouco estudadas, usando como base o interatoma de espécies bem caracterizadas.
+
+## Coevolução
+
+Vem da ideia de que proteínas que interagem coevoluem na sua superfície de interação. Vários métodos computacionais estão disponíveis para esse tipo de detecção, e podem usar alinhamentos múltiplos, árvores filogenéticas ou modelos matemáticos para prever essas interações.
+
+## EC-number
+
+Os números EC são um esquema de classificação numérica para as enzimas, baseado nas reações químicas que catalisam. Como sistema de nomenclatura de enzimas, cada número EC está associado a um nome recomendado para a enzima correspondente — na realidade, os números EC codificam reações catalisadas por enzimas.
 
 ---
 
-## Bancos de Dados
+# Bancos de Dados
 
-### Pathguide
-- 702 recursos sobre vias biológicas e interações moleculares
-- Acesso livre
-- Suporta padrões: BioPAX, CellML, PSI-MI, SBML
+## Pathguide
+- Contém informação sobre **702 recursos** sobre vias biológicas e interações moleculares.
+- Os bancos de dados listados são de acesso livre.
+- Alguns suportam linguagens de padronização e integração como BioPAX, CellML, PSI-MI ou SBML.
 - [Pathguide](https://pathguide.org/)
 
-### KEGG
-- Banco de dados de recursos biológicos
-- Interpreta funções e processos complexos
-- **Acesso**: Pago
+## KEGG
+- Banco de dados de recursos biológicos.
+- Interpreta funções e processos complexos (de alto nível) em sistemas biológicos, como células, organismos e ecossistemas.
+- Integra e analisa dados moleculares, interpretando dados de larga escala (ex.: sequenciamento de genoma e outras tecnologias ômicas de alto rendimento).
+- **Acesso**: pago.
 - [KEGG](https://www.genome.jp/kegg/)
 
-### Gene Ontology (GO)
-- Maior fonte de informações sobre funções de genes
-- Base para análise de dados ômicos
-- Modelo computacional abrangente de sistemas biológicos
+## Gene Ontology (GO)
+- **Objetivo principal**: desenvolver um modelo computacional abrangente de sistemas biológicos, cobrindo todos os níveis (molecular, celular, de organismo) e abrangendo múltiplas espécies.
+- É a maior e mais importante fonte de informações sobre as funções de genes.
+- Serve como base fundamental para a análise e interpretação de dados de experimentos de larga escala (ômicos) em pesquisa biomédica.
 - [Gene Ontology](https://geneontology.org/)
 
-### MetaCyc
-- Banco de dados curado de vias metabólicas
-- 2666 vias de 2960 organismos
-- **Aplicações**: Enciclopédia metabólica, predição de vias, engenharia metabólica
+## MetaCyc
+- Banco de dados curado de vias metabólicas experimentalmente elucidadas de todos os domínios da vida.
+- Contém **2.666 vias** de **2.960 organismos diferentes**, cobrindo metabolismo primário e secundário, metabólitos, reações, enzimas e genes associados.
+- **Aplicações**: enciclopédia on-line do metabolismo; predição de vias metabólicas em genomas sequenciados; apoio à engenharia metabólica via banco de dados de enzimas; o banco de dados *Metabolite* apoia a pesquisa metabolômica.
 - [MetaCyc](https://metacyc.org/)
 
-### TRANSFAC
-- Informação sobre fatores de transcrição e sítios de ligação
-- **Acesso**: Pago
-- **Característica**: Curado
+## TRANSFAC
+- Contém informação sobre fatores de transcrição, seus sítios de ligação no genoma e seus perfis de ligação.
+- Banco de dados **curado**.
+- **Acesso**: pago.
 - [TRANSFAC](https://genexplain.com/transfac-product/)
 
-### STRING
-- Interações proteína-proteína conhecidas ou preditas
-- Inclui interações diretas (físicas) e indiretas (funcionais)
-- Fontes: Predição computacional, transferência entre organismos, outros bancos
+## STRING
+- Banco de dados de interações proteína-proteína conhecidas ou preditas.
+- Interações diretas (físicas) e indiretas (funcionais).
+- As interações podem vir de predição computacional, de transferência de conhecimento entre organismos, ou de interações descritas em outros bancos de dados.
 - [STRING](https://string-db.org/)
 
-### Reactome
-- **Acesso**: Aberto
-- **Características**: Curado manualmente, revisado por pares
-- Fornece ferramentas de visualização e análise
+## Reactome
+- **Acesso**: aberto (*open-source*).
+- Curado manualmente e revisado por pares.
+- Fornece ferramentas intuitivas de bioinformática para visualização, interpretação e análise do conhecimento de vias, apoiando a pesquisa básica e clínica, análise do genoma, modelagem, biologia de sistemas e educação.
 - [Reactome](https://reactome.org/)
 
-### IntAct
-- **Acesso**: Aberto
-- Interações derivadas da literatura (curadas)
-- Aceita submissão direta
+## IntAct
+- **Acesso**: aberto.
+- Banco de dados e ferramentas de análise.
+- Interações derivadas da literatura de maneira curada.
+- Interações também podem vir de submissão direta.
 - [IntAct](https://www.ebi.ac.uk/intact/home)
 
-### BioGRID
-- **Estatísticas**:
-  - 69.031 publicações
-  - 1.676.780 interações
-  - 28.093 associações químicas
-  - 726.378 modificações pós-traducionais
-- **Acesso**: Livre
+## BioGRID
+- Dados de interação, curados.
+- **Estatísticas**: 69.031 publicações; 1.676.780 interações proteicas e genéticas; 28.093 associações químicas; 726.378 modificações pós-traducionais.
+- **Acesso**: livre.
 - [BioGRID](https://thebiogrid.org/)
 
 ---
 
-## Mineração de Texto
+# Mineração de Texto
 
-- Técnica computacional para extrair informações de grandes volumes de texto
-- Procura automaticamente na literatura científica por termos específicos
+Técnica computacional que extrai automaticamente informações e descobre padrões com significado (significância) em grandes volumes de texto. Procura automaticamente na literatura científica (ex.: artigos do PubMed) por palavras-chave e termos específicos para encontrar informações relevantes.
 
-### Aplicações em Biologia
-- Função de genes/proteínas
-- Vias metabólicas
-- Interações entre biomoléculas
-- Relações de regulação
+**Principais aplicações em biologia:**
+
+- **Função de genes/proteínas**: identificar a que processo biológico um gene está associado.
+- **Vias metabólicas**: descobrir em quais vias uma enzima ou metabólito está envolvido.
+- **Interações**: revelar interações entre proteínas (PPIs), genes ou outras biomoléculas descritas no texto.
+- **Regulação**: identificar quem regula quem (ex.: qual fator de transcrição regula qual gene).

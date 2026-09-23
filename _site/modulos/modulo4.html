@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -76,10 +79,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-f9f455dc64e413ef7d6b4e46eacfda3e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c16f185744bb9397307a0b01c1d1a9c2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-06c1fa67c387e6d9c2baf2d791e95a45.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b63a022cc64d44d5489392fabef93fea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -479,7 +482,7 @@ window.Quarto = {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#níveis-organizacionais-e-escalas-de-tempo" id="toc-níveis-organizacionais-e-escalas-de-tempo" class="nav-link active" data-scroll-target="#níveis-organizacionais-e-escalas-de-tempo"><span class="header-section-number">1</span> Níveis Organizacionais e Escalas de Tempo</a></li>
+  <li><a href="#biologia-níveis-organizacionais-e-escalas-de-tempo" id="toc-biologia-níveis-organizacionais-e-escalas-de-tempo" class="nav-link active" data-scroll-target="#biologia-níveis-organizacionais-e-escalas-de-tempo"><span class="header-section-number">1</span> Biologia: Níveis Organizacionais e Escalas de Tempo</a></li>
   <li><a href="#evolução-e-organismos-modelo" id="toc-evolução-e-organismos-modelo" class="nav-link" data-scroll-target="#evolução-e-organismos-modelo"><span class="header-section-number">2</span> Evolução e Organismos Modelo</a>
   <ul class="collapse">
   <li><a href="#evolução" id="toc-evolução" class="nav-link" data-scroll-target="#evolução"><span class="header-section-number">2.1</span> Evolução</a></li>
@@ -491,7 +494,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#o-que-é-um-modelo" id="toc-o-que-é-um-modelo" class="nav-link" data-scroll-target="#o-que-é-um-modelo"><span class="header-section-number">4.1</span> O que é um Modelo?</a>
   <ul class="collapse">
-  <li><a href="#cuidado" id="toc-cuidado" class="nav-link" data-scroll-target="#cuidado"><span class="header-section-number">4.1.1</span> Cuidado</a></li>
+  <li><a href="#cuidado" id="toc-cuidado" class="nav-link" data-scroll-target="#cuidado"><span class="header-section-number">4.1.1</span> Cuidado!</a></li>
   <li><a href="#exemplos" id="toc-exemplos" class="nav-link" data-scroll-target="#exemplos"><span class="header-section-number">4.1.2</span> Exemplos</a></li>
   </ul></li>
   </ul></li>
@@ -501,56 +504,50 @@ window.Quarto = {
   <li><a href="#propósito-e-adequação-dos-modelos" id="toc-propósito-e-adequação-dos-modelos" class="nav-link" data-scroll-target="#propósito-e-adequação-dos-modelos"><span class="header-section-number">5.2</span> Propósito e Adequação dos Modelos</a>
   <ul class="collapse">
   <li><a href="#exemplos-de-objetivos" id="toc-exemplos-de-objetivos" class="nav-link" data-scroll-target="#exemplos-de-objetivos"><span class="header-section-number">5.2.1</span> Exemplos de Objetivos</a></li>
+  <li><a href="#classificação-por-generalidade" id="toc-classificação-por-generalidade" class="nav-link" data-scroll-target="#classificação-por-generalidade"><span class="header-section-number">5.2.2</span> Classificação por Generalidade</a></li>
   </ul></li>
-  <li><a href="#classificação-por-generalidade" id="toc-classificação-por-generalidade" class="nav-link" data-scroll-target="#classificação-por-generalidade"><span class="header-section-number">5.3</span> Classificação por Generalidade</a></li>
-  <li><a href="#modelagem-e-experimentação" id="toc-modelagem-e-experimentação" class="nav-link" data-scroll-target="#modelagem-e-experimentação"><span class="header-section-number">5.4</span> Modelagem e Experimentação</a></li>
-  <li><a href="#características-dos-modelos" id="toc-características-dos-modelos" class="nav-link" data-scroll-target="#características-dos-modelos"><span class="header-section-number">5.5</span> Características dos Modelos</a>
+  <li><a href="#modelagem-e-experimentação" id="toc-modelagem-e-experimentação" class="nav-link" data-scroll-target="#modelagem-e-experimentação"><span class="header-section-number">5.3</span> Modelagem e Experimentação</a></li>
+  <li><a href="#características-dos-modelos" id="toc-características-dos-modelos" class="nav-link" data-scroll-target="#características-dos-modelos"><span class="header-section-number">5.4</span> Características dos Modelos</a>
   <ul class="collapse">
-  <li><a href="#vantagens-adicionais" id="toc-vantagens-adicionais" class="nav-link" data-scroll-target="#vantagens-adicionais"><span class="header-section-number">5.5.1</span> Vantagens Adicionais</a></li>
+  <li><a href="#vantagens-adicionais" id="toc-vantagens-adicionais" class="nav-link" data-scroll-target="#vantagens-adicionais"><span class="header-section-number">5.4.1</span> Vantagens Adicionais</a></li>
   </ul></li>
-  <li><a href="#modelos-matemáticos-e-computacionais" id="toc-modelos-matemáticos-e-computacionais" class="nav-link" data-scroll-target="#modelos-matemáticos-e-computacionais"><span class="header-section-number">5.6</span> Modelos Matemáticos e Computacionais</a></li>
-  <li><a href="#noções-básicas-de-modelos-computacionais" id="toc-noções-básicas-de-modelos-computacionais" class="nav-link" data-scroll-target="#noções-básicas-de-modelos-computacionais"><span class="header-section-number">5.7</span> Noções Básicas de Modelos Computacionais</a>
+  <li><a href="#modelos-matemáticos-e-computacionais" id="toc-modelos-matemáticos-e-computacionais" class="nav-link" data-scroll-target="#modelos-matemáticos-e-computacionais"><span class="header-section-number">5.5</span> Modelos Matemáticos e Computacionais</a></li>
+  <li><a href="#noções-básicas-de-modelos-computacionais" id="toc-noções-básicas-de-modelos-computacionais" class="nav-link" data-scroll-target="#noções-básicas-de-modelos-computacionais"><span class="header-section-number">5.6</span> Noções Básicas de Modelos Computacionais</a>
   <ul class="collapse">
-  <li><a href="#escopo-do-modelo" id="toc-escopo-do-modelo" class="nav-link" data-scroll-target="#escopo-do-modelo"><span class="header-section-number">5.7.1</span> Escopo do Modelo</a></li>
+  <li><a href="#escopo-do-modelo" id="toc-escopo-do-modelo" class="nav-link" data-scroll-target="#escopo-do-modelo"><span class="header-section-number">5.6.1</span> Escopo do Modelo</a></li>
   </ul></li>
-  <li><a href="#declarações-do-modelo" id="toc-declarações-do-modelo" class="nav-link" data-scroll-target="#declarações-do-modelo"><span class="header-section-number">5.8</span> Declarações do Modelo</a>
+  <li><a href="#declarações-do-modelo" id="toc-declarações-do-modelo" class="nav-link" data-scroll-target="#declarações-do-modelo"><span class="header-section-number">5.7</span> Declarações do Modelo</a>
   <ul class="collapse">
-  <li><a href="#restrições" id="toc-restrições" class="nav-link" data-scroll-target="#restrições"><span class="header-section-number">5.8.1</span> Restrições</a></li>
-  <li><a href="#postulados-de-otimalidade" id="toc-postulados-de-otimalidade" class="nav-link" data-scroll-target="#postulados-de-otimalidade"><span class="header-section-number">5.8.2</span> Postulados de Otimalidade</a></li>
-  <li><a href="#processos-estocásticos" id="toc-processos-estocásticos" class="nav-link" data-scroll-target="#processos-estocásticos"><span class="header-section-number">5.8.3</span> Processos Estocásticos</a></li>
-  <li><a href="#declarações-probabilísticas" id="toc-declarações-probabilísticas" class="nav-link" data-scroll-target="#declarações-probabilísticas"><span class="header-section-number">5.8.4</span> Declarações Probabilísticas</a></li>
+  <li><a href="#restrições" id="toc-restrições" class="nav-link" data-scroll-target="#restrições"><span class="header-section-number">5.7.1</span> Restrições</a></li>
+  <li><a href="#postulados-de-otimalidade" id="toc-postulados-de-otimalidade" class="nav-link" data-scroll-target="#postulados-de-otimalidade"><span class="header-section-number">5.7.2</span> Postulados de Otimalidade</a></li>
+  <li><a href="#processos-estocásticos" id="toc-processos-estocásticos" class="nav-link" data-scroll-target="#processos-estocásticos"><span class="header-section-number">5.7.3</span> Processos Estocásticos</a></li>
+  <li><a href="#declarações-probabilísticas" id="toc-declarações-probabilísticas" class="nav-link" data-scroll-target="#declarações-probabilísticas"><span class="header-section-number">5.7.4</span> Declarações Probabilísticas</a></li>
   </ul></li>
-  <li><a href="#estado-do-sistema" id="toc-estado-do-sistema" class="nav-link" data-scroll-target="#estado-do-sistema"><span class="header-section-number">5.9</span> Estado do Sistema</a>
+  <li><a href="#estado-do-sistema" id="toc-estado-do-sistema" class="nav-link" data-scroll-target="#estado-do-sistema"><span class="header-section-number">5.8</span> Estado do Sistema</a>
   <ul class="collapse">
-  <li><a href="#abordagens-de-modelagem" id="toc-abordagens-de-modelagem" class="nav-link" data-scroll-target="#abordagens-de-modelagem"><span class="header-section-number">5.9.1</span> Abordagens de Modelagem</a></li>
-  <li><a href="#comportamento-temporal" id="toc-comportamento-temporal" class="nav-link" data-scroll-target="#comportamento-temporal"><span class="header-section-number">5.9.2</span> Comportamento Temporal</a></li>
+  <li><a href="#comportamento-temporal" id="toc-comportamento-temporal" class="nav-link" data-scroll-target="#comportamento-temporal"><span class="header-section-number">5.8.1</span> Comportamento Temporal</a></li>
   </ul></li>
-  <li><a href="#constantes-parâmetros-e-variáveis" id="toc-constantes-parâmetros-e-variáveis" class="nav-link" data-scroll-target="#constantes-parâmetros-e-variáveis"><span class="header-section-number">5.10</span> Constantes, Parâmetros e Variáveis</a>
+  <li><a href="#constantes-parâmetros-e-variáveis" id="toc-constantes-parâmetros-e-variáveis" class="nav-link" data-scroll-target="#constantes-parâmetros-e-variáveis"><span class="header-section-number">5.9</span> Constantes, Parâmetros e Variáveis</a></li>
+  <li><a href="#comportamento-de-um-modelo" id="toc-comportamento-de-um-modelo" class="nav-link" data-scroll-target="#comportamento-de-um-modelo"><span class="header-section-number">5.10</span> Comportamento de um Modelo</a></li>
+  <li><a href="#classificação-de-modelos" id="toc-classificação-de-modelos" class="nav-link" data-scroll-target="#classificação-de-modelos"><span class="header-section-number">5.11</span> Classificação de Modelos</a>
   <ul class="collapse">
-  <li><a href="#constante" id="toc-constante" class="nav-link" data-scroll-target="#constante"><span class="header-section-number">5.10.1</span> Constante</a></li>
-  <li><a href="#parâmetro" id="toc-parâmetro" class="nav-link" data-scroll-target="#parâmetro"><span class="header-section-number">5.10.2</span> Parâmetro</a></li>
-  <li><a href="#variável" id="toc-variável" class="nav-link" data-scroll-target="#variável"><span class="header-section-number">5.10.3</span> Variável</a></li>
-  <li><a href="#distinção-importante" id="toc-distinção-importante" class="nav-link" data-scroll-target="#distinção-importante"><span class="header-section-number">5.10.4</span> Distinção Importante</a></li>
+  <li><a href="#quanto-à-previsibilidade" id="toc-quanto-à-previsibilidade" class="nav-link" data-scroll-target="#quanto-à-previsibilidade"><span class="header-section-number">5.11.1</span> Quanto à Previsibilidade</a></li>
+  <li><a href="#quanto-à-natureza" id="toc-quanto-à-natureza" class="nav-link" data-scroll-target="#quanto-à-natureza"><span class="header-section-number">5.11.2</span> Quanto à Natureza</a></li>
+  <li><a href="#quanto-à-reversibilidade" id="toc-quanto-à-reversibilidade" class="nav-link" data-scroll-target="#quanto-à-reversibilidade"><span class="header-section-number">5.11.3</span> Quanto à Reversibilidade</a></li>
+  <li><a href="#quanto-à-periodicidade" id="toc-quanto-à-periodicidade" class="nav-link" data-scroll-target="#quanto-à-periodicidade"><span class="header-section-number">5.11.4</span> Quanto à Periodicidade</a></li>
   </ul></li>
-  <li><a href="#comportamento-de-um-modelo" id="toc-comportamento-de-um-modelo" class="nav-link" data-scroll-target="#comportamento-de-um-modelo"><span class="header-section-number">5.11</span> Comportamento de um Modelo</a></li>
-  <li><a href="#classificação-de-modelos" id="toc-classificação-de-modelos" class="nav-link" data-scroll-target="#classificação-de-modelos"><span class="header-section-number">5.12</span> Classificação de Modelos</a>
+  <li><a href="#estado-estacionário-steady-state" id="toc-estado-estacionário-steady-state" class="nav-link" data-scroll-target="#estado-estacionário-steady-state"><span class="header-section-number">5.12</span> Estado Estacionário (<em>Steady State</em>)</a>
   <ul class="collapse">
-  <li><a href="#quanto-à-previsibilidade" id="toc-quanto-à-previsibilidade" class="nav-link" data-scroll-target="#quanto-à-previsibilidade"><span class="header-section-number">5.12.1</span> Quanto à Previsibilidade</a></li>
-  <li><a href="#quanto-à-natureza" id="toc-quanto-à-natureza" class="nav-link" data-scroll-target="#quanto-à-natureza"><span class="header-section-number">5.12.2</span> Quanto à Natureza</a></li>
-  <li><a href="#quanto-à-reversibilidade" id="toc-quanto-à-reversibilidade" class="nav-link" data-scroll-target="#quanto-à-reversibilidade"><span class="header-section-number">5.12.3</span> Quanto à Reversibilidade</a></li>
-  <li><a href="#quanto-à-periodicidade" id="toc-quanto-à-periodicidade" class="nav-link" data-scroll-target="#quanto-à-periodicidade"><span class="header-section-number">5.12.4</span> Quanto à Periodicidade</a></li>
+  <li><a href="#exemplos-biológicos" id="toc-exemplos-biológicos" class="nav-link" data-scroll-target="#exemplos-biológicos"><span class="header-section-number">5.12.1</span> Exemplos Biológicos</a></li>
   </ul></li>
-  <li><a href="#estado-estacionário-steady-state" id="toc-estado-estacionário-steady-state" class="nav-link" data-scroll-target="#estado-estacionário-steady-state"><span class="header-section-number">5.13</span> Estado Estacionário (<em>Steady State</em>)</a>
+  <li><a href="#não-unicidade-dos-modelos" id="toc-não-unicidade-dos-modelos" class="nav-link" data-scroll-target="#não-unicidade-dos-modelos"><span class="header-section-number">5.13</span> Não Unicidade dos Modelos</a></li>
+  <li><a href="#integração-de-dados-multi-ômicos" id="toc-integração-de-dados-multi-ômicos" class="nav-link" data-scroll-target="#integração-de-dados-multi-ômicos"><span class="header-section-number">5.14</span> Integração de Dados Multi-Ômicos</a></li>
+  <li><a href="#modelos-de-grafos" id="toc-modelos-de-grafos" class="nav-link" data-scroll-target="#modelos-de-grafos"><span class="header-section-number">5.15</span> Modelos de Grafos</a>
   <ul class="collapse">
-  <li><a href="#exemplos-biológicos" id="toc-exemplos-biológicos" class="nav-link" data-scroll-target="#exemplos-biológicos"><span class="header-section-number">5.13.1</span> Exemplos Biológicos</a></li>
-  </ul></li>
-  <li><a href="#não-unicidade-dos-modelos" id="toc-não-unicidade-dos-modelos" class="nav-link" data-scroll-target="#não-unicidade-dos-modelos"><span class="header-section-number">5.14</span> Não Unicidade dos Modelos</a></li>
-  <li><a href="#integração-de-dados-multi-ômicos" id="toc-integração-de-dados-multi-ômicos" class="nav-link" data-scroll-target="#integração-de-dados-multi-ômicos"><span class="header-section-number">5.15</span> Integração de Dados Multi-Ômicos</a></li>
-  <li><a href="#modelos-de-grafos" id="toc-modelos-de-grafos" class="nav-link" data-scroll-target="#modelos-de-grafos"><span class="header-section-number">5.16</span> Modelos de Grafos</a>
-  <ul class="collapse">
-  <li><a href="#comparação-redes-aleatórias-vs.-biológicas" id="toc-comparação-redes-aleatórias-vs.-biológicas" class="nav-link" data-scroll-target="#comparação-redes-aleatórias-vs.-biológicas"><span class="header-section-number">5.16.1</span> Comparação: Redes Aleatórias vs.&nbsp;Biológicas</a></li>
-  <li><a href="#modelo-watts-strogatz-ws" id="toc-modelo-watts-strogatz-ws" class="nav-link" data-scroll-target="#modelo-watts-strogatz-ws"><span class="header-section-number">5.16.2</span> Modelo Watts-Strogatz (WS)</a></li>
-  <li><a href="#modelo-barabási-albert-ba" id="toc-modelo-barabási-albert-ba" class="nav-link" data-scroll-target="#modelo-barabási-albert-ba"><span class="header-section-number">5.16.3</span> Modelo Barabási-Albert (BA)</a></li>
+  <li><a href="#erdös-rényi-er-o-modelo-mais-básico-de-redes-aleatórias" id="toc-erdös-rényi-er-o-modelo-mais-básico-de-redes-aleatórias" class="nav-link" data-scroll-target="#erdös-rényi-er-o-modelo-mais-básico-de-redes-aleatórias"><span class="header-section-number">5.15.1</span> Erdös-Rényi (ER): o modelo mais básico de redes aleatórias</a></li>
+  <li><a href="#comparação-redes-aleatórias-vs.-biológicas" id="toc-comparação-redes-aleatórias-vs.-biológicas" class="nav-link" data-scroll-target="#comparação-redes-aleatórias-vs.-biológicas"><span class="header-section-number">5.15.2</span> Comparação: Redes Aleatórias vs.&nbsp;Biológicas</a></li>
+  <li><a href="#modelo-watts-strogatz-ws" id="toc-modelo-watts-strogatz-ws" class="nav-link" data-scroll-target="#modelo-watts-strogatz-ws"><span class="header-section-number">5.15.3</span> Modelo Watts-Strogatz (WS)</a></li>
+  <li><a href="#modelo-barabási-albert-ba" id="toc-modelo-barabási-albert-ba" class="nav-link" data-scroll-target="#modelo-barabási-albert-ba"><span class="header-section-number">5.15.4</span> Modelo Barabási-Albert (BA)</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -578,7 +575,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">8 de setembro de 2026</p>
+      <p class="date">23 de setembro de 2026</p>
     </div>
   </div>
   
@@ -590,9 +587,9 @@ window.Quarto = {
 </header>
 
 
-<section id="níveis-organizacionais-e-escalas-de-tempo" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Níveis Organizacionais e Escalas de Tempo</h1>
-<p>As entidades biológicas e suas propriedades possuem diferentes níveis organizacionais e diferentes escalas de tempo.</p>
+<section id="biologia-níveis-organizacionais-e-escalas-de-tempo" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Biologia: Níveis Organizacionais e Escalas de Tempo</h1>
+<p>As entidades biológicas e suas propriedades possuem diferentes <strong>níveis organizacionais</strong> e diferentes <strong>escalas de tempo</strong>.</p>
 <hr>
 </section>
 <section id="evolução-e-organismos-modelo" class="level1" data-number="2">
@@ -601,8 +598,7 @@ window.Quarto = {
 <h2 data-number="2.1" class="anchored" data-anchor-id="evolução"><span class="header-section-number">2.1</span> Evolução</h2>
 <ul>
 <li>As entidades biológicas evoluem.</li>
-<li>A similaridade entre organismos favorece o uso de <strong>organismos modelo</strong>.</li>
-<li>Transferência crítica de conhecimento entre organismos.</li>
+<li>Uma consequência da evolução é a <strong>similaridade da biologia entre organismos</strong>, o que favorece o uso de <strong>organismos modelo</strong> e a transferência crítica de conhecimento obtido em um organismo para outro.</li>
 </ul>
 </section>
 <section id="aplicações" class="level2" data-number="2.2">
@@ -610,52 +606,68 @@ window.Quarto = {
 <ul>
 <li>Previsão da função de proteínas similares.</li>
 <li>Reconstrução de árvores filogenéticas.</li>
-<li>Identificação de sequências reguladoras de DNA.</li>
+<li>Identificação de sequências reguladoras de DNA através de comparações.</li>
 </ul>
 </section>
 <section id="variações-genéticas" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="variações-genéticas"><span class="header-section-number">2.3</span> Variações Genéticas</h2>
 <ul>
 <li>O processo evolutivo também leva a variações genéticas.</li>
-<li>Exemplo: Medicina personalizada.</li>
+<li><strong>Exemplo</strong>: medicina personalizada.</li>
 </ul>
 <hr>
 </section>
 </section>
 <section id="complexidade-dos-fenômenos-biológicos" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Complexidade dos Fenômenos Biológicos</h1>
-<ul>
-<li>Fenômenos biológicos possuem processos complexos.</li>
-<li>Difícil prever o comportamento global a partir do conhecimento das partes.</li>
-<li>Muitas vezes não podem ser explicados por primeiros princípios ou intuição.</li>
-</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Atenção</strong></p>
+<ol type="1">
+<li>Fenômenos biológicos possuem processos complexos que frequentemente não podem ser explicados a partir de primeiros princípios e cujo resultado não pode ser confiavelmente previsto a partir da intuição.</li>
+<li>É difícil prever o comportamento global de um sistema complexo a partir do conhecimento de suas partes.</li>
+</ol>
+</div>
+</div>
 <hr>
 </section>
 <section id="modelos-e-modelagem" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Modelos e Modelagem</h1>
-<ul>
-<li>A modelagem matemática e as simulações computacionais ajudam a entender processos biológicos.</li>
-<li>Permitem previsões sobre desenvolvimento futuro e interações com o ambiente.</li>
-</ul>
+<p>A modelagem matemática e as simulações computacionais podem nos ajudar a entender a natureza interna e a dinâmica desses processos, e a chegar a previsões sobre seu desenvolvimento futuro e o efeito das interações com o ambiente.</p>
 <hr>
 <section id="o-que-é-um-modelo" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="o-que-é-um-modelo"><span class="header-section-number">4.1</span> O que é um Modelo?</h2>
-<ul>
-<li>Representação abstrata de objetos ou processos.</li>
-<li>Explica características do sistema.</li>
-</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Definição:</strong> de maneira geral, um modelo é uma representação abstrata de objetos ou processos que consegue explicar alguma característica dos mesmos.</p>
+</div>
+</div>
 <section id="cuidado" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="cuidado"><span class="header-section-number">4.1.1</span> Cuidado</h3>
-<ul>
-<li>Modelos são sempre aproximações da realidade.</li>
-</ul>
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="cuidado"><span class="header-section-number">4.1.1</span> Cuidado!</h3>
+<p>Modelos são sempre <strong>aproximações</strong> do real, gerando comportamentos ou respostas também <strong>aproximadas</strong>.</p>
 </section>
 <section id="exemplos" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="exemplos"><span class="header-section-number">4.1.2</span> Exemplos</h3>
 <ul>
 <li>Modelo gráfico de vias metabólicas.</li>
 <li>Modelo de metabolismo em rede.</li>
-<li>Modelo matemático de crescimento bacteriano (ex.: BacSim).</li>
+<li>Modelo matemático de crescimento bacteriano (ex.: <em>BacSim</em> — Kreft, Booth &amp; Wimpenny, 1998, <em>Microbiology</em>, 144(12), 3275–3287).</li>
 </ul>
 <hr>
 </section>
@@ -663,257 +675,265 @@ window.Quarto = {
 </section>
 <section id="utilidade-dos-modelos-em-biologia-de-sistemas" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Utilidade dos Modelos em Biologia de Sistemas</h1>
-<ul>
-<li><strong>Fidelidade</strong>: capacidade de prever o comportamento dinâmico do sistema.</li>
-<li>Baseados em leis físicas (termodinâmica, cinética enzimática).</li>
-<li>Validação experimental é crucial.</li>
-</ul>
+<p>Para que um modelo em Biologia de Sistemas seja útil em simulações, é essencial garantir sua <strong>fidelidade</strong> — sua capacidade de prever corretamente o comportamento dinâmico do sistema biológico, pelo menos nos aspectos relevantes aos objetivos do estudo.</p>
+<p>Muitos modelos são construídos com base em leis físicas bem estabelecidas, como a termodinâmica de reações químicas e a cinética enzimática, o que confere robustez teórica à sua estrutura matemática. No entanto, a <strong>validação experimental contínua é crucial</strong>, pois a complexidade dos sistemas biológicos frequentemente exige simplificações que devem ser criticamente avaliadas.</p>
 <section id="afirmações-e-conhecimento" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="afirmações-e-conhecimento"><span class="header-section-number">5.1</span> Afirmações e Conhecimento</h2>
 <ul>
-<li>Modelos computacionais fazem afirmações específicas.</li>
-<li>Conhecimento é resumido em formulação matemática.</li>
-<li>O termo “modelo” também se refere a organismos ou linhagens celulares usados em experimentos.</li>
+<li>Modelos computacionais podem fazer afirmações específicas sobre um sistema de interesse.</li>
+<li>Suas previsões podem ser parcialmente justificadas por experimentos e conhecimento bioquímico direto, e parcialmente por extrapolação a partir de outros sistemas biológicos.</li>
+<li>O conhecimento estabelecido sobre um sistema pode assim ser resumido em uma formulação matemática coerente.</li>
 </ul>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Na biologia experimental, o termo “modelo” também é usado para denotar um organismo ou linhagem celular especialmente adequado para a realização de experimentos.</p>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="propósito-e-adequação-dos-modelos" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="propósito-e-adequação-dos-modelos"><span class="header-section-number">5.2</span> Propósito e Adequação dos Modelos</h2>
-<ul>
-<li>Processo subjetivo e seletivo.</li>
-<li>Representam aspectos específicos da realidade.</li>
-</ul>
+<p>A modelagem é um processo <strong>subjetivo e seletivo</strong>. Um modelo representa apenas aspectos específicos da realidade, mas pode ser suficiente se construído para responder a uma pergunta particular.</p>
 <section id="exemplos-de-objetivos" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="exemplos-de-objetivos"><span class="header-section-number">5.2.1</span> Exemplos de Objetivos</h3>
 <ul>
-<li><strong>Prever saídas a partir de entradas</strong>: modelo de caixa-preta (ex.: redes neurais).</li>
-<li><strong>Elucidar mecanismos</strong>: modelo mecanicista com estrutura interna realista.</li>
+<li><strong>Prever saídas a partir de entradas</strong>: o modelo precisa apenas capturar a relação entrada-saída correta, podendo ser tratado como um modelo de caixa-preta (ex.: redes neurais).</li>
+<li><strong>Elucidar mecanismos</strong>: modelo mecanicista, em que a estrutura interna e as interações entre componentes devem ser representadas de forma realista.</li>
 </ul>
 </section>
-</section>
-<section id="classificação-por-generalidade" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="classificação-por-generalidade"><span class="header-section-number">5.3</span> Classificação por Generalidade</h2>
+<section id="classificação-por-generalidade" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="classificação-por-generalidade"><span class="header-section-number">5.2.2</span> Classificação por Generalidade</h3>
+<p>Os modelos podem ser gerais ou específicos:</p>
 <ul>
-<li><strong>Modelos Gerais</strong>: simplificados e amplamente aplicáveis (ex.: Michaelis-Menten).</li>
-<li><strong>Modelos Específicos</strong>: detalhados e contextualizados (ex.: via metabólica sob hipóxia).</li>
+<li><strong>Modelos Gerais</strong>: simplificados e amplamente aplicáveis, focando em princípios universais (ex.: o modelo cinético de <strong>Michaelis-Menten</strong>, <span class="math inline">\(v = \dfrac{d[P]}{dt} = \dfrac{V_{max}[S]}{K_m + [S]}\)</span>; redes de interação proteína-proteína conservadas em múltiplas espécies). Capturam padrões gerais, mas omitem detalhes específicos.</li>
+<li><strong>Modelos Específicos</strong>: detalhados e contextualizados, incorporando parâmetros e condições particulares de um sistema biológico (ex.: via metabólica sob hipóxia; modelos de estrutura de proteínas; modelos de deterioração de mitocôndrias). Buscam representar fielmente um cenário experimental concreto.</li>
 </ul>
 <blockquote class="blockquote">
 <p>“Essencialmente, todos os modelos estão errados, mas alguns podem ser úteis” — George Box</p>
 </blockquote>
 <hr>
 </section>
-<section id="modelagem-e-experimentação" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="modelagem-e-experimentação"><span class="header-section-number">5.4</span> Modelagem e Experimentação</h2>
-<ul>
-<li>Modelos só têm valor quando comparados com experimentos.</li>
-<li>A qualidade da comparação depende da qualidade dos experimentos.</li>
-</ul>
+</section>
+<section id="modelagem-e-experimentação" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="modelagem-e-experimentação"><span class="header-section-number">5.3</span> Modelagem e Experimentação</h2>
+<p>Modelos só possuem valor real quando podem ser comparados com experimentos e, para tanto, tal comparação depende da qualidade desses experimentos.</p>
 <hr>
 </section>
-<section id="características-dos-modelos" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="características-dos-modelos"><span class="header-section-number">5.5</span> Características dos Modelos</h2>
+<section id="características-dos-modelos" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="características-dos-modelos"><span class="header-section-number">5.4</span> Características dos Modelos</h2>
+<ol type="1">
+<li><strong>Dependem de hipóteses específicas e rigorosas</strong>, que definem claramente o escopo e as premissas do estudo.</li>
+<li><strong>Revelam lacunas no conhecimento</strong>: durante sua construção, a necessidade de quantificar interações ou componentes expõe falhas no entendimento atual do sistema.</li>
+<li><strong>Oferecem independência do objeto real</strong>: o sistema pode ser estudado de forma abstrata, sem interferência direta ou limitações experimentais imediatas.</li>
+<li><strong>Flexibilidade temporal e espacial</strong>: escalas temporais (ex.: milissegundos a anos) e espaciais (ex.: molecular a organismal) podem ser comprimidas ou expandidas conforme a necessidade.</li>
+<li><strong>Vantajosos economicamente</strong>: simulações computacionais têm custo reduzido comparado a experimentos laboratoriais complexos ou de longa duração.</li>
+<li><strong>Mitigam questões éticas</strong>: reduzem ou eliminam o uso de organismos vivos, células primárias ou tecidos em fases exploratórias de pesquisa.</li>
+</ol>
+<section id="vantagens-adicionais" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="vantagens-adicionais"><span class="header-section-number">5.4.1</span> Vantagens Adicionais</h3>
 <ul>
-<li>Dependem de hipóteses rigorosas.</li>
-<li>Revelam lacunas no conhecimento.</li>
-<li>Oferecem independência do objeto real.</li>
-<li>Flexibilidade temporal e espacial.</li>
-<li>Vantajosos economicamente.</li>
-<li>Mitigam questões éticas.</li>
-</ul>
-<section id="vantagens-adicionais" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="vantagens-adicionais"><span class="header-section-number">5.5.1</span> Vantagens Adicionais</h3>
-<ul>
-<li>Simulação de cenários inacessíveis.</li>
-<li>Análise temporal dinâmica.</li>
-<li>Perturbações controladas.</li>
-<li>Reprodutibilidade e varredura de condições.</li>
-<li>Representação clara de resultados.</li>
-<li>Predições testáveis.</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="modelos-matemáticos-e-computacionais" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="modelos-matemáticos-e-computacionais"><span class="header-section-number">5.6</span> Modelos Matemáticos e Computacionais</h2>
-<ul>
-<li>Descrição de problemas biológicos com linguagem matemática.</li>
-<li>Ferramentas para testar hipóteses de forma controlada e quantitativa.</li>
-<li>Permitem simular processos complexos sob diversas condições.</li>
-</ul>
-<hr>
-</section>
-<section id="noções-básicas-de-modelos-computacionais" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="noções-básicas-de-modelos-computacionais"><span class="header-section-number">5.7</span> Noções Básicas de Modelos Computacionais</h2>
-<section id="escopo-do-modelo" class="level3" data-number="5.7.1">
-<h3 data-number="5.7.1" class="anchored" data-anchor-id="escopo-do-modelo"><span class="header-section-number">5.7.1</span> Escopo do Modelo</h3>
-<ul>
-<li>Descreve apenas alguns aspectos do sistema.</li>
-<li>Exemplo: meio celular e concentração de metabólitos secundários.</li>
-<li>Dificuldade em ignorar características sem comprometer resultados.</li>
+<li><strong>Simulação de cenários inacessíveis</strong>: permitem testar condições extremas, perigosas ou eticamente inviáveis no mundo real.</li>
+<li><strong>Análise temporal dinâmica</strong>: facilitam o rastreamento da evolução de compostos ou moléculas ao longo do tempo.</li>
+<li><strong>Perturbações controladas</strong>: permitem manipular o ambiente de formas impossíveis experimentalmente, e habilitam a alteração seletiva de elementos específicos sem afetar outros componentes do sistema.</li>
+<li><strong>Reprodutibilidade e varredura de condições</strong>: simulações podem ser repetidas infinitamente e sob diversas condições.</li>
+<li><strong>Representação clara de resultados</strong>: expressos em termos matemáticos precisos, com visualizações gráficas que simplificam a interpretação do comportamento do sistema.</li>
+<li><strong>Predições testáveis</strong>: geram hipóteses quantitativas e fundamentadas para validação experimental.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="declarações-do-modelo" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="declarações-do-modelo"><span class="header-section-number">5.8</span> Declarações do Modelo</h2>
-<section id="restrições" class="level3" data-number="5.8.1">
-<h3 data-number="5.8.1" class="anchored" data-anchor-id="restrições"><span class="header-section-number">5.8.1</span> Restrições</h3>
+<section id="modelos-matemáticos-e-computacionais" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="modelos-matemáticos-e-computacionais"><span class="header-section-number">5.5</span> Modelos Matemáticos e Computacionais</h2>
 <ul>
-<li><strong>Igualdade</strong>: conservação de massa (ex.: <span class="math inline">\(A + B → C\)</span>).</li>
-<li><strong>Desigualdade</strong>: limitam fluxos ou expressão gênica (ex.: <span class="math inline">\(0 ≤ v₁ ≤ V_{max}\)</span>).</li>
+<li>A tentativa de descrever problemas biológicos usando linguagem matemática frequentemente revela lacunas em nosso conhecimento e exige uma clarificação conceitual rigorosa.</li>
+<li>Modelos computacionais surgem como ferramentas para testar hipóteses sobre fenômenos biológicos de forma controlada e quantitativa. Além disso, permitem simular processos biológicos complexos sob condições variadas, oferecendo <em>insights</em> inalcançáveis apenas por métodos experimentais tradicionais.</li>
 </ul>
+<hr>
 </section>
-<section id="postulados-de-otimalidade" class="level3" data-number="5.8.2">
-<h3 data-number="5.8.2" class="anchored" data-anchor-id="postulados-de-otimalidade"><span class="header-section-number">5.8.2</span> Postulados de Otimalidade</h3>
+<section id="noções-básicas-de-modelos-computacionais" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="noções-básicas-de-modelos-computacionais"><span class="header-section-number">5.6</span> Noções Básicas de Modelos Computacionais</h2>
+<section id="escopo-do-modelo" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="escopo-do-modelo"><span class="header-section-number">5.6.1</span> Escopo do Modelo</h3>
+<p>Um modelo pode descrever somente alguns aspectos do sistema, e todas as outras propriedades podem ser simplificadas ou negligenciadas totalmente.</p>
 <ul>
-<li>Suposição de maximização/minimização de uma função objetivo (ex.: biomassa em FBA).</li>
-</ul>
-</section>
-<section id="processos-estocásticos" class="level3" data-number="5.8.3">
-<h3 data-number="5.8.3" class="anchored" data-anchor-id="processos-estocásticos"><span class="header-section-number">5.8.3</span> Processos Estocásticos</h3>
-<ul>
-<li>Descrevem sistemas com aleatoriedade (ex.: expressão gênica estocástica).</li>
-</ul>
-</section>
-<section id="declarações-probabilísticas" class="level3" data-number="5.8.4">
-<h3 data-number="5.8.4" class="anchored" data-anchor-id="declarações-probabilísticas"><span class="header-section-number">5.8.4</span> Declarações Probabilísticas</h3>
-<ul>
-<li>Atribuem distribuições de probabilidade a parâmetros ou estados.</li>
+<li><strong>Exemplo</strong>: o meio celular e a concentração de metabólitos secundários.</li>
+<li>É difícil construir modelos de maneira que as características ignoradas não comprometam os resultados básicos do modelo.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="estado-do-sistema" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="estado-do-sistema"><span class="header-section-number">5.9</span> Estado do Sistema</h2>
+<section id="declarações-do-modelo" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="declarações-do-modelo"><span class="header-section-number">5.7</span> Declarações do Modelo</h2>
+<section id="restrições" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="restrições"><span class="header-section-number">5.7.1</span> Restrições</h3>
 <ul>
-<li>Representa um instante completo das propriedades relevantes.</li>
-<li>Variáveis de estado: concentrações, números moleculares, níveis de atividade.</li>
-</ul>
-<section id="abordagens-de-modelagem" class="level3" data-number="5.9.1">
-<h3 data-number="5.9.1" class="anchored" data-anchor-id="abordagens-de-modelagem"><span class="header-section-number">5.9.1</span> Abordagens de Modelagem</h3>
+<li><strong>Igualdade e Desigualdade</strong>: fundamentais em modelos baseados em restrições, como a Análise de Balanço de Fluxo (FBA).
 <ul>
-<li><strong>Determinísticos (EDOs)</strong>: vetor de concentrações contínuas.</li>
-<li><strong>Estocásticos (Gillespie)</strong>: contagem discreta de moléculas.</li>
-<li><strong>Booleanos</strong>: vetor binário (0 ou 1) para genes.</li>
+<li><strong>Igualdade</strong>: representam conservação de massa (ex.: A + B → C).</li>
+<li><strong>Desigualdade</strong>: limitam intervalos de fluxo metabólico ou expressão gênica (ex.: 0 ≤ v₁ ≤ V_max).</li>
+</ul></li>
 </ul>
 </section>
-<section id="comportamento-temporal" class="level3" data-number="5.9.2">
-<h3 data-number="5.9.2" class="anchored" data-anchor-id="comportamento-temporal"><span class="header-section-number">5.9.2</span> Comportamento Temporal</h3>
+<section id="postulados-de-otimalidade" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="postulados-de-otimalidade"><span class="header-section-number">5.7.2</span> Postulados de Otimalidade</h3>
+<p>Supõem que o sistema evolui para maximizar/minimizar uma função objetivo (ex.: maximização de biomassa em FBA).</p>
+</section>
+<section id="processos-estocásticos" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="processos-estocásticos"><span class="header-section-number">5.7.3</span> Processos Estocásticos</h3>
+<p>Descrevem sistemas onde a aleatoriedade é crucial (ex.: expressão gênica estocástica, modelada por Equações Mestras ou pela Simulação de Gillespie).</p>
+</section>
+<section id="declarações-probabilísticas" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="declarações-probabilísticas"><span class="header-section-number">5.7.4</span> Declarações Probabilísticas</h3>
+<p>Atribuem distribuições de probabilidade a parâmetros ou estados do sistema, para capturar variabilidade (ex.: entre células de uma população, ou incerteza experimental).</p>
+<hr>
+</section>
+</section>
+<section id="estado-do-sistema" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="estado-do-sistema"><span class="header-section-number">5.8</span> Estado do Sistema</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Definição:</strong> o estado de um sistema representa um instante completo de todas as suas propriedades relevantes em um dado momento. É formalmente descrito por um conjunto de variáveis de estado (ex.: concentrações, números moleculares, níveis de atividade), cujos valores definem univocamente a condição atual do sistema. Um modelo deve encapsular informação suficiente para, a partir do estado atual, prever univocamente a evolução temporal do sistema sob condições definidas.</p>
+</div>
+</div>
+<p>A definição específica do estado varia conforme a abordagem de modelagem:</p>
 <ul>
-<li>Em sistemas dinâmicos, o estado futuro é determinado pelo atual.</li>
-<li>Em sistemas estocásticos, estados futuros são probabilísticos.</li>
+<li><strong>Modelos determinísticos</strong> (ex.: EDOs): o estado é um vetor de concentrações contínuas de todas as espécies bioquímicas relevantes (ex.: <a href="t">S</a>, <a href="t">P</a>).</li>
+<li><strong>Modelos estocásticos</strong> (ex.: Gillespie): o estado é a contagem discreta de moléculas de cada espécie (ex.: nX, nY), ou uma distribuição de probabilidade sobre possíveis contagens.</li>
+<li><strong>Modelos booleanos de redes gênicas</strong>: o estado é um vetor binário (ex.: {0,1}ⁿ), onde cada entrada indica se um gene está ativo (1) ou inativo (0).</li>
+</ul>
+<section id="comportamento-temporal" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="comportamento-temporal"><span class="header-section-number">5.8.1</span> Comportamento Temporal</h3>
+<ul>
+<li>Em um sistema dinâmico, o estado futuro é determinado pelo estado atual.</li>
+<li>Em um sistema estocástico, os estados futuros não são precisamente predeterminados — cada possível futuro exibe uma certa probabilidade de acontecer.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="constantes-parâmetros-e-variáveis" class="level2" data-number="5.10">
-<h2 data-number="5.10" class="anchored" data-anchor-id="constantes-parâmetros-e-variáveis"><span class="header-section-number">5.10</span> Constantes, Parâmetros e Variáveis</h2>
-<section id="constante" class="level3" data-number="5.10.1">
-<h3 data-number="5.10.1" class="anchored" data-anchor-id="constante"><span class="header-section-number">5.10.1</span> Constante</h3>
+<section id="constantes-parâmetros-e-variáveis" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="constantes-parâmetros-e-variáveis"><span class="header-section-number">5.9</span> Constantes, Parâmetros e Variáveis</h2>
+<p>São as quantidades dentro de um modelo.</p>
 <ul>
-<li>Valor fixo e universal (ex.: velocidade da luz, constante de Avogadro).</li>
+<li><strong>Constante</strong>: valor fixo e universal, que não muda entre diferentes contextos ou sistemas. <em>Exemplos</em>: a velocidade da luz (c), a constante de Avogadro, a constante de Planck, o número natural <em>e</em>.</li>
+<li><strong>Parâmetro</strong>: valor fixo dentro de um determinado modelo ou contexto experimental, mas que pode variar quando o modelo é aplicado a uma nova situação. <em>Exemplo</em>: a taxa máxima de reação (V_max) de uma enzima, constante para uma enzima purificada sob condições específicas de pH e temperatura, mas que muda se essas condições forem alteradas, ou o K_m de uma enzima em uma reação, que depende do método e das condições experimentais.</li>
+<li><strong>Variável</strong>: quantidade que muda ao longo do tempo ou em resposta a outras variáveis dentro do escopo do modelo. <em>Exemplo</em>: a concentração de glicose em uma célula ([GLC]), que varia conforme é consumida na glicólise.</li>
 </ul>
-</section>
-<section id="parâmetro" class="level3" data-number="5.10.2">
-<h3 data-number="5.10.2" class="anchored" data-anchor-id="parâmetro"><span class="header-section-number">5.10.2</span> Parâmetro</h3>
-<ul>
-<li>Valor fixo dentro de um modelo, mas variável entre contextos (ex.: <span class="math inline">\(V_{max}\)</span> de uma enzima).</li>
-</ul>
-</section>
-<section id="variável" class="level3" data-number="5.10.3">
-<h3 data-number="5.10.3" class="anchored" data-anchor-id="variável"><span class="header-section-number">5.10.3</span> Variável</h3>
-<ul>
-<li>Quantidade que muda ao longo do tempo (ex.: concentração de glucose).</li>
-</ul>
-</section>
-<section id="distinção-importante" class="level3" data-number="5.10.4">
-<h3 data-number="5.10.4" class="anchored" data-anchor-id="distinção-importante"><span class="header-section-number">5.10.4</span> Distinção Importante</h3>
-<ul>
-<li>Parâmetros são constantes durante a simulação, mas podem ser ajustados.</li>
-<li>Variáveis de estado definem o comportamento do sistema.</li>
-</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>A distinção entre parâmetro e constante é especialmente importante.</strong> Um parâmetro (como a meia-vida de uma proteína) é tratado como constante durante uma simulação para simplificar o modelo, mas seu valor é frequentemente estimado a partir de dados experimentais e pode ser ajustado para diferentes cenários (ex.: um mutante com uma proteína mais estável teria um parâmetro de meia-vida diferente).</p>
+</div>
+</div>
+<p>As variáveis de estado descrevem o comportamento completo do sistema e podem assumir valores independentes; cada uma é necessária para definir o sistema. Por exemplo, o diâmetro <em>d</em> e o volume <em>V</em> de uma esfera obedecem à relação <span class="math inline">\(V = \dfrac{\pi d^3}{6}\)</span>, onde π e 6 são constantes, e <em>V</em> e <em>d</em> são variáveis — mas somente uma delas é a variável de estado, já que a relação entre elas determina unicamente a outra.</p>
 <hr>
 </section>
-</section>
-<section id="comportamento-de-um-modelo" class="level2" data-number="5.11">
-<h2 data-number="5.11" class="anchored" data-anchor-id="comportamento-de-um-modelo"><span class="header-section-number">5.11</span> Comportamento de um Modelo</h2>
+<section id="comportamento-de-um-modelo" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="comportamento-de-um-modelo"><span class="header-section-number">5.10</span> Comportamento de um Modelo</h2>
+<p>Basicamente, duas coisas podem influenciar o comportamento de um modelo:</p>
 <ul>
 <li>Influências do ambiente (entrada).</li>
 <li>Processos dentro do sistema.</li>
 </ul>
 <hr>
 </section>
-<section id="classificação-de-modelos" class="level2" data-number="5.12">
-<h2 data-number="5.12" class="anchored" data-anchor-id="classificação-de-modelos"><span class="header-section-number">5.12</span> Classificação de Modelos</h2>
-<section id="quanto-à-previsibilidade" class="level3" data-number="5.12.1">
-<h3 data-number="5.12.1" class="anchored" data-anchor-id="quanto-à-previsibilidade"><span class="header-section-number">5.12.1</span> Quanto à Previsibilidade</h3>
+<section id="classificação-de-modelos" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="classificação-de-modelos"><span class="header-section-number">5.11</span> Classificação de Modelos</h2>
+<section id="quanto-à-previsibilidade" class="level3" data-number="5.11.1">
+<h3 data-number="5.11.1" class="anchored" data-anchor-id="quanto-à-previsibilidade"><span class="header-section-number">5.11.1</span> Quanto à Previsibilidade</h3>
 <ul>
-<li><strong>Determinístico</strong>: estado futuro predito a partir do atual.</li>
-<li><strong>Estocástico</strong>: distribuição de probabilidade para estados futuros.</li>
+<li><strong>Determinístico</strong>: a evolução do sistema através dos estados seguintes pode ser predita com o conhecimento do estado atual.</li>
+<li><strong>Estocástico</strong>: fornece a distribuição de probabilidade para os possíveis estados futuros.</li>
 </ul>
 </section>
-<section id="quanto-à-natureza" class="level3" data-number="5.12.2">
-<h3 data-number="5.12.2" class="anchored" data-anchor-id="quanto-à-natureza"><span class="header-section-number">5.12.2</span> Quanto à Natureza</h3>
+<section id="quanto-à-natureza" class="level3" data-number="5.11.2">
+<h3 data-number="5.11.2" class="anchored" data-anchor-id="quanto-à-natureza"><span class="header-section-number">5.11.2</span> Quanto à Natureza</h3>
+<p><strong>Modelo estrutural ou qualitativo</strong>: representação que descreve os componentes de um sistema biológico (genes, proteínas, metabólitos) e suas interações ou relações, sem quantificar dinâmicas temporais ou valores numéricos. Seu foco está na topologia da rede (quem interage com quem) e na lógica das interações (ativação, inibição, regulação), permitindo explorar propriedades emergentes como modularidade, robustez e fluxo de informação.</p>
+<p><strong>Modelo discreto</strong>: tempo, estado e espaço assumem valores em um conjunto enumerável (ex.: números inteiros, categorias finitas).</p>
 <ul>
-<li><strong>Estrutural/Qualitativo</strong>: descreve componentes e interações sem quantificação.</li>
-<li><strong>Discreto</strong>: tempo, estado e espaço em conjunto enumerável (ex.: redes Booleanas).</li>
-<li><strong>Contínuo</strong>: tempo, estado e espaço em intervalos contínuos (ex.: EDOs).</li>
+<li><strong>Redes Booleanas</strong>: genes representados como “LIGADO” (1) ou “DESLIGADO” (0).</li>
+<li><strong>Autômatos Celulares</strong>: células em estados discretos (ex.: saudável/infectada/morta) em uma grade espacial.</li>
+<li><strong>Cadeias de Markov Temporais</strong>: eventos em tempos discretos (ex.: gerações em modelos populacionais).</li>
+</ul>
+<p><strong>Modelo contínuo</strong>: tempo, estado e espaço assumem valores em intervalos contínuos (ex.: números reais).</p>
+<ul>
+<li><strong>Equações Diferenciais Ordinárias (EDOs)</strong>: concentrações de metabólitos variando continuamente no tempo (ex.: modelo de cinética enzimática de Michaelis-Menten).</li>
+<li><strong>Modelos baseados em Equações Diferenciais Parciais (EDPs)</strong>: variação espacial contínua de gradientes de morfógenos em desenvolvimento embrionário — incorporam derivadas em relação ao tempo (ex.: ∂[A]/∂t) e ao espaço (ex.: ∂²[A]/∂x²), capturando gradientes, difusão e transporte. Aplicações: padrões de formação em desenvolvimento embrionário (ex.: modelo de Turing para morfogênese), dinâmica de gradientes de sinalização, propagação de ondas de cálcio intracelulares e distribuição espacial de espécies em ecossistemas. Sua vantagem é permitir estudar sistemas em que a localização espacial é crítica, indo além de modelos que assumem homogeneidade (ex.: EDOs).</li>
 </ul>
 </section>
-<section id="quanto-à-reversibilidade" class="level3" data-number="5.12.3">
-<h3 data-number="5.12.3" class="anchored" data-anchor-id="quanto-à-reversibilidade"><span class="header-section-number">5.12.3</span> Quanto à Reversibilidade</h3>
+<section id="quanto-à-reversibilidade" class="level3" data-number="5.11.3">
+<h3 data-number="5.11.3" class="anchored" data-anchor-id="quanto-à-reversibilidade"><span class="header-section-number">5.11.3</span> Quanto à Reversibilidade</h3>
 <ul>
-<li><strong>Reversível</strong>: processo pode ocorrer em ambas as direções (ex.: ligação receptor-ligante).</li>
-<li><strong>Irreversível</strong>: apenas uma direção é favorável (ex.: hidrólise de ATP).</li>
+<li><strong>Reversível</strong>: um processo é reversível se pode ocorrer tanto na direção direta quanto na inversa, frequentemente mantendo as mesmas propriedades dinâmicas (ex.: taxas de reação). <em>Exemplo biológico</em>: a ligação de uma molécula sinalizadora a um receptor, que pode se dissociar.</li>
+<li><strong>Irreversível</strong>: ocorre quando apenas uma direção é termodinamicamente ou cineticamente favorável, frequentemente devido a perda de energia ou condições celulares específicas (ex.: hidrólise de ATP). <em>Exemplo biológico</em>: a ativação proteolítica de uma caspase em uma cascata apoptótica.</li>
 </ul>
 </section>
-<section id="quanto-à-periodicidade" class="level3" data-number="5.12.4">
-<h3 data-number="5.12.4" class="anchored" data-anchor-id="quanto-à-periodicidade"><span class="header-section-number">5.12.4</span> Quanto à Periodicidade</h3>
+<section id="quanto-à-periodicidade" class="level3" data-number="5.11.4">
+<h3 data-number="5.11.4" class="anchored" data-anchor-id="quanto-à-periodicidade"><span class="header-section-number">5.11.4</span> Quanto à Periodicidade</h3>
+<p><strong>Periódico</strong>: refere-se a comportamentos que se repetem em intervalos regulares de tempo, formando ciclos previsíveis.</p>
+<p><em>Exemplos biológicos</em>:</p>
 <ul>
-<li><strong>Periódico</strong>: comportamentos que se repetem em intervalos regulares (ex.: ciclos circadianos).</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="estado-estacionário-steady-state" class="level2" data-number="5.13">
-<h2 data-number="5.13" class="anchored" data-anchor-id="estado-estacionário-steady-state"><span class="header-section-number">5.13</span> Estado Estacionário (<em>Steady State</em>)</h2>
-<ul>
-<li>Variáveis de estado permanem constantes (d[X]/dt = 0).</li>
-<li>Fluxos ainda ocorrem, mas taxas de entrada e saída se equilibram.</li>
-<li>Conceito central em sistemas abertos (ex.: células).</li>
-</ul>
-<section id="exemplos-biológicos" class="level3" data-number="5.13.1">
-<h3 data-number="5.13.1" class="anchored" data-anchor-id="exemplos-biológicos"><span class="header-section-number">5.13.1</span> Exemplos Biológicos</h3>
-<ul>
-<li>Metabolismo: produção = consumo de metabólitos.</li>
-<li>Homeostase: nível constante de glicose no sangue.</li>
-<li>Expressão gênica: síntese = degradação de proteínas.</li>
+<li><strong>Ciclos circadianos</strong>: oscilações de ~24 horas na expressão gênica (ex.: genes <em>Clock</em> e <em>Bmal1</em>).</li>
+<li><strong>Ciclo celular</strong>: transições entre fases (G1, S, G2, M) controladas por ciclinas e cinases.</li>
+<li><strong>Oscilações de cálcio</strong>: pulsos de liberação de Ca²⁺ em células excitáveis.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="não-unicidade-dos-modelos" class="level2" data-number="5.14">
-<h2 data-number="5.14" class="anchored" data-anchor-id="não-unicidade-dos-modelos"><span class="header-section-number">5.14</span> Não Unicidade dos Modelos</h2>
+<section id="estado-estacionário-steady-state" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="estado-estacionário-steady-state"><span class="header-section-number">5.12</span> Estado Estacionário (<em>Steady State</em>)</h2>
+<p>Um estado estacionário é atingido quando todas as variáveis de estado de um sistema (ex.: concentrações de metabólitos, níveis de expressão gênica) permanecem constantes ao longo do tempo, ou seja, suas derivadas temporais são zero (d[X]/dt = 0).</p>
+<p><strong>Equilíbrio Dinâmico</strong> (≠ equilíbrio termodinâmico): no estado estacionário, fluxos ainda ocorrem (ex.: reações químicas, produção e degradação de proteínas), mas as taxas de entrada e saída para cada <em>pool</em> se equilibram perfeitamente, resultando em concentrações constantes. É um conceito central em sistemas abertos (como células), que trocam matéria e energia com o meio.</p>
+<p><strong>Estabilidade</strong>: um estado estacionário pode ser estável (o sistema retorna a ele após uma pequena perturbação) ou instável (uma pequena perturbação afasta o sistema irreversivelmente).</p>
+<section id="exemplos-biológicos" class="level3" data-number="5.12.1">
+<h3 data-number="5.12.1" class="anchored" data-anchor-id="exemplos-biológicos"><span class="header-section-number">5.12.1</span> Exemplos Biológicos</h3>
 <ul>
-<li>Um mesmo processo pode ser modelado de múltiplas formas.</li>
-<li>Diferentes escalas, perspectivas e abstrações.</li>
-<li>Escolha do modelo depende da pergunta biológica.</li>
-<li>Integração de modelos multi-escala é frequentemente necessária.</li>
+<li><strong>Metabolismo</strong>: em uma via metabólica, um estado estacionário é alcançado quando a taxa de produção de um metabólito é igual à sua taxa de consumo (ex.: concentração de ATP constante sob demanda energética estável).</li>
+<li><strong>Homeostase</strong>: a manutenção de um nível constante de glicose no sangue é um estado estacionário dinâmico, equilibrando ingestão, secreção de insulina/glucagon e consumo celular.</li>
+<li><strong>Expressão Gênica</strong>: o nível de uma proteína pode atingir um estado estacionário, no qual sua taxa de síntese é igual à sua taxa de degradação.</li>
 </ul>
 <hr>
 </section>
-<section id="integração-de-dados-multi-ômicos" class="level2" data-number="5.15">
-<h2 data-number="5.15" class="anchored" data-anchor-id="integração-de-dados-multi-ômicos"><span class="header-section-number">5.15</span> Integração de Dados Multi-Ômicos</h2>
+</section>
+<section id="não-unicidade-dos-modelos" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="não-unicidade-dos-modelos"><span class="header-section-number">5.13</span> Não Unicidade dos Modelos</h2>
+<p>Um mesmo processo pode ser descrito por mais de uma maneira: a modelagem de sistemas biológicos é inerentemente não única, significando que um mesmo processo ou entidade biológica pode ser representado por múltiplos modelos formais, cada um com diferentes níveis de abstração, pressupostos e objetivos.</p>
 <ul>
-<li>Grande volume de dados exige integração.</li>
-<li>Três níveis de integração:
+<li><strong>Múltiplas escalas e perspectivas</strong>: uma mesma entidade (ex.: uma proteína) pode ser modelada em escalas atômicas (dinâmica molecular), celulares (cinética enzimática) ou de redes (interações proteína-proteína).</li>
+<li><strong>Abstração seletiva</strong>: diferentes modelos destacam aspectos distintos do sistema, como sua estrutura topológica (modelos qualitativos) ou dinâmica temporal quantitativa (modelos baseados em EDOs).</li>
+<li><strong>Diversidade de dados experimentais</strong>: diferentes técnicas experimentais (ex.: microscopia, espectrometria de massa, RNA-seq) geram dados heterogêneos, que podem demandar <em>frameworks</em> de modelagem distintos para sua interpretação.</li>
+<li><strong>Implicações</strong>: a escolha do modelo depende criticamente da pergunta biológica específica; modelos concorrentes podem ser igualmente válidos para explicar um fenômeno, mas sob contextos diferentes; a integração de múltiplos modelos (ex.: multi-escala) é frequentemente necessária para uma compreensão abrangente.</li>
+</ul>
+<hr>
+</section>
+<section id="integração-de-dados-multi-ômicos" class="level2" data-number="5.14">
+<h2 data-number="5.14" class="anchored" data-anchor-id="integração-de-dados-multi-ômicos"><span class="header-section-number">5.14</span> Integração de Dados Multi-Ômicos</h2>
+<p>Uma parte importante da Biologia de Sistemas é a integração de dados, devido ao grande volume de dados ômicos. A integração ocorre em três níveis (não universalmente padronizados, mas amplamente aceitos):</p>
 <ol type="1">
-<li><strong>Baixo nível</strong>: formatos, armazenamento, transferência.</li>
-<li><strong>Alto nível</strong>: representação unificada (ex.: SBML, CellML).</li>
-<li><strong>Interpretativo</strong>: correlação e análise conjunta.</li>
-</ol></li>
-</ul>
-<p><strong>Exemplo de SBML</strong></p>
+<li><strong>Baixo nível</strong>: foco em formatos, armazenamento e transferência de dados brutos ou pré-processados.</li>
+<li><strong>Alto nível</strong>: representação unificada de modelos e vias biológicas (ex.: SBML, CellML).</li>
+<li><strong>Nível interpretativo</strong>: correlação e análise conjunta de dados multi-ômicos para extrair significado biológico.</li>
+</ol>
+<p><strong>Exemplo de SBML:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span> <span class="ot">version=</span><span class="st">"1.0"</span> <span class="ot">encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">sbml</span> <span class="ot">xmlns=</span><span class="st">"http://www.sbml.org/sbml/level3/version1/core"</span> <span class="ot">level=</span><span class="st">"3"</span> <span class="ot">version=</span><span class="st">"1"</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">model</span> <span class="ot">id=</span><span class="st">"simple_model"</span>&gt;</span>
@@ -925,33 +945,55 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">sbml</span>&gt;</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
-<section id="modelos-de-grafos" class="level2" data-number="5.16">
-<h2 data-number="5.16" class="anchored" data-anchor-id="modelos-de-grafos"><span class="header-section-number">5.16</span> Modelos de Grafos</h2>
-<section id="comparação-redes-aleatórias-vs.-biológicas" class="level3" data-number="5.16.1">
-<h3 data-number="5.16.1" class="anchored" data-anchor-id="comparação-redes-aleatórias-vs.-biológicas"><span class="header-section-number">5.16.1</span> Comparação: Redes Aleatórias vs.&nbsp;Biológicas</h3>
+<section id="modelos-de-grafos" class="level2" data-number="5.15">
+<h2 data-number="5.15" class="anchored" data-anchor-id="modelos-de-grafos"><span class="header-section-number">5.15</span> Modelos de Grafos</h2>
+<section id="erdös-rényi-er-o-modelo-mais-básico-de-redes-aleatórias" class="level3" data-number="5.15.1">
+<h3 data-number="5.15.1" class="anchored" data-anchor-id="erdös-rényi-er-o-modelo-mais-básico-de-redes-aleatórias"><span class="header-section-number">5.15.1</span> Erdös-Rényi (ER): o modelo mais básico de redes aleatórias</h3>
+<ul>
+<li>Grafo não-direcionado, sem laços e sem múltiplas conexões, com número máximo de arestas <span class="math inline">\(E_{max} = \dfrac{N_v \times (N_v - 1)}{2}\)</span>.</li>
+<li>A maioria dos vértices tem graus semelhantes (distribuição de Poisson).</li>
+<li>Não demonstra coesividade, que é natural em redes empíricas.</li>
+<li><strong>Limitações para a comparação entre redes ER e redes empíricas</strong>:
+<ul>
+<li>Distribuição de graus homogênea.</li>
+<li>Falta de coesividade local.</li>
+<li>Falta de correlação de grau — nós com muitas conexões não tendem a se conectar entre si.</li>
+<li>Não é livre de escala.</li>
+<li>Não possui modularidade.</li>
+</ul></li>
+<li>Reproduz o efeito de <strong>mundo pequeno</strong>.</li>
+</ul>
+</section>
+<section id="comparação-redes-aleatórias-vs.-biológicas" class="level3" data-number="5.15.2">
+<h3 data-number="5.15.2" class="anchored" data-anchor-id="comparação-redes-aleatórias-vs.-biológicas"><span class="header-section-number">5.15.2</span> Comparação: Redes Aleatórias vs.&nbsp;Biológicas</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 30%">
+<col style="width: 27%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Característica</th>
-<th>Rede Erdös-Rényi</th>
-<th>Rede Biológica</th>
+<th>Rede Erdös-Rényi (Aleatória)</th>
+<th>Redes Reais (Biológicas)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Distribuição de graus</td>
-<td>Poisson</td>
-<td>Lei de Potência</td>
+<td>Homogênea (Poisson)</td>
+<td>Heterogênea (hubs + nós pouco conectados)</td>
 </tr>
 <tr class="even">
 <td>Modularidade</td>
 <td>Ausente</td>
-<td>Presente</td>
+<td>Presente (módulos funcionais)</td>
 </tr>
 <tr class="odd">
 <td>Coesividade</td>
 <td>Baixa</td>
-<td>Alta</td>
+<td>Alta (clusters de interação)</td>
 </tr>
 <tr class="even">
 <td>Mundo Pequeno</td>
@@ -966,24 +1008,66 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="modelo-watts-strogatz-ws" class="level3" data-number="5.16.2">
-<h3 data-number="5.16.2" class="anchored" data-anchor-id="modelo-watts-strogatz-ws"><span class="header-section-number">5.16.2</span> Modelo Watts-Strogatz (WS)</h3>
+<section id="modelo-watts-strogatz-ws" class="level3" data-number="5.15.3">
+<h3 data-number="5.15.3" class="anchored" data-anchor-id="modelo-watts-strogatz-ws"><span class="header-section-number">5.15.3</span> Modelo Watts-Strogatz (WS)</h3>
+<p>É um modelo de rede que gera redes com alto agrupamento local (modularidade) e baixo caminho médio (efeito “mundo pequeno”). Imagine uma rede onde a maioria das conexões é com vizinhos próximos (formando “panelinhas” ou clusters), mas com alguns poucos atalhos que conectam grupos distantes.</p>
+<p><strong>Como é construído?</strong></p>
+<ol type="1">
+<li><strong>Rede regular inicial</strong>: os vértices são dispostos em um anel (ou grade), cada um conectado aos seus <em>k</em> vizinhos mais próximos (ex.: k = 2 para cada lado). Isso cria clusters locais muito coesos.</li>
+<li><strong>Reconexão aleatória</strong>: com uma probabilidade <em>p</em>, cada aresta é reatribuída a um vértice escolhido aleatoriamente em toda a rede. Essas reconexões aleatórias criam atalhos entre clusters distantes.</li>
+</ol>
+<p><strong>Aplicação — espalhamento de doenças infecciosas:</strong></p>
 <ul>
-<li>Alto agrupamento local + baixo caminho médio.</li>
-<li>Construção: rede regular + reconexões aleatórias.</li>
-<li>Aplicação: espalhamento de doenças infecciosas.</li>
+<li><strong>Alto agrupamento (alta modularidade)</strong>: representa bem como as infecções se espalham rapidamente em grupos fechados (famílias, escolas, locais de trabalho).</li>
+<li><strong>Atalhos (mundo pequeno)</strong>: modela os <em>super-espalhadores</em> ou viagens que conectam cidades ou países distantes, permitindo que a doença se propague globalmente em pouco tempo.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> uma doença pode se espalhar lentamente em uma cidade (dentro dos clusters) até que um indivíduo infectado pegue um avião (atalho) e inicie um novo surto em outro continente, conectando os dois clusters e acelerando a pandemia.</p>
+</div>
+</div>
 </section>
-<section id="modelo-barabási-albert-ba" class="level3" data-number="5.16.3">
-<h3 data-number="5.16.3" class="anchored" data-anchor-id="modelo-barabási-albert-ba"><span class="header-section-number">5.16.3</span> Modelo Barabási-Albert (BA)</h3>
+<section id="modelo-barabási-albert-ba" class="level3" data-number="5.15.4">
+<h3 data-number="5.15.4" class="anchored" data-anchor-id="modelo-barabási-albert-ba"><span class="header-section-number">5.15.4</span> Modelo Barabási-Albert (BA)</h3>
+<p><strong>O problema que o modelo BA resolve</strong>: os modelos Erdös-Rényi (ER) e Watts-Strogatz (WS) não conseguiam explicar uma propriedade fundamental de redes reais (como a internet, redes sociais e redes biológicas) — a existência de <strong>hubs</strong> (nós superconectados). O modelo BA foi criado para explicar justamente como essas redes livres de escala surgem.</p>
+<p>O modelo é baseado em dois princípios simples que imitam o crescimento de redes reais:</p>
 <ul>
-<li>Explica a existência de hubs.</li>
-<li>Baseado em:
+<li><p><strong>Crescimento (<em>Growth</em>)</strong>: a rede não é estática. Ela começa com um pequeno número de nós, e novos nós são adicionados um a um ao longo do tempo.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Uma rede de interação proteína-proteína não surgiu completa; novos genes e proteínas foram adicionados ao longo da evolução.</p>
+</div>
+</div>
+</div></li>
+<li><p><strong>Ligação Preferencial (<em>Preferential Attachment</em>)</strong>: quando um novo nó é adicionado, ele tende a se conectar preferencialmente a nós que já são bem conectados (que têm grau alto) — efeito “os ricos ficam mais ricos” (<em>rich-get-richer</em>).</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Em uma rede de interação, uma proteína que já tem muitas conexões (um <em>hub</em>) é mais provável de ser recrutada para novas funções e interações do que uma proteína pouco conectada.</p>
+</div>
+</div>
+</div></li>
+</ul>
+<p><strong>Resultado: redes livres de escala.</strong> Essas duas regras simples geram redes com uma distribuição de graus que segue uma lei de potência. Isso significa que:</p>
 <ul>
-<li><strong>Crescimento</strong>: rede se expande ao longo do tempo.</li>
-<li><strong>Ligação Preferencial</strong>: nós novos conectam-se a hubs.</li>
-</ul></li>
-<li>Gera redes <strong>livres de escala</strong> (distribuição de graus segue lei de potência).</li>
+<li>A maioria dos nós tem poucas conexões.</li>
+<li>Uns poucos nós (os hubs) têm um número extraordinariamente alto de conexões.</li>
+<li>Não há um número <em>típico</em> de conexões — a rede é <strong>livre de escala</strong>.</li>
 </ul>
 
 

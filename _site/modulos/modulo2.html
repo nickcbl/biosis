@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-f9f455dc64e413ef7d6b4e46eacfda3e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c16f185744bb9397307a0b01c1d1a9c2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-06c1fa67c387e6d9c2baf2d791e95a45.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b63a022cc64d44d5489392fabef93fea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -452,64 +455,65 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#grafo-versus-gráfico" id="toc-grafo-versus-gráfico" class="nav-link" data-scroll-target="#grafo-versus-gráfico"><span class="header-section-number">1.1</span> Grafo versus Gráfico</a></li>
   <li><a href="#pontes-de-kaliningrado" id="toc-pontes-de-kaliningrado" class="nav-link" data-scroll-target="#pontes-de-kaliningrado"><span class="header-section-number">1.2</span> Pontes de Kaliningrado</a></li>
-  <li><a href="#leonhard-euler" id="toc-leonhard-euler" class="nav-link" data-scroll-target="#leonhard-euler"><span class="header-section-number">1.3</span> <strong>Leonhard Euler</strong></a></li>
+  <li><a href="#leonhard-euler" id="toc-leonhard-euler" class="nav-link" data-scroll-target="#leonhard-euler"><span class="header-section-number">1.3</span> Leonhard Euler</a></li>
   <li><a href="#pontes-de-kaliningrado-resolução" id="toc-pontes-de-kaliningrado-resolução" class="nav-link" data-scroll-target="#pontes-de-kaliningrado-resolução"><span class="header-section-number">1.4</span> Pontes de Kaliningrado: Resolução</a></li>
-  <li><a href="#grafo" id="toc-grafo" class="nav-link" data-scroll-target="#grafo"><span class="header-section-number">1.5</span> Grafo</a>
-  <ul class="collapse">
-  <li><a href="#definição-1" id="toc-definição-1" class="nav-link" data-scroll-target="#definição-1"><span class="header-section-number">1.5.1</span> Definição 1</a></li>
-  <li><a href="#definição-2" id="toc-definição-2" class="nav-link" data-scroll-target="#definição-2"><span class="header-section-number">1.5.2</span> Definição 2</a></li>
-  <li><a href="#definição-2-expandida" id="toc-definição-2-expandida" class="nav-link" data-scroll-target="#definição-2-expandida"><span class="header-section-number">1.5.3</span> Definição 2 expandida</a></li>
   </ul></li>
-  <li><a href="#vértices-ou-nós" id="toc-vértices-ou-nós" class="nav-link" data-scroll-target="#vértices-ou-nós"><span class="header-section-number">1.6</span> Vértices ou nós</a></li>
-  <li><a href="#arestas" id="toc-arestas" class="nav-link" data-scroll-target="#arestas"><span class="header-section-number">1.7</span> Arestas</a></li>
-  <li><a href="#grafo-conectado-e-não-conectado" id="toc-grafo-conectado-e-não-conectado" class="nav-link" data-scroll-target="#grafo-conectado-e-não-conectado"><span class="header-section-number">1.8</span> Grafo conectado e não-conectado</a></li>
-  <li><a href="#algumas-definições" id="toc-algumas-definições" class="nav-link" data-scroll-target="#algumas-definições"><span class="header-section-number">1.9</span> Algumas definições</a>
+  <li><a href="#grafo" id="toc-grafo" class="nav-link" data-scroll-target="#grafo"><span class="header-section-number">2</span> Grafo</a>
   <ul class="collapse">
-  <li><a href="#adjacência" id="toc-adjacência" class="nav-link" data-scroll-target="#adjacência"><span class="header-section-number">1.9.1</span> Adjacência</a></li>
-  <li><a href="#grau" id="toc-grau" class="nav-link" data-scroll-target="#grau"><span class="header-section-number">1.9.2</span> Grau</a></li>
-  <li><a href="#grau-grafos-direcionados" id="toc-grau-grafos-direcionados" class="nav-link" data-scroll-target="#grau-grafos-direcionados"><span class="header-section-number">1.9.3</span> Grau (grafos direcionados)</a></li>
-  <li><a href="#laço" id="toc-laço" class="nav-link" data-scroll-target="#laço"><span class="header-section-number">1.9.4</span> Laço</a></li>
-  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout"><span class="header-section-number">1.9.5</span> Layout</a></li>
+  <li><a href="#definição-1" id="toc-definição-1" class="nav-link" data-scroll-target="#definição-1"><span class="header-section-number">2.0.1</span> Definição 1</a></li>
+  <li><a href="#definição-2" id="toc-definição-2" class="nav-link" data-scroll-target="#definição-2"><span class="header-section-number">2.0.2</span> Definição 2</a></li>
+  <li><a href="#definição-2-expandida" id="toc-definição-2-expandida" class="nav-link" data-scroll-target="#definição-2-expandida"><span class="header-section-number">2.0.3</span> Definição 2 expandida</a></li>
+  <li><a href="#vértices-ou-nós" id="toc-vértices-ou-nós" class="nav-link" data-scroll-target="#vértices-ou-nós"><span class="header-section-number">2.1</span> Vértices ou nós</a></li>
+  <li><a href="#arestas" id="toc-arestas" class="nav-link" data-scroll-target="#arestas"><span class="header-section-number">2.2</span> Arestas</a></li>
+  <li><a href="#grafo-conectado-e-não-conectado" id="toc-grafo-conectado-e-não-conectado" class="nav-link" data-scroll-target="#grafo-conectado-e-não-conectado"><span class="header-section-number">2.3</span> Grafo conectado e não-conectado</a></li>
+  <li><a href="#algumas-definições" id="toc-algumas-definições" class="nav-link" data-scroll-target="#algumas-definições"><span class="header-section-number">2.4</span> Algumas definições</a>
+  <ul class="collapse">
+  <li><a href="#adjacência" id="toc-adjacência" class="nav-link" data-scroll-target="#adjacência"><span class="header-section-number">2.4.1</span> Adjacência</a></li>
+  <li><a href="#grau" id="toc-grau" class="nav-link" data-scroll-target="#grau"><span class="header-section-number">2.4.2</span> Grau</a></li>
+  <li><a href="#grau-grafos-direcionados" id="toc-grau-grafos-direcionados" class="nav-link" data-scroll-target="#grau-grafos-direcionados"><span class="header-section-number">2.4.3</span> Grau (grafos direcionados)</a></li>
+  <li><a href="#laço" id="toc-laço" class="nav-link" data-scroll-target="#laço"><span class="header-section-number">2.4.4</span> Laço</a></li>
+  <li><a href="#layout" id="toc-layout" class="nav-link" data-scroll-target="#layout"><span class="header-section-number">2.4.5</span> Layout</a></li>
   </ul></li>
-  <li><a href="#subgrafo" id="toc-subgrafo" class="nav-link" data-scroll-target="#subgrafo"><span class="header-section-number">1.10</span> Subgrafo</a>
+  <li><a href="#subgrafo" id="toc-subgrafo" class="nav-link" data-scroll-target="#subgrafo"><span class="header-section-number">2.5</span> Subgrafo</a>
   <ul class="collapse">
-  <li><a href="#subgrafo-induzido" id="toc-subgrafo-induzido" class="nav-link" data-scroll-target="#subgrafo-induzido"><span class="header-section-number">1.10.1</span> Subgrafo Induzido</a></li>
+  <li><a href="#subgrafo-induzido" id="toc-subgrafo-induzido" class="nav-link" data-scroll-target="#subgrafo-induzido"><span class="header-section-number">2.5.1</span> Subgrafo Induzido</a></li>
   </ul></li>
-  <li><a href="#isomorfismo" id="toc-isomorfismo" class="nav-link" data-scroll-target="#isomorfismo"><span class="header-section-number">1.11</span> Isomorfismo</a></li>
-  <li><a href="#passeio-caminho-trilha" id="toc-passeio-caminho-trilha" class="nav-link" data-scroll-target="#passeio-caminho-trilha"><span class="header-section-number">1.12</span> Passeio &amp; Caminho &amp; Trilha</a>
+  <li><a href="#isomorfismo" id="toc-isomorfismo" class="nav-link" data-scroll-target="#isomorfismo"><span class="header-section-number">2.6</span> Isomorfismo</a></li>
+  <li><a href="#passeio-caminho-trilha" id="toc-passeio-caminho-trilha" class="nav-link" data-scroll-target="#passeio-caminho-trilha"><span class="header-section-number">2.7</span> Passeio &amp; Caminho &amp; Trilha</a>
   <ul class="collapse">
-  <li><a href="#passeio-walk" id="toc-passeio-walk" class="nav-link" data-scroll-target="#passeio-walk"><span class="header-section-number">1.12.1</span> Passeio (Walk)</a></li>
-  <li><a href="#caminho-path" id="toc-caminho-path" class="nav-link" data-scroll-target="#caminho-path"><span class="header-section-number">1.12.2</span> Caminho (Path)</a></li>
-  <li><a href="#trilha-ou-trajeto-trail" id="toc-trilha-ou-trajeto-trail" class="nav-link" data-scroll-target="#trilha-ou-trajeto-trail"><span class="header-section-number">1.12.3</span> Trilha ou Trajeto (Trail)</a></li>
+  <li><a href="#passeio-walk" id="toc-passeio-walk" class="nav-link" data-scroll-target="#passeio-walk"><span class="header-section-number">2.7.1</span> Passeio (Walk)</a></li>
+  <li><a href="#caminho-path" id="toc-caminho-path" class="nav-link" data-scroll-target="#caminho-path"><span class="header-section-number">2.7.2</span> Caminho (Path)</a></li>
+  <li><a href="#trilha-ou-trajeto-trail" id="toc-trilha-ou-trajeto-trail" class="nav-link" data-scroll-target="#trilha-ou-trajeto-trail"><span class="header-section-number">2.7.3</span> Trilha ou Trajeto (Trail)</a></li>
+  <li><a href="#ciclo-cycle" id="toc-ciclo-cycle" class="nav-link" data-scroll-target="#ciclo-cycle"><span class="header-section-number">2.7.4</span> Ciclo (Cycle)</a></li>
   </ul></li>
-  <li><a href="#caminhos-especiais" id="toc-caminhos-especiais" class="nav-link" data-scroll-target="#caminhos-especiais"><span class="header-section-number">1.13</span> Caminhos especiais</a>
+  <li><a href="#caminhos-especiais" id="toc-caminhos-especiais" class="nav-link" data-scroll-target="#caminhos-especiais"><span class="header-section-number">2.8</span> Caminhos especiais</a>
   <ul class="collapse">
-  <li><a href="#caminho-simples" id="toc-caminho-simples" class="nav-link" data-scroll-target="#caminho-simples"><span class="header-section-number">1.13.1</span> Caminho simples</a></li>
-  <li><a href="#caminho-euleriano" id="toc-caminho-euleriano" class="nav-link" data-scroll-target="#caminho-euleriano"><span class="header-section-number">1.13.2</span> Caminho Euleriano</a></li>
-  <li><a href="#caminho-hamiltoniano" id="toc-caminho-hamiltoniano" class="nav-link" data-scroll-target="#caminho-hamiltoniano"><span class="header-section-number">1.13.3</span> Caminho Hamiltoniano</a></li>
+  <li><a href="#caminho-simples" id="toc-caminho-simples" class="nav-link" data-scroll-target="#caminho-simples"><span class="header-section-number">2.8.1</span> Caminho simples</a></li>
+  <li><a href="#caminho-euleriano" id="toc-caminho-euleriano" class="nav-link" data-scroll-target="#caminho-euleriano"><span class="header-section-number">2.8.2</span> Caminho Euleriano</a></li>
+  <li><a href="#caminho-hamiltoniano" id="toc-caminho-hamiltoniano" class="nav-link" data-scroll-target="#caminho-hamiltoniano"><span class="header-section-number">2.8.3</span> Caminho Hamiltoniano</a></li>
   </ul></li>
-  <li><a href="#comprimento-e-ciclo" id="toc-comprimento-e-ciclo" class="nav-link" data-scroll-target="#comprimento-e-ciclo"><span class="header-section-number">1.14</span> Comprimento e Ciclo</a>
+  <li><a href="#comprimento-e-ciclo" id="toc-comprimento-e-ciclo" class="nav-link" data-scroll-target="#comprimento-e-ciclo"><span class="header-section-number">2.9</span> Comprimento e Ciclo</a>
   <ul class="collapse">
-  <li><a href="#comprimento" id="toc-comprimento" class="nav-link" data-scroll-target="#comprimento"><span class="header-section-number">1.14.1</span> Comprimento</a></li>
-  <li><a href="#ciclo" id="toc-ciclo" class="nav-link" data-scroll-target="#ciclo"><span class="header-section-number">1.14.2</span> Ciclo</a></li>
+  <li><a href="#comprimento" id="toc-comprimento" class="nav-link" data-scroll-target="#comprimento"><span class="header-section-number">2.9.1</span> Comprimento</a></li>
+  <li><a href="#ciclo" id="toc-ciclo" class="nav-link" data-scroll-target="#ciclo"><span class="header-section-number">2.9.2</span> Ciclo</a></li>
   </ul></li>
-  <li><a href="#distância" id="toc-distância" class="nav-link" data-scroll-target="#distância"><span class="header-section-number">1.15</span> Distância</a>
+  <li><a href="#distância" id="toc-distância" class="nav-link" data-scroll-target="#distância"><span class="header-section-number">2.10</span> Distância</a>
   <ul class="collapse">
-  <li><a href="#menor-caminho" id="toc-menor-caminho" class="nav-link" data-scroll-target="#menor-caminho"><span class="header-section-number">1.15.1</span> Menor caminho</a></li>
+  <li><a href="#menor-caminho" id="toc-menor-caminho" class="nav-link" data-scroll-target="#menor-caminho"><span class="header-section-number">2.10.1</span> Menor caminho</a></li>
   </ul></li>
-  <li><a href="#outros-tipos-de-grafos" id="toc-outros-tipos-de-grafos" class="nav-link" data-scroll-target="#outros-tipos-de-grafos"><span class="header-section-number">1.16</span> Outros tipos de grafos</a>
+  <li><a href="#outros-tipos-de-grafos" id="toc-outros-tipos-de-grafos" class="nav-link" data-scroll-target="#outros-tipos-de-grafos"><span class="header-section-number">2.11</span> Outros tipos de grafos</a>
   <ul class="collapse">
-  <li><a href="#grafos-mistos" id="toc-grafos-mistos" class="nav-link" data-scroll-target="#grafos-mistos"><span class="header-section-number">1.16.1</span> Grafos Mistos</a></li>
-  <li><a href="#multigrafo" id="toc-multigrafo" class="nav-link" data-scroll-target="#multigrafo"><span class="header-section-number">1.16.2</span> Multigrafo</a></li>
-  <li><a href="#grafo-valorado-ou-ponderado" id="toc-grafo-valorado-ou-ponderado" class="nav-link" data-scroll-target="#grafo-valorado-ou-ponderado"><span class="header-section-number">1.16.3</span> Grafo Valorado ou Ponderado</a></li>
-  <li><a href="#hipergrafo" id="toc-hipergrafo" class="nav-link" data-scroll-target="#hipergrafo"><span class="header-section-number">1.16.4</span> Hipergrafo</a></li>
-  <li><a href="#grafos-bipartidos" id="toc-grafos-bipartidos" class="nav-link" data-scroll-target="#grafos-bipartidos"><span class="header-section-number">1.16.5</span> Grafos Bipartidos</a></li>
+  <li><a href="#grafos-mistos" id="toc-grafos-mistos" class="nav-link" data-scroll-target="#grafos-mistos"><span class="header-section-number">2.11.1</span> Grafos Mistos</a></li>
+  <li><a href="#multigrafo" id="toc-multigrafo" class="nav-link" data-scroll-target="#multigrafo"><span class="header-section-number">2.11.2</span> Multigrafo</a></li>
+  <li><a href="#grafo-valorado-ou-ponderado" id="toc-grafo-valorado-ou-ponderado" class="nav-link" data-scroll-target="#grafo-valorado-ou-ponderado"><span class="header-section-number">2.11.3</span> Grafo Valorado ou Ponderado</a></li>
+  <li><a href="#hipergrafo" id="toc-hipergrafo" class="nav-link" data-scroll-target="#hipergrafo"><span class="header-section-number">2.11.4</span> Hipergrafo</a></li>
+  <li><a href="#grafos-bipartidos" id="toc-grafos-bipartidos" class="nav-link" data-scroll-target="#grafos-bipartidos"><span class="header-section-number">2.11.5</span> Grafos Bipartidos</a></li>
   </ul></li>
-  <li><a href="#árvores" id="toc-árvores" class="nav-link" data-scroll-target="#árvores"><span class="header-section-number">1.17</span> Árvores</a></li>
-  <li><a href="#representações-de-grafos" id="toc-representações-de-grafos" class="nav-link" data-scroll-target="#representações-de-grafos"><span class="header-section-number">1.18</span> Representações de grafos</a>
+  <li><a href="#árvores" id="toc-árvores" class="nav-link" data-scroll-target="#árvores"><span class="header-section-number">2.12</span> Árvores</a></li>
+  <li><a href="#representações-de-grafos" id="toc-representações-de-grafos" class="nav-link" data-scroll-target="#representações-de-grafos"><span class="header-section-number">2.13</span> Representações de grafos</a>
   <ul class="collapse">
-  <li><a href="#matriz-de-adjacência" id="toc-matriz-de-adjacência" class="nav-link" data-scroll-target="#matriz-de-adjacência"><span class="header-section-number">1.18.1</span> Matriz de adjacência</a></li>
-  <li><a href="#lista-de-adjacência" id="toc-lista-de-adjacência" class="nav-link" data-scroll-target="#lista-de-adjacência"><span class="header-section-number">1.18.2</span> Lista de adjacência</a></li>
+  <li><a href="#matriz-de-adjacência" id="toc-matriz-de-adjacência" class="nav-link" data-scroll-target="#matriz-de-adjacência"><span class="header-section-number">2.13.1</span> Matriz de adjacência</a></li>
+  <li><a href="#lista-de-adjacência" id="toc-lista-de-adjacência" class="nav-link" data-scroll-target="#lista-de-adjacência"><span class="header-section-number">2.13.2</span> Lista de adjacência</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -537,7 +541,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">8 de setembro de 2026</p>
+      <p class="date">23 de setembro de 2026</p>
     </div>
   </div>
   
@@ -553,16 +557,7 @@ window.Quarto = {
 <h1 data-number="1"><span class="header-section-number">1</span> Teoria de Grafos</h1>
 <section id="grafo-versus-gráfico" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="grafo-versus-gráfico"><span class="header-section-number">1.1</span> Grafo versus Gráfico</h2>
-<!--
-Achei excelente essa maneira de colocar as figuras, talvez eu possa usar para colocar minha foto no index do site. Ele coloca as figuras na coluna a direita uma em cima da outra.
-:::{.column-margin}
-![Gráfico de linhas mostrando tendências de vendas ao longo de 12 meses](imagens/02-img1.png){width=100% style="border: 3px solid black; border-radius: 8px;"}
-
-![Grafo de rede mostrando relações entre diferentes departamentos](imagens/02-img2.png){width=100% style="border: 3px solid black; border-radius: 8px;"}
-:::
---->
 <div data-fig-align="center">
-<!--Aqui é usada uma tabela para colocar as figuras com seus captions. Também achei interessante--->
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -586,43 +581,160 @@ Achei excelente essa maneira de colocar as figuras, talvez eu possa usar para co
 </section>
 <section id="pontes-de-kaliningrado" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="pontes-de-kaliningrado"><span class="header-section-number">1.2</span> Pontes de Kaliningrado</h2>
-<p><strong>É possível andar pela cidade atravessando cada ponte exatamente uma vez?</strong> <img src="imagens/02-img3.png" class="img-fluid" style="border: 3px solid black; border-radius: 8px;;width:90.0%"></p>
+<p><strong>É possível andar pela cidade atravessando cada ponte exatamente uma vez?</strong></p>
+<p><img src="imagens/02-img3.png" class="img-fluid" style="border: 3px solid black; border-radius: 8px;;width:90.0%"></p>
+<p>O problema das Sete Pontes de Königsberg (atual Kaliningrado) é o quebra-cabeça histórico que deu origem à Teoria dos Grafos. A cidade era dividida por um rio em quatro regiões — uma ilha e três margens — ligadas por sete pontes, e o desafio era encontrar um passeio que atravessasse cada ponte exatamente uma vez.</p>
 </section>
 <section id="leonhard-euler" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="leonhard-euler"><span class="header-section-number">1.3</span> <strong>Leonhard Euler</strong></h2>
-<p>Matemático e físico suíço. Tentou responder a questão sobre as pontes de Kaliningrado. Para tanto desenvolveu a <strong>Teoria dos Grafos</strong>.</p>
+<h2 data-number="1.3" class="anchored" data-anchor-id="leonhard-euler"><span class="header-section-number">1.3</span> Leonhard Euler</h2>
+<p>Matemático e físico suíço. Tentou responder à questão sobre as pontes de Kaliningrado e, para tanto, desenvolveu a <strong>Teoria dos Grafos</strong>.</p>
 <div class="quarto-figure quarto-figure-center" style="display:block; margin-left:auto; margin-right:auto; border-radius:2px; padding:15px; background:white; box-shadow:0 4px 8px rgba(0,0,0,0.2); border:1px solid #ddd; width:250px;">
 <figure class="figure">
 <p><img src="imagens/02-img4.png" class="img-fluid figure-img"></p>
 <figcaption>Leonhard Euler</figcaption>
 </figure>
 </div>
+<p>Euler representou o problema como um grafo, em que cada região da cidade é um vértice e cada ponte é uma aresta:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="960" height="672" viewbox="0.00 0.00 717.40 576.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(0.985174 0.985174) rotate(0) translate(4 580.67)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-580.67 724.2,-580.67 724.2,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="#0066ff" stroke="black" cx="303.52" cy="-533" rx="33.65" ry="33.65"></ellipse>
+<text text-anchor="middle" x="303.52" y="-528.8" font-family="Times,serif" font-size="14.00" fill="white">A (Ilha)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse fill="#0066ff" stroke="black" cx="466.52" cy="-331" rx="66.82" ry="66.82"></ellipse>
+<text text-anchor="middle" x="466.52" y="-326.8" font-family="Times,serif" font-size="14.00" fill="white">B (Margem Norte)</text>
+</g>
+<!-- A&#45;&#45;B -->
+<g id="edge1" class="edge">
+<title>A--B</title>
+<path fill="none" stroke="red" stroke-width="2" d="M324.49,-506.26C349.69,-475.35 392.56,-422.75 424.62,-383.41"></path>
+<text text-anchor="middle" x="391.71" y="-449.8" font-family="Times,serif" font-size="14.00">Ponte 1</text>
+</g>
+<!-- A&#45;&#45;B -->
+<g id="edge2" class="edge">
+<title>A--B</title>
+<path fill="none" stroke="red" stroke-width="2" d="M302.04,-499.27C302.66,-482.23 305.71,-461.66 315.13,-445.6 336.4,-409.32 374.25,-380.92 406.78,-361.59"></path>
+<text text-anchor="middle" x="336.71" y="-449.8" font-family="Times,serif" font-size="14.00">Ponte 2</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<ellipse fill="#0066ff" stroke="black" cx="148.52" cy="-87" rx="59.71" ry="59.71"></ellipse>
+<text text-anchor="middle" x="148.52" y="-82.8" font-family="Times,serif" font-size="14.00" fill="white">C (Margem Sul)</text>
+</g>
+<!-- A&#45;&#45;C -->
+<g id="edge3" class="edge">
+<title>A--C</title>
+<path fill="none" stroke="red" stroke-width="2" d="M270.65,-525.33C216.4,-512.19 111.38,-477.05 84.13,-397.91 53.8,-309.84 91.86,-202.53 121.04,-140.07"></path>
+<text text-anchor="middle" x="105.71" y="-326.8" font-family="Times,serif" font-size="14.00">Ponte 3</text>
+</g>
+<!-- A&#45;&#45;C -->
+<g id="edge4" class="edge">
+<title>A--C</title>
+<path fill="none" stroke="red" stroke-width="2" d="M292.74,-501.13C266.86,-426.99 200.9,-238.04 167.91,-143.56"></path>
+<text text-anchor="middle" x="277.71" y="-326.8" font-family="Times,serif" font-size="14.00">Ponte 4</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<ellipse fill="#0066ff" stroke="black" cx="553.52" cy="-87" rx="66.45" ry="66.45"></ellipse>
+<text text-anchor="middle" x="553.52" y="-82.8" font-family="Times,serif" font-size="14.00" fill="white">D (Margem Leste)</text>
+</g>
+<!-- A&#45;&#45;D -->
+<g id="edge5" class="edge">
+<title>A--D</title>
+<path fill="none" stroke="red" stroke-width="2" d="M336.1,-524.16C389.4,-509.46 494.13,-472.29 542.52,-397.91 590.37,-324.35 581.74,-218.82 569.16,-151.86"></path>
+<text text-anchor="middle" x="600.71" y="-326.8" font-family="Times,serif" font-size="14.00">Ponte 5</text>
+</g>
+<!-- B&#45;&#45;C -->
+<g id="edge6" class="edge">
+<title>B--C</title>
+<path fill="none" stroke="red" stroke-width="2" d="M413.65,-289.77C352.81,-243.47 253.81,-168.13 195.54,-123.79"></path>
+<text text-anchor="middle" x="338.71" y="-204.8" font-family="Times,serif" font-size="14.00">Ponte 6</text>
+</g>
+<!-- B&#45;&#45;D -->
+<g id="edge7" class="edge">
+<title>B--D</title>
+<path fill="none" stroke="red" stroke-width="2" d="M488.92,-267.68C501.96,-231.41 518.34,-185.85 531.34,-149.69"></path>
+<text text-anchor="middle" x="534.71" y="-204.8" font-family="Times,serif" font-size="14.00">Ponte 7</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="pontes-de-kaliningrado-resolução" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="pontes-de-kaliningrado-resolução"><span class="header-section-number">1.4</span> Pontes de Kaliningrado: Resolução</h2>
 <p><img src="imagens/02-img5.png" class="img-fluid" style="border: 3px solid black; border-radius: 8px;;width:90.0%"></p>
-<p><strong>É possível andar pela cidade atravessando cada ponte exatamente uma vez?</strong></p>
-</section>
-<section id="grafo" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="grafo"><span class="header-section-number">1.5</span> Grafo</h2>
-<section id="definição-1" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="definição-1"><span class="header-section-number">1.5.1</span> Definição 1</h3>
-<p>Um grafo é uma representação matemática de um objeto consistindo de <strong>vértices (nós)</strong> e <strong>arestas</strong> representando elementos e conexões, respectivamente.</p>
-<p><strong>G = (V, E)</strong> O grafo G é um conjunto formado por um conjunto de vértices V e um conjunto de arestas E.</p>
-</section>
-<section id="definição-2" class="level3" data-number="1.5.2">
-<h3 data-number="1.5.2" class="anchored" data-anchor-id="definição-2"><span class="header-section-number">1.5.2</span> Definição 2</h3>
-<p><strong>G = (V, E)</strong> O grafo G é um conjunto formado por um conjunto de vértices <strong>V = {v₁, v₂, v₃, …, vₙ}</strong> e um conjunto de arestas <strong>E = {(v₁, v₂), (v₃, vₙ), …, (vₓ, v₂)}</strong>.</p>
-</section>
-<section id="definição-2-expandida" class="level3" data-number="1.5.3">
-<h3 data-number="1.5.3" class="anchored" data-anchor-id="definição-2-expandida"><span class="header-section-number">1.5.3</span> Definição 2 expandida</h3>
-<p><strong>G = (V, E)</strong> O grafo G é um conjunto formado por conjunto de vértices V e um conjunto de arestas E.<br>
-Um grafo é uma representação matemática de um objeto consistindo de vértices (nós) e arestas representando elementos e conexões, respectivamente.</p>
+<p><strong>É possível andar pela cidade atravessando cada ponte exatamente uma vez?</strong> Euler demonstrou que <strong>não</strong>: como todos os quatro vértices do grafo têm grau ímpar (número ímpar de pontes), não existe um caminho que percorra cada aresta exatamente uma vez sem repetição — condição que hoje conhecemos como a exigência de um <strong>caminho euleriano</strong>.</p>
 <hr>
 </section>
 </section>
-<section id="vértices-ou-nós" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="vértices-ou-nós"><span class="header-section-number">1.6</span> Vértices ou nós</h2>
+<section id="grafo" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Grafo</h1>
+<section id="definição-1" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="definição-1"><span class="header-section-number">2.0.1</span> Definição 1</h3>
+<p>Um grafo é uma representação matemática de um objeto consistindo de <strong>vértices (nós)</strong> e <strong>arestas</strong>, representando elementos e conexões, respectivamente.</p>
+<p><strong>G = (V, E)</strong> — o grafo G é um conjunto formado por um conjunto de vértices V e um conjunto de arestas E.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>O que é, em biologia:</strong><br>
+V: vértices (ex.: genes, proteínas, metabólitos).<br>
+E: arestas (ex.: interações, reações químicas).</p>
+</div>
+</div>
+</section>
+<section id="definição-2" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2" class="anchored" data-anchor-id="definição-2"><span class="header-section-number">2.0.2</span> Definição 2</h3>
+<p><strong>G = (V, E)</strong><br>
+O grafo G é um conjunto formado por um conjunto de vértices <strong>V = {v₁, v₂, v₃, …, vₙ}</strong> e um conjunto de arestas <strong>E = {(v₁, v₂), (v₃, vₙ), …, (vₓ, vᵤ)}</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo — grafo de regulação gênica:</strong><br>
+V = {GeneA, GeneB, GeneC}<br>
+E = {GeneA → GeneB, GeneB → GeneC}</p>
+</div>
+</div>
+</section>
+<section id="definição-2-expandida" class="level3" data-number="2.0.3">
+<h3 data-number="2.0.3" class="anchored" data-anchor-id="definição-2-expandida"><span class="header-section-number">2.0.3</span> Definição 2 expandida</h3>
+<p><strong>G = (V, E)</strong><br>
+O grafo G é um conjunto formado por um conjunto de vértices V e um conjunto de arestas E. Um grafo é uma representação matemática de um objeto consistindo de vértices (nós) e arestas representando elementos e conexões, respectivamente.</p>
+<hr>
+</section>
+<section id="vértices-ou-nós" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="vértices-ou-nós"><span class="header-section-number">2.1</span> Vértices ou nós</h2>
 <ul>
 <li>São os elementos do grafo. Os elementos podem ser qualquer coisa:
 <ul>
@@ -634,20 +746,34 @@ Um grafo é uma representação matemática de um objeto consistindo de vértice
 <li>…</li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sua representação gráfica pode ser um ponto ou um círculo que pode, ou não, conter algum símbolo interno.</p>
+</div>
+</div>
 </section>
-<section id="arestas" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="arestas"><span class="header-section-number">1.7</span> Arestas</h2>
-<p>As arestas indicam relações entre os elementos. O significado da relação pode mudar dependendo dos elementos.<br>
-Por isso as arestas podem ser:</p>
+<section id="arestas" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="arestas"><span class="header-section-number">2.2</span> Arestas</h2>
+<p>As arestas indicam relações entre os elementos. O significado da relação pode mudar dependendo dos elementos. Por isso as arestas podem ser:</p>
 <ul>
 <li><p><strong>Não-direcionadas</strong> ― : (v₁, v₂) = (v₂, v₁)<br>
-Quando a ligação não exibe precedência, somente relação.</p></li>
+Quando a ligação não exibe precedência, somente relação simétrica.<br>
+<em>Exemplo:</em> complexo proteico onde A interage com B e vice-versa.</p></li>
 <li><p><strong>Direcionadas</strong> → : (v₁, v₂) ≠ (v₂, v₁)<br>
 Quando a ligação entre os dados indica precedência ou ordem:</p>
 <ul>
 <li>causa e efeito;</li>
 <li>antes ou depois;</li>
-<li>substrato → produto.</li>
+<li>substrato → produto;</li>
+<li><em>Exemplo:</em> GeneX ativa a expressão de GeneY (GeneX → GeneY).</li>
 </ul></li>
 </ul>
 <p><strong>Por consequência:</strong></p>
@@ -675,23 +801,48 @@ Quando a ligação entre os dados indica precedência ou ordem:</p>
 </center>
 <hr>
 </section>
-<section id="grafo-conectado-e-não-conectado" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="grafo-conectado-e-não-conectado"><span class="header-section-number">1.8</span> Grafo conectado e não-conectado</h2>
+<section id="grafo-conectado-e-não-conectado" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="grafo-conectado-e-não-conectado"><span class="header-section-number">2.3</span> Grafo conectado e não-conectado</h2>
 <ul>
 <li>Um grafo não-direcionado é <strong>conectado</strong> quando possui pelo menos um vértice e existe um caminho entre cada par de vértices.</li>
 <li>Em um grafo conectado, não há vértices inacessíveis.</li>
 <li>Um grafo não direcionado que não está conectado é chamado <strong>desconectado</strong>.</li>
-<li>Um gráfico não direcionado G é, portanto, desconectado se existir dois vértices em G, de modo que nenhum caminho em G tenha esses vértices como pontos finais.</li>
+<li>Um grafo não direcionado G é, portanto, desconectado se existir dois vértices em G, de modo que nenhum caminho em G tenha esses vértices como pontos finais.</li>
 <li>Um grafo com apenas um vértice está conectado.</li>
-<li>Um gráfico sem arestas entre dois ou mais vértices é desconectado.</li>
+<li>Um grafo sem arestas entre dois ou mais vértices é desconectado.</li>
 </ul>
+<p><strong>Em biologia:</strong></p>
+<ul>
+<li><strong>Conectado</strong>: todos os vértices estão ligados (ex.: rede metabólica essencial).</li>
+<li><strong>Desconectado</strong>: componentes isolados (ex.: vias metabólicas independentes).</li>
+</ul>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Exemplo — rede de coexpressão gênica:</strong> se a rede está desconectada, isso indica grupos de genes com funções distintas.</p>
+</div>
+</div>
+</div>
 <hr>
 </section>
-<section id="algumas-definições" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="algumas-definições"><span class="header-section-number">1.9</span> Algumas definições</h2>
-<section id="adjacência" class="level3" data-number="1.9.1">
-<h3 data-number="1.9.1" class="anchored" data-anchor-id="adjacência"><span class="header-section-number">1.9.1</span> Adjacência</h3>
+<section id="algumas-definições" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="algumas-definições"><span class="header-section-number">2.4</span> Algumas definições</h2>
+<section id="adjacência" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="adjacência"><span class="header-section-number">2.4.1</span> Adjacência</h3>
 <p>Se os vértices compartilham da mesma aresta então eles são <strong>adjacentes</strong> entre si.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Exemplo:</strong> proteína A e proteína B são adjacentes se interagem entre si.</p>
+</div>
+</div>
+</div>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -701,41 +852,214 @@ Quando a ligação entre os dados indica precedência ou ordem:</p>
 </div>
 </center>
 </section>
-<section id="grau" class="level3" data-number="1.9.2">
-<h3 data-number="1.9.2" class="anchored" data-anchor-id="grau"><span class="header-section-number">1.9.2</span> Grau</h3>
+<section id="grau" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="grau"><span class="header-section-number">2.4.2</span> Grau</h3>
 <p>O grau de um vértice é o número de arestas que incidem nele.</p>
 <p>Exemplo:</p>
 <center>
 <img src="imagens/02-img9.png" class="img-fluid">
 </center>
 </section>
-<section id="grau-grafos-direcionados" class="level3" data-number="1.9.3">
-<h3 data-number="1.9.3" class="anchored" data-anchor-id="grau-grafos-direcionados"><span class="header-section-number">1.9.3</span> Grau (grafos direcionados)</h3>
+<section id="grau-grafos-direcionados" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="grau-grafos-direcionados"><span class="header-section-number">2.4.3</span> Grau (grafos direcionados)</h3>
 <p>Para o grafo direcionado, o grau de vértice pode ser dividido em: - <strong>Grau de entrada</strong> - <strong>Grau de saída</strong></p>
 <p>Exemplo:</p>
 <center>
 <img src="imagens/02-img10.png" class="img-fluid">
 </center>
 </section>
-<section id="laço" class="level3" data-number="1.9.4">
-<h3 data-number="1.9.4" class="anchored" data-anchor-id="laço"><span class="header-section-number">1.9.4</span> Laço</h3>
+<section id="laço" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="laço"><span class="header-section-number">2.4.4</span> Laço</h3>
 <p>Quando uma aresta começa e termina em um mesmo vértice ela é chamada de <strong>laço</strong> (loop).</p>
-<center>
-<img src="imagens/02-img11.png" class="img-fluid">
-</center>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Exemplo:</strong> autofosforilação de uma quinase (ex.: receptor EGFR).</p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="960" height="672" viewbox="0.00 0.00 718.03 576.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(0.986301 0.986301) rotate(0) translate(4 580)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-580 724,-580 724,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="#0066ff" stroke="black" cx="317.57" cy="-88.06" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="317.57" y="-66.46" font-family="Times,serif" font-size="72.00" fill="white">1</text>
+</g>
+<!-- A&#45;&#45;A -->
+<g id="edge1" class="edge">
+<title>A:s--A:e</title>
+<path fill="none" stroke="red" stroke-width="6" d="M317.57,-16.06C347.57,-7.06 407.57,-7.06 407.57,-52.06 407.57,-97.06 395.57,-97.06 389.57,-88.06"></path>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse fill="#0066ff" stroke="black" cx="86.55" cy="-411.57" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="86.55" y="-389.97" font-family="Times,serif" font-size="72.00" fill="white">2</text>
+</g>
+<!-- A&#45;&#45;B -->
+<g id="edge2" class="edge">
+<title>A--B</title>
+<path fill="none" stroke="black" stroke-width="6" d="M275.46,-147.02C233.75,-205.43 170.24,-294.38 128.56,-352.74"></path>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<ellipse fill="#0066ff" stroke="black" cx="86.55" cy="-164.43" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="86.55" y="-142.83" font-family="Times,serif" font-size="72.00" fill="white">3</text>
+</g>
+<!-- A&#45;&#45;C -->
+<g id="edge3" class="edge">
+<title>A--C</title>
+<path fill="none" stroke="black" stroke-width="6" d="M249.19,-110.66C219.52,-120.47 184.85,-131.94 155.15,-141.75"></path>
+</g>
+<!-- B&#45;&#45;C -->
+<g id="edge4" class="edge">
+<title>B--C</title>
+<path fill="none" stroke="black" stroke-width="6" d="M86.55,-339.42C86.55,-307.08 86.55,-269.02 86.55,-236.67"></path>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<ellipse fill="#0066ff" stroke="black" cx="317.57" cy="-487.94" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="317.57" y="-466.34" font-family="Times,serif" font-size="72.00" fill="white">4</text>
+</g>
+<!-- B&#45;&#45;D -->
+<g id="edge5" class="edge">
+<title>B--D</title>
+<path fill="none" stroke="black" stroke-width="6" d="M154.93,-434.17C184.6,-443.98 219.27,-455.45 248.97,-465.26"></path>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<ellipse fill="#0066ff" stroke="black" cx="460.34" cy="-288" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="460.34" y="-266.4" font-family="Times,serif" font-size="72.00" fill="white">5</text>
+</g>
+<!-- C&#45;&#45;E -->
+<g id="edge7" class="edge">
+<title>C--E</title>
+<path fill="none" stroke="black" stroke-width="6" d="M155.11,-187.1C222.45,-209.36 324.61,-243.13 391.9,-265.37"></path>
+</g>
+<!-- D&#45;&#45;E -->
+<g id="edge6" class="edge">
+<title>D--E</title>
+<path fill="none" stroke="black" stroke-width="6" d="M359.44,-429.3C378.04,-403.26 399.88,-372.68 418.47,-346.64"></path>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<ellipse fill="#0066ff" stroke="black" cx="633.45" cy="-288" rx="72" ry="72"></ellipse>
+<text text-anchor="middle" x="633.45" y="-266.4" font-family="Times,serif" font-size="72.00" fill="white">6</text>
+</g>
+<!-- E&#45;&#45;F -->
+<g id="edge8" class="edge">
+<title>E--F</title>
+<path fill="none" stroke="black" stroke-width="6" d="M532.5,-288C542.06,-288 551.85,-288 561.41,-288"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
-<section id="layout" class="level3" data-number="1.9.5">
-<h3 data-number="1.9.5" class="anchored" data-anchor-id="layout"><span class="header-section-number">1.9.5</span> Layout</h3>
-<p>É a posição dos vértices e o desenho das arestas.</p>
+<section id="layout" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="layout"><span class="header-section-number">2.4.5</span> Layout</h3>
+<p>É a posição dos vértices e o desenho das arestas — o mapeamento dos vértices e arestas de um grafo G=(V,E) em posições geométricas (coordenadas), seguindo regras que podem minimizar cruzamentos de arestas, destacar hierarquias ou comunidades, e facilitar a identificação de padrões.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O layout não altera a estrutura matemática do grafo, mas influencia diretamente a compreensão humana das relações entre os elementos.</p>
+</div>
+</div>
+<p><strong>Por que o layout é importante?</strong></p>
+<ul>
+<li><strong>Clareza</strong>: evita sobreposição de arestas (ex.: em redes densas como interações proteicas).</li>
+<li><strong>Análise</strong>: layouts específicos revelam propriedades (ex.: hubs em redes livres de escala).</li>
+<li><strong>Comunicação</strong>: facilita a apresentação de dados complexos em artigos ou relatórios.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Tipo de layout</th>
+<th style="text-align: center;">Características</th>
+<th style="text-align: center;">Aplicação em biotecnologia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Force-Directed</td>
+<td style="text-align: center;">Arestas como molas, vértices se repelem</td>
+<td style="text-align: center;">Redes de coexpressão gênica (identifica módulos funcionais)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hierárquico</td>
+<td style="text-align: center;">Vértices em camadas (top-down)</td>
+<td style="text-align: center;">Cascatas de sinalização celular (ex.: via MAPK)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Circular</td>
+<td style="text-align: center;">Vértices em um círculo</td>
+<td style="text-align: center;">Interações proteína-DNA para destacar elementos centrais</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Radial</td>
+<td style="text-align: center;">Vértices dispostos em anéis concêntricos</td>
+<td style="text-align: center;">Árvores filogenéticas (evolução de patógenos)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Ferramentas para layout de grafos:</strong></p>
+<ul>
+<li><strong>Cytoscape</strong>: oferece algoritmos como <em>Prefuse Force-Directed</em> para redes biológicas.</li>
+<li><strong>Gephi</strong>: usa <em>Force Atlas 2</em> para layouts dinâmicos.</li>
+<li><strong>Python</strong> (NetworkX + Matplotlib): permite customização via <code>spring_layout</code> ou <code>circular_layout</code>.</li>
+</ul>
+<p><strong>Dica</strong>: em biotecnologia, escolha o layout com base no objetivo — para identificar comunidades, use <em>force-directed</em>; para mostrar fluxos, use hierárquico.</p>
+</div>
+</div>
 <hr>
 </section>
 </section>
-<section id="subgrafo" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="subgrafo"><span class="header-section-number">1.10</span> Subgrafo</h2>
+<section id="subgrafo" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="subgrafo"><span class="header-section-number">2.5</span> Subgrafo</h2>
 <p><strong>G’ = (V’, E’)</strong> onde V’ é um subconjunto de V e E’ é um subconjunto de E.<br>
 Isso implica que E’ só possui arestas que começam e terminam em vértices que estão em V’.</p>
-<section id="subgrafo-induzido" class="level3" data-number="1.10.1">
-<h3 data-number="1.10.1" class="anchored" data-anchor-id="subgrafo-induzido"><span class="header-section-number">1.10.1</span> Subgrafo Induzido</h3>
+<section id="subgrafo-induzido" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="subgrafo-induzido"><span class="header-section-number">2.5.1</span> Subgrafo Induzido</h3>
 <p>Se G’ é um subgrafo de G e E’ possui <strong>todas as arestas de E que ligam os vértices de V’</strong>, então esse subgrafo é chamado de <strong>grafo induzido</strong>.</p>
 <p>Exemplo:</p>
 <center>
@@ -760,65 +1084,113 @@ Vértices: 1, 2, 5, 7, 6, 3, 4
 <hr>
 </section>
 </section>
-<section id="isomorfismo" class="level2" data-number="1.11">
-<h2 data-number="1.11" class="anchored" data-anchor-id="isomorfismo"><span class="header-section-number">1.11</span> Isomorfismo</h2>
-<p>Dois grafos G₁ e G₂ são <strong>isomorfos</strong> se existir um mapeamento bijetivo entre os vértices de V₁ e V₂ com a propriedade de que quaisquer dois vértices u, v ∊ V₁ são adjacentes se, e somente se, os dois vértices correspondentes no outro grafo também forem adjacentes.</p>
-<p><strong>Traduzindo:</strong> se um grafo possui os mesmo vértices que outro grafo e esses vértices mantém a adjacência nos dois grafos.</p>
+<section id="isomorfismo" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="isomorfismo"><span class="header-section-number">2.6</span> Isomorfismo</h2>
+<p>Dois grafos G₁ = (V₁, E₁) e G₂ = (V₂, E₂) são <strong>isomorfos</strong> se existir um mapeamento bijetivo entre os vértices de V₁ e V₂ com a propriedade de que quaisquer dois vértices u, v ∊ V₁ são adjacentes se, e somente se, os dois vértices correspondentes no outro grafo também forem adjacentes.</p>
+<p><strong>Traduzindo:</strong> se um grafo possui os mesmos vértices que outro grafo e esses vértices mantêm a adjacência nos dois grafos. Ou seja:</p>
+<ul>
+<li>Cada vértice em G₁ tem um correspondente único em G₂.</li>
+<li>Duas arestas conectadas em G₁ o são se, e somente se, suas correspondentes em G₂ também estiverem conectadas.</li>
+<li>Em outras palavras: os grafos têm a mesma “forma” ou topologia, mas podem diferir nos rótulos dos vértices/arestas.</li>
+</ul>
 <center>
 <img src="imagens/02-img14.png" class="img-fluid">
 </center>
+<p><strong>Por que o isomorfismo é importante na Biologia?</strong></p>
+<ul>
+<li><strong>Homologia estrutural</strong>: identifica padrões conservados na evolução (ex.: redes de interação proteica em eucariotos vs.&nbsp;bactérias).</li>
+<li><strong>Engenharia metabólica</strong>: redes isomorfas em microrganismos podem ser “copiadas” para organismos-modelo.</li>
+<li><strong>Descoberta de drogas</strong>: alvos farmacológicos em uma espécie podem ser inferidos a partir de redes isomorfas em outras.</li>
+</ul>
 <hr>
 </section>
-<section id="passeio-caminho-trilha" class="level2" data-number="1.12">
-<h2 data-number="1.12" class="anchored" data-anchor-id="passeio-caminho-trilha"><span class="header-section-number">1.12</span> Passeio &amp; Caminho &amp; Trilha</h2>
-<section id="passeio-walk" class="level3" data-number="1.12.1">
-<h3 data-number="1.12.1" class="anchored" data-anchor-id="passeio-walk"><span class="header-section-number">1.12.1</span> Passeio (Walk)</h3>
-<p>Um passeio de distância k em um grafo é uma sequência alternante de vértices e arestas v₀, e₀, v₁, e₁, v₂, e₂, … , vₖ₋₁, eₖ₋₁, vₖ, que começa e termina em vértices.</p>
+<section id="passeio-caminho-trilha" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="passeio-caminho-trilha"><span class="header-section-number">2.7</span> Passeio &amp; Caminho &amp; Trilha</h2>
+<section id="passeio-walk" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="passeio-walk"><span class="header-section-number">2.7.1</span> Passeio (Walk)</h3>
+<p>Um passeio de comprimento <em>k</em> em um grafo é uma sequência alternante de vértices e arestas v₀, e₀, v₁, e₁, v₂, e₂, … , vₖ₋₁, eₖ₋₁, vₖ, que começa e termina em vértices, onde cada aresta eᵢ conecta os vértices vᵢ e vᵢ₊₁. Vértices e arestas podem se repetir.</p>
 </section>
-<section id="caminho-path" class="level3" data-number="1.12.2">
-<h3 data-number="1.12.2" class="anchored" data-anchor-id="caminho-path"><span class="header-section-number">1.12.2</span> Caminho (Path)</h3>
-<p>Um caminho é um passeio no qual todos os vértices (exceto, possivelmente, o primeiro e o último) são distintos.</p>
+<section id="caminho-path" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="caminho-path"><span class="header-section-number">2.7.2</span> Caminho (Path)</h3>
+<p>Um caminho é um passeio no qual todos os vértices (exceto, possivelmente, o primeiro e o último) são distintos — e, portanto, também sem arestas repetidas.</p>
+<p><em>Exemplo:</em> A, e₁, B, e₂, C (vértices distintos).</p>
 </section>
-<section id="trilha-ou-trajeto-trail" class="level3" data-number="1.12.3">
-<h3 data-number="1.12.3" class="anchored" data-anchor-id="trilha-ou-trajeto-trail"><span class="header-section-number">1.12.3</span> Trilha ou Trajeto (Trail)</h3>
-<p>Trilha é um passeio onde todas as arestas são distintas.</p>
-<hr>
+<section id="trilha-ou-trajeto-trail" class="level3" data-number="2.7.3">
+<h3 data-number="2.7.3" class="anchored" data-anchor-id="trilha-ou-trajeto-trail"><span class="header-section-number">2.7.3</span> Trilha ou Trajeto (Trail)</h3>
+<p>Trilha é um passeio onde todas as arestas são distintas, mas os vértices podem se repetir.</p>
+<p><em>Exemplo:</em> A, e₁, B, e₂, C, e₃, A, e₄, D (usa cada aresta apenas uma vez).</p>
 </section>
-</section>
-<section id="caminhos-especiais" class="level2" data-number="1.13">
-<h2 data-number="1.13" class="anchored" data-anchor-id="caminhos-especiais"><span class="header-section-number">1.13</span> Caminhos especiais</h2>
-<section id="caminho-simples" class="level3" data-number="1.13.1">
-<h3 data-number="1.13.1" class="anchored" data-anchor-id="caminho-simples"><span class="header-section-number">1.13.1</span> Caminho simples</h3>
-<p>Um caminho em que todos os vértices são diferentes.</p>
-</section>
-<section id="caminho-euleriano" class="level3" data-number="1.13.2">
-<h3 data-number="1.13.2" class="anchored" data-anchor-id="caminho-euleriano"><span class="header-section-number">1.13.2</span> Caminho Euleriano</h3>
-<p>Um Caminho Euleriano é um caminho em um grafo que visita cada aresta apenas uma vez.</p>
-</section>
-<section id="caminho-hamiltoniano" class="level3" data-number="1.13.3">
-<h3 data-number="1.13.3" class="anchored" data-anchor-id="caminho-hamiltoniano"><span class="header-section-number">1.13.3</span> Caminho Hamiltoniano</h3>
-<p>Um caminho hamiltoniano é um caminho que permite passar por todos os vértices de um grafo G, não repetindo nenhum, ou seja, passar por todos uma só vez por cada.</p>
+<section id="ciclo-cycle" class="level3" data-number="2.7.4">
+<h3 data-number="2.7.4" class="anchored" data-anchor-id="ciclo-cycle"><span class="header-section-number">2.7.4</span> Ciclo (Cycle)</h3>
+<p>Passeio fechado (v₀ = vₖ), sem repetir arestas e com vértices distintos, exceto o primeiro e o último.</p>
+<p><em>Exemplo:</em> A, e₁, B, e₂, C, e₃, A. <em>Exemplo biológico:</em> o Ciclo de Krebs é uma rede metabólica circular.</p>
 <hr>
 </section>
 </section>
-<section id="comprimento-e-ciclo" class="level2" data-number="1.14">
-<h2 data-number="1.14" class="anchored" data-anchor-id="comprimento-e-ciclo"><span class="header-section-number">1.14</span> Comprimento e Ciclo</h2>
-<section id="comprimento" class="level3" data-number="1.14.1">
-<h3 data-number="1.14.1" class="anchored" data-anchor-id="comprimento"><span class="header-section-number">1.14.1</span> Comprimento</h3>
+<section id="caminhos-especiais" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="caminhos-especiais"><span class="header-section-number">2.8</span> Caminhos especiais</h2>
+<section id="caminho-simples" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="caminho-simples"><span class="header-section-number">2.8.1</span> Caminho simples</h3>
+<p>Um caminho em que todos os vértices são diferentes — uma sequência de vértices conectados por arestas, sem repetição de vértices ou arestas.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Exemplo:</strong> em uma rede metabólica, um caminho simples pode representar uma rota linear de reações enzimáticas (ex.: Glicose → Glicose-6-F → Frutose-6-F).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="caminho-euleriano" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="caminho-euleriano"><span class="header-section-number">2.8.2</span> Caminho Euleriano</h3>
+<p>Um Caminho Euleriano é um caminho em um grafo que visita <strong>cada aresta</strong> apenas uma vez.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Exemplo:</strong> modelar a trajetória de um metabólito que percorre todas as reações de uma via sem repetições — situação rara em redes biológicas devido à presença de ciclos.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="caminho-hamiltoniano" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="caminho-hamiltoniano"><span class="header-section-number">2.8.3</span> Caminho Hamiltoniano</h3>
+<p>Um caminho hamiltoniano é um caminho que permite passar por todos os vértices de um grafo G, não repetindo nenhum, ou seja, passar por todos uma só vez cada.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Exemplo:</strong> identificar uma ordem de ativação de proteínas em uma cascata de sinalização (ex.: Receptor → Kinase A → Kinase B → Fator de transcrição).</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="comprimento-e-ciclo" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="comprimento-e-ciclo"><span class="header-section-number">2.9</span> Comprimento e Ciclo</h2>
+<section id="comprimento" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="comprimento"><span class="header-section-number">2.9.1</span> Comprimento</h3>
 <p>É dado pelo número de arestas atravessadas de um vértice inicial a um vértice final.</p>
 </section>
-<section id="ciclo" class="level3" data-number="1.14.2">
-<h3 data-number="1.14.2" class="anchored" data-anchor-id="ciclo"><span class="header-section-number">1.14.2</span> Ciclo</h3>
+<section id="ciclo" class="level3" data-number="2.9.2">
+<h3 data-number="2.9.2" class="anchored" data-anchor-id="ciclo"><span class="header-section-number">2.9.2</span> Ciclo</h3>
 <p>Um caminho em que o vértice de início e o vértice de término são o mesmo.</p>
 <hr>
 </section>
 </section>
-<section id="distância" class="level2" data-number="1.15">
-<h2 data-number="1.15" class="anchored" data-anchor-id="distância"><span class="header-section-number">1.15</span> Distância</h2>
-<p>A <strong>distância</strong> entre dois vértices é o comprimento do menor caminho entre eles ou ∞ se não existir um menor caminho.</p>
-<section id="menor-caminho" class="level3" data-number="1.15.1">
-<h3 data-number="1.15.1" class="anchored" data-anchor-id="menor-caminho"><span class="header-section-number">1.15.1</span> Menor caminho</h3>
-<p>É um caminho de tamanho mínimo entre dois vértices. Pode existir vários (passando por diferentes vértices) menores caminhos entre dois vértices.</p>
+<section id="distância" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="distância"><span class="header-section-number">2.10</span> Distância</h2>
+<p>A <strong>distância</strong> entre dois vértices é o comprimento do menor caminho entre eles, ou ∞ se não existir um menor caminho.</p>
+<section id="menor-caminho" class="level3" data-number="2.10.1">
+<h3 data-number="2.10.1" class="anchored" data-anchor-id="menor-caminho"><span class="header-section-number">2.10.1</span> Menor caminho</h3>
+<p>É um caminho de tamanho mínimo entre dois vértices. Podem existir vários menores caminhos (obrigatoriamente do mesmo tamanho), passando por diferentes vértices, entre dois vértices.</p>
 <p><strong>Exemplo</strong>:<br>
 Fazer a distância entre 6 e 2 passando por 5 e por 3.<br>
 Depois fazer a distância entre 6 e 1 passando por 5 e por 3.</p>
@@ -828,11 +1200,24 @@ Depois fazer a distância entre 6 e 1 passando por 5 e por 3.</p>
 <hr>
 </section>
 </section>
-<section id="outros-tipos-de-grafos" class="level2" data-number="1.16">
-<h2 data-number="1.16" class="anchored" data-anchor-id="outros-tipos-de-grafos"><span class="header-section-number">1.16</span> Outros tipos de grafos</h2>
-<section id="grafos-mistos" class="level3" data-number="1.16.1">
-<h3 data-number="1.16.1" class="anchored" data-anchor-id="grafos-mistos"><span class="header-section-number">1.16.1</span> Grafos Mistos</h3>
+<section id="outros-tipos-de-grafos" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="outros-tipos-de-grafos"><span class="header-section-number">2.11</span> Outros tipos de grafos</h2>
+<section id="grafos-mistos" class="level3" data-number="2.11.1">
+<h3 data-number="2.11.1" class="anchored" data-anchor-id="grafos-mistos"><span class="header-section-number">2.11.1</span> Grafos Mistos</h3>
 <p>Um grafo que possui arestas direcionadas e não direcionadas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> rede de sinalização com interações bidirecionais (ex.: feedback) e unidirecionais (ex.: fosforilação).</p>
+</div>
+</div>
 <center>
 <img src="imagens/02-img15.png" class="img-fluid">
 </center>
@@ -840,31 +1225,70 @@ Depois fazer a distância entre 6 e 1 passando por 5 e por 3.</p>
 <img src="imagens/02-img16.png" class="img-fluid">
 </center>
 </section>
-<section id="multigrafo" class="level3" data-number="1.16.2">
-<h3 data-number="1.16.2" class="anchored" data-anchor-id="multigrafo"><span class="header-section-number">1.16.2</span> Multigrafo</h3>
+<section id="multigrafo" class="level3" data-number="2.11.2">
+<h3 data-number="2.11.2" class="anchored" data-anchor-id="multigrafo"><span class="header-section-number">2.11.2</span> Multigrafo</h3>
 <p>É um grafo onde dois vértices podem ser ligados por mais de uma aresta.<br>
 Nesse caso o pseudografo seria um grafo dirigido com pares de arestas paralelas dirigidas conectando cidades para mostrar que é possível voar para e a partir destas locações.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> proteínas que interagem por diferentes domínios ou em diferentes condições.</p>
+</div>
+</div>
 <center>
 <img src="imagens/02-img17.png" class="img-fluid">
 </center>
 </section>
-<section id="grafo-valorado-ou-ponderado" class="level3" data-number="1.16.3">
-<h3 data-number="1.16.3" class="anchored" data-anchor-id="grafo-valorado-ou-ponderado"><span class="header-section-number">1.16.3</span> Grafo Valorado ou Ponderado</h3>
+<section id="grafo-valorado-ou-ponderado" class="level3" data-number="2.11.3">
+<h3 data-number="2.11.3" class="anchored" data-anchor-id="grafo-valorado-ou-ponderado"><span class="header-section-number">2.11.3</span> Grafo Valorado ou Ponderado</h3>
 <p>São grafos nos quais as arestas possuem valores associados dando peso a cada conexão/interação.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> rede metabólica com fluxos (peso = taxa de produção) ou redes de coexpressão gênica (peso = correlação).</p>
+</div>
+</div>
 <center>
 <img src="imagens/02-img18.png" class="img-fluid">
 </center>
 </section>
-<section id="hipergrafo" class="level3" data-number="1.16.4">
-<h3 data-number="1.16.4" class="anchored" data-anchor-id="hipergrafo"><span class="header-section-number">1.16.4</span> Hipergrafo</h3>
+<section id="hipergrafo" class="level3" data-number="2.11.4">
+<h3 data-number="2.11.4" class="anchored" data-anchor-id="hipergrafo"><span class="header-section-number">2.11.4</span> Hipergrafo</h3>
 <p>No hipergrafo, uma única aresta pode ligar mais de dois vértices.</p>
 <center>
 <img src="imagens/02-img19.png" class="img-fluid">
 </center>
 </section>
-<section id="grafos-bipartidos" class="level3" data-number="1.16.5">
-<h3 data-number="1.16.5" class="anchored" data-anchor-id="grafos-bipartidos"><span class="header-section-number">1.16.5</span> Grafos Bipartidos</h3>
+<section id="grafos-bipartidos" class="level3" data-number="2.11.5">
+<h3 data-number="2.11.5" class="anchored" data-anchor-id="grafos-bipartidos"><span class="header-section-number">2.11.5</span> Grafos Bipartidos</h3>
 <p>Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos são aqueles que podem ser divididos em dois subgrafos disjuntos.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> interação fármaco-proteína (conjunto A = fármacos, conjunto B = proteínas-alvo).</p>
+</div>
+</div>
 <center>
 <img src="imagens/02-img20.png" class="img-fluid">
 </center>
@@ -874,22 +1298,31 @@ Nesse caso o pseudografo seria um grafo dirigido com pares de arestas paralelas 
 <hr>
 </section>
 </section>
-<section id="árvores" class="level2" data-number="1.17">
-<h2 data-number="1.17" class="anchored" data-anchor-id="árvores"><span class="header-section-number">1.17</span> Árvores</h2>
-<p>As árvores desempenham um papel importante na biologia, onde representam, por exemplo, as relações evolutivas entre as espécies como uma <strong>árvore filogenética</strong>. - Uma <strong>árvore</strong> é um grafo acíclico conectado e não-direcionado. - Os vértices de uma árvore com grau 1 são suas <strong>folhas</strong>. - Todos os outros vértices são <strong>vértices internos</strong>. - Uma <strong>árvore enraizada</strong> consiste de uma árvore G = (V, E) e um vértice distinto r ∈ V chamado de <strong>raiz</strong>. - A <strong>profundidade</strong> de um vértice é o comprimento do caminho entre a raiz e este vértice. - A <strong>altura</strong> de uma árvore é a profundidade máxima de um vértice. - Uma <strong>árvore binária</strong> é uma árvore onde cada vértice tem no máximo grau 3.</p>
+<section id="árvores" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="árvores"><span class="header-section-number">2.12</span> Árvores</h2>
+<p>As árvores desempenham um papel importante na biologia, onde representam, por exemplo, as relações evolutivas entre as espécies como uma <strong>árvore filogenética</strong>.</p>
+<ul>
+<li>Uma <strong>árvore</strong> é um grafo acíclico conectado e não-direcionado.</li>
+<li>Os vértices de uma árvore com grau 1 são suas <strong>folhas</strong>.</li>
+<li>Todos os outros vértices são <strong>vértices internos</strong>.</li>
+<li>Uma <strong>árvore enraizada</strong> consiste de uma árvore G = (V, E) e um vértice distinto r ∈ V chamado de <strong>raiz</strong>.</li>
+<li>A <strong>profundidade</strong> de um vértice é o comprimento do caminho entre a raiz e este vértice.</li>
+<li>A <strong>altura</strong> de uma árvore é a profundidade máxima de um vértice.</li>
+<li>Uma <strong>árvore binária</strong> é uma árvore onde cada vértice tem no máximo grau 3.</li>
+</ul>
 <center>
 <img src="imagens/02-img22.png" class="img-fluid">
 </center>
 <hr>
 </section>
-<section id="representações-de-grafos" class="level2" data-number="1.18">
-<h2 data-number="1.18" class="anchored" data-anchor-id="representações-de-grafos"><span class="header-section-number">1.18</span> Representações de grafos</h2>
-<section id="matriz-de-adjacência" class="level3" data-number="1.18.1">
-<h3 data-number="1.18.1" class="anchored" data-anchor-id="matriz-de-adjacência"><span class="header-section-number">1.18.1</span> Matriz de adjacência</h3>
+<section id="representações-de-grafos" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="representações-de-grafos"><span class="header-section-number">2.13</span> Representações de grafos</h2>
+<section id="matriz-de-adjacência" class="level3" data-number="2.13.1">
+<h3 data-number="2.13.1" class="anchored" data-anchor-id="matriz-de-adjacência"><span class="header-section-number">2.13.1</span> Matriz de adjacência</h3>
 <center>
 <img src="imagens/02-img23.png" class="img-fluid" style="border: 3px solid black; border-radius: 8px;;width:50.0%">
 </center>
-<p><br>Matriz de adjacência com os vértices: 1, 2, 5, 4, 3, 6</p>
+<p>Matriz de adjacência com os vértices: 1, 2, 5, 4, 3, 6</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -982,40 +1415,6 @@ Nesse caso o pseudografo seria um grafo dirigido com pares de arestas paralelas 
 </div>
 </div>
 </div>
-<!--
-$$
-\begin{array}{cc}
-& \\
-\text{LINHAS} & 
-\begin{bmatrix}
-2 & 1 & 0 & 0 & 1 & 0 \\
-1 & 0 & 1 & 0 & 1 & 0 \\
-0 & 1 & 0 & 1 & 0 & 0 \\
-0 & 0 & 1 & 0 & 1 & 1 \\
-1 & 1 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 \\
-\end{bmatrix} \\
-& \text{COLUNAS} \\
-\end{array}
-$$
-
-$$
-\begin{array}{cc}
-& \\
-\text{LINHAS} & 
-\begin{bmatrix}
-2 & 1 & 0 & 0 & 1 & 0 \\
-1 & 0 & 1 & 0 & 1 & 0 \\
-0 & 1 & 0 & 1 & 0 & 0 \\
-0 & 0 & 1 & 0 & 1 & 1 \\
-1 & 1 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 & 0 \\
-\end{bmatrix} \\
-& \text{COLUNAS} \\
-\end{array}
-$$
-
---->
 <p><span class="math display">\[
 \left[
 \begin{array}{c|cccccc}
@@ -1030,174 +1429,25 @@ $$
 \end{array}
 \right]
 \]</span></p>
-<!--
-```{=latex}
-$$
-\begin{pmatrix}
-0 & 1 & 2 & 3 & 4 & 5 & 6 \\
-1 & 2 & 1 & 0 & 0 & 1 & 0 \\
-2 & 1 & 0 & 1 & 0 & 1 & 0 \\
-3 & 0 & 1 & 0 & 1 & 0 & 0 \\
-4 & 0 & 0 & 1 & 0 & 1 & 1 \\
-5 & 1 & 1 & 0 & 1 & 0 & 0 \\
-6 & 0 & 0 & 0 & 1 & 0 & 0 \\
-\end{pmatrix}
-$$
-```
---->
-<!--
-```{=html}
-<style>
-.matrix-container {
-  display: inline-block;
-  position: relative;
-  margin: 30px 0;
-}
-
-.matrix-labels {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
-}
-
-.row-labels {
-  grid-column: 1;
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding-right: 10px;
-  font-weight: bold;
-}
-
-.col-labels {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 10px;
-  font-weight: bold;
-}
-
-.matrix {
-  grid-column: 2;
-  grid-row: 2;
-  display: inline-block;
-  border: 2px solid #333;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.matrix table {
-  border-collapse: collapse;
-}
-
-.matrix td {
-  width: 35px;
-  height: 35px;
-  text-align: center;
-  border: 1px solid #ccc;
-  padding: 5px;
-}
-
-.matrix tr:first-child td {
-  border-top: 2px solid #333;
-}
-
-.matrix tr:last-child td {
-  border-bottom: 2px solid #333;
-}
-
-.matrix td:first-child {
-  border-left: 2px solid #333;
-}
-
-.matrix td:last-child {
-  border-right: 2px solid #333;
-}
-</style>
-
-<div class="matrix-container">
-  <div class="matrix-labels">
-    <div class="col-labels">
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
-      <span>4</span>
-      <span>5</span>
-      <span>6</span>
-    </div>
-    <div class="row-labels">
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
-      <span>4</span>
-      <span>5</span>
-      <span>6</span>
-    </div>
-    <div class="matrix">
-      
-<table class="caption-top" data-quarto-postprocess="true">
-<tbody>
-<tr class="odd">
-<td>2</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-
-    </div>
-  </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-```
---->
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Quando o grafo é <strong>não-direcionado</strong>: a matriz de adjacência é <strong>simétrica</strong>.</li>
+<li>Quando o grafo é <strong>direcionado</strong>: a matriz de adjacência é <strong>assimétrica</strong>.</li>
+</ul>
+</div>
+</div>
 </section>
-<section id="lista-de-adjacência" class="level3" data-number="1.18.2">
-<h3 data-number="1.18.2" class="anchored" data-anchor-id="lista-de-adjacência"><span class="header-section-number">1.18.2</span> Lista de adjacência</h3>
+<section id="lista-de-adjacência" class="level3" data-number="2.13.2">
+<h3 data-number="2.13.2" class="anchored" data-anchor-id="lista-de-adjacência"><span class="header-section-number">2.13.2</span> Lista de adjacência</h3>
 <center>
 <img src="imagens/02-img23.png" class="img-fluid" style="border: 3px solid black; border-radius: 8px;;width:50.0%">
 </center>
@@ -1302,6 +1552,19 @@ $$
 <li><strong>5</strong> = {1, 2, 4}</li>
 <li><strong>6</strong> = {4}</li>
 </ul>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>Quando o grafo é <strong>não-direcionado</strong>: a lista repete as arestas para cada vértice.</li>
+<li>Quando o grafo é <strong>direcionado</strong>: a lista, para cada vértice, indica para onde a ligação vai a partir dele.</li>
+</ul>
+</div>
+</div>
+</div>
 
 
 </section>

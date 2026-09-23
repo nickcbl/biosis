@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-f9f455dc64e413ef7d6b4e46eacfda3e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c16f185744bb9397307a0b01c1d1a9c2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-06c1fa67c387e6d9c2baf2d791e95a45.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b63a022cc64d44d5489392fabef93fea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -415,43 +418,48 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Nesta página</h2>
    
   <ul>
-  <li><a href="#o-que-são-redes" id="toc-o-que-são-redes" class="nav-link active" data-scroll-target="#o-que-são-redes"><span class="header-section-number">1</span> O que são redes?</a></li>
-  <li><a href="#alguns-tipos-de-redes" id="toc-alguns-tipos-de-redes" class="nav-link" data-scroll-target="#alguns-tipos-de-redes"><span class="header-section-number">2</span> Alguns tipos de redes:</a></li>
-  <li><a href="#o-que-são-redes-biológicas" id="toc-o-que-são-redes-biológicas" class="nav-link" data-scroll-target="#o-que-são-redes-biológicas"><span class="header-section-number">3</span> O que são redes biológicas?</a>
+  <li><a href="#o-que-são-redes" id="toc-o-que-são-redes" class="nav-link active" data-scroll-target="#o-que-são-redes"><span class="header-section-number">1</span> O que são redes?</a>
   <ul class="collapse">
-  <li><a href="#exemplos-de-redes-biológicas" id="toc-exemplos-de-redes-biológicas" class="nav-link" data-scroll-target="#exemplos-de-redes-biológicas"><span class="header-section-number">3.1</span> Exemplos de redes biológicas:</a>
-  <ul class="collapse">
-  <li><a href="#redes-metabólicas" id="toc-redes-metabólicas" class="nav-link" data-scroll-target="#redes-metabólicas"><span class="header-section-number">3.1.1</span> Redes Metabólicas</a></li>
-  <li><a href="#redes-de-co-expressão" id="toc-redes-de-co-expressão" class="nav-link" data-scroll-target="#redes-de-co-expressão"><span class="header-section-number">3.1.2</span> Redes de Co-expressão</a></li>
-  <li><a href="#redes-de-interação-proteína-proteína" id="toc-redes-de-interação-proteína-proteína" class="nav-link" data-scroll-target="#redes-de-interação-proteína-proteína"><span class="header-section-number">3.1.3</span> Redes de Interação Proteína-Proteína</a></li>
+  <li><a href="#alguns-tipos-de-redes" id="toc-alguns-tipos-de-redes" class="nav-link" data-scroll-target="#alguns-tipos-de-redes"><span class="header-section-number">1.1</span> Alguns tipos de redes</a></li>
   </ul></li>
-  <li><a href="#propriedades-globais-de-redes-complexas" id="toc-propriedades-globais-de-redes-complexas" class="nav-link" data-scroll-target="#propriedades-globais-de-redes-complexas"><span class="header-section-number">3.2</span> Propriedades Globais de Redes Complexas</a>
+  <li><a href="#o-que-são-redes-biológicas" id="toc-o-que-são-redes-biológicas" class="nav-link" data-scroll-target="#o-que-são-redes-biológicas"><span class="header-section-number">2</span> O que são redes biológicas?</a>
   <ul class="collapse">
-  <li><a href="#distância-e-caminho-mais-curto-shortest-path" id="toc-distância-e-caminho-mais-curto-shortest-path" class="nav-link" data-scroll-target="#distância-e-caminho-mais-curto-shortest-path"><span class="header-section-number">3.2.1</span> Distância e Caminho Mais Curto (<em>Shortest Path</em>)</a></li>
-  <li><a href="#peso-weight-factor" id="toc-peso-weight-factor" class="nav-link" data-scroll-target="#peso-weight-factor"><span class="header-section-number">3.2.2</span> Peso (<em>Weight Factor</em>)</a></li>
+  <li><a href="#exemplos-de-redes-biológicas" id="toc-exemplos-de-redes-biológicas" class="nav-link" data-scroll-target="#exemplos-de-redes-biológicas"><span class="header-section-number">2.1</span> Exemplos de redes biológicas</a>
+  <ul class="collapse">
+  <li><a href="#redes-metabólicas" id="toc-redes-metabólicas" class="nav-link" data-scroll-target="#redes-metabólicas"><span class="header-section-number">2.1.1</span> Redes Metabólicas</a></li>
+  <li><a href="#redes-de-co-expressão" id="toc-redes-de-co-expressão" class="nav-link" data-scroll-target="#redes-de-co-expressão"><span class="header-section-number">2.1.2</span> Redes de Co-expressão</a></li>
+  <li><a href="#redes-de-interação-proteína-proteína" id="toc-redes-de-interação-proteína-proteína" class="nav-link" data-scroll-target="#redes-de-interação-proteína-proteína"><span class="header-section-number">2.1.3</span> Redes de Interação Proteína-Proteína</a></li>
   </ul></li>
-  <li><a href="#centralidades" id="toc-centralidades" class="nav-link" data-scroll-target="#centralidades"><span class="header-section-number">3.3</span> Centralidades</a>
+  <li><a href="#propriedades-globais-de-redes-complexas" id="toc-propriedades-globais-de-redes-complexas" class="nav-link" data-scroll-target="#propriedades-globais-de-redes-complexas"><span class="header-section-number">2.2</span> Propriedades Globais de Redes Complexas</a>
   <ul class="collapse">
-  <li><a href="#centralidade-de-grau-degree-centrality" id="toc-centralidade-de-grau-degree-centrality" class="nav-link" data-scroll-target="#centralidade-de-grau-degree-centrality"><span class="header-section-number">3.3.1</span> Centralidade de Grau (<em>Degree Centrality</em>)</a></li>
-  <li><a href="#centralidade-de-proximidade-closeness-centrality" id="toc-centralidade-de-proximidade-closeness-centrality" class="nav-link" data-scroll-target="#centralidade-de-proximidade-closeness-centrality"><span class="header-section-number">3.3.2</span> Centralidade de Proximidade (<em>Closeness Centrality</em>)</a></li>
-  <li><a href="#centralidade-de-intermediação-betweenness-centrality" id="toc-centralidade-de-intermediação-betweenness-centrality" class="nav-link" data-scroll-target="#centralidade-de-intermediação-betweenness-centrality"><span class="header-section-number">3.3.3</span> Centralidade de Intermediação (<em>Betweenness Centrality</em>)</a></li>
-  <li><a href="#centralidade-de-autovetor-eigenvector-centrality" id="toc-centralidade-de-autovetor-eigenvector-centrality" class="nav-link" data-scroll-target="#centralidade-de-autovetor-eigenvector-centrality"><span class="header-section-number">3.3.4</span> Centralidade de Autovetor (<em>Eigenvector Centrality</em>)</a></li>
-  <li><a href="#centralidade-de-alavancagem-leverage-centrality" id="toc-centralidade-de-alavancagem-leverage-centrality" class="nav-link" data-scroll-target="#centralidade-de-alavancagem-leverage-centrality"><span class="header-section-number">3.3.5</span> Centralidade de Alavancagem (<em>Leverage Centrality</em>)</a></li>
-  <li><a href="#centralidade-de-difusão-katz-centrality" id="toc-centralidade-de-difusão-katz-centrality" class="nav-link" data-scroll-target="#centralidade-de-difusão-katz-centrality"><span class="header-section-number">3.3.6</span> Centralidade de Difusão (<em>Katz Centrality</em>)</a></li>
-  <li><a href="#centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality" id="toc-centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality" class="nav-link" data-scroll-target="#centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality"><span class="header-section-number">3.3.7</span> Centralidade de Intermediação de Fluxo (<em>Flow Betweenness Centrality</em>)</a></li>
-  <li><a href="#resumo-das-centralidades" id="toc-resumo-das-centralidades" class="nav-link" data-scroll-target="#resumo-das-centralidades"><span class="header-section-number">3.3.8</span> Resumo das Centralidades:</a></li>
+  <li><a href="#distância-e-caminho-mais-curto-shortest-path" id="toc-distância-e-caminho-mais-curto-shortest-path" class="nav-link" data-scroll-target="#distância-e-caminho-mais-curto-shortest-path"><span class="header-section-number">2.2.1</span> Distância e Caminho Mais Curto (<em>Shortest Path</em>)</a></li>
+  <li><a href="#peso-weight-factor" id="toc-peso-weight-factor" class="nav-link" data-scroll-target="#peso-weight-factor"><span class="header-section-number">2.2.2</span> Peso (<em>Weight Factor</em>)</a></li>
   </ul></li>
-  <li><a href="#características-de-redes-biológicas" id="toc-características-de-redes-biológicas" class="nav-link" data-scroll-target="#características-de-redes-biológicas"><span class="header-section-number">3.4</span> Características de Redes Biológicas</a>
+  <li><a href="#centralidades" id="toc-centralidades" class="nav-link" data-scroll-target="#centralidades"><span class="header-section-number">2.3</span> Centralidades</a>
   <ul class="collapse">
-  <li><a href="#mundo-pequeno-small-world" id="toc-mundo-pequeno-small-world" class="nav-link" data-scroll-target="#mundo-pequeno-small-world"><span class="header-section-number">3.4.1</span> Mundo Pequeno (Small World)</a></li>
-  <li><a href="#rede-livre-de-escala-scale-free" id="toc-rede-livre-de-escala-scale-free" class="nav-link" data-scroll-target="#rede-livre-de-escala-scale-free"><span class="header-section-number">3.4.2</span> Rede Livre de Escala (Scale-Free)</a></li>
-  <li><a href="#coeficiente-de-agrupamento-clustering-coefficient" id="toc-coeficiente-de-agrupamento-clustering-coefficient" class="nav-link" data-scroll-target="#coeficiente-de-agrupamento-clustering-coefficient"><span class="header-section-number">3.4.3</span> Coeficiente de Agrupamento (Clustering Coefficient)</a></li>
-  <li><a href="#robustez-e-adaptabilidade" id="toc-robustez-e-adaptabilidade" class="nav-link" data-scroll-target="#robustez-e-adaptabilidade"><span class="header-section-number">3.4.4</span> Robustez e Adaptabilidade</a></li>
+  <li><a href="#centralidade-de-grau-degree-centrality" id="toc-centralidade-de-grau-degree-centrality" class="nav-link" data-scroll-target="#centralidade-de-grau-degree-centrality"><span class="header-section-number">2.3.1</span> Centralidade de Grau (<em>Degree Centrality</em>)</a></li>
+  <li><a href="#centralidade-de-proximidade-closeness-centrality" id="toc-centralidade-de-proximidade-closeness-centrality" class="nav-link" data-scroll-target="#centralidade-de-proximidade-closeness-centrality"><span class="header-section-number">2.3.2</span> Centralidade de Proximidade (<em>Closeness Centrality</em>)</a></li>
+  <li><a href="#centralidade-de-intermediação-betweenness-centrality" id="toc-centralidade-de-intermediação-betweenness-centrality" class="nav-link" data-scroll-target="#centralidade-de-intermediação-betweenness-centrality"><span class="header-section-number">2.3.3</span> Centralidade de Intermediação (<em>Betweenness Centrality</em>)</a></li>
+  <li><a href="#centralidade-de-autovetor-eigenvector-centrality" id="toc-centralidade-de-autovetor-eigenvector-centrality" class="nav-link" data-scroll-target="#centralidade-de-autovetor-eigenvector-centrality"><span class="header-section-number">2.3.4</span> Centralidade de Autovetor (<em>Eigenvector Centrality</em>)</a></li>
+  <li><a href="#centralidade-de-alavancagem-leverage-centrality" id="toc-centralidade-de-alavancagem-leverage-centrality" class="nav-link" data-scroll-target="#centralidade-de-alavancagem-leverage-centrality"><span class="header-section-number">2.3.5</span> Centralidade de Alavancagem (<em>Leverage Centrality</em>)</a></li>
+  <li><a href="#centralidade-de-difusão-diffusionkatz-centrality" id="toc-centralidade-de-difusão-diffusionkatz-centrality" class="nav-link" data-scroll-target="#centralidade-de-difusão-diffusionkatz-centrality"><span class="header-section-number">2.3.6</span> Centralidade de Difusão (<em>Diffusion/Katz Centrality</em>)</a></li>
+  <li><a href="#centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality" id="toc-centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality" class="nav-link" data-scroll-target="#centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality"><span class="header-section-number">2.3.7</span> Centralidade de Intermediação de Fluxo (<em>Flow Betweenness Centrality</em>)</a></li>
+  <li><a href="#resumo-das-centralidades" id="toc-resumo-das-centralidades" class="nav-link" data-scroll-target="#resumo-das-centralidades"><span class="header-section-number">2.3.8</span> Resumo das Centralidades</a></li>
   </ul></li>
-  <li><a href="#motivos-de-redes-network-motifs" id="toc-motivos-de-redes-network-motifs" class="nav-link" data-scroll-target="#motivos-de-redes-network-motifs"><span class="header-section-number">3.5</span> Motivos de Redes (Network Motifs)</a>
+  <li><a href="#características-de-redes-biológicas" id="toc-características-de-redes-biológicas" class="nav-link" data-scroll-target="#características-de-redes-biológicas"><span class="header-section-number">2.4</span> Características de Redes Biológicas</a>
   <ul class="collapse">
-  <li><a href="#feedback-loop-laço-de-retroalimentação" id="toc-feedback-loop-laço-de-retroalimentação" class="nav-link" data-scroll-target="#feedback-loop-laço-de-retroalimentação"><span class="header-section-number">3.5.1</span> <em>Feedback Loop</em> (Laço de Retroalimentação)</a></li>
-  <li><a href="#single-input-module-sim---módulo-de-entrada-única" id="toc-single-input-module-sim---módulo-de-entrada-única" class="nav-link" data-scroll-target="#single-input-module-sim---módulo-de-entrada-única"><span class="header-section-number">3.5.2</span> <em>Single Input Module</em> (SIM - Módulo de Entrada Única)</a></li>
+  <li><a href="#seis-graus-de-separação" id="toc-seis-graus-de-separação" class="nav-link" data-scroll-target="#seis-graus-de-separação"><span class="header-section-number">2.4.1</span> Seis graus de separação</a></li>
+  <li><a href="#mundo-pequeno-small-world" id="toc-mundo-pequeno-small-world" class="nav-link" data-scroll-target="#mundo-pequeno-small-world"><span class="header-section-number">2.4.2</span> Mundo Pequeno (Small World)</a></li>
+  <li><a href="#rede-livre-de-escala-scale-free" id="toc-rede-livre-de-escala-scale-free" class="nav-link" data-scroll-target="#rede-livre-de-escala-scale-free"><span class="header-section-number">2.4.3</span> Rede Livre de Escala (Scale-Free)</a></li>
+  <li><a href="#coeficiente-de-agrupamento-clustering-coefficient" id="toc-coeficiente-de-agrupamento-clustering-coefficient" class="nav-link" data-scroll-target="#coeficiente-de-agrupamento-clustering-coefficient"><span class="header-section-number">2.4.4</span> Coeficiente de Agrupamento (Clustering Coefficient)</a></li>
+  <li><a href="#robustez-e-adaptabilidade" id="toc-robustez-e-adaptabilidade" class="nav-link" data-scroll-target="#robustez-e-adaptabilidade"><span class="header-section-number">2.4.5</span> Robustez e Adaptabilidade</a></li>
+  </ul></li>
+  <li><a href="#motivos-de-redes-network-motifs" id="toc-motivos-de-redes-network-motifs" class="nav-link" data-scroll-target="#motivos-de-redes-network-motifs"><span class="header-section-number">2.5</span> Motivos de Redes (Network Motifs)</a>
+  <ul class="collapse">
+  <li><a href="#feedback-loop-laço-de-retroalimentação" id="toc-feedback-loop-laço-de-retroalimentação" class="nav-link" data-scroll-target="#feedback-loop-laço-de-retroalimentação"><span class="header-section-number">2.5.1</span> <em>Feedback Loop</em> (Laço de Retroalimentação)</a></li>
+  <li><a href="#single-input-module-sim-módulo-de-entrada-única" id="toc-single-input-module-sim-módulo-de-entrada-única" class="nav-link" data-scroll-target="#single-input-module-sim-módulo-de-entrada-única"><span class="header-section-number">2.5.2</span> <em>Single Input Module</em> (SIM — Módulo de Entrada Única)</a></li>
+  <li><a href="#feedforward-loop-ffl-laço-de-alimentação-direta" id="toc-feedforward-loop-ffl-laço-de-alimentação-direta" class="nav-link" data-scroll-target="#feedforward-loop-ffl-laço-de-alimentação-direta"><span class="header-section-number">2.5.3</span> <em>Feedforward Loop</em> (FFL — Laço de Alimentação Direta)</a></li>
+  <li><a href="#bifan-leque-duplo" id="toc-bifan-leque-duplo" class="nav-link" data-scroll-target="#bifan-leque-duplo"><span class="header-section-number">2.5.4</span> <em>Bifan</em> (leque duplo)</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -479,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">8 de setembro de 2026</p>
+      <p class="date">23 de setembro de 2026</p>
     </div>
   </div>
   
@@ -504,9 +512,8 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Nós/Vértices</strong>: representam os indivíduos.</li>
 <li><strong>Arestas</strong>: representam as relações.</li>
 </ul>
-</section>
-<section id="alguns-tipos-de-redes" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Alguns tipos de redes:</h1>
+<section id="alguns-tipos-de-redes" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="alguns-tipos-de-redes"><span class="header-section-number">1.1</span> Alguns tipos de redes</h2>
 <ul>
 <li>Redes sociais</li>
 <li>Redes de computadores</li>
@@ -516,120 +523,198 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="o-que-são-redes-biológicas" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> O que são redes biológicas?</h1>
-<p>São redes em que os elementos são <strong>dados biológicos</strong> (animais, plantas, microorganismos, genes, proteínas, regulações, etc.) que tenham alguma relação entre si. Podemos fazer abstrações computacionais/matemáticas baseadas em dados experimentais.</p>
-<section id="exemplos-de-redes-biológicas" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="exemplos-de-redes-biológicas"><span class="header-section-number">3.1</span> Exemplos de redes biológicas:</h2>
-<section id="redes-metabólicas" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="redes-metabólicas"><span class="header-section-number">3.1.1</span> Redes Metabólicas</h3>
+</section>
+<section id="o-que-são-redes-biológicas" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> O que são redes biológicas?</h1>
+<p><strong>Exemplo introdutório — rede de predação:</strong> carnaúba por inseto, ilustrando como até uma relação ecológica simples (predador–presa) pode ser representada como uma rede.</p>
+<p><strong>Formalmente</strong>, redes biológicas são redes em que os elementos são <strong>dados biológicos</strong>. São abstrações computacionais/matemáticas baseadas em dados experimentais.</p>
+<p><strong>E quais são os dados biológicos?</strong> São dados sobre animais, plantas, microorganismos, genes, proteínas, regulações, etc. — que tenham alguma relação entre si.</p>
+<p>Dependendo do tipo de dado e das relações, podemos ter diferentes tipos de redes biológicas (Jeong et al., <em>Nature</em>, 2001; Rual et al., <em>Nature</em>, 2005).</p>
+<section id="exemplos-de-redes-biológicas" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="exemplos-de-redes-biológicas"><span class="header-section-number">2.1</span> Exemplos de redes biológicas</h2>
+<section id="redes-metabólicas" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="redes-metabólicas"><span class="header-section-number">2.1.1</span> Redes Metabólicas</h3>
+<p>É o conjunto completo de processos metabólicos de uma célula ou organismo.</p>
 <ul>
 <li><strong>Nós</strong>: substratos e produtos.</li>
 <li><strong>Arestas</strong>: reações metabólicas convertendo um composto em outro.</li>
 <li><strong>Hiperaresta</strong>: conceito avançado para representar reações com múltiplos substratos/produtos.</li>
 </ul>
+<p><em>(Zhang, Cheng &amp; Hua, Qiang, 2015. Applications of Genome-Scale Metabolic Models in Biotechnology and Systems Medicine. Frontiers in Physiology, 6.)</em></p>
 </section>
-<section id="redes-de-co-expressão" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="redes-de-co-expressão"><span class="header-section-number">3.1.2</span> Redes de Co-expressão</h3>
-<ul>
-<li>Relação entre transcritos expressos ou reprimidos concomitantemente.</li>
-<li>Genes co-expressos podem:
+<section id="redes-de-co-expressão" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="redes-de-co-expressão"><span class="header-section-number">2.1.2</span> Redes de Co-expressão</h3>
+<p>Relação entre transcritos expressos ou reprimidos concomitantemente. Genes co-expressos podem:</p>
 <ul>
 <li>Ser regulados pelo mesmo fator de transcrição;</li>
 <li>Estar funcionalmente relacionados;</li>
 <li>Ser membros da mesma via;</li>
 <li>Codificar proteínas do mesmo complexo proteico.</li>
-</ul></li>
 </ul>
+<p><em>(Prieto, C.; Risueño, A.; Fontanillo, C.; De Las Rivas, J. Human gene co-expression landscape: confident network derived from tissue transcriptomic profiles.)</em></p>
 </section>
-<section id="redes-de-interação-proteína-proteína" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="redes-de-interação-proteína-proteína"><span class="header-section-number">3.1.3</span> Redes de Interação Proteína-Proteína</h3>
+<section id="redes-de-interação-proteína-proteína" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="redes-de-interação-proteína-proteína"><span class="header-section-number">2.1.3</span> Redes de Interação Proteína-Proteína</h3>
 <ul>
-<li>Proteínas interagem para desempenhar funções celulares.</li>
-<li>Interações podem significar formação de complexos ou participação em vias comuns.</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="propriedades-globais-de-redes-complexas" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="propriedades-globais-de-redes-complexas"><span class="header-section-number">3.2</span> Propriedades Globais de Redes Complexas</h2>
-<section id="distância-e-caminho-mais-curto-shortest-path" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="distância-e-caminho-mais-curto-shortest-path"><span class="header-section-number">3.2.1</span> Distância e Caminho Mais Curto (<em>Shortest Path</em>)</h3>
-<ul>
-<li><strong>Distância</strong>: número de arestas no caminho mais curto entre dois vértices.</li>
-<li><strong>Diâmetro</strong>: a maior distância entre qualquer par de vértices.</li>
-</ul>
-</section>
-<section id="peso-weight-factor" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="peso-weight-factor"><span class="header-section-number">3.2.2</span> Peso (<em>Weight Factor</em>)</h3>
-<ul>
-<li>Atributos ou valores atribuídos às arestas.</li>
-<li>Exemplos em redes biológicas: fluxo, massa, probabilidade.</li>
-<li>Grafos com pesos são chamados de <strong>grafos valorados ou ponderados</strong>.</li>
+<li>Proteínas interagem entre si para desempenhar suas funções celulares.</li>
+<li>Proteínas interagem formando complexos ou participando de vias comuns.</li>
+<li>A interação entre proteínas pode significar a formação de um complexo proteico, ou proteínas que funcionam no mesmo processo celular.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="centralidades" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="centralidades"><span class="header-section-number">3.3</span> Centralidades</h2>
-<p>Indicadores que identificam os vértices mais importantes em um grafo.</p>
-<section id="centralidade-de-grau-degree-centrality" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="centralidade-de-grau-degree-centrality"><span class="header-section-number">3.3.1</span> Centralidade de Grau (<em>Degree Centrality</em>)</h3>
+<section id="propriedades-globais-de-redes-complexas" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="propriedades-globais-de-redes-complexas"><span class="header-section-number">2.2</span> Propriedades Globais de Redes Complexas</h2>
+<section id="distância-e-caminho-mais-curto-shortest-path" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="distância-e-caminho-mais-curto-shortest-path"><span class="header-section-number">2.2.1</span> Distância e Caminho Mais Curto (<em>Shortest Path</em>)</h3>
 <ul>
-<li>Número de arestas adjacentes a um vértice.</li>
-<li>Em redes direcionadas:
+<li><strong>Distância</strong>: número de arestas em um caminho mais curto (<em>shortest path</em>) conectando dois vértices. Dos caminhos possíveis entre um vértice e outro, o menor caminho é aquele com o menor número de vértices ou arestas atravessados da origem ao destino.</li>
+<li><strong>Diâmetro</strong>: a maior distância entre qualquer par de vértices. Para encontrar o diâmetro de um grafo, primeiro encontra-se o caminho mais curto entre cada par de vértices; o maior comprimento entre esses caminhos é o diâmetro do grafo.</li>
+</ul>
+</section>
+<section id="peso-weight-factor" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="peso-weight-factor"><span class="header-section-number">2.2.2</span> Peso (<em>Weight Factor</em>)</h3>
+<p>Pesos são atributos ou valores que podem ser atribuídos às arestas de um grafo. Quando o grafo possui arestas com pesos, ele é chamado de <strong>grafo valorado ou ponderado</strong>.</p>
+<p>Exemplos de possíveis valores atribuídos a arestas em redes biológicas:</p>
 <ul>
-<li>Grau de entrada (in-degree);</li>
-<li>Grau de saída (out-degree);</li>
+<li>Fluxo</li>
+<li>Massa</li>
+<li>Probabilidade</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="centralidades" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="centralidades"><span class="header-section-number">2.3</span> Centralidades</h2>
+<p>Indicadores de centralidade identificam os vértices mais importantes dentro de um grafo. As mais relevantes para redes biológicas são:</p>
+<ul>
+<li>Centralidade de Grau (<em>Degree Centrality</em>)</li>
+<li>Centralidade de Proximidade (<em>Closeness Centrality</em>)</li>
+<li>Centralidade de Intermediação (<em>Betweenness Centrality</em>)</li>
+<li>Centralidade de Autovetor (<em>Eigenvector Centrality</em>)</li>
+<li>Centralidade de Alavancagem (<em>Leverage Centrality</em>)</li>
+<li>Centralidade de Difusão (<em>Diffusion/Katz Centrality</em>)</li>
+<li>Centralidade de Intermediação de Fluxo (<em>Flow Betweenness Centrality</em>)</li>
+</ul>
+<section id="centralidade-de-grau-degree-centrality" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="centralidade-de-grau-degree-centrality"><span class="header-section-number">2.3.1</span> Centralidade de Grau (<em>Degree Centrality</em>)</h3>
+<p>É definida como o número de arestas adjacentes a um vértice, ou seja, o número de arestas que um vértice possui (<em>Degree</em>: número absoluto de conexões).</p>
+<ul>
+<li><strong>Centralidade de Grau Normalizada</strong>: o grau absoluto dividido pelo número máximo de conexões possíveis (n − 1, onde n é o número total de nós na rede). Isso permite comparar nós de redes de tamanhos diferentes, resultando em um valor entre 0 e 1.</li>
+<li>Em redes direcionadas, definimos:
+<ul>
+<li>Grau de entrada (<em>in-degree</em>);</li>
+<li>Grau de saída (<em>out-degree</em>).</li>
 </ul></li>
-<li><strong>Interpretação</strong>: nós com alta centralidade de grau são <em>hubs</em> – funcionalmente cruciais.</li>
+<li><strong>Interpretação</strong>: um nó com alta centralidade de grau é um <em>conector</em> ou <em>hub</em> da rede — tem interação direta com muitos outros elementos. Na biologia, isso frequentemente indica um elemento funcionalmente crucial: se perturbado, o impacto na rede (e, por consequência, no sistema biológico) tende a ser grande.</li>
 </ul>
 </section>
-<section id="centralidade-de-proximidade-closeness-centrality" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="centralidade-de-proximidade-closeness-centrality"><span class="header-section-number">3.3.2</span> Centralidade de Proximidade (<em>Closeness Centrality</em>)</h3>
+<section id="centralidade-de-proximidade-closeness-centrality" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="centralidade-de-proximidade-closeness-centrality"><span class="header-section-number">2.3.2</span> Centralidade de Proximidade (<em>Closeness Centrality</em>)</h3>
+<p>Quantifica quão próximo um nó está de todos os outros nós na rede. Diferente da centralidade de grau (que conta conexões diretas), a de proximidade leva em conta a distância geodésica (o caminho mais curto) para alcançar todos os outros nós.</p>
+<p>Um nó com alta centralidade de proximidade pode alcançar todos os outros nós da rede com poucos passos intermediários — ele está no <em>centro</em> da rede no sentido de eficiência de comunicação ou disseminação de informação.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> a alta centralidade de proximidade do α-cetoglutarato (α-KG) indica que ele é um ponto de confluência estratégico — um “grande terminal de ônibus” do metabolismo celular, por onde passam muitas rotas metabólicas. Modificar a disponibilidade desse metabólito (ex.: superexpressando a enzima que o produz, ou fazendo <em>knockdown</em> de uma enzima que o consome para outras vias) pode ter um impacto amplo e eficiente em redirecionar o fluxo de carbono de fontes diferentes em direção à via sintética de interesse.</p>
+</div>
+</div>
+<p><strong>Exemplo de cálculo</strong> (nó 1, distâncias até os demais nós): 1→2: 1; 1→3: 2; 1→4: 2; 1→5: 2; 1→6: 3; 1→7: 1 — média das distâncias: <strong>1,83</strong>.</p>
+</section>
+<section id="centralidade-de-intermediação-betweenness-centrality" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="centralidade-de-intermediação-betweenness-centrality"><span class="header-section-number">2.3.3</span> Centralidade de Intermediação (<em>Betweenness Centrality</em>)</h3>
+<p>Quantifica o número de vezes que um vértice age como uma ponte ao longo do caminho mais curto entre dois outros nós — ou seja, quantas vezes um vértice <em>x</em> faz parte dos menores caminhos entre os outros vértices do grafo.</p>
+<p>Um nó com alta centralidade de intermediação tem poder de controle desproporcional sobre o fluxo de informação, recursos ou influência na rede. Se esse nó for removido, a rede pode se fragmentar, e a comunicação entre diferentes grupos se tornará muito menos eficiente, ou até impossível.</p>
+<p><strong>Exemplo de cálculo</strong> (calculando para o vértice 2):</p>
 <ul>
-<li>Mede quão próximo um nó está de todos os outros.</li>
-<li>Considera a distância geodésica (caminho mais curto).</li>
-<li><strong>Interpretação</strong>: nós centrais para comunicação rápida ou disseminação de informação.</li>
+<li>1→3: 2; 1→4: 1; 1→5: 0</li>
+<li>3→1: 2; 3→4: 2; 3→5: 3</li>
+<li>4→1: 2; 4→3: 2; 4→5: 0</li>
+<li>5→1: 0; 5→4: 0; 5→3: 4</li>
+<li>Somando: <strong>18</strong></li>
 </ul>
 </section>
-<section id="centralidade-de-intermediação-betweenness-centrality" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="centralidade-de-intermediação-betweenness-centrality"><span class="header-section-number">3.3.3</span> Centralidade de Intermediação (<em>Betweenness Centrality</em>)</h3>
-<ul>
-<li>Quantas vezes um vértice age como ponte no caminho mais curto entre dois outros nós.</li>
-<li><strong>Interpretação</strong>: nós com alto betweenness controlam o fluxo de informação; sua remoção pode fragmentar a rede.</li>
-</ul>
+<section id="centralidade-de-autovetor-eigenvector-centrality" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="centralidade-de-autovetor-eigenvector-centrality"><span class="header-section-number">2.3.4</span> Centralidade de Autovetor (<em>Eigenvector Centrality</em>)</h3>
+<p>Mede a influência de um nó na rede levando em conta não apenas o número de suas conexões (grau), mas também a importância dos nós aos quais ele está conectado. Um nó é importante se estiver conectado a muitos outros nós importantes.</p>
+<p><strong>Aplicação</strong>: identificar genes mestres ou proteínas-chave em redes de regulação. Um fator de transcrição que regula outros fatores de transcrição importantes terá uma centralidade de autovetor muito alta, indicando seu papel central na hierarquia de controle da rede.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> identificar os pontos de controle mestres em uma rede de regulação gênica de uma planta, visando aumentar a produção de um metabólito secundário de interesse (ex.: um corante natural). Manipular um nó com alta centralidade de autovetor pode causar um efeito cascata desejado em toda a rede regulatória.</p>
+</div>
+</div>
 </section>
-<section id="centralidade-de-autovetor-eigenvector-centrality" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4" class="anchored" data-anchor-id="centralidade-de-autovetor-eigenvector-centrality"><span class="header-section-number">3.3.4</span> Centralidade de Autovetor (<em>Eigenvector Centrality</em>)</h3>
-<ul>
-<li>Mede a influência de um nó considerando a importância dos nós aos quais está conectado.</li>
-<li><strong>Aplicação</strong>: identificar genes mestres em redes de regulação.</li>
-</ul>
+<section id="centralidade-de-alavancagem-leverage-centrality" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="centralidade-de-alavancagem-leverage-centrality"><span class="header-section-number">2.3.5</span> Centralidade de Alavancagem (<em>Leverage Centrality</em>)</h3>
+<p>Compara a conexão de um nó com a de seus vizinhos: calcula a diferença entre o grau de um nó e o grau médio de todos os seus vizinhos, normalizada pela soma dos graus. Nós com alta alavancagem estão conectados a nós que têm, em média, muito menos conexões do que eles mesmos.</p>
+<p><strong>Aplicação</strong>: identificar nós periféricos críticos, ou “conectores de periferia” — frequentemente genes ou proteínas especializadas que atuam como interface crucial entre um módulo altamente conectado (ex.: um complexo proteico) e o resto da rede.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> em uma rede de interação proteína-proteína de um patógeno, um nó com alta alavancagem pode ser uma proteína de membrana essencial para a virulência, mas que não é um hub central. Ela pode ser um ótimo alvo para uma vacina ou anticorpo monoclonal, pois sua inibição pode isolar um módulo funcional crítico sem perturbar drasticamente todo o sistema.</p>
+</div>
+</div>
 </section>
-<section id="centralidade-de-alavancagem-leverage-centrality" class="level3" data-number="3.3.5">
-<h3 data-number="3.3.5" class="anchored" data-anchor-id="centralidade-de-alavancagem-leverage-centrality"><span class="header-section-number">3.3.5</span> Centralidade de Alavancagem (<em>Leverage Centrality</em>)</h3>
-<ul>
-<li>Compara o grau de um nó com o grau médio de seus vizinhos.</li>
-<li><strong>Aplicação</strong>: identificar conectores periféricos críticos (ex.: proteínas de membrana em patógenos).</li>
-</ul>
+<section id="centralidade-de-difusão-diffusionkatz-centrality" class="level3" data-number="2.3.6">
+<h3 data-number="2.3.6" class="anchored" data-anchor-id="centralidade-de-difusão-diffusionkatz-centrality"><span class="header-section-number">2.3.6</span> Centralidade de Difusão (<em>Diffusion/Katz Centrality</em>)</h3>
+<p>Generalização da centralidade de autovetor: leva em conta não apenas as conexões diretas e de vizinhos imediatos, mas todos os caminhos na rede, atribuindo um peso maior aos caminhos mais curtos. A centralidade de Katz soma o número de caminhos de todos os comprimentos que emanam de um nó, penalizando caminhos mais longos.</p>
+<p><strong>Aplicação</strong>: modelar processos de sinalização ou difusão de metabólitos, capturando a noção de influência de longo alcance.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> modelar como um sinal hormonal (ex.: auxina em plantas) se espalha por uma rede de tecidos para iniciar um processo de crescimento. Identificar os nós com maior centralidade de difusão pode ajudar a prever quais células ou genes responderão mais fortemente ao sinal, permitindo o desenho de estratégias para modular esse processo.</p>
+</div>
+</div>
 </section>
-<section id="centralidade-de-difusão-katz-centrality" class="level3" data-number="3.3.6">
-<h3 data-number="3.3.6" class="anchored" data-anchor-id="centralidade-de-difusão-katz-centrality"><span class="header-section-number">3.3.6</span> Centralidade de Difusão (<em>Katz Centrality</em>)</h3>
-<ul>
-<li>Generalização da centralidade de autovetor; considera todos os caminhos, penalizando os mais longos.</li>
-<li><strong>Aplicação</strong>: modelar sinalização ou difusão de metabólitos.</li>
-</ul>
+<section id="centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality" class="level3" data-number="2.3.7">
+<h3 data-number="2.3.7" class="anchored" data-anchor-id="centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality"><span class="header-section-number">2.3.7</span> Centralidade de Intermediação de Fluxo (<em>Flow Betweenness Centrality</em>)</h3>
+<p>Variação da betweenness clássica: em vez de contar apenas os caminhos mais curtos, considera todos os caminhos possíveis entre os nós, assumindo que o fluxo na rede (de informação, metabólitos) se dá como em uma rede de encanamentos. Mede a fração do fluxo total que passa por um nó.</p>
+<p><strong>Aplicação</strong>: extremamente poderosa para analisar redes metabólicas, já que o fluxo de carbono raramente segue apenas um caminho único e mais curto — ele se distribui por múltiplas rotas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo:</strong> ao tentar redirecionar o fluxo metabólico em uma bactéria para maximizar a produção de um bioplástico (ex.: PHA), calcular a centralidade de intermediação de fluxo pode identificar quais enzimas são gargalos reais que controlam a maior parte do fluxo de carbono em direção ao produto desejado, mesmo que não estejam no caminho mais curto. Essas enzimas são alvos prioritários para a engenharia metabólica.</p>
+</div>
+</div>
 </section>
-<section id="centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality" class="level3" data-number="3.3.7">
-<h3 data-number="3.3.7" class="anchored" data-anchor-id="centralidade-de-intermediação-de-fluxo-flow-betweenness-centrality"><span class="header-section-number">3.3.7</span> Centralidade de Intermediação de Fluxo (<em>Flow Betweenness Centrality</em>)</h3>
-<ul>
-<li>Considera todos os caminhos possíveis (não apenas os mais curtos).</li>
-<li><strong>Aplicação</strong>: analisar redes metabólicas com fluxo distribuído.</li>
-</ul>
-</section>
-<section id="resumo-das-centralidades" class="level3" data-number="3.3.8">
-<h3 data-number="3.3.8" class="anchored" data-anchor-id="resumo-das-centralidades"><span class="header-section-number">3.3.8</span> Resumo das Centralidades:</h3>
+<section id="resumo-das-centralidades" class="level3" data-number="2.3.8">
+<h3 data-number="2.3.8" class="anchored" data-anchor-id="resumo-das-centralidades"><span class="header-section-number">2.3.8</span> Resumo das Centralidades</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -647,7 +732,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>Grau</td>
 <td>Identificar hubs conectados</td>
-<td>Alvo antibiótico</td>
+<td>Alvo antibiótico (inibir uma proteína essencial muito conectada)</td>
 </tr>
 <tr class="even">
 <td>Proximidade</td>
@@ -667,7 +752,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>Alavancagem</td>
 <td>Identificar especializados críticos</td>
-<td>Desenvolvimento de vacinas</td>
+<td>Desenvolvimento de vacinas (proteínas de membrana de patógenos)</td>
 </tr>
 <tr class="even">
 <td>Difusão (Katz)</td>
@@ -684,62 +769,156 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="características-de-redes-biológicas" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="características-de-redes-biológicas"><span class="header-section-number">3.4</span> Características de Redes Biológicas</h2>
-<section id="mundo-pequeno-small-world" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="mundo-pequeno-small-world"><span class="header-section-number">3.4.1</span> Mundo Pequeno (Small World)</h3>
-<ul>
-<li>A maioria dos vértices não são vizinhos, mas podem ser alcançados por poucos passos.</li>
-<li><strong>Implicação</strong>: perturbações ou sinais se espalham rapidamente pela rede.</li>
-</ul>
+<section id="características-de-redes-biológicas" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="características-de-redes-biológicas"><span class="header-section-number">2.4</span> Características de Redes Biológicas</h2>
+<section id="seis-graus-de-separação" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="seis-graus-de-separação"><span class="header-section-number">2.4.1</span> Seis graus de separação</h3>
+<p>A ideia de que todas as pessoas têm seis ou menos conexões sociais separando-as umas das outras — se fizermos uma cadeia de “amigo de um amigo”, poderíamos conectar duas pessoas em, no máximo, seis passos. Foi originalmente estabelecida por <strong>Frigyes Karinthy</strong>, em 1929.</p>
+<p>Essa ideia pode ser aplicada a várias redes biológicas: em uma rede biológica, a distância entre um vértice e outro é, em média, muito baixa.</p>
 </section>
-<section id="rede-livre-de-escala-scale-free" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="rede-livre-de-escala-scale-free"><span class="header-section-number">3.4.2</span> Rede Livre de Escala (Scale-Free)</h3>
-<ul>
-<li>Distribuição de grau segue uma lei de potência.</li>
-<li>Poucos vértices (hubs) têm muitas conexões; a maioria tem poucas.</li>
-<li><strong>Implicação</strong>: redes são resistentes a falhas aleatórias, mas vulneráveis a ataques direcionados aos hubs.</li>
-</ul>
+<section id="mundo-pequeno-small-world" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="mundo-pequeno-small-world"><span class="header-section-number">2.4.2</span> Mundo Pequeno (Small World)</h3>
+<p>Uma rede de mundo pequeno é um tipo de grafo no qual a maioria dos vértices não são vizinhos uns dos outros, <strong>mas</strong> os vizinhos de qualquer vértice são vizinhos entre si, e a maioria dos vértices pode ser alcançada por todos os outros por um pequeno número de passos.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Implica que…</strong> todos os vértices de uma rede biológica são facilmente alcançados por outros vértices; assim, qualquer perturbação ou sinal em um ponto da rede é rapidamente percebido pelo restante da rede.</p>
+</div>
+</div>
 </section>
-<section id="coeficiente-de-agrupamento-clustering-coefficient" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="coeficiente-de-agrupamento-clustering-coefficient"><span class="header-section-number">3.4.3</span> Coeficiente de Agrupamento (Clustering Coefficient)</h3>
+<section id="rede-livre-de-escala-scale-free" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="rede-livre-de-escala-scale-free"><span class="header-section-number">2.4.3</span> Rede Livre de Escala (Scale-Free)</h3>
+<p>São redes complexas cujo grau de distribuição segue uma <strong>lei de potência</strong>: a maioria dos vértices tem poucas ligações, contrastando com a existência de alguns vértices com um elevado número de ligações. A probabilidade de um vértice se ligar a um vértice novo é diretamente proporcional ao seu grau, e a probabilidade de um nó ter <em>k</em> ligações decai quando <em>k</em> aumenta, segundo a lei de potência.</p>
+<p>Os vértices com alto grau são raros e chamados de <strong>hubs</strong>. Essas redes são, por norma, mais resistentes a falhas aleatórias, mas mais vulneráveis a <strong>ataques direcionados</strong> — pois a remoção de um hub compromete desproporcionalmente a conectividade da rede, enquanto a remoção de um vértice qualquer (baixo grau) tem pouco efeito.</p>
+</section>
+<section id="coeficiente-de-agrupamento-clustering-coefficient" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="coeficiente-de-agrupamento-clustering-coefficient"><span class="header-section-number">2.4.4</span> Coeficiente de Agrupamento (Clustering Coefficient)</h3>
+<p>Mede o quanto os vértices de um grafo tendem a agrupar-se — a tendência de formação de grupos coesos, caracterizados por alta densidade de conexões. A maioria das redes reais tende a criar esses grupos coesos.</p>
 <ul>
-<li>Mede a tendência de formação de grupos coesos (alta densidade de conexões).</li>
 <li><strong>Transitividade</strong>: se A se conecta a B e B a C, é provável que A se conecte a C.</li>
-<li>Em redes biológicas: pode indicar módulos funcionais ou complexos proteicos.</li>
+<li>É uma propriedade muito comum em redes sociais (círculos de amigos).</li>
+<li>Em redes biológicas, pode indicar <strong>módulos funcionais</strong> ou <strong>complexos proteicos</strong>.</li>
 </ul>
 </section>
-<section id="robustez-e-adaptabilidade" class="level3" data-number="3.4.4">
-<h3 data-number="3.4.4" class="anchored" data-anchor-id="robustez-e-adaptabilidade"><span class="header-section-number">3.4.4</span> Robustez e Adaptabilidade</h3>
+<section id="robustez-e-adaptabilidade" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="robustez-e-adaptabilidade"><span class="header-section-number">2.4.5</span> Robustez e Adaptabilidade</h3>
 <ul>
-<li><strong>Robustez</strong>: capacidade de manter função apesar de perturbações.</li>
-<li><strong>Adaptabilidade</strong>: capacidade de mudar em resposta a perturbações.</li>
+<li><strong>Robustez</strong>: capacidade de manter uma função ou característica independente das perturbações do meio.</li>
+<li><strong>Adaptabilidade</strong>: capacidade de fazer mudanças no sistema em resposta a perturbações do meio.</li>
 </ul>
 <hr>
 </section>
 </section>
-<section id="motivos-de-redes-network-motifs" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="motivos-de-redes-network-motifs"><span class="header-section-number">3.5</span> Motivos de Redes (Network Motifs)</h2>
-<p>Padrões ou sub-grafos recorrentes e estatisticamente significativos que refletem funções eficientes.</p>
+<section id="motivos-de-redes-network-motifs" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="motivos-de-redes-network-motifs"><span class="header-section-number">2.5</span> Motivos de Redes (Network Motifs)</h2>
+<p>Motivos em redes são padrões ou sub-grafos recorrentes e estatisticamente significativos dentro de uma rede. Cada um desses sub-grafos, definido por um padrão particular de interações entre os vértices, pode refletir uma estrutura na qual determinadas funções são alcançadas com eficiência.</p>
+<p>Sua importância reside em serem blocos de construção evolutivamente conservados que compõem redes maiores, conferindo-lhes funções específicas e robustez. A identificação de motivos ajuda a prever o comportamento do sistema a partir de sua estrutura de conectividade local.</p>
 <p><strong>Exemplos:</strong></p>
-<section id="feedback-loop-laço-de-retroalimentação" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="feedback-loop-laço-de-retroalimentação"><span class="header-section-number">3.5.1</span> <em>Feedback Loop</em> (Laço de Retroalimentação)</h3>
+<section id="feedback-loop-laço-de-retroalimentação" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="feedback-loop-laço-de-retroalimentação"><span class="header-section-number">2.5.1</span> <em>Feedback Loop</em> (Laço de Retroalimentação)</h3>
 <ul>
-<li><strong>Estrutura</strong>: ciclo onde um nó regula outro que eventualmente regula o primeiro.</li>
-<li><strong>Tipos</strong>:
+<li><strong>Estrutura</strong>: um nó regula outro que, eventualmente, regula o primeiro, formando um ciclo. Pode ser positivo (→) ou negativo (⊣).</li>
+<li><strong>Função</strong>:
 <ul>
-<li>Positivo (→): cria estados estáveis irreversíveis (ex.: diferenciação celular).</li>
-<li>Negativo (⊣): gera oscilações ou mantém homeostase.</li>
+<li><strong>Positivo</strong>: cria estados estáveis irreversíveis (ex.: diferenciação celular).</li>
+<li><strong>Negativo</strong>: gera oscilações ou mantém homeostase.</li>
 </ul></li>
-<li><strong>Exemplo</strong>: ciclo de divisão celular controlado por ciclinas e CDKs.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exemplo biológico:</strong> o ciclo de divisão celular é controlado por um oscilador baseado em um loop de feedback negativo envolvendo as ciclinas e as quinases dependentes de ciclina (CDKs).</p>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="960" height="672" viewbox="0.00 0.00 718.03 576.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(0.986301 0.986301) rotate(0) translate(4 580)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-580 724,-580 724,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="#7e0fb1" stroke="black" cx="243.21" cy="-508" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="243.21" y="-503.8" font-family="Times,serif" font-size="14.00" fill="white">A</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse fill="#7e0fb1" stroke="black" cx="243.21" cy="-288" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="243.21" y="-283.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7e0fb1" stroke-width="2" d="M243.21,-478.95C243.21,-440.38 243.21,-370.85 243.21,-327.46"></path>
+<polygon fill="#7e0fb1" stroke="#7e0fb1" stroke-width="2" points="246.71,-327.29 243.21,-317.29 239.71,-327.29 246.71,-327.29"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<ellipse fill="#7e0fb1" stroke="black" cx="477.21" cy="-68" rx="29" ry="29"></ellipse>
+<text text-anchor="middle" x="477.21" y="-63.8" font-family="Times,serif" font-size="14.00" fill="white">C</text>
+</g>
+<!-- A&#45;&gt;C -->
+<g id="edge3" class="edge">
+<title>A-&gt;C</title>
+<path fill="none" stroke="#7e0fb1" stroke-width="2" d="M256.46,-482.2C296.11,-407.98 413.88,-187.54 459.18,-102.75"></path>
+<polygon fill="#7e0fb1" stroke="#7e0fb1" stroke-width="2" points="462.33,-104.27 463.96,-93.8 456.16,-100.97 462.33,-104.27"></polygon>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7e0fb1" stroke-width="2" d="M263.98,-267.65C306.04,-228.47 401.35,-139.67 448.99,-95.29"></path>
+<polygon fill="#7e0fb1" stroke="#7e0fb1" stroke-width="2" points="451.56,-97.68 456.49,-88.3 446.79,-92.56 451.56,-97.68"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="single-input-module-sim-módulo-de-entrada-única" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="single-input-module-sim-módulo-de-entrada-única"><span class="header-section-number">2.5.2</span> <em>Single Input Module</em> (SIM — Módulo de Entrada Única)</h3>
+<ul>
+<li><strong>Estrutura</strong>: um único nó regulador controla múltiplos nós alvo, sem que haja regulação entre os alvos.</li>
+<li><strong>Função</strong>: coordena a expressão sincronizada de um grupo de genes que atuam em uma mesma via biológica.</li>
+<li><strong>Exemplo</strong>: um operon em bactérias, onde um único fator de transcrição controla vários genes envolvidos em uma única via metabólica (ex.: operon <em>lac</em>).</li>
 </ul>
 </section>
-<section id="single-input-module-sim---módulo-de-entrada-única" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="single-input-module-sim---módulo-de-entrada-única"><span class="header-section-number">3.5.2</span> <em>Single Input Module</em> (SIM - Módulo de Entrada Única)</h3>
+<section id="feedforward-loop-ffl-laço-de-alimentação-direta" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="feedforward-loop-ffl-laço-de-alimentação-direta"><span class="header-section-number">2.5.3</span> <em>Feedforward Loop</em> (FFL — Laço de Alimentação Direta)</h3>
 <ul>
-<li><strong>Estrutura</strong>: um único regulador controla múltiplos alvos sem regulação entre eles.</li>
-<li><strong>Função</strong>: coordena expressão sincronizada de genes de uma mesma via.</li>
-<li><strong>Exemplo</strong>: operon em bactérias (ex.: operon lac).</li>
+<li><strong>Estrutura</strong>: um nó (A) regula outro (B), e ambos regulam um terceiro nó (C): A→B→C e A→C.</li>
+<li><strong>Função</strong>: age como um filtro temporal para sinais. Ignora pulsos curtos de entrada e responde apenas a sinais persistentes, evitando ativações desnecessárias.</li>
+<li><strong>Exemplo</strong>: na rede de regulação do açúcar em <em>E. coli</em>, o FFL controlado pela CRP (Proteína Receptora de AMPc) garante que os genes do metabolismo de lactose só sejam ativados após um sinal prolongado de ausência de glicose.</li>
+</ul>
+</section>
+<section id="bifan-leque-duplo" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="bifan-leque-duplo"><span class="header-section-number">2.5.4</span> <em>Bifan</em> (leque duplo)</h3>
+<ul>
+<li><strong>Estrutura</strong>: dois nós de entrada regulam dois nós de saída (A→C, A→D, B→C, B→D).</li>
+<li><strong>Função</strong>: distribui um sinal para múltiplos destinos simultaneamente, permitindo a coordenação de respostas.</li>
+<li><strong>Exemplo</strong>: em redes de sinalização celular, dois receptores ativados (A e B) podem regular a expressão de dois genes efetores (C e D) de forma coordenada.</li>
 </ul>
 <hr>
 <p><em>Baseado em slides de aula de Biologia de Sistemas.</em></p>
