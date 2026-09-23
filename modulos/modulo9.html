@@ -487,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13 de setembro de 2026</p>
+      <p class="date">23 de setembro de 2026</p>
     </div>
   </div>
   
@@ -501,52 +501,68 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="redes-de-interação-proteína-proteína-ppi" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="redes-de-interação-proteína-proteína-ppi"><span class="header-section-number">1</span> Redes de Interação Proteína-Proteína (PPI)</h2>
+<p>São redes em que temos proteínas como vértices, com uma aresta sempre que duas proteínas apresentarem interação entre si.</p>
 <ul>
-<li><strong>Vértices</strong>: proteínas</li>
-<li><strong>Arestas</strong>: interação entre proteínas</li>
-<li><strong>Tipo</strong>: grafos não-direcionados</li>
+<li><strong>Vértices</strong>: proteínas.</li>
+<li><strong>Arestas</strong>: interação entre proteínas.</li>
+<li><strong>Tipo</strong>: grafos não-direcionados.</li>
 </ul>
 </section>
 <section id="definição-de-interação-proteína-proteína" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="definição-de-interação-proteína-proteína"><span class="header-section-number">2</span> Definição de Interação Proteína-Proteína</h2>
-<p>Interação física entre proteínas <em>in vivo</em>.</p>
+<p>No foco das redes de interação proteína-proteína, definimos como interação quando uma proteína interage fisicamente com outra proteína <em>in vivo</em>.</p>
+<p>A interação entre as proteínas deve ser <strong>específica</strong>, o que implica alguns critérios de exclusão:</p>
 <section id="critérios-de-exclusão" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="critérios-de-exclusão"><span class="header-section-number">2.1</span> Critérios de Exclusão</h3>
 <ul>
-<li>Interações que acontecem ao acaso</li>
-<li>Interações durante produção, dobra, checagem ou degradação</li>
-<li><strong>Exemplos</strong>: interações com ribossomo, chaperonas, proteassoma</li>
+<li>Interações que acontecem ao acaso.</li>
+<li>Interações da proteína durante os processos de produção, dobra, checagem ou degradação.</li>
+<li><strong>Exemplos</strong>: interações com o ribossomo, chaperonas e proteassoma — as proteínas podem, em algum momento, tocar essas estruturas sem que isso constitua uma interação funcional.</li>
 </ul>
 </section>
 </section>
 <section id="definição-formal-de-ppi" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="definição-formal-de-ppi"><span class="header-section-number">3</span> Definição Formal de PPI</h2>
-<p>A interação deve considerar que:</p>
+<p>Portanto, a definição de interação proteína-proteína deve considerar que:</p>
 <ol type="1">
-<li><strong>Interface intencional</strong>: resultado de eventos/forças biomoleculares selecionados</li>
-<li><strong>Interface não-genérica</strong>: desenvolvida para finalidade distinta de funções genéricas (produção, degradação)</li>
+<li><strong>Interface intencional</strong>: a interface de interação deve ser intencional e não acidental — resultado de eventos/forças biomoleculares selecionados.</li>
+<li><strong>Interface não-genérica</strong>: a interface de interação deve ser não-genérica, ou seja, desenvolvida para uma finalidade distinta de funções totalmente genéricas, como produção de proteínas, degradação, entre outras.</li>
 </ol>
 </section>
 <section id="natureza-das-interações" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="natureza-das-interações"><span class="header-section-number">4</span> Natureza das Interações</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Cuidado</strong></p>
 <ul>
-<li>Interações <strong>não precisam</strong> ser estáticas ou permanentes</li>
-<li>Podem ser <strong>interações transientes</strong> que dependem da função</li>
+<li>Isso não quer dizer que as interações devam ser estáticas ou permanentes.</li>
+<li>Podemos ter também <strong>interações transientes</strong>, que dependem da função.</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="contexto-biológico-das-ppis" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="contexto-biológico-das-ppis"><span class="header-section-number">5</span> Contexto Biológico das PPIs</h2>
-<p>Nem todas as interações possíveis ocorrem em qualquer célula a qualquer momento.</p>
+<p>Nem todas as interações possíveis ocorrerão em qualquer célula, a qualquer momento. Em vez disso, as interações dependem de:</p>
 <section id="fatores-que-influenciam" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="fatores-que-influenciam"><span class="header-section-number">5.1</span> Fatores que Influenciam</h3>
 <ul>
-<li>Tipo de célula</li>
-<li>Fase e estado do ciclo celular</li>
-<li>Estágio de desenvolvimento</li>
-<li>Condições ambientais</li>
-<li>Modificações de proteínas (ex: fosforilação)</li>
-<li>Presença de cofatores e outros parceiros de ligação</li>
+<li>Tipo de célula.</li>
+<li>Fase e estado do ciclo celular.</li>
+<li>Estágio de desenvolvimento.</li>
+<li>Condições ambientais.</li>
+<li>Modificações de proteínas (ex.: fosforilação).</li>
+<li>Presença de cofatores e de outros parceiros de ligação.</li>
 </ul>
+<p>Ou seja, a interação pode ser específica de um determinado momento celular.</p>
 </section>
 </section>
 <section id="métodos-de-determinação-de-interações" class="level2" data-number="6">
@@ -554,61 +570,72 @@ ul.task-list li input[type="checkbox"] {
 <section id="binária" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="binária"><span class="header-section-number">6.1</span> Binária</h3>
 <ul>
-<li>Determinação de interação entre duas proteínas (par-a-par)</li>
-<li><strong>Método</strong>: Y2H (Yeast Two-Hybrid)</li>
+<li>Determinação de interação entre duas proteínas, par-a-par.</li>
+<li><strong>Método</strong>: Y2H (<em>Yeast Two-Hybrid</em>).</li>
 </ul>
 </section>
 <section id="co-complexo" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="co-complexo"><span class="header-section-number">6.2</span> Co-complexo</h3>
 <ul>
-<li>Determinação de interação entre grupos de proteínas</li>
-<li><strong>Métodos</strong>: AP-MS e CoIP</li>
-<li>Requer modelos que definem interações entre proteínas isoladas concomitantemente</li>
+<li>Determinação de interação entre grupos de proteínas.</li>
+<li><strong>Métodos</strong>: AP-MS e Co-IP.</li>
+<li>Requer modelos que definem as interações entre as proteínas isoladas concomitantemente.</li>
 </ul>
 </section>
 </section>
 <section id="modelos-de-inferência-de-interações" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="modelos-de-inferência-de-interações"><span class="header-section-number">7</span> Modelos de Inferência de Interações</h2>
+<p>Ao usar métodos de co-complexo, é necessário inferir quais pares de proteínas realmente interagem dentro do grupo detectado — daí os dois modelos abaixo.</p>
 <section id="modelo-spoke-de-raios" class="level3" data-number="7.1">
 <h3 data-number="7.1" class="anchored" data-anchor-id="modelo-spoke-de-raios"><span class="header-section-number">7.1</span> Modelo Spoke (de Raios)</h3>
 <ul>
-<li><strong>Foco</strong>: conservador</li>
-<li><strong>Interações inferidas</strong>: apenas isca-presa</li>
-<li><strong>Confiança</strong>: alta para isca-presa</li>
-<li><strong>Cobertura</strong>: menor</li>
-<li><strong>Uso típico</strong>: bancos de dados curados</li>
+<li><strong>Foco</strong>: conservador.</li>
+<li><strong>Interações inferidas</strong>: apenas isca-presa.</li>
+<li><strong>Confiança</strong>: alta para isca-presa.</li>
+<li><strong>Cobertura</strong>: menor.</li>
+<li><strong>Uso típico</strong>: bancos de dados curados.</li>
 </ul>
 </section>
 <section id="modelo-matrix" class="level3" data-number="7.2">
 <h3 data-number="7.2" class="anchored" data-anchor-id="modelo-matrix"><span class="header-section-number">7.2</span> Modelo Matrix</h3>
 <ul>
-<li><strong>Foco</strong>: abrangente</li>
-<li><strong>Interações inferidas</strong>: todos contra todos</li>
-<li><strong>Confiança</strong>: baixa para muitos pares</li>
-<li><strong>Cobertura</strong>: maior</li>
-<li><strong>Uso típico</strong>: análises exploratórias</li>
+<li><strong>Foco</strong>: abrangente.</li>
+<li><strong>Interações inferidas</strong>: todos contra todos.</li>
+<li><strong>Confiança</strong>: baixa para muitos pares.</li>
+<li><strong>Cobertura</strong>: maior.</li>
+<li><strong>Uso típico</strong>: análises exploratórias.</li>
 </ul>
 </section>
 </section>
 <section id="métodos-computacionais-de-predição" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="métodos-computacionais-de-predição"><span class="header-section-number">8</span> Métodos Computacionais de Predição</h2>
+<ol type="1">
+<li>Método baseado em interólogos.</li>
+<li>Predição baseada em algoritmos genéticos.</li>
+<li>Perfil evolutivo.</li>
+</ol>
 <section id="baseado-em-interólogos" class="level3" data-number="8.1">
 <h3 data-number="8.1" class="anchored" data-anchor-id="baseado-em-interólogos"><span class="header-section-number">8.1</span> Baseado em Interólogos</h3>
 <ul>
-<li><strong>Interólogos</strong>: interações PPI conservadas em duas espécies</li>
-<li><strong>Pressuposto</strong>: proteínas conservadas evolutivamente tendem a ter interação conservada</li>
-<li><strong>Base</strong>: buscas por homologia</li>
+<li><strong>Interólogos</strong>: interações PPI conservadas em duas espécies.</li>
+<li><strong>Pressuposto</strong>: proteínas conservadas evolutivamente tendem a ter sua interação também conservada.</li>
+<li><strong>Base</strong>: depende de buscas por homologia.</li>
 </ul>
 </section>
 <section id="predição-baseada-em-algoritmos-genéticos" class="level3" data-number="8.2">
 <h3 data-number="8.2" class="anchored" data-anchor-id="predição-baseada-em-algoritmos-genéticos"><span class="header-section-number">8.2</span> Predição Baseada em Algoritmos Genéticos</h3>
-<p>Técnicas de otimização inspiradas na evolução natural:</p>
-<p><strong>Processo iterativo:</strong> - <strong>Seleção</strong>: mantém pares com melhor aptidão - <strong>Cruzamento</strong>: combina características de pares promissores - <strong>Mutação</strong>: introduz variações aleatórias - <strong>Avaliação</strong>: testa nova geração de predições</p>
-<p><strong>Características usadas como “genes”:</strong> - Domínios conservados - Motivos de sequência - Perfis físico-químicos - Padrões de co-ocorrência</p>
+<p>Algoritmos genéticos são técnicas de otimização inspiradas na evolução natural, que usam seleção, cruzamento e mutação para encontrar soluções.</p>
+<p><strong>Características usadas como “genes”:</strong> - Domínios conservados. - Motivos de sequência. - Perfis físico-químicos. - Padrões de co-ocorrência.</p>
+<p><strong>Processo iterativo:</strong> - <strong>Seleção</strong>: mantém os pares com melhor aptidão. - <strong>Cruzamento</strong>: combina características de pares promissores. - <strong>Mutação</strong>: introduz variações aleatórias. - <strong>Avaliação</strong>: testa a nova geração de predições.</p>
+<p><strong>Exemplo de cruzamento</strong> (cada “gene” do cromossomo representa uma característica preditiva de interação — ex.: Gene₁ = similaridade de domínios, Gene₂ = co-expressão gênica, Gene₃ = conservação de resíduos na interface, Gene₄ = complementaridade eletrostática, Gene₅ = co-ocorrência filogenética, Gene₆ = distância na rede funcional):</p>
+<pre><code>Cromossomo_Pai₁: [0.85, 0.72, 0.91, 0.68, 0.95, 0.33]
+Cromossomo_Pai₂: [0.42, 0.88, 0.67, 0.91, 0.54, 0.71]
+                  ------------------↓ (cruzamento no ponto 3)
+Cromossomo_Filho: [0.85, 0.72, 0.91, 0.91, 0.54, 0.71]</code></pre>
 </section>
 <section id="perfil-evolutivo" class="level3" data-number="8.3">
 <h3 data-number="8.3" class="anchored" data-anchor-id="perfil-evolutivo"><span class="header-section-number">8.3</span> Perfil Evolutivo</h3>
-<p>Analisa padrões de co-evolução entre proteínas:</p>
+<p>Analisa padrões de co-evolução entre proteínas — se duas proteínas evoluem de forma correlacionada ao longo da evolução, isso é sinal de que podem interagir:</p>
 <ul>
 <li><strong>Correlação filogenética</strong></li>
 <li><strong>Análise de ganho/perda conjunta</strong></li>
@@ -620,15 +647,15 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="9" class="anchored" data-anchor-id="bancos-de-dados-de-ppi"><span class="header-section-number">9</span> Bancos de Dados de PPI</h2>
 <section id="primários" class="level3" data-number="9.1">
 <h3 data-number="9.1" class="anchored" data-anchor-id="primários"><span class="header-section-number">9.1</span> Primários</h3>
-<p>Dados experimentais diretos</p>
+<p>Dados experimentais diretos.</p>
 </section>
 <section id="meta-base-de-dados" class="level3" data-number="9.2">
 <h3 data-number="9.2" class="anchored" data-anchor-id="meta-base-de-dados"><span class="header-section-number">9.2</span> Meta-base de Dados</h3>
-<p>Reunião de dados de bases de dados primárias</p>
+<p>Reunião de dados de bases de dados primárias.</p>
 </section>
 <section id="dados-preditos" class="level3" data-number="9.3">
 <h3 data-number="9.3" class="anchored" data-anchor-id="dados-preditos"><span class="header-section-number">9.3</span> Dados Preditos</h3>
-<p>Interações inferidas computacionalmente</p>
+<p>Interações inferidas computacionalmente.</p>
 </section>
 </section>
 <section id="aplicações-das-redes-ppi" class="level2" data-number="10">
@@ -636,36 +663,29 @@ ul.task-list li input[type="checkbox"] {
 <section id="anotação-funcional-de-proteínas" class="level3" data-number="10.1">
 <h3 data-number="10.1" class="anchored" data-anchor-id="anotação-funcional-de-proteínas"><span class="header-section-number">10.1</span> Anotação Funcional de Proteínas</h3>
 <ul>
-<li>Baseado em proteínas adjacentes: <em>guilt-by-association</em></li>
+<li>Baseado em proteínas adjacentes: <em>guilt-by-association</em>.</li>
 </ul>
 </section>
 <section id="identificação-de-módulos" class="level3" data-number="10.2">
 <h3 data-number="10.2" class="anchored" data-anchor-id="identificação-de-módulos"><span class="header-section-number">10.2</span> Identificação de Módulos</h3>
 <ul>
-<li>Proteínas com mesmas funções ou parte de um complexo</li>
-<li>Investigação de subsistemas</li>
-<li>Associação com vias, respostas ou doenças específicas</li>
+<li>Proteínas que possuem as mesmas funções, ou que fazem parte de um mesmo complexo.</li>
+<li>Investigação de subsistemas, associados a alguma via, resposta ou doença específica.</li>
 </ul>
 </section>
 <section id="análise-evolutiva" class="level3" data-number="10.3">
 <h3 data-number="10.3" class="anchored" data-anchor-id="análise-evolutiva"><span class="header-section-number">10.3</span> Análise Evolutiva</h3>
 <ul>
-<li>Análise da relação entre proteínas com foco evolutivo</li>
-<li>Estudo de interólogos associados às funções</li>
+<li>Análise da relação entre as proteínas com foco evolutivo nos interólogos associados às suas funções.</li>
 </ul>
 </section>
 <section id="análise-de-hubs" class="level3" data-number="10.4">
 <h3 data-number="10.4" class="anchored" data-anchor-id="análise-de-hubs"><span class="header-section-number">10.4</span> Análise de Hubs</h3>
 <ul>
-<li><strong>Regra da centralidade-letalidade</strong></li>
-<li><strong>Hubs party</strong>: interage com todos os parceiros ao mesmo tempo</li>
-<li><strong>Hubs date</strong>: interage com parceiros em diferentes tempos e localizações</li>
+<li><strong>Regra da centralidade-letalidade</strong>.</li>
+<li><strong>Hubs <em>party</em></strong>: interagem com todos os seus parceiros ao mesmo tempo; funcionam dentro de módulos na formação de complexos.</li>
+<li><strong>Hubs <em>date</em></strong>: interagem com seus parceiros em diferentes tempos e localizações; funcionam para conectar módulos e funções uns aos outros.</li>
 </ul>
-<section id="tipos-de-hubs" class="level4" data-number="10.4.1">
-<h4 data-number="10.4.1" class="anchored" data-anchor-id="tipos-de-hubs"><span class="header-section-number">10.4.1</span> Tipos de Hubs</h4>
-<p><strong>Hubs Party</strong> - Interagem com todos os parceiros simultaneamente - Funcionam dentro de módulos na formação de complexos</p>
-<p><strong>Hubs Date</strong> - Interagem com parceiros em diferentes tempos e localizações - Conectam módulos e funções uns aos outros</p>
-</section>
 </section>
 </section>
 <section id="aplicação-em-doenças" class="level2" data-number="11">
@@ -673,9 +693,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="interação-doença-doença" class="level3" data-number="11.1">
 <h3 data-number="11.1" class="anchored" data-anchor-id="interação-doença-doença"><span class="header-section-number">11.1</span> Interação Doença-Doença</h3>
 <ul>
-<li>Identificação de proteínas envolvidas em múltiplas doenças</li>
-<li>Potencial para co-tratamento de doenças</li>
-<li>Integração com dados de doenças para descobrir alvos terapêuticos</li>
+<li>Identificação de proteínas envolvidas em múltiplas doenças.</li>
+<li>Potencial para co-tratamento de doenças.</li>
+<li>Redes PPI podem ser usadas integradas com dados de doenças, para descobrir proteínas envolvidas em mais de uma patologia — servindo de foco para alvos terapêuticos e estratégias de co-tratamento.</li>
 </ul>
 
 

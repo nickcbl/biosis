@@ -430,15 +430,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#etapas-principais" id="toc-etapas-principais" class="nav-link" data-scroll-target="#etapas-principais"><span class="header-section-number">7</span> Etapas principais</a>
   <ul class="collapse">
   <li><a href="#processamento-de-dados" id="toc-processamento-de-dados" class="nav-link" data-scroll-target="#processamento-de-dados"><span class="header-section-number">7.1</span> Processamento de Dados</a></li>
-  <li><a href="#controle-de-qualidade-qc" id="toc-controle-de-qualidade-qc" class="nav-link" data-scroll-target="#controle-de-qualidade-qc"><span class="header-section-number">7.2</span> Controle de qualidade (QC)</a></li>
-  <li><a href="#quantificação" id="toc-quantificação" class="nav-link" data-scroll-target="#quantificação"><span class="header-section-number">7.3</span> Quantificação</a></li>
+  <li><a href="#controle-de-qualidade-qc-pré-processamento-e-limpeza" id="toc-controle-de-qualidade-qc-pré-processamento-e-limpeza" class="nav-link" data-scroll-target="#controle-de-qualidade-qc-pré-processamento-e-limpeza"><span class="header-section-number">7.2</span> Controle de Qualidade (QC), Pré-processamento e Limpeza</a></li>
+  <li><a href="#alinhamentomapeamento-e-quantificação" id="toc-alinhamentomapeamento-e-quantificação" class="nav-link" data-scroll-target="#alinhamentomapeamento-e-quantificação"><span class="header-section-number">7.3</span> Alinhamento/Mapeamento e Quantificação</a></li>
   <li><a href="#normalização" id="toc-normalização" class="nav-link" data-scroll-target="#normalização"><span class="header-section-number">7.4</span> Normalização</a></li>
   <li><a href="#análise-estatística" id="toc-análise-estatística" class="nav-link" data-scroll-target="#análise-estatística"><span class="header-section-number">7.5</span> Análise estatística</a></li>
   </ul></li>
   <li><a href="#integração-dos-dados" id="toc-integração-dos-dados" class="nav-link" data-scroll-target="#integração-dos-dados"><span class="header-section-number">8</span> Integração dos Dados</a>
   <ul class="collapse">
   <li><a href="#integração-funcional" id="toc-integração-funcional" class="nav-link" data-scroll-target="#integração-funcional"><span class="header-section-number">8.1</span> Integração funcional</a></li>
-  <li><a href="#análise-de-conjunto-de-genes-gsa" id="toc-análise-de-conjunto-de-genes-gsa" class="nav-link" data-scroll-target="#análise-de-conjunto-de-genes-gsa"><span class="header-section-number">8.2</span> Análise de Conjunto de Genes (GSA)</a></li>
+  <li><a href="#análise-de-conjunto-de-genes-gene-set-analysis-gsa" id="toc-análise-de-conjunto-de-genes-gene-set-analysis-gsa" class="nav-link" data-scroll-target="#análise-de-conjunto-de-genes-gene-set-analysis-gsa"><span class="header-section-number">8.2</span> Análise de Conjunto de Genes (<em>Gene Set Analysis</em> — GSA)</a></li>
   </ul></li>
   <li><a href="#estratégias-de-integração" id="toc-estratégias-de-integração" class="nav-link" data-scroll-target="#estratégias-de-integração"><span class="header-section-number">9</span> Estratégias de Integração</a>
   <ul class="collapse">
@@ -476,7 +476,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13 de setembro de 2026</p>
+      <p class="date">23 de setembro de 2026</p>
     </div>
   </div>
   
@@ -491,28 +491,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="geração-e-análise-de-dados" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="geração-e-análise-de-dados"><span class="header-section-number">1</span> Geração e análise de dados</h2>
 <ul>
-<li>A geração e análise de dados são partes essenciais da biologia de sistemas.<br>
-</li>
-<li>Grandes quantidades de dados ômicos podem ser gerados de forma rápida e econômica, graças ao desenvolvimento de técnicas modernas de medição de alto rendimento.<br>
-</li>
-<li>Sua interpretação é desafiadora por causa da alta dimensionalidade e dos níveis substanciais de ruído.</li>
+<li>A geração e análise de dados são partes essenciais da biologia de sistemas.</li>
+<li>Grandes quantidades de dados ômicos podem ser gerados de forma rápida e econômica, graças ao desenvolvimento de técnicas modernas de medição de alto rendimento.</li>
+<li>Sua interpretação é, no entanto, desafiadora por causa da alta dimensionalidade e dos níveis frequentemente substanciais de ruído.</li>
 </ul>
 <hr>
 </section>
 <section id="necessidade-de-integração" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="necessidade-de-integração"><span class="header-section-number">2</span> Necessidade de integração</h2>
 <ul>
-<li>A integração é necessária para capturar a complexidade dos sistemas biológicos, onde diferentes camadas (DNA, RNA, proteína, metabólito) interagem de forma não linear.<br>
-</li>
+<li>A integração é necessária para capturar a complexidade dos sistemas biológicos, onde diferentes camadas (DNA, RNA, proteína, metabólito) interagem de forma não linear.</li>
 <li>O objetivo final é construir modelos preditivos e entender mecanismos emergentes que não são visíveis ao analisar uma única camada ômica.</li>
 </ul>
 <p><strong>Exemplo:</strong><br>
-Alterações no transcriptoma (RNA) podem não se traduzir em alterações no proteoma devido à regulação pós-traducional. Somente integrando ambas as camadas é possível compreender o estado funcional da célula.</p>
+Alterações no transcriptoma (RNA) podem não se traduzir em alterações no proteoma devido à regulação pós-traducional. Somente integrando ambas as camadas é possível compreender verdadeiramente o estado funcional da célula.</p>
 <hr>
 </section>
 <section id="análise-integrativa" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="análise-integrativa"><span class="header-section-number">3</span> Análise integrativa</h2>
-<p>Uma análise integrativa fornece uma estrutura para examinar dados ômicos a partir de uma perspectiva biológica — desde os dados brutos, passando pelo pré-processamento e análise estatística, até a interpretação dos resultados.</p>
+<p>Uma análise <strong>integrativa</strong> fornece uma estrutura para a análise dos dados <strong>ômicos</strong> a partir de uma perspectiva biológica: dos dados brutos, via pré-processamento e análise estatística, até a interpretação dos resultados.</p>
 <hr>
 </section>
 <section id="recursos-de-dados-ômicos" class="level2" data-number="4">
@@ -544,30 +541,21 @@ flowchart LR
 <ol type="1">
 <li><strong>Recurso de dados</strong>
 <ul>
-<li>Ontologias<br>
-</li>
-<li>Vias<br>
-</li>
-<li>Redes<br>
-</li>
+<li>Ontologias</li>
+<li>Vias</li>
+<li>Redes</li>
 </ul></li>
 <li><strong>Dados ômicos</strong>
 <ul>
-<li>Genômica<br>
-</li>
-<li>Transcritômica<br>
-</li>
-<li>Proteômica<br>
-</li>
+<li>Genômica</li>
+<li>Transcritômica</li>
+<li>Proteômica</li>
 </ul></li>
 <li><strong>Análise integrativa</strong>
 <ul>
-<li>Construção de modelo<br>
-</li>
-<li>Predições do modelo<br>
-</li>
-<li>Geração de conhecimento<br>
-</li>
+<li>Construção de modelo</li>
+<li>Predições do modelo</li>
+<li>Geração de conhecimento</li>
 <li>Insight biológico</li>
 </ul></li>
 </ol>
@@ -575,12 +563,10 @@ flowchart LR
 </section>
 <section id="integração-e-redução-de-dimensionalidade" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="integração-e-redução-de-dimensionalidade"><span class="header-section-number">6</span> Integração e redução de dimensionalidade</h2>
-<p>A integração dos dados contribui para reduzir a dimensionalidade, resultando em:</p>
+<p>Quando há integração dos dados, há redução de dimensionalidade, resultando em:</p>
 <ul>
-<li>Genes significativos<br>
-</li>
-<li>Funções biológicas significativas<br>
-</li>
+<li>Genes significativos</li>
+<li>Funções biológicas significativas</li>
 <li>Interpretação biológica</li>
 </ul>
 <hr>
@@ -597,40 +583,43 @@ flowchart LR
 <h3 data-number="7.1" class="anchored" data-anchor-id="processamento-de-dados"><span class="header-section-number">7.1</span> Processamento de Dados</h3>
 <p>Aplica ferramentas computacionais e estatísticas aos dados ômicos de alta dimensionalidade para:</p>
 <ul>
-<li>Eliminar erros e ruídos<br>
-</li>
-<li>Identificar genes e componentes informativos<br>
-</li>
-<li>Evitar propagação de erros para etapas posteriores</li>
+<li>Eliminar erros e ruídos.</li>
+<li>Identificar genes e outros componentes que contêm informações significativas para o experimento.</li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Etapa essencial.</strong> Erros aqui se propagam para o restante da análise.</p>
+</div>
+</div>
 <hr>
 <section id="etapas-do-processamento" class="level4" data-number="7.1.1">
 <h4 data-number="7.1.1" class="anchored" data-anchor-id="etapas-do-processamento"><span class="header-section-number">7.1.1</span> Etapas do processamento</h4>
 <ol type="1">
-<li>Controle de qualidade, pré-processamento e limpeza<br>
-</li>
-<li>Alinhamento/mapeamento e quantificação<br>
-</li>
-<li>Normalização<br>
-</li>
-<li>Identificação de características significativas</li>
+<li><strong>Controle de Qualidade, Pré-processamento e Limpeza</strong></li>
+<li><strong>Alinhamento/Mapeamento e Quantificação</strong></li>
+<li><strong>Normalização</strong></li>
+<li><strong>Identificação de Características Significativas</strong></li>
 </ol>
 <hr>
 </section>
 </section>
-<section id="controle-de-qualidade-qc" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="controle-de-qualidade-qc"><span class="header-section-number">7.2</span> Controle de qualidade (QC)</h3>
+<section id="controle-de-qualidade-qc-pré-processamento-e-limpeza" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="controle-de-qualidade-qc-pré-processamento-e-limpeza"><span class="header-section-number">7.2</span> Controle de Qualidade (QC), Pré-processamento e Limpeza</h3>
+<p>Passo vital, que deve sempre ser feito independentemente do tipo de dados: DNA, RNA, proteínas, metabólitos, doenças, entre outros.</p>
 <ul>
-<li>Inspeção sistemática dos dados brutos<br>
-</li>
-<li>Correção de vieses técnicos e erros<br>
-</li>
-<li>Limpeza com base nos resultados do QC</li>
+<li>Inspeção sistemática dos dados brutos, para identificar e, se possível, corrigir vieses técnicos e erros.</li>
+<li>Aplicação de algoritmos para “limpar” os dados com base nos resultados do QC.</li>
 </ul>
-<p><strong>Erros comuns:</strong> - DNA-seq: baixa qualidade no final da leitura, substituições, inserções, deleções, adaptadores<br>
-- RNA-seq: todas as anteriores + excesso de rRNA<br>
-- Espectrometria de massa: espectros de baixa qualidade (pode gerar falsos positivos)</p>
-<hr>
+<p>A natureza dos erros é fortemente dependente da técnica e de suas propriedades bioquímicas, e os métodos para avaliação da qualidade devem, portanto, ser selecionados com base na plataforma de medição aplicada.</p>
+<p><strong>Erros comuns:</strong> - <strong>DNA-seq</strong>: baixa qualidade no final da leitura, substituições, inserções, deleções, adaptadores. - <strong>RNA-seq</strong>: todas as anteriores + excesso de rRNA. - <strong>Espectrometria de massa</strong>: espectros de baixa qualidade, que podem não gerar dado nenhum ou gerar falsos positivos.</p>
 <section id="ferramentas-para-qc-e-filtragem" class="level4" data-number="7.2.1">
 <h4 data-number="7.2.1" class="anchored" data-anchor-id="ferramentas-para-qc-e-filtragem"><span class="header-section-number">7.2.1</span> Ferramentas para QC e filtragem</h4>
 <table class="caption-top table">
@@ -654,7 +643,7 @@ flowchart LR
 </tr>
 <tr class="even">
 <td>TrimGalore</td>
-<td>Remoção de adaptadores e filtragem</td>
+<td>Filtragem por qualidade e remoção de adaptadores</td>
 <td>Genômica, transcritômica</td>
 </tr>
 <tr class="odd">
@@ -664,7 +653,7 @@ flowchart LR
 </tr>
 <tr class="even">
 <td>Spectrum Quality</td>
-<td>Filtragem de espectros</td>
+<td>Filtragem de espectros de MS</td>
 <td>Proteômica</td>
 </tr>
 </tbody>
@@ -672,17 +661,14 @@ flowchart LR
 <hr>
 </section>
 </section>
-<section id="quantificação" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="quantificação"><span class="header-section-number">7.3</span> Quantificação</h3>
-<p>Transforma dados de qualidade em informações quantitativas sobre abundância.</p>
+<section id="alinhamentomapeamento-e-quantificação" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="alinhamentomapeamento-e-quantificação"><span class="header-section-number">7.3</span> Alinhamento/Mapeamento e Quantificação</h3>
+<p>O passo de quantificação transforma o dado que já passou por avaliação de qualidade em dado quantitativo que descreve a abundância de variantes genéticas, transcritos ou proteínas.</p>
 <ul>
-<li><strong>DNA:</strong> mapeamento e verificação de variantes<br>
-</li>
-<li><strong>RNA:</strong> contagem de leituras em regiões gênicas<br>
-</li>
-<li><strong>Proteína:</strong> comparação de espectros observados com espectros de referência</li>
+<li><strong>DNA</strong>: mapeamento das leituras em uma referência, e determinação de variantes pela verificação do alinhamento.</li>
+<li><strong>RNA</strong>: mapeamento das leituras em regiões do genoma anotadas como genes, com posterior contagem da quantidade de alinhamentos dentro de uma região codificante.</li>
+<li><strong>Proteína</strong>: comparação com espectros padrão, e o quanto esse espectro é detectado.</li>
 </ul>
-<hr>
 <section id="ferramentas-de-quantificação" class="level4" data-number="7.3.1">
 <h4 data-number="7.3.1" class="anchored" data-anchor-id="ferramentas-de-quantificação"><span class="header-section-number">7.3.1</span> Ferramentas de quantificação</h4>
 <table class="caption-top table">
@@ -706,17 +692,17 @@ flowchart LR
 </tr>
 <tr class="even">
 <td>STAR</td>
-<td>Mapeamento ciente de splicing</td>
+<td>Mapeamento de leituras ciente de <em>splicing</em></td>
 <td>Transcritômica</td>
 </tr>
 <tr class="odd">
 <td>MASCOT</td>
-<td>Mapeamento de espectros de massa</td>
+<td>Mapeamento de espectros de massa ao banco de dados</td>
 <td>Proteômica</td>
 </tr>
 <tr class="even">
 <td>InsPecT</td>
-<td>Mapeamento de espectros de massa</td>
+<td>Mapeamento de espectros de massa ao banco de dados</td>
 <td>Proteômica</td>
 </tr>
 </tbody>
@@ -726,16 +712,21 @@ flowchart LR
 </section>
 <section id="normalização" class="level3" data-number="7.4">
 <h3 data-number="7.4" class="anchored" data-anchor-id="normalização"><span class="header-section-number">7.4</span> Normalização</h3>
-<ul>
-<li>Remove variabilidade técnica e sistemática.<br>
-</li>
-<li>Torna os dados mais comparáveis entre amostras.<br>
-</li>
-<li>Essencial em transcriptômica e proteômica.</li>
-</ul>
-<p><strong>Exemplos:</strong> - RNA: FPKM/RPKM<br>
-- Proteínas: métodos de regressão, normalização pela intensidade total do íon</p>
-<hr>
+<p>Os dados ômicos exibem grandes variações e vieses, dos quais uma parte substancial é de natureza técnica, introduzida pelas técnicas de medição e pelas etapas experimentais sensíveis necessárias para a preparação da amostra. O objetivo da normalização é remover essa variabilidade indesejada, para tornar o dado mais uniforme e comparável entre amostras.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Isto é especialmente importante em transcriptômica e proteômica, onde os dados são frequentemente gerados em um cenário comparativo, usando múltiplas replicatas técnicas e/ou biológicas.</p>
+</div>
+</div>
+<p><strong>Exemplos:</strong> - <strong>RNA</strong>: FPKM/RPKM — fragmentos/<em>reads</em> por kilobase por milhão de <em>reads</em> mapeados. - <strong>Proteína</strong>: métodos de regressão; escala baseada na intensidade total do íon em relação ao comprimento total da proteína.</p>
 <section id="ferramentas-de-normalização" class="level4" data-number="7.4.1">
 <h4 data-number="7.4.1" class="anchored" data-anchor-id="ferramentas-de-normalização"><span class="header-section-number">7.4.1</span> Ferramentas de normalização</h4>
 <table class="caption-top table">
@@ -758,7 +749,7 @@ flowchart LR
 <td>Transcritômica</td>
 </tr>
 <tr class="even">
-<td>Regressão linear</td>
+<td>Normalização por regressão linear</td>
 <td>Normalização de picos do espectro de massas</td>
 <td>Proteômica</td>
 </tr>
@@ -769,12 +760,8 @@ flowchart LR
 </section>
 <section id="análise-estatística" class="level3" data-number="7.5">
 <h3 data-number="7.5" class="anchored" data-anchor-id="análise-estatística"><span class="header-section-number">7.5</span> Análise estatística</h3>
-<ul>
-<li>Dados ômicos são de alta dimensionalidade.<br>
-</li>
-<li>A análise estatística visa reduzir a dimensão e identificar características biologicamente relevantes.</li>
-</ul>
-<hr>
+<p>Os dados ômicos são de alta dimensionalidade, onde milhares de características (ex.: variantes genéticas, transcritos ou proteínas) são medidas simultaneamente, e onde apenas uma minoria delas contém informações valiosas para o estudo.</p>
+<p>A análise estatística visa reduzir a dimensão dos dados, distinguindo entre as características biologicamente relevantes e aquelas que contêm principalmente ruído.</p>
 <section id="exemplo-de-fluxo-de-processamento" class="level4" data-number="7.5.1">
 <h4 data-number="7.5.1" class="anchored" data-anchor-id="exemplo-de-fluxo-de-processamento"><span class="header-section-number">7.5.1</span> Exemplo de fluxo de processamento</h4>
 <table class="caption-top table">
@@ -796,25 +783,25 @@ flowchart LR
 </thead>
 <tbody>
 <tr class="odd">
-<td>DNA-seq</td>
-<td>Filtragem e trimagem</td>
-<td>Mapeamento e chamada de variantes</td>
+<td>DNA-seq (resequenciamento genômico)</td>
+<td>Filtragem e trimagem de leituras</td>
+<td>Mapeamento de leituras com um genoma de referência e chamada de variantes</td>
 <td>—</td>
-<td>Identificação de polimorfismos</td>
+<td>Identificação de polimorfismos e variantes estruturais</td>
 </tr>
 <tr class="even">
 <td>RNA-seq</td>
-<td>Filtragem e trimagem</td>
-<td>Mapeamento e contagem</td>
-<td>Normalização intra/inter amostras</td>
-<td>Identificação de transcritos diferenciais</td>
+<td>Filtragem e trimagem de leituras</td>
+<td>Mapeamento ciente de <em>splicing</em> e contagem de leituras</td>
+<td>Normalização intra e inter amostras</td>
+<td>Identificação de transcritos diferencialmente abundantes</td>
 </tr>
 <tr class="odd">
-<td>Proteômica</td>
-<td>Remoção de espectros ruins</td>
-<td>Comparação com banco de dados</td>
-<td>Normalização</td>
-<td>Identificação de proteínas diferenciais</td>
+<td>Proteômica por MS</td>
+<td>Remoção de espectros de baixa qualidade</td>
+<td>Comparação do espectro com banco de dados</td>
+<td>Normalização intra e inter amostras</td>
+<td>Identificação de proteínas diferencialmente abundantes</td>
 </tr>
 </tbody>
 </table>
@@ -824,33 +811,28 @@ flowchart LR
 </section>
 <section id="integração-dos-dados" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="integração-dos-dados"><span class="header-section-number">8</span> Integração dos Dados</h2>
-<p>Após o processamento, obtemos uma lista de genes relevantes que direcionam à resposta biológica de interesse.</p>
-<p>A lista de genes é usada para identificar funções e vias relevantes, integrando com bancos de dados biológicos (como Gene Ontology e KEGG).</p>
+<p>Após os passos de processamento dos dados, obtemos uma <strong>lista de genes</strong> relevantes que pode nos direcionar à resposta biológica de interesse.</p>
+<p>A lista de genes é usada para identificar funções e vias relevantes, integrando os dados com uma base comum, construída usando informações biológicas estabelecidas coletadas de vários recursos e bancos de dados (como Gene Ontology e KEGG). O resultado, baseado na análise combinada de genes com propriedades funcionais similares, tem dimensão substancialmente reduzida, o que facilita consideravelmente sua interpretação.</p>
 <hr>
 <section id="integração-funcional" class="level3" data-number="8.1">
 <h3 data-number="8.1" class="anchored" data-anchor-id="integração-funcional"><span class="header-section-number">8.1</span> Integração funcional</h3>
 <ul>
-<li>Genes são anotados com vocabulários padronizados:
+<li>O conjunto reduzido de genes, transcritos ou proteínas é anotado com um vocabulário padronizado comum:
 <ul>
-<li><strong>Gene Ontology (GO)</strong><br>
-</li>
-<li><strong>KEGG/KOG</strong><br>
-</li>
+<li><strong>Gene Ontology (GO)</strong></li>
+<li><strong>KEGG/KOG</strong></li>
 </ul></li>
-<li>Agrupamento de genes com funções semelhantes.<br>
-</li>
-<li>Facilita comparações entre experimentos.</li>
+<li>Dessa maneira, é possível reunir todos os genes/transcritos/proteínas que fazem parte da mesma resposta biológica.</li>
+<li>Isso também serve para associar genes, transcritos ou proteínas com suas respectivas contrapartes em outros experimentos, facilitando comparações entre eles.</li>
 </ul>
 <hr>
 </section>
-<section id="análise-de-conjunto-de-genes-gsa" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="análise-de-conjunto-de-genes-gsa"><span class="header-section-number">8.2</span> Análise de Conjunto de Genes (GSA)</h3>
-<p>Método usado para interpretar experimentos de larga escala, focando em grupos de genes com características biológicas comuns.</p>
+<section id="análise-de-conjunto-de-genes-gene-set-analysis-gsa" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="análise-de-conjunto-de-genes-gene-set-analysis-gsa"><span class="header-section-number">8.2</span> Análise de Conjunto de Genes (<em>Gene Set Analysis</em> — GSA)</h3>
+<p>Método usado para interpretar resultados de experimentos de larga escala, focado em grupos de genes que compartilham uma característica biológica comum.</p>
 <p><strong>Pergunta central:</strong><br>
-“Dada uma lista de genes que mudaram em um experimento, quais processos biológicos estão sendo afetados significativamente?”</p>
-<p><strong>Etapas:</strong> 1. Calcular estatística para cada gene<br>
-2. Associar funções via banco de dados<br>
-3. Calcular score de enriquecimento</p>
+“Dada uma lista de genes que mudaram em um experimento, quais processos ou vias biológicas estão sendo afetados de forma significativa?”</p>
+<p><strong>Etapas:</strong> 1. Calcular uma estatística para cada gene, que defina a mudança de expressão. 2. Associar funções a cada gene, de acordo com algum banco de dados. 3. Calcular um <em>score</em> de enriquecimento — de acordo com o valor estatístico, identificar quem tem as maiores mudanças e quem não tem mudança aparente.</p>
 <hr>
 </section>
 </section>
@@ -859,64 +841,68 @@ flowchart LR
 <section id="integração-antecipada-ou-completa" class="level3" data-number="9.1">
 <h3 data-number="9.1" class="anchored" data-anchor-id="integração-antecipada-ou-completa"><span class="header-section-number">9.1</span> Integração Antecipada (ou completa)</h3>
 <ul>
-<li>Combina diferentes conjuntos de dados em uma única matriz antes da modelagem.<br>
-</li>
-<li>Exige transformação para uma representação comum.<br>
-</li>
-<li>Pode resultar em perda de informação e aumento de ruído.</li>
+<li>Combina os conjuntos de dados de tipos diferentes em um único conjunto de dados, fundindo os dados brutos ou de características em uma única <strong>matriz combinada</strong> antes da aplicação de qualquer algoritmo de modelagem.</li>
+<li>Requer uma transformação dos conjuntos de dados heterogêneos para uma representação comum.</li>
+<li>Embora conceitualmente simples, esse método frequentemente introduz ruído, perda de informação e o desafio da alta dimensionalidade (p &gt;&gt; n), podendo mascarar sinais biológicos sutis.</li>
 </ul>
 <hr>
 </section>
 <section id="integração-tardia-ou-de-decisão" class="level3" data-number="9.2">
 <h3 data-number="9.2" class="anchored" data-anchor-id="integração-tardia-ou-de-decisão"><span class="header-section-number">9.2</span> Integração Tardia (ou de decisão)</h3>
 <ul>
-<li>Cria modelos independentes para cada conjunto de dados.<br>
-</li>
-<li>Combina os resultados em um modelo unificado.<br>
-</li>
-<li>Ignora as relações entre os conjuntos, perdendo sinergias biológicas.</li>
+<li>Cria modelos independentes para cada conjunto de dados, combinando os resultados em um modelo unificado.</li>
+<li>Ao modelar cada conjunto isoladamente, as relações entre as diferentes camadas de dados (ex.: como a metilação do DNA regula a expressão gênica) são ignoradas, perdendo a sinergia central da Biologia de Sistemas.</li>
 </ul>
 <hr>
 </section>
 <section id="integração-intermediária-ou-parcial" class="level3" data-number="9.3">
 <h3 data-number="9.3" class="anchored" data-anchor-id="integração-intermediária-ou-parcial"><span class="header-section-number">9.3</span> Integração Intermediária (ou parcial)</h3>
 <ul>
-<li>Infere uma representação compartilhada (latente) entre todos os conjuntos simultaneamente.<br>
-</li>
-<li>Captura sinergias entre camadas de dados.<br>
-</li>
-<li>Gera resultados biologicamente mais ricos, mas depende fortemente do algoritmo utilizado.</li>
+<li>Infere um modelo conjunto que aprende uma representação compartilhada ou <strong>latente</strong> a partir de todos os conjuntos de dados simultaneamente.</li>
+<li>Modela explicitamente as relações entre as diferentes modalidades de dados, capturando a sinergia entre elas.</li>
+<li>É frequentemente a mais indicada para a Biologia de Sistemas, podendo levar a melhor precisão preditiva e a descobertas biológicas mais ricas — embora ainda envolva uma transformação dos dados para um espaço latente, cuja qualidade depende criticamente do algoritmo utilizado.</li>
 </ul>
-<p>—#</p>
+<hr>
 </section>
 </section>
 <section id="integração-de-redes" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="integração-de-redes"><span class="header-section-number">10</span> Integração de Redes</h2>
 <ul>
-<li><strong>Homogênea:</strong> mesmas entidades, diferentes tipos de conexões.<br>
-</li>
-<li><strong>Heterogênea:</strong> diferentes tipos de entidades e relações.</li>
+<li><strong>Homogênea</strong>: quando as duas redes a serem integradas possuem o mesmo tipo de vértices, mas diferentes tipos de arestas.</li>
+<li><strong>Heterogênea</strong>: quando as duas redes a serem integradas possuem, como vértices e arestas, tipos diferentes de dados e relações.</li>
 </ul>
-<hr>
 <section id="métodos-de-integração-baseados-em-redes" class="level3" data-number="10.1">
 <h3 data-number="10.1" class="anchored" data-anchor-id="métodos-de-integração-baseados-em-redes"><span class="header-section-number">10.1</span> Métodos de integração baseados em redes</h3>
 <ul>
-<li><strong>Projeção de Rede:</strong> integração de redes heterogêneas (ex: Fármaco-Alvo → Alvo-Doença → Fármaco-Doença).<br>
-</li>
-<li><strong>Propagação de Informação:</strong> difunde escores através da rede, priorizando novos genes ou fármacos.</li>
+<li><strong>Projeção de Rede</strong>: usada para integrar redes heterogêneas — por exemplo, projetar uma rede Fármaco-Alvo em uma rede Alvo-Doença para inferir uma nova rede Fármaco-Doença.</li>
+<li><strong>Propagação de Informação</strong>: técnica poderosa para difundir informação (ex.: escores de genes associados a uma doença) através de uma rede integrada, permitindo a priorização de novos genes ou fármacos.</li>
 </ul>
-<hr>
 </section>
 <section id="outros-métodos-de-integração" class="level3" data-number="10.2">
 <h3 data-number="10.2" class="anchored" data-anchor-id="outros-métodos-de-integração"><span class="header-section-number">10.2</span> Outros métodos de integração</h3>
 <ul>
-<li><strong>Bayesianos:</strong> modelos probabilísticos que representam dependências (genótipo → expressão → fenótipo).<br>
-</li>
-<li><strong>Baseados em kernels:</strong> usados para transformação e redução de dimensionalidade.<br>
-</li>
-<li><strong>NMF (Non-negative Matrix Factorization):</strong> fatoração de matriz para clusterização e descoberta de padrões.</li>
+<li><strong>Bayesianos</strong>: constroem modelos probabilísticos que explicitamente representam as dependências entre diferentes tipos de dados (ex.: genótipo → expressão gênica → fenótipo).</li>
+<li><strong>Baseados em kernels</strong>: usados para transformação e mudanças de dimensionalidade.</li>
+<li><strong>NMF</strong> (<em>Non-negative Matrix Factorization</em> — Fatoração de Matriz Não-Negativa): método de ranqueamento e clusterização, que encontra padrões por aproximações iterativas, fatorando a matriz de dados em duas outras — uma delas indica o grupo ao qual um dado pertence, de acordo com os padrões encontrados.</li>
 </ul>
-<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Referências e leituras complementares:</strong></p>
+<ul>
+<li>Nielsen, J., Hohmann, S., &amp; A, R. (2017). <em>Systems Biology</em>. Capítulo 1.</li>
+<li><em>Methods for biological data integration: perspectives and challenges</em>.</li>
+<li><em>Network propagation: a universal amplifier of genetic associations</em> — https://towardsdatascience.com/network-learning-from-network-propagation-to-graph-convolution-eb3c62d09de8</li>
+</ul>
+</div>
+</div>
 
 
 </section>
