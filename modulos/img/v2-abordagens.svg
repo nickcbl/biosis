@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="378" height="430" viewBox="0 0 378 430">
+<defs>
+</defs>
+<metadata id="diagram-manifest" data-schema-version="1.0"><![CDATA[{"groups":[{"color":"#4CAF50","id":"top","label":"Top-down"},{"color":"#FF9800","id":"mid","label":"Middle-out"},{"color":"#2196F3","id":"bot","label":"Bottom-up"}],"height":430,"match":{"flags":"i","target":"fqProcessName","type":"regex"},"nodes":[{"groups":["top"],"h":12.0,"id":"A","label":"Dados Globais","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":80.0,"y":120.0},{"groups":["top"],"h":12.0,"id":"B","label":"Redes","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":198.5,"y":120.0},{"groups":["top"],"h":12.0,"id":"C","label":"Vias","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":258.5,"y":120.0},{"groups":["top"],"h":12.0,"id":"D","label":"Moléculas","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":318.5,"y":120.0},{"groups":["bot"],"h":12.0,"id":"D2","label":"Moléculas","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":80.0,"y":288.0},{"groups":["bot"],"h":12.0,"id":"C2","label":"Vias","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":198.5,"y":288.0},{"groups":["bot"],"h":12.0,"id":"B2","label":"Redes","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":258.5,"y":288.0},{"groups":["bot"],"h":12.0,"id":"A2","label":"Dados Globais","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":318.5,"y":288.0},{"groups":["mid"],"h":12.0,"id":"C3","label":"Vias","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":80.0,"y":200.0},{"groups":["mid"],"h":12.0,"id":"B3","label":"Redes","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":198.5,"y":160.0},{"groups":["mid"],"h":12.0,"id":"D3","label":"Moléculas","patterns":[],"r":6.0,"rx":6.0,"w":12.0,"x":198.5,"y":240.0}],"regions":[],"title":"Abordagens em Biologia de Sistemas","version":"1.0","width":378}]]></metadata>
+<style>.nf-metro-title { fill: var(--nfm-map-title-color, #111111); }
+.nf-metro-station-label { fill: var(--nfm-map-label-color, #333333); }
+.nf-metro-section-box { fill: var(--nfm-map-section-fill, #ededed); stroke: var(--nfm-map-section-stroke, #e6e6e6); }
+.nf-metro-section-label { fill: var(--nfm-map-section-label-color, #666666); }
+.nf-metro-group-label { fill: var(--nfm-map-section-label-color, #666666); }
+.nf-metro-group-underline { stroke: var(--nfm-map-section-label-color, #666666); }
+.nf-metro-legend-bg { fill: var(--nfm-map-legend-bg, rgba(255, 255, 255, 0.8)); }
+.nf-metro-legend-text { fill: var(--nfm-map-legend-text-color, #333333); }
+.nf-metro-marker-stroke { stroke: var(--nfm-map-marker-stroke, #333333); }
+.nf-metro-label-halo { fill: var(--nfm-map-bg, #ffffff); stroke: var(--nfm-map-bg, #ffffff); }</style>
+<style>@media (prefers-color-scheme: dark) {
+    .nf-metro-section-label { fill: #d0d0d0; }
+    .nf-metro-section-num-circle { fill: #777777; }
+    .nf-metro-title { fill: #ffffff; }
+}
+</style>
+<text x="60.0" y="30.0" font-size="26.0" fill="#111111" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" class="nf-metro-title">Abordagens em Biologia de Sistemas</text>
+<path d="M80.0,288.0 L198.5,288.0" stroke="#2196F3" stroke-width="3.0" stroke-linecap="round" class="metro-line-bot" data-line-id="bot" />
+<path d="M198.5,288.0 L258.5,288.0" stroke="#2196F3" stroke-width="3.0" stroke-linecap="round" class="metro-line-bot" data-line-id="bot" />
+<path d="M258.5,288.0 L318.5,288.0" stroke="#2196F3" stroke-width="3.0" stroke-linecap="round" class="metro-line-bot" data-line-id="bot" />
+<path d="M80.0,200.0 L88.0,200.0 Q98.0,200.0,104.0,192.0 L122.0,168.0 Q128.0,160.0,138.0,160.0 L198.5,160.0" stroke="#FF9800" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-mid" data-line-id="mid" />
+<path d="M80.0,200.0 L88.0,200.0 Q98.0,200.0,104.0,208.0 L122.0,232.0 Q128.0,240.0,138.0,240.0 L198.5,240.0" stroke="#FF9800" stroke-width="3.0" fill="none" stroke-linecap="round" stroke-linejoin="round" class="metro-line-mid" data-line-id="mid" />
+<path d="M80.0,120.0 L198.5,120.0" stroke="#4CAF50" stroke-width="3.0" stroke-linecap="round" class="metro-line-top" data-line-id="top" />
+<path d="M198.5,120.0 L258.5,120.0" stroke="#4CAF50" stroke-width="3.0" stroke-linecap="round" class="metro-line-top" data-line-id="top" />
+<path d="M258.5,120.0 L318.5,120.0" stroke="#4CAF50" stroke-width="3.0" stroke-linecap="round" class="metro-line-top" data-line-id="top" />
+<g class="nf-metro-station-group" data-node-id="A" data-node-cx="80.0" data-node-cy="120.0" data-node-r="6.0" data-node-groups="top" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="74.0" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="A" data-station-lines="top" data-station-label="Dados Globais" />
+</g>
+<g class="nf-metro-station-group" data-node-id="B" data-node-cx="198.5" data-node-cy="120.0" data-node-r="6.0" data-node-groups="top" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="192.5" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="B" data-station-lines="top" data-station-label="Redes" />
+</g>
+<g class="nf-metro-station-group" data-node-id="C" data-node-cx="258.5" data-node-cy="120.0" data-node-r="6.0" data-node-groups="top" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="252.5" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="C" data-station-lines="top" data-station-label="Vias" />
+</g>
+<g class="nf-metro-station-group" data-node-id="D" data-node-cx="318.5" data-node-cy="120.0" data-node-r="6.0" data-node-groups="top" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="312.5" y="114.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="D" data-station-lines="top" data-station-label="Moléculas" />
+</g>
+<g class="nf-metro-station-group" data-node-id="D2" data-node-cx="80.0" data-node-cy="288.0" data-node-r="6.0" data-node-groups="bot" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="74.0" y="282.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="D2" data-station-lines="bot" data-station-label="Moléculas" />
+</g>
+<g class="nf-metro-station-group" data-node-id="C2" data-node-cx="198.5" data-node-cy="288.0" data-node-r="6.0" data-node-groups="bot" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="192.5" y="282.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="C2" data-station-lines="bot" data-station-label="Vias" />
+</g>
+<g class="nf-metro-station-group" data-node-id="B2" data-node-cx="258.5" data-node-cy="288.0" data-node-r="6.0" data-node-groups="bot" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="252.5" y="282.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="B2" data-station-lines="bot" data-station-label="Redes" />
+</g>
+<g class="nf-metro-station-group" data-node-id="A2" data-node-cx="318.5" data-node-cy="288.0" data-node-r="6.0" data-node-groups="bot" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="312.5" y="282.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="A2" data-station-lines="bot" data-station-label="Dados Globais" />
+</g>
+<g class="nf-metro-station-group" data-node-id="C3" data-node-cx="80.0" data-node-cy="200.0" data-node-r="6.0" data-node-groups="mid" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="74.0" y="194.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="C3" data-station-lines="mid" data-station-label="Vias" />
+</g>
+<g class="nf-metro-station-group" data-node-id="B3" data-node-cx="198.5" data-node-cy="160.0" data-node-r="6.0" data-node-groups="mid" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="192.5" y="154.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="B3" data-station-lines="mid" data-station-label="Redes" />
+</g>
+<g class="nf-metro-station-group" data-node-id="D3" data-node-cx="198.5" data-node-cy="240.0" data-node-r="6.0" data-node-groups="mid" data-node-w="12.0" data-node-h="12.0" data-node-rx="6.0">
+<rect x="192.5" y="234.0" width="12.0" height="12.0" rx="6.0" ry="6.0" fill="#ffffff" stroke="#333333" stroke-width="2.0" class="nf-metro-station" data-station-id="D3" data-station-lines="mid" data-station-label="Moléculas" />
+</g>
+<text x="80.0" y="131.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Dados Globais</text>
+<text x="80.0" y="131.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="A" class="nf-metro-station-label">Dados Globais</text>
+<text x="80.0" y="211.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Vias</text>
+<text x="80.0" y="211.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="C3" class="nf-metro-station-label">Vias</text>
+<text x="80.0" y="299.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Moléculas</text>
+<text x="80.0" y="299.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="D2" class="nf-metro-station-label">Moléculas</text>
+<text x="198.5" y="106.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Redes</text>
+<text x="198.5" y="106.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="B" class="nf-metro-station-label">Redes</text>
+<text x="198.5" y="146.6" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Redes</text>
+<text x="198.5" y="146.6" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="B3" class="nf-metro-station-label">Redes</text>
+<text x="198.5" y="226.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Moléculas</text>
+<text x="198.5" y="226.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="D3" class="nf-metro-station-label">Moléculas</text>
+<text x="198.5" y="274.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Vias</text>
+<text x="198.5" y="274.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="C2" class="nf-metro-station-label">Vias</text>
+<text x="258.5" y="131.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Vias</text>
+<text x="258.5" y="131.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="C" class="nf-metro-station-label">Vias</text>
+<text x="258.5" y="299.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Redes</text>
+<text x="258.5" y="299.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="B2" class="nf-metro-station-label">Redes</text>
+<text x="318.5" y="106.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Moléculas</text>
+<text x="318.5" y="106.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="D" class="nf-metro-station-label">Moléculas</text>
+<text x="318.5" y="274.0" font-size="14.0" fill="#ffffff" stroke="#ffffff" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Dados Globais</text>
+<text x="318.5" y="274.0" font-size="14.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="A2" class="nf-metro-station-label">Dados Globais</text>
+<rect x="60.0" y="310.0" width="148.0" height="96.0" rx="6" ry="6" fill="rgba(255, 255, 255, 0.8)" class="nf-metro-legend-bg" />
+<path d="M72.0,334.0 L96.0,334.0" stroke="#4CAF50" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="334.0" font-size="16.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Top-down</text>
+<path d="M72.0,358.0 L96.0,358.0" stroke="#FF9800" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="358.0" font-size="16.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Middle-out</text>
+<path d="M72.0,382.0 L96.0,382.0" stroke="#2196F3" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="382.0" font-size="16.0" fill="#333333" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Bottom-up</text>
+<text x="348.0" y="422.0" font-size="8" fill="rgba(150, 150, 150, 0.6)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="end">created with nf-metro v1.1.0</text>
+</svg>

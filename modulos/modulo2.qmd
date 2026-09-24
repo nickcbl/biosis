@@ -114,6 +114,8 @@ O grafo G é um conjunto formado por um conjunto de vértices V e um conjunto de
   - Proteínas
   - ...
 
+![](img/02-Grafos_6.jpg){width="24%"} ![](img/02-Grafos_7.jpg){width="24%"} ![](img/02-Grafos_8.jpg){width="24%"} ![](img/02-Grafos_9.jpg){width="24%"}
+
 ::: {.callout-tip}
 Sua representação gráfica pode ser um ponto ou um círculo que pode, ou não, conter algum símbolo interno.
 :::
@@ -254,6 +256,12 @@ O layout não altera a estrutura matemática do grafo, mas influencia diretament
 | Circular | Vértices em um círculo | Interações proteína-DNA para destacar elementos centrais |
 | Radial | Vértices dispostos em anéis concêntricos | Árvores filogenéticas (evolução de patógenos) |
 
+### Force-Directed e Hierárquico
+![Force-Directed](img/02-Grafos_28.png){width="49%" style="object-fit: contain;"} ![Hierárquico](img/02-Grafos_29.png){width="49%" style="object-fit: contain;"}
+
+### Circular e Radial
+![Circular](img/02-Grafos_30.png){width="49%" style="object-fit: contain;"} ![Radial](img/02-Grafos_31.png){width="49%" style="object-fit: contain;"}
+
 ::: {.callout-note}
 **Ferramentas para layout de grafos:**
 
@@ -295,6 +303,7 @@ Dois grafos G₁ = (V₁, E₁) e G₂ = (V₂, E₂) são **isomorfos** se exis
 - Em outras palavras: os grafos têm a mesma "forma" ou topologia, mas podem diferir nos rótulos dos vértices/arestas.
 
 <center>![](imagens/02-img14.png)</center>
+<center>![](img/02-Grafos_32.png)</center>
 
 **Por que o isomorfismo é importante na Biologia?**
 

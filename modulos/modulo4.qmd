@@ -19,13 +19,20 @@ editor: source
 
 As entidades biológicas e suas propriedades possuem diferentes **níveis organizacionais** e diferentes **escalas de tempo**.
 
+![](img/04-Modelos_0.png){.r-stretch fig-align="center"}
+
 ---
 
 # Evolução e Organismos Modelo
 
 ## Evolução
 - As entidades biológicas evoluem.
+
+![](img/04-Modelos_1.png){fig-align="center"}
+
 - Uma consequência da evolução é a **similaridade da biologia entre organismos**, o que favorece o uso de **organismos modelo** e a transferência crítica de conhecimento obtido em um organismo para outro.
+
+![](img/04-Modelos_2.png){fig-align="center"}
 
 ## Aplicações
 - Previsão da função de proteínas similares.
@@ -66,8 +73,16 @@ Modelos são sempre **aproximações** do real, gerando comportamentos ou respos
 
 ### Exemplos
 - Modelo gráfico de vias metabólicas.
+
+![](img/04-Modelos_3.png){.r-stretch fig-align="center"}
+
 - Modelo de metabolismo em rede.
+
+![](img/04-Modelos_4.png){.r-stretch fig-align="center"}
+
 - Modelo matemático de crescimento bacteriano (ex.: *BacSim* — Kreft, Booth & Wimpenny, 1998, *Microbiology*, 144(12), 3275–3287).
+
+![](img/04-Modelos_5.png){.r-stretch fig-align="center"}
 
 ---
 
@@ -100,9 +115,16 @@ A modelagem é um processo **subjetivo e seletivo**. Um modelo representa apenas
 Os modelos podem ser gerais ou específicos:
 
 - **Modelos Gerais**: simplificados e amplamente aplicáveis, focando em princípios universais (ex.: o modelo cinético de **Michaelis-Menten**, $v = \dfrac{d[P]}{dt} = \dfrac{V_{max}[S]}{K_m + [S]}$; redes de interação proteína-proteína conservadas em múltiplas espécies). Capturam padrões gerais, mas omitem detalhes específicos.
+
+![](img/04-Modelos_9.png){.r-stretch fig-align="center"}
+
 - **Modelos Específicos**: detalhados e contextualizados, incorporando parâmetros e condições particulares de um sistema biológico (ex.: via metabólica sob hipóxia; modelos de estrutura de proteínas; modelos de deterioração de mitocôndrias). Buscam representar fielmente um cenário experimental concreto.
 
+![](img/04-Modelos_11.png){.r-stretch fig-align="center"}
+
 > “Essencialmente, todos os modelos estão errados, mas alguns podem ser úteis” — George Box
+
+![](img/04-Modelos_12.png)
 
 ---
 
@@ -141,6 +163,9 @@ Modelos só possuem valor real quando podem ser comparados com experimentos e, p
 ## Noções Básicas de Modelos Computacionais
 
 ### Escopo do Modelo
+
+![](img/04-Modelos_13.png){.r-stretch fig-align="center"}
+
 Um modelo pode descrever somente alguns aspectos do sistema, e todas as outras propriedades podem ser simplificadas ou negligenciadas totalmente.
 
 - **Exemplo**: o meio celular e a concentração de metabólitos secundários.
@@ -217,6 +242,8 @@ Basicamente, duas coisas podem influenciar o comportamento de um modelo:
 
 ### Quanto à Natureza
 
+![](img/04-0Modelos_14.png)
+
 **Modelo estrutural ou qualitativo**: representação que descreve os componentes de um sistema biológico (genes, proteínas, metabólitos) e suas interações ou relações, sem quantificar dinâmicas temporais ou valores numéricos. Seu foco está na topologia da rede (quem interage com quem) e na lógica das interações (ativação, inibição, regulação), permitindo explorar propriedades emergentes como modularidade, robustez e fluxo de informação.
 
 **Modelo discreto**: tempo, estado e espaço assumem valores em um conjunto enumerável (ex.: números inteiros, categorias finitas).
@@ -292,6 +319,8 @@ Uma parte importante da Biologia de Sistemas é a integração de dados, devido 
 </sbml>
 ```
 
+![](img/04-Modelos_15.png){.r-stretch fig-align="center"}
+
 ---
 
 ## Modelos de Grafos
@@ -309,6 +338,9 @@ Uma parte importante da Biologia de Sistemas é a integração de dados, devido 
   - Não possui modularidade.
 - Reproduz o efeito de **mundo pequeno**.
 
+![](img/04-Modelos_16.png){.r-stretch fig-align="center"}
+![](img/04-Modelos_17.png){.r-stretch fig-align="center"}
+
 ### Comparação: Redes Aleatórias vs. Biológicas
 
 | Característica | Rede Erdös-Rényi (Aleatória) | Redes Reais (Biológicas) |
@@ -323,10 +355,14 @@ Uma parte importante da Biologia de Sistemas é a integração de dados, devido 
 
 É um modelo de rede que gera redes com alto agrupamento local (modularidade) e baixo caminho médio (efeito "mundo pequeno"). Imagine uma rede onde a maioria das conexões é com vizinhos próximos (formando "panelinhas" ou clusters), mas com alguns poucos atalhos que conectam grupos distantes.
 
+![](img/04-Modelos_20.png)
+
 **Como é construído?**
 
 1. **Rede regular inicial**: os vértices são dispostos em um anel (ou grade), cada um conectado aos seus *k* vizinhos mais próximos (ex.: k = 2 para cada lado). Isso cria clusters locais muito coesos.
 2. **Reconexão aleatória**: com uma probabilidade *p*, cada aresta é reatribuída a um vértice escolhido aleatoriamente em toda a rede. Essas reconexões aleatórias criam atalhos entre clusters distantes.
+
+![](img/04-Modelos_21.png)
 
 **Aplicação — espalhamento de doenças infecciosas:**
 
@@ -354,6 +390,8 @@ O modelo é baseado em dois princípios simples que imitam o crescimento de rede
   ::: {.callout}
   Em uma rede de interação, uma proteína que já tem muitas conexões (um *hub*) é mais provável de ser recrutada para novas funções e interações do que uma proteína pouco conectada.
   :::
+
+![](img/04-Modelos_22.png){.r-stretch fig-align="center"}
 
 **Resultado: redes livres de escala.** Essas duas regras simples geram redes com uma distribuição de graus que segue uma lei de potência. Isso significa que:
 

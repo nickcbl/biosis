@@ -79,6 +79,8 @@ O fluxo típico de obtenção de genes a partir do DNA passa por quatro etapas:
 
 # Microarranjos (Microarray)
 
+![https://microbenotes.com/dna-microarray/](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_0.png){fig-align="center"}
+
 O microarranjo de DNA é uma técnica que permite medir simultaneamente os níveis de expressão de milhares de transcritos, por hibridização com sondas conhecidas.
 
 ## Fluxo do experimento
@@ -89,7 +91,11 @@ O microarranjo de DNA é uma técnica que permite medir simultaneamente os níve
 5. Ligação de fluoróforo
 6. Hibridização
 
+![Imagem: Wikipedia](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_1.png){fig-align="center"}
+
 # RNA-Seq
+
+![Imagem: Wikipedia](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_4.png)
 
 O RNA-Seq utiliza sequenciamento de nova geração (NGS) para medir diretamente a abundância de transcritos, sem depender de sondas pré-definidas.
 
@@ -119,6 +125,8 @@ O RNA-Seq utiliza sequenciamento de nova geração (NGS) para medir diretamente 
 
 ## Co-Imunoprecipitação (Co-IP)
 
+![https://www.assaygenie.com/co-immunoprecipitation-co-ip-protocol](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_5.png)
+
 **Princípio básico:** técnica clássica para isolar complexos proteicos nativos de uma amostra biológica. Funciona como um *pull-down*: usa um anticorpo específico para "pescar" uma proteína-alvo (isca) e todas as proteínas que estão firmemente ligadas a ela.
 
 **Como funciona:**
@@ -147,12 +155,18 @@ A base para a imunoprecipitação da cromatina é fixar o DNA às proteínas da 
 - Corte em fragmentos viáveis.
 - Enriquecimento para fragmentos de cromatina de interesse por imunoprecipitação, com anticorpos específicos para proteínas da cromatina ou para modificações nessas proteínas.
 
+![https://www.cellsignal.com/applications/chip-and-chip-seq/regulation-expression-in-cell-and-tissue](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_7.png)
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_8.png){fig-align="center"}
+
 **Variantes:**
 
 1. **ChIP-PCR** (obsoleto): a etapa final de detecção usa PCR convencional (eletroforese em gel); o resultado é visualizado como uma "banda" em um gel. É apenas qualitativo (mostra se a região está presente, mas não o quanto), pouco sensível e propenso a artefatos — foi amplamente substituído pelo ChIP-qPCR.
 2. **ChIP-qPCR** (*Real-Time Quantitative PCR*): usa PCR quantitativo em tempo real para medir com precisão a quantidade de uma região genômica específica presente na amostra imunoprecipitada. É altamente sensível e quantitativo, permitindo comparar o enriquecimento entre condições. É o método ideal para **validar** descobertas feitas por ChIP-seq ou ChIP-chip.
 3. **ChIP-chip** (*Chromatin Immunoprecipitation on Chip*): o DNA purificado do ChIP é hibridizado em um microarranjo (chip) com sondas representando milhares de regiões genômicas conhecidas. Foi a primeira tecnologia a permitir perfis *genome-wide*, mas só detecta ligações em regiões com sonda no chip, tem resolução espacial limitada e faixa dinâmica menor comparada ao sequenciamento — quase totalmente substituída pelo ChIP-seq.
 4. **ChIP-seq** (*Chromatin Immunoprecipitation followed by Sequencing* — padrão-ouro atual): o DNA purificado do ChIP é sequenciado de forma massiva (NGS); todos os fragmentos são lidos e mapeados computacionalmente ao genoma. Vantagens: é *genome-wide* e imparcial (não precisa de conhecimento prévio, descobre novos locais de ligação), tem alta resolução (mapeamento com precisão de base única) e ampla faixa dinâmica.
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_9.png)
 
 ## Purificação por Afinidade
 
@@ -163,6 +177,8 @@ Técnica de captura de material biológico via enriquecimento específico com um
 - Lipídios
 - Peptídeos ou proteínas (incluindo anticorpos)
 
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_10.png)
+
 ## Espectrometria de Massa
 
 Técnica analítica poderosa, utilizada para identificar e quantificar compostos em uma amostra, além de elucidar sua estrutura e pureza. Baseia-se em três etapas fundamentais:
@@ -171,7 +187,12 @@ Técnica analítica poderosa, utilizada para identificar e quantificar compostos
 - **Separação**: os íons são separados no espaço ou no tempo com base em sua relação massa-carga (m/z) dentro de um analisador de massas.
 - **Detecção**: os íons separados são detectados, gerando um espectro que representa a abundância de cada íon em função de sua relação m/z.
 
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_11.png)
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_12.png){fig-align="center"}
+
 **AP-MS** (Purificação por Afinidade acoplada a Espectrometria de Massa): combina a captura seletiva de um complexo proteico via purificação por afinidade com a identificação de todos os seus componentes por espectrometria de massa.
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_14.png){width="49%"} ![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_13.png){width="49%"}
 
 ## Duplo-Híbrido em Levedura (Y2H)
 
@@ -194,6 +215,8 @@ Essas duas partes são fusionadas a proteínas de interesse: a proteína X é fu
 
 Se não houver interação, o gene repórter não é ativado e nenhum sinal é produzido.
 
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_15.png){width="49%"} ![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_16.png){width="49%"}
+
 **Aplicações**: a principal aplicação do Y2H é a descoberta em larga escala de interações proteína-proteína, sendo uma ferramenta fundamental para mapear redes de interação em biologia celular e sistemas.
 
 ---
@@ -201,6 +224,8 @@ Se não houver interação, o gene repórter não é ativado e nenhum sinal é p
 # Conceitos Computacionais
 
 ## Interólogos
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_17.png){fig-align="center"}
 
 Um interólogo é uma interação conservada entre um par de proteínas que possuem homólogos interativos em outro organismo. Se duas proteínas (A e B) interagem em um organismo, e seus homólogos (A' e B') também interagem em outro organismo, então a interação A-B é um interólogo da interação A'-B'.
 
@@ -228,12 +253,18 @@ Os números EC são um esquema de classificação numérica para as enzimas, bas
 # Bancos de Dados
 
 ## Pathguide
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_19.png)
+
 - Contém informação sobre **702 recursos** sobre vias biológicas e interações moleculares.
 - Os bancos de dados listados são de acesso livre.
 - Alguns suportam linguagens de padronização e integração como BioPAX, CellML, PSI-MI ou SBML.
 - [Pathguide](https://pathguide.org/)
 
 ## KEGG
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_20.png)
+
 - Banco de dados de recursos biológicos.
 - Interpreta funções e processos complexos (de alto nível) em sistemas biológicos, como células, organismos e ecossistemas.
 - Integra e analisa dados moleculares, interpretando dados de larga escala (ex.: sequenciamento de genoma e outras tecnologias ômicas de alto rendimento).
@@ -241,36 +272,54 @@ Os números EC são um esquema de classificação numérica para as enzimas, bas
 - [KEGG](https://www.genome.jp/kegg/)
 
 ## Gene Ontology (GO)
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_21.png)
+
 - **Objetivo principal**: desenvolver um modelo computacional abrangente de sistemas biológicos, cobrindo todos os níveis (molecular, celular, de organismo) e abrangendo múltiplas espécies.
 - É a maior e mais importante fonte de informações sobre as funções de genes.
 - Serve como base fundamental para a análise e interpretação de dados de experimentos de larga escala (ômicos) em pesquisa biomédica.
 - [Gene Ontology](https://geneontology.org/)
 
 ## MetaCyc
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_22.png)
+
 - Banco de dados curado de vias metabólicas experimentalmente elucidadas de todos os domínios da vida.
 - Contém **2.666 vias** de **2.960 organismos diferentes**, cobrindo metabolismo primário e secundário, metabólitos, reações, enzimas e genes associados.
 - **Aplicações**: enciclopédia on-line do metabolismo; predição de vias metabólicas em genomas sequenciados; apoio à engenharia metabólica via banco de dados de enzimas; o banco de dados *Metabolite* apoia a pesquisa metabolômica.
 - [MetaCyc](https://metacyc.org/)
 
 ## TRANSFAC
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_23.png)
+
 - Contém informação sobre fatores de transcrição, seus sítios de ligação no genoma e seus perfis de ligação.
 - Banco de dados **curado**.
 - **Acesso**: pago.
 - [TRANSFAC](https://genexplain.com/transfac-product/)
 
 ## STRING
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_24.png)
+
 - Banco de dados de interações proteína-proteína conhecidas ou preditas.
 - Interações diretas (físicas) e indiretas (funcionais).
 - As interações podem vir de predição computacional, de transferência de conhecimento entre organismos, ou de interações descritas em outros bancos de dados.
 - [STRING](https://string-db.org/)
 
 ## Reactome
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_25.png)
+
 - **Acesso**: aberto (*open-source*).
 - Curado manualmente e revisado por pares.
 - Fornece ferramentas intuitivas de bioinformática para visualização, interpretação e análise do conhecimento de vias, apoiando a pesquisa básica e clínica, análise do genoma, modelagem, biologia de sistemas e educação.
 - [Reactome](https://reactome.org/)
 
 ## IntAct
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_26.png)
+
 - **Acesso**: aberto.
 - Banco de dados e ferramentas de análise.
 - Interações derivadas da literatura de maneira curada.
@@ -278,6 +327,9 @@ Os números EC são um esquema de classificação numérica para as enzimas, bas
 - [IntAct](https://www.ebi.ac.uk/intact/home)
 
 ## BioGRID
+
+![](img/05-Obten%C3%A7%C3%A3o-de-dados-e-banco-de-dados_27.png)
+
 - Dados de interação, curados.
 - **Estatísticas**: 69.031 publicações; 1.676.780 interações proteicas e genéticas; 28.093 associações químicas; 726.378 modificações pós-traducionais.
 - **Acesso**: livre.

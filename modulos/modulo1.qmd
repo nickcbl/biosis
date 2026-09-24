@@ -80,11 +80,15 @@ Modelos dinâmicos do ciclo celular em leveduras (Tyson et al., 2002, *Current B
 
 A Biologia de Sistemas também pode ser entendida como um **fenômeno sócio-científico**, definido pela estratégia de integrar dados complexos da interação em sistemas biológicos, provenientes de diversas fontes, usando ferramentas e pessoal interdisciplinar.
 
+![Disciplinas associadas à Biologia de Sistemas](img/Picture1.png){.r-stretch fig-align="center"}
+
 ---
 
 # Histórico
 
 ## Ludwig von Bertalanffy
+
+![Ludwig von Bertalanffy](img/01-Historico-e-Conceitos-0.png){.r-stretch fig-align="center"}
 
 **Ludwig von Bertalanffy**, biólogo austríaco, desenvolveu a **Teoria Geral dos Sistemas** em trabalhos publicados entre **1950 e 1968**, formando a base conceitual da Biologia de Sistemas.
 
@@ -110,9 +114,15 @@ A Biologia de Sistemas também pode ser entendida como um **fenômeno sócio-cie
 
 ## Alan Hodgkin & Andrew Huxley (1952)
 
+![**Alan Hodgkin**](img/01-Historico-e-Conceitos-1.png){.r-stretch fig-align="center"}
+![**Andrew Huxley**](img/01-Historico-e-Conceitos-2.png){.r-stretch fig-align="center"}
+
 Em 1952, Hodgkin e Huxley publicaram um marco da Biologia de Sistemas: um **modelo matemático quantitativo** que descreve a geração e propagação do **potencial de ação** em neurônios do axônio gigante da lula (*Loligo pealei*).
 
 - **Metodologia**: combinaram experimentos eletrofisiológicos (técnica de *voltage clamp*) com **equações diferenciais**, modelando a dinâmica dos canais iônicos de sódio (Na⁺) e potássio (K⁺) e prevendo como variações de voltagem controlam o fluxo de íons.
+
+![Impacto científico do modelo de Hodgkin-Huxley](img/01-Historico-e-Conceitos-3.png){.r-stretch fig-align="center"}
+
 - **Impacto científico**:
   - Fundamentaram a **neurociência computacional** — as equações de Hodgkin-Huxley são a base para simulações de redes neuronais modernas, incluindo estudos sobre epilepsia e Parkinson (Dayan & Abbott, 2001).
   - Inspiraram o desenvolvimento de interfaces cérebro-máquina e próteses neurais (Nicolelis, 2003).
@@ -120,6 +130,8 @@ Em 1952, Hodgkin e Huxley publicaram um marco da Biologia de Sistemas: um **mode
   - Modelos derivados são usados hoje para otimizar a estimulação cerebral profunda em pacientes com Parkinson (Mainen & Sejnowski, 1996).
 
 ## Alan Turing (1952)
+
+![Alan Turing](img/01-Historico-e-Conceitos-4.png){.r-stretch fig-align="center"}
 
 Matemático inglês, Turing criou o **modelo de reação-difusão**, propondo que padrões biológicos como listras (pelagem de animais) ou manchas (conchas de moluscos) surgem da interação entre dois morfógenos (moléculas sinalizadoras) com propriedades distintas:
 
@@ -140,11 +152,17 @@ Aplicado hoje em **engenharia de tecidos** e **biologia sintética**.
 
 ## Denis Noble (1960)
 
+![Denis Noble](img/01-Historico-e-Conceitos-5.png){width="100%" height="800px" style="object-fit: contain;"}
+
 Biólogo inglês; sua principal contribuição foi o **modelo matemático da função cardíaca** (1960). Usou modelos de computador de órgãos e sistemas de órgãos para interpretar a função molecular ao nível de todo o organismo, utilizando supercomputadores para a criação de um "coração virtual". Contribuiu para difundir internacionalmente o uso de modelos computacionais para simular quantitativamente funções fisiológicas ao nível do genoma.
+
+![*The Music of Life: Biology Beyond the Genome*](img/01-Historico-e-Conceitos-6.png){width="100%" height="800px" style="object-fit: contain;"}
 
 Em seu livro *The Music of Life: Biology Beyond the Genome* (2006), propôs uma mudança de paradigma — do reducionismo da Biologia Molecular à visão multinível e sistêmica da Biologia de Sistemas — introduzindo o conceito de ***middle-out***, em contraponto ao *bottom-up* e ao *top-down*.
 
 ## Mihajlo Mesarović (1966)
+
+![Mihajlo Mesarović](img/01-Historico-e-Conceitos-7.png){width="100%" height="800px" style="object-fit: contain;"}
 
 Engenheiro sérvio-americano e teórico de sistemas. Em 1966, publicou o artigo seminal *"Systems Theory and Biology"* (Springer-Verlag), no qual propôs a Biologia de Sistemas como uma **disciplina formal**, aplicando a Teoria Geral dos Sistemas (de Bertalanffy) à biologia.
 
@@ -170,6 +188,9 @@ A disciplina passou por dois momentos distintos, impulsionados por avanços tecn
 O número de artigos com "Biologia de Sistemas" no título aumentou **20 vezes entre 2000 e 2010** (PubMed).
 
 ## Hiroaki Kitano: pioneiro na popularização da Biologia de Sistemas
+
+![Hiroaki Kitano](img/01-Historico-e-Conceitos-8.png){fig-align="center"}
+![Hiroaki Kitano](img/01-Historico-e-Conceitos-9.png){fig-align="center"}
 
 **Contexto da popularização (2002)**: Kitano foi autor do artigo *"Systems Biology: A Brief Overview"* (*Science*, 2002), que definiu os pilares da disciplina — a Biologia de Sistemas busca entender os sistemas vivos como redes dinâmicas de interações, integrando modelagem computacional e experimentos (DOI: 10.1126/science.1069492). Fundou também o **Systems Biology Institute (SBI)**, instituto líder em pesquisas interdisciplinares em Tóquio, Japão, focado em modelagem de redes biológicas e inteligência artificial aplicada à biologia.
 

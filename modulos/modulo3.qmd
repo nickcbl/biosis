@@ -35,17 +35,25 @@ Onde:
 - Redes de telecomunicações
 - **Redes biológicas**
 
+![](img/03-Redes-Biologicas_0.png)
+
 ---
 
 # O que são redes biológicas?
 
 **Exemplo introdutório — rede de predação:** carnaúba por inseto, ilustrando como até uma relação ecológica simples (predador–presa) pode ser representada como uma rede.
 
+![Rede de predação: carnaúba por inseto](img/03-Redes-Biologicas_1.png){.r-stretch fig-align="center"}
+
 **Formalmente**, redes biológicas são redes em que os elementos são **dados biológicos**. São abstrações computacionais/matemáticas baseadas em dados experimentais.
 
 **E quais são os dados biológicos?** São dados sobre animais, plantas, microorganismos, genes, proteínas, regulações, etc. — que tenham alguma relação entre si.
 
-Dependendo do tipo de dado e das relações, podemos ter diferentes tipos de redes biológicas (Jeong et al., *Nature*, 2001; Rual et al., *Nature*, 2005).
+Dependendo do tipo de dado e das relações, podemos ter diferentes tipos de redes biológicas.
+
+![](img/03-Redes-Biologicas_2.png){.r-stretch fig-align="center"}
+
+(Jeong et al., *Nature*, 2001; Rual et al., *Nature*, 2005).
 
 ## Exemplos de redes biológicas
 
@@ -55,6 +63,8 @@ Dependendo do tipo de dado e das relações, podemos ter diferentes tipos de red
 - **Nós**: substratos e produtos.
 - **Arestas**: reações metabólicas convertendo um composto em outro.
 - **Hiperaresta**: conceito avançado para representar reações com múltiplos substratos/produtos.
+
+![](img/03-Redes-Biologicas_3.png){.r-stretch fig-align="center"}
 
 *(Zhang, Cheng & Hua, Qiang, 2015. Applications of Genome-Scale Metabolic Models in Biotechnology and Systems Medicine. Frontiers in Physiology, 6.)*
 
@@ -66,6 +76,8 @@ Relação entre transcritos expressos ou reprimidos concomitantemente. Genes co-
 - Ser membros da mesma via;
 - Codificar proteínas do mesmo complexo proteico.
 
+![](img/03-Redes-Biologicas_4.png){style="width: 100%; height: auto; object-fit: contain;"}
+
 *(Prieto, C.; Risueño, A.; Fontanillo, C.; De Las Rivas, J. Human gene co-expression landscape: confident network derived from tissue transcriptomic profiles.)*
 
 ### Redes de Interação Proteína-Proteína
@@ -73,13 +85,24 @@ Relação entre transcritos expressos ou reprimidos concomitantemente. Genes co-
 - Proteínas interagem formando complexos ou participando de vias comuns.
 - A interação entre proteínas pode significar a formação de um complexo proteico, ou proteínas que funcionam no mesmo processo celular.
 
+![](img/03-Redes-Biologicas_5.png){.r-stretch fig-align="center"}
+
 ---
 
 ## Propriedades Globais de Redes Complexas
 
 ### Distância e Caminho Mais Curto (*Shortest Path*)
-- **Distância**: número de arestas em um caminho mais curto (*shortest path*) conectando dois vértices. Dos caminhos possíveis entre um vértice e outro, o menor caminho é aquele com o menor número de vértices ou arestas atravessados da origem ao destino.
+- **Distância**: número de arestas em um caminho mais curto (*shortest path*) conectando dois vértices.
+
+![](img/03-Redes-Biologicas_6.png){.r-stretch fig-align="center"}
+
+- Dos caminhos possíveis entre um vértice e outro, o menor caminho é aquele com o menor número de vértices ou arestas atravessados da origem ao destino.
+
+![](img/03-Redes-Biologicas_7.png){.r-stretch fig-align="center"}
+
 - **Diâmetro**: a maior distância entre qualquer par de vértices. Para encontrar o diâmetro de um grafo, primeiro encontra-se o caminho mais curto entre cada par de vértices; o maior comprimento entre esses caminhos é o diâmetro do grafo.
+
+![](img/03-Redes-Biologicas_8.png){.r-stretch fig-align="center"}
 
 ### Peso (*Weight Factor*)
 Pesos são atributos ou valores que podem ser atribuídos às arestas de um grafo. Quando o grafo possui arestas com pesos, ele é chamado de **grafo valorado ou ponderado**.
@@ -89,6 +112,9 @@ Exemplos de possíveis valores atribuídos a arestas em redes biológicas:
 - Fluxo
 - Massa
 - Probabilidade
+
+![](img/03-Redes-Biologicas_9.png){.r-stretch fig-align="center"}
+![](img/03-Redes-Biologicas_10.png){.r-stretch fig-align="center"}
 
 ---
 
@@ -125,7 +151,12 @@ Um nó com alta centralidade de proximidade pode alcançar todos os outros nós 
 **Exemplo de cálculo** (nó 1, distâncias até os demais nós): 1→2: 1; 1→3: 2; 1→4: 2; 1→5: 2; 1→6: 3; 1→7: 1 — média das distâncias: **1,83**.
 
 ### Centralidade de Intermediação (*Betweenness Centrality*)
+
+![](img/03-Redes-Biologicas_11.png){style="width: 100%; height: auto; object-fit: contain;"}
+
 Quantifica o número de vezes que um vértice age como uma ponte ao longo do caminho mais curto entre dois outros nós — ou seja, quantas vezes um vértice *x* faz parte dos menores caminhos entre os outros vértices do grafo.
+
+![](img/03-Redes-Biologicas_12.png){style="width: 100%; height: auto; object-fit: contain;"}
 
 Um nó com alta centralidade de intermediação tem poder de controle desproporcional sobre o fluxo de informação, recursos ou influência na rede. Se esse nó for removido, a rede pode se fragmentar, e a comunicação entre diferentes grupos se tornará muito menos eficiente, ou até impossível.
 
@@ -204,7 +235,12 @@ Uma rede de mundo pequeno é um tipo de grafo no qual a maioria dos vértices n�
 ### Rede Livre de Escala (Scale-Free)
 São redes complexas cujo grau de distribuição segue uma **lei de potência**: a maioria dos vértices tem poucas ligações, contrastando com a existência de alguns vértices com um elevado número de ligações. A probabilidade de um vértice se ligar a um vértice novo é diretamente proporcional ao seu grau, e a probabilidade de um nó ter *k* ligações decai quando *k* aumenta, segundo a lei de potência.
 
+![](img/03-Redes-Biologicas_13.png){style="width: 100%; height: auto; object-fit: contain;"}
+![](img/03-Redes-Biologicas_14.png){style="width: 100%; height: auto; object-fit: contain;"}
+
 Os vértices com alto grau são raros e chamados de **hubs**. Essas redes são, por norma, mais resistentes a falhas aleatórias, mas mais vulneráveis a **ataques direcionados** — pois a remoção de um hub compromete desproporcionalmente a conectividade da rede, enquanto a remoção de um vértice qualquer (baixo grau) tem pouco efeito.
+
+![](img/03-Redes-Biologicas_15.png){style="width: 100%; height: auto; object-fit: contain;"}
 
 ### Coeficiente de Agrupamento (Clustering Coefficient)
 Mede o quanto os vértices de um grafo tendem a agrupar-se — a tendência de formação de grupos coesos, caracterizados por alta densidade de conexões. A maioria das redes reais tende a criar esses grupos coesos.
@@ -224,6 +260,8 @@ Mede o quanto os vértices de um grafo tendem a agrupar-se — a tendência de f
 Motivos em redes são padrões ou sub-grafos recorrentes e estatisticamente significativos dentro de uma rede. Cada um desses sub-grafos, definido por um padrão particular de interações entre os vértices, pode refletir uma estrutura na qual determinadas funções são alcançadas com eficiência.
 
 Sua importância reside em serem blocos de construção evolutivamente conservados que compõem redes maiores, conferindo-lhes funções específicas e robustez. A identificação de motivos ajuda a prever o comportamento do sistema a partir de sua estrutura de conectividade local.
+
+![](img/03-Redes-Biologicas_16.png){style="width: 100%; height: 800px; object-fit: contain;"}
 
 **Exemplos:**
 

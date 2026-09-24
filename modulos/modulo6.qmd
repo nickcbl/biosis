@@ -25,6 +25,8 @@ editor: source
 
 ## Necessidade de integração
 
+![](img/06-Integracao-de-dados_0.png)
+
 - A integração é necessária para capturar a complexidade dos sistemas biológicos, onde diferentes camadas (DNA, RNA, proteína, metabólito) interagem de forma não linear.
 - O objetivo final é construir modelos preditivos e entender mecanismos emergentes que não são visíveis ao analisar uma única camada ômica.
 
@@ -53,6 +55,8 @@ flowchart LR
     C --> A
 ```
 
+![](img/06-Integracao-de-dados_1.jpg)
+
 ---
 
 ## Etapas da análise integrativa
@@ -75,6 +79,8 @@ flowchart LR
 
 ## Integração e redução de dimensionalidade
 
+![](img/06-Integracao-de-dados_2.jpg)
+
 Quando há integração dos dados, há redução de dimensionalidade, resultando em:
 
 - Genes significativos
@@ -93,6 +99,8 @@ O processo de análise integrativa pode ser dividido em dois passos principais:
 ---
 
 ### Processamento de Dados
+
+![](img/06-Integracao-de-dados_3.png)
 
 Aplica ferramentas computacionais e estatísticas aos dados ômicos de alta dimensionalidade para:
 
@@ -225,6 +233,8 @@ Método usado para interpretar resultados de experimentos de larga escala, focad
 2. Associar funções a cada gene, de acordo com algum banco de dados.
 3. Calcular um *score* de enriquecimento — de acordo com o valor estatístico, identificar quem tem as maiores mudanças e quem não tem mudança aparente.
 
+![](img/06-Integracao-de-dados_4.png)
+
 ---
 
 ## Estratégias de Integração
@@ -260,12 +270,26 @@ Método usado para interpretar resultados de experimentos de larga escala, focad
 ### Métodos de integração baseados em redes
 
 - **Projeção de Rede**: usada para integrar redes heterogêneas — por exemplo, projetar uma rede Fármaco-Alvo em uma rede Alvo-Doença para inferir uma nova rede Fármaco-Doença.
+
+<center>![](img/06-Integracao-de-dados_5.png)</center>
+
 - **Propagação de Informação**: técnica poderosa para difundir informação (ex.: escores de genes associados a uma doença) através de uma rede integrada, permitindo a priorização de novos genes ou fármacos.
+
+<center>![](img/06-Integracao-de-dados_6.png)</center>
+
+![](img/06-Integracao-de-dados_7.png)
+![](img/06-Integracao-de-dados_8.png)
 
 ### Outros métodos de integração
 
 - **Bayesianos**: constroem modelos probabilísticos que explicitamente representam as dependências entre diferentes tipos de dados (ex.: genótipo → expressão gênica → fenótipo).
+
+![](img/06-Integracao-de-dados_9.png)
+
 - **Baseados em kernels**: usados para transformação e mudanças de dimensionalidade.
+
+![](img/06-Integracao-de-dados_10.png)
+
 - **NMF** (*Non-negative Matrix Factorization* — Fatoração de Matriz Não-Negativa): método de ranqueamento e clusterização, que encontra padrões por aproximações iterativas, fatorando a matriz de dados em duas outras — uma delas indica o grupo ao qual um dado pertence, de acordo com os padrões encontrados.
 
 ::: {.callout-note}

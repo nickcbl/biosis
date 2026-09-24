@@ -67,6 +67,9 @@ Podem também ser representadas por grafos direcionados, com vértices represent
 
 **Problema**: nessa representação, metabólitos moeda (ex.: ATP, NADH, H₂O) podem oferecer pequenos caminhos espúrios, distorcendo a análise topológica se não forem tratados adequadamente (ex.: removidos ou reponderados).
 
+![](img/07-Rede-Metabolica_0.png)
+![](img/07-Rede-Metabolica_1.png)
+
 ---
 
 ## Reconstrução Metabólica em Escala Genômica
@@ -111,6 +114,9 @@ flowchart LR
     style K fill:transparent
 ```
 
+![](img/07-Rede-Metabolica_2.png){.r-stretch fig-align="center"}
+![](img/07-Rede-Metabolica_3.png){.r-stretch fig-align="center"}
+
 ### Estágio 1: Criação da Reconstrução Rascunho
 
 **O que precisamos para começar:**
@@ -127,7 +133,12 @@ flowchart LR
 
 **Estabelecimento das reações** — as reações de genes metabólicos devem ser estabelecidas: se o gene codifica uma enzima, qual reação essa enzima catalisa. Isso resulta na criação de uma reconstrução rascunho preliminar, preparando para a fase seguinte.
 
+![](img/07-Rede-Metabolica_4.png){.r-stretch fig-align="center"}
+
 #### De onde vem essa informação? Bancos de dados!
+
+![](img/07-Rede-Metabolica_5.png)
+
 - KEGG
 - The SEED Viewer / modelSEED
 - BRENDA
@@ -158,6 +169,8 @@ O processo de curadoria manual é feito na rede metabólica rascunho.
 
 **A reação de biomassa (função objetivo):**
 
+![](img/07-Rede-Metabolica_6.png){fig-align="center"}
+
 - Modelo de rede metabólica que simula o crescimento.
 - Representação matemática das quantidades molares de vários metabólitos necessários para formar os componentes celulares.
 - É necessário saber a composição geral da célula em termos de lipídios, proteínas, carboidratos, ácidos nucleicos e demais metabólitos.
@@ -165,6 +178,8 @@ O processo de curadoria manual é feito na rede metabólica rascunho.
 A Reação de Biomassa é uma reação artificial (não enzimática) incluída em modelos metabólicos. Ela representa, em proporções molares exatas, o conjunto de todos os componentes necessários para a célula formar uma nova unidade de si mesma — ou seja, para crescer e se dividir. Funciona como uma "lista de compras" ultradetalhada do que a célula precisa para se duplicar.
 
 **Exemplo simplificado — fórmula de biomassa para bactérias gram-negativas:** o lado do consumo soma dezenas de metabólitos precursores em proporções molares definidas — aminoácidos (ex.: 0,51 glicina, 0,43 L-alanina, 0,38 L-leucina...), nucleotídeos trifosfatados (ATP, GTP, CTP, UTP e seus análogos desoxirribonucleotídeos), lipídios de membrana (fosfatidiletanolamina, fosfatidilglicerol, cardiolipinas), componentes da parede celular (polímero de peptidoglicano, oligossacarídeo do Lipídio A), cofatores (NAD, NADP, FAD, coenzima A, tetrahidrofolato) e íons inorgânicos — junto com uma grande quantidade de ATP e água (40,11 ATP e 35,54 H₂O), refletindo o custo energético da síntese. O lado da produção gera 1 unidade de BIOMASSA, além de ADP, fosfato, H⁺ e pirofosfato (os subprodutos da hidrólise de ATP que sustenta o processo).
+
+![](img/07-Rede-Metabolica_7.png)
 
 Na prática, a produção de 1 unidade do metabólito BIOMASSA no modelo equivale à síntese equilibrada das seguintes classes de componentes celulares:
 
@@ -193,6 +208,8 @@ Para ser usada como ferramenta preditiva, a reconstrução deve ser convertida e
 
 A conversão da rede para sua forma matemática é feita na construção de uma **matriz estequiométrica**.
 
+![](img/07-Rede-Metabolica_8.1.png){.r-stretch}
+
 **Matriz Estequiométrica:**
 
 - Cada metabólito é posto em uma linha; cada reação é uma coluna.
@@ -201,6 +218,8 @@ A conversão da rede para sua forma matemática é feita na construção de uma 
   - Metabólitos sintetizados têm coeficiente **positivo**.
 - Metabólitos obtidos do meio ou secretados para ele são descritos em **reações de troca**, que permitem que o sistema receba e exporte metabólitos; valores máximos e mínimos podem ser definidos para essas reações.
 
+![](img/07-Rede-Metabolica_8.png)
+
 *(Hefzi, H. et al., 2013. Reconstruction of Genome Scale Metabolic Network. In: Handbook of System Biology: Concept and Insight. 1ª ed. Elsevier.)*
 
 **Pseudo-reações:** podem ser adicionadas quando sabemos que existem metabólitos gerados ou consumidos além do escopo do nosso modelo:
@@ -208,9 +227,13 @@ A conversão da rede para sua forma matemática é feita na construção de uma 
 - Reações de demanda
 - Reações de fornecimento
 
+![](img/07-Rede-Metabolica_9.png)
+
 ### Após a Transformação Matemática
 
 O modelo pode ser usado para simular como as vias são usadas.
+
+![](img/07-Rede-Metabolica_10.png)
 
 **Flux Balance Analysis (FBA):**
 
@@ -229,6 +252,8 @@ O modelo pode ser usado para simular como as vias são usadas.
 
 **Resolução de problemas — *Gap Filling*:** nessa etapa, informações novas são usadas para preencher lacunas nos modelos.
 
+![](img/07-Rede-Metabolica_11.png)
+
 ### Estágio 5: Concatenação, Disseminação e Uso
 
 Uma vez que a reconstrução termina, é importante que ela seja disponibilizada. Geralmente se usa o formato **SBML** (*Systems Biology Markup Language*), mas também existem outros padrões e recursos:
@@ -240,6 +265,9 @@ Uma vez que a reconstrução termina, é importante que ela seja disponibilizada
 - MIRIAM
 - Systems Biology Ontology
 - Systems Biology Graphical Notation
+
+![](img/07-Rede-Metabolica_12.png){.r-stretch fig-align="center"}
+![](img/07-Rede-Metabolica_13.png){.r-stretch fig-align="center"}
 
 **Exemplo de SBML:**
 ```{.bash}

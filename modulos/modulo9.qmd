@@ -75,9 +75,14 @@ Ou seja, a interação pode ser específica de um determinado momento celular.
 - **Métodos**: AP-MS e Co-IP.
 - Requer modelos que definem as interações entre as proteínas isoladas concomitantemente.
 
+![](img/09-Rede-de-interacao-proteina-proteina_0.png){.r-stretch fig-align="center"}
+![](img/09-Rede-de-interacao-proteina-proteina_1.png){.r-stretch fig-align="center"}
+
 ## Modelos de Inferência de Interações
 
 Ao usar métodos de co-complexo, é necessário inferir quais pares de proteínas realmente interagem dentro do grupo detectado — daí os dois modelos abaixo.
+
+![](img/09-Rede-de-interacao-proteina-proteina_4.png){.r-stretch fig-align="center"}
 
 ### Modelo Spoke (de Raios)
 - **Foco**: conservador.
@@ -136,16 +141,26 @@ Analisa padrões de co-evolução entre proteínas — se duas proteínas evolue
 - **Análise de ganho/perda conjunta**
 - **Substituições compensatórias**
 
+![](img/09-Rede-de-interacao-proteina-proteina_5.png){fig-align="center"}
+
 ## Bancos de Dados de PPI
 
 ### Primários
 Dados experimentais diretos.
 
+![](img/09-Rede-de-interacao-proteina-proteina_6.png){fig-align="center"}
+
 ### Meta-base de Dados
 Reunião de dados de bases de dados primárias.
 
+![](img/09-Rede-de-interacao-proteina-proteina_7.png){fig-align="center"}
+
 ### Dados Preditos
 Interações inferidas computacionalmente.
+
+![](img/09-Rede-de-interacao-proteina-proteina_8.png){fig-align="center"}
+![](img/09-Rede-de-interacao-proteina-proteina_9.png){.r-stretch fig-align="center"}
+![](img/09-Rede-de-interacao-proteina-proteina_10.png){.r-stretch fig-align="center"}
 
 ## Aplicações das Redes PPI
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="677" height="246" viewBox="0 0 677 246" style="color-scheme: light dark">
+<defs>
+</defs>
+<metadata id="diagram-manifest" data-schema-version="1.0"><![CDATA[{"groups":[{"color":"#22c55e","id":"det","label":"Determinístico"},{"color":"#f97316","id":"est","label":"Estocástico"}],"height":246,"match":{"flags":"i","target":"fqProcessName","type":"regex"},"nodes":[{"groups":["det","est"],"h":14.0,"id":"m1","label":"Pergunta biológica","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":80.0,"y":122.0},{"groups":["det","est"],"h":14.0,"id":"m2","label":"Definição do modelo","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":187.5,"y":122.0},{"groups":["det","est"],"h":14.0,"id":"m3","label":"Parametrização","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":295.0,"y":122.0},{"groups":["det","est"],"h":14.0,"id":"m4","label":"Simulação","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":402.5,"y":122.0},{"groups":["det","est"],"h":14.0,"id":"m5","label":"Análise de sensibilidade","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":510.0,"y":122.0},{"groups":["det","est"],"h":14.0,"id":"m6","label":"Validação","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":617.5,"y":122.0}],"regions":[],"title":"Ciclo de modelagem","version":"1.0","width":677}]]></metadata>
+<style>.nf-metro-bg { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }
+.nf-metro-title { fill: var(--nfm-map-title-color, light-dark(#111111, #ffffff)); }
+.nf-metro-station-label { fill: var(--nfm-map-label-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-section-box { fill: var(--nfm-map-section-fill, light-dark(#ededed, #373737)); stroke: var(--nfm-map-section-stroke, light-dark(#e6e6e6, #595959)); }
+.nf-metro-section-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-underline { stroke: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-legend-bg { fill: var(--nfm-map-legend-bg, light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.3))); }
+.nf-metro-legend-text { fill: var(--nfm-map-legend-text-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-marker-stroke { stroke: var(--nfm-map-marker-stroke, light-dark(#333333, #f0f0f0)); }
+.nf-metro-label-halo { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); stroke: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }</style>
+<rect x="0" y="0" width="677" height="246" fill="#2b2b2b" class="nf-metro-bg" />
+<text x="60.0" y="30.0" font-size="24.0" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" class="nf-metro-title">Ciclo de modelagem</text>
+<path d="M80.0,124.0 L187.5,124.0" stroke="#f97316" stroke-width="3.0" stroke-linecap="round" class="metro-line-est" data-line-id="est" />
+<path d="M187.5,124.0 L295.0,124.0" stroke="#f97316" stroke-width="3.0" stroke-linecap="round" class="metro-line-est" data-line-id="est" />
+<path d="M295.0,124.0 L402.5,124.0" stroke="#f97316" stroke-width="3.0" stroke-linecap="round" class="metro-line-est" data-line-id="est" />
+<path d="M402.5,124.0 L510.0,124.0" stroke="#f97316" stroke-width="3.0" stroke-linecap="round" class="metro-line-est" data-line-id="est" />
+<path d="M510.0,124.0 L617.5,124.0" stroke="#f97316" stroke-width="3.0" stroke-linecap="round" class="metro-line-est" data-line-id="est" />
+<path d="M80.0,120.0 L187.5,120.0" stroke="#22c55e" stroke-width="3.0" stroke-linecap="round" class="metro-line-det" data-line-id="det" />
+<path d="M187.5,120.0 L295.0,120.0" stroke="#22c55e" stroke-width="3.0" stroke-linecap="round" class="metro-line-det" data-line-id="det" />
+<path d="M295.0,120.0 L402.5,120.0" stroke="#22c55e" stroke-width="3.0" stroke-linecap="round" class="metro-line-det" data-line-id="det" />
+<path d="M402.5,120.0 L510.0,120.0" stroke="#22c55e" stroke-width="3.0" stroke-linecap="round" class="metro-line-det" data-line-id="det" />
+<path d="M510.0,120.0 L617.5,120.0" stroke="#22c55e" stroke-width="3.0" stroke-linecap="round" class="metro-line-det" data-line-id="det" />
+<g class="nf-metro-station-group" data-node-id="m1" data-node-cx="80.0" data-node-cy="122.0" data-node-r="5.0" data-node-groups="det,est" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="75.0" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="m1" data-station-lines="det,est" data-station-label="Pergunta biológica" />
+</g>
+<g class="nf-metro-station-group" data-node-id="m2" data-node-cx="187.5" data-node-cy="122.0" data-node-r="5.0" data-node-groups="det,est" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="182.5" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="m2" data-station-lines="det,est" data-station-label="Definição do modelo" />
+</g>
+<g class="nf-metro-station-group" data-node-id="m3" data-node-cx="295.0" data-node-cy="122.0" data-node-r="5.0" data-node-groups="det,est" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="290.0" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="m3" data-station-lines="det,est" data-station-label="Parametrização" />
+</g>
+<g class="nf-metro-station-group" data-node-id="m4" data-node-cx="402.5" data-node-cy="122.0" data-node-r="5.0" data-node-groups="det,est" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="397.5" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="m4" data-station-lines="det,est" data-station-label="Simulação" />
+</g>
+<g class="nf-metro-station-group" data-node-id="m5" data-node-cx="510.0" data-node-cy="122.0" data-node-r="5.0" data-node-groups="det,est" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="505.0" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="m5" data-station-lines="det,est" data-station-label="Análise de sensibilidade" />
+</g>
+<g class="nf-metro-station-group" data-node-id="m6" data-node-cx="617.5" data-node-cy="122.0" data-node-r="5.0" data-node-groups="det,est" data-node-w="10.0" data-node-h="14.0" data-node-rx="5.0">
+<rect x="612.5" y="115.0" width="10.0" height="14.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="m6" data-station-lines="det,est" data-station-label="Validação" />
+</g>
+<text x="80.0" y="135.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Pergunta biológica</text>
+<text x="80.0" y="135.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="m1" class="nf-metro-station-label">Pergunta biológica</text>
+<text x="187.5" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Definição do modelo</text>
+<text x="187.5" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="m2" class="nf-metro-station-label">Definição do modelo</text>
+<text x="295.0" y="135.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Parametrização</text>
+<text x="295.0" y="135.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="m3" class="nf-metro-station-label">Parametrização</text>
+<text x="402.5" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Simulação</text>
+<text x="402.5" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="m4" class="nf-metro-station-label">Simulação</text>
+<text x="510.0" y="135.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Análise de sensibilidade</text>
+<text x="510.0" y="135.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="m5" class="nf-metro-station-label">Análise de sensibilidade</text>
+<text x="617.5" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Validação</text>
+<text x="617.5" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="m6" class="nf-metro-station-label">Validação</text>
+<rect x="60.0" y="150.0" width="167.8" height="72.0" rx="6" ry="6" fill="rgba(0, 0, 0, 0.3)" class="nf-metro-legend-bg" />
+<path d="M72.0,174.0 L96.0,174.0" stroke="#22c55e" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="174.0" font-size="14.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Determinístico</text>
+<path d="M72.0,198.0 L96.0,198.0" stroke="#f97316" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="198.0" font-size="14.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Estocástico</text>
+<text x="647.0" y="238.0" font-size="8" fill="rgba(150, 150, 150, 0.6)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="end">created with nf-metro v1.1.0</text>
+</svg>

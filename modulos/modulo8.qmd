@@ -45,6 +45,8 @@ Normalmente não são capazes de:
 - Conferir informação sobre causalidade — genes podem estar ativos durante uma resposta biológica, mas não necessariamente com efeito causativo entre o gene e a resposta.
 - Fazer diferença entre genes **regulatórios** e genes **regulados**.
 
+![](img/08-Rede-de-Co-expressao_0.png)
+
 ---
 
 ## Construção de Redes de Co-expressão
@@ -82,9 +84,14 @@ $$\rho_{X,Y} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}$$
 - A relação entre as variáveis é **monotônica** (linear ou não), o que é menos restritivo do que a relação exigida pela correlação de Pearson — isto é, verifica se elas crescem ou diminuem juntas.
 - Em uma relação monotônica, as variáveis tendem a mudar juntas, mas não necessariamente a uma taxa constante.
 
+![](img/08-Rede-de-Co-expressao_1.png){.r-stretch fig-align="center"}
+![](img/08-Rede-de-Co-expressao_2.png){.r-stretch fig-align="center"}
+
 ## Passo 2: Construir a rede
 
 As associações de co-expressão são usadas para reconstruir a rede. **Vértices** são genes, e **arestas** são a presença da correlação (podem, além da presença, refletir a **força da correlação**).
+
+![](img/08-Rede-de-Co-expressao_3.png){.r-stretch fig-align="center"}
 
 ## Tipos de Redes de Co-expressão
 
@@ -117,6 +124,8 @@ Numa rede de co-expressão baseada em correlação, as medidas de correlação t
 - A interação entre pares de genes é binária (0 ou 1: não-conectados e conectados, respectivamente).
 - Pode ser criada a partir de uma rede ponderada, considerando conectados os pares acima de um certo limiar de correlação, e desconectados todos os demais.
 
+![](img/08-Rede-de-Co-expressao_4.png){.r-stretch fig-align="center"}
+
 *(van Dam, S.; Võsa, U.; van der Graaf, A.; Franke, L.; de Magalhães, J. P. (2017). Gene co-expression analysis for functional classification and gene-disease predictions. Briefings in Bioinformatics.)*
 
 ## Passo 3: Definição de Módulos
@@ -140,6 +149,9 @@ O pacote de *clustering* mais usado para a análise de redes de co-expressão é
 - Essa ferramenta, fácil de usar, constrói módulos de co-expressão usando o agrupamento hierárquico em uma rede de correlação criada a partir de dados de expressão.
 - O agrupamento hierárquico divide iterativamente cada cluster em subclusters, criando uma árvore com ramificações representando módulos de co-expressão.
 - Os módulos são definidos cortando os ramos a uma certa altura (valor de corte) definida pelo usuário.
+
+![](img/08-Rede-de-Co-expressao_5.png){.r-stretch fig-align="center"}
+![](img/08-Rede-de-Co-expressao_6.png){.r-stretch fig-align="center"}
 
 *(El-Sharkawy, I.; Liang, D.; Xu, K. (2015). Transcriptome analysis of an apple (Malus × domestica) yellow fruit somatic mutation identifies a gene network module highly associated with anthocyanin and epigenetic regulation. Journal of Experimental Botany, 66.)*
 
@@ -166,6 +178,8 @@ O pacote de *clustering* mais usado para a análise de redes de co-expressão é
   - **Hubs Intramodulares**: exercem centralidade dentro de um módulo específico.
   - **Hubs Intermodulares**: atuam como pontes e reguladores globais entre diferentes módulos da rede.
 
+![](img/08-Rede-de-Co-expressao_7.png){.r-stretch fig-align="center"}
+
 São usadas medidas de centralidade para identificar os hubs.
 
 ## Análise de Enriquecimento
@@ -180,6 +194,8 @@ Dentro de um módulo, são encontrados os termos funcionais mais frequentes. Ass
 - **Princípio GBA** (*Guilt by Association* — "Culpado por Associação"): premissa de que genes co-expressos participam do mesmo processo biológico.
 - **Anotação funcional**: permite inferir a função de genes desconhecidos (mal anotados) com base nos genes bem conhecidos do mesmo grupo.
 - **Aplicações clínicas**: identifica novos genes candidatos para doenças, se o módulo como um todo apresentar forte ligação com uma patologia.
+
+![](img/08-Rede-de-Co-expressao_8.png){.r-stretch fig-align="center"}
 
 ## Considerações Técnicas
 
