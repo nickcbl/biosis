@@ -108,11 +108,15 @@ window.Quarto = {
 
 <meta property="og:title" content="08 — Redes de Co-Expressão – CI0932 - Biologia de Sistemas">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/modulos/img/08-Rede-de-Co-expressao_0.png">
 <meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta property="og:image:height" content="454">
+<meta property="og:image:width" content="800">
 <meta name="twitter:title" content="08 — Redes de Co-Expressão – CI0932 - Biologia de Sistemas">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/modulos/img/08-Rede-de-Co-expressao_0.png">
+<meta name="twitter:image-height" content="454">
+<meta name="twitter:image-width" content="800">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -500,7 +504,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">23 de setembro de 2026</p>
+      <p class="date">24 de setembro de 2026</p>
     </div>
   </div>
   
@@ -544,6 +548,7 @@ window.Quarto = {
 <li>Conferir informação sobre causalidade — genes podem estar ativos durante uma resposta biológica, mas não necessariamente com efeito causativo entre o gene e a resposta.</li>
 <li>Fazer diferença entre genes <strong>regulatórios</strong> e genes <strong>regulados</strong>.</li>
 </ul>
+<p><img src="img/08-Rede-de-Co-expressao_0.png" class="img-fluid"></p>
 <hr>
 </section>
 <section id="construção-de-redes-de-co-expressão" class="level2" data-number="6">
@@ -614,11 +619,17 @@ window.Quarto = {
 <li>A relação entre as variáveis é <strong>monotônica</strong> (linear ou não), o que é menos restritivo do que a relação exigida pela correlação de Pearson — isto é, verifica se elas crescem ou diminuem juntas.</li>
 <li>Em uma relação monotônica, as variáveis tendem a mudar juntas, mas não necessariamente a uma taxa constante.</li>
 </ul>
+<p><img src="img/08-Rede-de-Co-expressao_1.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"> <img src="img/08-Rede-de-Co-expressao_2.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"></p>
 </section>
 </section>
 <section id="passo-2-construir-a-rede" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="passo-2-construir-a-rede"><span class="header-section-number">8</span> Passo 2: Construir a rede</h2>
 <p>As associações de co-expressão são usadas para reconstruir a rede. <strong>Vértices</strong> são genes, e <strong>arestas</strong> são a presença da correlação (podem, além da presença, refletir a <strong>força da correlação</strong>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/08-Rede-de-Co-expressao_3.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
 <section id="tipos-de-redes-de-co-expressão" class="level2" data-number="9">
 <h2 data-number="9" class="anchored" data-anchor-id="tipos-de-redes-de-co-expressão"><span class="header-section-number">9</span> Tipos de Redes de Co-expressão</h2>
@@ -636,6 +647,11 @@ window.Quarto = {
 <h3 data-number="9.2" class="anchored" data-anchor-id="redes-ponderadas-vs.-não-ponderadas"><span class="header-section-number">9.2</span> Redes Ponderadas <em>vs.</em> Não-Ponderadas</h3>
 <p><strong>Rede ponderada:</strong> - Todos os genes são conectados uns aos outros. - As conexões têm valores de peso contínuos entre 0 e 1, que indicam a força de co-regulação entre os genes.</p>
 <p><strong>Rede não-ponderada:</strong> - A interação entre pares de genes é binária (0 ou 1: não-conectados e conectados, respectivamente). - Pode ser criada a partir de uma rede ponderada, considerando conectados os pares acima de um certo limiar de correlação, e desconectados todos os demais.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/08-Rede-de-Co-expressao_4.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <p><em>(van Dam, S.; Võsa, U.; van der Graaf, A.; Franke, L.; de Magalhães, J. P. (2017). Gene co-expression analysis for functional classification and gene-disease predictions. Briefings in Bioinformatics.)</em></p>
 </section>
 </section>
@@ -659,6 +675,7 @@ window.Quarto = {
 <li>O agrupamento hierárquico divide iterativamente cada cluster em subclusters, criando uma árvore com ramificações representando módulos de co-expressão.</li>
 <li>Os módulos são definidos cortando os ramos a uma certa altura (valor de corte) definida pelo usuário.</li>
 </ul>
+<p><img src="img/08-Rede-de-Co-expressao_5.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"> <img src="img/08-Rede-de-Co-expressao_6.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"></p>
 <p><em>(El-Sharkawy, I.; Liang, D.; Xu, K. (2015). Transcriptome analysis of an apple (Malus × domestica) yellow fruit somatic mutation identifies a gene network module highly associated with anthocyanin and epigenetic regulation. Journal of Experimental Botany, 66.)</em></p>
 <hr>
 </section>
@@ -689,6 +706,11 @@ window.Quarto = {
 <li><strong>Hubs Intermodulares</strong>: atuam como pontes e reguladores globais entre diferentes módulos da rede.</li>
 </ul></li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/08-Rede-de-Co-expressao_7.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <p>São usadas medidas de centralidade para identificar os hubs.</p>
 </section>
 <section id="análise-de-enriquecimento" class="level2" data-number="13">
@@ -704,6 +726,11 @@ window.Quarto = {
 <li><strong>Anotação funcional</strong>: permite inferir a função de genes desconhecidos (mal anotados) com base nos genes bem conhecidos do mesmo grupo.</li>
 <li><strong>Aplicações clínicas</strong>: identifica novos genes candidatos para doenças, se o módulo como um todo apresentar forte ligação com uma patologia.</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/08-Rede-de-Co-expressao_8.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
 <section id="considerações-técnicas" class="level2" data-number="15">
 <h2 data-number="15" class="anchored" data-anchor-id="considerações-técnicas"><span class="header-section-number">15</span> Considerações Técnicas</h2>

@@ -117,11 +117,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="07 — Redes Metabólicas – CI0932 - Biologia de Sistemas">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/modulos/img/07-Rede-Metabolica_0.png">
 <meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta property="og:image:height" content="1892">
+<meta property="og:image:width" content="2500">
 <meta name="twitter:title" content="07 — Redes Metabólicas – CI0932 - Biologia de Sistemas">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://nickcbl.github.io/biosis/modulos/imagens/social-preview.jpg">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/modulos/img/07-Rede-Metabolica_0.png">
+<meta name="twitter:image-height" content="1892">
+<meta name="twitter:image-width" content="2500">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -507,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">23 de setembro de 2026</p>
+      <p class="date">24 de setembro de 2026</p>
     </div>
   </div>
   
@@ -586,6 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="5.2" class="anchored" data-anchor-id="representação-2-simplificada"><span class="header-section-number">5.2</span> Representação 2 (simplificada)</h3>
 <p>Podem também ser representadas por grafos direcionados, com vértices representando metabólitos e arestas correspondendo a reações que convertem um metabólito em outro. Essa simplificação é útil para a análise estrutural.</p>
 <p><strong>Problema</strong>: nessa representação, metabólitos moeda (ex.: ATP, NADH, H₂O) podem oferecer pequenos caminhos espúrios, distorcendo a análise topológica se não forem tratados adequadamente (ex.: removidos ou reponderados).</p>
+<p><img src="img/07-Rede-Metabolica_0.png" class="img-fluid"> <img src="img/07-Rede-Metabolica_1.png" class="img-fluid"></p>
 <hr>
 </section>
 </section>
@@ -639,14 +644,21 @@ flowchart LR
 </div>
 </div>
 </div>
+<p><img src="img/07-Rede-Metabolica_2.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"> <img src="img/07-Rede-Metabolica_3.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"></p>
 <section id="estágio-1-criação-da-reconstrução-rascunho" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="estágio-1-criação-da-reconstrução-rascunho"><span class="header-section-number">6.1</span> Estágio 1: Criação da Reconstrução Rascunho</h3>
 <p><strong>O que precisamos para começar:</strong></p>
 <p><strong>Genoma anotado:</strong> - Coordenadas genômicas. - Funções conhecidas de produtos gênicos. - Isoformas de <em>splicing</em>.</p>
 <p><strong>Identificação de genes metabólicos</strong> — genes com função metabólica precisam ser identificados através de: - EC number. - Termos metabólicos (ex.: desidrogenase, quinase). - Termos do Gene Ontology relacionados ao metabolismo.</p>
 <p><strong>Estabelecimento das reações</strong> — as reações de genes metabólicos devem ser estabelecidas: se o gene codifica uma enzima, qual reação essa enzima catalisa. Isso resulta na criação de uma reconstrução rascunho preliminar, preparando para a fase seguinte.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_4.png" class="r-stretch img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <section id="de-onde-vem-essa-informação-bancos-de-dados" class="level4" data-number="6.1.1">
 <h4 data-number="6.1.1" class="anchored" data-anchor-id="de-onde-vem-essa-informação-bancos-de-dados"><span class="header-section-number">6.1.1</span> De onde vem essa informação? Bancos de dados!</h4>
+<p><img src="img/07-Rede-Metabolica_5.png" class="img-fluid"></p>
 <ul>
 <li>KEGG</li>
 <li>The SEED Viewer / modelSEED</li>
@@ -678,6 +690,11 @@ flowchart LR
 </ul>
 <p><strong>Incorporação de reações espontâneas e de transporte:</strong> nem todas as reações são catalisadas por enzimas; além disso, alguns metabólitos difundem facilmente através da membrana (reações espontâneas e reações de transporte). Se existir evidência de transporte do meio para a célula, da célula para o meio, ou entre compartimentos, essas reações devem ser descritas. Na eventualidade de as reações de transporte não serem conhecidas, pode-se usar uma reação análoga de outro organismo, desde que se anote que a informação não é precisa.</p>
 <p><strong>A reação de biomassa (função objetivo):</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/07-Rede-Metabolica_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 <ul>
 <li>Modelo de rede metabólica que simula o crescimento.</li>
 <li>Representação matemática das quantidades molares de vários metabólitos necessários para formar os componentes celulares.</li>
@@ -685,6 +702,7 @@ flowchart LR
 </ul>
 <p>A Reação de Biomassa é uma reação artificial (não enzimática) incluída em modelos metabólicos. Ela representa, em proporções molares exatas, o conjunto de todos os componentes necessários para a célula formar uma nova unidade de si mesma — ou seja, para crescer e se dividir. Funciona como uma “lista de compras” ultradetalhada do que a célula precisa para se duplicar.</p>
 <p><strong>Exemplo simplificado — fórmula de biomassa para bactérias gram-negativas:</strong> o lado do consumo soma dezenas de metabólitos precursores em proporções molares definidas — aminoácidos (ex.: 0,51 glicina, 0,43 L-alanina, 0,38 L-leucina…), nucleotídeos trifosfatados (ATP, GTP, CTP, UTP e seus análogos desoxirribonucleotídeos), lipídios de membrana (fosfatidiletanolamina, fosfatidilglicerol, cardiolipinas), componentes da parede celular (polímero de peptidoglicano, oligossacarídeo do Lipídio A), cofatores (NAD, NADP, FAD, coenzima A, tetrahidrofolato) e íons inorgânicos — junto com uma grande quantidade de ATP e água (40,11 ATP e 35,54 H₂O), refletindo o custo energético da síntese. O lado da produção gera 1 unidade de BIOMASSA, além de ADP, fosfato, H⁺ e pirofosfato (os subprodutos da hidrólise de ATP que sustenta o processo).</p>
+<p><img src="img/07-Rede-Metabolica_7.png" class="img-fluid"></p>
 <p>Na prática, a produção de 1 unidade do metabólito BIOMASSA no modelo equivale à síntese equilibrada das seguintes classes de componentes celulares:</p>
 <p><strong>1. Macromoléculas estruturais e informacionais</strong> - <strong>Proteínas</strong> — principal fração da biomassa, representando cerca de 55% do peso seco em muitas bactérias. - <strong>RNA</strong> — incluindo rRNA, tRNA e mRNA. - <strong>DNA</strong> — todo o material genético. - <strong>Parede celular</strong> — essencialmente peptidoglicano (polímero de açúcares e aminoácidos) em bactérias. - <strong>Membrana celular</strong> — bicamada lipídica que inclui fosfolipídios (fosfatidiletanolamina, fosfatidilglicerol), cardiolipinas e outros lipídios de membrana.</p>
 <p><strong>2. Moléculas complexas e cofatores</strong> - <strong>Cofatores enzimáticos e vitaminas</strong> — indispensáveis para a atividade enzimática, como NAD, NADP, FAD, coenzima A, fosfato de piridoxal, hemo e tetrahidrofolato. - <strong>Pigmentos e quinonas</strong> — atuam em processos energéticos, como a respiração (ex.: ubiquinona e menaquinona). - <strong>Íons inorgânicos</strong> — essenciais como cofatores e para o equilíbrio iônico (K⁺, Mg²⁺, Ca²⁺, Fe²⁺/³⁺, Zn²⁺, entre outros).</p>
@@ -698,6 +716,7 @@ flowchart LR
 <li>Fornecer os limites do modelo em relação ao que entra e ao que sai dele.</li>
 </ul>
 <p>A conversão da rede para sua forma matemática é feita na construção de uma <strong>matriz estequiométrica</strong>.</p>
+<p><img src="img/07-Rede-Metabolica_8.1.png" class="r-stretch img-fluid"></p>
 <p><strong>Matriz Estequiométrica:</strong></p>
 <ul>
 <li>Cada metabólito é posto em uma linha; cada reação é uma coluna.</li>
@@ -708,16 +727,19 @@ flowchart LR
 </ul></li>
 <li>Metabólitos obtidos do meio ou secretados para ele são descritos em <strong>reações de troca</strong>, que permitem que o sistema receba e exporte metabólitos; valores máximos e mínimos podem ser definidos para essas reações.</li>
 </ul>
+<p><img src="img/07-Rede-Metabolica_8.png" class="img-fluid"></p>
 <p><em>(Hefzi, H. et al., 2013. Reconstruction of Genome Scale Metabolic Network. In: Handbook of System Biology: Concept and Insight. 1ª ed.&nbsp;Elsevier.)</em></p>
 <p><strong>Pseudo-reações:</strong> podem ser adicionadas quando sabemos que existem metabólitos gerados ou consumidos além do escopo do nosso modelo:</p>
 <ul>
 <li>Reações de demanda</li>
 <li>Reações de fornecimento</li>
 </ul>
+<p><img src="img/07-Rede-Metabolica_9.png" class="img-fluid"></p>
 </section>
 <section id="após-a-transformação-matemática" class="level3" data-number="6.4">
 <h3 data-number="6.4" class="anchored" data-anchor-id="após-a-transformação-matemática"><span class="header-section-number">6.4</span> Após a Transformação Matemática</h3>
 <p>O modelo pode ser usado para simular como as vias são usadas.</p>
+<p><img src="img/07-Rede-Metabolica_10.png" class="img-fluid"></p>
 <p><strong>Flux Balance Analysis (FBA):</strong></p>
 <ul>
 <li>Assume um estado estacionário.</li>
@@ -735,6 +757,7 @@ flowchart LR
 <li><strong>Teste Quantitativo</strong>: crítico para testar a capacidade de predição de parâmetros quantitativos do modelo — identificando erros como crescer quando não deveria, não crescer quando deveria, ou crescer mais rápido ou mais devagar do que o esperado.</li>
 </ul>
 <p><strong>Resolução de problemas — <em>Gap Filling</em>:</strong> nessa etapa, informações novas são usadas para preencher lacunas nos modelos.</p>
+<p><img src="img/07-Rede-Metabolica_11.png" class="img-fluid"></p>
 </section>
 <section id="estágio-5-concatenação-disseminação-e-uso" class="level3" data-number="6.6">
 <h3 data-number="6.6" class="anchored" data-anchor-id="estágio-5-concatenação-disseminação-e-uso"><span class="header-section-number">6.6</span> Estágio 5: Concatenação, Disseminação e Uso</h3>
@@ -748,6 +771,7 @@ flowchart LR
 <li>Systems Biology Ontology</li>
 <li>Systems Biology Graphical Notation</li>
 </ul>
+<p><img src="img/07-Rede-Metabolica_12.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"> <img src="img/07-Rede-Metabolica_13.png" class="r-stretch img-fluid quarto-figure quarto-figure-center"></p>
 <p><strong>Exemplo de SBML:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="ex">?xml</span> version=<span class="st">"1.0"</span> encoding=<span class="st">"UTF-8"</span><span class="pp">?</span><span class="op">&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>sbml <span class="va">xmlns</span><span class="op">=</span><span class="st">"http://www.sbml.org/sbml/level2/version4"</span> <span class="va">level</span><span class="op">=</span><span class="st">"2"</span> <span class="va">version</span><span class="op">=</span><span class="st">"4"</span><span class="op">&gt;</span></span>
