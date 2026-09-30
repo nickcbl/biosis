@@ -117,13 +117,12 @@ CGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
 ```
 
 **Para baixar o arquivo:**
+Você pode baixar o arquivo `sequencias.fasta` diretamente do repositório do GitHub usando o comando `wget`:
 ```bash
-wget https://nickcbl.github.io/biosis/roteiros/input/roteiros/input/sequencias.fasta
-
-# ou crie manualmente com nano/vim
-
-# ou faça o download de todos os arquivos de entrada em: https://nickcbl.github.io/biosis/roteiros/input/input.html
+wget https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/sequencias.fasta
 ```
+Ou crie manualmente com algum editor de texto, copiando o conteúdo acima. Também pode fazer o download de todos os arquivos de entrada em: https://nickcbl.github.io/biosis/roteiros/input/input.html.
+
 
 ---
 
@@ -171,9 +170,12 @@ ls ../Downloads              # caminho relativo (..) = pai
 
 
 # Wildcards
+# Crie os arquivos com o comando abaixo:
 touch arquivo1.txt arquivo2.txt arquivo3.log
+
+# Agora execute:
 ls *.txt                     # lista todos .txt
-ls arquivo?                  # ? substitui um caractere
+ls arquivo?.txt                  # ? substitui um caractere
 ls arquivo[1-3]*             # [1-3] substitui por 1, 2 ou 3
 
 

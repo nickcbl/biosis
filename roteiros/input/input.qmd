@@ -26,7 +26,7 @@ lang: pt-Br
 
 Arquivo FASTA com 5 sequências de exemplo (*E. coli, B. subtilis, P. aeruginosa*).
 
-**[sequencias.fasta ⬇️](roteiros/input/sequencias.fasta)**
+**[sequencias.fasta ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/sequencias.fasta)**
 
 <details>
 <summary><b>📝 Visualizar conteúdo</b></summary>
@@ -64,7 +64,7 @@ CGTACGTACGTACGTACGTACGTACGTACGTACGTACGT
 
 Arquivo com sequências de adaptadores Illumina para o Trimmomatic.
 
-**[adapters.fa ⬇️](roteiros/input/adapters.fa)**
+**[adapters.fa ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/adapters.fa)**
 
 <details>
 <summary><b>📝 Visualizar conteúdo</b></summary>
@@ -91,7 +91,7 @@ CTGTCTCTTATACACATCT
 
 Banco de dados de genes de virulência (VFDB) para anotação funcional.
 
-**[virulence_genes.txt ⬇️](roteiros/input/virulence_genes.txt)**
+**[virulence_genes.txt ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/virulence_genes.txt)**
 
 <details>
 <summary><b>📝 Visualizar conteúdo</b></summary>
@@ -121,9 +121,9 @@ hlyA	P08756	Hemolysin A	Toxin	Escherichia coli
 
 Arquivos FASTQ para o pipeline de RNA-seq (*paired-end*).
 
-**[SRR390728_1.fastq.gz ⬇️](roteiros/input/SRR390728_1.fastq.gz)** (*Forward reads*)
+**[SRR390728_1.fastq.gz ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR390728_1.fastq.gz)** (*Forward reads*)
 
-**[SRR390728_2.fastq.gz ⬇️](roteiros/input/SRR390728_2.fastq.gz)** (*Reverse reads*)
+**[SRR390728_2.fastq.gz ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR390728_2.fastq.gz)** (*Reverse reads*)
 
 <details>
 <summary><b>📊 Informações dos dados</b></summary>
@@ -150,7 +150,7 @@ Arquivos FASTQ para o pipeline de RNA-seq (*paired-end*).
 
 Arquivo de anotação do genoma humano (Ensembl release 104). **Arquivo compactado (.xz)**.
 
-**[Homo_sapiens.GRCh38.104.gtf.xz ⬇️](roteiros/input/Homo_sapiens.GRCh38.104.gtf.xz)**
+**[Homo_sapiens.GRCh38.104.gtf.xz ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/Homo_sapiens.GRCh38.104.gtf.xz)**
 
 <details>
 <summary><b>📊 Informações do arquivo</b></summary>
@@ -179,7 +179,7 @@ unxz Homo_sapiens.GRCh38.104.gtf.xz
 
 Matriz de expressão gênica normalizada (genes × amostras) para análise de coexpressão.
 
-**[expressao_normalizada.txt ⬇️](roteiros/input/expressao_normalizada.txt)**
+**[expressao_normalizada.txt ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/expressao_normalizada.txt)**
 
 <details>
 <summary><b>📝 Visualizar conteúdo (primeiras linhas)</b></summary>
@@ -219,7 +219,7 @@ TNF	234.5	245.6	223.4	456.7	467.8	445.6	234.5	245.6	223.4
 
 Parâmetros cinéticos do repressilador para simulação no COPASI.
 
-**[parametros_repressilator.txt ⬇️](roteiros/input/parametros_repressilator.txt)**
+**[parametros_repressilator.txt ⬇️](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/parametros_repressilator.txt)**
 
 <details>
 <summary><b>📝 Visualizar conteúdo</b></summary>
