@@ -22,7 +22,7 @@ editor: source
 :::{fig-align="center"}
 | | |
 | :-: | :-: |
-| ![Gráfico](imagens/02-img1.png){width=90% style="border: 3px solid black; border-radius: 8px;"} | ![Grafo](imagens/02-img2.png){width=90% style="border: 3px solid black; border-radius: 8px;"} |
+| ![Gráfico](img/02-img1.png){width=90% style="border: 3px solid black; border-radius: 8px;"} | ![Grafo](img/02-img2.png){width=90% style="border: 3px solid black; border-radius: 8px;"} |
 | **Gráfico** | **Grafo** |
 :::
 
@@ -32,7 +32,7 @@ editor: source
 
 **É possível andar pela cidade atravessando cada ponte exatamente uma vez?**
 
-![](imagens/02-img3.png){width=90% style="border: 3px solid black; border-radius: 8px;"}
+![](img/02-img3.png){width=90% style="border: 3px solid black; border-radius: 8px;"}
 
 O problema das Sete Pontes de Königsberg (atual Kaliningrado) é o quebra-cabeça histórico que deu origem à Teoria dos Grafos. A cidade era dividida por um rio em quatro regiões — uma ilha e três margens — ligadas por sete pontes, e o desafio era encontrar um passeio que atravessasse cada ponte exatamente uma vez.
 
@@ -40,7 +40,7 @@ O problema das Sete Pontes de Königsberg (atual Kaliningrado) é o quebra-cabe�
 
 Matemático e físico suíço. Tentou responder à questão sobre as pontes de Kaliningrado e, para tanto, desenvolveu a **Teoria dos Grafos**.
 
-![Leonhard Euler](imagens/02-img4.png){style="display:block; margin-left:auto; margin-right:auto; border-radius:2px; padding:15px; background:white; box-shadow:0 4px 8px rgba(0,0,0,0.2); border:1px solid #ddd; width:250px;"}
+![Leonhard Euler](img/02-img4.png){style="display:block; margin-left:auto; margin-right:auto; border-radius:2px; padding:15px; background:white; box-shadow:0 4px 8px rgba(0,0,0,0.2); border:1px solid #ddd; width:250px;"}
 
 Euler representou o problema como um grafo, em que cada região da cidade é um vértice e cada ponte é uma aresta:
 
@@ -68,7 +68,7 @@ graph G {
 
 ## Pontes de Kaliningrado: Resolução
 
-![](imagens/02-img5.png){width=90% style="border: 3px solid black; border-radius: 8px;"}
+![](img/02-img5.png){width=90% style="border: 3px solid black; border-radius: 8px;"}
 
 **É possível andar pela cidade atravessando cada ponte exatamente uma vez?** Euler demonstrou que **não**: como todos os quatro vértices do grafo têm grau ímpar (número ímpar de pontes), não existe um caminho que percorra cada aresta exatamente uma vez sem repetição — condição que hoje conhecemos como a exigência de um **caminho euleriano**.
 
@@ -138,11 +138,11 @@ As arestas indicam relações entre os elementos. O significado da relação pod
 
 * Grafos com arestas direcionadas são **grafos direcionados**.
 
-<center>![Direcionado](imagens/02-img6.png)</center>
+<center>![Direcionado](img/02-img6.png)</center>
 
 * Grafos com arestas não-direcionadas são **grafos não-direcionados**.
 
-<center>![Não-direcionado](imagens/02-img7.png)</center>
+<center>![Não-direcionado](img/02-img7.png)</center>
 
 ---
 
@@ -175,14 +175,14 @@ Se os vértices compartilham da mesma aresta então eles são **adjacentes** ent
 **Exemplo:** proteína A e proteína B são adjacentes se interagem entre si.
 :::
 
-<center>![Nós com arestas entre si são adjacentes](imagens/02-img8.png)</center>
+<center>![Nós com arestas entre si são adjacentes](img/02-img8.png)</center>
 
 ### Grau
 O grau de um vértice é o número de arestas que incidem nele.
 
 Exemplo:
 
-<center>![](imagens/02-img9.png)</center>
+<center>![](img/02-img9.png)</center>
 
 ### Grau (grafos direcionados)
 Para o grafo direcionado, o grau de vértice pode ser dividido em:
@@ -191,7 +191,7 @@ Para o grafo direcionado, o grau de vértice pode ser dividido em:
 
 Exemplo:
 
-<center>![](imagens/02-img10.png)</center>
+<center>![](img/02-img10.png)</center>
 
 ### Laço
 Quando uma aresta começa e termina em um mesmo vértice ela é chamada de **laço** (loop).
@@ -284,7 +284,7 @@ Se G' é um subgrafo de G e E' possui **todas as arestas de E que ligam os vért
 
 Exemplo:
 
-<center>![E' = {1,2; 5,6; 5,7}](imagens/02-img12.png)</center><center>![E' = {1,2; 1,7; 5,5; 5,6; 5,7}](imagens/02-img13.png)</center>
+<center>![E' = {1,2; 5,6; 5,7}](img/02-img12.png)</center><center>![E' = {1,2; 1,7; 5,5; 5,6; 5,7}](img/02-img13.png)</center>
 
 <center>
 Vértices: 1, 2, 5, 7, 6, 3, 4
@@ -302,7 +302,7 @@ Dois grafos G₁ = (V₁, E₁) e G₂ = (V₂, E₂) são **isomorfos** se exis
 - Duas arestas conectadas em G₁ o são se, e somente se, suas correspondentes em G₂ também estiverem conectadas.
 - Em outras palavras: os grafos têm a mesma "forma" ou topologia, mas podem diferir nos rótulos dos vértices/arestas.
 
-<center>![](imagens/02-img14.png)</center>
+<center>![](img/02-img14.png)</center>
 <center>![](img/02-Grafos_32.png)</center>
 
 **Por que o isomorfismo é importante na Biologia?**
@@ -381,7 +381,7 @@ A **distância** entre dois vértices é o comprimento do menor caminho entre el
 Fazer a distância entre 6 e 2 passando por 5 e por 3.  
 Depois fazer a distância entre 6 e 1 passando por 5 e por 3.
 
-<center>![](imagens/02-img24.png)</center>
+<center>![](img/02-img24.png)</center>
 
 ---
 
@@ -394,7 +394,7 @@ Um grafo que possui arestas direcionadas e não direcionadas.
 **Exemplo:** rede de sinalização com interações bidirecionais (ex.: feedback) e unidirecionais (ex.: fosforilação).
 :::
 
-<center>![](imagens/02-img15.png)</center><center>![](imagens/02-img16.png)</center>
+<center>![](img/02-img15.png)</center><center>![](img/02-img16.png)</center>
 
 ### Multigrafo
 É um grafo onde dois vértices podem ser ligados por mais de uma aresta.  
@@ -404,7 +404,7 @@ Nesse caso o pseudografo seria um grafo dirigido com pares de arestas paralelas 
 **Exemplo:** proteínas que interagem por diferentes domínios ou em diferentes condições.
 :::
 
-<center>![](imagens/02-img17.png)</center>
+<center>![](img/02-img17.png)</center>
 
 ### Grafo Valorado ou Ponderado
 São grafos nos quais as arestas possuem valores associados dando peso a cada conexão/interação.
@@ -413,12 +413,12 @@ São grafos nos quais as arestas possuem valores associados dando peso a cada co
 **Exemplo:** rede metabólica com fluxos (peso = taxa de produção) ou redes de coexpressão gênica (peso = correlação).
 :::
 
-<center>![](imagens/02-img18.png)</center>
+<center>![](img/02-img18.png)</center>
 
 ### Hipergrafo
 No hipergrafo, uma única aresta pode ligar mais de dois vértices.
 
-<center>![](imagens/02-img19.png)</center>
+<center>![](img/02-img19.png)</center>
 
 ### Grafos Bipartidos
 Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos são aqueles que podem ser divididos em dois subgrafos disjuntos.
@@ -427,8 +427,8 @@ Os hipergrafos podem ser representados por grafos bipartidos. Grafos bipartidos 
 **Exemplo:** interação fármaco-proteína (conjunto A = fármacos, conjunto B = proteínas-alvo).
 :::
 
-<center>![](imagens/02-img20.png)</center>
-<center>![](imagens/02-img21.png)</center>
+<center>![](img/02-img20.png)</center>
+<center>![](img/02-img21.png)</center>
 
 ---
 
@@ -444,7 +444,7 @@ As árvores desempenham um papel importante na biologia, onde representam, por e
 - A **altura** de uma árvore é a profundidade máxima de um vértice.
 - Uma **árvore binária** é uma árvore onde cada vértice tem no máximo grau 3.
 
-<center>![](imagens/02-img22.png)</center>
+<center>![](img/02-img22.png)</center>
 
 ---
 
@@ -452,7 +452,7 @@ As árvores desempenham um papel importante na biologia, onde representam, por e
 
 ### Matriz de adjacência
 
-<center>![](imagens/02-img23.png){width=50% style="border: 3px solid black; border-radius: 8px;"}</center>
+<center>![](img/02-img23.png){width=50% style="border: 3px solid black; border-radius: 8px;"}</center>
 
 Matriz de adjacência com os vértices: 1, 2, 5, 4, 3, 6
 
@@ -491,7 +491,7 @@ $$
 
 ### Lista de adjacência
 
-<center>![](imagens/02-img23.png){width=50% style="border: 3px solid black; border-radius: 8px;"}</center>
+<center>![](img/02-img23.png){width=50% style="border: 3px solid black; border-radius: 8px;"}</center>
 
 ```{dot}
 graph G {
