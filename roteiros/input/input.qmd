@@ -6,6 +6,13 @@ format: html
 lang: pt-Br
 ---
 
+## Download: Imagem Máquina Virtual
+1. Baixar e instalar o VirtualBox
+2. Baixar a imagem da máquina virtual abaixo
+3. Abrir o VirtualBox e IMPORTAR a máquina virtual
+
+[BioSisUbuntu.ova](https://ufcbr-my.sharepoint.com/:u:/g/personal/nicholas_ufc_br/IQAYNND7NpWbQrQJ10OcE1-hAcjHIzgyCaSuBEngeG5L-o8?e=0G0ypP)
+
 <!-- # 📦 Arquivos de Entrada para Download -->
 
 <!-- ## 📂 AULA 1 – UNIX BÁSICO -->

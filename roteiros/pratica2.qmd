@@ -159,12 +159,12 @@ Comparam dois valores e sempre retornam um `bool` (`True` ou `False`).
 
 | Operador | Significado      |
 | -------- | ------------------ |
-| `==`     | Igual a            |
-| `!=`     | Diferente de       |
-| `>`      | Maior que          |
-| `<`      | Menor que          |
-| `>=`     | Maior ou igual a   |
-| `<=`     | Menor ou igual a   |
+| ==     | Igual a            |
+| !=     | Diferente de       |
+| >      | Maior que          |
+| <      | Menor que          |
+| >=     | Maior ou igual a   |
+| <=     | Menor ou igual a   |
 
 ### 3. Operadores Lógicos
 
