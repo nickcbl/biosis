@@ -19,7 +19,7 @@ html:
     - Liste todos os vizinhos de $v$.
     - Encontre caminhos para todos os outros vértices que estão no mesmo componente conectado que o vértice $v$.
 
-![](imagens/img1_1_ed1.png){fig-align="center" width=50% style="border: 3px solid black; border-radius: 8px;"}
+![](img/img1_1_ed1.png){fig-align="center" width=50% style="border: 3px solid black; border-radius: 8px;"}
 
 3. Para o grafo mostrado acima, encontre uma representação gráfica diferente e mostre como ele é representado usando uma matriz de adjacência e uma representação de lista.
 4. Faça um grafo com nove vértices, quatro deles de grau 2 e quatro de grau 1. Este grafo está conectado?
@@ -27,11 +27,11 @@ html:
 6. Desenhe um grafo $G$, não-direcionado e conectado, com 10 vértices e 20 arestas.
 7. As redes de metabólitos podem ser construídas a partir de redes metabólicas modeladas como grafos bipartidos removendo todos os vértices que representam reações e conectando substratos (vértices com uma aresta de saída à reação) com produtos (verticais com uma aresta de entrada da reação) diretamente. Construa uma rede de metabólitos a partir da rede metabólica mostrada abaixo.
 
-![](imagens/img2_7_ed1.png){fig-align="center" width=50% style="border: 3px solid black; border-radius: 8px;"}
+![](img/img2_7_ed1.png){fig-align="center" width=50% style="border: 3px solid black; border-radius: 8px;"}
 
 8. Um caminho Euleriano é um caminho $(v0,\ e1,\ v1,\ e2,\ v2,...,\ vk - 1,\ ek,\ vk)$ em um grafo não-direcionado que contém cada aresta do grafo exatamente uma vez. O grafo abaixo possui um caminho Euleriano? Qual a distância entre o vértices 1 e 6? Quais os caminhos (e o menor) entre os vértices 4 e 6?
 
-![](imagens/img3_8_ed1.png){fig-align="center" width=50% style="border: 3px solid black; border-radius: 8px;"}
+![](img/img3_8_ed1.png){fig-align="center" width=50% style="border: 3px solid black; border-radius: 8px;"}
 
 9. Defina as abordagens top-down, bottom-up e middle-out.
 10. O que significa o escopo para um modelo e qual sua importância?
