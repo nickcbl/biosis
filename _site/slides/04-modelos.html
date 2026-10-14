@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
+
+  <meta name="author" content="Nicholas Barroso">
+  <title>CI0932 - Biologia de Sistemas – 04   Modelos</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-89d05c9c7f8a0a1d591afc160e5fe99d.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta property="og:title" content="04  Modelos – CI0932 - Biologia de Sistemas">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="04  Modelos – CI0932 - Biologia de Sistemas">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">04 <br> Modelos</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Nicholas Barroso
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="biologia" class="title-slide slide level1 center">
+<h1>Biologia</h1>
+<p>As entidades biológicas e suas propriedades possuem diferentes níveis organizacionais e diferentes escalas de tempo.</p>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/04-Modelos_0.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
+<section id="evolução" class="title-slide slide level1 center">
+<h1>Evolução</h1>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>As entidades biológicas evoluem;</p></li>
+<li><p>Uma consequência da evolução é a similaridade da biologia entre os organismos.</p></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/04-Modelos_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="img/04-Modelos_1.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="evolução-cont." class="title-slide slide level1 center">
+<h1>Evolução (cont.)</h1>
+<div class="columns">
+<div class="column">
+<ul>
+<li><strong>A semelhança favorece o uso de</strong>:
+<ul>
+<li>Organismos modelo</li>
+<li>Transferência crítica de conhecimento obtido em um organismo para outro.</li>
+</ul></li>
+<li><strong>Aplicações</strong>
+<ul>
+<li>Previsão da função de proteínas de similares;</li>
+<li>Reconstrução de árvores filogenéticas;</li>
+<li>Identificação de sequências reguladoras de DNA através de comparações.</li>
+</ul></li>
+<li>No entanto, processo evolutivo também leva a variações genéticas:
+<ul>
+<li>Medicina personalizada.</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/04-Modelos_2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="img/04-Modelos_2.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+</section>
+
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Atenção</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><p>Fenômenos biológicos possuem processos complexos que freqüentemente não podem ser explicados a partir de primeiros princípios e cujo resultado não pode ser confiavelmente previsto a partir da intuição.</p></li>
+<li><p>É difícil prever o comportamento global de um sistema complexo a partir do conhecimento de suas partes.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+
+<section id="modelos-e-modelagem" class="title-slide slide level1 center">
+<h1>Modelos e modelagem</h1>
+<p>A modelagem matemática e as simulações computacionais podem nos ajudar a entender a natureza interna e a dinâmica desses processos e chegar a previsões sobre seu desenvolvimento futuro e o efeito das interações com o ambiente.</p>
+</section>
+
+<section id="o-que-é-um-modelo" class="title-slide slide level1 center">
+<h1>O que é um modelo?</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definição</strong></p>
+</div>
+<div class="callout-content">
+<p>De maneira geral, um modelo é uma representação abstrata de objetos ou processos que consegue explicar alguma característica dos mesmos.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="cuidado" class="title-slide slide level1 center">
+<h1>CUIDADO!</h1>
+<p>Modelos são sempre <span style="color: red; font-weight: bold">aproximações</span> do real, gerando <u>comportamento ou respostas</u> também <span style="color: red; font-weight: bold">aproximadas</span>.</p>
+</section>
+
+<section id="exemplo-modelo-gráfico-de-vias-metabólicas" class="title-slide slide level1 center">
+<h1>Exemplo: modelo gráfico de vias metabólicas</h1>
+
+<img data-src="img/04-Modelos_3.png" class="r-stretch quarto-figure quarto-figure-center"></section>
+
+<section id="exemplo-modelo-de-metabolismo-em-rede" class="title-slide slide level1 center">
+<h1>Exemplo: Modelo de metabolismo em rede</h1>
+
+<img data-src="img/04-Modelos_4.png" class="r-stretch quarto-figure quarto-figure-center"></section>
+
+<section id="exemplo-modelo-matemático-de-crescimento-bacteriano" class="title-slide slide level1 center">
+<h1>Exemplo: Modelo matemático de crescimento bacteriano</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/04-Modelos_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="img/04-Modelos_5.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+
+<aside><div>
+<p>Kreft, Jan-Ulrich, Ginger Booth, and Julian WT Wimpenny. <strong>BacSim, a simulator for individual-based modelling of bacterial colony growth</strong>. Microbiology 144, no. 12 (1998): 3275-3287.</p>
+</div></aside></section>
+
+<section id="modelos" class="title-slide slide level1 center">
+<h1>Modelos</h1>
+<ul>
+<li>Para que um modelo em Biologia de Sistemas seja útil em simulações:
+<ul>
+<li>É essencial garantir sua fidelidade, ou seja, sua capacidade de prever corretamente o comportamento dinâmico do sistema biológico — pelo menos nos aspectos relevantes aos objetivos do estudo.</li>
+</ul></li>
+<li>Muitos modelos são construídos com base em leis físicas bem-estabelecidas, como a termodinâmica de reações químicas e a cinética enzimática, o que confere robustez teórica à sua estrutura matemática. <u>No entanto, a validação experimental contínua é crucial, pois a complexidade dos sistemas biológicos frequentemente exige simplificações que devem ser criticamente avaliadas.</u></li>
+</ul>
+</section>
+
+<section id="modelos-cont." class="title-slide slide level1 center">
+<h1>Modelos (cont.)</h1>
+<ul>
+<li><p>Modelos computacionais podem fazer afirmações específicas sobre um sistema de interesse.</p></li>
+<li><p>Suas previsões podem ser parcialmente justificadas por experimentos e conhecimento bioquímico direto, e parcialmente por extrapolação a partir de outros sistemas biológicos.</p></li>
+<li><p>O conhecimento estabelecido sobre um sistema pode assim ser resumido em uma formulação matemática coerente.</p></li>
+</ul>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Na biologia experimental, o termo ‘modelo’ também é usado para denotar um organismo ou linhagem celular que é especialmente adequado para a realização de experimentos.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="propósito-e-adequação-dos-modelos" class="title-slide slide level1 center">
+<h1>Propósito e adequação dos modelos</h1>
+<p><strong>A modelagem é um processo subjetivo e seletivo.</strong><br> Um modelo representa apenas aspectos específicos da realidade, mas pode ser suficiente se construído para responder a uma pergunta particular.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exemplos</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><strong>Objetivo</strong>: Prever saídas do sistema a partir de entradas.</li>
+</ol>
+<ul>
+<li>Neste caso, o modelo precisa apenas capturar a relação entrada-saída correta, podendo ser tratado como uma caixa-preta (ex.: redes neurais).</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Objetivo</strong>: Elucidar um mecanismo biológico.</li>
+</ol>
+<ul>
+<li>Aqui, a estrutura interna e as interações entre componentes devem ser representadas de forma realista e mecanicista.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="propósito-e-adequação-dos-modelos-cont." class="title-slide slide level1 center">
+<h1>Propósito e adequação dos modelos (cont.)</h1>
+<p>Os modelos podem ser:</p>
+<div class="columns">
+<div class="column">
+<ul>
+<li><strong>Gerais</strong>
+<ul>
+<li>O modelo cinético de Michaelis-Menten.</li>
+</ul></li>
+<li><strong>Específicos</strong>
+<ul>
+<li>Modelos de estrutura de proteínas.</li>
+<li>Modelos de deterioração de mitocôndrias.</li>
+</ul></li>
+</ul>
+</div><div class="column">
+<div class="layout-nrow=&quot;2&quot;">
+<center>
+<span class="math inline">\(v = \frac{d[P]}{dt} = \frac{V_{\max} [S]}{K_m + [S]}\)</span>
+</center>
+<p><br><br> <img data-src="img/04-Modelos_9.png" class="r-stretch quarto-figure quarto-figure-center"></p>
+</div>
+</div></div>
+</section>
+
+<section id="propósito-e-adequação-dos-modelos-cont.-1" class="title-slide slide level1 smaller center">
+<h1>Propósito e adequação dos modelos (cont.)</h1>
+<p>Os modelos podem ser:</p>
+<div class="columns">
+<div class="column">
+<p><strong>Modelos Gerais</strong>:</p>
+<ul>
+<li>São simplificados e amplamente aplicáveis, focando em princípios universais (ex.: redes de interação proteína-proteína conservadas em múltiplas espécies). Capturam padrões gerais, mas omitem detalhes específicos.</li>
+</ul>
+<p><strong>Modelos Específicos</strong>:</p>
+<ul>
+<li>São detalhados e contextualizados, incorporando parâmetros e condições particulares de um sistema biológico (ex.: modelo cinético de uma via metabólica em uma linhagem celular humana sob hipóxia). Buscam representar fielmente um cenário experimental concreto.</li>
+</ul>
+</div><div class="column">
+<div class="layout-nrow=&quot;2&quot;">
+<center>
+<span class="math inline">\(v = \frac{d[P]}{dt} = \frac{V_{\max} [S]}{K_m + [S]}\)</span>
+</center>
+<p><br><br> <img data-src="img/04-Modelos_11.png" class="r-stretch quarto-figure quarto-figure-center"></p>
+</div>
+</div></div>
+</section>
+
+<section id="george-box" class="title-slide slide level1 center">
+<h1>George Box</h1>
+<div class="columns">
+<div class="column">
+<div class="vertical-align=&quot;middle&quot;">
+<p>“Essencialmente, todos os modelos estão errados, mas alguns podem ser úteis”</p>
+<p>George Box</p>
+</div>
+</div><div class="column">
+<p><a href="img/04-Modelos_12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="img/04-Modelos_12.png"></a></p>
+</div></div>
+</section>
+
+<section id="modelagem-e-experimentação" class="title-slide slide level1 center">
+<h1>Modelagem e Experimentação</h1>
+<p>Modelos só possuem valor real quando podem ser comparados com experimentos e, para tanto, tal comparação depende da qualidade de tais experimentos.</p>
+</section>
+
+<section id="modelo-algumas-características" class="title-slide slide level1 smaller center">
+<h1>Modelo: algumas características</h1>
+<ol type="1">
+<li><p><strong>Modelos dependem de hipóteses específicas e rigorosas</strong>: que definem claramente o escopo e as premissas do estudo.</p></li>
+<li><p><strong>Modelos revelam lacunas no conhecimento</strong>: durante sua construção, a necessidade de quantificar interações ou componentes expõe falhas no entendimento atual do sistema.</p></li>
+<li><p><strong>Modelagem oferece independência do objeto real</strong>: o sistema pode ser estudado de forma abstrata, sem interferência direta ou limitações experimentais imediatas.</p></li>
+<li><p><strong>Tempo e espaço são flexíveis</strong>: escalas temporais (ex.: milissegundos a anos) e espaciais (ex.: molecular a organismal) podem ser comprimidas ou expandidas conforme a necessidade.</p></li>
+<li><p><strong>Modelagem é economicamente vantajosa</strong>: simulações computacionais têm custo reduzido comparado a experimentos laboratoriais complexos ou de longa duração.</p></li>
+<li><p><strong>Modelos mitigam questões éticas</strong>: reduzem ou eliminam o uso de organismos vivos, células primárias ou tecidos em fases exploratórias de pesquisa.</p></li>
+</ol>
+</section>
+
+<section id="modelo-algumas-características-cont." class="title-slide slide level1 smaller center">
+<h1>Modelo: algumas características (cont.)</h1>
+<ul>
+<li><strong>Simulação de Cenários Inacessíveis</strong>: Permitem testar condições extremas, perigosas ou eticamente inviáveis no mundo real.</li>
+<li><strong>Análise Temporal Dinâmica</strong>: Facilitam o rastreamento da evolução de compostos ou moléculas ao longo do tempo.</li>
+<li><strong>Perturbações Controladas</strong>:
+<ul>
+<li>Permitem manipular o ambiente de formas impossíveis experimentalmente.</li>
+<li>Habilitam a alteração seletiva de elementos específicos sem afetar outros componentes do sistema.</li>
+</ul></li>
+<li><strong>Reprodutibilidade e Varredura de Condições</strong>: Simulações podem ser repetidas infinitamente e sob diversas condições.</li>
+<li><strong>Representação Clara de Resultados</strong>:
+<ul>
+<li>Os resultados são expressos em termos matemáticos precisos.</li>
+<li>Visualizações gráficas simplificam a interpretação do comportamento do sistema.</li>
+</ul></li>
+<li><strong>Predições Testáveis</strong>: Geram hipóteses quantitativas e fundamentadas para validação experimental.</li>
+</ul>
+</section>
+
+<section id="modelos-matemáticos-e-computacionais" class="title-slide slide level1 center">
+<h1>Modelos: matemáticos e computacionais</h1>
+<ul>
+<li><p>A tentativa de descrever problemas biológicos usando linguagem matemática frequentemente revela lacunas em nosso conhecimento e exige uma clarificação conceitual rigorosa.</p></li>
+<li><p>Modelos computacionais surgem como ferramentas para testar hipóteses sobre fenômenos biológicos de forma controlada e quantitativa. Além disso, eles permitem simular processos biológicos complexos sob condições variadas, oferecendo insights inalcançáveis apenas por métodos experimentais tradicionais.</p></li>
+</ul>
+</section>
+
+<section id="noções-básicas-de-modelos-computacionais" class="title-slide slide level1 center">
+<h1>Noções básicas de modelos computacionais</h1>
+
+</section>
+
+<section id="escopo-do-modelo" class="title-slide slide level1 center">
+<h1>Escopo do modelo</h1>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/04-Modelos_13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="img/04-Modelos_13.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div><div class="column">
+<ul>
+<li>Um modelo pode descrever somente alguns aspectos do sistema e todas as outras propriedades do sistema podem ser simplificadas ou negligenciadas totalmente.
+<ul>
+<li>Exemplo: o meio celular e concentração de metabólitos secundários.</li>
+</ul></li>
+<li><span style="color: red; font-weight: bold">É difícil construir modelos de maneira que as características que foram ignoradas não comprometam os resultados básicos do modelo.</span></li>
+</ul>
+</div></div>
+</section>
+
+<section id="declarações-do-modelo" class="title-slide slide level1 center">
+<h1>Declarações do modelo</h1>
+
+</section>
+
+<section id="declarações-do-modelo-cont." class="title-slide slide level1 center">
+<h1>Declarações do modelo (cont.)</h1>
+<ul>
+<li><strong>Restrições de Igualdade e Desigualdade</strong>:
+<ul>
+<li>Fundamentais em modelos baseados em restrições, ex.: Análise de Balanço de Fluxo (FBA).</li>
+<li><strong>Igualdade</strong>: Representam conservação de massa, ex.: <span class="math inline">\(A + B → C\)</span>.</li>
+<li><strong>Desigualdade</strong>: Limitam intervalos de fluxo metabólico ou expressão gênica, ex.: <span class="math inline">\(0 ≤ v₁ ≤ V_max\)</span>.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="declarações-do-modelo-cont.-1" class="title-slide slide level1 center">
+<h1>Declarações do modelo (cont.)</h1>
+<ul>
+<li><strong>Postulados de Otimalidade</strong>:
+<ul>
+<li>Supõem que o sistema evolui para maximizar/minimizar uma função objetivo (ex.: maximização de biomassa em FBA).</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="declarações-do-modelo-cont.-2" class="title-slide slide level1 center">
+<h1>Declarações do modelo (cont.)</h1>
+<ul>
+<li><strong>Processos Estocásticos</strong>:
+<ul>
+<li>Descrevem sistemas onde a aleatoriedade é crucial (ex.: expressão gênica estocástica, modelada por Equações Mestras ou Simulação de Gillespie).</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="declarações-do-modelo-cont.-3" class="title-slide slide level1 center">
+<h1>Declarações do modelo (cont.)</h1>
+<ul>
+<li><strong>Declarações Probabilísticas</strong>:
+<ul>
+<li>Atribuem distribuições de probabilidade a parâmetros ou estados do sistema para capturar variabilidade (ex.: entre células em uma população ou incerteza experimental).</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="estado-do-sistema" class="title-slide slide level1 center">
+<h1>Estado do sistema</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definição</strong></p>
+</div>
+<div class="callout-content">
+<p>O estado de um sistema representa um instante completo de todas as suas propriedades relevantes em um dado momento.</p>
+<p>É formalmente descrito por um conjunto de variáveis de estado (ex.: concentrações, números moleculares, níveis de atividade), cujos valores definem unequivomente a condição atual do sistema.</p>
+<p>Um modelo deve encapsular informação suficiente para, a partir do estado atual, prever unequivocamente a evolução temporal do sistema sob condições definidas.</p>
+</div>
+</div>
+</div>
+<p>A definição específica do estado varia conforme a abordagem de modelagem:</p>
+<ul>
+<li>Modelos Determinísticos (ex.: EDOs):
+<ul>
+<li>O estado é um vetor de concentrações contínuas de todas as espécies bioquímicas relevantes (ex.: <span class="math inline">\([S](t),[P](t)\)</span>).</li>
+</ul></li>
+<li>Modelos Estocásticos (ex.: Gillespie):
+<ul>
+<li>O estado é a contagem discreta de moléculas de cada espécie (ex.: <span class="math inline">\(nX,nY\)</span>), ou uma distribuição de probabilidade sobre possíveis contagens.</li>
+</ul></li>
+<li>Modelos Booleanos de Redes Gênicas:
+<ul>
+<li>O estado é um vetor binário (ex.: <span class="math inline">\(\{0,1\}^n\)</span>), onde cada entrada indica se um gene está ativo (1) ou inativo (0).</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="estado-do-sistema-cont." class="title-slide slide level1 center">
+<h1>Estado do sistema (cont.)</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Comportamento Temporal</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>E um sistema dinâmico, o estado futuro é determinado pelo estado atual.</p></li>
+<li><p>Em um sistema estocástico, os estados futuros não são precisamente predeterminados. Ao invés disso, cada possível futuro exibe uma certa probabilidade de acontecer.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="constantes-parâmetros-e-variáveis" class="title-slide slide level1 center">
+<h1>Constantes, parâmetros e variáveis</h1>
+<p>São as quantidades dentro de um modelo.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Constantes, parâmetros e variáveis</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Constante</strong>: Um valor fixo e universal que não muda entre diferentes contextos ou sistemas.
+<ul>
+<li><strong>Exemplo</strong>: A velocidade da luz (<span class="math inline">\(c\)</span>), a constante de Avogadro, ou a carga do elétron.</li>
+</ul></li>
+<li><strong>Parâmetro</strong>: Um valor que é fixo dentro de um determinado modelo ou contexto experimental, mas que pode variar quando o modelo é aplicado a uma nova situação.
+<ul>
+<li><strong>Exemplo</strong>: A taxa máxima de reação (<span class="math inline">\(V_{max}\)</span>) de uma enzima, que é constante para uma enzima purificada sob condições específicas de pH e temperatura, mas muda se essas condições forem alteradas ou se uma isoenzima diferente for considerada.</li>
+</ul></li>
+<li><strong>Variável</strong>: Uma quantidade que muda ao longo do tempo ou em resposta a outras variáveis dentro do escopo do modelo.
+<ul>
+<li><strong>Exemplo</strong>: A concentração de glucose em uma célula (<span class="math inline">\([GLC]\)</span>), que varia conforme é consumida na glicólise.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="constantes-parâmetros-e-variáveis-2" class="title-slide slide level1 center">
+<h1>Constantes, parâmetros e variáveis</h1>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Distinção Parâmetro e Constante é especialmente importante.</strong></p>
+</div>
+<div class="callout-content">
+<p>Um parâmetro (como a meia-vida de uma proteína) é tratado como constante durante uma simulação para simplificar o modelo, mas seu valor é frequentemente estimado a partir de dados experimentais e pode ser ajustado para diferentes cenários (ex.: um mutante com uma proteína mais estável teria um parâmetro de meia-vida diferente).</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="constante" class="title-slide slide level1 center">
+<h1>Constante</h1>
+<p>É uma quantidade com valor fixo.</p>
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><strong>Exemplos</strong></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>O número natural <span class="math inline">\(e\)</span> .</li>
+<li>A constante de Avogadro.</li>
+<li>A constante de Planck</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="parâmetros" class="title-slide slide level1 center">
+<h1>Parâmetros</h1>
+<p>São quantidades que tem um dado valor, como o valor <span class="math inline">\(K_m\)</span> de uma enzima em uma reação. Esse valor depende do método usado e das condições experimentais e por isso pode mudar.</p>
+</section>
+
+<section id="variáveis" class="title-slide slide level1 center">
+<h1>Variáveis</h1>
+<ul>
+<li><p>São quantidades com valor mutável para o qual o modelo estabelece relações.</p></li>
+<li><p>As variáveis de estado descrevem o comportamento completo do sistema. Podem assumir valor independentes e cada uma das variáveis é necessária para definir o sistema.</p></li>
+<li><p>Por exemplo, o diâmetro <span class="math inline">\(d\)</span> e o volume <span class="math inline">\(V\)</span> de uma esfera obedece a relação <span class="math inline">\(V = \frac{\pi d^3}{6}\)</span>, onde <span class="math inline">\(\pi\)</span> e 6 são constantes, <span class="math inline">\(V\)</span> e <span class="math inline">\(d\)</span> são variáveis, mas somente uma delas é a variável de estado já que a relação entre elas determina unicamente a outra.</p></li>
+</ul>
+</section>
+
+<section id="comportamento-de-um-modelo" class="title-slide slide level1 center">
+<h1>Comportamento de um modelo</h1>
+<p>Basicamente duas coisas podem influenciar o comportamento de um modelo</p>
+<ul>
+<li><p>Influências do ambiente (entrada).</p></li>
+<li><p>Processos dentro do sistema.</p></li>
+</ul>
+</section>
+
+<section id="classificação-de-modelos" class="title-slide slide level1 center">
+<h1>Classificação de modelos</h1>
+<div class="columns">
+<div class="column">
+<p><strong>Modelo determinístico</strong></p>
+<ul>
+<li>A evolução do sistema através dos estados seguintes podem ser predita com o conhecimento do estado atual.</li>
+</ul>
+</div><div class="column">
+<p><strong>Modelo estocástico</strong></p>
+<ul>
+<li>Já o modelo estocástico nos dá a distribuição de probabilidade para os possíveis estados futuros.</li>
+</ul>
+</div></div>
+</section>
+
+<section id="classificação-de-modelos-cont." class="title-slide slide level1 center">
+<h1>Classificação de modelos (cont.)</h1>
+<p><a href="img/04-0Modelos_14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="img/04-0Modelos_14.png"></a></p>
+<p>Modelo estrutural ou qualitativo</p>
+<p>É uma representação que descreve:</p>
+<ul>
+<li><p>Componentes de um sistema biológico (como genes, proteínas ou metabólitos)</p></li>
+<li><p>Suas interações ou relações, sem quantificar dinâmicas temporais ou valores numéricos.</p></li>
+<li><p>Seu foco está na topologia da rede (quem interage com quem) e na lógica das interações (ativação, inibição, regulação), permitindo explorar propriedades emergentes como modularidade, robustez e fluxo de informação.</p></li>
+</ul>
+</section>
+
+<section id="classificação-de-modelos-cont.-1" class="title-slide slide level1 center">
+<h1>Classificação de modelos (cont.)</h1>
+<p>Modelo Discreto</p>
+<p><strong>Definição</strong>: Tempo, estado e espaço assumem valores em um conjunto enumerável (ex.: números inteiros, categorias finitas).</p>
+<p><strong>Exemplos</strong>:</p>
+<ul>
+<li><p><strong>Redes Booleanas</strong>: Genes representados como “LIGADO” (1) ou “DESLIGADO” (0).</p></li>
+<li><p><strong>Autômatos Celulares</strong>: Células em estados discretos (ex.: saudável/infectada/morta) em uma grade espacial.</p></li>
+<li><p><strong>Cadeias de Markov Temporais</strong>: Eventos em tempos discretos (ex.: gerações em modelos populacionais).</p></li>
+</ul>
+</section>
+
+<section id="classificação-de-modelos-cont.-2" class="title-slide slide level1 center">
+<h1>Classificação de modelos (cont.)</h1>
+<p><strong>Modelo Contínuo</strong></p>
+<p><strong>Definição</strong>: Tempo, estado e espaço assumem valores em intervalos contínuos (ex.: números reais).</p>
+<p><strong>Exemplos</strong>:</p>
+<ul>
+<li><p><strong>Equações Diferenciais Ordinárias (EDOs)</strong>: Concentrações de metabólitos variando continuamente no tempo (ex.: modelo de cinética enzimática de Michaelis-Menten).</p></li>
+<li><p><strong>Modelos Baseados em Equações Diferenciais Parciais (EDPs)</strong>: Variação espacial contínua de gradientes de morfogenes em desenvolvimento embrionário.</p></li>
+</ul>
+<aside class="notes">
+<p>Características Principais:</p>
+<pre><code>Variáveis multidimensionais:
+
+    Incorporam derivadas em relação ao tempo (ex.: ∂[A]/∂t) e ao espaço (ex.: ∂²[A]/∂x²), capturando gradientes, difusão e transporte.
+
+Aplicações em Biologia:
+
+    Padrões de formação em desenvolvimento embrionário (ex.: modelo de Turing para morfogênese).
+
+    Dinâmica de gradientes de sinalização (ex.: concentração de nutrientes em tecidos).
+
+    Propagação de ondas de cálcio intracelulares.
+
+    Distribuição espacial de espécies em ecossistemas.
+
+Vantagem:
+
+    Permitem estudar sistemas onde a localização espacial é crítica, indo além de modelos que assumem homogeneidade (ex.: ODEs).</code></pre>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="classificação-de-modelos-cont.-3" class="title-slide slide level1 center">
+<h1>Classificação de modelos (cont.)</h1>
+<p><strong>Reversibilidade</strong></p>
+<p><strong>Definição</strong>: Um processo é reversível se pode ocorrer tanto na direção direta quanto na inversa, frequentemente mantendo as mesmas propriedades dinâmicas (ex.: taxas de reação).</p>
+<p><strong>Irreversibilidade</strong></p>
+<p><strong>Definição</strong>: Ocorre quando apenas uma direção é termodinamicamente ou cineticamente favorável, frequentemente devido a perda de energia ou condições celulares específicas (ex.: hidrólise de ATP).</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exemplo Biológico</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Reversível</strong>: A ligação de uma molécula sinalizadora a um receptor (que pode dissociar).</p>
+<p><strong>Irreversível</strong>: A ativação proteolítica de uma caspase em uma cascata apoptótica.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="classificação-de-modelos-cont.-4" class="title-slide slide level1 center">
+<h1>Classificação de modelos (cont.)</h1>
+<p><strong>Periodicidade</strong></p>
+<p>Definição: Refere-se a comportamentos que se repetem em intervalos regulares de tempo, forming ciclos previsíveis.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exemplo Biológico</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Ciclos circadianos</strong>: Oscilações de ~24 horas na expressão gênica (ex.: genes Clock e Bmal1).</p>
+<p><strong>Ciclo celular</strong>: Transições entre fases (G1, S, G2, M) controladas por ciclinas e cinases.</p>
+<p><strong>Oscilações de cálcio</strong>: Pulsos de liberação de <span class="math inline">\(Ca_{2+}\)</span> em células excitáveis.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="estado-estacionário---steady-state" class="title-slide slide level1 center">
+<h1>Estado estacionário - Steady state</h1>
+<p>Um estado estacionário é atingido quando todas as variáveis de estado de um sistema (ex.: concentrações de metabólitos, níveis de expressão gênica) permanecem constantes ao longo do tempo, ou seja, suas derivadas temporais são zero (<span class="math inline">\(\frac{d[X]}{dt}=0\)</span>).</p>
+</section>
+
+<section id="estado-estacionário---steady-state-cont." class="title-slide slide level1 center">
+<h1>Estado estacionário - Steady state (cont.)</h1>
+<p>Equilíbrio Dinâmico (≠ Equilíbrio Termodinâmico)</p>
+<p>No estado estacionário, fluxos ainda ocorrem (ex.: reações químicas, produção e degradação de proteínas), mas as taxas de entrada e saída para cada pool se equilibram perfeitamente, resultando em concentrações constantes.</p>
+<p>É um conceito central em sistemas abertos (como células), que trocam matéria e energia com o meio.</p>
+<p><strong>Estabilidade</strong>:</p>
+<p>Um estado estacionário pode ser estável (o sistema retorna a ele após uma pequena perturbação) ou instável (uma pequena perturbação afasta o sistema irreversivelmente).</p>
+</section>
+
+<section id="estado-estacionário---steady-state-cont.-1" class="title-slide slide level1 center">
+<h1>Estado estacionário - Steady state (cont.)</h1>
+<ul>
+<li><p><strong>Metabolismo</strong>: Em uma via metabólica, um estado estacionário é alcançado quando a taxa de produção de um metabólito é igual à sua taxa de consumo (ex.: concentração de ATP constante sob demanda energética estável).</p></li>
+<li><p><strong>Homeostase</strong>: A manutenção de um nível constante de glicose no sangue é um estado estacionário dinâmico, equilibrando ingestão, secreção de insulina/glucagon e consumo celular.</p></li>
+<li><p><strong>Expressão Gênica</strong>: O nível de uma proteína pode atingir um estado estacionário onde sua taxa de síntese é igual à sua taxa de degradação.</p></li>
+</ul>
+</section>
+
+<section id="a-atribuição-de-modelos-não-é-única" class="title-slide slide level1 center">
+<h1>A atribuição de modelos não é única</h1>
+<div class="columns">
+<div class="column">
+<p>Um processo pode ser descrito por mais de uma maneira</p>
+</div><div class="column">
+<p>A modelagem de sistemas biológicos é inerentemente não única, significando que um mesmo processo ou entidade biológica pode ser representado por múltiplos modelos formais, cada um com diferentes níveis de abstração, pressupostos e objetivos.</p>
+</div></div>
+</section>
+
+<section id="a-atribuição-de-modelos-não-é-única-1" class="title-slide slide level1 center">
+<h1>A atribuição de modelos não é única</h1>
+<div class="columns">
+<div class="column">
+<p>Um processo pode ser descrito por mais de uma maneira</p>
+</div><div class="column">
+<p><strong>Múltiplas Escalas e Perspectivas</strong></p>
+<ul>
+<li>Uma mesma entidade (ex.: uma proteína) pode ser modelada em escalas atômicas (dinâmica molecular), celulares (cinética enzimática) ou de redes (interações proteína-proteína).</li>
+</ul>
+</div></div>
+</section>
+
+<section id="a-atribuição-de-modelos-não-é-única-2" class="title-slide slide level1 center">
+<h1>A atribuição de modelos não é única</h1>
+<div class="columns">
+<div class="column">
+<p>Um processo pode ser descrito por mais de uma maneira</p>
+</div><div class="column">
+<p><strong>Abstração Seletiva</strong></p>
+<ul>
+<li>Diferentes modelos destacam aspectos distintos do sistema, como sua estrutura topológica (modelos qualitativos) ou dinâmica temporal quantitativa (modelos baseados em EDOs).</li>
+</ul>
+</div></div>
+</section>
+
+<section id="a-atribuição-de-modelos-não-é-única-3" class="title-slide slide level1 center">
+<h1>A atribuição de modelos não é única</h1>
+<div class="columns">
+<div class="column">
+<p>Um processo pode ser descrito por mais de uma maneira</p>
+</div><div class="column">
+<p><strong>Diversidade de Dados Experimentais</strong></p>
+<ul>
+<li>Diferentes técnicas experimentais (ex.: microscopia, espectrometria de massa, RNA-seq) geram dados heterogêneos, que podem demandar frameworks de modelagem distintos para sua interpretação.</li>
+</ul>
+</div></div>
+</section>
+
+<section id="a-atribuição-de-modelos-não-é-única-4" class="title-slide slide level1 center">
+<h1>A atribuição de modelos não é única</h1>
+<div class="columns">
+<div class="column">
+<p>Um processo pode ser descrito por mais de uma maneira</p>
+</div><div class="column">
+<p><strong>Implicações</strong></p>
+<ul>
+<li><p>A escolha do modelo depende criticalmente da pergunta biológica específica.</p></li>
+<li><p>Modelos concorrentes podem ser igualmente válidos para explicar um fenômeno, mas sob contextos diferentes.</p></li>
+<li><p>A integração de múltiplos modelos (ex.: multi-escala) é frequentemente necessária para uma compreensão abrangente.</p></li>
+</ul>
+</div></div>
+</section>
+
+<section>
+<section id="integração-de-dados-multi-ômicos" class="title-slide slide level1 center">
+<h1>Integração de dados multi-ômicos</h1>
+<p>Uma parte importante da Biologia de Sistemas é a integração de dados devido ao grande volume de dados ômicos.</p>
+<p>A integração ocorre em três níveis (não universalmente padronizados, mas amplamente aceitos):</p>
+<ul>
+<li><p><strong>Baixo nível</strong>: Foco em formatos, armazenamento e transferência de dados brutos ou pré-processados.</p></li>
+<li><p><strong>Alto nível</strong>: Representação unificada de modelos e vias biológicas (ex.: SBML, CellML).</p></li>
+<li><p><strong>Nível mais alto (interpretativo)</strong>: Correlação e análise conjunta de dados multi-ômicos para extrair significado biológico.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/04-Modelos_15.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
+<section>
+<section id="modelos-de-grafos" class="title-slide slide level1 center">
+<h1>Modelos de grafos</h1>
+
+</section>
+<section id="erdös-rényi-er-modelo-mais-básico-de-redes-aleatórias." class="slide level2 smaller">
+<h2>Erdös-Rényi (ER): modelo mais básico de redes aleatórias.</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Grafo não-direcionado, sem laços e múltiplas conexões.</li>
+</ul>
+<center>
+<br> <span class="math inline">\(E_{max} = \frac{N_v\times(N_v-1)}{2}\)</span> <br>
+</center>
+<ul>
+<li>A maioria dos vértices tem graus semelhantes.</li>
+<li>Não demonstra coesividade, que é natural a redes empíricas.</li>
+<li>Limitações para a comparação de ER e rede empíricas:
+<ul>
+<li>Distribuição de graus homogênea</li>
+<li>Falta de coesividade local</li>
+<li>Falta de correlação de grau, nós com muitos graus não tendem a se conectar entre si</li>
+<li>Não é livre de escala</li>
+<li>Não possui modularidade</li>
+</ul></li>
+<li><span style="color: blue; font-weight: bold">Reproduz o efeito de mundo pequeno.</span></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/04-Modelos_16.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="img/04-Modelos_16.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/04-Modelos_17.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="img/04-Modelos_17.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section id="modelos-de-grafos-cont." class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Característica</th>
+<th style="text-align: center;">Rede Erdös-Rényi (Aleatória)</th>
+<th style="text-align: center;">Redes Reais (Biológicas)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Distribuição de graus</strong></td>
+<td style="text-align: center;">Homogênea (Poisson)</td>
+<td style="text-align: center;">Heterogênea (hubs + nós pouco conectados)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Modularidade</strong></td>
+<td style="text-align: center;">Ausente</td>
+<td style="text-align: center;">Presente (módulos funcionais)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Coesividade</strong></td>
+<td style="text-align: center;">Baixa</td>
+<td style="text-align: center;">Alta (clusters de interação)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Mundo Pequeno</strong></td>
+<td style="text-align: center;">Sim</td>
+<td style="text-align: center;">Sim</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Livre de Escala</strong></td>
+<td style="text-align: center;">Não</td>
+<td style="text-align: center;">Sim</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section id="modelos-de-grafos-cont.-1" class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+<p><strong>Watts-Strogatz (WS)</strong></p>
+<p>É um modelo de rede que gera redes com alto agrupamento local (<em>modularidade</em>) e baixo caminho médio (<em>efeito “mundo pequeno”</em>).</p>
+<p>Imagine uma rede onde a maioria das conexões é com vizinhos próximos (formando “panelinhas” ou clusters), mas com alguns poucos atalhos que conectam grupos distantes.</p>
+<p><a href="img/04-Modelos_20.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="img/04-Modelos_20.png"></a></p>
+</section>
+
+<section id="modelos-de-grafos-cont.-2" class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+<p><strong>Watts-Strogatz (WS)</strong></p>
+<p><em>Como é construído?</em></p>
+<p>Começa com uma rede regular: Os vértices são dispostos em um anel (ou grade), cada um conectado aos seus <span class="math inline">\(k\)</span> vizinhos mais próximos (ex.: <span class="math inline">\(k=2\)</span> para cada lado). Isso cria clusters locais muito coesos.</p>
+<p>Reconectação aleatória: Com uma probabilidade <span class="math inline">\(p\)</span>, cada aresta é <em>reatribuída</em> a um vértice escolhido aleatoriamente em toda a rede. Esses reconexões aleatórias criam atalhos entre clusters distantes.</p>
+<p><a href="img/04-Modelos_21.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img data-src="img/04-Modelos_21.png"></a></p>
+</section>
+
+<section id="modelos-de-grafos-cont.-3" class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+<p><strong>Watts-Strogatz (WS)</strong>: Aplicação no Espalhamento de Doenças Infecciosas.</p>
+<ul>
+<li><p><strong>Alto Agrupamento (Alta Modularidade)</strong>: Representa bem como as infecções se espalham rapidamente em grupos fechados (famílias, escolas, locais de trabalho).</p></li>
+<li><p><strong>Atalhos (Mundo Pequeno)</strong>: Modela os <em>super-espalhadores</em> ou viagens que conectam cidades ou países distantes, permitindo que a doença se propague globalmente em pouco tempo.</p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exemplo</strong></p>
+</div>
+<div class="callout-content">
+<p>Uma doença pode se espalhar lentamente em uma cidade (dentro dos clusters) até que um indivíduo infectado pegue um avião (atalho) e inicie um novo surto em outro continente, conectando os dois clusters e acelerando a pandemia.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="modelos-de-grafos-cont.-4" class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+<p><strong>Barabási-Albert (BA)</strong>: o problema que o Modelo BA resolve:</p>
+<ul>
+<li>Os modelos <em>Erdös-Rényi (ER)</em> e <em>Watts-Strogatz (WS)</em> não conseguiam explicar uma propriedade fundamental de redes reais (como a internet, redes sociais e redes biológicas): a existência de hubs (nós superconectados).</li>
+<li>O modelo BA foi criado para explicar justamente como essas redes livres de escala surgem.</li>
+</ul>
+</section>
+
+<section id="modelos-de-grafos-cont.-5" class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+<p><strong>Barabási-Albert (BA)</strong></p>
+<p>O modelo é baseado em dois princípios simples que imitam o crescimento de redes reais:</p>
+<ul>
+<li><strong>Crescimento (Growth)</strong>: A rede não é estática. Ela começa com um pequeno número de nós e novos nós são adicionados um a um ao longo do tempo.</li>
+</ul>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Uma rede de interação proteína-proteína não surgiu completa; novos genes e proteínas foram adicionados ao longo da evolução.</p>
+</div>
+</div>
+</div>
+<p><strong>Ligação Preferencial (Preferential Attachment)</strong>: Quando um novo nó é adicionado, ele tende a se conectar preferencialmente a nós que já são bem conectados (que têm um grau alto). - Efeito <strong>o rico ficam mais ricos</strong> (<em>rich-get-richer</em>).</p>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Em uma rede de interação, uma proteína que já tem muitas conexões (um <em>hub</em>) é mais provável de ser recrutada para novas funções e interações do que uma proteína pouco conectada.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="modelos-de-grafos-cont.-6" class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+
+<img data-src="img/04-Modelos_22.png" class="r-stretch quarto-figure quarto-figure-center"></section>
+
+<section id="modelos-de-grafos-cont.-7" class="title-slide slide level1 center">
+<h1>Modelos de grafos (cont.)</h1>
+<p><strong>Resultado</strong>: Redes Livres de Escala</p>
+<ul>
+<li>Essas duas regras simples geram redes com uma distribuição de graus que segue uma lei de potência.</li>
+<li>Isso significa:
+<ul>
+<li>A maioria dos nós tem poucas conexões.</li>
+<li>Uns poucos nós (os hubs) têm um número extraordinariamente alto de conexões.</li>
+<li>Não há um <em>típico</em> número de conexões, a rede é <em>livre de escala</em> .</li>
+</ul></li>
+</ul>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="img/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"},{"title":"Navegação","icon":"🏠","content":"<p><a href=\"slides.html\">&larr; Voltar para a Home do Biosis</a></p>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+    
+
+</body></html>

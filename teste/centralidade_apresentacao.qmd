@@ -1,0 +1,272 @@
+---
+title: "Cálculo Visual de Centralidade em Grafos"
+subtitle: "Demonstração Interativa para Apresentações Quarto / RevealJS"
+author: "Prof. Análise de Redes"
+format:
+  revealjs:
+    theme: dark
+    slide-number: true
+    transition: slide
+    width: 1280
+    height: 720
+    margin: 0.05
+---
+
+## Visão Geral das Centralidades
+
+Na análise de redes, a **centralidade** mede a importância estrutural de um nó no grafo.
+
+* **Grau (Degree):** Número de conexões diretas.
+* **Proximidade (Closeness):** Quão rápido um nó alcança todos os outros.
+* **Intermediação (Betweenness):** Frequência em que um nó está nos caminhos mínimos.
+* **Autovetor (Eigenvector):** Conexão com outros nós que também são importantes.
+
+---
+
+## 1. Centralidade de Grau (Degree)
+
+A **Centralidade de Grau** é a métrica mais simples. Ela mede a quantidade de conexões incidentes em um nó.
+
+$$C_D(v) = \text{deg}(v) \quad \text{ou normalizado} \quad C'_D(v) = \frac{\text{deg}(v)}{N - 1}$$
+
+---
+
+```{=html}
+<style>
+  .graph-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    color: #f8fafc;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .graph-area { flex: 1.2; text-align: center; }
+  .info-area { flex: 1; display: flex; flex-direction: column; justify-content: center; background: #0f172a; padding: 20px; border-radius: 8px; }
+  .graph-node { fill: #38bdf8; stroke: #0284c7; stroke-width: 3; transition: all 0.4s ease; cursor: pointer; }
+  .graph-node:hover { fill: #f59e0b; }
+  .graph-node.highlighted { fill: #ef4444; stroke: #b91c1c; r: 26; }
+  .graph-node.target { fill: #10b981; stroke: #047857; }
+  .graph-edge { stroke: #64748b; stroke-width: 3; opacity: 0.6; transition: all 0.4s ease; }
+  .graph-edge.path { stroke: #ef4444; stroke-width: 6; opacity: 1; }
+  .node-label { fill: #ffffff; font-weight: bold; font-size: 16px; pointer-events: none; }
+  .btn-step { background: #0284c7; color: white; border: none; padding: 10px 18px; font-size: 14px; font-weight: bold; border-radius: 6px; cursor: pointer; margin-right: 8px; margin-top: 10px; }
+  .btn-step:hover { background: #0369a1; }
+  .btn-reset { background: #475569; color: white; border: none; padding: 10px 18px; font-size: 14px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+  .btn-reset:hover { background: #334155; }
+</style>
+
+<div class="graph-container">
+    <div class="graph-area">
+        <svg id="svg-degree" width="450" height="300" viewBox="0 0 450 300">
+            <line x1="80" y1="80" x2="180" y2="80" class="graph-edge e-AB"/>
+            <line x1="80" y1="80" x2="80" y2="220" class="graph-edge e-AC"/>
+            <line x1="180" y1="80" x2="80" y2="220" class="graph-edge e-BC"/>
+            <line x1="180" y1="80" x2="280" y2="150" class="graph-edge e-BD"/>
+            <line x1="80" y1="220" x2="280" y2="150" class="graph-edge e-CD"/>
+            <line x1="280" y1="150" x2="380" y2="80" class="graph-edge e-DE"/>
+            <line x1="280" y1="150" x2="380" y2="220" class="graph-edge e-DF"/>
+
+            <circle cx="80" cy="80" r="20" class="graph-node n-A"/><text x="80" y="85" text-anchor="middle" class="node-label">A</text>
+            <circle cx="180" cy="80" r="20" class="graph-node n-B"/><text x="180" y="85" text-anchor="middle" class="node-label">B</text>
+            <circle cx="80" cy="220" r="20" class="graph-node n-C"/><text x="80" y="225" text-anchor="middle" class="node-label">C</text>
+            <circle cx="280" cy="150" r="20" class="graph-node n-D"/><text x="280" y="155" text-anchor="middle" class="node-label">D</text>
+            <circle cx="380" cy="80" r="20" class="graph-node n-E"/><text x="380" y="85" text-anchor="middle" class="node-label">E</text>
+            <circle cx="380" cy="220" r="20" class="graph-node n-F"/><text x="380" y="225" text-anchor="middle" class="node-label">F</text>
+        </svg>
+        <div>
+            <button class="btn-step" onclick="stepDegree()">Analisar Próximo Nó</button>
+            <button class="btn-reset" onclick="resetDegree()">Reiniciar</button>
+        </div>
+    </div>
+    <div class="info-area" id="degree-info">
+        <h3 style="color: #38bdf8; margin-top:0;">Instrução:</h3>
+        <p>Clique em "Analisar Próximo Nó" para iterar pelos vértices e ver a contagem visual do grau.</p>
+    </div>
+</div>
+```
+
+---
+
+## 2. Centralidade de Proximidade (Closeness)
+
+A **Centralidade de Proximidade** quantifica o quão "próximo" um nó está de todos os outros nós da rede, através da soma dos caminhos mínimos $d(u, v)$.
+
+$$C_C(u) = \frac{N - 1}{\sum_{v \neq u} d(u, v)}$$
+
+---
+
+```{=html}
+<div class="graph-container">
+    <div class="graph-area">
+        <svg id="svg-closeness" width="450" height="300" viewBox="0 0 450 300">
+            <line x1="80" y1="80" x2="180" y2="80" class="graph-edge"/>
+            <line x1="80" y1="80" x2="80" y2="220" class="graph-edge"/>
+            <line x1="180" y1="80" x2="80" y2="220" class="graph-edge"/>
+            <line x1="180" y1="80" x2="280" y2="150" class="graph-edge"/>
+            <line x1="80" y1="220" x2="280" y2="150" class="graph-edge"/>
+            <line x1="280" y1="150" x2="380" y2="80" class="graph-edge"/>
+            <line x1="280" y1="150" x2="380" y2="220" class="graph-edge"/>
+
+            <circle cx="80" cy="80" r="20" class="graph-node c-node cn-A"/><text x="80" y="85" text-anchor="middle" class="node-label">A</text>
+            <circle cx="180" cy="80" r="20" class="graph-node c-node cn-B"/><text x="180" y="85" text-anchor="middle" class="node-label">B</text>
+            <circle cx="80" cy="220" r="20" class="graph-node c-node cn-C"/><text x="80" y="225" text-anchor="middle" class="node-label">C</text>
+            <circle cx="280" cy="150" r="20" class="graph-node c-node cn-D"/><text x="280" y="155" text-anchor="middle" class="node-label">D</text>
+            <circle cx="380" cy="80" r="20" class="graph-node c-node cn-E"/><text x="380" y="85" text-anchor="middle" class="node-label">E</text>
+            <circle cx="380" cy="220" r="20" class="graph-node c-node cn-F"/><text x="380" y="225" text-anchor="middle" class="node-label">F</text>
+        </svg>
+        <div>
+            <button class="btn-step" onclick="stepCloseness()">Calcular para Nó D</button>
+            <button class="btn-reset" onclick="resetCloseness()">Resetar</button>
+        </div>
+    </div>
+    <div class="info-area" id="closeness-info">
+        <h3 style="color: #10b981; margin-top:0;">Simulação de Distâncias:</h3>
+        <p>Acompanhe a soma das distâncias mais curtas partindo de um nó para toda a rede.</p>
+    </div>
+</div>
+```
+
+---
+
+## 3. Centralidade de Intermediação (Betweenness)
+
+Mede quantas vezes um nó atua como uma "ponte" no menor caminho entre pares de outros nós.
+
+$$C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}}$$
+
+---
+
+```{=html}
+<div class="graph-container">
+    <div class="graph-area">
+        <svg id="svg-betweenness" width="450" height="300" viewBox="0 0 450 300">
+            <line x1="80" y1="80" x2="180" y2="80" class="graph-edge b-edge b-AB"/>
+            <line x1="80" y1="80" x2="80" y2="220" class="graph-edge b-edge b-AC"/>
+            <line x1="180" y1="80" x2="80" y2="220" class="graph-edge b-edge b-BC"/>
+            <line x1="180" y1="80" x2="280" y2="150" class="graph-edge b-edge b-BD"/>
+            <line x1="80" y1="220" x2="280" y2="150" class="graph-edge b-edge b-CD"/>
+            <line x1="280" y1="150" x2="380" y2="80" class="graph-edge b-edge b-DE"/>
+            <line x1="280" y1="150" x2="380" y2="220" class="graph-edge b-edge b-DF"/>
+
+            <circle cx="80" cy="80" r="20" class="graph-node bn-A"/><text x="80" y="85" text-anchor="middle" class="node-label">A</text>
+            <circle cx="180" cy="80" r="20" class="graph-node bn-B"/><text x="180" y="85" text-anchor="middle" class="node-label">B</text>
+            <circle cx="80" cy="220" r="20" class="graph-node bn-C"/><text x="80" y="225" text-anchor="middle" class="node-label">C</text>
+            <circle cx="280" cy="150" r="20" class="graph-node bn-D"/><text x="280" y="155" text-anchor="middle" class="node-label">D</text>
+            <circle cx="380" cy="80" r="20" class="graph-node bn-E"/><text x="380" y="85" text-anchor="middle" class="node-label">E</text>
+            <circle cx="380" cy="220" r="20" class="graph-node bn-F"/><text x="380" y="225" text-anchor="middle" class="node-label">F</text>
+        </svg>
+        <div>
+            <button class="btn-step" onclick="stepBetweenness()">Rota A &rarr; E</button>
+            <button class="btn-reset" onclick="resetBetweenness()">Resetar</button>
+        </div>
+    </div>
+    <div class="info-area" id="betweenness-info">
+        <h3 style="color: #f59e0b; margin-top:0;">Fluxo de Informação:</h3>
+        <p>Nós com alta intermediação controlam a passagem e o tráfego de dados na rede.</p>
+    </div>
+</div>
+```
+
+---
+
+## Conclusão e Comparativo
+
+| Nó | Grau ($C_D$) | Proximidade ($C_C$) | Intermediação ($C_B$) | Papel Principal |
+|:---|:---:|:---:|:---:|:---|
+| **A** | 2 | 0.50 | 0.0 | Periférico / Membro de Cluster |
+| **B** | 3 | 0.62 | 0.5 | Conector Local |
+| **C** | 3 | 0.62 | 0.5 | Conector Local |
+| **D** | **4** | **0.83** | **8.0** | **Ponte Principal / Hub** |
+| **E** | 1 | 0.50 | 0.0 | Folha / Periférico |
+| **F** | 1 | 0.50 | 0.0 | Folha / Periférico |
+
+---
+
+```{=html}
+<script>
+    let degreeStep = 0;
+    const degreeData = [
+        { node: 'n-A', degree: 2, text: 'Nó A: Conectado a B e C. Grau = 2' },
+        { node: 'n-B', degree: 3, text: 'Nó B: Conectado a A, C e D. Grau = 3' },
+        { node: 'n-C', degree: 3, text: 'Nó C: Conectado a A, B e D. Grau = 3' },
+        { node: 'n-D', degree: 4, text: 'Nó D: Conectado a B, C, E e F. Grau = 4 (Maior Grau)' },
+        { node: 'n-E', degree: 1, text: 'Nó E: Conectado a D. Grau = 1' },
+        { node: 'n-F', degree: 1, text: 'Nó F: Conectado a D. Grau = 1' }
+    ];
+
+    function stepDegree() {
+        resetDegree();
+        const item = degreeData[degreeStep];
+        const nodeElem = document.querySelector(`#svg-degree .${item.node}`);
+        if(nodeElem) nodeElem.classList.add('highlighted');
+        document.getElementById('degree-info').innerHTML = `
+            <h3 style="color: #f59e0b; margin-top:0;">Análise em Progresso:</h3>
+            <p style="font-size: 16px; font-weight: bold;">${item.text}</p>
+        `;
+        degreeStep = (degreeStep + 1) % degreeData.length;
+    }
+
+    function resetDegree() {
+        document.querySelectorAll('#svg-degree .graph-node').forEach(n => n.classList.remove('highlighted'));
+        document.getElementById('degree-info').innerHTML = `
+            <h3 style="color: #38bdf8; margin-top:0;">Instrução:</h3>
+            <p>Clique em "Analisar Próximo Nó" para iterar pelos vértices.</p>
+        `;
+    }
+
+    function stepCloseness() {
+        document.querySelectorAll('#svg-closeness .c-node').forEach(n => n.classList.remove('target', 'highlighted'));
+        document.querySelector('#svg-closeness .cn-D').classList.add('highlighted');
+        
+        document.querySelector('#svg-closeness .cn-A').classList.add('target');
+        document.querySelector('#svg-closeness .cn-B').classList.add('target');
+        document.querySelector('#svg-closeness .cn-C').classList.add('target');
+        document.querySelector('#svg-closeness .cn-E').classList.add('target');
+        document.querySelector('#svg-closeness .cn-F').classList.add('target');
+
+        document.getElementById('closeness-info').innerHTML = `
+            <h3 style="color: #10b981; margin-top:0;">Distâncias a partir de D:</h3>
+            <p style="font-size: 15px;">d(D,B)=1, d(D,C)=1, d(D,E)=1, d(D,F)=1<br>d(D,A)=2<br><strong>Soma = 6 &rarr; Closeness = 5/6 = 0.83</strong></p>
+        `;
+    }
+
+    function resetCloseness() {
+        document.querySelectorAll('#svg-closeness .c-node').forEach(n => n.classList.remove('target', 'highlighted'));
+        document.getElementById('closeness-info').innerHTML = `
+            <h3 style="color: #10b981; margin-top:0;">Simulação de Distâncias:</h3>
+            <p>Acompanhe a soma das distâncias mais curtas partindo de um nó para toda a rede.</p>
+        `;
+    }
+
+    function stepBetweenness() {
+        document.querySelectorAll('#svg-betweenness .b-edge').forEach(e => e.classList.remove('path'));
+        document.querySelectorAll('#svg-betweenness .graph-node').forEach(n => n.classList.remove('highlighted'));
+
+        document.querySelector('#svg-betweenness .bn-A').classList.add('highlighted');
+        document.querySelector('#svg-betweenness .bn-C').classList.add('highlighted');
+        document.querySelector('#svg-betweenness .bn-D').classList.add('highlighted');
+        document.querySelector('#svg-betweenness .bn-E').classList.add('highlighted');
+        
+        document.querySelector('#svg-betweenness .b-AC').classList.add('path');
+        document.querySelector('#svg-betweenness .b-CD').classList.add('path');
+        document.querySelector('#svg-betweenness .b-DE').classList.add('path');
+
+        document.getElementById('betweenness-info').innerHTML = `
+            <h3 style="color: #f59e0b; margin-top:0;">Caminho Mínimo A &rarr; E:</h3>
+            <p style="font-size: 15px;">O menor caminho é A &rarr; C &rarr; D &rarr; E.<br>Os nós <strong>C</strong> e <strong>D</strong> ganham pontuação de intermediação nesta rota!</p>
+        `;
+    }
+
+    function resetBetweenness() {
+        document.querySelectorAll('#svg-betweenness .b-edge').forEach(e => e.classList.remove('path'));
+        document.querySelectorAll('#svg-betweenness .graph-node').forEach(n => n.classList.remove('highlighted'));
+        document.getElementById('betweenness-info').innerHTML = `
+            <h3 style="color: #f59e0b; margin-top:0;">Fluxo de Informação:</h3>
+            <p>Nós com alta intermediação controlam a passagem e o tráfego de dados na rede.</p>
+        `;
+    }
+</script>
+```

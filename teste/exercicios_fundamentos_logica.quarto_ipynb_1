@@ -1,0 +1,1421 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Exercícios Clássicos de Lógica de Programação\"\n",
+        "subtitle: \"Fundamentos — resolvidos apenas com if/else, for e while\"\n",
+        "format:\n",
+        "  html:\n",
+        "    toc: true\n",
+        "    toc-depth: 2\n",
+        "    code-fold: false\n",
+        "jupyter: python3\n",
+        "---\n",
+        "\n",
+        "## Regras destes exercícios\n",
+        "\n",
+        "- **Permitido**: variáveis, `input()`/`print()`, operadores aritméticos e relacionais, `if`/`elif`/`else`, `for`, `while`.\n",
+        "- **Não permitido**: funções prontas que resolvem o problema (`sum()`, `max()`, `min()`, `sorted()`, listas com métodos como `.append()`/`.count()`, dicionários, funções definidas pelo aluno, módulos externos).\n",
+        "- **Sobre \"leia N números\"**: como este documento não usa `input()` interativo (para rodar sozinho), os valores de exemplo estão numa variável de apoio (ex.: `entradas = [7, -2, 15, ...]`) apenas para simular chamadas repetidas de `input()`. O algoritmo em si **não pode usar métodos de lista para resolver o problema** — cada valor deve ser processado um a um, dentro do laço, comparando com variáveis acumuladoras (`maior`, `soma`, `contador` etc.), exatamente como aconteceria lendo do teclado um valor por vez. Em aula, basta trocar `for valor in entradas:` por `for _ in range(10): valor = float(input())`.\n",
+        "\n",
+        "---\n",
+        "\n",
+        "# Exercícios 1–10: Sequência, entrada e saída\n",
+        "\n",
+        "### 1. Antecessor e sucessor"
+      ],
+      "id": "029fe1e3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numero = 7\n",
+        "antecessor = numero - 1\n",
+        "sucessor = numero + 1\n",
+        "print(\"Antecessor:\", antecessor)\n",
+        "print(\"Sucessor:\", sucessor)"
+      ],
+      "id": "c9b95bd5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 2. Área do retângulo"
+      ],
+      "id": "a44f0655"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "base = 5\n",
+        "altura = 3.2\n",
+        "area = base * altura\n",
+        "print(\"Área:\", area)"
+      ],
+      "id": "86a42b25",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 3. Conversão de temperatura (Celsius → Fahrenheit)"
+      ],
+      "id": "6ea87c92"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "celsius = 28\n",
+        "fahrenheit = celsius * 9 / 5 + 32\n",
+        "print(\"Fahrenheit:\", fahrenheit)"
+      ],
+      "id": "c9c7dd29",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 4. Média de quatro notas"
+      ],
+      "id": "8776f7a8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "n1, n2, n3, n4 = 7.5, 6.0, 8.5, 5.0\n",
+        "media = (n1 + n2 + n3 + n4) / 4\n",
+        "\n",
+        "if media >= 7:\n",
+        "    print(\"Média:\", media, \"- Aprovado\")\n",
+        "else:\n",
+        "    print(\"Média:\", media, \"- Reprovado\")"
+      ],
+      "id": "ee001394",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 5. Maior número (entre dois)"
+      ],
+      "id": "2e5f313c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a, b = 12, 9\n",
+        "\n",
+        "if a > b:\n",
+        "    print(\"Maior:\", a)\n",
+        "else:\n",
+        "    print(\"Maior:\", b)"
+      ],
+      "id": "8d8dfe4a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 6. Maior entre três"
+      ],
+      "id": "44edbb72"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a, b, c = 4, 19, 11\n",
+        "\n",
+        "if a >= b and a >= c:\n",
+        "    maior = a\n",
+        "elif b >= a and b >= c:\n",
+        "    maior = b\n",
+        "else:\n",
+        "    maior = c\n",
+        "\n",
+        "print(\"Maior:\", maior)"
+      ],
+      "id": "a7f3ed26",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 7. Par ou ímpar"
+      ],
+      "id": "80e59be3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numero = 17\n",
+        "\n",
+        "if numero % 2 == 0:\n",
+        "    print(\"Par\")\n",
+        "else:\n",
+        "    print(\"Ímpar\")"
+      ],
+      "id": "840e9bae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 8. Ano bissexto"
+      ],
+      "id": "04a47cc1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "ano = 2024\n",
+        "\n",
+        "if ano % 4 == 0 and (ano % 100 != 0 or ano % 400 == 0):\n",
+        "    print(\"Bissexto\")\n",
+        "else:\n",
+        "    print(\"Não bissexto\")"
+      ],
+      "id": "fc727264",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 9. IMC"
+      ],
+      "id": "a02f3691"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "peso = 68.0\n",
+        "altura = 1.70\n",
+        "\n",
+        "imc = peso / (altura ** 2)\n",
+        "\n",
+        "if imc < 18.5:\n",
+        "    categoria = \"abaixo do peso\"\n",
+        "elif imc < 25:\n",
+        "    categoria = \"normal\"\n",
+        "elif imc < 30:\n",
+        "    categoria = \"sobrepeso\"\n",
+        "else:\n",
+        "    categoria = \"obesidade\"\n",
+        "\n",
+        "print(\"IMC: %.2f -> %s\" % (imc, categoria))"
+      ],
+      "id": "1cb23a51",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 10. Calculadora simples"
+      ],
+      "id": "7dd7616d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "num1 = 10\n",
+        "operador = \"*\"\n",
+        "num2 = 4\n",
+        "\n",
+        "if operador == \"+\":\n",
+        "    resultado = num1 + num2\n",
+        "elif operador == \"-\":\n",
+        "    resultado = num1 - num2\n",
+        "elif operador == \"*\":\n",
+        "    resultado = num1 * num2\n",
+        "elif operador == \"/\":\n",
+        "    resultado = num1 / num2\n",
+        "else:\n",
+        "    resultado = None\n",
+        "\n",
+        "print(\"Resultado:\", resultado)"
+      ],
+      "id": "6a4d13bd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "\n",
+        "# Exercícios 11–20: Repetição com `for`\n",
+        "\n",
+        "### 11. Contagem de 1 até 100"
+      ],
+      "id": "3b6fa4f5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for i in range(1, 101):\n",
+        "    print(i)"
+      ],
+      "id": "c28b45c6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 12. Contagem regressiva de 100 até 0"
+      ],
+      "id": "4441efb5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for i in range(100, -1, -1):\n",
+        "    print(i)"
+      ],
+      "id": "e1e63f4d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 13. Tabuada"
+      ],
+      "id": "0bdc67a1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numero = 7\n",
+        "\n",
+        "for i in range(1, 11):\n",
+        "    print(numero, \"x\", i, \"=\", numero * i)"
+      ],
+      "id": "7a9a1299",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 14. Soma de 10 números"
+      ],
+      "id": "a1adce8c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]   # simula 10 leituras via input()\n",
+        "\n",
+        "soma = 0\n",
+        "for valor in entradas:\n",
+        "    soma = soma + valor\n",
+        "\n",
+        "print(\"Soma:\", soma)"
+      ],
+      "id": "93a18dfc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 15. Média de 10 números"
+      ],
+      "id": "7153bb52"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]\n",
+        "\n",
+        "soma = 0\n",
+        "quantidade = 0\n",
+        "for valor in entradas:\n",
+        "    soma = soma + valor\n",
+        "    quantidade = quantidade + 1\n",
+        "\n",
+        "media = soma / quantidade\n",
+        "print(\"Média:\", media)"
+      ],
+      "id": "ba262520",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 16. Contagem de positivos (entre 20 números)"
+      ],
+      "id": "c628adad"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,\n",
+        "            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]\n",
+        "\n",
+        "positivos = 0\n",
+        "for valor in entradas:\n",
+        "    if valor > 0:\n",
+        "        positivos = positivos + 1\n",
+        "\n",
+        "print(\"Quantidade de positivos:\", positivos)"
+      ],
+      "id": "5c80b99a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 17. Maior valor (entre 10 números, sem `max()`)"
+      ],
+      "id": "0bb6505f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]\n",
+        "\n",
+        "maior = entradas[0]\n",
+        "for valor in entradas:\n",
+        "    if valor > maior:\n",
+        "        maior = valor\n",
+        "\n",
+        "print(\"Maior valor:\", maior)"
+      ],
+      "id": "272e3337",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 18. Menor valor (entre 10 números, sem `min()`)"
+      ],
+      "id": "4e5a9bff"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]\n",
+        "\n",
+        "menor = entradas[0]\n",
+        "for valor in entradas:\n",
+        "    if valor < menor:\n",
+        "        menor = valor\n",
+        "\n",
+        "print(\"Menor valor:\", menor)"
+      ],
+      "id": "425a9ada",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 19. Maior e menor juntos"
+      ],
+      "id": "f9b2c90f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [4, 8, -2, 15, 7, 3, -6, 9, 1, 5]\n",
+        "\n",
+        "maior = entradas[0]\n",
+        "menor = entradas[0]\n",
+        "for valor in entradas:\n",
+        "    if valor > maior:\n",
+        "        maior = valor\n",
+        "    if valor < menor:\n",
+        "        menor = valor\n",
+        "\n",
+        "print(\"Maior:\", maior, \"| Menor:\", menor)"
+      ],
+      "id": "e67bcdae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 20. Soma dos pares de 1 até 100"
+      ],
+      "id": "286c1f76"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "soma_pares = 0\n",
+        "for i in range(1, 101):\n",
+        "    if i % 2 == 0:\n",
+        "        soma_pares = soma_pares + i\n",
+        "\n",
+        "print(\"Soma dos pares:\", soma_pares)"
+      ],
+      "id": "9aa704b4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "\n",
+        "# Exercícios 21–30: Repetição com decisão\n",
+        "\n",
+        "### 21. Contagem de pares (entre 20 números)"
+      ],
+      "id": "a67aced8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,\n",
+        "            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]\n",
+        "\n",
+        "pares = 0\n",
+        "for valor in entradas:\n",
+        "    if valor % 2 == 0:\n",
+        "        pares = pares + 1\n",
+        "\n",
+        "print(\"Quantidade de pares:\", pares)"
+      ],
+      "id": "ebe3f19c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 22. Contagem de ímpares (entre 20 números)"
+      ],
+      "id": "1da740d7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,\n",
+        "            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]\n",
+        "\n",
+        "impares = 0\n",
+        "for valor in entradas:\n",
+        "    if valor % 2 != 0:\n",
+        "        impares = impares + 1\n",
+        "\n",
+        "print(\"Quantidade de ímpares:\", impares)"
+      ],
+      "id": "b1e0ecb0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 23. Soma dos positivos"
+      ],
+      "id": "d0904562"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6]\n",
+        "\n",
+        "soma_positivos = 0\n",
+        "for valor in entradas:\n",
+        "    if valor > 0:\n",
+        "        soma_positivos = soma_positivos + valor\n",
+        "\n",
+        "print(\"Soma dos positivos:\", soma_positivos)"
+      ],
+      "id": "9a305e8e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 24. Quantos múltiplos de 3 (entre 20 números)"
+      ],
+      "id": "1b5fd8e9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "entradas = [3, -5, 8, 0, -1, 12, 7, -9, 4, 6,\n",
+        "            -2, 15, -8, 1, 0, 9, -3, 5, -7, 10]\n",
+        "\n",
+        "multiplos_de_3 = 0\n",
+        "for valor in entradas:\n",
+        "    if valor % 3 == 0:\n",
+        "        multiplos_de_3 = multiplos_de_3 + 1\n",
+        "\n",
+        "print(\"Múltiplos de 3:\", multiplos_de_3)"
+      ],
+      "id": "0e7a348c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 25. Fatorial"
+      ],
+      "id": "e8af8e3d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "n = 6\n",
+        "\n",
+        "fatorial = 1\n",
+        "for i in range(1, n + 1):\n",
+        "    fatorial = fatorial * i\n",
+        "\n",
+        "print(n, \"! =\", fatorial)"
+      ],
+      "id": "a073a636",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 26. Potência usando apenas repetição"
+      ],
+      "id": "b971ec6c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "base = 3\n",
+        "expoente = 4\n",
+        "\n",
+        "resultado = 1\n",
+        "for _ in range(expoente):\n",
+        "    resultado = resultado * base\n",
+        "\n",
+        "print(base, \"^\", expoente, \"=\", resultado)"
+      ],
+      "id": "f79c60c6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 27. Número primo"
+      ],
+      "id": "868ad2ef"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "n = 29\n",
+        "\n",
+        "primo = True\n",
+        "if n < 2:\n",
+        "    primo = False\n",
+        "else:\n",
+        "    for i in range(2, n):\n",
+        "        if n % i == 0:\n",
+        "            primo = False\n",
+        "\n",
+        "if primo:\n",
+        "    print(n, \"é primo\")\n",
+        "else:\n",
+        "    print(n, \"não é primo\")"
+      ],
+      "id": "ab990723",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 28. Quantos divisores"
+      ],
+      "id": "012862e0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "n = 36\n",
+        "\n",
+        "quantidade_divisores = 0\n",
+        "for i in range(1, n + 1):\n",
+        "    if n % i == 0:\n",
+        "        quantidade_divisores = quantidade_divisores + 1\n",
+        "\n",
+        "print(n, \"tem\", quantidade_divisores, \"divisores\")"
+      ],
+      "id": "4ff3ea6a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 29. Números primos até N"
+      ],
+      "id": "14aca195"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "N = 30\n",
+        "\n",
+        "for numero in range(2, N + 1):\n",
+        "    primo = True\n",
+        "    for i in range(2, numero):\n",
+        "        if numero % i == 0:\n",
+        "            primo = False\n",
+        "    if primo:\n",
+        "        print(numero)"
+      ],
+      "id": "53a7514b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 30. Soma dos fatoriais (1! + 2! + ... + N!)"
+      ],
+      "id": "ad95b08f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "N = 5\n",
+        "\n",
+        "soma_fatoriais = 0\n",
+        "for i in range(1, N + 1):\n",
+        "    fatorial = 1\n",
+        "    for j in range(1, i + 1):\n",
+        "        fatorial = fatorial * j\n",
+        "    soma_fatoriais = soma_fatoriais + fatorial\n",
+        "\n",
+        "print(\"Soma dos fatoriais de 1 a\", N, \":\", soma_fatoriais)"
+      ],
+      "id": "ff9646bb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "\n",
+        "# Exercícios 31–40: `while`\n",
+        "\n",
+        "### 31. Senha"
+      ],
+      "id": "d9be5859"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "senha_correta = \"1234\"\n",
+        "tentativas = [\"1111\", \"0000\", \"1234\"]   # simula digitações sucessivas\n",
+        "\n",
+        "i = 0\n",
+        "acertou = False\n",
+        "while acertou == False:\n",
+        "    tentativa = tentativas[i]\n",
+        "    print(\"Tentativa:\", tentativa)\n",
+        "    if tentativa == senha_correta:\n",
+        "        acertou = True\n",
+        "    else:\n",
+        "        i = i + 1\n",
+        "\n",
+        "print(\"Senha correta!\")"
+      ],
+      "id": "96fa5844",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 32. Menu"
+      ],
+      "id": "3d81e308"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "escolhas = [1, 2, 1, 3]   # simula opções escolhidas até sair\n",
+        "i = 0\n",
+        "opcao = 0\n",
+        "\n",
+        "while opcao != 3:\n",
+        "    opcao = escolhas[i]\n",
+        "    if opcao == 1:\n",
+        "        print(\"Executando: Soma\")\n",
+        "    elif opcao == 2:\n",
+        "        print(\"Executando: Subtração\")\n",
+        "    elif opcao == 3:\n",
+        "        print(\"Saindo...\")\n",
+        "    i = i + 1"
+      ],
+      "id": "6cab000f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 33. Adivinhe o número"
+      ],
+      "id": "4eeb74ab"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "secreto = 42\n",
+        "tentativas = [10, 60, 42]   # simula os palpites do usuário\n",
+        "\n",
+        "i = 0\n",
+        "acertou = False\n",
+        "while acertou == False:\n",
+        "    palpite = tentativas[i]\n",
+        "    if palpite == secreto:\n",
+        "        print(palpite, \"-> Acertou!\")\n",
+        "        acertou = True\n",
+        "    elif palpite < secreto:\n",
+        "        print(palpite, \"-> Maior\")\n",
+        "        i = i + 1\n",
+        "    else:\n",
+        "        print(palpite, \"-> Menor\")\n",
+        "        i = i + 1"
+      ],
+      "id": "71f27597",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 34. Média indefinida (para com -1)"
+      ],
+      "id": "a36d3047"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "notas = [8, 7, 9, 6, -1]   # -1 encerra a leitura\n",
+        "\n",
+        "i = 0\n",
+        "soma = 0\n",
+        "quantidade = 0\n",
+        "nota = notas[i]\n",
+        "\n",
+        "while nota != -1:\n",
+        "    soma = soma + nota\n",
+        "    quantidade = quantidade + 1\n",
+        "    i = i + 1\n",
+        "    nota = notas[i]\n",
+        "\n",
+        "media = soma / quantidade\n",
+        "print(\"Média:\", media)"
+      ],
+      "id": "e45f013d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 35. Soma até zero"
+      ],
+      "id": "eaddf071"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numeros = [5, 8, -3, 12, 0]\n",
+        "\n",
+        "i = 0\n",
+        "soma = 0\n",
+        "valor = numeros[i]\n",
+        "\n",
+        "while valor != 0:\n",
+        "    soma = soma + valor\n",
+        "    i = i + 1\n",
+        "    valor = numeros[i]\n",
+        "\n",
+        "print(\"Soma:\", soma)"
+      ],
+      "id": "1626a819",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 36. Contador (quantos números antes do zero)"
+      ],
+      "id": "50be7752"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numeros = [5, 8, -3, 12, 0]\n",
+        "\n",
+        "i = 0\n",
+        "contador = 0\n",
+        "valor = numeros[i]\n",
+        "\n",
+        "while valor != 0:\n",
+        "    contador = contador + 1\n",
+        "    i = i + 1\n",
+        "    valor = numeros[i]\n",
+        "\n",
+        "print(\"Quantidade digitada antes do zero:\", contador)"
+      ],
+      "id": "3b3805d7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 37. Maior número (até zero)"
+      ],
+      "id": "c0ef631e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numeros = [5, 8, -3, 12, 0]\n",
+        "\n",
+        "i = 0\n",
+        "valor = numeros[i]\n",
+        "maior = valor\n",
+        "\n",
+        "while valor != 0:\n",
+        "    if valor > maior:\n",
+        "        maior = valor\n",
+        "    i = i + 1\n",
+        "    valor = numeros[i]\n",
+        "\n",
+        "print(\"Maior número:\", maior)"
+      ],
+      "id": "638314f3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 38. Menor número (até zero)"
+      ],
+      "id": "761c318b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numeros = [5, 8, -3, 12, 0]\n",
+        "\n",
+        "i = 0\n",
+        "valor = numeros[i]\n",
+        "menor = valor\n",
+        "\n",
+        "while valor != 0:\n",
+        "    if valor < menor:\n",
+        "        menor = valor\n",
+        "    i = i + 1\n",
+        "    valor = numeros[i]\n",
+        "\n",
+        "print(\"Menor número:\", menor)"
+      ],
+      "id": "b40cbaae",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 39. Quantos positivos (até zero)"
+      ],
+      "id": "69c33f49"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numeros = [5, -8, -3, 12, 0]\n",
+        "\n",
+        "i = 0\n",
+        "positivos = 0\n",
+        "valor = numeros[i]\n",
+        "\n",
+        "while valor != 0:\n",
+        "    if valor > 0:\n",
+        "        positivos = positivos + 1\n",
+        "    i = i + 1\n",
+        "    valor = numeros[i]\n",
+        "\n",
+        "print(\"Quantidade de positivos:\", positivos)"
+      ],
+      "id": "4c0e5558",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 40. Soma dos pares (até zero)"
+      ],
+      "id": "8ec8b953"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "numeros = [5, 8, -3, 12, 0]\n",
+        "\n",
+        "i = 0\n",
+        "soma_pares = 0\n",
+        "valor = numeros[i]\n",
+        "\n",
+        "while valor != 0:\n",
+        "    if valor % 2 == 0:\n",
+        "        soma_pares = soma_pares + valor\n",
+        "    i = i + 1\n",
+        "    valor = numeros[i]\n",
+        "\n",
+        "print(\"Soma dos pares:\", soma_pares)"
+      ],
+      "id": "2a8d2f37",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "\n",
+        "# Exercícios 41–50: Clássicos de programação em C\n",
+        "\n",
+        "### 41. Sequência de Fibonacci"
+      ],
+      "id": "7a1610f5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "N = 10\n",
+        "\n",
+        "anterior = 0\n",
+        "atual = 1\n",
+        "\n",
+        "for _ in range(N):\n",
+        "    print(anterior)\n",
+        "    proximo = anterior + atual\n",
+        "    anterior = atual\n",
+        "    atual = proximo"
+      ],
+      "id": "e023397d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 42. MDC (algoritmo de Euclides)"
+      ],
+      "id": "6b9a33d2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a, b = 48, 18\n",
+        "\n",
+        "x, y = a, b\n",
+        "while y != 0:\n",
+        "    resto = x % y\n",
+        "    x = y\n",
+        "    y = resto\n",
+        "\n",
+        "print(\"MDC:\", x)"
+      ],
+      "id": "8c711e74",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 43. MMC"
+      ],
+      "id": "36d19dbf"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a, b = 12, 18\n",
+        "\n",
+        "# calcula o MDC primeiro (Euclides)\n",
+        "x, y = a, b\n",
+        "while y != 0:\n",
+        "    resto = x % y\n",
+        "    x = y\n",
+        "    y = resto\n",
+        "mdc = x\n",
+        "\n",
+        "mmc = (a * b) // mdc\n",
+        "print(\"MMC:\", mmc)"
+      ],
+      "id": "46fcf6d2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 44. Número perfeito"
+      ],
+      "id": "1587ea97"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "n = 28\n",
+        "\n",
+        "soma_divisores = 0\n",
+        "for i in range(1, n):\n",
+        "    if n % i == 0:\n",
+        "        soma_divisores = soma_divisores + i\n",
+        "\n",
+        "if soma_divisores == n:\n",
+        "    print(n, \"é perfeito\")\n",
+        "else:\n",
+        "    print(n, \"não é perfeito\")"
+      ],
+      "id": "5a599fbd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 45. Número de Armstrong"
+      ],
+      "id": "69a26c1e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "n = 153\n",
+        "\n",
+        "# conta quantos dígitos o número tem\n",
+        "copia = n\n",
+        "n_digitos = 0\n",
+        "while copia > 0:\n",
+        "    n_digitos = n_digitos + 1\n",
+        "    copia = copia // 10\n",
+        "\n",
+        "# soma cada dígito elevado à quantidade de dígitos\n",
+        "copia = n\n",
+        "soma = 0\n",
+        "while copia > 0:\n",
+        "    digito = copia % 10\n",
+        "    soma = soma + digito ** n_digitos\n",
+        "    copia = copia // 10\n",
+        "\n",
+        "if soma == n:\n",
+        "    print(n, \"é um número de Armstrong\")\n",
+        "else:\n",
+        "    print(n, \"não é um número de Armstrong\")"
+      ],
+      "id": "64f216fa",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 46. Conversão decimal → binário (sem funções prontas)"
+      ],
+      "id": "4a2f5e79"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "n = 26\n",
+        "\n",
+        "binario = \"\"\n",
+        "copia = n\n",
+        "\n",
+        "if copia == 0:\n",
+        "    binario = \"0\"\n",
+        "\n",
+        "while copia > 0:\n",
+        "    resto = copia % 2\n",
+        "    binario = str(resto) + binario\n",
+        "    copia = copia // 2\n",
+        "\n",
+        "print(n, \"em binário:\", binario)"
+      ],
+      "id": "743e80fc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 47. Caixa eletrônico"
+      ],
+      "id": "77a85000"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "valor = 287\n",
+        "notas_disponiveis = [100, 50, 20, 10, 5, 2, 1]\n",
+        "\n",
+        "restante = valor\n",
+        "for nota in notas_disponiveis:\n",
+        "    quantidade = restante // nota\n",
+        "    restante = restante % nota\n",
+        "    if quantidade > 0:\n",
+        "        print(quantidade, \"nota(s) de\", nota)"
+      ],
+      "id": "4976c468",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 48. Juros compostos usando repetição"
+      ],
+      "id": "f409f7c7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "capital = 1000.0\n",
+        "taxa = 0.02      # 2% ao período\n",
+        "tempo = 5        # períodos\n",
+        "\n",
+        "montante = capital\n",
+        "for periodo in range(1, tempo + 1):\n",
+        "    montante = montante * (1 + taxa)\n",
+        "    print(\"Período\", periodo, \"-> montante: %.2f\" % montante)"
+      ],
+      "id": "5e12420f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 49. Crescimento populacional (duas cidades)"
+      ],
+      "id": "0e88fa8a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "pop_a = 50000\n",
+        "pop_b = 80000\n",
+        "taxa_a = 0.05\n",
+        "taxa_b = 0.02\n",
+        "\n",
+        "anos = 0\n",
+        "while pop_a <= pop_b:\n",
+        "    pop_a = pop_a * (1 + taxa_a)\n",
+        "    pop_b = pop_b * (1 + taxa_b)\n",
+        "    anos = anos + 1\n",
+        "\n",
+        "print(\"A cidade A ultrapassa a B em\", anos, \"anos\")"
+      ],
+      "id": "a29e9a92",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### 50. Aprovação de turma (30 alunos)"
+      ],
+      "id": "773e6eb0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# simula 30 notas (poderia vir de 30 chamadas de input())\n",
+        "notas = [7.5, 4.0, 8.2, 6.5, 9.0, 3.5, 7.0, 5.5, 6.0, 8.8,\n",
+        "         2.0, 9.5, 7.2, 6.8, 4.5, 5.0, 8.0, 6.2, 7.8, 3.0,\n",
+        "         9.2, 6.6, 5.8, 7.4, 8.5, 4.2, 6.9, 7.1, 5.3, 8.9]\n",
+        "\n",
+        "soma = 0\n",
+        "maior = notas[0]\n",
+        "menor = notas[0]\n",
+        "aprovados = 0\n",
+        "reprovados = 0\n",
+        "\n",
+        "for nota in notas:\n",
+        "    soma = soma + nota\n",
+        "    if nota > maior:\n",
+        "        maior = nota\n",
+        "    if nota < menor:\n",
+        "        menor = nota\n",
+        "    if nota >= 6:\n",
+        "        aprovados = aprovados + 1\n",
+        "    else:\n",
+        "        reprovados = reprovados + 1\n",
+        "\n",
+        "media_turma = soma / len(notas)\n",
+        "\n",
+        "print(\"Média da turma: %.2f\" % media_turma)\n",
+        "print(\"Maior nota:\", maior)\n",
+        "print(\"Menor nota:\", menor)\n",
+        "print(\"Aprovados:\", aprovados)\n",
+        "print(\"Reprovados:\", reprovados)"
+      ],
+      "id": "f769cfce",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "\n",
+        "## Observações para a aula\n",
+        "\n",
+        "- Esta lista trabalha **apenas lógica pura** (números, contagens, algoritmos clássicos) — é o \"aquecimento\" antes de entrar em exercícios de biotecnologia (ver o outro documento, `exercicios_biotecnologia.qmd`).\n",
+        "- Para uma única aula prática, sugiro selecionar um subconjunto: por exemplo, 1, 4, 6, 7, 9 (Nível condicional) + 13, 17, 19, 20 (Nível `for`) + 25, 27 (repetição + decisão) + 34, 37 (Nível `while`) + 41, 42 (clássicos) — cerca de 12 a 15 exercícios já rendem uma aula cheia.\n",
+        "- Os exercícios 17, 18, 19, 37 e 38 são o momento certo para reforçar: \"não usamos `max()`/`min()` porque o objetivo é *construir* a lógica de comparação, não chamar quem já resolve isso pra você\".\n",
+        "- Os exercícios 29 e 30 já são um bom prenúncio do \"Nível 3.5\" (laço aninhado + acumulador) do documento de biotecnologia — vale conectar os dois explicitamente em aula."
+      ],
+      "id": "03438111"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/usr/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

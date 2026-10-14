@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicholas Barroso">
+
+<title>05 — Obtenção de dados e banco de dados – CI0932 - Biologia de Sistemas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86172bcf962643a22049eb73841d6a73.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b63a022cc64d44d5489392fabef93fea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<meta property="og:title" content="05 — Obtenção de dados e banco de dados – CI0932 - Biologia de Sistemas">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/modulos/img/05-Obtenção-de-dados-e-banco-de-dados_0.png">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="05 — Obtenção de dados e banco de dados – CI0932 - Biologia de Sistemas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/modulos/img/05-Obtenção-de-dados-e-banco-de-dados_0.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">CI0932 - Biologia de Sistemas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Início</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo5.html">05 — Obtenção de dados e banco de dados</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Módulos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 — Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 — Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 — Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 — Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">05 — Obtenção de dados e banco de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 — Integração de Dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 — Redes Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 — Redes de Co-Expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modulos/modulo9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 — Redes de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Slides</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/01-historico-e-conceitos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 <br> Histórico e Conceitos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/02-grafos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 <br> Grafos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/03-redes-biologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 <br> Redes Biológicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/04-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 <br> Modelos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/05-obtencao-de-dados-e-banco-de-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 <br> Obtenção de dados e bancos de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/06-integracao-e-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06 <br> Integração de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/07-rede-metabolica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07 <br> Rede Metabólicas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/08-rede-de-co-expressao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 <br> Rede de co-expressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/09-rede-de-interacao-proteina-proteina.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 <br> Rede de Interação Proteína-Proteína</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides/10-biologia-sintetica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10 <br> Biologia Sintética</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Roteiros</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/input/input.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 1: Unix Básico</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 2: Fundamentos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 4 – Predição de Genes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 5 – Anotação Funcional</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 7 – Quantificação e Normalização de RNA-seq</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 8 – Redes Metabólicas: Análise de Redes de Coexpressão com WGCNA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 9 – Redes de Coexpressão</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 10 – Identificação de Genes de Virulência em Bactérias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 11 – Redes PPI com STRING e Cytoscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../roteiros/pratica12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aula Prática 12 – CellDesigner e COPASI</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Listas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/ed2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estudo Dirigido 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_fundamentos_logica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios Clássicos de Lógica de Programação</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listas/exercicios_biotecnologia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercícios de Lógica de Programação para Biotecnologia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Teste</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../teste/teste.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teste de funcionalidades - Quarto MD</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Nesta página</h2>
+   
+  <ul>
+  <li><a href="#antes-de-gerar-as-redes" id="toc-antes-de-gerar-as-redes" class="nav-link active" data-scroll-target="#antes-de-gerar-as-redes"><span class="header-section-number">1</span> Antes de gerar as redes</a></li>
+  <li><a href="#que-dados-são-esses" id="toc-que-dados-são-esses" class="nav-link" data-scroll-target="#que-dados-são-esses"><span class="header-section-number">2</span> Que dados são esses?</a></li>
+  <li><a href="#podemos-obter-os-dados-por" id="toc-podemos-obter-os-dados-por" class="nav-link" data-scroll-target="#podemos-obter-os-dados-por"><span class="header-section-number">3</span> Podemos obter os dados por:</a></li>
+  <li><a href="#dna-genes" id="toc-dna-genes" class="nav-link" data-scroll-target="#dna-genes"><span class="header-section-number">4</span> DNA → Genes</a>
+  <ul class="collapse">
+  <li><a href="#sequenciamento" id="toc-sequenciamento" class="nav-link" data-scroll-target="#sequenciamento"><span class="header-section-number">4.1</span> Sequenciamento</a></li>
+  </ul></li>
+  <li><a href="#microarranjos-microarray" id="toc-microarranjos-microarray" class="nav-link" data-scroll-target="#microarranjos-microarray"><span class="header-section-number">5</span> Microarranjos (Microarray)</a>
+  <ul class="collapse">
+  <li><a href="#fluxo-do-experimento" id="toc-fluxo-do-experimento" class="nav-link" data-scroll-target="#fluxo-do-experimento"><span class="header-section-number">5.1</span> Fluxo do experimento</a></li>
+  </ul></li>
+  <li><a href="#rna-seq" id="toc-rna-seq" class="nav-link" data-scroll-target="#rna-seq"><span class="header-section-number">6</span> RNA-Seq</a>
+  <ul class="collapse">
+  <li><a href="#comparação-microarranjo-vs.-rna-seq-aspectos-técnicos" id="toc-comparação-microarranjo-vs.-rna-seq-aspectos-técnicos" class="nav-link" data-scroll-target="#comparação-microarranjo-vs.-rna-seq-aspectos-técnicos"><span class="header-section-number">6.1</span> Comparação: Microarranjo <em>vs.</em> RNA-Seq — aspectos técnicos</a></li>
+  <li><a href="#comparação-microarranjo-vs.-rna-seq-aspectos-práticos-e-aplicações" id="toc-comparação-microarranjo-vs.-rna-seq-aspectos-práticos-e-aplicações" class="nav-link" data-scroll-target="#comparação-microarranjo-vs.-rna-seq-aspectos-práticos-e-aplicações"><span class="header-section-number">6.2</span> Comparação: Microarranjo <em>vs.</em> RNA-Seq — aspectos práticos e aplicações</a></li>
+  </ul></li>
+  <li><a href="#técnicas-para-estudo-de-interações" id="toc-técnicas-para-estudo-de-interações" class="nav-link" data-scroll-target="#técnicas-para-estudo-de-interações"><span class="header-section-number">7</span> Técnicas para Estudo de Interações</a>
+  <ul class="collapse">
+  <li><a href="#co-imunoprecipitação-co-ip" id="toc-co-imunoprecipitação-co-ip" class="nav-link" data-scroll-target="#co-imunoprecipitação-co-ip"><span class="header-section-number">7.1</span> Co-Imunoprecipitação (Co-IP)</a></li>
+  <li><a href="#imunoprecipitação-da-cromatina-chip" id="toc-imunoprecipitação-da-cromatina-chip" class="nav-link" data-scroll-target="#imunoprecipitação-da-cromatina-chip"><span class="header-section-number">7.2</span> Imunoprecipitação da Cromatina (ChIP)</a></li>
+  <li><a href="#purificação-por-afinidade" id="toc-purificação-por-afinidade" class="nav-link" data-scroll-target="#purificação-por-afinidade"><span class="header-section-number">7.3</span> Purificação por Afinidade</a></li>
+  <li><a href="#espectrometria-de-massa" id="toc-espectrometria-de-massa" class="nav-link" data-scroll-target="#espectrometria-de-massa"><span class="header-section-number">7.4</span> Espectrometria de Massa</a></li>
+  <li><a href="#duplo-híbrido-em-levedura-y2h" id="toc-duplo-híbrido-em-levedura-y2h" class="nav-link" data-scroll-target="#duplo-híbrido-em-levedura-y2h"><span class="header-section-number">7.5</span> Duplo-Híbrido em Levedura (Y2H)</a></li>
+  </ul></li>
+  <li><a href="#conceitos-computacionais" id="toc-conceitos-computacionais" class="nav-link" data-scroll-target="#conceitos-computacionais"><span class="header-section-number">8</span> Conceitos Computacionais</a>
+  <ul class="collapse">
+  <li><a href="#interólogos" id="toc-interólogos" class="nav-link" data-scroll-target="#interólogos"><span class="header-section-number">8.1</span> Interólogos</a></li>
+  <li><a href="#coevolução" id="toc-coevolução" class="nav-link" data-scroll-target="#coevolução"><span class="header-section-number">8.2</span> Coevolução</a></li>
+  <li><a href="#ec-number" id="toc-ec-number" class="nav-link" data-scroll-target="#ec-number"><span class="header-section-number">8.3</span> EC-number</a></li>
+  </ul></li>
+  <li><a href="#bancos-de-dados" id="toc-bancos-de-dados" class="nav-link" data-scroll-target="#bancos-de-dados"><span class="header-section-number">9</span> Bancos de Dados</a>
+  <ul class="collapse">
+  <li><a href="#pathguide" id="toc-pathguide" class="nav-link" data-scroll-target="#pathguide"><span class="header-section-number">9.1</span> Pathguide</a></li>
+  <li><a href="#kegg" id="toc-kegg" class="nav-link" data-scroll-target="#kegg"><span class="header-section-number">9.2</span> KEGG</a></li>
+  <li><a href="#gene-ontology-go" id="toc-gene-ontology-go" class="nav-link" data-scroll-target="#gene-ontology-go"><span class="header-section-number">9.3</span> Gene Ontology (GO)</a></li>
+  <li><a href="#metacyc" id="toc-metacyc" class="nav-link" data-scroll-target="#metacyc"><span class="header-section-number">9.4</span> MetaCyc</a></li>
+  <li><a href="#transfac" id="toc-transfac" class="nav-link" data-scroll-target="#transfac"><span class="header-section-number">9.5</span> TRANSFAC</a></li>
+  <li><a href="#string" id="toc-string" class="nav-link" data-scroll-target="#string"><span class="header-section-number">9.6</span> STRING</a></li>
+  <li><a href="#reactome" id="toc-reactome" class="nav-link" data-scroll-target="#reactome"><span class="header-section-number">9.7</span> Reactome</a></li>
+  <li><a href="#intact" id="toc-intact" class="nav-link" data-scroll-target="#intact"><span class="header-section-number">9.8</span> IntAct</a></li>
+  <li><a href="#biogrid" id="toc-biogrid" class="nav-link" data-scroll-target="#biogrid"><span class="header-section-number">9.9</span> BioGRID</a></li>
+  </ul></li>
+  <li><a href="#mineração-de-texto" id="toc-mineração-de-texto" class="nav-link" data-scroll-target="#mineração-de-texto"><span class="header-section-number">10</span> Mineração de Texto</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modulos/modulo1.html">Módulos</a></li><li class="breadcrumb-item"><a href="../modulos/modulo5.html">05 — Obtenção de dados e banco de dados</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">05 — Obtenção de dados e banco de dados</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nicholas Barroso </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de outubro de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="antes-de-gerar-as-redes" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Antes de gerar as redes</h1>
+<p>Precisamos obter os dados porque precisamos saber <strong>quais</strong>, <strong>quantos</strong> e <strong>qual a relação</strong> entre os elementos biológicos.</p>
+<hr>
+</section>
+<section id="que-dados-são-esses" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Que dados são esses?</h1>
+<ul>
+<li>Dados ômicos de conjuntos completos de DNA, RNA, proteínas, metabólitos.</li>
+<li>Anotação funcional de genes:
+<ul>
+<li>EC number</li>
+<li>Domínios funcionais</li>
+</ul></li>
+<li>Transcritos:
+<ul>
+<li><strong>Qualitativo</strong>: o que é?</li>
+<li><strong>Quantitativo</strong>: quanto de cada.</li>
+</ul></li>
+<li>Interação de proteínas:
+<ul>
+<li>Proteínas</li>
+<li>Ácidos nucleicos</li>
+</ul></li>
+<li>Dados de associação a doenças.</li>
+</ul>
+<hr>
+</section>
+<section id="podemos-obter-os-dados-por" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Podemos obter os dados por:</h1>
+<ul>
+<li><strong>Experimentos</strong></li>
+<li><strong>Bancos de dados</strong></li>
+<li><strong>Literatura</strong></li>
+</ul>
+<hr>
+</section>
+<section id="dna-genes" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> DNA → Genes</h1>
+<p>O fluxo típico de obtenção de genes a partir do DNA passa por quatro etapas:</p>
+<ol type="1">
+<li><strong>Sequenciamento</strong> — obtenção da sequência de DNA do organismo de interesse.</li>
+<li><strong>Montagem</strong> — reconstituição da molécula de DNA inicial da maneira mais contínua e fidedigna possível.</li>
+<li><strong>Predição Gênica</strong> — busca pelas porções codificantes do genoma; pode-se fazer também a predição de outros elementos funcionais.</li>
+<li><strong>Anotação Funcional</strong> — designa a função dos genes.</li>
+</ol>
+<section id="sequenciamento" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sequenciamento"><span class="header-section-number">4.1</span> Sequenciamento</h2>
+<p><strong>Sequenciadores</strong> — empresas mais frequentes:</p>
+<ul>
+<li>Illumina</li>
+<li>MGI</li>
+<li>PacBio</li>
+<li>Nanopore</li>
+<li>Element Biosciences</li>
+</ul>
+<p><strong>Leituras</strong> — a diferença está no método de detecção:</p>
+<ul>
+<li>Curtas</li>
+<li>Longas</li>
+</ul>
+<p><strong>Tipo de sequenciamento:</strong></p>
+<ul>
+<li>Sequenciamento por síntese</li>
+<li>Sequenciamento em tempo real</li>
+<li>Sequenciamento em nanoporo (não envolve síntese)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="microarranjos-microarray" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Microarranjos (Microarray)</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_0.png" class="img-fluid figure-img"></p>
+<figcaption>https://microbenotes.com/dna-microarray/</figcaption>
+</figure>
+</div>
+<p>O microarranjo de DNA é uma técnica que permite medir simultaneamente os níveis de expressão de milhares de transcritos, por hibridização com sondas conhecidas.</p>
+<section id="fluxo-do-experimento" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="fluxo-do-experimento"><span class="header-section-number">5.1</span> Fluxo do experimento</h2>
+<ol type="1">
+<li>Extração de RNA</li>
+<li>Seleção de mRNA</li>
+<li>Transcrição reversa</li>
+<li>Fragmentação (opcional)</li>
+<li>Ligação de fluoróforo</li>
+<li>Hibridização</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_1.png" class="img-fluid figure-img"></p>
+<figcaption>Imagem: Wikipedia</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="rna-seq" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> RNA-Seq</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_4.png" class="img-fluid figure-img"></p>
+<figcaption>Imagem: Wikipedia</figcaption>
+</figure>
+</div>
+<p>O RNA-Seq utiliza sequenciamento de nova geração (NGS) para medir diretamente a abundância de transcritos, sem depender de sondas pré-definidas.</p>
+<section id="comparação-microarranjo-vs.-rna-seq-aspectos-técnicos" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="comparação-microarranjo-vs.-rna-seq-aspectos-técnicos"><span class="header-section-number">6.1</span> Comparação: Microarranjo <em>vs.</em> RNA-Seq — aspectos técnicos</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Característica</th>
+<th>Microarranjo de DNA</th>
+<th>RNA-Seq</th>
+<th>Implicação (Biologia de Sistemas)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Princípio</strong></td>
+<td>Hibridização por fluorescência (indireto)</td>
+<td>Sequenciamento direto (NGS, reads)</td>
+<td>RNA-Seq oferece maior confiança nos dados</td>
+</tr>
+<tr class="even">
+<td><strong>Conhecimento prévio</strong></td>
+<td>Requer genoma/sondas conhecidas</td>
+<td>Não requer (descoberta de transcritos novos/isoformas)</td>
+<td>RNA-Seq é superior para novos componentes da rede</td>
+</tr>
+<tr class="odd">
+<td><strong>Faixa dinâmica</strong></td>
+<td>Limitada (saturação / baixa sensibilidade)</td>
+<td>Muito ampla (sem saturação)</td>
+<td>RNA-Seq capta fatores de transcrição de baixa expressão</td>
+</tr>
+<tr class="even">
+<td><strong>Tipo de dado</strong></td>
+<td>Intensidade de fluorescência (contínuo, relativo)</td>
+<td>Contagens de <em>reads</em> (discreto, quantificável)</td>
+<td>Exige modelos estatísticos distintos (ex.: DESeq2)</td>
+</tr>
+<tr class="odd">
+<td><strong>Vieses técnicos</strong></td>
+<td>Hibridização e especificidade de sonda</td>
+<td>Composição de GC e amplificação por PCR</td>
+<td>Ambos exigem correções computacionais específicas</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparação-microarranjo-vs.-rna-seq-aspectos-práticos-e-aplicações" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="comparação-microarranjo-vs.-rna-seq-aspectos-práticos-e-aplicações"><span class="header-section-number">6.2</span> Comparação: Microarranjo <em>vs.</em> RNA-Seq — aspectos práticos e aplicações</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Característica</th>
+<th>Microarranjo de DNA</th>
+<th>RNA-Seq</th>
+<th>Implicação (Biologia de Sistemas)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Reprodutibilidade</strong></td>
+<td>Alta reprodutibilidade técnica entre plataformas</td>
+<td>Maior sensibilidade para mudanças biológicas sutis</td>
+<td>Microarranjo ideal para estudos longitudinais grandes</td>
+</tr>
+<tr class="even">
+<td><strong>Resolução</strong></td>
+<td>Mede apenas o que foi projetado</td>
+<td>Resolução de nucleotídeo único (edição, alelos)</td>
+<td>RNA-Seq mapeia a regulação pós-transcricional</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo &amp; computação</strong></td>
+<td>Custo moderado; bioinformática simples</td>
+<td>Custo mais alto (mas caindo); exige infraestrutura robusta</td>
+<td>Orçamento e expertise limitam a escolha da plataforma</td>
+</tr>
+<tr class="even">
+<td><strong>Workflow</strong></td>
+<td>Padronizado (qualidade → normalização → diferencial)</td>
+<td>Complexo (alinhamento, <em>assembly</em>, quantificação)</td>
+<td>Requer pipelines robustos para integração em modelos</td>
+</tr>
+<tr class="odd">
+<td><strong>Aplicação ideal</strong></td>
+<td>Validação em larga escala; painéis específicos</td>
+<td>Descoberta <em>ab initio</em>; integração multiômica</td>
+<td>RNA-Seq constrói modelos; microarranjo valida hipóteses</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="técnicas-para-estudo-de-interações" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Técnicas para Estudo de Interações</h1>
+<section id="co-imunoprecipitação-co-ip" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="co-imunoprecipitação-co-ip"><span class="header-section-number">7.1</span> Co-Imunoprecipitação (Co-IP)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_5.png" class="img-fluid figure-img"></p>
+<figcaption>https://www.assaygenie.com/co-immunoprecipitation-co-ip-protocol</figcaption>
+</figure>
+</div>
+<p><strong>Princípio básico:</strong> técnica clássica para isolar complexos proteicos nativos de uma amostra biológica. Funciona como um <em>pull-down</em>: usa um anticorpo específico para “pescar” uma proteína-alvo (isca) e todas as proteínas que estão firmemente ligadas a ela.</p>
+<p><strong>Como funciona:</strong></p>
+<ul>
+<li>Um anticorpo é projetado para se ligar a uma proteína conhecida (a isca, ou <em>bait</em>) que se acredita fazer parte de um complexo maior.</li>
+<li>O anticorpo, fixado em uma esfera, é adicionado à amostra.</li>
+<li>A proteína-isca e seus parceiros de ligação são capturados e puxados para fora da solução.</li>
+<li>O complexo é purificado e analisado (ex.: por Western Blot ou espectrometria de massa) para identificar as proteínas associadas.</li>
+</ul>
+<p><strong>Limitações importantes:</strong></p>
+<ul>
+<li><strong>Epítopo oculto</strong>: um anticorpo só captura proteínas que têm o epítopo acessível; complexos proteicos podem esconder esse epítopo, levando a uma captura incompleta.</li>
+<li><strong>Visão parcial</strong>: a técnica pode isolar apenas uma subpopulação dos complexos presentes na célula.</li>
+</ul>
+<p><strong>Estratégia crucial — validação por “rodada reversa”</strong>: para confirmar se uma proteína identificada é um parceiro legítimo, o experimento deve ser repetido visando diferentes membros do complexo proposto.</p>
+<ul>
+<li><strong>Resultado válido</strong>: se ao direcionar a proteína B, você captura a proteína A (e vice-versa), a interação é confirmada.</li>
+<li><strong>Resultado questionável</strong>: se a proteína X só é capturada com uma isca, mas não com outra, ela pode não ser um membro direto do complexo estável.</li>
+</ul>
+</section>
+<section id="imunoprecipitação-da-cromatina-chip" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="imunoprecipitação-da-cromatina-chip"><span class="header-section-number">7.2</span> Imunoprecipitação da Cromatina (ChIP)</h2>
+<p>A base para a imunoprecipitação da cromatina é fixar o DNA às proteínas da cromatina:</p>
+<ul>
+<li>Tratamento com formaldeído para ligar as histonas ao DNA.</li>
+<li>Extração da cromatina.</li>
+<li>Corte em fragmentos viáveis.</li>
+<li>Enriquecimento para fragmentos de cromatina de interesse por imunoprecipitação, com anticorpos específicos para proteínas da cromatina ou para modificações nessas proteínas.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_7.png" class="img-fluid figure-img"></p>
+<figcaption>https://www.cellsignal.com/applications/chip-and-chip-seq/regulation-expression-in-cell-and-tissue</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><strong>Variantes:</strong></p>
+<ol type="1">
+<li><strong>ChIP-PCR</strong> (obsoleto): a etapa final de detecção usa PCR convencional (eletroforese em gel); o resultado é visualizado como uma “banda” em um gel. É apenas qualitativo (mostra se a região está presente, mas não o quanto), pouco sensível e propenso a artefatos — foi amplamente substituído pelo ChIP-qPCR.</li>
+<li><strong>ChIP-qPCR</strong> (<em>Real-Time Quantitative PCR</em>): usa PCR quantitativo em tempo real para medir com precisão a quantidade de uma região genômica específica presente na amostra imunoprecipitada. É altamente sensível e quantitativo, permitindo comparar o enriquecimento entre condições. É o método ideal para <strong>validar</strong> descobertas feitas por ChIP-seq ou ChIP-chip.</li>
+<li><strong>ChIP-chip</strong> (<em>Chromatin Immunoprecipitation on Chip</em>): o DNA purificado do ChIP é hibridizado em um microarranjo (chip) com sondas representando milhares de regiões genômicas conhecidas. Foi a primeira tecnologia a permitir perfis <em>genome-wide</em>, mas só detecta ligações em regiões com sonda no chip, tem resolução espacial limitada e faixa dinâmica menor comparada ao sequenciamento — quase totalmente substituída pelo ChIP-seq.</li>
+<li><strong>ChIP-seq</strong> (<em>Chromatin Immunoprecipitation followed by Sequencing</em> — padrão-ouro atual): o DNA purificado do ChIP é sequenciado de forma massiva (NGS); todos os fragmentos são lidos e mapeados computacionalmente ao genoma. Vantagens: é <em>genome-wide</em> e imparcial (não precisa de conhecimento prévio, descobre novos locais de ligação), tem alta resolução (mapeamento com precisão de base única) e ampla faixa dinâmica.</li>
+</ol>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_9.png" class="img-fluid"></p>
+</section>
+<section id="purificação-por-afinidade" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="purificação-por-afinidade"><span class="header-section-number">7.3</span> Purificação por Afinidade</h2>
+<p>Técnica de captura de material biológico via enriquecimento específico com um ligante acoplado a um suporte sólido. Muitos tipos de ligantes podem ser usados:</p>
+<ul>
+<li>DNA e RNA (na maioria das vezes oligonucleotídeos)</li>
+<li>Produtos químicos</li>
+<li>Lipídios</li>
+<li>Peptídeos ou proteínas (incluindo anticorpos)</li>
+</ul>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_10.png" class="img-fluid"></p>
+</section>
+<section id="espectrometria-de-massa" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="espectrometria-de-massa"><span class="header-section-number">7.4</span> Espectrometria de Massa</h2>
+<p>Técnica analítica poderosa, utilizada para identificar e quantificar compostos em uma amostra, além de elucidar sua estrutura e pureza. Baseia-se em três etapas fundamentais:</p>
+<ul>
+<li><strong>Ionização</strong>: as moléculas da amostra são convertidas em íons gasosos (geralmente carregados positivamente).</li>
+<li><strong>Separação</strong>: os íons são separados no espaço ou no tempo com base em sua relação massa-carga (m/z) dentro de um analisador de massas.</li>
+<li><strong>Detecção</strong>: os íons separados são detectados, gerando um espectro que representa a abundância de cada íon em função de sua relação m/z.</li>
+</ul>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_11.png" class="img-fluid"> <img src="img/05-Obtenção-de-dados-e-banco-de-dados_12.png" class="img-fluid quarto-figure quarto-figure-center"></p>
+<p><strong>AP-MS</strong> (Purificação por Afinidade acoplada a Espectrometria de Massa): combina a captura seletiva de um complexo proteico via purificação por afinidade com a identificação de todos os seus componentes por espectrometria de massa.</p>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_14.png" class="img-fluid" style="width:49.0%"> <img src="img/05-Obtenção-de-dados-e-banco-de-dados_13.png" class="img-fluid" style="width:49.0%"></p>
+</section>
+<section id="duplo-híbrido-em-levedura-y2h" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="duplo-híbrido-em-levedura-y2h"><span class="header-section-number">7.5</span> Duplo-Híbrido em Levedura (Y2H)</h2>
+<p>O Duplo-Híbrido de Levedura (<em>Yeast Two-Hybrid</em> — Y2H) é uma técnica de biologia molecular usada para descobrir interações proteína-proteína (PPIs) e interações proteína-DNA, testando interações físicas entre duas proteínas, ou entre uma proteína e uma molécula de DNA. É baseado na reconstituição de um fator de transcrição funcional, que só ocorre quando duas proteínas de interesse interagem.</p>
+<p><strong>Princípio</strong>: divide-se um fator de transcrição em duas partes inativas:</p>
+<ul>
+<li><strong>Domínio de Ligação ao DNA (BD)</strong> — a <strong>Isca</strong>: liga-se a uma sequência específica de DNA, mas sozinha não pode iniciar a transcrição.</li>
+<li><strong>Domínio de Ativação (AD)</strong> — a <strong>Presa</strong>: capaz de recrutar a maquinaria de transcrição, mas não pode se prender ao DNA sozinha.</li>
+</ul>
+<p>Essas duas partes são fusionadas a proteínas de interesse: a proteína X é fundida ao BD (Isca-X), e a proteína Y é fundida ao AD (Presa-Y).</p>
+<p><strong>Teste da interação</strong>: se a proteína X interage com a proteína Y, o BD e o AD são aproximados, formando um fator de transcrição funcional e completo, que se liga ao DNA e ativa a transcrição de um gene repórter.</p>
+<p><strong>Leitura do resultado</strong> — a ativação do gene repórter produz um sinal detectável, como:</p>
+<ul>
+<li>Crescimento em meio de cultura deficiente (ex.: sem histidina).</li>
+<li>Mudança de cor (ex.: produção de β-galactosidase, que torna a colônia azul).</li>
+<li>Produção de luz fluorescente.</li>
+</ul>
+<p>Se não houver interação, o gene repórter não é ativado e nenhum sinal é produzido.</p>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_15.png" class="img-fluid" style="width:49.0%"> <img src="img/05-Obtenção-de-dados-e-banco-de-dados_16.png" class="img-fluid" style="width:49.0%"></p>
+<p><strong>Aplicações</strong>: a principal aplicação do Y2H é a descoberta em larga escala de interações proteína-proteína, sendo uma ferramenta fundamental para mapear redes de interação em biologia celular e sistemas.</p>
+<hr>
+</section>
+</section>
+<section id="conceitos-computacionais" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Conceitos Computacionais</h1>
+<section id="interólogos" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="interólogos"><span class="header-section-number">8.1</span> Interólogos</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Um interólogo é uma interação conservada entre um par de proteínas que possuem homólogos interativos em outro organismo. Se duas proteínas (A e B) interagem em um organismo, e seus homólogos (A’ e B’) também interagem em outro organismo, então a interação A-B é um interólogo da interação A’-B’.</p>
+<p><strong>Pré-requisitos para ser um interólogo</strong> — para que um par de interações seja considerado interólogo, todas as condições abaixo devem ser verdadeiras:</p>
+<ul>
+<li><strong>Homologia par-a-par</strong>: a proteína A deve ser homóloga à proteína A’, e a proteína B deve ser homóloga à proteína B’.</li>
+<li><strong>Conservação da interação</strong>: a interação física entre o par de proteínas deve ser conservada nas duas espécies (A interage com B, e A’ interage com B’).</li>
+</ul>
+<p><strong>Importância e aplicação em Biologia de Sistemas</strong> — o conceito de interólogo é extremamente poderoso porque permite prever interações proteicas em uma espécie com base em dados de outra:</p>
+<ul>
+<li><strong>Predição de interações</strong>: se sabemos que a proteína A interage com a proteína B em humanos, e identificamos os homólogos de A e B em um rato (A’ e B’), podemos prever que A’ e B’ também interagem no rato — fundamental para extrapolar conhecimento de organismos-modelo (como levedura) para humanos.</li>
+<li><strong>Inferência funcional</strong>: a conservação de uma interação através da evolução é um forte indício de que ela é funcionalmente importante.</li>
+<li><strong>Mapeamento de redes de interação</strong>: é a base para transferir informações e construir redes de interação proteica (interatomas) para espécies pouco estudadas, usando como base o interatoma de espécies bem caracterizadas.</li>
+</ul>
+</section>
+<section id="coevolução" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="coevolução"><span class="header-section-number">8.2</span> Coevolução</h2>
+<p>Vem da ideia de que proteínas que interagem coevoluem na sua superfície de interação. Vários métodos computacionais estão disponíveis para esse tipo de detecção, e podem usar alinhamentos múltiplos, árvores filogenéticas ou modelos matemáticos para prever essas interações.</p>
+</section>
+<section id="ec-number" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="ec-number"><span class="header-section-number">8.3</span> EC-number</h2>
+<p>Os números EC são um esquema de classificação numérica para as enzimas, baseado nas reações químicas que catalisam. Como sistema de nomenclatura de enzimas, cada número EC está associado a um nome recomendado para a enzima correspondente — na realidade, os números EC codificam reações catalisadas por enzimas.</p>
+<hr>
+</section>
+</section>
+<section id="bancos-de-dados" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Bancos de Dados</h1>
+<section id="pathguide" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="pathguide"><span class="header-section-number">9.1</span> Pathguide</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_19.png" class="img-fluid"></p>
+<ul>
+<li>Contém informação sobre <strong>702 recursos</strong> sobre vias biológicas e interações moleculares.</li>
+<li>Os bancos de dados listados são de acesso livre.</li>
+<li>Alguns suportam linguagens de padronização e integração como BioPAX, CellML, PSI-MI ou SBML.</li>
+<li><a href="https://pathguide.org/">Pathguide</a></li>
+</ul>
+</section>
+<section id="kegg" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="kegg"><span class="header-section-number">9.2</span> KEGG</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_20.png" class="img-fluid"></p>
+<ul>
+<li>Banco de dados de recursos biológicos.</li>
+<li>Interpreta funções e processos complexos (de alto nível) em sistemas biológicos, como células, organismos e ecossistemas.</li>
+<li>Integra e analisa dados moleculares, interpretando dados de larga escala (ex.: sequenciamento de genoma e outras tecnologias ômicas de alto rendimento).</li>
+<li><strong>Acesso</strong>: pago.</li>
+<li><a href="https://www.genome.jp/kegg/">KEGG</a></li>
+</ul>
+</section>
+<section id="gene-ontology-go" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="gene-ontology-go"><span class="header-section-number">9.3</span> Gene Ontology (GO)</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_21.png" class="img-fluid"></p>
+<ul>
+<li><strong>Objetivo principal</strong>: desenvolver um modelo computacional abrangente de sistemas biológicos, cobrindo todos os níveis (molecular, celular, de organismo) e abrangendo múltiplas espécies.</li>
+<li>É a maior e mais importante fonte de informações sobre as funções de genes.</li>
+<li>Serve como base fundamental para a análise e interpretação de dados de experimentos de larga escala (ômicos) em pesquisa biomédica.</li>
+<li><a href="https://geneontology.org/">Gene Ontology</a></li>
+</ul>
+</section>
+<section id="metacyc" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="metacyc"><span class="header-section-number">9.4</span> MetaCyc</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_22.png" class="img-fluid"></p>
+<ul>
+<li>Banco de dados curado de vias metabólicas experimentalmente elucidadas de todos os domínios da vida.</li>
+<li>Contém <strong>2.666 vias</strong> de <strong>2.960 organismos diferentes</strong>, cobrindo metabolismo primário e secundário, metabólitos, reações, enzimas e genes associados.</li>
+<li><strong>Aplicações</strong>: enciclopédia on-line do metabolismo; predição de vias metabólicas em genomas sequenciados; apoio à engenharia metabólica via banco de dados de enzimas; o banco de dados <em>Metabolite</em> apoia a pesquisa metabolômica.</li>
+<li><a href="https://metacyc.org/">MetaCyc</a></li>
+</ul>
+</section>
+<section id="transfac" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="transfac"><span class="header-section-number">9.5</span> TRANSFAC</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_23.png" class="img-fluid"></p>
+<ul>
+<li>Contém informação sobre fatores de transcrição, seus sítios de ligação no genoma e seus perfis de ligação.</li>
+<li>Banco de dados <strong>curado</strong>.</li>
+<li><strong>Acesso</strong>: pago.</li>
+<li><a href="https://genexplain.com/transfac-product/">TRANSFAC</a></li>
+</ul>
+</section>
+<section id="string" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="string"><span class="header-section-number">9.6</span> STRING</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_24.png" class="img-fluid"></p>
+<ul>
+<li>Banco de dados de interações proteína-proteína conhecidas ou preditas.</li>
+<li>Interações diretas (físicas) e indiretas (funcionais).</li>
+<li>As interações podem vir de predição computacional, de transferência de conhecimento entre organismos, ou de interações descritas em outros bancos de dados.</li>
+<li><a href="https://string-db.org/">STRING</a></li>
+</ul>
+</section>
+<section id="reactome" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="reactome"><span class="header-section-number">9.7</span> Reactome</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_25.png" class="img-fluid"></p>
+<ul>
+<li><strong>Acesso</strong>: aberto (<em>open-source</em>).</li>
+<li>Curado manualmente e revisado por pares.</li>
+<li>Fornece ferramentas intuitivas de bioinformática para visualização, interpretação e análise do conhecimento de vias, apoiando a pesquisa básica e clínica, análise do genoma, modelagem, biologia de sistemas e educação.</li>
+<li><a href="https://reactome.org/">Reactome</a></li>
+</ul>
+</section>
+<section id="intact" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="intact"><span class="header-section-number">9.8</span> IntAct</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_26.png" class="img-fluid"></p>
+<ul>
+<li><strong>Acesso</strong>: aberto.</li>
+<li>Banco de dados e ferramentas de análise.</li>
+<li>Interações derivadas da literatura de maneira curada.</li>
+<li>Interações também podem vir de submissão direta.</li>
+<li><a href="https://www.ebi.ac.uk/intact/home">IntAct</a></li>
+</ul>
+</section>
+<section id="biogrid" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="biogrid"><span class="header-section-number">9.9</span> BioGRID</h2>
+<p><img src="img/05-Obtenção-de-dados-e-banco-de-dados_27.png" class="img-fluid"></p>
+<ul>
+<li>Dados de interação, curados.</li>
+<li><strong>Estatísticas</strong>: 69.031 publicações; 1.676.780 interações proteicas e genéticas; 28.093 associações químicas; 726.378 modificações pós-traducionais.</li>
+<li><strong>Acesso</strong>: livre.</li>
+<li><a href="https://thebiogrid.org/">BioGRID</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="mineração-de-texto" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Mineração de Texto</h1>
+<p>Técnica computacional que extrai automaticamente informações e descobre padrões com significado (significância) em grandes volumes de texto. Procura automaticamente na literatura científica (ex.: artigos do PubMed) por palavras-chave e termos específicos para encontrar informações relevantes.</p>
+<p><strong>Principais aplicações em biologia:</strong></p>
+<ul>
+<li><strong>Função de genes/proteínas</strong>: identificar a que processo biológico um gene está associado.</li>
+<li><strong>Vias metabólicas</strong>: descobrir em quais vias uma enzima ou metabólito está envolvido.</li>
+<li><strong>Interações</strong>: revelar interações entre proteínas (PPIs), genes ou outras biomoléculas descritas no texto.</li>
+<li><strong>Regulação</strong>: identificar quem regula quem (ex.: qual fator de transcrição regula qual gene).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p class="status-badge">
+em construção · v2 · 2026
+</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Grafos Interativo</title>
+<style>
+  body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h2 { color: #38bdf8; margin-top: 0; }
+  #container {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  #canvas-container {
+    flex: 1;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  canvas {
+    border: 2px solid #334155;
+    background: #0f172a;
+    border-radius: 4px;
+    cursor: crosshair;
+  }
+  #sidebar {
+    width: 350px;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  button {
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  button:hover { background-color: #0284c7; }
+  .instructions { font-size: 14px; color: #94a3b8; line-height: 1.4; }
+  #matrix {
+    font-family: monospace;
+    background: #0f172a;
+    padding: 10px;
+    border-radius: 4px;
+    white-space: pre;
+    overflow-x: auto;
+    font-size: 16px;
+  }
+  .info-panel {
+    background: #0f172a;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+  <h2>Simulador Interativo de Grafos</h2>
+  <div id="container">
+    <div id="canvas-container">
+      <canvas id="graphCanvas" width="600" height="500"></canvas>
+      <p class="instructions" style="margin-top:10px;">
+        <b>Clique vazio:</b> Adicionar nó &nbsp;|&nbsp; 
+        <b>Arraste nó:</b> Mover nó &nbsp;|&nbsp; 
+        <b>Clique em dois nós:</b> Criar aresta
+      </p>
+    </div>
+    
+    <div id="sidebar">
+      <button id="toggleDirectedBtn">Modo: Não-direcionado</button>
+      <button id="clearBtn" style="background-color: #ef4444;">Limpar Grafo</button>
+      
+      <div class="info-panel" id="degreeInfo">
+        Selecione nós para ver os graus.
+      </div>
+
+      <div class="info-panel">
+        <h4 style="margin: 0 0 10px 0; color: #38bdf8;">Matriz de Adjacência</h4>
+        <div id="matrix">Vazio</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const canvas = document.getElementById('graphCanvas');
+const ctx = canvas.getContext('2d');
+const toggleDirectedBtn = document.getElementById('toggleDirectedBtn');
+const clearBtn = document.getElementById('clearBtn');
+const matrixDisplay = document.getElementById('matrix');
+const degreeInfo = document.getElementById('degreeInfo');
+
+let nodes = [];
+let edges = [];
+let isDirected = false;
+
+let draggingNode = null;
+let selectedNode = null;
+
+canvas.addEventListener('mousedown', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  let clickedNode = nodes.find(n => Math.hypot(n.x - x, n.y - y) < 20);
+
+  if (clickedNode) {
+    if (selectedNode && selectedNode !== clickedNode) {
+      // Create edge
+      const exists = edges.find(edge => 
+        (edge.from === selectedNode && edge.to === clickedNode) || 
+        (!isDirected && edge.from === clickedNode && edge.to === selectedNode)
+      );
+      if(!exists) {
+        edges.push({from: selectedNode, to: clickedNode});
+      }
+      selectedNode = null;
+    } else {
+      draggingNode = clickedNode;
+      selectedNode = clickedNode;
+    }
+  } else {
+    // Create new node
+    nodes.push({ id: nodes.length + 1, x, y });
+    selectedNode = null;
+  }
+  updateUI();
+});
+
+canvas.addEventListener('mousemove', (e) => {
+  if (draggingNode) {
+    const rect = canvas.getBoundingClientRect();
+    draggingNode.x = e.clientX - rect.left;
+    draggingNode.y = e.clientY - rect.top;
+    updateUI();
+  }
+});
+
+canvas.addEventListener('mouseup', () => {
+  draggingNode = null;
+});
+
+toggleDirectedBtn.addEventListener('click', () => {
+  isDirected = !isDirected;
+  toggleDirectedBtn.textContent = `Modo: ${isDirected ? 'Direcionado' : 'Não-direcionado'}`;
+  updateUI();
+});
+
+clearBtn.addEventListener('click', () => {
+  nodes = [];
+  edges = [];
+  selectedNode = null;
+  updateUI();
+});
+
+function drawArrowhead(ctx, x, y, angle) {
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x - 10 * Math.cos(angle - Math.PI / 6), y - 10 * Math.sin(angle - Math.PI / 6));
+  ctx.lineTo(x - 10 * Math.cos(angle + Math.PI / 6), y - 10 * Math.sin(angle + Math.PI / 6));
+  ctx.closePath();
+  ctx.fill();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Draw edges
+  ctx.strokeStyle = '#94a3b8';
+  ctx.fillStyle = '#94a3b8';
+  ctx.lineWidth = 2;
+  
+  edges.forEach(edge => {
+    ctx.beginPath();
+    ctx.moveTo(edge.from.x, edge.from.y);
+    ctx.lineTo(edge.to.x, edge.to.y);
+    ctx.stroke();
+
+    if (isDirected) {
+      const angle = Math.atan2(edge.to.y - edge.from.y, edge.to.x - edge.from.x);
+      const targetX = edge.to.x - 20 * Math.cos(angle);
+      const targetY = edge.to.y - 20 * Math.sin(angle);
+      drawArrowhead(ctx, targetX, targetY, angle);
+    }
+  });
+
+  // Draw nodes
+  nodes.forEach(node => {
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
+    ctx.fillStyle = node === selectedNode ? '#f59e0b' : '#0284c7';
+    ctx.fill();
+    ctx.strokeStyle = '#e0f2fe';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 16px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(node.id, node.x, node.y);
+  });
+}
+
+function updateUI() {
+  draw();
+  
+  if (nodes.length === 0) {
+    matrixDisplay.textContent = 'Vazio';
+    degreeInfo.innerHTML = 'Adicione nós para ver os graus.';
+    return;
+  }
+  
+  // Matrix
+  let n = nodes.length;
+  let matrix = Array(n).fill().map(() => Array(n).fill(0));
+  
+  edges.forEach(e => {
+    let fromIdx = nodes.indexOf(e.from);
+    let toIdx = nodes.indexOf(e.to);
+    matrix[fromIdx][toIdx] = 1;
+    if (!isDirected) matrix[toIdx][fromIdx] = 1;
+  });
+
+  let str = '  ' + nodes.map(n => n.id).join(' ') + '\n';
+  nodes.forEach((node, i) => {
+    str += node.id + ' ' + matrix[i].join(' ') + '\n';
+  });
+  matrixDisplay.textContent = str;
+
+  // Degrees
+  let degStr = '<strong>Graus dos Nós:</strong><br>';
+  nodes.forEach((node, i) => {
+    if(isDirected) {
+      let inDeg = 0, outDeg = 0;
+      edges.forEach(e => {
+        if(e.from === node) outDeg++;
+        if(e.to === node) inDeg++;
+      });
+      degStr += `Nó ${node.id}: In=${inDeg}, Out=${outDeg}<br>`;
+    } else {
+      let deg = matrix[i].reduce((a,b) => a+b, 0);
+      degStr += `Nó ${node.id}: Grau ${deg}<br>`;
+    }
+  });
+  degreeInfo.innerHTML = degStr;
+}
+updateUI();
+</script>
+</body>
+</html>

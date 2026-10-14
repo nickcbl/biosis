@@ -1,0 +1,88 @@
+project:
+  type: website
+
+publish:
+  gh-pages:
+    branch: biosite
+
+website:
+  title: "CI0932 - Biologia de Sistemas"
+  site-url: https://nickcbl.github.io/biosis/
+  favicon: imagens/favicon-32.png
+  image: imagens/social-preview.jpg
+  open-graph: true
+  twitter-card: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Início
+
+  sidebar:
+    - title: "Conteúdo"
+      style: docked
+      collapse-level: 1
+      contents:
+        - section: "Módulos"
+          contents:
+            - modulos/modulo1.qmd
+            - modulos/modulo2.qmd
+            - modulos/modulo3.qmd
+            - modulos/modulo4.qmd
+            - modulos/modulo5.qmd
+            - modulos/modulo6.qmd
+            - modulos/modulo7.qmd
+            - modulos/modulo8.qmd
+            - modulos/modulo9.qmd
+        - section: "Slides"
+          contents:
+            - slides/01-historico-e-conceitos.qmd
+            - slides/02-grafos.qmd
+            - slides/03-redes-biologicas.qmd
+            - slides/04-modelos.qmd
+            - slides/05-obtencao-de-dados-e-banco-de-dados.qmd
+            - slides/06-integracao-e-dados.qmd
+            - slides/07-rede-metabolica.qmd
+            - slides/08-rede-de-co-expressao.qmd
+            - slides/09-rede-de-interacao-proteina-proteina.qmd
+            - slides/10-biologia-sintetica.qmd
+        - section: "Roteiros"
+          contents:
+            - roteiros/input/input.qmd
+            - roteiros/pratica1.qmd
+            - roteiros/pratica2.qmd
+            - roteiros/pratica3.qmd
+            - roteiros/pratica4.qmd
+            - roteiros/pratica5.qmd
+            - roteiros/pratica6.qmd
+            - roteiros/pratica7.qmd
+            - roteiros/pratica8.qmd
+            - roteiros/pratica9.qmd
+            - roteiros/pratica10.qmd
+            - roteiros/pratica11.qmd
+            - roteiros/pratica12.qmd
+        - section: "Listas"
+          contents:
+            - listas/ed1.qmd
+            - listas/ed2.qmd
+            - listas/exercicios_fundamentos_logica.qmd
+            - listas/exercicios_biotecnologia.qmd
+        - section: Teste
+          contents:
+            - teste/teste.qmd
+  page-footer:
+    <p class="status-badge">em construção · v2 · 2026</p>
+
+format:
+  html:
+    theme:
+      - sandstone
+      - custom-bege.scss
+    highlight-style: github
+    grid:
+      sidebar-width: 260px
+      body-width: 1400px
+      margin-width: 200px
+      gutter-width: 1.5rem
+    language: pt-Br
+    bibliography: referencias/ref.bib
+    csl: referencias/abnt.csl

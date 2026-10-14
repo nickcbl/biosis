@@ -1,0 +1,33 @@
+\babel@toc {brazilian}{}\relax 
+\contentsline {section}{\numberline {1}Introdução}{2}{section.1}%
+\contentsline {section}{\numberline {2}Objetivos}{3}{section.2}%
+\contentsline {section}{\numberline {3}Pré-requisitos}{3}{section.3}%
+\contentsline {section}{\numberline {4}Fluxograma}{5}{section.4}%
+\contentsline {section}{\numberline {5}Resumo do Fluxo de Trabalho}{6}{section.5}%
+\contentsline {section}{\numberline {6}Parte 1 -- Controle de Qualidade com FastQC}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Execução}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Interpretação dos Relatórios}{6}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Parte 2 -- Limpeza (Trimagem) com Trimmomatic}{7}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Comando}{7}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Explicação dos Parâmetros}{7}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Verificação Pós-Trimagem}{8}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Parte 3 -- Montagem com SPAdes}{8}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Execução}{8}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Parâmetros Importantes}{8}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Saída Principal}{8}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Parte 4 -- Montagem com Masurca}{9}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Execução}{9}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Processo}{9}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Saída Principal}{9}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Parte 5 -- Montagem com MEGAHIT}{9}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Execução}{9}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Parâmetros}{10}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Saída Principal}{10}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Parte 6 -- Avaliação Inicial das Montagens}{10}{section.11}%
+\contentsline {section}{\numberline {12}Parte 7 -- Avaliação Detalhada com QUAST}{11}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Execução}{11}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Métricas Chave a Interpretar}{11}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Análise Comparativa}{12}{subsection.12.3}%
+\contentsline {section}{\numberline {13}Parte 8 -- Perguntas para Discussão Final}{12}{section.13}%
+\contentsline {section}{\numberline {14}Referências e Leituras Recomendadas}{12}{section.14}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="480" height="222" viewBox="0 0 480 222" style="color-scheme: light dark">
+<defs>
+</defs>
+<metadata id="diagram-manifest" data-schema-version="1.0"><![CDATA[{"groups":[{"color":"#8b5cf6","id":"fba","label":"Flux Balance Analysis"}],"height":222,"match":{"flags":"i","target":"fqProcessName","type":"regex"},"nodes":[{"groups":["fba"],"h":10.0,"id":"recon","label":"Reconstrução do Modelo","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":80.0,"y":120.0},{"groups":["fba"],"h":10.0,"id":"restr","label":"Definição de Restrições","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":165.0,"y":120.0},{"groups":["fba"],"h":10.0,"id":"objetivo","label":"Função Objetivo","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":250.0,"y":120.0},{"groups":["fba"],"h":10.0,"id":"otimiz","label":"Otimização Linear","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":335.0,"y":120.0},{"groups":["fba"],"h":10.0,"id":"fluxo","label":"Análise de Fluxo","patterns":[],"r":5.0,"rx":5.0,"w":10.0,"x":420.0,"y":120.0}],"regions":[],"title":"Flux Balance Analysis (FBA)","version":"1.0","width":480}]]></metadata>
+<style>.nf-metro-bg { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }
+.nf-metro-title { fill: var(--nfm-map-title-color, light-dark(#111111, #ffffff)); }
+.nf-metro-station-label { fill: var(--nfm-map-label-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-section-box { fill: var(--nfm-map-section-fill, light-dark(#ededed, #373737)); stroke: var(--nfm-map-section-stroke, light-dark(#e6e6e6, #595959)); }
+.nf-metro-section-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-label { fill: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-group-underline { stroke: var(--nfm-map-section-label-color, light-dark(#666666, #c8c8c8)); }
+.nf-metro-legend-bg { fill: var(--nfm-map-legend-bg, light-dark(rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.3))); }
+.nf-metro-legend-text { fill: var(--nfm-map-legend-text-color, light-dark(#333333, #e0e0e0)); }
+.nf-metro-marker-stroke { stroke: var(--nfm-map-marker-stroke, light-dark(#333333, #f0f0f0)); }
+.nf-metro-label-halo { fill: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); stroke: var(--nfm-map-bg, light-dark(#f5f5f5, #2b2b2b)); }</style>
+<rect x="0" y="0" width="480" height="222" fill="#2b2b2b" class="nf-metro-bg" />
+<text x="60.0" y="30.0" font-size="24.0" fill="#ffffff" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" class="nf-metro-title">Flux Balance Analysis (FBA)</text>
+<path d="M80.0,120.0 L165.0,120.0" stroke="#8b5cf6" stroke-width="3.0" stroke-linecap="round" class="metro-line-fba" data-line-id="fba" />
+<path d="M165.0,120.0 L250.0,120.0" stroke="#8b5cf6" stroke-width="3.0" stroke-linecap="round" class="metro-line-fba" data-line-id="fba" />
+<path d="M250.0,120.0 L335.0,120.0" stroke="#8b5cf6" stroke-width="3.0" stroke-linecap="round" class="metro-line-fba" data-line-id="fba" />
+<path d="M335.0,120.0 L420.0,120.0" stroke="#8b5cf6" stroke-width="3.0" stroke-linecap="round" class="metro-line-fba" data-line-id="fba" />
+<g class="nf-metro-station-group" data-node-id="recon" data-node-cx="80.0" data-node-cy="120.0" data-node-r="5.0" data-node-groups="fba" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="75.0" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="recon" data-station-lines="fba" data-station-label="Reconstrução do Modelo" />
+</g>
+<g class="nf-metro-station-group" data-node-id="restr" data-node-cx="165.0" data-node-cy="120.0" data-node-r="5.0" data-node-groups="fba" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="160.0" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="restr" data-station-lines="fba" data-station-label="Definição de Restrições" />
+</g>
+<g class="nf-metro-station-group" data-node-id="objetivo" data-node-cx="250.0" data-node-cy="120.0" data-node-r="5.0" data-node-groups="fba" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="245.0" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="objetivo" data-station-lines="fba" data-station-label="Função Objetivo" />
+</g>
+<g class="nf-metro-station-group" data-node-id="otimiz" data-node-cx="335.0" data-node-cy="120.0" data-node-r="5.0" data-node-groups="fba" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="330.0" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="otimiz" data-station-lines="fba" data-station-label="Otimização Linear" />
+</g>
+<g class="nf-metro-station-group" data-node-id="fluxo" data-node-cx="420.0" data-node-cy="120.0" data-node-r="5.0" data-node-groups="fba" data-node-w="10.0" data-node-h="10.0" data-node-rx="5.0">
+<rect x="415.0" y="115.0" width="10.0" height="10.0" rx="5.0" ry="5.0" fill="#ffffff" stroke="#333333" stroke-width="1.5" class="nf-metro-station" data-station-id="fluxo" data-station-lines="fba" data-station-label="Análise de Fluxo" />
+</g>
+<text x="80.0" y="131.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Reconstrução do Modelo</text>
+<text x="80.0" y="131.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="recon" class="nf-metro-station-label">Reconstrução do Modelo</text>
+<text x="165.0" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Definição de Restrições</text>
+<text x="165.0" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="restr" class="nf-metro-station-label">Definição de Restrições</text>
+<text x="250.0" y="131.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Função Objetivo</text>
+<text x="250.0" y="131.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="objetivo" class="nf-metro-station-label">Função Objetivo</text>
+<text x="347.1" y="106.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="auto">Otimização Linear</text>
+<text x="347.1" y="106.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="auto" data-station-id="otimiz" class="nf-metro-station-label">Otimização Linear</text>
+<text x="420.0" y="131.0" font-size="13.0" fill="#2b2b2b" stroke="#2b2b2b" stroke-width="3.0" stroke-linejoin="round" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" aria-hidden="true" class="nf-metro-label-halo" text-anchor="middle" dominant-baseline="hanging">Análise de Fluxo</text>
+<text x="420.0" y="131.0" font-size="13.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="bold" text-anchor="middle" dominant-baseline="hanging" data-station-id="fluxo" class="nf-metro-station-label">Análise de Fluxo</text>
+<rect x="60.0" y="150.0" width="221.70000000000002" height="48.0" rx="6" ry="6" fill="rgba(0, 0, 0, 0.3)" class="nf-metro-legend-bg" />
+<path d="M72.0,174.0 L96.0,174.0" stroke="#8b5cf6" stroke-width="3.0" stroke-linecap="round" />
+<text x="108.0" y="174.0" font-size="14.0" fill="#e0e0e0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" dy="0.3em" class="nf-metro-legend-text">Flux Balance Analysis</text>
+<text x="450.0" y="214.0" font-size="8" fill="rgba(150, 150, 150, 0.6)" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" text-anchor="end">created with nf-metro v1.1.0</text>
+</svg>

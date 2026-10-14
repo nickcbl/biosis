@@ -1,0 +1,62 @@
+# ============================================================
+# PARÂMETROS DO REPRESSILADOR
+# Fonte: Elowitz & Leibler (2000) - Nature 403:335-338
+# ============================================================
+
+# TAXAS DE PRODUÇÃO (proteínas por segundo)
+# α = produção máxima (quando não há repressão)
+alpha_lacI = 50.0
+alpha_tetR = 50.0
+alpha_cI    = 50.0
+
+# CONSTANTES DE DISSOCIAÇÃO (concentração)
+# K = concentração na qual a repressão é 50%
+K_lacI = 100.0
+K_tetR = 100.0
+K_cI    = 100.0
+
+# COEFICIENTES DE HILL (cooperatividade)
+# n = grau de cooperatividade da repressão
+n_lacI = 2.0
+n_tetR = 2.0
+n_cI    = 2.0
+
+# TAXAS DE DEGRADAÇÃO (por segundo)
+# δ = taxa de degradação da proteína
+delta_lacI = 0.05
+delta_tetR = 0.05
+delta_cI    = 0.05
+
+# TAXAS DE DEGRADAÇÃO DO mRNA (por segundo)
+delta_mRNA_lacI = 0.10
+delta_mRNA_tetR = 0.10
+delta_mRNA_cI    = 0.10
+
+# TAXAS DE TRADUÇÃO (por segundo)
+# β = taxa de tradução do mRNA para proteína
+beta_lacI = 0.10
+beta_tetR = 0.10
+beta_cI    = 0.10
+
+# CONCENTRAÇÕES INICIAIS (moléculas por célula)
+LacI_initial = 10.0
+TetR_initial = 10.0
+CI_initial   = 10.0
+
+# mRNA CONCENTRAÇÕES INICIAIS (moléculas por célula)
+mRNA_lacI_initial = 1.0
+mRNA_tetR_initial = 1.0
+mRNA_cI_initial   = 1.0
+
+# TEMPO DE SIMULAÇÃO
+simulation_duration = 5000.0  # segundos
+simulation_steps    = 10000
+
+# EQUAÇÕES DIFERENCIAIS (referência)
+# d[LacI]/dt   = α_lacI * (1 / (1 + (CI/K_cI)^n_cI)) - δ_lacI * [LacI]
+# d[TetR]/dt   = α_tetR * (1 / (1 + (LacI/K_lacI)^n_lacI)) - δ_tetR * [TetR]
+# d[CI]/dt     = α_cI * (1 / (1 + (TetR/K_tetR)^n_tetR)) - δ_cI * [CI]
+#
+# d[mRNA_LacI]/dt = α_lacI * (1 / (1 + (CI/K_cI)^n_cI)) - δ_mRNA_lacI * [mRNA_LacI]
+# d[mRNA_TetR]/dt = α_tetR * (1 / (1 + (LacI/K_lacI)^n_lacI)) - δ_mRNA_tetR * [mRNA_TetR]
+# d[mRNA_CI]/dt   = α_cI * (1 / (1 + (TetR/K_tetR)^n_tetR)) - δ_mRNA_cI * [mRNA_CI]

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { background: #0f172a; color: #f8fafc; font-family: 'Atkinson Hyperlegible', sans-serif; margin: 0; padding: 20px; }
+  .container { display: flex; flex-direction: column; gap: 20px; }
+  .controls { display: flex; gap: 10px; flex-wrap: wrap; }
+  button { background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+  button:hover { background: #2563eb; }
+  .network-view { display: flex; gap: 20px; }
+  canvas { background: #1e293b; border-radius: 8px; flex: 2; }
+  .sidebar { flex: 1; background: #1e293b; padding: 15px; border-radius: 8px; }
+  .bar { fill: #3b82f6; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="controls">
+    <button onclick="generateRandom()">Erdős-Rényi (Aleatória)</button>
+    <button onclick="generateSmallWorld()">Watts-Strogatz (Small World)</button>
+    <button onclick="generateScaleFree()">Barabási-Albert (Scale-Free)</button>
+    <button onclick="animateBA()">Animar Crescimento BA</button>
+  </div>
+  <div class="network-view">
+    <canvas id="netCanvas" width="800" height="600"></canvas>
+    <div class="sidebar">
+      <h3>Distribuição de Grau</h3>
+      <svg id="histSvg" width="100%" height="200" style="background:#0f172a; border-radius:4px;"></svg>
+      <div id="info" style="margin-top: 15px; font-size: 0.9em;"></div>
+    </div>
+  </div>
+</div>
+<script>
+  const canvas = document.getElementById('netCanvas');
+  const ctx = canvas.getContext('2d');
+  let nodes = [], edges = [], animInterval;
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    edges.forEach(e => {
+      ctx.beginPath();
+      ctx.moveTo(nodes[e.s].x, nodes[e.s].y);
+      ctx.lineTo(nodes[e.t].x, nodes[e.t].y);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+      ctx.stroke();
+    });
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, Math.min(20, 3 + n.deg * 0.5), 0, Math.PI * 2);
+      ctx.fillStyle = n.deg > 10 ? '#ef4444' : '#3b82f6';
+      ctx.fill();
+    });
+    drawHist();
+  }
+  
+  function calcDegs() {
+    nodes.forEach(n => n.deg = 0);
+    edges.forEach(e => { nodes[e.s].deg++; nodes[e.t].deg++; });
+  }
+
+  function simulateLayout() {
+    for (let i = 0; i < 50; i++) {
+      nodes.forEach(n => { n.vx = 0; n.vy = 0; });
+      nodes.forEach((n1, i) => {
+        nodes.slice(i + 1).forEach(n2 => {
+          let dx = n1.x - n2.x, dy = n1.y - n2.y;
+          let dist = Math.sqrt(dx*dx + dy*dy) || 1;
+          let f = 150 / dist;
+          n1.vx += (dx/dist)*f; n1.vy += (dy/dist)*f;
+          n2.vx -= (dx/dist)*f; n2.vy -= (dy/dist)*f;
+        });
+      });
+      edges.forEach(e => {
+        let n1 = nodes[e.s], n2 = nodes[e.t];
+        let dx = n1.x - n2.x, dy = n1.y - n2.y;
+        let dist = Math.sqrt(dx*dx + dy*dy) || 1;
+        let f = (dist - 40) * 0.05;
+        n1.vx -= (dx/dist)*f; n1.vy -= (dy/dist)*f;
+        n2.vx += (dx/dist)*f; n2.vy += (dy/dist)*f;
+      });
+      nodes.forEach(n => {
+        n.x = Math.max(20, Math.min(canvas.width - 20, n.x + n.vx));
+        n.y = Math.max(20, Math.min(canvas.height - 20, n.y + n.vy));
+      });
+    }
+  }
+
+  function drawHist() {
+    let counts = Array(30).fill(0);
+    nodes.forEach(n => { if (n.deg < 30) counts[n.deg]++; });
+    let maxC = Math.max(...counts) || 1;
+    let svg = '';
+    counts.forEach((c, i) => {
+      let h = (c / maxC) * 180;
+      svg += `<rect class="bar" x="${i*10}" y="${200-h}" width="8" height="${h}" />`;
+    });
+    document.getElementById('histSvg').innerHTML = svg;
+  }
+
+  function generateRandom() {
+    clearInterval(animInterval);
+    nodes = Array.from({length: 80}, () => ({x: Math.random()*800, y: Math.random()*600, deg: 0}));
+    edges = [];
+    for(let i=0; i<80; i++) {
+      for(let j=i+1; j<80; j++) {
+        if (Math.random() < 0.05) edges.push({s: i, t: j});
+      }
+    }
+    calcDegs(); simulateLayout(); draw();
+    document.getElementById('info').innerText = 'Rede Aleatória (ER): Conexões distribuídas uniformemente, baixa probabilidade de hubs.';
+  }
+
+  function generateSmallWorld() {
+    clearInterval(animInterval);
+    nodes = Array.from({length: 80}, (_, i) => ({
+      x: 400 + 250*Math.cos(i*Math.PI*2/80), 
+      y: 300 + 250*Math.sin(i*Math.PI*2/80), 
+      deg: 0
+    }));
+    edges = [];
+    for(let i=0; i<80; i++) {
+      edges.push({s: i, t: (i+1)%80});
+      edges.push({s: i, t: (i+2)%80});
+    }
+    edges.forEach(e => {
+      if (Math.random() < 0.1) {
+        e.t = Math.floor(Math.random()*80);
+      }
+    });
+    calcDegs(); draw(); // No layout to keep ring shape
+    document.getElementById('info').innerText = 'Rede Small World (WS): Alta clusterização local, com atalhos permitindo poucos passos entre qualquer par de nós.';
+  }
+
+  function generateScaleFree() {
+    clearInterval(animInterval);
+    nodes = [{x: 400, y: 300, deg: 0}, {x: 410, y: 310, deg: 0}];
+    edges = [{s: 0, t: 1}];
+    for(let i=2; i<80; i++) {
+      calcDegs();
+      let sum = nodes.reduce((a,b)=>a+b.deg, 0);
+      let target = -1;
+      let r = Math.random()*sum;
+      let acc = 0;
+      for(let j=0; j<nodes.length; j++) {
+        acc += nodes[j].deg;
+        if (acc >= r) { target = j; break; }
+      }
+      if (target === -1) target = 0;
+      nodes.push({x: Math.random()*800, y: Math.random()*600, deg: 0});
+      edges.push({s: i, t: target});
+    }
+    calcDegs(); simulateLayout(); draw();
+    document.getElementById('info').innerText = 'Rede Scale-Free (BA): Segue lei de potência. A maioria dos nós tem poucas conexões, mas alguns "hubs" dominam a rede.';
+  }
+
+  function animateBA() {
+    clearInterval(animInterval);
+    nodes = [{x: 400, y: 300, deg: 0}, {x: 410, y: 310, deg: 0}];
+    edges = [{s: 0, t: 1}];
+    document.getElementById('info').innerText = 'Crescendo rede via Ligação Preferencial ("O rico fica mais rico")...';
+    animInterval = setInterval(() => {
+      if (nodes.length >= 100) { clearInterval(animInterval); return; }
+      calcDegs();
+      let sum = nodes.reduce((a,b)=>a+b.deg, 0);
+      let target = 0, r = Math.random()*sum, acc = 0;
+      for(let j=0; j<nodes.length; j++) {
+        acc += nodes[j].deg;
+        if (acc >= r) { target = j; break; }
+      }
+      nodes.push({x: Math.random()*800, y: Math.random()*600, deg: 0});
+      edges.push({s: nodes.length-1, t: target});
+      calcDegs(); simulateLayout(); draw();
+    }, 200);
+  }
+
+  generateRandom();
+</script>
+</body>
+</html>

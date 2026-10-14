@@ -1,0 +1,130 @@
+---
+title: "Aula 8<br>Redes de Co-Expressão"
+format: revealjs
+---
+
+![](08/slide1.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide2.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide3.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide4.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide5.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide6.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide7.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide8.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide9.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide10.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide11.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide12.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide13.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide14.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide15.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide16.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide17.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide18.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide19.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide20.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide21.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide22.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide23.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide24.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide25.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide26.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide27.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide28.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide29.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide30.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide31.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}
+
+---
+
+![](08/slide32.png){fig-align="center" width=100% style="border: 3px solid black; border-radius: 8px;"}

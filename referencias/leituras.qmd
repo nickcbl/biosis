@@ -1,0 +1,19 @@
+---
+title: "Leituras"
+bibliography: ref.bib
+author: "Nicholas Barroso"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: minty
+    code-copy: true
+    lang: pt-Br
+---
+
+# Histórico e Conceitos
+
+| Referência | PDF |
+|------------|-----|
+|[@klamt_2009]|[Download](./pdfs/kitano2002.pdf)|

@@ -1,0 +1,190 @@
+---
+title: "02 <br> Centralidades em Grafos"
+author: "Nicholas Barroso"
+format:
+  revealjs:
+    slide-number: c/t
+    width: 1600
+    height: 900
+    logo: img/logo.png
+    footer: "Nicholas Barroso"
+    incremental: false
+    theme: tema_azul.scss
+    embed-resources: true
+    lightbox: true
+---
+
+# O que são Centralidades?
+
+## Introdução às Centralidades
+
+As **métricas de centralidade** identificam os nós e arestas mais importantes dentro de uma rede.
+
+- **Importância estrutural:** quem mantém a rede conectada?
+- **Fluxo de informação:** por onde a informação (ou metabólitos) passa mais rápido?
+- **Influência:** quem dita o comportamento global do sistema?
+
+::: {.callout-note}
+Em **Biologia de Sistemas**, encontrar os nós centrais geralmente significa encontrar **genes essenciais**, **proteínas alvo de fármacos**, ou **metabólitos chave** para o balanço energético.
+:::
+
+## Por que importam em Biologia?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Redes de Interação Proteína-Proteína (PPI)**
+- Hubs (nós de alto grau) são frequentemente essenciais para a sobrevivência celular (regra da letalidade-centralidade).
+
+**Redes Metabólicas**
+- Gargalos (alto betweenness) controlam os fluxos e são vulnerabilidades do metabolismo.
+:::
+
+::: {.column width="50%"}
+**Redes de Regulação Gênica**
+- Fatores de transcrição mestres (alta proximidade/autovetor) conseguem espalhar sinais regulatórios rapidamente para todo o genoma.
+:::
+
+::::
+
+# Métricas de Centralidade
+
+## 1. Centralidade de Grau (Degree)
+
+Mede o número de conexões diretas de um nó. Identifica os **Hubs** da rede.
+
+**Fórmula:**
+$$
+C_D(v) = k_v
+$$
+
+Versão normalizada:
+$$
+C'_D(v) = \frac{k_v}{N-1}
+$$
+
+::: {.callout-tip title="Interpretação Biológica"}
+Proteínas com alto grau interagem com muitas outras. Elas formam o núcleo de complexos proteicos ou são chaperonas chave. A mutação desses genes costuma ser letal.
+:::
+
+## 2. Centralidade de Proximidade (Closeness)
+
+Mede quão perto um nó está de todos os outros nós da rede.
+
+**Fórmula:**
+$$
+C_C(v) = \frac{N-1}{\sum_{u \neq v} d(v,u)}
+$$
+Onde $d(v,u)$ é a distância (menor caminho) entre $v$ e $u$.
+
+::: {.callout-tip title="Interpretação Biológica"}
+Nós com alta proximidade podem espalhar perturbações rapidamente pelo sistema. Em cascatas de sinalização, são proteínas que rapidamente repassam o sinal extracelular para o núcleo.
+:::
+
+## 3. Centralidade de Intermediação (Betweenness)
+
+Mede a fração dos menores caminhos da rede que passam por um determinado nó.
+
+**Fórmula:**
+$$
+C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}}
+$$
+Onde $\sigma_{st}$ são todos os menores caminhos entre $s$ e $t$, e $\sigma_{st}(v)$ são os que passam por $v$.
+
+::: {.callout-tip title="Interpretação Biológica"}
+Atuam como "pontes" (bottlenecks). Em vias metabólicas, uma enzima com alto betweenness controla o fluxo entre dois grandes módulos (ex: glicólise e ciclo de Krebs).
+:::
+
+## 4. Centralidade de Autovetor (Eigenvector)
+
+Um nó é importante se ele está conectado a outros nós que também são importantes.
+
+**Fórmula:**
+$$
+\lambda x_i = \sum_j A_{ij}x_j
+$$
+Onde $A$ é a matriz de adjacência, $\lambda$ o autovalor, e $x_i$ a centralidade.
+
+::: {.callout-tip title="Interpretação Biológica"}
+Mede a influência global. Fatores de transcrição que regulam outros fatores de transcrição importantes terão alta centralidade de autovetor, orquestrando amplas respostas celulares.
+:::
+
+## 5. Centralidade de Alavancagem (Leverage)
+
+Avalia o grau de um nó em relação ao grau de seus vizinhos.
+
+**Fórmula (Grafo não direcionado):**
+$$
+L(v) = \frac{1}{k_v} \sum_{u \in N(v)} \frac{k_v - k_u}{k_v + k_u}
+$$
+
+::: {.callout-tip title="Interpretação Biológica"}
+Se positivo, o nó está ligado a vizinhos de menor grau (ele controla a vizinhança). Se negativo, ele está na periferia de hubs maiores (é controlado).
+:::
+
+## 6. Centralidade de Difusão (Katz)
+
+Uma generalização do grau que considera caminhos de todos os tamanhos, mas penaliza exponencialmente os caminhos longos através de um fator de atenuação $\alpha$.
+
+**Fórmula:**
+$$
+C_{Katz}(i) = \sum_{k=1}^{\infty} \sum_{j=1}^N \alpha^k (A^k)_{ij}
+$$
+
+::: {.callout-tip title="Interpretação Biológica"}
+Excelente para processos biológicos que funcionam como "difusão" (ex: propagação de metabólitos que decaem ou sinais que perdem força) em vez de rotas estritamente ótimas.
+:::
+
+## 7. Intermediação de Fluxo (Flow Betweenness)
+
+Considera que a informação pode fluir por caminhos que **não** são necessariamente os menores (relaxa a restrição do betweenness tradicional).
+
+**Fórmula:**
+$$
+FB(v) = \sum_{s \neq v \neq t} \frac{F_{st} - F_{st}^{-v}}{F_{st}}
+$$
+Onde $F_{st}$ é o fluxo máximo, e $F_{st}^{-v}$ é o fluxo se $v$ for removido.
+
+::: {.callout-tip title="Interpretação Biológica"}
+Em redes de fluxo metabólico, mede a redundância do sistema. Se uma enzima tem alto FB, o sistema não tem rotas alternativas suficientes caso ela seja inibida.
+:::
+
+# Simulador Interativo
+
+## Experimente com as Métricas
+
+```{=html}
+<iframe src="v2-simulador_centralidades.html" width="100%" height="700px" style="border:1px solid #334155; border-radius:12px; background: #0f172a;"></iframe>
+```
+
+# Comparação e Aplicações
+
+## Comparação das Métricas
+
+| Métrica | Base Principal | O que responde na Biologia? |
+|---------|---------------|----------------------------|
+| **Grau** | Conexões Locais | Quem é o hub imediato de interação? |
+| **Proximidade** | Distância | Quem recebe sinais externos mais rápido? |
+| **Intermediação**| Menor Caminho | Qual é o gargalo da via? |
+| **Autovetor** | Influência Global| Quem controla os controladores? |
+| **Difusão (Katz)**| Caminhos + Atenuação | Quem domina o ambiente local difusivo? |
+| **Fluxo** | Capacidade de Rede | Qual enzima não tem via redundante/resgate? |
+
+## Aplicações Clínicas e Terapêuticas
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Descoberta de Fármacos**
+- Nós com alto *Betweenness* são frequentemente excelentes alvos farmacológicos porque quebram o patógeno sem destruir a rede inteira, mas asfixiam vias críticas.
+
+**Oncologia de Precisão**
+- Proteínas super-expressas em tumores frequentemente se tornam *Hubs* temporários (alto Grau/Autovetor). Atacar esses hubs pode desestabilizar a rede de sobrevivência tumoral.
+:::
+
+::: {.column width="50%"}
+**Engenharia Metabólica**
+- Para aumentar a produção de um metabólito de interesse em leveduras, identificamos os nós de alta *Intermediação de Fluxo* que "desviam" precursores, e aplicamos nocaute nesses genes.
+:::
+
+::::

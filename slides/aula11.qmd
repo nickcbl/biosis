@@ -1,0 +1,308 @@
+---
+title: "Biologia de Sistemas - Histórico e Conceitos"
+author: "Nicholas Barroso"
+format: 
+  revealjs:
+    theme: simple
+    transition: slide
+    highlight-style: github
+    slide-number: true
+    chalkboard: true
+    footer: "Biologia de Sistemas"
+---
+
+# Biologia de Sistemas
+
+## 01 - Histórico e Conceitos
+
+Nicholas Barroso
+
+---
+
+# Definição
+
+Abordagem **holista** para o estudo de sistemas biológicos
+
+## Holismo
+
+O holismo é a concepção de que um sistema deve ser entendido como um todo, pois suas propriedades não podem ser reduzidas à simples soma de suas partes.
+
+> Por consequência, a Biologia de Sistemas permite modelar e descobrir **propriedades emergentes**.
+
+---
+
+# Propriedades Emergentes
+
+Propriedades emergentes são aquelas que surgem das interações entre os componentes de um sistema biológico e não podem ser atribuídas a nenhuma parte isolada.
+
+> Kitano, H. (2002). Science, 295(5560), 1662–1664.
+
+---
+
+# Área Multidisciplinar
+
+
+::::: {.columns}
+
+:::{.column width="20%"}
+Biologia
+:::
+
+:::{.column width="20%"}
+Computação
+:::
+
+:::{.column width="60%"}
+Matemática
+:::
+
+:::::
+
+---
+
+Área da ciência que **Modela** Complexos Sistemas Biológicos
+
+---
+
+# Holismo versus Reducionismo
+
+> "O **reducionismo** é a abordagem que busca compreender sistemas biológicos complexos dissecando-os em suas partes componentes, partindo do pressuposto de que entender cada parte levará à compreensão do todo."
+
+— Kitano, H. (2002)
+
+---
+
+# Protocolos operacionais
+
+O ciclo **Teoria → Modelagem → Validação experimental → Refinamento**
+
+- **Teoria** e **Modelagem** analítica ou computacional
+- **Validação experimental**
+- **Refinamento** do modelo ou teoria
+
+> **Exemplo**: Desenvolvimento de leveduras produtoras de artemisinina (Ro et al., 2006, *Nature*), integrando dados transcriptômicos e modelagem de fluxo metabólico.
+
+---
+
+# Teoria de Sistemas Dinâmicos na Biologia Molecular
+
+O foco na dinâmica e interação dos **indivíduos** nos sistemas estudados é a principal diferença conceitual entre a biologia de sistemas e a bioinformática.
+
+> **Exemplo**: Modelos dinâmicos do ciclo celular em leveduras (Tyson et al., 2002) explicam como falhas em pontos de checagem levam a câncer, guiando terapias-alvo.
+
+---
+
+# Fenômeno sócio-científico
+
+Definido pela estratégia de integrar dados complexos da interação, em sistemas biológicos, de diversas fontes usando ferramentas e pessoal interdisciplinar.
+
+**Disciplinas associadas:**
+- Biologia molecular
+- Genômica
+- Proteômica
+- Metabolômica
+- Bioinformática
+- Engenharia de sistemas
+
+---
+
+# Histórico - Ludwig von Bertalanffy
+
+## Teoria Geral dos Sistemas (1950-1968)
+
+- Biólogo Austríaco
+- Desenvolveu a **Teoria Geral dos Sistemas**
+- A base para o conceito de Biologia de Sistemas
+
+> "Um sistema é um conglomerado coeso de partes **inter-relacionadas** e interdependentes que pode ser natural ou feito pelo homem."
+
+---
+
+# Teoria Geral dos Sistemas
+
+## Conceitos-Chave
+
+| Conceito | Definição |
+|----------|-----------|
+| **Sistema** | Entidade organizada composta de partes interrelacionadas e interdependentes |
+| **Fronteiras** | Limites que definem o sistema e o diferenciam do ambiente |
+| **Homeostase** | Tendência a ser resiliente para manter características internas |
+| **Adaptação** | Ajuste estrutural ou funcional em resposta a mudanças |
+| **Transações Recíprocas** | Interações bidirecionais entre sistemas |
+| **Retroalimentação** | Sinal pelo qual os sistemas se autocorrigem |
+| **Taxa de transferência** | Velocidade de fluxo de matéria/energia/informação |
+
+---
+
+# Hodgkin e Huxley (1952)
+
+## Modelagem Matemática do Impulso Nervoso
+
+- **Contexto**: Modelo matemático do potencial de ação em neurônios do axônio gigante da lula (*Loligo pealei*)
+- **Metodologia**: Experimentos eletrofisiológicos (voltage clamp) + equações diferenciais
+- **Modelaram**: Dinâmica dos canais iônicos de sódio (Na⁺) e potássio (K⁺)
+
+---
+
+# Hodgkin e Huxley - Impacto
+
+**Impacto Científico:**
+- **Fundamentos da Neurociência Computacional**: Base para simulações de redes neuronais modernas (epilepsia, Parkinson)
+- **Biotecnologia**: Interfaces cérebro-máquina e próteses neurais
+- **Prêmio Nobel (1963)**: Mecanismos iônicos na excitação e inibição de neurônios
+
+---
+
+# Alan Turing (1952)
+
+## O Modelo de Reação-Difusão
+
+- **Ativador**: Auto-reforça sua própria produção
+- **Inibidor**: Suprime o ativador e difunde-se mais rapidamente
+
+O modelo matemático descreve como pequenas perturbações em um sistema homogêneo levam a padrões espaciais estáveis (Turing, 1952).
+
+---
+
+# Turing - Impacto na Biologia de Sistemas
+
+- **Padrões em Desenvolvimento Embrionário**: Formação de dígitos em membros de vertebrados
+- **Engenharia de Tecidos**: Regeneração de estruturas padronizadas
+- **Biologia Sintética**: Células geneticamente modificadas para produzir padrões Turing *in vitro*
+- **Cultivo de Órgãos**: Turing guia auto-organização de células-tronco em organoides
+
+---
+
+# Denis Noble
+
+## Modelo matemático da função cardíaca (1960)
+
+- Biólogo inglês
+- Usou modelos de computador de órgãos e sistemas para interpretar função molecular ao nível de todo o organismo
+- **Coração virtual** usando supercomputadores
+- Autor de *"Música da Vida"* - mudança de paradigma do reducionismo à biologia de sistemas
+
+---
+
+# Middle-Out: Conceito introduzido por Noble
+
+::::: {.columns}
+:::{.column width="33%"}
+### Top-down
+Dados ômicos → Rede → Modelo → Hipóteses
+:::
+:::{.column width="33%"}
+### Middle-out
+Começa em qualquer nível (molécula, célula, órgão), explorando causalidades circulares
+:::
+:::{.column width="33%"}
+### Bottom-up
+Combina informações específicas em modelo completo de escala genômica
+:::
+:::::
+
+---
+
+# Top-down - Limitações
+
+- **Dependência da qualidade dos dados**: Ruído em dados ômicos pode gerar modelos imprecisos
+- **Complexidade computacional**: Modelos de genoma completo exigem supercomputadores (ex.: modelo *Recon3D* humano)
+
+> **Exemplo**: Modelagem do Câncer de Mama - dados ômicos → rede de interações proteicas + vias metabólicas desreguladas (ex.: via PI3K-AKT) → identificação de alvos terapêuticos (inibidores de AKT)
+
+---
+
+# Mihajlo Mesarovic (1966)
+
+## "Systems Theory and Biology"
+
+- Engenheiro sérvio-americano
+- Aplicou a Teoria Geral dos Sistemas (von Bertalanffy) à biologia
+- **Definição inovadora**: Sistemas biológicos como **redes hierárquicas de interações**
+- **Abordagem matemática**: Modelos dinâmicos para descrever sistemas vivos
+- Influenciou a criação dos **GSMMs** (Genome-Scale Metabolic Models)
+
+---
+
+# Biologia de Sistemas: Oscilações no Uso
+
+## Fase de "Desuso" (1970-1990)
+- Dominância do reducionismo (Biologia Molecular)
+- Limitações tecnológicas (sem técnicas ômicas ou computação poderosa)
+
+## Fase de "Reuso" e Expansão (2000+)
+- **Revolução das ômicas**: Sequenciamento de genomas completos (Projeto Genoma Humano)
+- **Avanços computacionais**: Modelagem de redes, Machine Learning
+
+> Número de artigos com "Biologia de Sistemas" aumentou 20× entre 2000 e 2010 (PubMed)
+
+---
+
+# Hiroaki Kitano
+
+## Pioneiro na Popularização (2002)
+
+- **Publicação Seminal**: "Systems Biology: A Brief Overview" (*Science*, 2002)
+- **Criação do Systems Biology Institute (SBI)** - Tóquio, Japão
+- **Ferramentas**: CellDesigner, SBML (Systems Biology Markup Language)
+- **Modelagem do Câncer**: Redes de sinalização em tumores (via PI3K-AKT e resistência a terapias)
+
+---
+
+# Aplicações - 1. Modelos Metabólicos
+
+## Projeto Yeast 8
+- Modelo do metabolismo de *Saccharomyces cerevisiae*
+- Prevê como deleções genéticas afetam a produção de etanol
+- Otimização de cepas para biocombustíveis (Novozymes)
+- **Ferramenta**: COBRA Toolbox
+
+> "Modelos metabólicos reduziram em 70% o tempo para desenvolver linhagens produtoras de insulina humana em *E. coli* (Burgard et al., 2003)."
+
+---
+
+# Aplicações - 2. Medicina P4
+
+| Princípio | Aplicação no Câncer de Mama Triplo-Negativo |
+|-----------|---------------------------------------------|
+| **Personalizada** | Sequenciamento do tumor para mutações em *BRCA1* |
+| **Preditiva** | Modelos de risco baseados em transcriptômica (assinatura de 70 genes, MammaPrint) |
+| **Preventiva** | Uso de inibidores de PARP em pacientes com predisposição genética |
+| **Participativa** | Plataformas como PatientsLikeMe integram dados de pacientes |
+
+> "A medicina P4 já reduz custos hospitalares em até 30% ao evitar terapias ineficazes (Hood & Flores, 2012)."
+
+---
+
+# Aplicações - 3. Estudo do Câncer
+
+## Cancer Cell Map Initiative (CCMI)
+- Mapeou redes de interação proteica em tumores para identificar **"nós críticos"** (ex.: proteína MYC)
+- **Resultado**: Inibidores de MYC em testes clínicos para leucemia
+- **Ferramenta**: Cytoscape para visualização de redes
+
+> "Modelos de câncer de pâncreas preveem resistência a gemcitabina com 92% de acurácia (Rahman et al., 2022)."
+
+---
+
+# Aplicações - 4. Interações Hospedeiro-Patógeno
+
+## COVID-19 e ACE2
+- Modelagem sistêmica revelou que a proteína **TMPRSS2** facilita a entrada do SARS-CoV-2
+- **Terapia**: Inibidores de TMPRSS2 (ex.: camostat) reduziram infecções *in vitro*
+- **Ferramenta**: PerturbNet
+
+> "Em 2009, modelos de gripe H1N1 levaram 6 meses para identificar alvos; em 2020, o SARS-CoV-2 foi mapeado em 3 semanas."
+
+---
+
+# Referências principais
+
+1. **MESAROVIĆ, M. D.** (Ed.). Systems Theory and Biology. Springer, 1966.
+2. **BERTALANFFY, L. von.** General System Theory. Braziller, 1968.
+3. **NOBLE, D.** The Music of Life. Oxford, 2006.
+4. **KITANO, H.** Systems biology: a brief overview. *Science*, 2002.
+5. **LU, H. et al.** A consensus *S. cerevisiae* metabolic model Yeast8. *Nat. Commun.*, 2019.
+6. **HOOD, L.; FLORES, M.** A personal view on systems medicine. *Nat. Rev. Genet.*, 2012.
+7. **HODGKIN, A. L.; HUXLEY, A. F.** A quantitative description of membrane current... *J. Physiol.*, 1952.
+8. **TURING, A. M.** The chemical basis of morphogenesis. *Phil. Trans. R. Soc. B*, 1952.

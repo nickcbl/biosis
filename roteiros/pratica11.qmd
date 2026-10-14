@@ -1,0 +1,336 @@
+---
+title: "Aula Prática 11 – Redes PPI com STRING e Cytoscape"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     pdf-engine: xelatex
+editor: source
+---
+
+# Introdução
+
+A compreensão das interações entre proteínas é fundamental para desvendar os mecanismos moleculares que regem os processos biológicos. As redes de interação proteína-proteína (PPI - Protein-Protein Interaction) representam mapas complexos onde os nós são proteínas e as arestas são as interações físicas ou funcionais entre elas. Nestas redes, algumas proteínas desempenham papéis estruturalmente e funcionalmente mais importantes que outras - são as chamadas **proteínas hub**.
+
+Esta prática laboratorial tem como objetivo capacitar os alunos a construir, analisar e interpretar redes PPI a partir de dados genômicos. Utilizando ferramentas bioinformáticas consolidadas como o STRING Database para obtenção de interações e o Cytoscape para visualização e análise topológica, os estudantes aprenderão a:
+
+1. **Construir** redes de interação a partir de listas de genes de interesse
+2. **Calcular** métricas de centralidade para identificar nós estruturalmente importantes
+3. **Identificar** proteínas hub através de diferentes algoritmos
+4. **Interpretar** biologicamente os resultados obtidos
+
+A identificação de proteínas hub é particularmente relevante em estudos de doenças complexas, pois estas proteínas frequentemente representam pontos de controle críticos em vias de sinalização, sendo potenciais biomarcadores ou alvos terapêuticos. A metodologia aqui apresentada combina abordagens computacionais com análises biológicas, proporcionando uma visão integrada da pesquisa em biologia de sistemas.
+
+# Fluxograma
+
+
+```{mermaid}
+flowchart TD
+
+A[INÍCIO]
+A --> B[Preparação dos genes]
+
+B --> B1[Acessar resultados do WGCNA/MCODE]
+B1 --> B2[Selecionar módulo de interesse]
+B2 --> B3[Extrair lista de genes]
+B3 --> B4[Salvar arquivo TXT<br/>1 gene por linha]
+
+B4 --> C[Consulta ao STRING]
+
+C --> C1[Acessar STRING]
+C1 --> C2[Multiple proteins]
+C2 --> C3[Colar lista de genes]
+C3 --> C4[Selecionar organismo]
+C4 --> C5[SEARCH]
+
+C5 --> D{Cobertura adequada?}
+
+D -->|Não| E[Revisar identificadores]
+E --> C3
+
+D -->|Sim| F[CONTINUE]
+F --> G[Exportar como TSV]
+G --> H[rede_module.tsv]
+
+H --> I[FIM DA ETAPA 1]
+
+classDef blue fill:#2E86AB,stroke:#333,color:#000
+classDef purple fill:#A23B72,stroke:#333,color:#000
+classDef orange fill:#F18F01,stroke:#333,color:#000
+
+class A,I blue
+class B purple
+class C orange
+```
+
+```{mermaid}
+flowchart TD
+
+A[INÍCIO DA ETAPA 2]
+
+A --> B[Abrir Cytoscape]
+B --> C[Importar rede TSV]
+C --> D[Configurar Source e Target]
+D --> E[Aplicar layout inicial]
+E --> F[Verificar estrutura da rede]
+
+F --> G{CytoHubba instalado?}
+
+G -->|Não| H[Instalar pelo App Manager]
+H --> I[Abrir CytoHubba]
+
+G -->|Sim| I
+
+I --> J[Selecionar algoritmo]
+J --> K[Degree<br/>MCC<br/>MNC<br/>EPC<br/>Closeness<br/>Betweenness]
+
+K --> L[Calcular centralidades]
+L --> M[Visualizar ranking]
+M --> N[Exportar resultados]
+
+N --> O[FIM DA ETAPA 2]
+
+classDef blue fill:#2E86AB,stroke:#333,color:#000
+classDef green fill:#73AB84,stroke:#333,color:#000
+classDef red fill:#C73E1D,stroke:#333,color:#000
+
+class A,O blue
+class B,C,D,E,F green
+class G,H,I,J,K,L,M,N red
+```
+
+```{mermaid}
+flowchart TD
+
+A[INÍCIO DA ETAPA 3]
+
+A --> B[Selecionar Top 10 hubs]
+B --> C[Aplicar layout circular]
+C --> D[Estilizar a rede]
+D --> E[Exportar imagem]
+
+E --> F[Interpretar resultados]
+
+F --> G[Identificar hubs comuns]
+G --> H[Comparar algoritmos]
+H --> I[Interpretar significado biológico]
+I --> J[Responder questões]
+
+J --> K[Entrega]
+
+K --> L[TSV do STRING]
+L --> M[Arquivo .cys]
+M --> N[Tabela de centralidades]
+N --> O[Imagem da rede]
+O --> P[Relatório final]
+
+P --> Q[FIM]
+
+classDef blue fill:#2E86AB,stroke:#333,color:#000
+classDef darkblue fill:#3D5A80,stroke:#333,color:#000
+classDef gray fill:#5D576B,stroke:#333,color:#000
+classDef teal fill:#1B998B,stroke:#333,color:#000
+
+class A,Q blue
+class B,C,D,E darkblue
+class F,G,H,I,J gray
+class K,L,M,N,O,P teal
+```
+
+<!--
+## Legenda do Fluxograma
+
+| Cor | Etapa | Descrição |
+|-----|-------|-----------|
+| 🔵 Azul | Início/Fim | Pontos de entrada e saída do processo |
+| 🟣 Roxo | Preparação | Seleção e preparação dos dados de entrada |
+| 🟠 Laranja | STRING Database | Obtenção da rede de interações |
+| 🟢 Verde | Cytoscape | Importação e visualização inicial |
+| 🔴 Vermelho | Análise | Cálculo de métricas de centralidade |
+| 🔷 Azul escuro | Visualização | Identificação e destaque dos hubs |
+| ⚫ Cinza | Interpretação | Discussão biológica dos resultados |
+| 🟢 Verde-azulado | Entrega | Produtos finais da prática |
+
+## Dicas de Navegação no Fluxograma
+
+1. **Decisões importantes** (losangos) indicam pontos onde o usuário precisa avaliar resultados
+2. **Fluxos de retorno** permitem correções quando necessário
+3. Cada etapa principal corresponde às seções do roteiro
+4. Os produtos de entrega estão claramente identificados na etapa final
+-->
+
+# Preparação e Seleção dos Genes
+
+**Atividade:** Selecionar genes do módulo encontrado na prática anterior.
+
+**Procedimento:**
+
+1. Acessar os resultados da análise de módulo realizada na prática anterior (ex.: resultados do WGCNA ou MCODE).
+2. Identificar o módulo de interesse que será analisado.
+3. Extrair a lista de genes que compõem este módulo.
+4. Salvar a lista em um arquivo de texto (um gene por linha) para uso nesta prática.
+
+**Materiais necessários:**
+
+- Resultados da prática anterior (lista de genes do módulo)
+- Editor de texto (Bloco de Notas, Notepad++, etc.)
+
+**Dica do instrutor:** Oriente os alunos a manterem o formato dos identificadores de genes (ex.: Gene Symbol) consistente para evitar problemas na consulta ao STRING.
+
+# Consulta ao STRING Database e Exportação da Rede
+
+**Atividade:** Submeter a lista de genes ao STRING Database para construir a rede de interações proteicas.
+
+**Procedimento:**
+
+**2.1. Acesso e configuração:**
+
+1. Acessar o [STRING Database](https://string-db.org).
+2. Selecionar a opção **"Multiple proteins"** na aba de busca.
+3. Copiar e colar a lista de genes no campo de entrada (um gene por linha).
+4. Selecionar o organismo de interesse (ex.: *Homo sapiens*).
+
+**2.2. Execução da busca:**
+
+1. Clicar em **"SEARCH"** para iniciar a consulta.
+2. Verificar se o STRING encontrou todos os genes (número de genes encontrados vs. número enviado).
+3. Clicar em **"CONTINUE"** para visualizar a rede preliminar.
+
+**2.3. Exportação da rede:**
+
+1. Na página de visualização, clicar no botão **"Exports"**.
+2. Selecionar a opção **"as short tabular text output"** para baixar o arquivo no formato TSV.
+3. Salvar o arquivo (ex.: `rede_module.tsv`) em uma pasta de fácil acesso.
+
+**Dica do instrutor:** Mostre aos alunos que também é possível exportar diretamente para o Cytoscape clicando em **"Send to Cytoscape"**, desde que o Cytoscape esteja aberto.
+
+# Importação no Cytoscape e Configuração Inicial
+
+**Atividade:** Abrir o Cytoscape e importar a rede obtida do STRING.
+
+**Procedimento:**
+
+**3.1. Abrir o Cytoscape:**
+
+1. Iniciar o Cytoscape no computador.
+2. Na interface inicial, selecionar **"Import Network from File"** ou acessar **File → Import → Network from File**.
+3. Navegar até o arquivo TSV baixado do STRING (`rede_module.tsv`) e selecioná-lo.
+
+**3.2. Configurar a importação:**
+
+1. Na janela de importação, verificar se a primeira coluna está definida como **"Source Node"** e a segunda como **"Target Node"**.
+2. Clicar em **"OK"** para importar a rede.
+3. A rede será exibida como um emaranhado de nós e arestas.
+
+**3.3. Aplicar um layout inicial:**
+
+1. No menu **Layout**, selecionar **"Prefuse Force Directed Layout"** ou **"Organic Layout"** para organizar a rede de forma mais legível.
+2. Verificar a estrutura geral da rede (número de nós, arestas e componentes desconectados).
+
+**Dica do instrutor:** O layout "Prefuse Force Directed" funciona bem para redes de interação proteica, colocando nós mais conectados no centro.
+
+# Cálculo de Centralidades
+
+**Atividade:** Utilizar o plugin CytoHubba para calcular diferentes métricas de centralidade.
+
+**Procedimento:**
+
+**4.1. Instalação do CytoHubba (se necessário):**
+
+1. No menu **Apps**, selecionar **"App Manager"**.
+2. Procurar por **"CytoHubba"** na barra de busca.
+3. Selecionar e instalar o plugin.
+
+**4.2. Execução do CytoHubba:**
+
+1. No menu **Apps**, selecionar **"CytoHubba"**.
+2. A interface do CytoHubba será aberta.
+3. Na aba de algoritmos, selecionar uma das opções disponíveis:
+   - **Degree** (grau do nó)
+   - **MCC** (Maximal Clique Centrality) - geralmente com melhor desempenho
+   - **MNC** (Maximum Neighborhood Component)
+   - **EPC** (Edge Percolated Component)
+   - **Closeness**
+   - **Betweenness**
+
+**4.3. Cálculo e visualização:**
+
+1. Clicar em **"Calculate"** para executar o algoritmo escolhido.
+2. A interface mostrará os resultados com os nós classificados.
+3. O nó mais escuro/maior indica o hub mais importante.
+4. Salvar os resultados utilizando as opções de exportação do CytoHubba.
+
+**Dica do instrutor:** O algoritmo MCC tem mostrado melhor desempenho na predição de proteínas essenciais em redes PPI. Incentive os alunos a testarem múltiplos algoritmos e compararem os resultados.
+
+# Identificação e Visualização das Proteínas Hub
+
+**Atividade:** Identificar as principais proteínas hub e criar uma visualização final da rede.
+
+**Procedimento:**
+
+**5.1. Selecionar os top hubs:**
+
+1. Na interface do CytoHubba, selecionar os **10 principais** nós com base na classificação.
+2. Usar a opção **"Select node only"** para destacá-los na rede.
+
+**5.2. Visualização avançada:**
+
+1. Aplicar um layout de círculo ordenado por Degree: **Layout → Degree Sorted Circle Layout**.
+2. Configurar a estilização dos nós:
+   - **Formato:** Círculo (Shape)
+   - **Cor dos hubs:** Gradiente de vermelho para amarelo (do maior para o menor hub)
+   - **Tamanho:** Proporcional ao grau
+3. Ajustar cores de fundo, bordas e fontes para melhor legibilidade.
+
+**5.3. Exportação da imagem:**
+
+1. No menu **File → Export → Network to Image**.
+2. Selecionar formato (PNG, SVG ou PDF) e resolução adequada.
+3. Salvar a imagem final.
+
+# Discussão e Interpretação dos Resultados
+
+**Atividade:** Analisar e interpretar os resultados obtidos.
+
+**Procedimento:**
+
+1. Identificar os nomes dos genes que aparecem como hubs nas diferentes métricas.
+2. Comparar os resultados entre diferentes algoritmos (Degree, MCC, etc.) - os hubs comuns a múltiplas métricas são mais robustos.
+3. Discutir o significado biológico dos hubs encontrados:
+   - Essas proteínas são centrais na rede e provavelmente desempenham papéis importantes no processo biológico estudado.
+   - Podem ser potenciais biomarcadores ou alvos terapêuticos.
+
+**Perguntas para discussão:**
+
+- Os hubs identificados fazem sentido dentro do contexto biológico do módulo?
+- Há sobreposição entre os hubs identificados por diferentes algoritmos?
+- Como interpretar um nó com alto betweenness mas baixo degree?
+
+# Checklist de Entrega
+
+Os alunos devem entregar:
+
+1. ✅ Arquivo da rede exportada do STRING (formato TSV)
+2. ✅ Arquivo de sessão do Cytoscape (.cys) com a rede estilizada
+3. ✅ Tabela com os resultados das centralidades calculadas (exportada do CytoHubba)
+4. ✅ Imagem final da rede com os hubs destacados
+5. ✅ Relatório curto (1 página) com:
+   - Lista dos 5 principais hubs identificados
+   - Comparação entre diferentes métricas de centralidade
+   - Interpretação biológica preliminar dos hubs
+
+# Referências
+
+- STRING Database: https://string-db.org
+- Cytoscape: https://cytoscape.org
+- CytoHubba plugin do Cystoscape para identificação de hubs

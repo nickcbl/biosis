@@ -1,0 +1,553 @@
+---
+title: "Aula Prática 6 – RNA-seq, Controle de Qualidade e Mapeamento"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   pdf-engine: xelatex
+editor: source
+---
+
+# Introdução
+
+
+## Visão Geral
+
+O sequenciamento de RNA (RNA-seq) é uma técnica fundamental em biologia molecular que permite a análise quantitativa e qualitativa do transcriptoma de uma amostra biológica. Este pipeline guia o usuário através das etapas essenciais do processamento de dados de RNA-seq, desde as sequências brutas (_raw reads_) até a obtenção de arquivos de alinhamento prontos para análises downstream.
+
+
+### Contexto Biológico
+
+O RNA-seq permite:
+
+- **Quantificar a expressão gênica** em diferentes condições experimentais
+- **Identificar variantes de splicing** e isoformas de transcritos
+- **Detectar mutações** e fusões gênicas
+- **Caracterizar o transcriptoma** completo de um organismo
+
+
+### Pipeline Proposto
+
+Esta aula tem três etapas principais:
+
+1. **Controle de Qualidade (QC)** - Avaliação da integridade dos dados brutos
+2. **Mapeamento (Alignment)** - Posicionamento das reads no genoma de referência
+3. **Pós-processamento** - Conversão e organização dos arquivos de alinhamento
+
+O sucesso é mensurado primariamente pela **taxa de alinhamento**, que indica a proporção de _reads_ que puderam ser corretamente posicionadas no genoma.
+
+---
+
+
+# Fluxograma do Pipeline RNA-seq
+
+```{mermaid}
+flowchart TD
+    A[Início] --> B[Arquivos FASTQ<br>sample_R1.fastq.gz<br>sample_R2.fastq.gz]
+    
+    B --> C[Etapa 1: Controle de Qualidade<br>FastQC]
+    C --> D[Relatórios HTML/ZIP]
+    D --> E{Qualidade aceitável?}
+    
+    E -->|Não| F[Realizar Trimming<br>Trimmomatic/Cutadapt]
+    F --> B
+    
+    E -->|Sim| G[Etapa 2: Mapeamento<br>HISAT2]
+    
+    G --> H[Arquivo SAM<br>sample.sam]
+    H --> I[Etapa 3: Pós-processamento<br>SAMtools]
+    
+    I --> J[Converter SAM → BAM<br>samtools view]
+    J --> K[Ordenar BAM<br>samtools sort]
+    K --> L[Indexar BAM<br>samtools index]
+    K --> M[Estatísticas<br>samtools flagstat]
+    
+    L --> N[Arquivos BAM ordenados<br>e indexados]
+    M --> O[Taxa de Alinhamento]
+    
+    N --> P[Próximas análises<br>Quantificação/DE]
+    O --> P
+    
+    %% Estilos
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white    
+    
+    class A inicio
+    class B,C,D,G,H,I,J,K,L,M,N,O,P processo
+    class E decisao
+    class F resultado
+    class P final
+```
+
+
+## Detalhamento do Fluxograma
+
+
+### 1. **Entrada dos Dados**
+- Arquivos FASTQ no formato paired-end (R1 e R2)
+- Arquivos de índice do genoma para HISAT2
+
+
+### 2. **Controle de Qualidade (FastQC)**
+- **Decisão crítica**: O fluxo se bifurca com base na qualidade
+- **Em caso de problemas**: Realiza trimming e retorna ao início
+- **Em caso de aprovação**: Prossegue para o mapeamento
+
+
+### 3. **Mapeamento (HISAT2)**
+- Alinhamento das reads contra o genoma de referência
+- Geração do arquivo SAM com informações de alinhamento
+
+
+### 4. **Pós-processamento (SAMtools)**
+- **Conversão**: SAM → BAM (formato binário compactado)
+- **Ordenação**: Por coordenadas genômicas (essencial para downstream)
+- **Indexação**: Criação do índice .bai para acesso rápido
+- **Estatísticas**: Geração da taxa de alinhamento
+
+
+### 5. **Saída e Próximos Passos**
+- Arquivos BAM prontos para visualização (IGV)
+- Taxa de alinhamento como métrica de sucesso
+- Base para análises downstream (quantificação, expressão diferencial)
+
+---
+
+
+## Pontos de Decisão no Pipeline
+
+| Ponto | Decisão | Critério | Ação |
+|-------|---------|----------|------|
+| **Controle de Qualidade** | Continuar ou Trim | ✅ **PASS** em módulos críticos | Prosseguir com mapeamento |
+| | | ❌ **FAIL** em qualidade/adaptadores | Realizar trimming |
+| **Taxa de Alinhamento** | Pipeline bem-sucedido | > 80% | Excelente - prosseguir para análises |
+| | | 60-80% | Aceitável - considerar otimizações |
+| | | < 60% | Investigar e repetir etapas |
+
+---
+
+
+## Comandos em Ordem de Execução
+
+```{mermaid}
+flowchart LR
+    A[fastqc *.fastq.gz] --> B[hisat2 -x genome<br>-1 R1.fastq -2 R2.fastq<br>-S sample.sam]
+    B --> C[samtools view -bS<br>sample.sam > sample.bam]
+    C --> D[samtools sort<br>sample.bam -o sample_sorted.bam]
+    D --> E[samtools index<br>sample_sorted.bam]
+    D --> F[samtools flagstat<br>sample_sorted.bam]
+
+    %% Estilos
+    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white
+    classDef processo fill:#3498db,stroke:#2980b9,color:white
+    classDef decisao fill:#f39c12,stroke:#e67e22,color:white
+    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white
+    classDef final fill:#2c3e50,stroke:#2c3e50,color:white
+
+    class A inicio
+    class B,C,D,E,F processo
+```
+
+Este fluxograma representa visualmente todo o processo descrito no roteiro, destacando as etapas principais, os pontos de decisão e o fluxo de dados entre as ferramentas. A estrutura facilita a compreensão do pipeline como um todo e auxilia na identificação de possíveis gargalos ou problemas no processo.
+
+## **Objetivos**
+
+- **Compreender o pipeline de RNA-seq:**
+    - Entender o fluxo de trabalho desde as *raw reads* (sequências brutas) até o arquivo de alinhamento.
+    - Diferenciar as etapas de **Controle de Qualidade (QC)**, **Mapeamento (Alignment)** e **Pós-processamento**.
+    - Interpretar métricas de qualidade e eficiência do alinhamento.
+- **Executar na prática:**
+    - Utilizar o **FastQC** para avaliar a qualidade das sequências.
+    - Utilizar o **HISAT2** para mapear reads contra um genoma de referência.
+    - Utilizar o **SAMtools** para converter e ordenar arquivos SAM/BAM.
+- **Gerar e interpretar a taxa de alinhamento** como principal indicador de sucesso do experimento.
+
+---
+
+
+## **Ferramentas**
+
+| Ferramenta | Versão sugerida | Função no pipeline |
+|------------|-----------------|---------------------|
+| **FastQC** | v0.11.9+ | Análise de qualidade das sequências em formato FASTQ. Gera relatório HTML com estatísticas como qualidade por base, conteúdo GC, níveis de duplicação, presença de adaptadores, etc. |
+| **HISAT2** | v2.2.1+ | Alinhador de reads de RNA-seq que utiliza índices baseados em grafos (FM-index) para mapeamento rápido e preciso contra um genoma de referência, inclusive com suporte a *splicing* (íntrons). |
+| **SAMtools** | v1.10+ | Conjunto de utilitários para manipulação de arquivos SAM/BAM/CRAM. Usado para visualização, conversão, ordenação, indexação e extração de estatísticas de alinhamento. |
+
+---
+
+
+## **Pré-requisitos**
+
+Antes de começar, certifique-se de que:
+
+1.  Os softwares estão instalados e acessíveis no `$PATH`.
+2.  Você possui os arquivos FASTQ de entrada (ex: `sample_R1.fastq.gz` e `sample_R2.fastq.gz`).
+3.  Você possui o índice do genoma para o HISAT2 (arquivos com prefixo `genome` – ex: `genome.1.ht2`, `genome.2.ht2`, etc.).
+
+---
+
+
+## **Parte 1 – Controle de Qualidade**
+
+
+### **Objetivo da etapa**
+
+Avaliar a qualidade bruta dos dados de sequenciamento para identificar problemas como:
+
+- Baixa qualidade de base nas extremidades.
+- Presença de adaptadores (contaminação).
+- Conteúdo GC anômalo.
+- Sequências super-representadas (_Overrepresented sequences_).
+
+
+### **Comando**
+```bash
+fastqc *.fastq.gz
+```
+
+
+### **Explicação detalhada do comando**
+
+- `fastqc`: chama o programa.
+- `*.fastq.gz`: o curinga `*` seleciona todos os arquivos no diretório atual que terminam com `.fastq.gz`. Se tiver apenas um par de arquivos, você pode especificar diretamente:
+  ```bash
+  fastqc sample_R1.fastq.gz sample_R2.fastq.gz
+  ```
+
+
+### **O que é gerado**
+Para cada arquivo de entrada, o FastQC gera:
+- Um arquivo `.html` – relatório interativo que pode ser aberto em qualquer navegador.
+- Um arquivo `.zip` – contém os dados brutos do relatório em formato texto/gráficos.
+
+
+### **Interpretação dos resultados**
+- **Status por módulo**:
+    - ✅ **Verde (PASS)** – tudo ok.
+    - ⚠️ **Amarelo (WARN)** – possível problema.
+    - ❌ **Vermelho (FAIL)** – falha crítica.
+- **Módulos mais importantes**:
+    1.  **Per base sequence quality** – verifique se a mediana da qualidade (boxplot) não cai abaixo de 20 (Q20 = 99% de acurácia) ao longo das bases.
+    2.  **Per base GC content** – deve seguir uma distribuição normal. Picos ou desvios indicam contaminação.
+    3.  **Adapter Content** – se houver alta presença de adaptadores, será necessário realizar um *trimming* (corte) antes do alinhamento.
+    4.  **Overrepresented sequences** – podem indicar contaminação por rRNA ou adaptadores.
+
+
+### **Ação pós-QC (se necessário)**
+- Se os relatórios mostrarem problemas, é recomendado usar ferramentas como `Trimmomatic`, `Cutadapt` ou `fastp` para remover adaptadores e bases de baixa qualidade **antes** de prosseguir para o mapeamento.
+
+---
+
+
+## **Parte 2 – Mapeamento (Alinhamento) com HISAT2**
+
+
+### **Objetivo da etapa**
+Alinhar as reads de RNA-seq (provenientes de transcritos) contra um genoma de referência. O HISAT2 é otimizado para mapeamento de _reads_ com *splicing*, identificando íntrons (junções éxon-éxon) com alta precisão.
+
+
+### **Comando**
+```bash
+hisat2 \
+-x genome \
+-1 sample_R1.fastq.gz \
+-2 sample_R2.fastq.gz \
+-S sample.sam
+```
+
+
+### **Explicação detalhada dos parâmetros**
+| Parâmetro | Descrição |
+|-----------|-----------|
+| `-x genome` | Prefixo do índice do genoma (os arquivos devem estar no diretório atual ou no caminho especificado). Ex: se os índices são `genome.1.ht2`, `genome.2.ht2`, etc., use apenas `genome`. |
+| `-1 sample_R1.fastq.gz` | Arquivo contendo as **reads forward** (R1) do sequenciamento paired-end. |
+| `-2 sample_R2.fastq.gz` | Arquivo contendo as **reads reverse** (R2). |
+| `-S sample.sam` | Nome do arquivo de saída no formato SAM (Sequence Alignment/Map). Se não especificado, a saída vai para o terminal (stdout). |
+
+
+### **Parâmetros adicionais recomendados (opcionais)**
+- `-p 8` – utiliza 8 threads (paralelização) para acelerar o processo.
+- `--dta` – gera alinhamentos no formato compatível com o stringtie (para montagem de transcritos).
+- `--rna-strandness RF` – define a orientação do kit de biblioteca (comum para Illumina TruSeq Stranded).
+- `-k 1` – relata apenas um alinhamento por read (mais rápido e adequado para quantificação com ferramentas como featureCounts).
+- `--summary-file sample_summary.txt` – salva um resumo das estatísticas de mapeamento em um arquivo de texto.
+
+
+### **Comando completo recomendado**
+```bash
+hisat2 -x genome -1 sample_R1.fastq.gz -2 sample_R2.fastq.gz -S sample.sam -p 8 --summary-file sample_hisat2_summary.txt
+```
+
+
+### **Saída esperada**
+- Arquivo `sample.sam` (texto, grande) contendo cabeçalho e alinhamentos.
+- Mensagem no terminal (ou no arquivo de sumário) com estatísticas, como:
+    - Total de reads processadas.
+    - Reads com alinhamento único (unique alignments).
+    - Reads com múltiplos alinhamentos (multi-mapping).
+    - Taxa global de alinhamento (overall alignment rate).
+
+---
+
+
+## **Parte 3 – Conversão e Ordenação com SAMtools**
+
+
+### **Objetivo da etapa**
+- Converter o arquivo SAM (texto) para BAM (binário, compactado) para economizar espaço.
+- Ordenar o arquivo BAM por coordenadas genômicas (cromossomo e posição) – etapa essencial para análises downstream (ex: visualização no IGV, quantificação de genes).
+
+
+### **Passo 3.1 – Converter SAM para BAM**
+```bash
+samtools view -bS sample.sam > sample.bam
+```
+- `view`: subcomando para visualização/conversão.
+- `-b`: especifica saída em formato BAM.
+- `-S`: indica que a entrada é SAM (geralmente inferido, mas mantido por clareza).
+- `sample.sam`: arquivo de entrada.
+- `> sample.bam`: redireciona a saída para um arquivo BAM.
+
+
+### **Passo 3.2 – Ordenar o arquivo BAM por coordenadas**
+```bash
+samtools sort sample.bam -o sample_sorted.bam
+```
+- `sort`: subcomando que ordena por cromossomo e posição inicial.
+- `sample.bam`: arquivo de entrada não ordenado.
+- `-o sample_sorted.bam`: especifica o nome do arquivo de saída ordenado.
+
+
+### **Passo 3.3 (Opcional, mas altamente recomendado) – Indexar o BAM ordenado**
+```bash
+samtools index sample_sorted.bam
+```
+- Cria um arquivo `sample_sorted.bam.bai` (índice) que permite acesso rápido a regiões específicas do genoma (ex: visualização no IGV).
+
+
+### **Passo 3.4 (Opcional) – Estatísticas do alinhamento**
+```bash
+samtools flagstat sample_sorted.bam > sample_flagstat.txt
+```
+- `flagstat`: gera estatísticas resumidas do arquivo BAM (total de reads, mapeadas, pareadas, etc.)
+
+
+### **Fluxo completo da Parte 3 em um único comando (usando pipes)**
+```bash
+samtools view -bS sample.sam | samtools sort -o sample_sorted.bam
+```
+- Isso evita criar um arquivo BAM intermediário não ordenado.
+
+---
+
+
+## **Entrega – Taxa de Alinhamento**
+
+
+### **Definição**
+A **taxa de alinhamento (overall alignment rate)** é a porcentagem de reads que foram mapeadas com sucesso contra o genoma de referência. É uma métrica fundamental para avaliar a qualidade do experimento e a eficácia do alinhador.
+
+
+### **Como obter essa taxa**
+
+
+#### **Método 1: A partir da saída do HISAT2**
+Quando você executa o HISAT2, ele imprime no terminal (ou no arquivo de sumário com `--summary-file`) algo como:
+
+```
+10000000 reads; of these:
+  10000000 (100.00%) were paired; of these:
+    9500000 (95.00%) aligned concordantly 0 times
+    400000 (4.00%) aligned concordantly exactly 1 time
+    100000 (1.00%) aligned concordantly >1 times
+    ---
+    9500000 pairs aligned concordantly 0 times; of these:
+      200000 (2.11%) aligned discordantly 1 time
+    ---
+    9300000 pairs aligned 0 times concordantly or discordantly; of these:
+      18600000 mates make up the pairs; of these:
+        17000000 (91.40%) aligned 0 times
+        1500000 (8.06%) aligned exactly 1 time
+        100000 (0.54%) aligned >1 times
+95.00% overall alignment rate
+```
+
+- **Overall alignment rate** = (reads mapeadas) / (total de reads) * 100.
+
+
+#### **Método 2: Usando o SAMtools flagstat**
+Execute:
+```bash
+samtools flagstat sample_sorted.bam
+```
+A saída inclui:
+```
+10000000 + 0 in total (QC-passed reads + QC-failed reads)
+9500000 + 0 mapped (95.00%)
+...
+```
+- O valor de `mapped` já fornece a taxa de alinhamento.
+
+
+#### **Método 3: Usando o SAMtools stats**
+```bash
+samtools stats sample_sorted.bam | grep ^SN | cut -f 2-
+```
+Isso exibe várias estatísticas, incluindo a taxa de mapeamento.
+
+
+### **Interpretação da Taxa de Alinhamento**
+| Taxa (%) | Interpretação |
+|----------|---------------|
+| **> 80%** | Excelente – experimento bem-sucedido, boa qualidade de biblioteca e alinhamento. |
+| **60 – 80%** | Aceitável – pode haver contaminação, baixa qualidade ou alto conteúdo de rRNA. |
+| **< 60%** | Precisa de investigação – possível problema na biblioteca, referência incorreta, ou necessidade de trimming. |
+
+
+### **O que fazer se a taxa for baixa?**
+- Verificar relatórios do FastQC para identificar problemas de qualidade.
+- Realizar *trimming* de adaptadores e bases de baixa qualidade.
+- Verificar se o índice do genoma corresponde à espécie correta e à versão do genoma.
+- Tentar um alinhador alternativo (ex: STAR) se o HISAT2 não estiver performando bem.
+
+---
+
+
+## **Estrutura de Diretórios Recomendada para o Projeto**
+```
+projeto_rnaseq/
+├── data/
+│   ├── raw/
+│   │   ├── sample_R1.fastq.gz
+│   │   └── sample_R2.fastq.gz
+│   └── reference/
+│       ├── genome.1.ht2
+│       ├── genome.2.ht2
+│       └── ...
+├── results/
+│   ├── qc/
+│   │   ├── sample_R1_fastqc.html
+│   │   ├── sample_R1_fastqc.zip
+│   │   ├── sample_R2_fastqc.html
+│   │   └── sample_R2_fastqc.zip
+│   ├── alignment/
+│   │   ├── sample.sam
+│   │   ├── sample.bam
+│   │   ├── sample_sorted.bam
+│   │   ├── sample_sorted.bam.bai
+│   │   ├── sample_hisat2_summary.txt
+│   │   └── sample_flagstat.txt
+│   └── logs/
+│       └── hisat2.log
+└── scripts/
+    ├── 01_qc.sh
+    ├── 02_align.sh
+    └── 03_process.sh
+```
+
+---
+
+
+## **Comandos Completos em Um Único Script (Exemplo)**
+```bash
+#!/bin/bash
+
+# Script completo do pipeline de RNA-seq
+
+
+# Definir variáveis
+SAMPLE="sample"
+GENOME_INDEX="genome"
+THREADS=8
+
+
+# Etapa 1: Controle de Qualidade
+echo "Iniciando FastQC..."
+fastqc ${SAMPLE}_R1.fastq.gz ${SAMPLE}_R2.fastq.gz -o results/qc/
+
+
+# Etapa 2: Mapeamento com HISAT2
+echo "Iniciando alinhamento com HISAT2..."
+hisat2 -x $GENOME_INDEX \
+       -1 data/raw/${SAMPLE}_R1.fastq.gz \
+       -2 data/raw/${SAMPLE}_R2.fastq.gz \
+       -S results/alignment/${SAMPLE}.sam \
+       -p $THREADS \
+       --summary-file results/alignment/${SAMPLE}_summary.txt
+
+
+# Etapa 3: Conversão e ordenação com SAMtools
+echo "Convertendo SAM para BAM e ordenando..."
+samtools view -bS results/alignment/${SAMPLE}.sam | \
+samtools sort -o results/alignment/${SAMPLE}_sorted.bam
+
+echo "Indexando BAM..."
+samtools index results/alignment/${SAMPLE}_sorted.bam
+
+echo "Gerando estatísticas com flagstat..."
+samtools flagstat results/alignment/${SAMPLE}_sorted.bam > results/alignment/${SAMPLE}_flagstat.txt
+
+echo "Pipeline concluído! Verifique os arquivos em results/alignment/"
+```
+
+---
+
+
+## **Resumo dos Conceitos-Chave**
+
+| Conceito | Descrição |
+|----------|-----------|
+| **Raw reads** | Sequências diretamente do sequenciador (FASTQ). |
+| **QC** | Avaliação de qualidade para evitar vieses. |
+| **Alinhamento (Mapping)** | Posicionamento das reads no genoma de referência. |
+| **SAM/BAM** | Formatos para armazenar alinhamentos (texto vs binário). |
+| **Ordenação (Sorting)** | Organização por coordenadas genômicas para downstream. |
+| **Taxa de alinhamento** | Porcentagem de reads mapeadas – principal métrica de sucesso. |
+
+---
+
+
+## **Perguntas Frequentes (FAQ)**
+
+**1. Por que usar HISAT2 em vez de Bowtie2 ou STAR?**
+
+- HISAT2 é mais rápido que STAR e mais sensível que Bowtie2 para dados de RNA-seq com *splicing*. É uma excelente escolha para iniciantes.
+
+**2. O que é um arquivo de índice?**
+
+- É uma estrutura de dados que permite ao alinhador buscar rapidamente correspondências entre as reads e o genoma, sem precisar varrer o genoma inteiro a cada read.
+
+**3. Qual a diferença entre single-end e paired-end?**
+
+- **Single-end (SE)**: apenas uma read por fragmento (R1). Comando: `-U` em vez de `-1` e `-2`.
+- **Paired-end (PE)**: duas reads por fragmento (R1 e R2), oferecendo mais informações para mapeamento e detecção de variantes.
+
+**4. Posso deletar o arquivo SAM após gerar o BAM?**
+
+- Sim, o BAM ocupa menos espaço e contém as mesmas informações. Você pode deletar o SAM para economizar espaço.
+- Para armazenamento a longo prazo, mantenha apenas o BAM ordenado e indexado e transforme este arquivo em um arquivo CRAM (mais compacto) se desejar.
+
+---
+
+
+## **Pós-Alinhamento**
+
+Após obter a taxa de alinhamento, o pipeline de RNA-seq pode continuar com:
+
+- **Quantificação de genes**: usar `featureCounts` ou `HTSeq-count` para contar reads por gene.
+- **Detecção de expressão diferencial**: usar `DESeq2` ou `edgeR` (no R/Bioconductor).
+- **Montagem de transcritos**: usar `StringTie` para montar novos transcritos.
+- **Análise de variantes**: usar `bcftools` para chamada de variantes.

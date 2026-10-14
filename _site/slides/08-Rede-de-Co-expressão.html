@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../imagens/favicon-32.png" rel="icon" type="image/png">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <meta name="author" content="Nicholas Barroso">
+  <title>CI0932 - Biologia de Sistemas – 08   Rede de co-expressão</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-89d05c9c7f8a0a1d591afc160e5fe99d.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta property="og:title" content="08  Rede de co-expressão – CI0932 - Biologia de Sistemas">
+<meta property="og:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+<meta property="og:site_name" content="CI0932 - Biologia de Sistemas">
+<meta name="twitter:title" content="08  Rede de co-expressão – CI0932 - Biologia de Sistemas">
+<meta name="twitter:image" content="https://nickcbl.github.io/biosis/slides/imagens/social-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">08 <br> Rede de co-expressão</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Nicholas Barroso
+</div>
+</div>
+</div>
+
+</section>
+<section id="rede-de-co-expressão" class="title-slide slide level1 center">
+<h1>Rede de co-expressão</h1>
+<p>É uma rede de genes que possuem a tendência de serem co-expressos (<span style="color:#4169E1; font-weight:bold;">ativados</span> ou <span style="color:#4169E1; font-weight:bold;">reprimidos</span>) através de um grupo de amostras.</p>
+</section>
+
+<section id="redes-de-co-expressão-cont." class="title-slide slide level1 center">
+<h1>Redes de co-expressão (cont.)</h1>
+<div class="columns">
+<div class="column">
+<p>São grafos não-direcionados.</p>
+<ul>
+<li><strong>Vértices</strong>: genes.</li>
+<li><strong>Arestas</strong>: relação de co-expressão.</li>
+</ul>
+</div><div class="column">
+<p><a href="img/08-Rede-de-Co-expressao_0.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="img/08-Rede-de-Co-expressao_0.png"></a></p>
+</div></div>
+</section>
+
+<section id="redes-de-co-expressão-cont.-1" class="title-slide slide level1 center">
+<h1>Redes de co-expressão (cont.)</h1>
+<ul>
+<li>Para construir redes de co-expressão, precisamos de várias amostras.
+<ul>
+<li><strong>Para quê?</strong></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="redes-de-co-expressão-cont.-2" class="title-slide slide level1 center">
+<h1>Redes de co-expressão (cont.)</h1>
+<ul>
+<li>Uma rede de co-expressão gênica pode ser construída procurando pares de genes que mostram:
+<ul>
+<li><span style="color:#4169E1; font-weight:bold;">Padrão de expressão similar entre amostras</span>
+<ul>
+<li>Dois genes co-expressos podem subir ou descer juntos em amostras.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+
+<section id="redes-de-co-expressão-cont.-3" class="title-slide slide level1 center">
+<h1>Redes de co-expressão (cont.)</h1>
+<div class="columns">
+<div class="column">
+<p><strong>Podem ser usadas para:</strong></p>
+<ul>
+<li>Priorização de genes associados a doenças;</li>
+<li>Anotação funcional de genes;</li>
+<li>Identificação de correlação;</li>
+</ul>
+</div><div class="column">
+<p><strong>Normalmente não são capazes de:</strong></p>
+<ul>
+<li>Conferir informação sobre causalidade;
+<ul>
+<li>Genes podem estar ativos durante uma resposta biológica mas não necessariamente com efeito causativo entre o gene e a resposta.</li>
+</ul></li>
+<li>Não fazem diferença entre genes <strong>regulatórios</strong> e genes <strong>regulados</strong>;</li>
+</ul>
+</div></div>
+</section>
+
+<section id="construção-de-redes-de-co-expressão" class="title-slide slide level1 center">
+<h1>Construção de redes de co-expressão</h1>
+<p><strong>É feita em três passos:</strong></p>
+<div style="display: flex; flex-direction: column; gap: 15px; width: 60%; margin: 2em auto;">
+<div style="background-color: #005689; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<ol type="1">
+<li>Definir relações entre os genes.</li>
+</ol>
+</div>
+<div style="background-color: #00873e; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<ol start="2" type="1">
+<li>Construir a rede.</li>
+</ol>
+</div>
+<div style="background-color: #e67e15; color: white; padding: 20px 0; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+<ol start="3" type="1">
+<li>Definição de módulos.</li>
+</ol>
+</div>
+</div>
+</section>
+
+<section id="passo-1-definir-relações-entre-genes" class="title-slide slide level1 center">
+<h1>Passo 1: Definir relações entre genes</h1>
+<ul>
+<li>As relações entre os genes são baseadas nas medidas de correlação .</li>
+<li>As medidas de correlação fazem a comparação do padrão de um par de genes através das amostras.</li>
+<li>Existem várias medidas de correlação:
+<ul>
+<li>Correlação de Pearson.</li>
+<li>Correlação de Spearman.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="correlação-de-pearson" class="title-slide slide level1 smaller center">
+<h1>Correlação de Pearson</h1>
+<ul>
+<li><p>É uma medida da correlação linear entre duas variáveis X e Y .</p></li>
+<li><p>O coeficiente de correlação de Pearson é a covariância das duas variáveis ​​dividida pelo produto de seus desvios-padrão.</p></li>
+</ul>
+<div class="columns v-align-middle">
+<div class="column">
+<center>
+<br><br><br><br><span class="math inline">\(\huge \displaystyle \rho_{X,Y} = \frac{\text{Cov}(X,Y)}{\sigma_X \sigma_Y}\)</span>
+</center>
+</div><div class="column">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Símbolo</th>
+<th style="text-align: center;">O que é</th>
+<th style="text-align: center;">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\rho_{X,Y}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\rho\)</span>.</td>
+<td style="text-align: center;">Coeficiente de correlação de Pearson</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\text{Cov}(X,Y)\)</span></td>
+<td style="text-align: center;">Covariância entre X e Y.</td>
+<td style="text-align: center;">Mede como as duas variáveis variam juntas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\sigma_X\)</span></td>
+<td style="text-align: center;">Desvio padrão da variável X</td>
+<td style="text-align: center;">Dispersão de X em torno da média</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\sigma_Y\)</span></td>
+<td style="text-align: center;">Desvio padrão da variável Y</td>
+<td style="text-align: center;">Dispersão de Y em torno da média</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<aside class="notes">
+<p>Uma relação é linear quando a mudança em uma variável é associada a uma mudança proporcional na outra variável. http://lcb.fflch.usp.br/sites/lcb.fflch.usp.br/files/upload/paginas/AULA5-correla%C3%A7%C3%A3o_0.pdf</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section>
+<section id="correlação-de-spearman" class="title-slide slide level1 center">
+<h1>Correlação de Spearman</h1>
+<ul>
+<li>Vê a correlação entre duas variáveis.</li>
+<li>A relação entre as variáveis é monotônica, sejam lineares ou não, o que é menos restritivo que uma relação como seria com a correlação de Pearson.
+<ul>
+<li>Se elas crescem ou diminuim juntas.</li>
+</ul></li>
+</ul>
+
+<img data-src="img/08-Rede-de-Co-expressao_1.png" class="r-stretch quarto-figure quarto-figure-center"><aside class="notes">
+<p>Em uma relação monotônica, as variáveis tendem a mudar juntas mas não necessariamente a uma taxa constante. https://support.minitab.com/pt-br/minitab/18/help-and-how-to/statistics/basic-statistics/supporting-topics/correlation-and-covariance/a-comparison-of-the-pearson-and-spearman-correlation-methods/</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/08-Rede-de-Co-expressao_2.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
+<section id="passo-2-construir-a-rede" class="title-slide slide level1 center">
+<h1>Passo 2: Construir a rede</h1>
+<p>As associações de co-expressão são usadas para reconstruir a rede. Vértices são genes e arestas são a presença da correlação (além da presença podem refletir a <strong>força da correlação</strong>).</p>
+
+<img data-src="img/08-Rede-de-Co-expressao_3.png" class="r-stretch quarto-figure quarto-figure-center"></section>
+
+<section id="tipos-de-redes-de-co-expressão" class="title-slide slide level1 center">
+<h1>Tipos de redes de co-expressão</h1>
+<ul>
+<li><p>Redes com sinal e sem sinal.</p></li>
+<li><p>Redes ponderadas e não-ponderadas</p></li>
+</ul>
+</section>
+
+<section id="redes-de-co-expressão-com-sinal-e-sem-sinal" class="title-slide slide level1 center">
+<h1>Redes de co-expressão com sinal e sem sinal</h1>
+<p>Numa rede de co-expressão baseada em correlação, às medidas de correlação têm valores entre:</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Valor</strong></p>
+</div>
+<div class="callout-content">
+<p>-1: correlação negativa perfeita</p>
+<p>1: correlação positiva perfeita.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Em uma rede sem sinal , os absolutos dos valores de correlação são usados. Então teremos somente a informação de correlação mas não saberemos se são positiviamente ou negativamente co-expressos.</li>
+<li>Mas teremos a relação de crescem juntos, decrescem juntos ou aumentam e diminuem ao mesmo tempo na mesma proporção.</li>
+</ul>
+</section>
+
+<section id="redes-de-co-expressão-com-sinal-e-sem-sinal-cont." class="title-slide slide level1 center">
+<h1>Redes de co-expressão com sinal e sem sinal (cont.)</h1>
+<p>Uma rede com sinal resolve esse problema escalonando os valores de correlação entre 0 e 1.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Valores</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>&lt;0,5</strong>: indicam correlação negativa</p>
+<p><strong>=0,5</strong>: neutra/fraca</p>
+<p><strong>&gt;0,5</strong>: indicam correlação positiva.</p>
+</div>
+</div>
+</div>
+<ul>
+<li>Assim, um valor escalonado próximo de 0 indica uma correlação forte e negativa, uma característica que pode ser particularmente interessante quando o transcrito exerce sua função principalmente através da regulação negativa de outros genes.</li>
+<li>Na rede com sinal só teremos relações de crescem ou diminuim juntos.</li>
+</ul>
+<aside class="notes">
+<p>https://peterlangfelder.com/2018/11/25/signed-or-unsigned-which-network-type-is-preferable/ https://peterlangfelder.com/2019/05/30/signed-network-from-signed-topological-overlap/ https://peterlangfelder.com/2018/11/25/trashed/</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="redes-de-co-expressão-com-peso-e-sem-peso" class="title-slide slide level1 smaller center">
+<h1>Redes de co-expressão com peso e sem peso</h1>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Em uma rede ponderada:
+<ul>
+<li>todos os genes são conectados uns aos outros</li>
+<li>conexões têm valores de peso contínuos entre 0 e 1 que indicam a força de co-regulação entre os genes.</li>
+</ul></li>
+<li>Em uma rede não-ponderada:
+<ul>
+<li>a interação entre pares de genes é binária, ou seja, 0 ou 1, não-conectados e conectados, respectivamente.</li>
+</ul></li>
+<li>Uma rede não-ponderada pode ser criada a partir de uma rede ponderada: considerando acima de um certo limiar de correlação a ser conectado e todos os outros desconectados.</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/08-Rede-de-Co-expressao_4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="img/08-Rede-de-Co-expressao_4.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="passo-3-definição-de-módulos" class="title-slide slide level1 center">
+<h1>Passo 3: Definição de módulos</h1>
+<ul>
+<li>Módulos de genes co-expressos são identificados usando técnicas de agrupamento (clusterização).</li>
+<li>O agrupamento é usado para fazer grupos de genes com padrões de expressão similares entre as amostras.</li>
+<li>Os módulos podem ser subsequentemente interpretados por Análise de Enriquecimento Funcional.
+<ul>
+<li>Um método que identifica e ranqueia categorias funcionais super representadas em uma lista de genes.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="passo-3-definição-de-módulos-cont." class="title-slide slide level1 smaller center">
+<h1>Passo 3: Definição de módulos (cont.)</h1>
+<p><strong>É importante considerar a heterogeneidade das amostras.</strong></p>
+<p>Análises de co-expressão enfrentam um <em>troca</em>: redes <strong>multitecido/multicondição</strong> diluem o sinal e escondem módulos específicos, enquanto redes de <strong>tecido/condição única</strong> reduzem o tamanho da amostra e perdem poder estatístico para detectar módulos compartilhados.</p>
+<p><strong>Solução:</strong></p>
+<ul>
+<li><strong>Métodos gerais (sem distinção):</strong> ideais para identificar módulos de co-expressão <strong>comuns/compartilhados</strong>.</li>
+<li><strong>Co-expressão diferencial (comparativa):</strong> ideal para identificar módulos <strong>específicos/exclusivos</strong>.</li>
+</ul>
+</section>
+
+<section>
+<section id="identificando-módulos" class="title-slide slide level1 smaller center">
+<h1>Identificando módulos</h1>
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>O pacote de clustering mais usado para a análise de redes co-expressão é o Análise Ponderada de Rede de Correlação de Genes (WGCNA, <em>Weighted Gene Co-expression Network Analysis</em>).</p></li>
+<li><p>Essa ferramenta fácil de usar constrói módulos de co-expressão usando o agrupamento hierárquico em uma rede de correlação criada a partir de dados de expressão.</p></li>
+<li><p>O agrupamento em clusters hierárquicos divide iterativamente cada cluster em subclusters para criar uma árvore com ramificações representando módulos de co-expressão. Os módulos são definidos cortando os ramos a uma certa altura (valor de corte) definida pelo usuário.</p></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/08-Rede-de-Co-expressao_5.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="img/08-Rede-de-Co-expressao_5.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>El-Sharkawy, Islam &amp; Liang, Dong &amp; Xu, Kenong. (2015). Transcriptome analysis of an apple (Malus × domestica) yellow fruit somatic mutation identifies a gene network module highly associated with anthocyanin and epigenetic regulation. Journal of Experimental Botany. 66. 10.1093/jxb/erv433.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/08-Rede-de-Co-expressao_6.png" class="r-stretch quarto-figure quarto-figure-center"><div class="footer">
+<p>van Dam S, Võsa U, van der Graaf A, Franke L, de Magalhães JP. (2017) Gene co-expression analysis for functional classification and gene-disease predictions. Brief Bioinform</p>
+</div>
+</section></section>
+<section id="redes-de-co-expressão-diferencial" class="title-slide slide level1 center">
+<h1>Redes de co-expressão diferencial</h1>
+<p><strong>Além da Co-Expressão Tradicional: Análise Diferencial de Redes</strong></p>
+<ul>
+<li><p>O que faz: Mapeia genes que alteram dinamicamente seus parceiros de co-expressão conforme a condição (tecidos, doenças ou estágios de desenvolvimento).</p></li>
+<li><p>Importância Biológica: Genes com conexões flexíveis têm maior potencial regulatório e são chaves para explicar diferenças fenotípicas.</p></li>
+<li><p>Validação Multi-Ômica: O papel regulatório desses genes é investigado integrando:</p>
+<ul>
+<li>Interações Proteína-Proteína (PPI)</li>
+<li>Perfil de Metilação do DNA (Metiloma)</li>
+<li>Redes Regulatórias de Fatores de Transcrição (TF-alvo)</li>
+</ul></li>
+</ul>
+</section>
+
+<section>
+<section id="identificando-hubs" class="title-slide slide level1 center">
+<h1>Identificando hubs</h1>
+<p><strong>Priorização e Papel dos Genes Hub em Redes de Co-Expressão</strong></p>
+<ul>
+<li><p><strong>Desafio</strong>: Módulos de clustering costumam ser extensos, exigindo a identificação dos genes que melhor explicam o comportamento do grupo.</p></li>
+<li><p><strong>Solução</strong>: Identificação de genes hub — nós altamente conectados e biologicamente mais relevantes para a topologia da rede.</p></li>
+<li><p><strong>Classificação Topológica</strong>:</p>
+<ul>
+<li><strong>Hubs Intramodulares</strong>: exercem centralidade dentro de um módulo específico.</li>
+<li><strong>Hubs Intermodulares</strong>: atuam como pontes e reguladores globais entre diferentes módulos da rede.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>São usadas medidas de centralidade para identificar os hubs.</p>
+
+<img data-src="img/08-Rede-de-Co-expressao_7.png" class="r-stretch quarto-figure quarto-figure-center"></section></section>
+<section id="análise-de-enriquecimento" class="title-slide slide level1 center">
+<h1>Análise de enriquecimento</h1>
+<ul>
+<li>Dentro de um módulo são encontrados os termos funcionais mais frequentes.
+<ul>
+<li>Assim pode se ter uma ideia de qual função, dentro de um módulo na rede, pode ser mais frequente e representativa daquele módulo.</li>
+</ul></li>
+</ul>
+</section>
+
+<section id="predição-de-culpados-por-associação" class="title-slide slide level1 smaller center">
+<h1>Predição de culpados por associação</h1>
+<div class="columns">
+<div class="column">
+<p><strong>Significado Biológico e o Princípio GBA</strong></p>
+<ul>
+<li><p>Enriquecimento Funcional: Principal método para traduzir uma lista de genes em uma função biológica compreensível (o “papel” do módulo).</p></li>
+<li><p>Princípio GBA (Guilt by Association / “Culpado por Associação”): Premissa de que genes co-expressos participam do mesmo processo biológico.</p></li>
+<li><p>Anotação Funcional: Permite inferir a função de genes desconhecidos (mal anotados) com base nos genes bem conhecidos do mesmo grupo.</p></li>
+<li><p>Aplicações Clínicas: Identifica novos genes candidatos para doenças se o módulo como um todo apresentar forte ligação com uma patologia.</p></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/08-Rede-de-Co-expressao_8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="img/08-Rede-de-Co-expressao_8.png" class="r-stretch quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+<!-- # Redes de co-expressão
+
+A maneira mais comum de construir redes de co-expressão baseadas em dados de RNA-seq é fundir todas as isoformas de um gene em uma única versão e só depois construir a rede usando o nível de genes.
+
+O ideal, e mais interessante, é que usássemos as isoformas de splicing para construir a rede, porém usar todas as isoformas de um gene  aumenta muito o tamanho da rede de co-expressão o que aumenta o tempo de análise. -->
+</section>
+
+<section id="ferramentas" class="title-slide slide level1 center">
+<h1>Ferramentas</h1>
+<ul>
+<li><p>Pré-processamento: WGCNA para construção da rede</p></li>
+<li><p>Identificação de módulos: WGCNA ou clusterMaker2 (Cytoscape)</p></li>
+<li><p>Análise de hubs: CytoHubba ou igraph</p></li>
+<li><p>Enriquecimento funcional: clusterProfiler ou g:Profiler</p></li>
+<li><p>Visualização final: Cytoscape ou ggplot2/ggraph</p></li>
+</ul>
+<!-- # Testa: simulação
+
+```vtg
+#| echo: false
+#| fig-align: "center"
+#| output-location: slide
+
+library(igraph)
+library(ggraph)
+library(tidygraph)
+
+# 1. Simulação de 6 genes em 30 amostras
+set.seed(42)
+amostras <- 30
+GeneA <- rnorm(amostras, mean=10, sd=2)
+GeneB <- GeneA * 0.8 + rnorm(amostras, sd=0.5)  # Forte correlação positiva com A
+GeneC <- -GeneA * 0.9 + rnorm(amostras, sd=0.5) # Forte correlação negativa com A
+GeneD <- rnorm(amostras, mean=10, sd=2)         # Independente
+GeneE <- GeneD * 0.85 + rnorm(amostras, sd=0.3) # Correlacionado com D
+GeneF <- rnorm(amostras, mean=5, sd=1)          # Ruído
+
+matriz_exp <- data.frame(GeneA, GeneB, GeneC, GeneD, GeneE, GeneF)
+
+# 2. Matriz de Correlação de Pearson
+matriz_cor <- cor(matriz_exp, method = "pearson")
+
+# 3. Criar Rede Não-Ponderada com Limiar (|r| > 0.6)
+adj_matrix <- abs(matriz_cor) > 0.6
+diag(adj_matrix) <- 0 # Remover auto-conexões
+
+# 4. Plot da Rede com destaque para Hubs
+rede <- graph_from_adjacency_matrix(adj_matrix, mode = "undirected")
+
+ggraph(rede, layout = 'stress') + 
+  geom_edge_link(color = "gray70", width = 1) + 
+  geom_node_point(aes(size = degree(rede)), color = "#005689") + 
+  geom_node_text(aes(label = name), vjust = -1, fontface = "bold") +
+  theme_void() +
+  labs(title = "Simulação de Rede de Co-expressão (|r| > 0.6)",
+       size = "Grau (Hub)")
+```
+
+# Exemplo Prático: Código Python (NetworkX + Matplotlib)
+
+Se você utiliza o engine de Python no Quarto (Jupyter Engine), pode usar o script abaixo no slide de **Identificação de Hubs**:
+
+---
+
+#| echo: false
+#| fig-align: "center"
+
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# 1. Criar rede sintética de co-expressão (Modelo Scale-Free / Barabási-Albert)
+np.random.seed(42)
+G = nx.barabasi_albert_graph(n=15, m=2, seed=42)
+
+# Rotular nós como genes
+mapping = {i: f"Gene_{i+1}" for i in range(15)}
+G = nx.relabel_nodes(G, mapping)
+
+# 2. Calcular centralidade de grau (Hubs)
+degrees = dict(G.degree())
+node_sizes = [v * 300 for v in degrees.values()]
+node_colors = [degrees[n] for n in G.nodes()]
+
+# 3. Renderizar Grafo
+plt.figure(figsize=(8, 5))
+pos = nx.spring_layout(G, seed=42)
+
+nodes = nx.draw_networkx_nodes(G, pos, node_size=node_sizes, 
+                                node_color=node_colors, cmap=plt.cm.Blues)
+nx.draw_networkx_edges(G, pos, alpha=0.4, edge_color="gray")
+nx.draw_networkx_labels(G, pos, font_size=9, font_weight="bold")
+
+plt.colorbar(nodes, label="Conexões (Grau do Hub)")
+plt.title("Identificação de Genes Hub em Rede Simulada", fontsize=12)
+plt.axis("off")
+plt.show()
+``` -->
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="img/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Nicholas Barroso</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/nickcbl\.github\.io\/biosis\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+    
+
+</body></html>

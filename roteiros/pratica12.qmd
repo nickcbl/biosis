@@ -1,0 +1,185 @@
+---
+title: "Aula Prática 12 – CellDesigner e COPASI"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     pdf-engine: xelatex
+editor: source
+---
+
+# 🧬 Configuração e primeiro modelo
+
+## Objetivo
+
+Aprender o fluxo CellDesigner → COPASI
+
+## Passos
+
+1. Instalar:
+    - CellDesigner
+    - COPASI
+2. Abrir CellDesigner
+3. Criar novo modelo:
+    - File → New Model
+    - Compartimento: `cell`
+4. Salvar como:
+    - `repressilator.cel`
+
+---
+
+
+# 🧬 Construção do repressilador
+
+
+## Objetivo
+
+Montar circuito genético visual
+
+
+## Passos
+
+
+### Criar espécies
+
+Adicionar:
+
+- LacI
+- TetR
+- CI
+
+---
+
+### Criar genes (transcriptional regulation)
+
+No CellDesigner:
+
+- Add Gene
+- Nome:
+    - pLac → LacI
+    - pTet → TetR
+    - pCI → CI
+
+---
+
+### Criar interações
+
+Adicionar:
+
+- LacI ┤ pLac
+- TetR ┤ pTet
+- CI ┤ pCI
+
+Tipo:
+
+- inhibition (T-bar)
+
+---
+
+### Produção
+
+Adicionar setas:
+
+- pLac → LacI
+- pTet → TetR
+- pCI → CI
+
+---
+
+
+### 5. Exportar SBML
+
+File → Export → SBML
+
+Salvar como:
+
+```
+repressilator.xml
+```
+
+---
+
+
+# ⚙️ Prática 3 — Simulação no COPASI
+
+
+## Objetivo
+
+Executar dinâmica oscilatória
+
+---
+
+
+## Passos
+
+
+### 1. Abrir COPASI
+
+File → Open Model → `repressilator.xml`
+
+---
+
+
+### 2. Criar simulação
+
+- Time Course
+- Deterministic (ODE)
+- Duration: 5000
+- Steps: 10000
+
+---
+
+
+### 3. Rodar simulação
+
+Clique:
+
+- Run
+
+---
+
+
+### 4. Plotar resultados
+
+Selecionar:
+
+- LacI
+- TetR
+- CI
+
+👉 Deve aparecer oscilação
+
+---
+
+
+# 🧪 Prática 4 — Ajuste de parâmetros
+
+Alterar:
+
+|Parâmetro|Efeito|
+|---|---|
+|alpha|força de expressão|
+|K|sensibilidade|
+|n|cooperatividade|
+|delta|estabilidade|
+
+---
+
+
+# 🧪 Prática 5 — Extensão do modelo
+
+Adicionar:
+
+- ruído (stochastic simulation)
+- eventos (COPASI Events)
+- sensibilidade paramétrica

@@ -1,0 +1,469 @@
+---
+title: "Exercícios de Lógica de Programação para Biotecnologia"
+subtitle: "Resolvidos apenas com `if`/`else`, `for` e `while`"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: false
+jupyter: python3
+---
+
+## Regras destes exercícios
+
+O objetivo é praticar **lógica**, sem usar funções prontas de Python. Por isso, em todas as soluções:
+
+- **Não usar**: `sum()`, `max()`, `min()`, `sorted()`, `reversed()`, `count()`, `any()`, `all()`, list comprehensions, slicing reverso (`[::-1]`).
+- **São permitidas**: `if`/`elif`/`else`, `for` com `range()`, `while`, listas apenas como armazenamento (`append`, acesso por índice), e `len()` apenas para controlar o tamanho de um laço (nunca para "resolver" o problema).
+- Nos exemplos abaixo, os dados de entrada estão definidos diretamente nas variáveis (para o documento rodar sozinho). Em aula, vocês podem trocar por `input()`.
+
+---
+
+## Nível 1 — Condicionais (`if`/`else`)
+
+### 1. Classificação de pH
+
+Dado um valor de pH, classifique a amostra como **ácida** (pH < 7), **neutra** (pH = 7) ou **básica** (pH > 7).
+
+<!-- ```{python}
+ph = 5.8
+
+if ph < 7:
+    print("Amostra ácida")
+elif ph == 7:
+    print("Amostra neutra")
+else:
+    print("Amostra básica")
+``` -->
+
+### 2. Purina ou pirimidina
+
+Dada uma base nitrogenada (A, T, C ou G), diga se ela é uma **purina** (A, G) ou uma **pirimidina** (T, C).
+
+<!-- ```{python}
+base = "G"
+
+if base == "A" or base == "G":
+    print("Purina")
+elif base == "T" or base == "C":
+    print("Pirimidina")
+else:
+    print("Base inválida")
+``` -->
+
+### 3. Faixa segura de armazenamento
+
+Dada uma temperatura de um freezer de laboratório, diga se está dentro da faixa segura para armazenar amostras de DNA (-25°C a -15°C).
+
+<!-- ```{python}
+temperatura = -18
+
+if temperatura >= -25 and temperatura <= -15:
+    print("Temperatura segura para armazenamento")
+else:
+    print("Atenção: temperatura fora da faixa segura")
+``` -->
+
+### 4. Fase do ciclo celular
+
+Dado um código numérico (1 a 4), informe a fase correspondente do ciclo celular: 1 = G1, 2 = S, 3 = G2, 4 = M.
+
+<!-- ```{python}
+codigo = 3
+
+if codigo == 1:
+    print("Fase G1")
+elif codigo == 2:
+    print("Fase S")
+elif codigo == 3:
+    print("Fase G2")
+elif codigo == 4:
+    print("Fase M (mitose)")
+else:
+    print("Código inválido")
+``` -->
+
+---
+
+## Nível 2 — Repetição com `for`
+
+### 5. Contagem de bases nitrogenadas
+
+Dada uma sequência de DNA, conte quantas vezes aparecem A, T, C e G.
+
+<!-- ```{python}
+sequencia = "ATCGGGCTAAGCTAGCTTTAGCG"
+
+contagem_A = 0
+contagem_T = 0
+contagem_C = 0
+contagem_G = 0
+
+for base in sequencia:
+    if base == "A":
+        contagem_A = contagem_A + 1
+    elif base == "T":
+        contagem_T = contagem_T + 1
+    elif base == "C":
+        contagem_C = contagem_C + 1
+    elif base == "G":
+        contagem_G = contagem_G + 1
+
+print("A:", contagem_A)
+print("T:", contagem_T)
+print("C:", contagem_C)
+print("G:", contagem_G)
+``` -->
+
+### 6. Conteúdo GC
+
+Calcule a porcentagem de bases G e C em uma sequência de DNA.
+
+<!-- ```{python}
+sequencia = "ATCGGGCTAAGCTAGCTTTAGCG"
+
+gc = 0
+total = 0
+
+for base in sequencia:
+    total = total + 1
+    if base == "G" or base == "C":
+        gc = gc + 1
+
+percentual_gc = (gc / total) * 100
+print("Conteúdo GC: %.2f%%" % percentual_gc)
+``` -->
+
+### 7. Fita complementar
+
+Gere a fita complementar de uma sequência de DNA (A↔T, C↔G).
+
+<!-- ```{python}
+sequencia = "ATCGGGCTA"
+
+complementar = ""
+
+for base in sequencia:
+    if base == "A":
+        complementar = complementar + "T"
+    elif base == "T":
+        complementar = complementar + "A"
+    elif base == "C":
+        complementar = complementar + "G"
+    elif base == "G":
+        complementar = complementar + "C"
+
+print("Sequência original:   ", sequencia)
+print("Sequência complementar:", complementar)
+``` -->
+
+### 8. Diluição seriada
+
+Simule N diluições seriadas de uma amostra: a cada passo, a concentração é dividida pelo fator de diluição.
+
+<!-- ```{python}
+concentracao_inicial = 1024.0   # ng/uL
+fator_diluicao = 2
+n_diluicoes = 6
+
+concentracao = concentracao_inicial
+
+for passo in range(1, n_diluicoes + 1):
+    concentracao = concentracao / fator_diluicao
+    print("Diluição", passo, "-> concentração:", concentracao, "ng/uL")
+``` -->
+
+### 9. Crescimento populacional bacteriano
+
+Uma cultura bacteriana duplica a cada geração. Dado o número inicial de células e o número de gerações, calcule a população final, mostrando geração a geração.
+
+<!-- ```{python}
+populacao_inicial = 100
+n_geracoes = 8
+
+populacao = populacao_inicial
+
+for geracao in range(1, n_geracoes + 1):
+    populacao = populacao * 2
+    print("Geração", geracao, "-> população:", populacao)
+``` -->
+
+---
+
+## Nível 3 — Laços aninhados
+
+### 10. Todos os códons possíveis (RNA)
+
+Gere e imprima todos os 64 códons possíveis de RNA (combinações de 3 bases entre A, U, C, G), usando três laços `for` aninhados.
+
+<!-- ```{python}
+bases = ["A", "U", "C", "G"]
+
+total_codons = 0
+
+for b1 in bases:
+    for b2 in bases:
+        for b3 in bases:
+            codon = b1 + b2 + b3
+            print(codon)
+            total_codons = total_codons + 1
+
+print("Total de códons gerados:", total_codons)
+``` -->
+
+### 11. Contagem de dinucleotídeos
+
+Conte quantas vezes cada par de bases consecutivas (dinucleotídeo, ex: "AT", "CG") aparece em uma sequência, usando dois laços `for` para comparar cada par possível.
+
+<!-- ```{python}
+sequencia = "ATCGATCGGC"
+pares_possiveis = ["AA", "AT", "AC", "AG",
+                    "TA", "TT", "TC", "TG",
+                    "CA", "CT", "CC", "CG",
+                    "GA", "GT", "GC", "GG"]
+
+for par in pares_possiveis:
+    contador = 0
+    for i in range(len(sequencia) - 1):
+        dinucleotideo = sequencia[i] + sequencia[i + 1]
+        if dinucleotideo == par:
+            contador = contador + 1
+    if contador > 0:
+        print(par, "->", contador, "ocorrência(s)")
+``` -->
+
+---
+
+## Nível 3.5 — Laço aninhado + acumulador (o salto de dificuldade)
+
+Aqui os dois laços trabalham juntos: o laço externo passa por vários "itens" (sequências, poços de uma placa) e o laço interno calcula algo sobre cada item, que é acumulado ou comparado no laço externo. É normalmente aqui que a turma trava — vale desenhar no quadro o que cada laço está fazendo separadamente antes de juntá-los.
+
+### 12. Sequência com maior conteúdo GC
+
+Dada uma lista de sequências de DNA, descubra qual delas tem o maior conteúdo GC, sem usar `max()`. Para cada sequência (laço externo), calcule o GC content (laço interno) e compare com o melhor resultado encontrado até agora.
+
+<!-- ```{python}
+sequencias = ["ATCGGGCTA", "GGGGCCCCA", "ATATATATCG", "GCGCGCGCGC"]
+
+melhor_sequencia = ""
+melhor_percentual = -1
+
+for seq in sequencias:
+    gc = 0
+    total = 0
+    for base in seq:
+        total = total + 1
+        if base == "G" or base == "C":
+            gc = gc + 1
+    percentual = (gc / total) * 100
+    print(seq, "-> GC: %.1f%%" % percentual)
+    if percentual > melhor_percentual:
+        melhor_percentual = percentual
+        melhor_sequencia = seq
+
+print()
+print("Sequência com maior GC content:", melhor_sequencia, "(%.1f%%)" % melhor_percentual)
+``` -->
+
+### 13. Soma de absorbância por linha de uma microplaca
+
+Uma microplaca de 96 poços foi organizada em 8 linhas de 12 colunas (representada como uma lista de listas). Para cada linha, some as absorbâncias dos poços (laço interno) e mostre o total (laço externo).
+
+<!-- ```{python}
+placa = [
+    [0.10, 0.12, 0.11, 0.15, 0.14, 0.13, 0.12, 0.11, 0.10, 0.13, 0.12, 0.11],
+    [0.45, 0.48, 0.44, 0.47, 0.46, 0.45, 0.49, 0.48, 0.44, 0.46, 0.47, 0.45],
+    [0.80, 0.82, 0.79, 0.81, 0.83, 0.80, 0.82, 0.81, 0.79, 0.80, 0.82, 0.81],
+    [0.20, 0.22, 0.21, 0.19, 0.20, 0.21, 0.22, 0.20, 0.19, 0.21, 0.20, 0.22],
+    [0.55, 0.57, 0.56, 0.58, 0.55, 0.56, 0.57, 0.58, 0.56, 0.55, 0.57, 0.56],
+    [0.30, 0.31, 0.29, 0.30, 0.32, 0.31, 0.30, 0.29, 0.31, 0.30, 0.31, 0.30],
+    [0.65, 0.66, 0.64, 0.65, 0.67, 0.66, 0.65, 0.64, 0.66, 0.65, 0.66, 0.65],
+    [0.05, 0.06, 0.04, 0.05, 0.06, 0.05, 0.04, 0.06, 0.05, 0.04, 0.05, 0.06],
+]
+
+letras_linha = ["A", "B", "C", "D", "E", "F", "G", "H"]
+indice_linha = 0
+
+for linha in placa:
+    soma_linha = 0
+    for poco in linha:
+        soma_linha = soma_linha + poco
+    media_linha = soma_linha / len(linha)
+    print("Linha", letras_linha[indice_linha], "-> soma:", round(soma_linha, 2), "| média:", round(media_linha, 3))
+    indice_linha = indice_linha + 1
+``` -->
+
+### 14. Total de um códon específico em várias sequências de RNA
+
+Dada uma lista de sequências de RNA, conte quantas vezes o códon de início `AUG` aparece somando as ocorrências em todas as sequências.
+
+<!-- ```{python}
+sequencias_rna = ["AUGGCCAUGGCU", "UAGAUGCCCAUG", "GGGCCCAUGAAA"]
+
+total_aug = 0
+
+for seq in sequencias_rna:
+    ocorrencias_nesta = 0
+    for i in range(len(seq) - 2):
+        codon = seq[i] + seq[i + 1] + seq[i + 2]
+        if codon == "AUG":
+            ocorrencias_nesta = ocorrencias_nesta + 1
+    print(seq, "-> AUG encontrado", ocorrencias_nesta, "vez(es)")
+    total_aug = total_aug + ocorrencias_nesta
+
+print()
+print("Total de AUG em todas as sequências:", total_aug)
+``` -->
+
+---
+
+## Nível 4 — Acumuladores, contadores e listas
+
+### 15. Maior e menor absorbância de uma leitura
+
+Dada uma lista de leituras de absorbância (espectrofotômetro), encontre o maior e o menor valor sem usar `max()`/`min()`.
+
+<!-- ```{python}
+leituras = [0.452, 0.891, 0.213, 0.675, 0.998, 0.334]
+
+maior = leituras[0]
+menor = leituras[0]
+
+for valor in leituras:
+    if valor > maior:
+        maior = valor
+    if valor < menor:
+        menor = valor
+
+print("Maior leitura:", maior)
+print("Menor leitura:", menor)
+``` -->
+
+### 16. Controle de qualidade de amostras
+
+Dada uma lista de concentrações de amostras de DNA, conte quantas estão dentro do intervalo aceitável (entre 20 e 200 ng/uL) e calcule a porcentagem de aprovação.
+
+<!-- ```{python}
+concentracoes = [15.2, 45.0, 210.5, 88.3, 120.0, 19.9, 75.4]
+
+aprovadas = 0
+total = 0
+
+for c in concentracoes:
+    total = total + 1
+    if c >= 20 and c <= 200:
+        aprovadas = aprovadas + 1
+
+percentual = (aprovadas / total) * 100
+print("Amostras aprovadas:", aprovadas, "de", total)
+print("Percentual de aprovação: %.1f%%" % percentual)
+``` -->
+
+### 17. Inverter uma sequência de DNA
+
+Inverta uma sequência de DNA sem usar slicing reverso (`[::-1]`).
+
+<!-- ```{python}
+sequencia = "ATCGGGCTA"
+
+invertida = ""
+i = len(sequencia) - 1
+
+while i >= 0:
+    invertida = invertida + sequencia[i]
+    i = i - 1
+
+print("Original: ", sequencia)
+print("Invertida:", invertida)
+``` -->
+
+### 18. Validação de sequência
+
+Verifique se uma sequência contém apenas bases válidas (A, T, C, G). Use uma variável "flag" booleana.
+
+<!-- ```{python}
+sequencia = "ATCGXTAGC"
+
+valida = True
+
+for base in sequencia:
+    if base != "A" and base != "T" and base != "C" and base != "G":
+        valida = False
+
+if valida:
+    print("Sequência válida")
+else:
+    print("Sequência inválida: contém caracteres não permitidos")
+``` -->
+
+---
+
+## Nível 5 — `while` (repetição de tamanho desconhecido)
+
+### 19. Diluições até atingir um limite
+
+Simule diluições seriadas sucessivas até que a concentração fique abaixo de um limite mínimo de detecção. Como não se sabe de antemão quantas diluições serão necessárias, use `while`.
+
+<!-- ```{python}
+concentracao = 5000.0   # ng/uL
+fator_diluicao = 3
+limite_deteccao = 10.0
+
+diluicoes = 0
+
+while concentracao >= limite_deteccao:
+    concentracao = concentracao / fator_diluicao
+    diluicoes = diluicoes + 1
+    print("Diluição", diluicoes, "-> concentração:", round(concentracao, 3), "ng/uL")
+
+print("Número de diluições até ficar abaixo do limite:", diluicoes)
+``` -->
+
+### 20. Busca de um motivo (motif) em uma sequência
+
+Procure a primeira posição em que um pequeno trecho (motif) aparece dentro de uma sequência de DNA. Pare assim que encontrar.
+
+<!-- ```{python}
+sequencia = "ATCGGGCTAAGCTAGCTTTAGCG"
+motivo = "AGCT"
+
+posicao = 0
+encontrado = False
+
+while posicao <= len(sequencia) - len(motivo) and encontrado == False:
+    trecho = sequencia[posicao:posicao + len(motivo)]
+    if trecho == motivo:
+        encontrado = True
+    else:
+        posicao = posicao + 1
+
+if encontrado:
+    print("Motivo encontrado na posição:", posicao)
+else:
+    print("Motivo não encontrado")
+``` -->
+
+### 21. Contagem de códons até encontrar um stop códon
+
+Percorra uma sequência de RNA de 3 em 3 bases (códons) e pare ao encontrar o primeiro códon de parada (UAA, UAG ou UGA), contando quantos códons foram lidos até ali (incluindo o de parada).
+
+<!-- ```{python}
+rna = "AUGGCCAUGGCUUAGGCC"
+
+posicao = 0
+n_codons = 0
+parou = False
+
+while posicao + 3 <= len(rna) and parou == False:
+    codon = rna[posicao:posicao + 3]
+    n_codons = n_codons + 1
+    if codon == "UAA" or codon == "UAG" or codon == "UGA":
+        parou = True
+    else:
+        posicao = posicao + 3
+
+if parou:
+    print("Stop códon encontrado após", n_codons, "códons")
+else:
+    print("Nenhum stop códon encontrado; total de códons lidos:", n_codons)
+``` -->

@@ -1,0 +1,859 @@
+---
+title: "Aula Prática 10 – Identificação de Genes de Virulência em Bactérias"
+author: "Nicholas Barroso"
+date: today
+lang: pt-BR
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    fig-width: 10
+    fig-height: 7
+    number-sections: true
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   pdf-engine: xelatex
+editor: source
+---
+
+# Introdução
+
+A identificação de genes de virulência em bactérias é interessante para compreender os mecanismos de patogenicidade. Este roteiro apresenta um pipeline que tenta integrar abordagens ômicas para descobrir genes envolvidos na virulência bacteriana.
+
+# Objetivos
+
+1. **Montagem e anotação** do genoma bacteriano para identificar todos os genes presentes
+2. **Análise de expressão** para identificar genes diferencialmente expressos em condições virulentas
+3. **Coexpressão gênica** para detectar módulos funcionais associados à virulência
+4. **Redes de interação** para identificar genes centrais (hubs) e suas conexões
+5. **Integração multi-ômica** para priorizar genes candidatos com múltiplas evidências
+
+---
+
+
+# Fluxograma
+
+```{mermaid}
+flowchart TD
+    %% Estilos
+    classDef startEnd fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    classDef process fill:#bbf,stroke:#333,stroke-width:2px, color:#000
+    classDef data fill:#9f9,stroke:#333,stroke-width:2px, color:#000
+    classDef result fill:#f66,stroke:#333,stroke-width:2px, color:#000
+
+    %% Início
+    INICIO([INÍCIO DO PIPELINE]):::startEnd
+    
+    %% Dados de entrada
+    DADOS_RAW[("Dados Brutos de Sequenciamento<br>(FASTQ)")]:::data
+    
+    %% Parte 1 - Montagem
+    SUB_PARTE1[PARTE 1<br>MONTAGEM DO GENOMA]:::process
+    FASTQC[FastQC - Controle de Qualidade]:::process
+    TRIMMOMATIC[Trimmomatic - Filtragem]:::process
+    SPADES[SPAdes - Montagem do Genoma]:::process
+    BUSCO[BUSCO - Avaliação da Montagem]:::process
+    ASSEMBLY_STATS[Estatísticas da Montagem]:::process
+    ASSEMBLY_RESULT["Genoma Montado<br>(FASTA)"]:::data
+    
+    %% Parte 2 - Predição
+    SUB_PARTE2[PARTE 2<br>PREDIÇÃO DE GENES]:::process
+    PROKKA[Prokka - Predição de Genes]:::process
+    GFF_FILE["Arquivo GFF"]:::data
+    PROTEIN_FILE["Sequências Proteicas"]:::data
+    
+    %% Parte 3 - Anotação
+    SUB_PARTE3[PARTE 3<br>ANOTAÇÃO FUNCIONAL]:::process
+    DIAMOND[DIAMOND - Blast contra Uniprot]:::process
+    INTERPROSCAN[InterProScan - Anotação]:::process
+    VIRULENCE_DB[("Banco de Dados de<br>Virulência (VFDB)")]:::data
+    VIRULENCE_MAP[Mapeamento de Genes]:::process
+    VIRULENCE_GENES["Genes de Virulência"]:::data
+    
+    %% Parte 4 - RNA-seq
+    SUB_PARTE4[PARTE 4<br>RNA-SEQ]:::process
+    HISAT2[HISAT2 - Alinhamento]:::process
+    FEATURECOUNTS[featureCounts - Quantificação]:::process
+    DESEQ2[DESeq2 - Expressão Diferencial]:::process
+    RNA_DATA[("Dados de RNA-seq")]:::data
+    DIFF_EXPRESSION["Genes DE"]:::data
+    
+    %% Parte 5 - Coexpressão
+    SUB_PARTE5[PARTE 5<br>COEXPRESSÃO]:::process
+    WGCNA[WGCNA - Rede de Coexpressão]:::process
+    MODULES["Módulos de Coexpressão"]:::data
+    VIRULENCE_MODULE["Módulo Associado<br>à Virulência"]:::data
+    
+    %% Parte 6 - PPI
+    SUB_PARTE6[PARTE 6<br>REDE PPI]:::process
+    STRING_DB[STRINGdb - Rede PPI]:::process
+    PPI_NETWORK["Rede PPI"]:::data
+    HUB_GENES["Hub Genes"]:::data
+    
+    %% Parte 7 - Integração
+    SUB_PARTE7[PARTE 7<br>INTEGRAÇÃO]:::process
+    UPSET_ANALYSIS[Análise de Interseção]:::process
+    HIGH_CONFIDENCE["Genes de Alta Confiança"]:::result
+    
+    %% Resultados finais
+    FINAL_RESULTS["RELATÓRIO FINAL"]:::result
+    
+    %% Conexões
+    INICIO --> DADOS_RAW
+    DADOS_RAW --> SUB_PARTE1
+    SUB_PARTE1 --> FASTQC --> TRIMMOMATIC --> SPADES
+    SPADES --> BUSCO --> ASSEMBLY_STATS --> ASSEMBLY_RESULT
+    
+    ASSEMBLY_RESULT --> SUB_PARTE2
+    SUB_PARTE2 --> PROKKA
+    PROKKA --> GFF_FILE
+    PROKKA --> PROTEIN_FILE
+    
+    GFF_FILE --> SUB_PARTE3
+    PROTEIN_FILE --> SUB_PARTE3
+    SUB_PARTE3 --> DIAMOND
+    SUB_PARTE3 --> INTERPROSCAN
+    VIRULENCE_DB --> VIRULENCE_MAP
+    DIAMOND --> VIRULENCE_MAP
+    INTERPROSCAN --> VIRULENCE_MAP
+    VIRULENCE_MAP --> VIRULENCE_GENES
+    
+    ASSEMBLY_RESULT --> SUB_PARTE4
+    RNA_DATA --> SUB_PARTE4
+    GFF_FILE --> SUB_PARTE4
+    SUB_PARTE4 --> HISAT2 --> FEATURECOUNTS
+    FEATURECOUNTS --> DESEQ2
+    DESEQ2 --> DIFF_EXPRESSION
+    
+    DIFF_EXPRESSION --> SUB_PARTE5
+    SUB_PARTE5 --> WGCNA
+    WGCNA --> MODULES
+    MODULES --> VIRULENCE_MODULE
+    
+    VIRULENCE_GENES --> SUB_PARTE6
+    DIFF_EXPRESSION --> SUB_PARTE6
+    VIRULENCE_MODULE --> SUB_PARTE6
+    SUB_PARTE6 --> STRING_DB
+    STRING_DB --> PPI_NETWORK
+    PPI_NETWORK --> HUB_GENES
+    
+    VIRULENCE_GENES --> SUB_PARTE7
+    DIFF_EXPRESSION --> SUB_PARTE7
+    VIRULENCE_MODULE --> SUB_PARTE7
+    HUB_GENES --> SUB_PARTE7
+    SUB_PARTE7 --> UPSET_ANALYSIS
+    UPSET_ANALYSIS --> HIGH_CONFIDENCE
+    
+    HIGH_CONFIDENCE --> FINAL_RESULTS
+    FINAL_RESULTS --> FIM([FIM DO PIPELINE]):::startEnd
+```
+
+---
+
+
+# Parte 1 – Montagem do Genoma
+
+
+## Controle de Qualidade
+
+```bash
+#!/bin/bash
+
+# scripts/01_assembly.sh
+
+
+# Diretórios
+DATA_DIR="../data/raw_reads"
+RESULTS_DIR="../results/assembly"
+mkdir -p $RESULTS_DIR
+
+
+# 1. FastQC - Controle de qualidade
+echo "<mark>= FASTQC </mark>="
+fastqc $DATA_DIR/*.fastq.gz -o $RESULTS_DIR/fastqc/
+
+
+# 2. Trimmomatic - Remoção de adaptadores e filtragem
+echo "<mark>= TRIMMOMATIC </mark>="
+for R1 in $DATA_DIR/*_R1.fastq.gz; do
+    R2=${R1/_R1/_R2}
+    BASENAME=$(basename $R1 _R1.fastq.gz)
+    
+    trimmomatic PE \
+        $R1 $R2 \
+        $RESULTS_DIR/${BASENAME}_R1_trimmed.fastq.gz \
+        $RESULTS_DIR/${BASENAME}_R1_unpaired.fastq.gz \
+        $RESULTS_DIR/${BASENAME}_R2_trimmed.fastq.gz \
+        $RESULTS_DIR/${BASENAME}_R2_unpaired.fastq.gz \
+        ILLUMINACLIP:adapters.fa:2:30:10 \
+        LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+done
+
+
+# 3. FastQC pós-trimming
+fastqc $RESULTS_DIR/*_trimmed.fastq.gz -o $RESULTS_DIR/fastqc_after/
+```
+
+
+## Montagem com SPAdes
+
+```bash
+
+# 4. Montagem com SPAdes
+echo "<mark>= SPADES ASSEMBLY </mark>="
+spades.py \
+    -1 $RESULTS_DIR/*_R1_trimmed.fastq.gz \
+    -2 $RESULTS_DIR/*_R2_trimmed.fastq.gz \
+    -o $RESULTS_DIR/spades_output/ \
+    --careful \
+    --cov-cutoff auto \
+    -t 4 \
+    -m 8
+
+
+# 5. Verificar resultados da montagem
+echo "<mark>= STATISTICS </mark>="
+grep -c "^>" $RESULTS_DIR/spades_output/contigs.fasta
+cat $RESULTS_DIR/spades_output/contigs.fasta | \
+    awk '/^>/ {if(N) print N; N=0;} {if(!/^>/) N+=length($0);} END {print N}'
+
+
+# 6. Selecionar scaffolds > 500bp
+seqtk seq -L 500 $RESULTS_DIR/spades_output/contigs.fasta > \
+    $RESULTS_DIR/scaffolds_filtered.fasta
+```
+
+
+## Verificação da Montagem
+
+```bash
+
+# Verificar completude com BUSCO
+busco -i $RESULTS_DIR/scaffolds_filtered.fasta \
+      -o busco_results \
+      -l bacteria_odb10 \
+      -m genome \
+      -c 4
+
+
+# Extrair estatísticas
+echo "<mark>= BUSCO RESULTS </mark>="
+grep "C:" busco_results/short_summary*.txt
+```
+
+
+## Visualização da Montagem
+
+```r
+
+# scripts/plot_assembly_stats.R
+library(ggplot2)
+library(tidyverse)
+
+
+# Criar dados para visualização
+assembly_stats <- data.frame(
+  Metric = c("Total Length (Mb)", "Number of Contigs", "N50 (kb)", "GC Content (%)"),
+  Value = c(4.2, 156, 45.3, 52.1)
+)
+
+ggplot(assembly_stats, aes(x = Metric, y = Value, fill = Metric)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Estatísticas da Montagem do Genoma",
+       y = "Valor") +
+  scale_fill_brewer(palette = "Set2")
+```
+
+---
+
+
+# Parte 2 – Predição de Genes (30 minutos)
+
+
+## Predição com Prokka
+
+```bash
+#!/bin/bash
+
+# scripts/02_prediction.sh
+
+GENOME="../results/assembly/scaffolds_filtered.fasta"
+OUTPUT="../results/annotation/prokka_output"
+
+
+# 1. Predição de genes com Prokka
+echo "<mark>= PROKKA </mark>="
+prokka \
+    --outdir $OUTPUT \
+    --prefix bacteria \
+    --genus Bacteria \
+    --species "Bacteria sp." \
+    --strain "Strain_001" \
+    --cpus 4 \
+    --rfam \
+    $GENOME
+
+
+# 2. Estatísticas da predição
+echo "<mark>= STATISTICS </mark>="
+echo "Número de CDS: $(grep -c "CDS" $OUTPUT/bacteria.gff)"
+echo "Número de tRNAs: $(grep -c "tRNA" $OUTPUT/bacteria.gff)"
+echo "Número de rRNAs: $(grep -c "rRNA" $OUTPUT/bacteria.gff)"
+```
+
+
+## Visualização da Predição
+
+```r
+
+# scripts/plot_gene_prediction.R
+library(ggplot2)
+library(gggenes)
+
+
+# Importar arquivo GFF
+gff <- read.table("../results/annotation/prokka_output/bacteria.gff", 
+                  sep = "\t", comment.char = "#", header = FALSE)
+colnames(gff) <- c("seqid", "source", "type", "start", "end", 
+                   "score", "strand", "phase", "attributes")
+
+
+# Filtrar apenas genes
+genes <- gff[gff$type == "gene", ]
+
+
+# Estatísticas dos genes
+gene_stats <- data.frame(
+  Feature = c("CDS", "tRNA", "rRNA", "Other"),
+  Count = c(
+    nrow(gff[gff$type == "CDS", ]),
+    nrow(gff[gff$type == "tRNA", ]),
+    nrow(gff[gff$type == "rRNA", ]),
+    nrow(gff[!gff$type %in% c("CDS", "tRNA", "rRNA"), ])
+  )
+)
+
+
+# Gráfico de distribuição
+ggplot(gene_stats, aes(x = Feature, y = Count, fill = Feature)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Distribuição dos Genes Preditos",
+       y = "Número de Genes") +
+  scale_fill_brewer(palette = "Set3")
+```
+
+---
+
+
+# Parte 3 – Anotação Funcional (30 minutos)
+
+
+## Anotação com DIAMOND + Uniprot
+
+```bash
+#!/bin/bash
+
+# scripts/03_annotation.sh
+
+PROTEINS="../results/annotation/prokka_output/bacteria.faa"
+OUTPUT="../results/annotation/"
+
+
+# 1. DIAMOND contra Uniprot/Swiss-Prot
+echo "<mark>= DIAMOND BLAST </mark>="
+diamond blastp \
+    --query $PROTEINS \
+    --db /path/to/uniprot_sprot.dmnd \
+    --out $OUTPUT/blast_results.txt \
+    --outfmt 6 \
+    --max-target-seqs 1 \
+    --evalue 1e-5 \
+    --threads 4
+
+
+# 2. Extrair anotações
+awk -F'\t' '{print $1 "\t" $2}' $OUTPUT/blast_results.txt > \
+    $OUTPUT/gene2uniprot.txt
+```
+
+
+## Análise de Anotação Funcional
+
+```r
+
+# scripts/annotation_analysis.R
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
+
+
+# 1. Carregar anotações
+uniprot <- read.table("../results/annotation/gene2uniprot.txt", 
+                      header = FALSE, sep = "\t")
+colnames(uniprot) <- c("gene", "uniprot_id")
+
+
+# 2. Estatísticas de anotação
+annotation_stats <- data.frame(
+  Category = c("Total genes", "Annotated (Uniprot)"),
+  Count = c(
+    nrow(uniprot),
+    sum(!is.na(uniprot$uniprot_id))
+  )
+)
+
+
+# 3. Visualização
+ggplot(annotation_stats, aes(x = Category, y = Count, fill = Category)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Estatísticas de Anotação",
+       y = "Número de Genes")
+```
+
+
+## Identificação de Genes de Virulência
+
+```r
+
+# Identificação de genes de virulência conhecidos
+
+
+# 1. Carregar banco de dados de virulência (VFDB ou manual)
+virulence_genes <- data.frame(
+  uniprot_id = c("P12345", "P67890", "Q98765"),
+  gene = c("toxA", "toxB", "adhesin"),
+  Function = c("Toxin", "Toxin", "Adhesion"),
+  stringsAsFactors = FALSE
+)
+
+
+# 2. Identificar genes de virulência na anotação
+virulence_hits <- merge(uniprot, virulence_genes, 
+                        by = "uniprot_id")
+
+
+# 3. Visualização dos genes de virulência
+virulence_summary <- data.frame(
+  Function = c("Adhesion", "Toxins", "Secretion", "Regulation", "Metabolism"),
+  Count = c(12, 8, 15, 10, 7)
+)
+
+ggplot(virulence_summary, aes(x = Function, y = Count, fill = Function)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Genes de Virulência Identificados por Função",
+       y = "Número de Genes") +
+  scale_fill_brewer(palette = "Set2")
+```
+
+---
+
+
+# Parte 4 – RNA-seq (45 minutos)
+
+
+## Alinhamento e Quantificação
+
+```bash
+#!/bin/bash
+
+# scripts/04_rnaseq.sh
+
+
+# 1. Indexar o genoma
+echo "<mark>= INDEXING GENOME </mark>="
+hisat2-build \
+    ../results/assembly/scaffolds_filtered.fasta \
+    ../results/assembly/genome_index
+
+
+# 2. Alinhar reads de RNA-seq
+echo "<mark>= HISAT2 ALIGNMENT </mark>="
+for R1 in ../data/rnaseq/*_R1.fastq.gz; do
+    R2=${R1/_R1/_R2}
+    BASENAME=$(basename $R1 _R1.fastq.gz)
+    
+    hisat2 -x ../results/assembly/genome_index \
+           -1 $R1 -2 $R2 \
+           -S ../results/rnaseq/${BASENAME}.sam \
+           -p 4
+           
+    # Converter para BAM e ordenar
+    samtools view -bS ../results/rnaseq/${BASENAME}.sam > \
+        ../results/rnaseq/${BASENAME}.bam
+    samtools sort ../results/rnaseq/${BASENAME}.bam -o \
+        ../results/rnaseq/${BASENAME}_sorted.bam
+    samtools index ../results/rnaseq/${BASENAME}_sorted.bam
+done
+
+
+# 3. Quantificação com featureCounts
+echo "<mark>= FEATURECOUNTS </mark>="
+featureCounts \
+    -a ../results/annotation/prokka_output/bacteria.gff \
+    -o ../results/rnaseq/counts_matrix.txt \
+    -t CDS \
+    -g ID \
+    -p \
+    -T 4 \
+    ../results/rnaseq/*_sorted.bam
+```
+
+
+## Análise de Expressão Diferencial
+
+```r
+
+# scripts/04_rnaseq_analysis.R
+library(DESeq2)
+library(ggplot2)
+library(pheatmap)
+library(ggrepel)
+
+
+# 1. Importar matriz de contagens
+countData <- read.table("../results/rnaseq/counts_matrix.txt", 
+                        header = TRUE, row.names = 1, skip = 1)
+countData <- countData[, 7:ncol(countData)]
+colnames(countData) <- gsub("_sorted.bam", "", colnames(countData))
+
+
+# 2. Informações das amostras
+sample_info <- data.frame(
+  row.names = colnames(countData),
+  condition = factor(c(rep("Control", 3), rep("Virulent", 3))),
+  time = factor(rep(c("0h", "2h", "4h"), 2))
+)
+
+
+# 3. Criar objeto DESeq2
+dds <- DESeqDataSetFromMatrix(
+  countData = countData,
+  colData = sample_info,
+  design = ~ condition
+)
+
+
+# 4. Filtrar genes com baixa expressão
+keep <- rowSums(counts(dds)) >= 10
+dds <- dds[keep, ]
+
+
+# 5. Executar DESeq2
+dds <- DESeq(dds)
+res <- results(dds, contrast = c("condition", "Virulent", "Control"))
+
+
+# 6. Análise exploratória
+rld <- rlog(dds, blind = FALSE)
+
+
+# 6.1. PCA
+pca_data <- plotPCA(rld, intgroup = "condition", returnData = TRUE)
+percentVar <- round(100 * attr(pca_data, "percentVar"))
+
+ggplot(pca_data, aes(PC1, PC2, color = condition, shape = time)) +
+  geom_point(size = 4) +
+  xlab(paste0("PC1: ", percentVar[1], "% variance")) +
+  ylab(paste0("PC2: ", percentVar[2], "% variance")) +
+  theme_minimal() +
+  labs(title = "PCA - Amostras de RNA-seq")
+
+
+# 6.2. Volcano plot
+res_df <- as.data.frame(res)
+res_df$sig <- ifelse(res_df$padj < 0.05 & abs(res_df$log2FoldChange) > 1, 
+                     "Diferencialmente Expresso", "Não Significativo")
+
+volcano <- ggplot(res_df, aes(x = log2FoldChange, y = -log10(padj), color = sig)) +
+  geom_point(alpha = 0.6) +
+  scale_color_manual(values = c("Diferencialmente Expresso" = "red",
+                                "Não Significativo" = "gray")) +
+  theme_minimal() +
+  geom_vline(xintercept = c(-1, 1), linetype = "dashed", color = "blue") +
+  geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "blue") +
+  labs(title = "Volcano Plot - Expressão Diferencial",
+       x = "Log2 Fold Change",
+       y = "-Log10(Adjusted P-value)") +
+  xlim(-8, 8)
+
+
+# 7. Extrair genes diferencialmente expressos
+sig_genes <- res_df[res_df$padj < 0.05 & abs(res_df$log2FoldChange) > 1, ]
+sig_genes <- sig_genes[order(sig_genes$log2FoldChange, decreasing = TRUE), ]
+```
+
+---
+
+
+# Parte 5 – Coexpressão Gênica (45 minutos)
+
+
+## Rede de Coexpressão com WGCNA
+
+```r
+
+# scripts/05_coexpression.R
+library(WGCNA)
+library(ggplot2)
+library(igraph)
+
+
+# 1. Preparar dados (usar dados do DESeq2)
+
+# Assumindo que rld está disponível do passo anterior
+
+
+# 2. Configurar WGCNA
+options(stringsAsFactors = FALSE)
+enableWGCNAThreads(nThreads = 4)
+
+
+# Dados de exemplo para demonstração
+set.seed(123)
+expr_data <- matrix(rnorm(1000), nrow = 100, ncol = 10)
+colnames(expr_data) <- paste0("Sample", 1:10)
+rownames(expr_data) <- paste0("Gene", 1:100)
+
+
+# 3. Escolher poder (soft-thresholding)
+powers <- c(seq(1, 10, by = 1), seq(12, 20, by = 2))
+sft <- pickSoftThreshold(t(expr_data), powerVector = powers)
+
+
+# Selecionar poder
+picked_power <- sft$powerEstimate
+if (is.na(picked_power)) picked_power <- 6
+
+
+# 4. Construir rede
+adjacency <- adjacency(t(expr_data), power = picked_power)
+TOM <- TOMsimilarity(adjacency)
+dissTOM <- 1 - TOM
+
+
+# 5. Identificar módulos
+geneTree <- hclust(as.dist(dissTOM), method = "average")
+dynamicMods <- cutreeDynamic(dendro = geneTree, 
+                             distM = dissTOM,
+                             deepSplit = 2,
+                             pamRespectsDendro = FALSE,
+                             minClusterSize = 5)
+
+dynamicColors <- labels2colors(dynamicMods)
+
+
+# 6. Mesclar módulos similares
+MEList <- moduleEigengenes(t(expr_data), colors = dynamicColors)
+MEs <- MEList$eigengenes
+mergedColors <- mergeCloseModules(t(expr_data), dynamicColors, cutHeight = 0.25)$colors
+
+
+# 7. Análise dos módulos
+modules <- unique(mergedColors)
+modules <- modules[modules != "grey"]
+
+module_genes <- list()
+for (mod in modules) {
+  genes <- colnames(expr_data)[mergedColors == mod]
+  module_genes[mod](mod) <- genes
+}
+```
+
+
+## Associação com Fenótipos
+
+```r
+
+# Associação com fenótipos
+
+
+# 1. Criar dados fenotípicos
+trait_data <- data.frame(
+  Virulence = sample(c(0, 1), 10, replace = TRUE)
+)
+rownames(trait_data) <- colnames(expr_data)
+
+
+# 2. Correlacionar módulos com fenótipos
+module_trait_cor <- cor(MEs, trait_data, use = "p")
+module_trait_pval <- corPvalueStudent(module_trait_cor, nrow(trait_data))
+
+
+# 3. Selecionar módulo mais associado à virulência
+virulence_module <- names(which.max(module_trait_cor[, "Virulence"]))
+cat("Módulo mais associado à virulência:", virulence_module, "\n")
+```
+
+---
+
+
+# Parte 6 – Rede PPI (30 minutos)
+
+
+## Construção da Rede PPI
+
+```r
+
+# scripts/06_ppi_network.R
+library(STRINGdb)
+library(igraph)
+library(ggplot2)
+
+
+# 1. Conectar ao STRING DB
+string_db <- STRINGdb$new(version = "12.0", 
+                          species = 2,  # Bactéria
+                          score_threshold = 400)
+
+
+# 2. Carregar genes candidatos (exemplo)
+candidate_genes <- c("gene1", "gene2", "gene3", "gene4", "gene5")
+
+
+# 3. Mapear para STRING IDs
+genes_mapped <- string_db$map(data.frame(gene = candidate_genes), 
+                               "gene", 
+                               removeUnmappedRows = TRUE)
+
+
+# 4. Obter interações (se houver genes mapeados)
+if (nrow(genes_mapped) > 1) {
+  interactions <- string_db$get_interactions(genes_mapped$STRING_id)
+  
+  # 5. Criar rede
+  pp_network <- graph_from_data_frame(interactions[, c("from", "to", "combined_score")], 
+                                     directed = FALSE)
+  
+  # 6. Calcular métricas
+  V(pp_network)$degree <- degree(pp_network)
+  V(pp_network)$betweenness <- betweenness(pp_network)
+  
+  # 7. Identificar hub genes
+  hub_threshold <- quantile(V(pp_network)$degree, 0.9, na.rm = TRUE)
+  hub_genes_ppi <- V(pp_network)$name[V(pp_network)$degree >= hub_threshold]
+}
+```
+
+---
+
+
+# Parte 7 – Integração dos Resultados (30 minutos)
+
+
+## Integração Multi-ômica
+
+```r
+
+# scripts/07_integration.R
+library(tidyverse)
+library(UpSetR)
+
+
+# 1. Carregar todas as listas de genes (exemplo)
+gene_lists <- list(
+  Virulência = c("gene1", "gene2", "gene3"),
+  DE = c("gene2", "gene3", "gene4", "gene5"),
+  Coexpressão = c("gene1", "gene3", "gene5"),
+  PPI_Hub = c("gene2", "gene3")
+)
+
+
+# 2. Análise de interseção (UpSet plot)
+upset(fromList(gene_lists), 
+      order.by = "freq",
+      mainbar.y.label = "Interseção de Genes",
+      sets.x.label = "Tamanho da Lista",
+      point.size = 3,
+      line.size = 1)
+
+
+# 3. Encontrar genes de alta confiança (em todas as listas)
+common_genes <- Reduce(intersect, gene_lists)
+
+
+# Se não houver genes em todas as listas, usar genes em 3+ listas
+if (length(common_genes) == 0) {
+  all_genes <- unlist(gene_lists)
+  gene_counts <- table(all_genes)
+  common_genes <- names(gene_counts[gene_counts >= 3])
+}
+
+cat("Genes de alta confiança:", paste(common_genes, collapse = ", "), "\n")
+```
+
+
+## Geração de Relatório
+
+```r
+
+# scripts/07_generate_report.R
+
+
+# 1. Sumário dos resultados
+cat("<mark>= RELATÓRIO FINAL: IDENTIFICAÇÃO DE GENES DE VIRULÊNCIA </mark>=\n\n")
+cat("Data da análise:", date(), "\n\n")
+
+cat("<mark>= PIPELINE </mark>=\n")
+cat("1. Montagem do genoma (SPAdes)\n")
+cat("2. Predição de genes (Prokka)\n")
+cat("3. Anotação funcional (DIAMOND + InterProScan)\n")
+cat("4. RNA-seq (HISAT2 + DESeq2)\n")
+cat("5. Coexpressão gênica (WGCNA)\n")
+cat("6. Rede PPI (STRINGdb)\n")
+cat("7. Integração multi-ômica\n\n")
+
+cat("<mark>= GENES CANDIDATOS FINAIS </mark>=\n")
+if (exists("common_genes")) {
+  cat("Número de genes de alta confiança:", length(common_genes), "\n")
+  cat("Lista de genes candidatos:\n")
+  for (gene in common_genes) {
+    cat("  -", gene, "\n")
+  }
+}
+```
+
+---
+
+
+# Resumo Final
+
+## Pipeline Completo (scripts)
+- `01_assembly.sh`: Montagem do genoma
+- `02_prediction.sh`: Predição de genes
+- `03_annotation.sh`: Anotação funcional
+- `04_rnaseq.sh`: RNA-seq
+- `05_coexpression.R`: Análise de coexpressão
+- `06_ppi_network.R`: Rede PPI
+- `07_integration.R`: Integração e relatório
+
+
+## Resultados Principais
+- `results/final/high_confidence_candidates.txt`: Genes candidatos finais
+- `results/final/report_summary.txt`: Resumo da análise
+
+
+## Figuras Geradas
+- `figures/assembly/`: Estatísticas da montagem
+- `figures/annotation/`: Análise da anotação
+- `figures/rnaseq/`: Análise de expressão
+- `figures/coexpression/`: Análise de coexpressão
+- `figures/ppi/`: Rede PPI
+- `figures/final/`: Integração final
+
+
+## Interpretação Biológica Final
+
+Os genes candidatos identificados representam um conjunto de genes com evidências convergentes de:
+1. **Anotação como genes de virulência**
+2. **Expressão diferencial em condições virulentas**
+3. **Coexpressão com outros genes de virulência**
+4. **Interações em rede PPI**
+
+Estes genes são fortes candidatos para estudos funcionais para validar seu papel na virulência bacteriana e podem representar alvos para intervenções terapêuticas.

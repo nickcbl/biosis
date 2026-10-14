@@ -1,0 +1,11 @@
+gene	uniprot_id	function	category	organism
+lacI	P03023	Lactose operon repressor	Regulation	Escherichia coli
+recA	P0A7G6	DNA repair protein RecA	Metabolism	Escherichia coli
+lasR	Q9I4B3	Transcriptional regulator LasR	Regulation	Pseudomonas aeruginosa
+spo0A	P06534	Stage 0 sporulation protein A	Regulation	Bacillus subtilis
+comK	P40728	Competence transcription factor	Regulation	Bacillus subtilis
+toxA	P11439	Exotoxin A	Toxin	Pseudomonas aeruginosa
+algD	P19457	GDP-mannose 6-dehydrogenase	Metabolism	Pseudomonas aeruginosa
+pilA	P04782	Type IV pilin	Adhesion	Pseudomonas aeruginosa
+ompA	P0A910	Outer membrane protein A	Adhesion	Escherichia coli
+hlyA	P08756	Hemolysin A	Toxin	Escherichia coli

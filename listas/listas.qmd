@@ -1,0 +1,34 @@
+---
+title: ""
+page-layout: full
+---
+
+# Listas
+
+::: {.modules-grid}
+
+<div class="mod-card">
+<div class="mod-node n-teal">01</div>
+<a class="stretched-link" href="ed1.qmd"><strong>ED1</strong></a>
+<p>Estudo Dirigido 1.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-blue">02</div>
+<a class="stretched-link" href="ed2.qmd"><strong>ED2</strong></a>
+<p>Estudo Dirigido 2.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-purple">03</div>
+<a class="stretched-link" href="exercicios_fundamentos_logica.qmd"><strong>Lógico</strong></a>
+<p>Exercícios de Fundamentos de Lógica.</p>
+</div>
+
+<div class="mod-card">
+<div class="mod-node n-red">04</div>
+<a class="stretched-link" href="exercicios_biotecnologia.qmd"><strong>Biotecnologia</strong></a>
+<p>Exercícios de Biotecnologia.</p>
+</div>
+
+:::
