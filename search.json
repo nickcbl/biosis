@@ -1100,7 +1100,7 @@
     "href": "roteiros/input/input.html",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "",
-    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova\n\n\n\nsequencias.fasta\nadapters.fa\nvirulence_genes.txt\nDados RNA-seq\nHomo_sapiens.GRCh38.104.gtf.xz\nexpressao_normalizada.txt\nparametros_repressilator.txt",
+    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1111,7 +1111,7 @@
     "href": "roteiros/input/input.html#download-imagem-máquina-virtual",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "",
-    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova\n\n\n\nsequencias.fasta\nadapters.fa\nvirulence_genes.txt\nDados RNA-seq\nHomo_sapiens.GRCh38.104.gtf.xz\nexpressao_normalizada.txt\nparametros_repressilator.txt",
+    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1133,7 +1133,7 @@
     "href": "roteiros/input/input.html#aula-3-montagem-de-genomas",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 3 – Montagem de Genomas",
-    "text": "AULA 3 – Montagem de Genomas\n\nadapters.fa\nArquivo com sequências de adaptadores Illumina para o Trimmomatic.\nadapters.fa ⬇️\n\n\n📝 Visualizar conteúdo\n\n&gt;Illumina_PE_adaptor\nAGATCGGAAGAGCACACGTCTGAACTCCAGTCA\n&gt;Illumina_PE_adaptor_rev\nAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT\n&gt;Nextera_PE_adaptor\nCTGTCTCTTATACACATCT\n&gt;Nextera_PE_adaptor_rev\nCTGTCTCTTATACACATCT",
+    "text": "AULA 3 – Montagem de Genomas\n\nadapters.fa\nArquivo com sequências de adaptadores Illumina para o Trimmomatic.\nadapters.fa ⬇️\n\n\n📝 Visualizar conteúdo\n\n&gt;Illumina_PE_adaptor\nAGATCGGAAGAGCACACGTCTGAACTCCAGTCA\n&gt;Illumina_PE_adaptor_rev\nAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT\n&gt;Nextera_PE_adaptor\nCTGTCTCTTATACACATCT\n&gt;Nextera_PE_adaptor_rev\nCTGTCTCTTATACACATCT\n\n\nSRR022820_1.fastq.xz: arquivo FASTQ com reads 1 do par (forward);\nSRR022820_2.fastq.xz: arquivo FASTQ com reads 2 do par (reverse);\nSRR2584857_1.fastq.xz: arquivo FASTQ com reads 1 do par (forward);\nSRR2584857_2.fastq.xz: arquivo FASTQ com reads 2 do par (reverse);",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1155,7 +1155,7 @@
     "href": "roteiros/input/input.html#aula-6-rna-seq",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 6 – RNA-Seq",
-    "text": "AULA 6 – RNA-Seq\n\nDados de RNA-seq de E. coli (SRR390728)\nArquivos FASTQ para o pipeline de RNA-seq (paired-end).\nSRR390728_1.fastq.gz ⬇️ (Forward reads)\nSRR390728_2.fastq.gz ⬇️ (Reverse reads)\n\n\n📊 Informações dos dados\n\n\n\n\nPropriedade\nValor\n\n\n\n\nAccession\nSRR390728\n\n\nOrganismo\nEscherichia coli str. K-12 substr. MG1655\n\n\nTipo\nRNA-seq\n\n\nLayout\nPaired-end\n\n\nPlataforma\nIllumina HiSeq 2000\n\n\nTamanho aprox.\n~200 MB (cada)\n\n\nReferência\nNCBI SRA",
+    "text": "AULA 6 – RNA-Seq\n\nDados de RNA-seq de E. coli (SRR390728)\nArquivos FASTQ para o pipeline de RNA-seq (paired-end).\nSRR390728_1.fastq.xz ⬇️ (Forward reads)\nSRR390728_2.fastq.xz ⬇️ (Reverse reads)\n\n\n📊 Informações dos dados\n\n\n\n\nPropriedade\nValor\n\n\n\n\nAccession\nSRR390728\n\n\nOrganismo\nEscherichia coli str. K-12 substr. MG1655\n\n\nTipo\nRNA-seq\n\n\nLayout\nPaired-end\n\n\nPlataforma\nIllumina HiSeq 2000\n\n\nTamanho aprox.\n~200 MB (cada)\n\n\nReferência\nNCBI SRA",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1200,17 +1200,6 @@
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "Guia Rápido de Download",
     "text": "Guia Rápido de Download\n\nComando para baixar todos os arquivos de uma vez:\n#!/bin/bash\n# download_all.sh\n\n# Criar diretório\nmkdir -p dados/{fasta,fastq,anotacoes,expressao}\nmkdir -p aulas/aula11\n\n# Download dos arquivos\necho \"Baixando sequencias.fasta...\"\nwget -O dados/fasta/sequencias.fasta [URL_BASE]/sequencias.fasta\n\necho \"Baixando adapters.fa...\"\nwget -O dados/anotacoes/adapters.fa [URL_BASE]/adapters.fa\n\necho \"Baixando virulence_genes.txt...\"\nwget -O dados/anotacoes/virulence_genes.txt [URL_BASE]/virulence_genes.txt\n\necho \"Baixando SRR390728_1.fastq.gz...\"\nwget -O dados/fastq/SRR390728_1.fastq.gz [URL_BASE]/SRR390728_1.fastq.gz\n\necho \"Baixando SRR390728_2.fastq.gz...\"\nwget -O dados/fastq/SRR390728_2.fastq.gz [URL_BASE]/SRR390728_2.fastq.gz\n\necho \"Baixando Homo_sapiens.GRCh38.104.gtf.xz...\"\nwget -O dados/anotacoes/Homo_sapiens.GRCh38.104.gtf.xz [URL_BASE]/Homo_sapiens.GRCh38.104.gtf.xz\n\necho \"Baixando expressao_normalizada.txt...\"\nwget -O dados/expressao/expressao_normalizada.txt [URL_BASE]/expressao_normalizada.txt\n\necho \"Baixando parametros_repressilator.txt...\"\nwget -O aulas/aula11/parametros_repressilator.txt [URL_BASE]/parametros_repressilator.txt\n\necho \"✅ Download concluído!\"",
-    "crumbs": [
-      "Roteiros",
-      "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
-    ]
-  },
-  {
-    "objectID": "roteiros/input/input.html#resumo-dos-arquivos",
-    "href": "roteiros/input/input.html#resumo-dos-arquivos",
-    "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
-    "section": "Resumo dos Arquivos",
-    "text": "Resumo dos Arquivos\n\n\n\n#\nArquivo\nTamanho\nAula\n\n\n\n\n1\nsequencias.fasta\n~3 KB\n1\n\n\n2\nadapters.fa\n~200 B\n3\n\n\n3\nvirulence_genes.txt\n~1 KB\n5\n\n\n4\nSRR390728_1.fastq.gz\n~200 MB\n6\n\n\n5\nSRR390728_2.fastq.gz\n~200 MB\n6\n\n\n6\nHomo_sapiens.GRCh38.104.gtf.xz\n~150 MB\n7\n\n\n7\nexpressao_normalizada.txt\n~2 KB\n8\n\n\n8\nparametros_repressilator.txt\n~1 KB\n11",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"

@@ -493,16 +493,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://ufcbr-my.sharepoint.com/:u:/g/personal/nicholas_ufc_br/IQAYNND7NpWbQrQJ10OcE1-hAcjHIzgyCaSuBEngeG5L-o8?e=0G0ypP">BioSisUbuntu.ova</a></p>
 <!-- # 📦 Arquivos de Entrada para Download -->
 <!-- ## 📂 AULA 1 – UNIX BÁSICO -->
-<ol type="1">
-<li><a href="#sequencias-fasta">sequencias.fasta</a></li>
-<li><a href="#adapters-fa">adapters.fa</a></li>
-<li><a href="#virulence_genes-txt">virulence_genes.txt</a></li>
-<li><a href="#srr390728">Dados RNA-seq</a></li>
-<li><a href="#homo_sapiens-grch38-104-gtf-xz">Homo_sapiens.GRCh38.104.gtf.xz</a></li>
-<li><a href="#expressao_normalizada-txt">expressao_normalizada.txt</a></li>
-<li><a href="#parametros_repressilator-txt">parametros_repressilator.txt</a></li>
-</ol>
-<hr>
 </section>
 <section id="aula-1-unix-básico" class="level2">
 <h2 class="anchored" data-anchor-id="aula-1-unix-básico">AULA 1 – Unix Básico</h2>
@@ -557,6 +547,12 @@ CTGTCTCTTATACACATCT
 &gt;Nextera_PE_adaptor_rev
 CTGTCTCTTATACACATCT</code></pre>
 </details>
+<ul>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR022820_1.fastq.xz">SRR022820_1.fastq.xz</a>: arquivo FASTQ com reads 1 do par (forward);</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR022820_2.fastq.xz">SRR022820_2.fastq.xz</a>: arquivo FASTQ com reads 2 do par (reverse);</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR2584857_1.fastq.xz">SRR2584857_1.fastq.xz</a>: arquivo FASTQ com reads 1 do par (forward);</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR2584857_2.fastq.xz">SRR2584857_2.fastq.xz</a>: arquivo FASTQ com reads 2 do par (reverse);</li>
+</ul>
 <hr>
 <!-- ## 📂 AULA 5 – ANOTAÇÃO FUNCIONAL -->
 </section>
@@ -592,8 +588,8 @@ hlyA    P08756  Hemolysin A Toxin   Escherichia coli</code></pre>
 <section id="srr390728" class="level3">
 <h3 class="anchored" data-anchor-id="srr390728">Dados de RNA-seq de E. coli (SRR390728)</h3>
 <p>Arquivos FASTQ para o pipeline de RNA-seq (<em>paired-end</em>).</p>
-<p><strong><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR390728_1.fastq.gz">SRR390728_1.fastq.gz ⬇️</a></strong> (<em>Forward reads</em>)</p>
-<p><strong><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR390728_2.fastq.gz">SRR390728_2.fastq.gz ⬇️</a></strong> (<em>Reverse reads</em>)</p>
+<p><strong><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR390728_1.fastq.xz">SRR390728_1.fastq.xz ⬇️</a></strong> (<em>Forward reads</em>)</p>
+<p><strong><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR390728_2.fastq.xz">SRR390728_2.fastq.xz ⬇️</a></strong> (<em>Reverse reads</em>)</p>
 <details>
 <summary>
 <b>📊 Informações dos dados</b>
@@ -825,73 +821,8 @@ TNF 234.5   245.6   223.4   456.7   467.8   445.6   234.5   245.6   223.4</code>
 <span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"✅ Download concluído!"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
-<!-- ## 📋 RESUMO DOS ARQUIVOS -->
-</section>
-</section>
-<section id="resumo-dos-arquivos" class="level2">
-<h2 class="anchored" data-anchor-id="resumo-dos-arquivos">Resumo dos Arquivos</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Arquivo</th>
-<th>Tamanho</th>
-<th>Aula</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td><code>sequencias.fasta</code></td>
-<td>~3 KB</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td><code>adapters.fa</code></td>
-<td>~200 B</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td><code>virulence_genes.txt</code></td>
-<td>~1 KB</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td><code>SRR390728_1.fastq.gz</code></td>
-<td>~200 MB</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td><code>SRR390728_2.fastq.gz</code></td>
-<td>~200 MB</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td><code>Homo_sapiens.GRCh38.104.gtf.xz</code></td>
-<td>~150 MB</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td><code>expressao_normalizada.txt</code></td>
-<td>~2 KB</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td><code>parametros_repressilator.txt</code></td>
-<td>~1 KB</td>
-<td>11</td>
-</tr>
-</tbody>
-</table>
-<hr>
 <!-- ## 🔧 INSTRUÇÕES DE DESCOMPACTAÇÃO -->
+</section>
 </section>
 <section id="instruções-de-descompactação" class="level2">
 <h2 class="anchored" data-anchor-id="instruções-de-descompactação">Instruções de Descompactação</h2>
