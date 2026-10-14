@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c16f185744bb9397307a0b01c1d1a9c2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86172bcf962643a22049eb73841d6a73.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-adea67c3938f14a26b5c6b35a23e038d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -461,44 +461,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pré-requisitos" id="toc-pré-requisitos" class="nav-link" data-scroll-target="#pré-requisitos"><span class="header-section-number">3</span> Pré-requisitos</a></li>
   <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">4</span> Fluxograma</a></li>
   <li><a href="#resumo-do-fluxo-de-trabalho" id="toc-resumo-do-fluxo-de-trabalho" class="nav-link" data-scroll-target="#resumo-do-fluxo-de-trabalho"><span class="header-section-number">5</span> Resumo do Fluxo de Trabalho</a></li>
-  <li><a href="#parte-1-controle-de-qualidade-com-fastqc" id="toc-parte-1-controle-de-qualidade-com-fastqc" class="nav-link" data-scroll-target="#parte-1-controle-de-qualidade-com-fastqc"><span class="header-section-number">6</span> Parte 1 – Controle de Qualidade com FastQC</a>
+  <li><a href="#arquivos-de-entrada" id="toc-arquivos-de-entrada" class="nav-link" data-scroll-target="#arquivos-de-entrada"><span class="header-section-number">6</span> Arquivos de entrada</a></li>
+  <li><a href="#parte-1-controle-de-qualidade-com-fastqc" id="toc-parte-1-controle-de-qualidade-com-fastqc" class="nav-link" data-scroll-target="#parte-1-controle-de-qualidade-com-fastqc"><span class="header-section-number">7</span> Parte 1 – Controle de Qualidade com FastQC</a>
   <ul class="collapse">
-  <li><a href="#execução" id="toc-execução" class="nav-link" data-scroll-target="#execução"><span class="header-section-number">6.1</span> Execução</a></li>
-  <li><a href="#interpretação-dos-relatórios" id="toc-interpretação-dos-relatórios" class="nav-link" data-scroll-target="#interpretação-dos-relatórios"><span class="header-section-number">6.2</span> Interpretação dos Relatórios</a></li>
+  <li><a href="#execução" id="toc-execução" class="nav-link" data-scroll-target="#execução"><span class="header-section-number">7.1</span> Execução</a></li>
+  <li><a href="#interpretação-dos-relatórios" id="toc-interpretação-dos-relatórios" class="nav-link" data-scroll-target="#interpretação-dos-relatórios"><span class="header-section-number">7.2</span> Interpretação dos Relatórios</a></li>
   </ul></li>
-  <li><a href="#parte-2-limpeza-trimagem-com-trimmomatic" id="toc-parte-2-limpeza-trimagem-com-trimmomatic" class="nav-link" data-scroll-target="#parte-2-limpeza-trimagem-com-trimmomatic"><span class="header-section-number">7</span> Parte 2 – Limpeza (Trimagem) com Trimmomatic</a>
+  <li><a href="#parte-2-limpeza-trimagem-com-trimmomatic" id="toc-parte-2-limpeza-trimagem-com-trimmomatic" class="nav-link" data-scroll-target="#parte-2-limpeza-trimagem-com-trimmomatic"><span class="header-section-number">8</span> Parte 2 – Limpeza (Trimagem) com Trimmomatic</a>
   <ul class="collapse">
-  <li><a href="#comando" id="toc-comando" class="nav-link" data-scroll-target="#comando"><span class="header-section-number">7.1</span> Comando</a></li>
-  <li><a href="#explicação-dos-parâmetros" id="toc-explicação-dos-parâmetros" class="nav-link" data-scroll-target="#explicação-dos-parâmetros"><span class="header-section-number">7.2</span> Explicação dos Parâmetros</a></li>
-  <li><a href="#verificação-pós-trimagem" id="toc-verificação-pós-trimagem" class="nav-link" data-scroll-target="#verificação-pós-trimagem"><span class="header-section-number">7.3</span> Verificação Pós-Trimagem</a></li>
+  <li><a href="#comando" id="toc-comando" class="nav-link" data-scroll-target="#comando"><span class="header-section-number">8.1</span> Comando</a></li>
+  <li><a href="#explicação-dos-parâmetros" id="toc-explicação-dos-parâmetros" class="nav-link" data-scroll-target="#explicação-dos-parâmetros"><span class="header-section-number">8.2</span> Explicação dos Parâmetros</a></li>
+  <li><a href="#verificação-pós-trimagem" id="toc-verificação-pós-trimagem" class="nav-link" data-scroll-target="#verificação-pós-trimagem"><span class="header-section-number">8.3</span> Verificação Pós-Trimagem</a></li>
   </ul></li>
-  <li><a href="#parte-3-montagem-com-spades" id="toc-parte-3-montagem-com-spades" class="nav-link" data-scroll-target="#parte-3-montagem-com-spades"><span class="header-section-number">8</span> Parte 3 – Montagem com SPAdes</a>
+  <li><a href="#parte-3-montagem-com-spades" id="toc-parte-3-montagem-com-spades" class="nav-link" data-scroll-target="#parte-3-montagem-com-spades"><span class="header-section-number">9</span> Parte 3 – Montagem com SPAdes</a>
   <ul class="collapse">
-  <li><a href="#execução-1" id="toc-execução-1" class="nav-link" data-scroll-target="#execução-1"><span class="header-section-number">8.1</span> Execução</a></li>
-  <li><a href="#parâmetros-importantes" id="toc-parâmetros-importantes" class="nav-link" data-scroll-target="#parâmetros-importantes"><span class="header-section-number">8.2</span> Parâmetros Importantes</a></li>
-  <li><a href="#saída-principal" id="toc-saída-principal" class="nav-link" data-scroll-target="#saída-principal"><span class="header-section-number">8.3</span> Saída Principal</a></li>
+  <li><a href="#execução-1" id="toc-execução-1" class="nav-link" data-scroll-target="#execução-1"><span class="header-section-number">9.1</span> Execução</a></li>
+  <li><a href="#parâmetros-importantes" id="toc-parâmetros-importantes" class="nav-link" data-scroll-target="#parâmetros-importantes"><span class="header-section-number">9.2</span> Parâmetros Importantes</a></li>
+  <li><a href="#saída-principal" id="toc-saída-principal" class="nav-link" data-scroll-target="#saída-principal"><span class="header-section-number">9.3</span> Saída Principal</a></li>
   </ul></li>
-  <li><a href="#parte-4-montagem-com-masurca" id="toc-parte-4-montagem-com-masurca" class="nav-link" data-scroll-target="#parte-4-montagem-com-masurca"><span class="header-section-number">9</span> Parte 4 – Montagem com Masurca</a>
+  <li><a href="#parte-4-montagem-com-masurca" id="toc-parte-4-montagem-com-masurca" class="nav-link" data-scroll-target="#parte-4-montagem-com-masurca"><span class="header-section-number">10</span> Parte 4 – Montagem com Masurca</a>
   <ul class="collapse">
-  <li><a href="#execução-2" id="toc-execução-2" class="nav-link" data-scroll-target="#execução-2"><span class="header-section-number">9.1</span> Execução</a></li>
-  <li><a href="#processo" id="toc-processo" class="nav-link" data-scroll-target="#processo"><span class="header-section-number">9.2</span> Processo</a></li>
-  <li><a href="#saída-principal-1" id="toc-saída-principal-1" class="nav-link" data-scroll-target="#saída-principal-1"><span class="header-section-number">9.3</span> Saída Principal</a></li>
+  <li><a href="#execução-2" id="toc-execução-2" class="nav-link" data-scroll-target="#execução-2"><span class="header-section-number">10.1</span> Execução</a></li>
+  <li><a href="#processo" id="toc-processo" class="nav-link" data-scroll-target="#processo"><span class="header-section-number">10.2</span> Processo</a></li>
+  <li><a href="#saída-principal-1" id="toc-saída-principal-1" class="nav-link" data-scroll-target="#saída-principal-1"><span class="header-section-number">10.3</span> Saída Principal</a></li>
   </ul></li>
-  <li><a href="#parte-5-montagem-com-megahit" id="toc-parte-5-montagem-com-megahit" class="nav-link" data-scroll-target="#parte-5-montagem-com-megahit"><span class="header-section-number">10</span> Parte 5 – Montagem com MEGAHIT</a>
+  <li><a href="#parte-5-montagem-com-megahit" id="toc-parte-5-montagem-com-megahit" class="nav-link" data-scroll-target="#parte-5-montagem-com-megahit"><span class="header-section-number">11</span> Parte 5 – Montagem com MEGAHIT</a>
   <ul class="collapse">
-  <li><a href="#execução-3" id="toc-execução-3" class="nav-link" data-scroll-target="#execução-3"><span class="header-section-number">10.1</span> Execução</a></li>
-  <li><a href="#parâmetros" id="toc-parâmetros" class="nav-link" data-scroll-target="#parâmetros"><span class="header-section-number">10.2</span> Parâmetros</a></li>
-  <li><a href="#saída-principal-2" id="toc-saída-principal-2" class="nav-link" data-scroll-target="#saída-principal-2"><span class="header-section-number">10.3</span> Saída Principal</a></li>
+  <li><a href="#execução-3" id="toc-execução-3" class="nav-link" data-scroll-target="#execução-3"><span class="header-section-number">11.1</span> Execução</a></li>
+  <li><a href="#parâmetros" id="toc-parâmetros" class="nav-link" data-scroll-target="#parâmetros"><span class="header-section-number">11.2</span> Parâmetros</a></li>
+  <li><a href="#saída-principal-2" id="toc-saída-principal-2" class="nav-link" data-scroll-target="#saída-principal-2"><span class="header-section-number">11.3</span> Saída Principal</a></li>
   </ul></li>
-  <li><a href="#parte-6-avaliação-inicial-das-montagens" id="toc-parte-6-avaliação-inicial-das-montagens" class="nav-link" data-scroll-target="#parte-6-avaliação-inicial-das-montagens"><span class="header-section-number">11</span> Parte 6 – Avaliação Inicial das Montagens</a></li>
-  <li><a href="#parte-7-avaliação-detalhada-com-quast" id="toc-parte-7-avaliação-detalhada-com-quast" class="nav-link" data-scroll-target="#parte-7-avaliação-detalhada-com-quast"><span class="header-section-number">12</span> Parte 7 – Avaliação Detalhada com QUAST</a>
+  <li><a href="#parte-6-avaliação-inicial-das-montagens" id="toc-parte-6-avaliação-inicial-das-montagens" class="nav-link" data-scroll-target="#parte-6-avaliação-inicial-das-montagens"><span class="header-section-number">12</span> Parte 6 – Avaliação Inicial das Montagens</a></li>
+  <li><a href="#parte-7-avaliação-detalhada-com-quast" id="toc-parte-7-avaliação-detalhada-com-quast" class="nav-link" data-scroll-target="#parte-7-avaliação-detalhada-com-quast"><span class="header-section-number">13</span> Parte 7 – Avaliação Detalhada com QUAST</a>
   <ul class="collapse">
-  <li><a href="#execução-4" id="toc-execução-4" class="nav-link" data-scroll-target="#execução-4"><span class="header-section-number">12.1</span> Execução</a></li>
-  <li><a href="#métricas-chave-a-interpretar" id="toc-métricas-chave-a-interpretar" class="nav-link" data-scroll-target="#métricas-chave-a-interpretar"><span class="header-section-number">12.2</span> Métricas Chave a Interpretar</a></li>
-  <li><a href="#análise-comparativa" id="toc-análise-comparativa" class="nav-link" data-scroll-target="#análise-comparativa"><span class="header-section-number">12.3</span> Análise Comparativa</a></li>
+  <li><a href="#execução-4" id="toc-execução-4" class="nav-link" data-scroll-target="#execução-4"><span class="header-section-number">13.1</span> Execução</a></li>
+  <li><a href="#métricas-chave-a-interpretar" id="toc-métricas-chave-a-interpretar" class="nav-link" data-scroll-target="#métricas-chave-a-interpretar"><span class="header-section-number">13.2</span> Métricas Chave a Interpretar</a></li>
+  <li><a href="#análise-comparativa" id="toc-análise-comparativa" class="nav-link" data-scroll-target="#análise-comparativa"><span class="header-section-number">13.3</span> Análise Comparativa</a></li>
   </ul></li>
-  <li><a href="#parte-8-perguntas-para-discussão-final" id="toc-parte-8-perguntas-para-discussão-final" class="nav-link" data-scroll-target="#parte-8-perguntas-para-discussão-final"><span class="header-section-number">13</span> Parte 8 – Perguntas para Discussão Final</a></li>
-  <li><a href="#referências-e-leituras-recomendadas" id="toc-referências-e-leituras-recomendadas" class="nav-link" data-scroll-target="#referências-e-leituras-recomendadas"><span class="header-section-number">14</span> Referências e Leituras Recomendadas</a></li>
+  <li><a href="#parte-8-perguntas-para-discussão-final" id="toc-parte-8-perguntas-para-discussão-final" class="nav-link" data-scroll-target="#parte-8-perguntas-para-discussão-final"><span class="header-section-number">14</span> Parte 8 – Perguntas para Discussão Final</a></li>
+  <li><a href="#referências-e-leituras-recomendadas" id="toc-referências-e-leituras-recomendadas" class="nav-link" data-scroll-target="#referências-e-leituras-recomendadas"><span class="header-section-number">15</span> Referências e Leituras Recomendadas</a></li>
   </ul>
 </nav>
     </div>
@@ -524,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">7 de outubro de 2026</p>
+      <p class="date">14 de outubro de 2026</p>
     </div>
   </div>
   
@@ -562,10 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pré-requisitos" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="pré-requisitos"><span class="header-section-number">3</span> Pré-requisitos</h2>
 <ul>
-<li>Conhecimento básico de linha de comando (Linux/Unix);</li>
-<li>Ferramentas instaladas: FastQC, Trimmomatic, SPAdes, Masurca, MEGAHIT, QUAST;</li>
-<li>Arquivos de entrada: <code>reads_R1.fastq.gz</code> e <code>reads_R2.fastq.gz</code> (dados paired-end);</li>
-<li>Arquivo de adaptadores: <code>adapters.fa</code> (ex: TruSeq3-PE.fa).</li>
+<li>Conhecimento básico de linha de comando (Linux/Unix), Aula Prática 1;</li>
 </ul>
 <hr>
 </section>
@@ -583,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     C --&gt; D{Qualidade dos reads&lt;br&gt;é aceitável?}
     
     D --&gt;|Não| E[Parte 2: Limpeza&lt;br&gt;TrimmomaticPE]
-    D --&gt;|Sim| F[Pular limpeza]
+    D --&gt;|Sim| K
     
     E --&gt; G[Remoção de Adaptadores&lt;br&gt;ILLUMINACLIP]
     G --&gt; H[Remoção de bases de baixa qualidade&lt;br&gt;LEADING / TRAILING]
@@ -591,7 +589,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     I --&gt; J[Filtro por comprimento mínimo&lt;br&gt;MINLEN]
     
     J --&gt; K[Reads Limpos&lt;br&gt;forward_paired.fastq.gz&lt;br&gt;reverse_paired.fastq.gz]
-    F --&gt; K
     
     K --&gt; L[Parte 3: Montagem&lt;br&gt;com SPAdes]
     K --&gt; M[Parte 4: Montagem&lt;br&gt;com Masurca]
@@ -641,15 +638,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Dados Brutos → QC → Limpeza → Montagem → Avaliação → Comparação → Conclusão</code></pre>
 <hr>
 </section>
-<section id="parte-1-controle-de-qualidade-com-fastqc" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="parte-1-controle-de-qualidade-com-fastqc"><span class="header-section-number">6</span> Parte 1 – Controle de Qualidade com FastQC</h2>
-<section id="execução" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="execução"><span class="header-section-number">6.1</span> Execução</h3>
-<p>Manual: <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC Documentation</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> reads_R1.fastq.gz reads_R2.fastq.gz <span class="at">-o</span> fastqc_results/</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="arquivos-de-entrada" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="arquivos-de-entrada"><span class="header-section-number">6</span> Arquivos de entrada</h2>
+<p>Listo abaixo os arquivos necessários para a prática. Chamo atenção para a importância de manter os nomes dos arquivos consistentes com os comandos fornecidos. O nomes abaixo não necessariamente correspondem aos arquivos que você possui, <u>então ajuste conforme necessário</u>.</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR022820_1.fastq.xz">SRR022820_1.fastq.xz</a>: arquivo FASTQ com reads 1 do par (forward);</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR022820_2.fastq.xz">SRR022820_2.fastq.xz</a>: arquivo FASTQ com reads 2 do par (reverse);</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR2584857_1.fastq.xz">SRR2584857_1.fastq.xz</a>: arquivo FASTQ com reads 1 do par (forward);</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR2584857_2.fastq.xz">SRR2584857_2.fastq.xz</a>: arquivo FASTQ com reads 2 do par (reverse);</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/adapters.fasta">adapters.fa</a>: arquivo FASTA contendo sequências de adaptadores a serem removidos.</li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de começar a rodar os comandos no terminal, certifique-se de que todos os arquivos de entrada estão no diretório de trabalho atual. Use o comando <code>ls</code> para listar os arquivos e confirmar.</p>
+<p>No terminal ative o ambiente Conda com as ferramentas necessárias:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate biosistemas</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
-<section id="interpretação-dos-relatórios" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="interpretação-dos-relatórios"><span class="header-section-number">6.2</span> Interpretação dos Relatórios</h3>
+<section id="parte-1-controle-de-qualidade-com-fastqc" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="parte-1-controle-de-qualidade-com-fastqc"><span class="header-section-number">7</span> Parte 1 – Controle de Qualidade com FastQC</h2>
+<section id="execução" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="execução"><span class="header-section-number">7.1</span> Execução</h3>
+<p>Manual: <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC Documentation</a></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> reads_R1.fastq.gz reads_R2.fastq.gz <span class="at">-o</span> fastqc_results/</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="interpretação-dos-relatórios" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="interpretação-dos-relatórios"><span class="header-section-number">7.2</span> Interpretação dos Relatórios</h3>
 <p>Abra os arquivos HTML gerados e observe:</p>
 <ul>
 <li><strong>Qualidade por base (<em>Per base sequence quality</em>)</strong>: Boxplots mostrando a pontuação Phred em cada posição. Regiões com qualidade &lt; 20 indicam necessidade de trimagem.</li>
@@ -661,29 +685,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="parte-2-limpeza-trimagem-com-trimmomatic" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="parte-2-limpeza-trimagem-com-trimmomatic"><span class="header-section-number">7</span> Parte 2 – Limpeza (Trimagem) com Trimmomatic</h2>
-<section id="comando" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="comando"><span class="header-section-number">7.1</span> Comando</h3>
+<section id="parte-2-limpeza-trimagem-com-trimmomatic" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="parte-2-limpeza-trimagem-com-trimmomatic"><span class="header-section-number">8</span> Parte 2 – Limpeza (Trimagem) com Trimmomatic</h2>
+<section id="comando" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="comando"><span class="header-section-number">8.1</span> Comando</h3>
 <p>Trimmomatic é uma ferramenta flexível para remover adaptadores e bases de baixa qualidade. O comando abaixo realiza a trimagem em dados paired-end, gerando arquivos de reads limpos e descartando reads curtas.</p>
 <p><strong>Manual</strong>: <a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic Manual</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">TrimmomaticPE</span> <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-threads</span> 4 <span class="dt">\</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-phred33</span> <span class="dt">\</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    reads_R1.fastq.gz <span class="dt">\</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    reads_R2.fastq.gz <span class="dt">\</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    forward_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    forward_unpaired.fastq.gz <span class="dt">\</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    reverse_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    reverse_unpaired.fastq.gz <span class="dt">\</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ILLUMINACLIP:adapters.fa:2:30:10 <span class="dt">\</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    LEADING:3 <span class="dt">\</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    TRAILING:3 <span class="dt">\</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    SLIDINGWINDOW:4:15 <span class="dt">\</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    MINLEN:36</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">TrimmomaticPE</span> <span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-threads</span> 4 <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-phred33</span> <span class="dt">\</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    reads_R1.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    reads_R2.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    forward_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    forward_unpaired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    reverse_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    reverse_unpaired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ILLUMINACLIP:adapters.fa:2:30:10 <span class="dt">\</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    LEADING:3 <span class="dt">\</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    TRAILING:3 <span class="dt">\</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    SLIDINGWINDOW:4:15 <span class="dt">\</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    MINLEN:36</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="explicação-dos-parâmetros" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="explicação-dos-parâmetros"><span class="header-section-number">7.2</span> Explicação dos Parâmetros</h3>
+<section id="explicação-dos-parâmetros" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="explicação-dos-parâmetros"><span class="header-section-number">8.2</span> Explicação dos Parâmetros</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 57%">
@@ -719,102 +743,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="verificação-pós-trimagem" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="verificação-pós-trimagem"><span class="header-section-number">7.3</span> Verificação Pós-Trimagem</h3>
+<section id="verificação-pós-trimagem" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="verificação-pós-trimagem"><span class="header-section-number">8.3</span> Verificação Pós-Trimagem</h3>
 <p>Execute novamente o FastQC nos arquivos <code>*_paired.fastq.gz</code> para confirmar a melhoria da qualidade.</p>
 <p><em>Quantos reads foram descartados? Isso é esperado para seus dados?</em></p>
 <hr>
 </section>
 </section>
-<section id="parte-3-montagem-com-spades" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="parte-3-montagem-com-spades"><span class="header-section-number">8</span> Parte 3 – Montagem com SPAdes</h2>
+<section id="parte-3-montagem-com-spades" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="parte-3-montagem-com-spades"><span class="header-section-number">9</span> Parte 3 – Montagem com SPAdes</h2>
 <p>Manual: <a href="https://github.com/ablab/spades">SPAdes GitHub</a></p>
-<section id="execução-1" class="level3" data-number="8.1">
-<h3 data-number="8.1" class="anchored" data-anchor-id="execução-1"><span class="header-section-number">8.1</span> Execução</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">spades.py</span> <span class="dt">\</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> forward_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> reverse_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> montagem_spades <span class="dt">\</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--careful</span> <span class="dt">\</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8 <span class="dt">\</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 64</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="execução-1" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="execução-1"><span class="header-section-number">9.1</span> Execução</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">spades.py</span> <span class="dt">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> forward_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> reverse_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> montagem_spades <span class="dt">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--careful</span> <span class="dt">\</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8 <span class="dt">\</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 64</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="parâmetros-importantes" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="parâmetros-importantes"><span class="header-section-number">8.2</span> Parâmetros Importantes</h3>
+<section id="parâmetros-importantes" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="parâmetros-importantes"><span class="header-section-number">9.2</span> Parâmetros Importantes</h3>
 <ul>
 <li><code>--careful</code>: Reduz erros em montagens de bactérias (modo mais rigoroso);</li>
 <li><code>-t 8</code>: Número de threads (ajuste conforme seu hardware);</li>
 <li><code>-m 64</code>: Limite de memória em GB.</li>
 </ul>
 </section>
-<section id="saída-principal" class="level3" data-number="8.3">
-<h3 data-number="8.3" class="anchored" data-anchor-id="saída-principal"><span class="header-section-number">8.3</span> Saída Principal</h3>
+<section id="saída-principal" class="level3" data-number="9.3">
+<h3 data-number="9.3" class="anchored" data-anchor-id="saída-principal"><span class="header-section-number">9.3</span> Saída Principal</h3>
 <p>O arquivo de contigs está em: <code>montagem_spades/contigs.fasta</code></p>
 <hr>
 </section>
 </section>
-<section id="parte-4-montagem-com-masurca" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="parte-4-montagem-com-masurca"><span class="header-section-number">9</span> Parte 4 – Montagem com Masurca</h2>
+<section id="parte-4-montagem-com-masurca" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="parte-4-montagem-com-masurca"><span class="header-section-number">10</span> Parte 4 – Montagem com Masurca</h2>
 <p>Manual: <a href="https://masurca.readthedocs.io/en/latest/">Masurca Documentation</a></p>
-<section id="execução-2" class="level3" data-number="9.1">
-<h3 data-number="9.1" class="anchored" data-anchor-id="execução-2"><span class="header-section-number">9.1</span> Execução</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">masurca</span> <span class="dt">\</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-i</span> <span class="st">"forward_paired.fastq.gz,reverse_paired.fastq.gz"</span> <span class="dt">\</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> montagem_masurca <span class="dt">\</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="execução-2" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="execução-2"><span class="header-section-number">10.1</span> Execução</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">masurca</span> <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-i</span> <span class="st">"forward_paired.fastq.gz,reverse_paired.fastq.gz"</span> <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> montagem_masurca <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="processo" class="level3" data-number="9.2">
-<h3 data-number="9.2" class="anchored" data-anchor-id="processo"><span class="header-section-number">9.2</span> Processo</h3>
+<section id="processo" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="processo"><span class="header-section-number">10.2</span> Processo</h3>
 <p>O Masurca gera um script chamado <code>assemble.sh</code>. Execute-o para iniciar a montagem:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> montagem_masurca</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./assemble.sh</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> montagem_masurca</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./assemble.sh</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Importante:</strong> Não use espaços após a vírgula na lista de arquivos!</p>
 </section>
-<section id="saída-principal-1" class="level3" data-number="9.3">
-<h3 data-number="9.3" class="anchored" data-anchor-id="saída-principal-1"><span class="header-section-number">9.3</span> Saída Principal</h3>
+<section id="saída-principal-1" class="level3" data-number="10.3">
+<h3 data-number="10.3" class="anchored" data-anchor-id="saída-principal-1"><span class="header-section-number">10.3</span> Saída Principal</h3>
 <p>O arquivo de contigs está em: <code>montagem_masurca/CA/primary.genome.scf.fasta</code></p>
 <hr>
 </section>
 </section>
-<section id="parte-5-montagem-com-megahit" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="parte-5-montagem-com-megahit"><span class="header-section-number">10</span> Parte 5 – Montagem com MEGAHIT</h2>
+<section id="parte-5-montagem-com-megahit" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="parte-5-montagem-com-megahit"><span class="header-section-number">11</span> Parte 5 – Montagem com MEGAHIT</h2>
 <p>Manual: <a href="https://github.com/voutcn/megahit">MEGAHIT GitHub</a></p>
-<section id="execução-3" class="level3" data-number="10.1">
-<h3 data-number="10.1" class="anchored" data-anchor-id="execução-3"><span class="header-section-number">10.1</span> Execução</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">megahit</span> <span class="dt">\</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> forward_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> reverse_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> montagem_megahit <span class="dt">\</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8 <span class="dt">\</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 0.9</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="execução-3" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="execução-3"><span class="header-section-number">11.1</span> Execução</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">megahit</span> <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-1</span> forward_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-2</span> reverse_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> montagem_megahit <span class="dt">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8 <span class="dt">\</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 0.9</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="parâmetros" class="level3" data-number="10.2">
-<h3 data-number="10.2" class="anchored" data-anchor-id="parâmetros"><span class="header-section-number">10.2</span> Parâmetros</h3>
+<section id="parâmetros" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="parâmetros"><span class="header-section-number">11.2</span> Parâmetros</h3>
 <ul>
 <li><code>-m 0.9</code>: Usa 90% da memória total disponível (ajuste conforme necessário);</li>
 <li><code>-t 8</code>: Número de threads.</li>
 </ul>
 </section>
-<section id="saída-principal-2" class="level3" data-number="10.3">
-<h3 data-number="10.3" class="anchored" data-anchor-id="saída-principal-2"><span class="header-section-number">10.3</span> Saída Principal</h3>
+<section id="saída-principal-2" class="level3" data-number="11.3">
+<h3 data-number="11.3" class="anchored" data-anchor-id="saída-principal-2"><span class="header-section-number">11.3</span> Saída Principal</h3>
 <p>O arquivo de contigs está em: <code>montagem_megahit/final.contigs.fa</code></p>
 <hr>
 </section>
 </section>
-<section id="parte-6-avaliação-inicial-das-montagens" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="parte-6-avaliação-inicial-das-montagens"><span class="header-section-number">11</span> Parte 6 – Avaliação Inicial das Montagens</h2>
+<section id="parte-6-avaliação-inicial-das-montagens" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="parte-6-avaliação-inicial-das-montagens"><span class="header-section-number">12</span> Parte 6 – Avaliação Inicial das Montagens</h2>
 <p>Para cada montagem, analise:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar número de contigs</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"^&gt;"</span> montagem_spades/contigs.fasta</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tamanho total da montagem</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> montagem_spades/contigs.fasta <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-c</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Maior contig</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> montagem_spades/contigs.fasta <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print length($0)}'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-nr</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar número de contigs</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"^&gt;"</span> montagem_spades/contigs.fasta</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Tamanho total da montagem</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> montagem_spades/contigs.fasta <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-c</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Maior contig</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="st">"^&gt;"</span> montagem_spades/contigs.fasta <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print length($0)}'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-nr</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Monte uma tabela comparativa:</strong></p>
 <table class="caption-top table">
 <thead>
@@ -848,22 +872,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <hr>
 </section>
-<section id="parte-7-avaliação-detalhada-com-quast" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="parte-7-avaliação-detalhada-com-quast"><span class="header-section-number">12</span> Parte 7 – Avaliação Detalhada com QUAST</h2>
+<section id="parte-7-avaliação-detalhada-com-quast" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="parte-7-avaliação-detalhada-com-quast"><span class="header-section-number">13</span> Parte 7 – Avaliação Detalhada com QUAST</h2>
 <p>Manual: <a href="http://quast.sourceforge.net/docs/manual.html">QUAST Documentation</a></p>
-<section id="execução-4" class="level3" data-number="12.1">
-<h3 data-number="12.1" class="anchored" data-anchor-id="execução-4"><span class="header-section-number">12.1</span> Execução</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast.py</span> <span class="dt">\</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> quast_results <span class="dt">\</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8 <span class="dt">\</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 500 <span class="dt">\</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    montagem_spades/contigs.fasta <span class="dt">\</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    montagem_masurca/CA/primary.genome.scf.fasta <span class="dt">\</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    montagem_megahit/final.contigs.fa <span class="dt">\</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">-l</span> <span class="st">"SPAdes,Masurca,MEGAHIT"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="execução-4" class="level3" data-number="13.1">
+<h3 data-number="13.1" class="anchored" data-anchor-id="execução-4"><span class="header-section-number">13.1</span> Execução</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quast.py</span> <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> quast_results <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> 8 <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> 500 <span class="dt">\</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    montagem_spades/contigs.fasta <span class="dt">\</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    montagem_masurca/CA/primary.genome.scf.fasta <span class="dt">\</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    montagem_megahit/final.contigs.fa <span class="dt">\</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">-l</span> <span class="st">"SPAdes,Masurca,MEGAHIT"</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="métricas-chave-a-interpretar" class="level3" data-number="12.2">
-<h3 data-number="12.2" class="anchored" data-anchor-id="métricas-chave-a-interpretar"><span class="header-section-number">12.2</span> Métricas Chave a Interpretar</h3>
+<section id="métricas-chave-a-interpretar" class="level3" data-number="13.2">
+<h3 data-number="13.2" class="anchored" data-anchor-id="métricas-chave-a-interpretar"><span class="header-section-number">13.2</span> Métricas Chave a Interpretar</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -911,8 +935,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="análise-comparativa" class="level3" data-number="12.3">
-<h3 data-number="12.3" class="anchored" data-anchor-id="análise-comparativa"><span class="header-section-number">12.3</span> Análise Comparativa</h3>
+<section id="análise-comparativa" class="level3" data-number="13.3">
+<h3 data-number="13.3" class="anchored" data-anchor-id="análise-comparativa"><span class="header-section-number">13.3</span> Análise Comparativa</h3>
 <p>Abra o relatório HTML gerado (<code>quast_results/report.html</code>) e compare:</p>
 <ol type="1">
 <li>Qual assembler produziu o melhor N50?</li>
@@ -923,8 +947,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 </section>
-<section id="parte-8-perguntas-para-discussão-final" class="level2" data-number="13">
-<h2 data-number="13" class="anchored" data-anchor-id="parte-8-perguntas-para-discussão-final"><span class="header-section-number">13</span> Parte 8 – Perguntas para Discussão Final</h2>
+<section id="parte-8-perguntas-para-discussão-final" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="parte-8-perguntas-para-discussão-final"><span class="header-section-number">14</span> Parte 8 – Perguntas para Discussão Final</h2>
 <ol type="1">
 <li><strong>Qualidade dos dados</strong>: Como a qualidade inicial dos reads afetou as montagens?</li>
 <li><strong>Desempenho dos assemblers</strong>: Quais foram as principais diferenças entre SPAdes, Masurca e MEGAHIT?</li>
@@ -934,8 +958,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <hr>
 </section>
-<section id="referências-e-leituras-recomendadas" class="level2" data-number="14">
-<h2 data-number="14" class="anchored" data-anchor-id="referências-e-leituras-recomendadas"><span class="header-section-number">14</span> Referências e Leituras Recomendadas</h2>
+<section id="referências-e-leituras-recomendadas" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="referências-e-leituras-recomendadas"><span class="header-section-number">15</span> Referências e Leituras Recomendadas</h2>
 <ul>
 <li><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC Documentation</a></li>
 <li><a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic Manual</a></li>

@@ -693,7 +693,7 @@
     "href": "roteiros/pratica3.html#pré-requisitos",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
     "section": "3 Pré-requisitos",
-    "text": "3 Pré-requisitos\n\nConhecimento básico de linha de comando (Linux/Unix);\nFerramentas instaladas: FastQC, Trimmomatic, SPAdes, Masurca, MEGAHIT, QUAST;\nArquivos de entrada: reads_R1.fastq.gz e reads_R2.fastq.gz (dados paired-end);\nArquivo de adaptadores: adapters.fa (ex: TruSeq3-PE.fa).",
+    "text": "3 Pré-requisitos\n\nConhecimento básico de linha de comando (Linux/Unix), Aula Prática 1;",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -704,7 +704,7 @@
     "href": "roteiros/pratica3.html#fluxograma",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
     "section": "4 Fluxograma",
-    "text": "4 Fluxograma\n\n\n\n\n\nflowchart TD\n    A[Início] --&gt; B[Dados de Entrada&lt;br&gt;reads_R1.fastq.gz&lt;br&gt;reads_R2.fastq.gz]\n    \n    B --&gt; C[Parte 1: Controle de Qualidade&lt;br&gt;FastQC]\n    C --&gt; D{Qualidade dos reads&lt;br&gt;é aceitável?}\n    \n    D --&gt;|Não| E[Parte 2: Limpeza&lt;br&gt;TrimmomaticPE]\n    D --&gt;|Sim| F[Pular limpeza]\n    \n    E --&gt; G[Remoção de Adaptadores&lt;br&gt;ILLUMINACLIP]\n    G --&gt; H[Remoção de bases de baixa qualidade&lt;br&gt;LEADING / TRAILING]\n    H --&gt; I[Corte por janela deslizante&lt;br&gt;SLIDINGWINDOW]\n    I --&gt; J[Filtro por comprimento mínimo&lt;br&gt;MINLEN]\n    \n    J --&gt; K[Reads Limpos&lt;br&gt;forward_paired.fastq.gz&lt;br&gt;reverse_paired.fastq.gz]\n    F --&gt; K\n    \n    K --&gt; L[Parte 3: Montagem&lt;br&gt;com SPAdes]\n    K --&gt; M[Parte 4: Montagem&lt;br&gt;com Masurca]\n    K --&gt; N[Parte 5: Montagem&lt;br&gt;com MEGAHIT]\n    \n    L --&gt; O[contigs.fasta&lt;br&gt;SPAdes]\n    M --&gt; P[primary.genome.scf.fasta&lt;br&gt;Masurca]\n    N --&gt; Q[final.contigs.fa&lt;br&gt;MEGAHIT]\n    \n    O --&gt; R[Parte 6: Avaliação&lt;br&gt;Inicial das Montagens]\n    P --&gt; R\n    Q --&gt; R\n    \n    R --&gt; S[Contagem de contigs&lt;br&gt;Tamanho total&lt;br&gt;Maior contig]\n    S --&gt; T[Tabela Comparativa&lt;br&gt;SPAdes vs Masurca vs MEGAHIT]\n    \n    T --&gt; U[Parte 7: Avaliação Detalhada&lt;br&gt;com QUAST]\n    U --&gt; V[Métricas N50, L50,&lt;br&gt;GC%, Mismatches]\n    \n    V --&gt; W[Relatório QUAST&lt;br&gt;report.html]\n    W --&gt; X[Parte 8: Discussão&lt;br&gt;e Interpretação]\n    \n    X --&gt; Y[Qual assembler foi melhor?&lt;br&gt;Por quê?]\n    Y --&gt; Z[Conclusão]\n    \n    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white\n    classDef processo fill:#3498db,stroke:#2980b9,color:white\n    classDef decisao fill:#f39c12,stroke:#e67e22,color:white\n    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white\n    classDef final fill:#2c3e50,stroke:#2c3e50,color:white\n\n    class A inicio\n    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y processo\n    class D decisao\n    class Y resultado\n    class Z final",
+    "text": "4 Fluxograma\n\n\n\n\n\nflowchart TD\n    A[Início] --&gt; B[Dados de Entrada&lt;br&gt;reads_R1.fastq.gz&lt;br&gt;reads_R2.fastq.gz]\n    \n    B --&gt; C[Parte 1: Controle de Qualidade&lt;br&gt;FastQC]\n    C --&gt; D{Qualidade dos reads&lt;br&gt;é aceitável?}\n    \n    D --&gt;|Não| E[Parte 2: Limpeza&lt;br&gt;TrimmomaticPE]\n    D --&gt;|Sim| K\n    \n    E --&gt; G[Remoção de Adaptadores&lt;br&gt;ILLUMINACLIP]\n    G --&gt; H[Remoção de bases de baixa qualidade&lt;br&gt;LEADING / TRAILING]\n    H --&gt; I[Corte por janela deslizante&lt;br&gt;SLIDINGWINDOW]\n    I --&gt; J[Filtro por comprimento mínimo&lt;br&gt;MINLEN]\n    \n    J --&gt; K[Reads Limpos&lt;br&gt;forward_paired.fastq.gz&lt;br&gt;reverse_paired.fastq.gz]\n    \n    K --&gt; L[Parte 3: Montagem&lt;br&gt;com SPAdes]\n    K --&gt; M[Parte 4: Montagem&lt;br&gt;com Masurca]\n    K --&gt; N[Parte 5: Montagem&lt;br&gt;com MEGAHIT]\n    \n    L --&gt; O[contigs.fasta&lt;br&gt;SPAdes]\n    M --&gt; P[primary.genome.scf.fasta&lt;br&gt;Masurca]\n    N --&gt; Q[final.contigs.fa&lt;br&gt;MEGAHIT]\n    \n    O --&gt; R[Parte 6: Avaliação&lt;br&gt;Inicial das Montagens]\n    P --&gt; R\n    Q --&gt; R\n    \n    R --&gt; S[Contagem de contigs&lt;br&gt;Tamanho total&lt;br&gt;Maior contig]\n    S --&gt; T[Tabela Comparativa&lt;br&gt;SPAdes vs Masurca vs MEGAHIT]\n    \n    T --&gt; U[Parte 7: Avaliação Detalhada&lt;br&gt;com QUAST]\n    U --&gt; V[Métricas N50, L50,&lt;br&gt;GC%, Mismatches]\n    \n    V --&gt; W[Relatório QUAST&lt;br&gt;report.html]\n    W --&gt; X[Parte 8: Discussão&lt;br&gt;e Interpretação]\n    \n    X --&gt; Y[Qual assembler foi melhor?&lt;br&gt;Por quê?]\n    Y --&gt; Z[Conclusão]\n    \n    classDef inicio fill:#2ecc71,stroke:#27ae60,color:white\n    classDef processo fill:#3498db,stroke:#2980b9,color:white\n    classDef decisao fill:#f39c12,stroke:#e67e22,color:white\n    classDef resultado fill:#e74c3c,stroke:#c0392b,color:white\n    classDef final fill:#2c3e50,stroke:#2c3e50,color:white\n\n    class A inicio\n    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y processo\n    class D decisao\n    class Y resultado\n    class Z final",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -722,11 +722,22 @@
     ]
   },
   {
+    "objectID": "roteiros/pratica3.html#arquivos-de-entrada",
+    "href": "roteiros/pratica3.html#arquivos-de-entrada",
+    "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
+    "section": "6 Arquivos de entrada",
+    "text": "6 Arquivos de entrada\nListo abaixo os arquivos necessários para a prática. Chamo atenção para a importância de manter os nomes dos arquivos consistentes com os comandos fornecidos. O nomes abaixo não necessariamente correspondem aos arquivos que você possui, então ajuste conforme necessário.\n\nSRR022820_1.fastq.xz: arquivo FASTQ com reads 1 do par (forward);\nSRR022820_2.fastq.xz: arquivo FASTQ com reads 2 do par (reverse);\nSRR2584857_1.fastq.xz: arquivo FASTQ com reads 1 do par (forward);\nSRR2584857_2.fastq.xz: arquivo FASTQ com reads 2 do par (reverse);\nadapters.fa: arquivo FASTA contendo sequências de adaptadores a serem removidos.\n\n\n\n\n\n\n\n\nImportante\n\n\n\nAntes de começar a rodar os comandos no terminal, certifique-se de que todos os arquivos de entrada estão no diretório de trabalho atual. Use o comando ls para listar os arquivos e confirmar.\nNo terminal ative o ambiente Conda com as ferramentas necessárias:\nconda activate biosistemas",
+    "crumbs": [
+      "Roteiros",
+      "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
+    ]
+  },
+  {
     "objectID": "roteiros/pratica3.html#parte-1-controle-de-qualidade-com-fastqc",
     "href": "roteiros/pratica3.html#parte-1-controle-de-qualidade-com-fastqc",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "6 Parte 1 – Controle de Qualidade com FastQC",
-    "text": "6 Parte 1 – Controle de Qualidade com FastQC\n\n6.1 Execução\nManual: FastQC Documentation\nfastqc reads_R1.fastq.gz reads_R2.fastq.gz -o fastqc_results/\n\n\n6.2 Interpretação dos Relatórios\nAbra os arquivos HTML gerados e observe:\n\nQualidade por base (Per base sequence quality): Boxplots mostrando a pontuação Phred em cada posição. Regiões com qualidade &lt; 20 indicam necessidade de trimagem.\nConteúdo GC (Per sequence GC content): A distribuição deve ser próxima a uma curva normal. Picos anômalos podem indicar contaminação.\nPresença de adaptadores (Adapter Content): Identifica se adaptadores não foram totalmente removidos.\nNíveis de duplicação (Sequence Duplication Levels): Altos níveis podem indicar viés de PCR.\n\nCom base nos relatórios, quais etapas de limpeza você considera necessárias?",
+    "section": "7 Parte 1 – Controle de Qualidade com FastQC",
+    "text": "7 Parte 1 – Controle de Qualidade com FastQC\n\n7.1 Execução\nManual: FastQC Documentation\nfastqc reads_R1.fastq.gz reads_R2.fastq.gz -o fastqc_results/\n\n\n7.2 Interpretação dos Relatórios\nAbra os arquivos HTML gerados e observe:\n\nQualidade por base (Per base sequence quality): Boxplots mostrando a pontuação Phred em cada posição. Regiões com qualidade &lt; 20 indicam necessidade de trimagem.\nConteúdo GC (Per sequence GC content): A distribuição deve ser próxima a uma curva normal. Picos anômalos podem indicar contaminação.\nPresença de adaptadores (Adapter Content): Identifica se adaptadores não foram totalmente removidos.\nNíveis de duplicação (Sequence Duplication Levels): Altos níveis podem indicar viés de PCR.\n\nCom base nos relatórios, quais etapas de limpeza você considera necessárias?",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -736,8 +747,8 @@
     "objectID": "roteiros/pratica3.html#parte-2-limpeza-trimagem-com-trimmomatic",
     "href": "roteiros/pratica3.html#parte-2-limpeza-trimagem-com-trimmomatic",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "7 Parte 2 – Limpeza (Trimagem) com Trimmomatic",
-    "text": "7 Parte 2 – Limpeza (Trimagem) com Trimmomatic\n\n7.1 Comando\nTrimmomatic é uma ferramenta flexível para remover adaptadores e bases de baixa qualidade. O comando abaixo realiza a trimagem em dados paired-end, gerando arquivos de reads limpos e descartando reads curtas.\nManual: Trimmomatic Manual\nTrimmomaticPE \\\n    -threads 4 \\\n    -phred33 \\\n    reads_R1.fastq.gz \\\n    reads_R2.fastq.gz \\\n    forward_paired.fastq.gz \\\n    forward_unpaired.fastq.gz \\\n    reverse_paired.fastq.gz \\\n    reverse_unpaired.fastq.gz \\\n    ILLUMINACLIP:adapters.fa:2:30:10 \\\n    LEADING:3 \\\n    TRAILING:3 \\\n    SLIDINGWINDOW:4:15 \\\n    MINLEN:36\n\n\n7.2 Explicação dos Parâmetros\n\n\n\n\n\n\n\nParâmetro\nFunção\n\n\n\n\nILLUMINACLIP:adapters.fa:2:30:10\nRemove adaptadores. Parâmetros: mismatch máximo (2), palíndromo (30), simples (10)\n\n\nLEADING:3\nRemove bases com qualidade &lt; 3 no início da read\n\n\nTRAILING:3\nRemove bases com qualidade &lt; 3 no final da read\n\n\nSLIDINGWINDOW:4:15\nCorta a read quando a média de qualidade em uma janela de 4 bases for &lt; 15\n\n\nMINLEN:36\nDescarta reads com comprimento final &lt; 36 bases\n\n\n\n\n\n7.3 Verificação Pós-Trimagem\nExecute novamente o FastQC nos arquivos *_paired.fastq.gz para confirmar a melhoria da qualidade.\nQuantos reads foram descartados? Isso é esperado para seus dados?",
+    "section": "8 Parte 2 – Limpeza (Trimagem) com Trimmomatic",
+    "text": "8 Parte 2 – Limpeza (Trimagem) com Trimmomatic\n\n8.1 Comando\nTrimmomatic é uma ferramenta flexível para remover adaptadores e bases de baixa qualidade. O comando abaixo realiza a trimagem em dados paired-end, gerando arquivos de reads limpos e descartando reads curtas.\nManual: Trimmomatic Manual\nTrimmomaticPE \\\n    -threads 4 \\\n    -phred33 \\\n    reads_R1.fastq.gz \\\n    reads_R2.fastq.gz \\\n    forward_paired.fastq.gz \\\n    forward_unpaired.fastq.gz \\\n    reverse_paired.fastq.gz \\\n    reverse_unpaired.fastq.gz \\\n    ILLUMINACLIP:adapters.fa:2:30:10 \\\n    LEADING:3 \\\n    TRAILING:3 \\\n    SLIDINGWINDOW:4:15 \\\n    MINLEN:36\n\n\n8.2 Explicação dos Parâmetros\n\n\n\n\n\n\n\nParâmetro\nFunção\n\n\n\n\nILLUMINACLIP:adapters.fa:2:30:10\nRemove adaptadores. Parâmetros: mismatch máximo (2), palíndromo (30), simples (10)\n\n\nLEADING:3\nRemove bases com qualidade &lt; 3 no início da read\n\n\nTRAILING:3\nRemove bases com qualidade &lt; 3 no final da read\n\n\nSLIDINGWINDOW:4:15\nCorta a read quando a média de qualidade em uma janela de 4 bases for &lt; 15\n\n\nMINLEN:36\nDescarta reads com comprimento final &lt; 36 bases\n\n\n\n\n\n8.3 Verificação Pós-Trimagem\nExecute novamente o FastQC nos arquivos *_paired.fastq.gz para confirmar a melhoria da qualidade.\nQuantos reads foram descartados? Isso é esperado para seus dados?",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -747,8 +758,8 @@
     "objectID": "roteiros/pratica3.html#parte-3-montagem-com-spades",
     "href": "roteiros/pratica3.html#parte-3-montagem-com-spades",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "8 Parte 3 – Montagem com SPAdes",
-    "text": "8 Parte 3 – Montagem com SPAdes\nManual: SPAdes GitHub\n\n8.1 Execução\nspades.py \\\n    -1 forward_paired.fastq.gz \\\n    -2 reverse_paired.fastq.gz \\\n    -o montagem_spades \\\n    --careful \\\n    -t 8 \\\n    -m 64\n\n\n8.2 Parâmetros Importantes\n\n--careful: Reduz erros em montagens de bactérias (modo mais rigoroso);\n-t 8: Número de threads (ajuste conforme seu hardware);\n-m 64: Limite de memória em GB.\n\n\n\n8.3 Saída Principal\nO arquivo de contigs está em: montagem_spades/contigs.fasta",
+    "section": "9 Parte 3 – Montagem com SPAdes",
+    "text": "9 Parte 3 – Montagem com SPAdes\nManual: SPAdes GitHub\n\n9.1 Execução\nspades.py \\\n    -1 forward_paired.fastq.gz \\\n    -2 reverse_paired.fastq.gz \\\n    -o montagem_spades \\\n    --careful \\\n    -t 8 \\\n    -m 64\n\n\n9.2 Parâmetros Importantes\n\n--careful: Reduz erros em montagens de bactérias (modo mais rigoroso);\n-t 8: Número de threads (ajuste conforme seu hardware);\n-m 64: Limite de memória em GB.\n\n\n\n9.3 Saída Principal\nO arquivo de contigs está em: montagem_spades/contigs.fasta",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -758,8 +769,8 @@
     "objectID": "roteiros/pratica3.html#parte-4-montagem-com-masurca",
     "href": "roteiros/pratica3.html#parte-4-montagem-com-masurca",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "9 Parte 4 – Montagem com Masurca",
-    "text": "9 Parte 4 – Montagem com Masurca\nManual: Masurca Documentation\n\n9.1 Execução\nmasurca \\\n    -i \"forward_paired.fastq.gz,reverse_paired.fastq.gz\" \\\n    -o montagem_masurca \\\n    -t 8\n\n\n9.2 Processo\nO Masurca gera um script chamado assemble.sh. Execute-o para iniciar a montagem:\ncd montagem_masurca\n./assemble.sh\nImportante: Não use espaços após a vírgula na lista de arquivos!\n\n\n9.3 Saída Principal\nO arquivo de contigs está em: montagem_masurca/CA/primary.genome.scf.fasta",
+    "section": "10 Parte 4 – Montagem com Masurca",
+    "text": "10 Parte 4 – Montagem com Masurca\nManual: Masurca Documentation\n\n10.1 Execução\nmasurca \\\n    -i \"forward_paired.fastq.gz,reverse_paired.fastq.gz\" \\\n    -o montagem_masurca \\\n    -t 8\n\n\n10.2 Processo\nO Masurca gera um script chamado assemble.sh. Execute-o para iniciar a montagem:\ncd montagem_masurca\n./assemble.sh\nImportante: Não use espaços após a vírgula na lista de arquivos!\n\n\n10.3 Saída Principal\nO arquivo de contigs está em: montagem_masurca/CA/primary.genome.scf.fasta",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -769,8 +780,8 @@
     "objectID": "roteiros/pratica3.html#parte-5-montagem-com-megahit",
     "href": "roteiros/pratica3.html#parte-5-montagem-com-megahit",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "10 Parte 5 – Montagem com MEGAHIT",
-    "text": "10 Parte 5 – Montagem com MEGAHIT\nManual: MEGAHIT GitHub\n\n10.1 Execução\nmegahit \\\n    -1 forward_paired.fastq.gz \\\n    -2 reverse_paired.fastq.gz \\\n    -o montagem_megahit \\\n    -t 8 \\\n    -m 0.9\n\n\n10.2 Parâmetros\n\n-m 0.9: Usa 90% da memória total disponível (ajuste conforme necessário);\n-t 8: Número de threads.\n\n\n\n10.3 Saída Principal\nO arquivo de contigs está em: montagem_megahit/final.contigs.fa",
+    "section": "11 Parte 5 – Montagem com MEGAHIT",
+    "text": "11 Parte 5 – Montagem com MEGAHIT\nManual: MEGAHIT GitHub\n\n11.1 Execução\nmegahit \\\n    -1 forward_paired.fastq.gz \\\n    -2 reverse_paired.fastq.gz \\\n    -o montagem_megahit \\\n    -t 8 \\\n    -m 0.9\n\n\n11.2 Parâmetros\n\n-m 0.9: Usa 90% da memória total disponível (ajuste conforme necessário);\n-t 8: Número de threads.\n\n\n\n11.3 Saída Principal\nO arquivo de contigs está em: montagem_megahit/final.contigs.fa",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -780,8 +791,8 @@
     "objectID": "roteiros/pratica3.html#parte-6-avaliação-inicial-das-montagens",
     "href": "roteiros/pratica3.html#parte-6-avaliação-inicial-das-montagens",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "11 Parte 6 – Avaliação Inicial das Montagens",
-    "text": "11 Parte 6 – Avaliação Inicial das Montagens\nPara cada montagem, analise:\n\n# Contar número de contigs\ngrep -c \"^&gt;\" montagem_spades/contigs.fasta\n\n\n# Tamanho total da montagem\ngrep -v \"^&gt;\" montagem_spades/contigs.fasta | wc -c\n\n\n# Maior contig\ngrep -v \"^&gt;\" montagem_spades/contigs.fasta | awk '{print length($0)}' | sort -nr | head -1\nMonte uma tabela comparativa:\n\n\n\nMétrica\nSPAdes\nMasurca\nMEGAHIT\n\n\n\n\nNº de contigs\n\n\n\n\n\nTamanho total (bp)\n\n\n\n\n\nMaior contig (bp)",
+    "section": "12 Parte 6 – Avaliação Inicial das Montagens",
+    "text": "12 Parte 6 – Avaliação Inicial das Montagens\nPara cada montagem, analise:\n\n# Contar número de contigs\ngrep -c \"^&gt;\" montagem_spades/contigs.fasta\n\n\n# Tamanho total da montagem\ngrep -v \"^&gt;\" montagem_spades/contigs.fasta | wc -c\n\n\n# Maior contig\ngrep -v \"^&gt;\" montagem_spades/contigs.fasta | awk '{print length($0)}' | sort -nr | head -1\nMonte uma tabela comparativa:\n\n\n\nMétrica\nSPAdes\nMasurca\nMEGAHIT\n\n\n\n\nNº de contigs\n\n\n\n\n\nTamanho total (bp)\n\n\n\n\n\nMaior contig (bp)",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -791,8 +802,8 @@
     "objectID": "roteiros/pratica3.html#parte-7-avaliação-detalhada-com-quast",
     "href": "roteiros/pratica3.html#parte-7-avaliação-detalhada-com-quast",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "12 Parte 7 – Avaliação Detalhada com QUAST",
-    "text": "12 Parte 7 – Avaliação Detalhada com QUAST\nManual: QUAST Documentation\n\n12.1 Execução\nquast.py \\\n    -o quast_results \\\n    -t 8 \\\n    -m 500 \\\n    montagem_spades/contigs.fasta \\\n    montagem_masurca/CA/primary.genome.scf.fasta \\\n    montagem_megahit/final.contigs.fa \\\n    -l \"SPAdes,Masurca,MEGAHIT\"\n\n\n12.2 Métricas Chave a Interpretar\n\n\n\n\n\n\n\n\nMétrica\nO que significa\nValor ideal\n\n\n\n\nN50\nComprimento mínimo dos contigs que cobrem 50% do genoma\nQuanto maior, melhor\n\n\nL50\nNúmero de contigs necessários para atingir o N50\nQuanto menor, melhor\n\n\nNº de contigs\nFragmentação da montagem\nMenor é melhor\n\n\nMaior contig\nContig mais longo produzido\nQuanto maior, melhor\n\n\nGC (%)\nConteúdo GC estimado\nDeve ser compatível com a espécie\n\n\nMismatches por 100 kbp\nErros de base na montagem\nQuanto menor, melhor\n\n\n\n\n\n12.3 Análise Comparativa\nAbra o relatório HTML gerado (quast_results/report.html) e compare:\n\nQual assembler produziu o melhor N50?\nQual teve o menor número de contigs?\nHá diferenças significativas no conteúdo GC estimado?\nQual montagem você consideraria a melhor e por quê?",
+    "section": "13 Parte 7 – Avaliação Detalhada com QUAST",
+    "text": "13 Parte 7 – Avaliação Detalhada com QUAST\nManual: QUAST Documentation\n\n13.1 Execução\nquast.py \\\n    -o quast_results \\\n    -t 8 \\\n    -m 500 \\\n    montagem_spades/contigs.fasta \\\n    montagem_masurca/CA/primary.genome.scf.fasta \\\n    montagem_megahit/final.contigs.fa \\\n    -l \"SPAdes,Masurca,MEGAHIT\"\n\n\n13.2 Métricas Chave a Interpretar\n\n\n\n\n\n\n\n\nMétrica\nO que significa\nValor ideal\n\n\n\n\nN50\nComprimento mínimo dos contigs que cobrem 50% do genoma\nQuanto maior, melhor\n\n\nL50\nNúmero de contigs necessários para atingir o N50\nQuanto menor, melhor\n\n\nNº de contigs\nFragmentação da montagem\nMenor é melhor\n\n\nMaior contig\nContig mais longo produzido\nQuanto maior, melhor\n\n\nGC (%)\nConteúdo GC estimado\nDeve ser compatível com a espécie\n\n\nMismatches por 100 kbp\nErros de base na montagem\nQuanto menor, melhor\n\n\n\n\n\n13.3 Análise Comparativa\nAbra o relatório HTML gerado (quast_results/report.html) e compare:\n\nQual assembler produziu o melhor N50?\nQual teve o menor número de contigs?\nHá diferenças significativas no conteúdo GC estimado?\nQual montagem você consideraria a melhor e por quê?",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -802,8 +813,8 @@
     "objectID": "roteiros/pratica3.html#parte-8-perguntas-para-discussão-final",
     "href": "roteiros/pratica3.html#parte-8-perguntas-para-discussão-final",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "13 Parte 8 – Perguntas para Discussão Final",
-    "text": "13 Parte 8 – Perguntas para Discussão Final\n\nQualidade dos dados: Como a qualidade inicial dos reads afetou as montagens?\nDesempenho dos assemblers: Quais foram as principais diferenças entre SPAdes, Masurca e MEGAHIT?\nEscolha do assembler: Em quais situações você usaria cada um dos assemblers?\nLimitações: Quais informações ainda faltam para validar completamente a montagem?\nPróximos passos: O que você faria para melhorar ainda mais a montagem?",
+    "section": "14 Parte 8 – Perguntas para Discussão Final",
+    "text": "14 Parte 8 – Perguntas para Discussão Final\n\nQualidade dos dados: Como a qualidade inicial dos reads afetou as montagens?\nDesempenho dos assemblers: Quais foram as principais diferenças entre SPAdes, Masurca e MEGAHIT?\nEscolha do assembler: Em quais situações você usaria cada um dos assemblers?\nLimitações: Quais informações ainda faltam para validar completamente a montagem?\nPróximos passos: O que você faria para melhorar ainda mais a montagem?",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -813,8 +824,8 @@
     "objectID": "roteiros/pratica3.html#referências-e-leituras-recomendadas",
     "href": "roteiros/pratica3.html#referências-e-leituras-recomendadas",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
-    "section": "14 Referências e Leituras Recomendadas",
-    "text": "14 Referências e Leituras Recomendadas\n\nFastQC Documentation\nTrimmomatic Manual\nSPAdes GitHub\nMasurca Documentation\nMEGAHIT GitHub\nQUAST Documentation",
+    "section": "15 Referências e Leituras Recomendadas",
+    "text": "15 Referências e Leituras Recomendadas\n\nFastQC Documentation\nTrimmomatic Manual\nSPAdes GitHub\nMasurca Documentation\nMEGAHIT GitHub\nQUAST Documentation",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
