@@ -85,9 +85,16 @@ flowchart TD
 # Pré-requisitos e Configuração Inicial
 
 **Arquivos necessários:**
-- `contigs.fasta` - arquivo com sequências genômicas em formato FASTA
 
-**Ambiente:** Terminal Linux com as ferramentas instaladas e configuradas
+- [ecoli.contigs](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/ecoli.contigs.fasta.xz): arquivo FASTQ com contigs do genoma de *E. coli*;
+- [saccharomyces.contigs](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/saccharomyces.contigs.fasta.xz): arquivo FASTQ com contigs do genoma de *S. cerevisiae*;
+- <span style="color:red">SUBSTITUA `contigs.fasta` pelo arquivo de contigs correspondente ao organismo em estudo.</span>
+
+**Ambiente:**
+
+- Terminal Linux com as ferramentas instaladas e configuradas
+- Ativar ambiente conda com `conda activate biosistemas` (ou outro ambiente que contenha as ferramentas necessárias)
+- Para descompactar arquivos `.xz`, utilize `xz -d nome_do_arquivo.xz` e para descompactar arquivos `.gz`, utilize `gunzip nome_do_arquivo.gz`. Para arquivos `.zip`, utilize `unzip nome_do_arquivo.zip`.
 
 **Verificação de dependências:**
 ```bash
@@ -106,15 +113,11 @@ which busco prodigal augustus
 Manual: [BUSCO](https://busco.ezlab.org/busco_userguide.html)
 
 ```bash
-busco \
-    -i contigs.fasta \
-    -o nome_da_analise \
-    -m genome \
-    -l linhagem_odb10 \
-    -c 8
+busco -i contigs.fasta -o nome_da_analise -m genome -l linhagem_odb10 -c 8
 ```
 
 **Argumentos:**
+
 - `-i`: arquivo de entrada (genoma)
 - `-o`: nome do diretório de saída
 - `-m`: modo de análise (genome, transcriptome, proteins)
@@ -129,14 +132,11 @@ busco \
 Manual: [Prodigal](https://github.com/cobbie/Prodigal)
 
 ```bash
-prodigal \
-    -i contigs.fasta \
-    -a proteins.faa \
-    -d genes.fna \
-    -f gff > genes.gff
+prodigal -i contigs.fasta -a proteins.faa -d genes.fna -f gff > genes.gff
 ```
 
 **Argumentos:**
+
 - `-i`: arquivo de entrada
 - `-a`: sequências de proteínas preditas (formato FASTA)
 - `-d`: sequências de DNA codificante (formato FASTA)
@@ -150,13 +150,11 @@ prodigal \
 Manual: [Augustus](https://github.com/genomewide/Augustus)
 
 ```bash
-augustus \
-    --species=ESPECIE \
-    --gff3=on \
-    contigs.fasta > genes.gff
+augustus --species=ESPECIE --gff3=on contigs.fasta > genes.gff
 ```
 
 **Argumentos:**
+
 - `--species`: espécie alvo (ex: saccharomyces, drosophila)
 - `--gff3=on`: formato de saída GFF3
 - Outras opções úteis: `--strand=both`, `--genemodel=complete`
@@ -165,9 +163,7 @@ augustus \
 
 ---
 
-
 # Parte 2 – Interpretação dos Resultados
-
 
 ## Análise do Arquivo GFF
 
@@ -204,6 +200,7 @@ O arquivo GFF contém 9 colunas:
 ## Questões para Responder
 
 **Pergunta 1: Quantos genes foram encontrados?**
+
 ```bash
 
 # Para Prodigal
@@ -215,6 +212,7 @@ grep -c "transcript" genes.gff
 ```
 
 **Pergunta 2: Quantas proteínas foram preditas?**
+
 ```bash
 
 # Contar sequências no arquivo FASTA
@@ -227,9 +225,7 @@ grep -c "CDS" genes.gff
 
 ---
 
-
 # Parte 3 – Análise Detalhada das Proteínas
-
 
 ## Extração e Análise de Tamanhos
 

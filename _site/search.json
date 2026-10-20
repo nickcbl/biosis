@@ -110,7 +110,7 @@
     "href": "roteiros/pratica4.html#avaliação-da-qualidade-do-genoma-com-busco",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "4.1 Avaliação da Qualidade do Genoma com BUSCO",
-    "text": "4.1 Avaliação da Qualidade do Genoma com BUSCO\nManual: BUSCO\nbusco \\\n    -i contigs.fasta \\\n    -o nome_da_analise \\\n    -m genome \\\n    -l linhagem_odb10 \\\n    -c 8\nArgumentos: - -i: arquivo de entrada (genoma) - -o: nome do diretório de saída - -m: modo de análise (genome, transcriptome, proteins) - -l: linhagem específica (ex: bacteria_odb10, fungi_odb10) - -c: número de threads para processamento paralelo\nSaída esperada: Relatório de completude do genoma em nome_da_analise/short_summary.specific.*.txt",
+    "text": "4.1 Avaliação da Qualidade do Genoma com BUSCO\nManual: BUSCO\nbusco -i contigs.fasta -o nome_da_analise -m genome -l linhagem_odb10 -c 8\nArgumentos:\n\n-i: arquivo de entrada (genoma)\n-o: nome do diretório de saída\n-m: modo de análise (genome, transcriptome, proteins)\n-l: linhagem específica (ex: bacteria_odb10, fungi_odb10)\n-c: número de threads para processamento paralelo\n\nSaída esperada: Relatório de completude do genoma em nome_da_analise/short_summary.specific.*.txt",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -121,7 +121,7 @@
     "href": "roteiros/pratica4.html#predição-de-genes-com-prodigal-procariotos",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "4.2 Predição de Genes com Prodigal (Procariotos)",
-    "text": "4.2 Predição de Genes com Prodigal (Procariotos)\nManual: Prodigal\nprodigal \\\n    -i contigs.fasta \\\n    -a proteins.faa \\\n    -d genes.fna \\\n    -f gff &gt; genes.gff\nArgumentos: - -i: arquivo de entrada - -a: sequências de proteínas preditas (formato FASTA) - -d: sequências de DNA codificante (formato FASTA) - -f: formato de saída (gff, sgf, gbk, sco)\nSaída esperada: Arquivo GFF com anotações estruturais",
+    "text": "4.2 Predição de Genes com Prodigal (Procariotos)\nManual: Prodigal\nprodigal -i contigs.fasta -a proteins.faa -d genes.fna -f gff &gt; genes.gff\nArgumentos:\n\n-i: arquivo de entrada\n-a: sequências de proteínas preditas (formato FASTA)\n-d: sequências de DNA codificante (formato FASTA)\n-f: formato de saída (gff, sgf, gbk, sco)\n\nSaída esperada: Arquivo GFF com anotações estruturais",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -132,7 +132,7 @@
     "href": "roteiros/pratica4.html#predição-de-genes-com-augustus-eucariotos",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "4.3 Predição de Genes com Augustus (Eucariotos)",
-    "text": "4.3 Predição de Genes com Augustus (Eucariotos)\nManual: Augustus\naugustus \\\n    --species=ESPECIE \\\n    --gff3=on \\\n    contigs.fasta &gt; genes.gff\nArgumentos: - --species: espécie alvo (ex: saccharomyces, drosophila) - --gff3=on: formato de saída GFF3 - Outras opções úteis: --strand=both, --genemodel=complete\nSaída esperada: Arquivo GFF com anotações estruturais",
+    "text": "4.3 Predição de Genes com Augustus (Eucariotos)\nManual: Augustus\naugustus --species=ESPECIE --gff3=on contigs.fasta &gt; genes.gff\nArgumentos:\n\n--species: espécie alvo (ex: saccharomyces, drosophila)\n--gff3=on: formato de saída GFF3\nOutras opções úteis: --strand=both, --genemodel=complete\n\nSaída esperada: Arquivo GFF com anotações estruturais",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -748,7 +748,7 @@
     "href": "roteiros/pratica3.html#parte-2-limpeza-trimagem-com-trimmomatic",
     "title": "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade",
     "section": "8 Parte 2 – Limpeza (Trimagem) com Trimmomatic",
-    "text": "8 Parte 2 – Limpeza (Trimagem) com Trimmomatic\n\n8.1 Comando\nTrimmomatic é uma ferramenta flexível para remover adaptadores e bases de baixa qualidade. O comando abaixo realiza a trimagem em dados paired-end, gerando arquivos de reads limpos e descartando reads curtas.\nManual: Trimmomatic Manual\nTrimmomaticPE \\\n    -threads 4 \\\n    -phred33 \\\n    reads_R1.fastq.gz \\\n    reads_R2.fastq.gz \\\n    forward_paired.fastq.gz \\\n    forward_unpaired.fastq.gz \\\n    reverse_paired.fastq.gz \\\n    reverse_unpaired.fastq.gz \\\n    ILLUMINACLIP:adapters.fa:2:30:10 \\\n    LEADING:3 \\\n    TRAILING:3 \\\n    SLIDINGWINDOW:4:15 \\\n    MINLEN:36\n\n\n8.2 Explicação dos Parâmetros\n\n\n\n\n\n\n\nParâmetro\nFunção\n\n\n\n\nILLUMINACLIP:adapters.fa:2:30:10\nRemove adaptadores. Parâmetros: mismatch máximo (2), palíndromo (30), simples (10)\n\n\nLEADING:3\nRemove bases com qualidade &lt; 3 no início da read\n\n\nTRAILING:3\nRemove bases com qualidade &lt; 3 no final da read\n\n\nSLIDINGWINDOW:4:15\nCorta a read quando a média de qualidade em uma janela de 4 bases for &lt; 15\n\n\nMINLEN:36\nDescarta reads com comprimento final &lt; 36 bases\n\n\n\n\n\n8.3 Verificação Pós-Trimagem\nExecute novamente o FastQC nos arquivos *_paired.fastq.gz para confirmar a melhoria da qualidade.\nQuantos reads foram descartados? Isso é esperado para seus dados?",
+    "text": "8 Parte 2 – Limpeza (Trimagem) com Trimmomatic\n\n8.1 Comando\nTrimmomatic é uma ferramenta flexível para remover adaptadores e bases de baixa qualidade. O comando abaixo realiza a trimagem em dados paired-end, gerando arquivos de reads limpos e descartando reads curtas.\nManual: Trimmomatic Manual\ntrimmomatic PE \\\n    -threads 4 \\\n    reads_R1.fastq.gz \\\n    reads_R2.fastq.gz \\\n    forward_paired.fastq.gz \\\n    forward_unpaired.fastq.gz \\\n    reverse_paired.fastq.gz \\\n    reverse_unpaired.fastq.gz \\\n    ILLUMINACLIP:adapters.fa:2:30:10 \\\n    LEADING:3 \\\n    TRAILING:3 \\\n    SLIDINGWINDOW:4:15 \\\n    MINLEN:36\n\n\n8.2 Explicação dos Parâmetros\n\n\n\n\n\n\n\nParâmetro\nFunção\n\n\n\n\nILLUMINACLIP:adapters.fa:2:30:10\nRemove adaptadores. Parâmetros: mismatch máximo (2), palíndromo (30), simples (10)\n\n\nLEADING:3\nRemove bases com qualidade &lt; 3 no início da read\n\n\nTRAILING:3\nRemove bases com qualidade &lt; 3 no final da read\n\n\nSLIDINGWINDOW:4:15\nCorta a read quando a média de qualidade em uma janela de 4 bases for &lt; 15\n\n\nMINLEN:36\nDescarta reads com comprimento final &lt; 36 bases\n\n\n\n\n\n8.3 Verificação Pós-Trimagem\nExecute novamente o FastQC nos arquivos *_paired.fastq.gz para confirmar a melhoria da qualidade.\nQuantos reads foram descartados? Isso é esperado para seus dados?",
     "crumbs": [
       "Roteiros",
       "Aula Prática 3 – Montagem Genômica e Avaliação de Qualidade"
@@ -1100,7 +1100,7 @@
     "href": "roteiros/input/input.html",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "",
-    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova\n\n\n\nsequencias.fasta\nadapters.fa\nvirulence_genes.txt\nDados RNA-seq\nHomo_sapiens.GRCh38.104.gtf.xz\nexpressao_normalizada.txt\nparametros_repressilator.txt",
+    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1111,7 +1111,7 @@
     "href": "roteiros/input/input.html#download-imagem-máquina-virtual",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "",
-    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova\n\n\n\nsequencias.fasta\nadapters.fa\nvirulence_genes.txt\nDados RNA-seq\nHomo_sapiens.GRCh38.104.gtf.xz\nexpressao_normalizada.txt\nparametros_repressilator.txt",
+    "text": "Baixar e instalar o VirtualBox\nBaixar a imagem da máquina virtual abaixo\nAbrir o VirtualBox e IMPORTAR a máquina virtual\n\nBioSisUbuntu.ova",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1122,7 +1122,7 @@
     "href": "roteiros/input/input.html#aula-1-unix-básico",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 1 – Unix Básico",
-    "text": "AULA 1 – Unix Básico\n\nsequencias.fasta\nArquivo FASTA com 5 sequências de exemplo (E. coli, B. subtilis, P. aeruginosa).\nsequencias.fasta ⬇️\n\n\n📝 Visualizar conteúdo\n\n&gt;seq1|Escherichia coli|gene:lacZ\nATGCGTACGTAGCTAGCTAGCATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG\nATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCG\n&gt;seq2|Escherichia coli|gene:recA\nATGGATCCAGATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA\nTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA\nTCGATCGATCGATCGATCGATCGATCGA\n&gt;seq3|Bacillus subtilis|gene:spo0A\nATGAGTGATCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG\nTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG\nTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAGTCAG\n&gt;seq4|Pseudomonas aeruginosa|gene:lasR\nATGAATTCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGAT\nCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA\nTCGATCGATCGATCGATCGATCGATCGATCGATCG\n&gt;seq5|Bacillus subtilis|gene:comK\nATGGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTAC\nGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTA\nCGTACGTACGTACGTACGTACGTACGTACGTACGTACGT",
+    "text": "AULA 1 – Unix Básico\n\nsequencias.fasta: Arquivo FASTA com 5 sequências de exemplo (E. coli, B. subtilis, P. aeruginosa).",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1133,7 +1133,7 @@
     "href": "roteiros/input/input.html#aula-3-montagem-de-genomas",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 3 – Montagem de Genomas",
-    "text": "AULA 3 – Montagem de Genomas\n\nadapters.fa\nArquivo com sequências de adaptadores Illumina para o Trimmomatic.\nadapters.fa ⬇️\n\n\n📝 Visualizar conteúdo\n\n&gt;Illumina_PE_adaptor\nAGATCGGAAGAGCACACGTCTGAACTCCAGTCA\n&gt;Illumina_PE_adaptor_rev\nAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT\n&gt;Nextera_PE_adaptor\nCTGTCTCTTATACACATCT\n&gt;Nextera_PE_adaptor_rev\nCTGTCTCTTATACACATCT",
+    "text": "AULA 3 – Montagem de Genomas\n\nadapters.fa: arquivo FASTA com sequências de adaptadores para remoção de contaminação em dados de sequenciamento.\nSRR022820_1.fastq.xz: arquivo FASTQ com reads 1 do par (forward);\nSRR022820_2.fastq.xz: arquivo FASTQ com reads 2 do par (reverse);\nSRR2584857_1.fastq.xz: arquivo FASTQ com reads 1 do par (forward);\nSRR2584857_2.fastq.xz: arquivo FASTQ com reads 2 do par (reverse);",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1144,7 +1144,7 @@
     "href": "roteiros/input/input.html#aula-5-anotação-funcional",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 5 – Anotação Funcional",
-    "text": "AULA 5 – Anotação Funcional\n\nvirulence_genes.txt\nBanco de dados de genes de virulência (VFDB) para anotação funcional.\nvirulence_genes.txt ⬇️\n\n\n📝 Visualizar conteúdo\n\ngene    uniprot_id  function    category    organism\nlacI    P03023  Lactose operon repressor    Regulation  Escherichia coli\nrecA    P0A7G6  DNA repair protein RecA Metabolism  Escherichia coli\nlasR    Q9I4B3  Transcriptional regulator LasR  Regulation  Pseudomonas aeruginosa\nspo0A   P06534  Stage 0 sporulation protein A   Regulation  Bacillus subtilis\ncomK    P40728  Competence transcription factor Regulation  Bacillus subtilis\ntoxA    P11439  Exotoxin A  Toxin   Pseudomonas aeruginosa\nalgD    P19457  GDP-mannose 6-dehydrogenase Metabolism  Pseudomonas aeruginosa\npilA    P04782  Type IV pilin   Adhesion    Pseudomonas aeruginosa\nompA    P0A910  Outer membrane protein A    Adhesion    Escherichia coli\nhlyA    P08756  Hemolysin A Toxin   Escherichia coli",
+    "text": "AULA 5 – Anotação Funcional\n\nvirulence_genes.txt: Banco de dados de genes de virulência (VFDB) para anotação funcional.",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1154,8 +1154,8 @@
     "objectID": "roteiros/input/input.html#aula-6-rna-seq",
     "href": "roteiros/input/input.html#aula-6-rna-seq",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
-    "section": "AULA 6 – RNA-Seq",
-    "text": "AULA 6 – RNA-Seq\n\nDados de RNA-seq de E. coli (SRR390728)\nArquivos FASTQ para o pipeline de RNA-seq (paired-end).\nSRR390728_1.fastq.gz ⬇️ (Forward reads)\nSRR390728_2.fastq.gz ⬇️ (Reverse reads)\n\n\n📊 Informações dos dados\n\n\n\n\nPropriedade\nValor\n\n\n\n\nAccession\nSRR390728\n\n\nOrganismo\nEscherichia coli str. K-12 substr. MG1655\n\n\nTipo\nRNA-seq\n\n\nLayout\nPaired-end\n\n\nPlataforma\nIllumina HiSeq 2000\n\n\nTamanho aprox.\n~200 MB (cada)\n\n\nReferência\nNCBI SRA",
+    "section": "AULA 6 – RNA-SEQ",
+    "text": "AULA 6 – RNA-SEQ\n\nSRR390728_1.fastq.xz: Arquivos FASTQ para o pipeline de RNA-seq (paired-end). (Forward reads).\nSRR390728_2.fastq.xz: Arquivos FASTQ para o pipeline de RNA-seq (paired-end). (Reverse reads).",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1166,7 +1166,7 @@
     "href": "roteiros/input/input.html#aula-7-quantificação-de-rna-seq",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 7 – Quantificação de RNA-Seq",
-    "text": "AULA 7 – Quantificação de RNA-Seq\n\nHomo_sapiens.GRCh38.104.gtf.xz\nArquivo de anotação do genoma humano (Ensembl release 104). Arquivo compactado (.xz).\nHomo_sapiens.GRCh38.104.gtf.xz ⬇️\n\n\n📊 Informações do arquivo\n\n\n\n\nPropriedade\nValor\n\n\n\n\nGenoma\nHomo sapiens GRCh38\n\n\nVersão\n104\n\n\nFonte\nEnsembl\n\n\nTamanho\n~150 MB (compactado) / ~1200 MB (descompactado)\n\n\nFormato\nGTF (Gene Transfer Format)\n\n\n\nComando para descompactar:\nunxz Homo_sapiens.GRCh38.104.gtf.xz",
+    "text": "AULA 7 – Quantificação de RNA-Seq\n\nHomo_sapiens.GRCh38.104.gtf.xz: Arquivo de anotação do genoma humano (Ensembl release 104).\n\n\nComando para descompactar:\nunxz Homo_sapiens.GRCh38.104.gtf.xz",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1177,7 +1177,7 @@
     "href": "roteiros/input/input.html#aula-8-redes-de-coexpressão-wgcna",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 8 – Redes de Coexpressão (WGCNA)",
-    "text": "AULA 8 – Redes de Coexpressão (WGCNA)\n\nexpressao_normalizada.txt\nMatriz de expressão gênica normalizada (genes × amostras) para análise de coexpressão.\nexpressao_normalizada.txt ⬇️\n\n\n📝 Visualizar conteúdo (primeiras linhas)\n\nGene    Control_1   Control_2   Control_3   Virulent_1  Virulent_2  Virulent_3  Time0_1 Time0_2 Time0_3\nBRCA1   245.6   234.1   256.3   12.4    15.6    11.2    567.8   589.2   545.3\nTP53    89.3    92.1    85.7    456.2   478.3   445.6   123.4   134.5   118.9\nEGFR    567.8   589.2   545.3   234.5   245.6   223.4   45.6    43.2    48.9\nMYC 432.1   445.6   421.3   789.2   801.5   776.4   234.5   245.6   223.4\nKRAS    45.2    43.1    47.8    123.4   134.5   118.9   567.8   589.2   545.3\nPTEN    123.4   134.5   118.9   567.8   589.2   545.3   234.5   245.6   223.4\nCDKN1A  67.8    65.4    69.2    345.6   356.7   334.5   78.9    76.5    80.1\nCCND1   234.5   245.6   223.4   67.8    65.4    69.2    456.7   467.8   445.6\nE2F1    345.6   356.7   334.5   78.9    76.5    80.1    123.4   134.5   118.9\nRB1 78.9    76.5    80.1    234.5   245.6   223.4   345.6   356.7   334.5\nAKT1    456.7   467.8   445.6   123.4   134.5   118.9   67.8    65.4    69.2\nPIK3CA  123.4   134.5   118.9   456.7   467.8   445.6   234.5   245.6   223.4\nMAPK1   567.8   589.2   545.3   345.6   356.7   334.5   78.9    76.5    80.1\nMAPK3   234.5   245.6   223.4   567.8   589.2   545.3   123.4   134.5   118.9\nJUN 345.6   356.7   334.5   234.5   245.6   223.4   456.7   467.8   445.6\nFOS 78.9    76.5    80.1    345.6   356.7   334.5   67.8    65.4    69.2\nSRC 456.7   467.8   445.6   78.9    76.5    80.1    234.5   245.6   223.4\nSTAT3   123.4   134.5   118.9   567.8   589.2   545.3   345.6   356.7   334.5\nNFKB1   567.8   589.2   545.3   123.4   134.5   118.9   78.9    76.5    80.1\nTNF 234.5   245.6   223.4   456.7   467.8   445.6   234.5   245.6   223.4",
+    "text": "AULA 8 – Redes de Coexpressão (WGCNA)\n\nexpressao_normalizada.txt: Matriz de expressão gênica normalizada (genes × amostras) para análise de coexpressão.",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1188,7 +1188,7 @@
     "href": "roteiros/input/input.html#aula-11-celldesigner-e-copasi",
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "AULA 11 – CellDesigner E COPASI",
-    "text": "AULA 11 – CellDesigner E COPASI\n\nparametros_repressilator.txt\nParâmetros cinéticos do repressilador para simulação no COPASI.\nparametros_repressilator.txt ⬇️\n\n\n📝 Visualizar conteúdo\n\n# ============================================================\n# PARÂMETROS DO REPRESSILADOR\n# Fonte: Elowitz & Leibler (2000) - Nature 403:335-338\n# ============================================================\n\n# TAXAS DE PRODUÇÃO (proteínas por segundo)\nalpha_lacI = 50.0\nalpha_tetR = 50.0\nalpha_cI    = 50.0\n\n# CONSTANTES DE DISSOCIAÇÃO (concentração)\nK_lacI = 100.0\nK_tetR = 100.0\nK_cI    = 100.0\n\n# COEFICIENTES DE HILL (cooperatividade)\nn_lacI = 2.0\nn_tetR = 2.0\nn_cI    = 2.0\n\n# TAXAS DE DEGRADAÇÃO (por segundo)\ndelta_lacI = 0.05\ndelta_tetR = 0.05\ndelta_cI    = 0.05\n\n# TAXAS DE DEGRADAÇÃO DO mRNA (por segundo)\ndelta_mRNA_lacI = 0.10\ndelta_mRNA_tetR = 0.10\ndelta_mRNA_cI    = 0.10\n\n# TAXAS DE TRADUÇÃO (por segundo)\nbeta_lacI = 0.10\nbeta_tetR = 0.10\nbeta_cI    = 0.10\n\n# CONCENTRAÇÕES INICIAIS (moléculas por célula)\nLacI_initial = 10.0\nTetR_initial = 10.0\nCI_initial   = 10.0\n\n# mRNA CONCENTRAÇÕES INICIAIS (moléculas por célula)\nmRNA_lacI_initial = 1.0\nmRNA_tetR_initial = 1.0\nmRNA_cI_initial   = 1.0\n\n# TEMPO DE SIMULAÇÃO\nsimulation_duration = 5000.0  # segundos\nsimulation_steps    = 10000",
+    "text": "AULA 11 – CellDesigner E COPASI\n\nparametros_repressilator.txt\n\nparametros_repressilator.txt ⬇️: Parâmetros cinéticos do repressilador para simulação no COPASI.",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
@@ -1200,17 +1200,6 @@
     "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
     "section": "Guia Rápido de Download",
     "text": "Guia Rápido de Download\n\nComando para baixar todos os arquivos de uma vez:\n#!/bin/bash\n# download_all.sh\n\n# Criar diretório\nmkdir -p dados/{fasta,fastq,anotacoes,expressao}\nmkdir -p aulas/aula11\n\n# Download dos arquivos\necho \"Baixando sequencias.fasta...\"\nwget -O dados/fasta/sequencias.fasta [URL_BASE]/sequencias.fasta\n\necho \"Baixando adapters.fa...\"\nwget -O dados/anotacoes/adapters.fa [URL_BASE]/adapters.fa\n\necho \"Baixando virulence_genes.txt...\"\nwget -O dados/anotacoes/virulence_genes.txt [URL_BASE]/virulence_genes.txt\n\necho \"Baixando SRR390728_1.fastq.gz...\"\nwget -O dados/fastq/SRR390728_1.fastq.gz [URL_BASE]/SRR390728_1.fastq.gz\n\necho \"Baixando SRR390728_2.fastq.gz...\"\nwget -O dados/fastq/SRR390728_2.fastq.gz [URL_BASE]/SRR390728_2.fastq.gz\n\necho \"Baixando Homo_sapiens.GRCh38.104.gtf.xz...\"\nwget -O dados/anotacoes/Homo_sapiens.GRCh38.104.gtf.xz [URL_BASE]/Homo_sapiens.GRCh38.104.gtf.xz\n\necho \"Baixando expressao_normalizada.txt...\"\nwget -O dados/expressao/expressao_normalizada.txt [URL_BASE]/expressao_normalizada.txt\n\necho \"Baixando parametros_repressilator.txt...\"\nwget -O aulas/aula11/parametros_repressilator.txt [URL_BASE]/parametros_repressilator.txt\n\necho \"✅ Download concluído!\"",
-    "crumbs": [
-      "Roteiros",
-      "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"
-    ]
-  },
-  {
-    "objectID": "roteiros/input/input.html#resumo-dos-arquivos",
-    "href": "roteiros/input/input.html#resumo-dos-arquivos",
-    "title": "Arquivos de Entrada  Aulas Práticas  CI0932: Biologia de Sistemas",
-    "section": "Resumo dos Arquivos",
-    "text": "Resumo dos Arquivos\n\n\n\n#\nArquivo\nTamanho\nAula\n\n\n\n\n1\nsequencias.fasta\n~3 KB\n1\n\n\n2\nadapters.fa\n~200 B\n3\n\n\n3\nvirulence_genes.txt\n~1 KB\n5\n\n\n4\nSRR390728_1.fastq.gz\n~200 MB\n6\n\n\n5\nSRR390728_2.fastq.gz\n~200 MB\n6\n\n\n6\nHomo_sapiens.GRCh38.104.gtf.xz\n~150 MB\n7\n\n\n7\nexpressao_normalizada.txt\n~2 KB\n8\n\n\n8\nparametros_repressilator.txt\n~1 KB\n11",
     "crumbs": [
       "Roteiros",
       "Arquivos de Entrada <br> Aulas Práticas <br> CI0932: Biologia de Sistemas"

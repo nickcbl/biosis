@@ -525,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14 de outubro de 2026</p>
+      <p class="date">20 de outubro de 2026</p>
     </div>
   </div>
   
@@ -646,7 +646,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR022820_2.fastq.xz">SRR022820_2.fastq.xz</a>: arquivo FASTQ com reads 2 do par (reverse);</li>
 <li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR2584857_1.fastq.xz">SRR2584857_1.fastq.xz</a>: arquivo FASTQ com reads 1 do par (forward);</li>
 <li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/SRR2584857_2.fastq.xz">SRR2584857_2.fastq.xz</a>: arquivo FASTQ com reads 2 do par (reverse);</li>
-<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/adapters.fasta">adapters.fa</a>: arquivo FASTA contendo sequências de adaptadores a serem removidos.</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/adapters.fa">adapters.fa</a>: arquivo FASTA contendo sequências de adaptadores a serem removidos.</li>
 </ul>
 <hr>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -691,20 +691,19 @@ Importante
 <h3 data-number="8.1" class="anchored" data-anchor-id="comando"><span class="header-section-number">8.1</span> Comando</h3>
 <p>Trimmomatic é uma ferramenta flexível para remover adaptadores e bases de baixa qualidade. O comando abaixo realiza a trimagem em dados paired-end, gerando arquivos de reads limpos e descartando reads curtas.</p>
 <p><strong>Manual</strong>: <a href="http://www.usadellab.org/cms/?page=trimmomatic">Trimmomatic Manual</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">TrimmomaticPE</span> <span class="dt">\</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">trimmomatic</span> PE <span class="dt">\</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-threads</span> 4 <span class="dt">\</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-phred33</span> <span class="dt">\</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    reads_R1.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    reads_R2.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    forward_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    forward_unpaired.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    reverse_paired.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    reverse_unpaired.fastq.gz <span class="dt">\</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ILLUMINACLIP:adapters.fa:2:30:10 <span class="dt">\</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    LEADING:3 <span class="dt">\</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    TRAILING:3 <span class="dt">\</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    SLIDINGWINDOW:4:15 <span class="dt">\</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    MINLEN:36</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    reads_R1.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    reads_R2.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    forward_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    forward_unpaired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    reverse_paired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    reverse_unpaired.fastq.gz <span class="dt">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    ILLUMINACLIP:adapters.fa:2:30:10 <span class="dt">\</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    LEADING:3 <span class="dt">\</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    TRAILING:3 <span class="dt">\</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    SLIDINGWINDOW:4:15 <span class="dt">\</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    MINLEN:36</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="explicação-dos-parâmetros" class="level3" data-number="8.2">
 <h3 data-number="8.2" class="anchored" data-anchor-id="explicação-dos-parâmetros"><span class="header-section-number">8.2</span> Explicação dos Parâmetros</h3>
