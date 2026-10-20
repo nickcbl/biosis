@@ -506,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">15 de outubro de 2026</p>
+      <p class="date">20 de outubro de 2026</p>
     </div>
   </div>
   
@@ -589,8 +589,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pré-requisitos-e-configuração-inicial" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Pré-requisitos e Configuração Inicial</h1>
-<p><strong>Arquivos necessários:</strong> - <code>contigs.fasta</code> - arquivo com sequências genômicas em formato FASTA</p>
-<p><strong>Ambiente:</strong> Terminal Linux com as ferramentas instaladas e configuradas</p>
+<p><strong>Arquivos necessários:</strong></p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/ecoli.contigs.fasta.xz">ecoli.contigs</a>: arquivo FASTQ com contigs do genoma de <em>E. coli</em>;</li>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/saccharomyces.contigs.fasta.xz">saccharomyces.contigs</a>: arquivo FASTQ com contigs do genoma de <em>S. cerevisiae</em>;</li>
+<li><span style="color:red">SUBSTITUA <code>contigs.fasta</code> pelo arquivo de contigs correspondente ao organismo em estudo.</span></li>
+</ul>
+<p><strong>Ambiente:</strong></p>
+<ul>
+<li>Terminal Linux com as ferramentas instaladas e configuradas</li>
+<li>Ativar ambiente conda com <code>conda activate biosistemas</code> (ou outro ambiente que contenha as ferramentas necessárias)</li>
+<li>Para descompactar arquivos <code>.xz</code>, utilize <code>xz -d nome_do_arquivo.xz</code> e para descompactar arquivos <code>.gz</code>, utilize <code>gunzip nome_do_arquivo.gz</code>. Para arquivos <code>.zip</code>, utilize <code>unzip nome_do_arquivo.zip</code>.</li>
+</ul>
 <p><strong>Verificação de dependências:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar instalação das ferramentas</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> busco prodigal augustus</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -601,34 +611,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="avaliação-da-qualidade-do-genoma-com-busco" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="avaliação-da-qualidade-do-genoma-com-busco"><span class="header-section-number">4.1</span> Avaliação da Qualidade do Genoma com BUSCO</h2>
 <p>Manual: <a href="https://busco.ezlab.org/busco_userguide.html">BUSCO</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">busco</span> <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-i</span> contigs.fasta <span class="dt">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-o</span> nome_da_analise <span class="dt">\</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-m</span> genome <span class="dt">\</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-l</span> linhagem_odb10 <span class="dt">\</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">-c</span> 8</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Argumentos:</strong> - <code>-i</code>: arquivo de entrada (genoma) - <code>-o</code>: nome do diretório de saída - <code>-m</code>: modo de análise (genome, transcriptome, proteins) - <code>-l</code>: linhagem específica (ex: bacteria_odb10, fungi_odb10) - <code>-c</code>: número de threads para processamento paralelo</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">busco</span> <span class="at">-i</span> contigs.fasta <span class="at">-o</span> nome_da_analise <span class="at">-m</span> genome <span class="at">-l</span> linhagem_odb10 <span class="at">-c</span> 8</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Argumentos:</strong></p>
+<ul>
+<li><code>-i</code>: arquivo de entrada (genoma)</li>
+<li><code>-o</code>: nome do diretório de saída</li>
+<li><code>-m</code>: modo de análise (genome, transcriptome, proteins)</li>
+<li><code>-l</code>: linhagem específica (ex: bacteria_odb10, fungi_odb10)</li>
+<li><code>-c</code>: número de threads para processamento paralelo</li>
+</ul>
 <p><strong>Saída esperada:</strong> Relatório de completude do genoma em <code>nome_da_analise/short_summary.specific.*.txt</code></p>
 </section>
 <section id="predição-de-genes-com-prodigal-procariotos" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="predição-de-genes-com-prodigal-procariotos"><span class="header-section-number">4.2</span> Predição de Genes com Prodigal (Procariotos)</h2>
 <p>Manual: <a href="https://github.com/cobbie/Prodigal">Prodigal</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">prodigal</span> <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">-i</span> contigs.fasta <span class="dt">\</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">-a</span> proteins.faa <span class="dt">\</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-d</span> genes.fna <span class="dt">\</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-f</span> gff <span class="op">&gt;</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Argumentos:</strong> - <code>-i</code>: arquivo de entrada - <code>-a</code>: sequências de proteínas preditas (formato FASTA) - <code>-d</code>: sequências de DNA codificante (formato FASTA) - <code>-f</code>: formato de saída (gff, sgf, gbk, sco)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">prodigal</span> <span class="at">-i</span> contigs.fasta <span class="at">-a</span> proteins.faa <span class="at">-d</span> genes.fna <span class="at">-f</span> gff <span class="op">&gt;</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Argumentos:</strong></p>
+<ul>
+<li><code>-i</code>: arquivo de entrada</li>
+<li><code>-a</code>: sequências de proteínas preditas (formato FASTA)</li>
+<li><code>-d</code>: sequências de DNA codificante (formato FASTA)</li>
+<li><code>-f</code>: formato de saída (gff, sgf, gbk, sco)</li>
+</ul>
 <p><strong>Saída esperada:</strong> Arquivo GFF com anotações estruturais</p>
 </section>
 <section id="predição-de-genes-com-augustus-eucariotos" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="predição-de-genes-com-augustus-eucariotos"><span class="header-section-number">4.3</span> Predição de Genes com Augustus (Eucariotos)</h2>
 <p>Manual: <a href="https://github.com/genomewide/Augustus">Augustus</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">augustus</span> <span class="dt">\</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--species</span><span class="op">=</span>ESPECIE <span class="dt">\</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--gff3</span><span class="op">=</span>on <span class="dt">\</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    contigs.fasta <span class="op">&gt;</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Argumentos:</strong> - <code>--species</code>: espécie alvo (ex: saccharomyces, drosophila) - <code>--gff3=on</code>: formato de saída GFF3 - Outras opções úteis: <code>--strand=both</code>, <code>--genemodel=complete</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">augustus</span> <span class="at">--species</span><span class="op">=</span>ESPECIE <span class="at">--gff3</span><span class="op">=</span>on contigs.fasta <span class="op">&gt;</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Argumentos:</strong></p>
+<ul>
+<li><code>--species</code>: espécie alvo (ex: saccharomyces, drosophila)</li>
+<li><code>--gff3=on</code>: formato de saída GFF3</li>
+<li>Outras opções úteis: <code>--strand=both</code>, <code>--genemodel=complete</code></li>
+</ul>
 <p><strong>Saída esperada:</strong> Arquivo GFF com anotações estruturais</p>
 <hr>
 </section>
