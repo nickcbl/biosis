@@ -467,8 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#parte-2" id="toc-parte-2" class="nav-link" data-scroll-target="#parte-2"><span class="header-section-number">2.4</span> Parte 2</a>
   <ul class="collapse">
   <li><a href="#identificar-organismo-homólogo-e-função-com-blast" id="toc-identificar-organismo-homólogo-e-função-com-blast" class="nav-link" data-scroll-target="#identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.4.1</span> Identificar Organismo Homólogo e Função com BLAST</a></li>
-  <li><a href="#identificar-domínios-e-função-com-interproscan" id="toc-identificar-domínios-e-função-com-interproscan" class="nav-link" data-scroll-target="#identificar-domínios-e-função-com-interproscan"><span class="header-section-number">2.4.2</span> Identificar Domínios e Função com InterProScan</a></li>
-  <li><a href="#alternativa-identificar-domínios-com-hmmscan-e-pfam" id="toc-alternativa-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.3</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
+  <li><a href="#alternativa-identificar-domínios-com-hmmscan-e-pfam" id="toc-alternativa-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.2</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -665,37 +664,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Filtrando por um organismo específico:</strong> Se você quiser buscar apenas por homólogos em um organismo ou grupo taxonômico específico, pode usar a opção <code>-taxids</code> com o ID de táxon do NCBI. Por exemplo, para buscar apenas em bactérias (taxid <code>2</code>):</p></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> nr <span class="at">-query</span> sua_sequencia.faa <span class="at">-taxids</span> 2 <span class="at">-out</span> resultados_blast_filtrado.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<!--
+
+### Identificar Domínios e Função com InterProScan
+
+O InterProScan é uma ferramenta poderosa que integra várias bases de dados de domínios e famílias de proteínas (como Pfam, CDD, PROSITE, etc.) para fornecer uma anotação funcional rica. É a ferramenta ideal para a análise que você deseja.
+
+*   **Comando básico para anotar proteínas:**
+```bash
+interproscan.sh -i sua_sequencia.faa -f TSV,GFF3 -goterms -iprlookup -cpu 4
+```
+- `-i sua_sequencia.faa`: Arquivo de entrada com suas sequências de proteínas.
+- `-f TSV,GFF3`: Especifica os formatos de saída. O TSV é um formato tabular fácil de ler, e o GFF3 é útil para visualização em ferramentas de genômica.
+- `-goterms`: Adiciona termos de ontologia gênica (GO), que descrevem a função molecular, o processo biológico e o componente celular.
+- `-iprlookup`: Inclui anotações do banco de dados InterPro, que faz uma curadoria das informações de domínios e famílias.
+- `-cpu 4`: Número de núcleos de CPU para acelerar o processo.
+- **Nota sobre a conexão com a internet:** Por padrão, o InterProScan usa um serviço de *lookup* para verificar se a sequência já foi analisada, o que acelera o processo, mas requer internet. Para uso offline, adicione a opção `-dp` (disable precalc), o que fará com que todas as análises sejam executadas localmente (o que pode ser mais lento).
+
+-->
 </section>
-<section id="identificar-domínios-e-função-com-interproscan" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="identificar-domínios-e-função-com-interproscan"><span class="header-section-number">2.4.2</span> Identificar Domínios e Função com InterProScan</h3>
-<p>O InterProScan é uma ferramenta poderosa que integra várias bases de dados de domínios e famílias de proteínas (como Pfam, CDD, PROSITE, etc.) para fornecer uma anotação funcional rica. É a ferramenta ideal para a análise que você deseja.</p>
-<ul>
-<li><strong>Comando básico para anotar proteínas:</strong></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">interproscan.sh</span> <span class="at">-i</span> sua_sequencia.faa <span class="at">-f</span> TSV,GFF3 <span class="at">-goterms</span> <span class="at">-iprlookup</span> <span class="at">-cpu</span> 4</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>-i sua_sequencia.faa</code>: Arquivo de entrada com suas sequências de proteínas.</li>
-<li><code>-f TSV,GFF3</code>: Especifica os formatos de saída. O TSV é um formato tabular fácil de ler, e o GFF3 é útil para visualização em ferramentas de genômica.</li>
-<li><code>-goterms</code>: Adiciona termos de ontologia gênica (GO), que descrevem a função molecular, o processo biológico e o componente celular.</li>
-<li><code>-iprlookup</code>: Inclui anotações do banco de dados InterPro, que faz uma curadoria das informações de domínios e famílias.</li>
-<li><code>-cpu 4</code>: Número de núcleos de CPU para acelerar o processo.</li>
-<li><strong>Nota sobre a conexão com a internet:</strong> Por padrão, o InterProScan usa um serviço de <em>lookup</em> para verificar se a sequência já foi analisada, o que acelera o processo, mas requer internet. Para uso offline, adicione a opção <code>-dp</code> (disable precalc), o que fará com que todas as análises sejam executadas localmente (o que pode ser mais lento).</li>
-</ul>
-</section>
-<section id="alternativa-identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.3</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
+<section id="alternativa-identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.2</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
 <p>O <code>hmmscan</code>, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.</p>
 <ul>
 <li><strong>Preparar o banco de dados Pfam (fazer uma vez):</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> Pfam-A.hmm.gz</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmpress</span> Pfam-A.hmm</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> Pfam-A.hmm.gz</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmpress</span> Pfam-A.hmm</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Isso criará os arquivos necessários para a busca.</p>
 <ul>
 <li><strong>Executar a busca de domínios:</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmscan</span> <span class="at">--tblout</span> saida_domains_tbl.txt <span class="at">--domtblout</span> saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmscan</span> <span class="at">--tblout</span> saida_domains_tbl.txt <span class="at">--domtblout</span> saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>--tblout saida_domains_tbl.txt</code>: Saída resumida por sequência alvo.</li>
 <li><code>--domtblout saida_domains_domtbl.txt</code>: Saída detalhada por domínio encontrado, muito útil para análise.</li>
