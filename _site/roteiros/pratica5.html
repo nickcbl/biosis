@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,13 +13,10 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -79,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86172bcf962643a22049eb73841d6a73.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-f9f455dc64e413ef7d6b4e46eacfda3e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-adea67c3938f14a26b5c6b35a23e038d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0b60be69f7413ed8c7a846afa23753e9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -470,8 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#parte-2" id="toc-parte-2" class="nav-link" data-scroll-target="#parte-2"><span class="header-section-number">2.4</span> Parte 2</a>
   <ul class="collapse">
   <li><a href="#identificar-organismo-homólogo-e-função-com-blast" id="toc-identificar-organismo-homólogo-e-função-com-blast" class="nav-link" data-scroll-target="#identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.4.1</span> Identificar Organismo Homólogo e Função com BLAST</a></li>
-  <li><a href="#identificar-domínios-e-função-com-interproscan" id="toc-identificar-domínios-e-função-com-interproscan" class="nav-link" data-scroll-target="#identificar-domínios-e-função-com-interproscan"><span class="header-section-number">2.4.2</span> Identificar Domínios e Função com InterProScan</a></li>
-  <li><a href="#alternativa-identificar-domínios-com-hmmscan-e-pfam" id="toc-alternativa-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.3</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
+  <li><a href="#alternativa-identificar-domínios-com-hmmscan-e-pfam" id="toc-alternativa-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.2</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -499,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">20 de outubro de 2026</p>
+      <p class="date">10 de novembro de 2026</p>
     </div>
   </div>
   
@@ -515,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
 <p>Aula para anotação de sequências:</p>
 <p><strong>Parte 1 - Preparação e Busca com BLAST:</strong> - Download de bases de dados do NCBI pré-formatadas para BLAST - Criação de bancos de dados personalizados a partir de arquivos FASTA - Execução de buscas BLAST (blastp, blastn, etc.) com diferentes parâmetros e formatos de saída</p>
-<p><strong>Parte 2 - Anotação Funcional e Identificação de Domínios:</strong> - Identificação de organismos homólogos e função através de buscas BLAST no banco NR (<em>non-redundant</em>) - Anotação detalhada de domínios e função utilizando InterProScan (recomendado) - Alternativa com hmmscan para busca específica em banco de dados Pfam</p>
+<p><strong>Parte 2 - Anotação Funcional e Identificação de Domínios:</strong> - Identificação de organismos homólogos e função através de buscas BLAST no banco PDBAA (Aminoácidos do PDB) - Anotação detalhada de domínios e função utilizando InterProScan (recomendado) - Alternativa com hmmscan para busca específica em banco de dados Pfam</p>
 <hr>
 </section>
 <section id="fluxograma" class="level1" data-number="2">
@@ -623,8 +619,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="baixar-uma-base-de-dados-do-ncbi" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.3.1</span> Baixar uma Base de Dados do NCBI</h3>
 <p>A maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script <code>update_blastdb.pl</code>, que acompanha a suíte BLAST+ .</p>
-<p>Para baixar a base de dados de proteínas não-redundante (<code>nr</code>), por exemplo, use o comando :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--decompress</span> nr</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Para baixar a base de dados de proteínas não-redundante (<code>pdbaa</code>), por exemplo, use o comando :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--decompress</span> pdbaa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Explicação:</strong> * <code>update_blastdb.pl</code>: É o script para baixar e atualizar bases de dados do NCBI . * <code>--decompress</code>: Baixa e descompacta a base de dados no diretório atual . * <code>nr</code>: É o nome da base de dados de proteínas não-redundante.</p>
 <p>Para ver a lista completa de bases de dados disponíveis para download, use :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--showall</span> pretty</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -657,9 +653,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Comando básico para buscar homólogos:</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> nr <span class="at">-query</span> sua_sequencia.faa <span class="at">-out</span> resultados_blast.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5 <span class="at">-max_target_seqs</span> 1</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> pdbaa <span class="at">-query</span> sua_sequencia.faa <span class="at">-out</span> resultados_blast.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5 <span class="at">-max_target_seqs</span> 1</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li><p><code>-db nr</code>: Usa o banco de dados de proteínas não-redundante do NCBI (que você pode baixar com <code>update_blastdb.pl</code>).</p></li>
+<li><p><code>-db pdbaa</code>: Usa o banco de dados de proteínas do PDB (que você pode baixar com <code>update_blastdb.pl</code>).</p></li>
 <li><p><code>-query sua_sequencia.faa</code>: Seu arquivo de entrada.</p></li>
 <li><p><code>-out resultados_blast.txt</code>: Arquivo de saída.</p></li>
 <li><p><code>-outfmt 6</code>: Formato tabular simples e fácil de processar.</p></li>
@@ -668,37 +664,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Filtrando por um organismo específico:</strong> Se você quiser buscar apenas por homólogos em um organismo ou grupo taxonômico específico, pode usar a opção <code>-taxids</code> com o ID de táxon do NCBI. Por exemplo, para buscar apenas em bactérias (taxid <code>2</code>):</p></li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> nr <span class="at">-query</span> sua_sequencia.faa <span class="at">-taxids</span> 2 <span class="at">-out</span> resultados_blast_filtrado.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<!--
+
+### Identificar Domínios e Função com InterProScan
+
+O InterProScan é uma ferramenta poderosa que integra várias bases de dados de domínios e famílias de proteínas (como Pfam, CDD, PROSITE, etc.) para fornecer uma anotação funcional rica. É a ferramenta ideal para a análise que você deseja.
+
+*   **Comando básico para anotar proteínas:**
+```bash
+interproscan.sh -i sua_sequencia.faa -f TSV,GFF3 -goterms -iprlookup -cpu 4
+```
+- `-i sua_sequencia.faa`: Arquivo de entrada com suas sequências de proteínas.
+- `-f TSV,GFF3`: Especifica os formatos de saída. O TSV é um formato tabular fácil de ler, e o GFF3 é útil para visualização em ferramentas de genômica.
+- `-goterms`: Adiciona termos de ontologia gênica (GO), que descrevem a função molecular, o processo biológico e o componente celular.
+- `-iprlookup`: Inclui anotações do banco de dados InterPro, que faz uma curadoria das informações de domínios e famílias.
+- `-cpu 4`: Número de núcleos de CPU para acelerar o processo.
+- **Nota sobre a conexão com a internet:** Por padrão, o InterProScan usa um serviço de *lookup* para verificar se a sequência já foi analisada, o que acelera o processo, mas requer internet. Para uso offline, adicione a opção `-dp` (disable precalc), o que fará com que todas as análises sejam executadas localmente (o que pode ser mais lento).
+
+-->
 </section>
-<section id="identificar-domínios-e-função-com-interproscan" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="identificar-domínios-e-função-com-interproscan"><span class="header-section-number">2.4.2</span> Identificar Domínios e Função com InterProScan</h3>
-<p>O InterProScan é uma ferramenta poderosa que integra várias bases de dados de domínios e famílias de proteínas (como Pfam, CDD, PROSITE, etc.) para fornecer uma anotação funcional rica. É a ferramenta ideal para a análise que você deseja.</p>
-<ul>
-<li><strong>Comando básico para anotar proteínas:</strong></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">interproscan.sh</span> <span class="at">-i</span> sua_sequencia.faa <span class="at">-f</span> TSV,GFF3 <span class="at">-goterms</span> <span class="at">-iprlookup</span> <span class="at">-cpu</span> 4</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>-i sua_sequencia.faa</code>: Arquivo de entrada com suas sequências de proteínas.</li>
-<li><code>-f TSV,GFF3</code>: Especifica os formatos de saída. O TSV é um formato tabular fácil de ler, e o GFF3 é útil para visualização em ferramentas de genômica.</li>
-<li><code>-goterms</code>: Adiciona termos de ontologia gênica (GO), que descrevem a função molecular, o processo biológico e o componente celular.</li>
-<li><code>-iprlookup</code>: Inclui anotações do banco de dados InterPro, que faz uma curadoria das informações de domínios e famílias.</li>
-<li><code>-cpu 4</code>: Número de núcleos de CPU para acelerar o processo.</li>
-<li><strong>Nota sobre a conexão com a internet:</strong> Por padrão, o InterProScan usa um serviço de <em>lookup</em> para verificar se a sequência já foi analisada, o que acelera o processo, mas requer internet. Para uso offline, adicione a opção <code>-dp</code> (disable precalc), o que fará com que todas as análises sejam executadas localmente (o que pode ser mais lento).</li>
-</ul>
-</section>
-<section id="alternativa-identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.3</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
+<section id="alternativa-identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.2</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
 <p>O <code>hmmscan</code>, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.</p>
 <ul>
 <li><strong>Preparar o banco de dados Pfam (fazer uma vez):</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> Pfam-A.hmm.gz</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmpress</span> Pfam-A.hmm</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> Pfam-A.hmm.gz</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmpress</span> Pfam-A.hmm</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Isso criará os arquivos necessários para a busca.</p>
 <ul>
 <li><strong>Executar a busca de domínios:</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmscan</span> <span class="at">--tblout</span> saida_domains_tbl.txt <span class="at">--domtblout</span> saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmscan</span> <span class="at">--tblout</span> saida_domains_tbl.txt <span class="at">--domtblout</span> saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>--tblout saida_domains_tbl.txt</code>: Saída resumida por sequência alvo.</li>
 <li><code>--domtblout saida_domains_domtbl.txt</code>: Saída detalhada por domínio encontrado, muito útil para análise.</li>

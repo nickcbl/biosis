@@ -110,32 +110,42 @@ which busco prodigal augustus
 
 ## Avaliação da Qualidade do Genoma com BUSCO
 
-Manual: [BUSCO](https://busco.ezlab.org/busco_userguide.html)
-
-```bash
-busco -i contigs.fasta -o nome_da_analise -m genome -l linhagem_odb10 -c 8
-```
-
 **Argumentos:**
+
+Manual: [BUSCO](https://busco.ezlab.org/busco_userguide.html)
 
 - `-i`: arquivo de entrada (genoma)
 - `-o`: nome do diretório de saída
 - `-m`: modo de análise (genome, transcriptome, proteins)
-- `-l`: linhagem específica (ex: bacteria_odb10, fungi_odb10)
+- `-l`: linhagem específica -> usaremos: bacteria_odb10 para *E. coli* e fungi_odb10 para *Saccharomyces cerevisae*.
 - `-c`: número de threads para processamento paralelo
 
 **Saída esperada:** Relatório de completude do genoma em `nome_da_analise/short_summary.specific.*.txt`
 
+**Exemplo de execução:**
 
-## Predição de Genes com Prodigal (Procariotos)
 
-Manual: [Prodigal](https://github.com/cobbie/Prodigal)
+::: {.callout-warning}
+
+Lembre-se de substituir `contigs.fasta` pelo arquivo de contigs correspondente ao organismo em estudo e ajustar a linhagem (`-l`) conforme necessário.
+
+:::
+
 
 ```bash
-prodigal -i contigs.fasta -a proteins.faa -d genes.fna -f gff > genes.gff
+busco -i ecoli.contigs.fasta -o ecoli_busco -m genome -l bacteria_odb10 -c 8
+
+# e
+
+busco -i saccharomyces.contigs.fasta -o saccharomyces_busco -m genome -l fungi_odb10 -c 8
 ```
 
+
+## Predição de Genes com Prodigal (**Procariotos**)
+
 **Argumentos:**
+
+Manual: [Prodigal](https://github.com/cobbie/Prodigal)
 
 - `-i`: arquivo de entrada
 - `-a`: sequências de proteínas preditas (formato FASTA)
@@ -145,21 +155,38 @@ prodigal -i contigs.fasta -a proteins.faa -d genes.fna -f gff > genes.gff
 **Saída esperada:** Arquivo GFF com anotações estruturais
 
 
-## Predição de Genes com Augustus (Eucariotos)
-
-Manual: [Augustus](https://github.com/genomewide/Augustus)
-
 ```bash
-augustus --species=ESPECIE --gff3=on contigs.fasta > genes.gff
+prodigal -i ecoli.contigs.fasta -a ecoli.proteins.faa -d ecoli.genes.fna -f gff > ecoli.genes.gff
 ```
+
+
+
+
+## Predição de Genes com Augustus (Eucariotos)
 
 **Argumentos:**
 
-- `--species`: espécie alvo (ex: saccharomyces, drosophila)
+Manual: [Augustus](https://bioinf.uni-greifswald.de/augustus/)
+
+- `--species`: espécie alvo (ex: saccharomyces, drosophila). Usaremos saccharomyces.
 - `--gff3=on`: formato de saída GFF3
 - Outras opções úteis: `--strand=both`, `--genemodel=complete`
 
 **Saída esperada:** Arquivo GFF com anotações estruturais
+
+
+
+```bash
+augustus --species=saccharomyces --gff3=on --protein=on --codingseq=on saccharomyces.contigs.fasta > saccharomyces.genes.gff
+```
+
+
+
+## Extrair sequencia de proteínas preditas e cds.
+
+```bash
+getAnnoFasta.pl saccharomyces.genes.gff
+```
 
 ---
 
@@ -170,15 +197,13 @@ augustus --species=ESPECIE --gff3=on contigs.fasta > genes.gff
 ```bash
 
 # Visualizar conteúdo do arquivo
-less genes.gff
+less -S saccharomyces.genes.gff
+less -S ecoli.genes.gff
 
 
 # Contar número total de genes (linhas com 'gene' no atributo)
-grep -c "gene" genes.gff
-
-
-# Visualizar cabeçalho e primeiras 10 linhas
-head -20 genes.gff
+grep -c "gene" saccharomyces.genes.gff
+grep -c "CDS" ecoli.genes.gff
 ```
 
 
@@ -188,7 +213,7 @@ O arquivo GFF contém 9 colunas:
 
 1. **seqid** - identificador da sequência
 2. **source** - ferramenta que gerou a anotação
-3. **type** - tipo de anotação (gene, CDS, mRNA, exon)
+3. **type** - tipo de anotação (gene, CDS, mRNA, exon, start_codon, stop_codon, etc.)
 4. **start** - posição inicial
 5. **end** - posição final
 6. **score** - qualidade da predição
@@ -204,11 +229,11 @@ O arquivo GFF contém 9 colunas:
 ```bash
 
 # Para Prodigal
-grep -c "gene" genes.gff
+grep -c "CDS" ecoli.genes.gff
 
 
 # Para Augustus
-grep -c "transcript" genes.gff
+grep -c "transcript" saccharomyces.genes.gff
 ```
 
 **Pergunta 2: Quantas proteínas foram preditas?**
@@ -216,15 +241,12 @@ grep -c "transcript" genes.gff
 ```bash
 
 # Contar sequências no arquivo FASTA
-grep -c "^>" proteins.faa
-
-
-# Ou para Augustus, contar CDS
-grep -c "CDS" genes.gff
+grep -c "^>" ecoli.proteins.faa
+grep -c "^>" saccharomyces.proteins.faa
 ```
 
 ---
-
+<!-- 
 # Parte 3 – Análise Detalhada das Proteínas
 
 ## Extração e Análise de Tamanhos
@@ -242,7 +264,7 @@ awk '/^>/ {if (seqlen) print seqlen; seqlen=0;next} {seqlen += length($0)}END{pr
 # Proteína mais curta e mais longa
 grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | head -1
 grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | tail -1
-```
+``` -->
 
 
 <!-- ### 3.2 Seleção da Maior e Menor Proteína
@@ -339,8 +361,8 @@ sort -n > distribuicao.txt
 ```bash
 
 # Verificar presença de códon de início e parada
-grep -c "start_codon" genes.gff
-grep -c "stop_codon" genes.gff
+grep -c "start_codon" saccharomyces.genes.gff
+grep -c "stop_codon" saccharomyces.genes.gff
 ```
 
 
@@ -387,10 +409,3 @@ Criar arquivo `resultados_analise.md` com:
 2. Ajustar parâmetros específicos para cada organismo
 3. Validar resultados com dados experimentais quando disponíveis
 4. Documentar todas as etapas e parâmetros utilizados
-
-## Passos seguintes
-
-- Anotação funcional das proteínas preditas (BLAST, InterProScan)
-- Análise de vias metabólicas
-- Genômica comparativa com organismos relacionados
-- Validação experimental (RT-PCR, sequenciamento)

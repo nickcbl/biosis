@@ -28,7 +28,7 @@ Aula para anotação de sequências:
 - Execução de buscas BLAST (blastp, blastn, etc.) com diferentes parâmetros e formatos de saída
 
 **Parte 2 - Anotação Funcional e Identificação de Domínios:**
-- Identificação de organismos homólogos e função através de buscas BLAST no banco NR (_non-redundant_)
+- Identificação de organismos homólogos e função através de buscas BLAST no banco PDBAA (Aminoácidos do PDB)
 - Anotação detalhada de domínios e função utilizando InterProScan (recomendado)
 - Alternativa com hmmscan para busca específica em banco de dados Pfam
 
@@ -93,7 +93,7 @@ flowchart TD
 
 ---
 
-
+<!-- 
 ## Explicação do Fluxograma
 
 O fluxograma acima ilustra o _workflow_ completo do roteiro, com as seguintes etapas:
@@ -117,7 +117,7 @@ O fluxograma acima ilustra o _workflow_ completo do roteiro, com as seguintes et
 
 6. **Resultados**: Os arquivos gerados contêm informações sobre domínios, funções moleculares, processos biológicos e organismos homólogos.
 
-7. **Interpretação**: Consolidação das informações para identificação completa da função, domínios e organismo da sequência analisada.
+7. **Interpretação**: Consolidação das informações para identificação completa da função, domínios e organismo da sequência analisada. -->
 
 
 ## Ferramentas
@@ -137,24 +137,24 @@ Para baixar sequências do NCBI, criar um banco de dados local para o BLAST e re
 
 A maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script `update_blastdb.pl`, que acompanha a suíte BLAST+ .
 
-Para baixar a base de dados de proteínas não-redundante (`nr`), por exemplo, use o comando :
+Para ver a lista completa de bases de dados disponíveis para download, use :
+```bash
+update_blastdb.pl --showall pretty
+```
+Este comando exibirá uma lista com todas as opções, como `swissprot`, `refseq_protein`, `pdbaa`, entre outras.
+
+Para baixar a base de dados de proteínas não-redundante (`pdbaa`), por exemplo, use o comando :
 
 ```bash
-update_blastdb.pl --decompress nr
+update_blastdb.pl --decompress pdbaa
 ```
 
 **Explicação:**
 *   `update_blastdb.pl`: É o script para baixar e atualizar bases de dados do NCBI .
 *   `--decompress`: Baixa e descompacta a base de dados no diretório atual .
-*   `nr`: É o nome da base de dados de proteínas não-redundante.
+*   `pdbaa`: É o nome da base de dados de proteínas do PDB.
 
-Para ver a lista completa de bases de dados disponíveis para download, use :
-```bash
-update_blastdb.pl --showall pretty
-```
-Este comando exibirá uma lista com todas as opções, como `swissprot`, `refseq_protein`, entre outras .
-
-
+<!-- 
 ### Criar um Banco de Dados Personalizado
 
 Se você tem seu próprio arquivo de sequências em formato FASTA (por exemplo, `minhas_proteinas.faa`), pode criar um banco de dados BLAST com o comando `makeblastdb` .
@@ -168,23 +168,27 @@ makeblastdb -in minhas_proteinas.faa -dbtype prot -out meu_banco -parse_seqids
 *   `-in minhas_proteinas.faa`: Seu arquivo de entrada no formato FASTA.
 *   `-dbtype prot`: Define o tipo como proteína. Use `nucl` para nucleotídeos.
 *   `-out meu_banco`: Nome base para os arquivos do banco de dados que serão criados.
-*   `-parse_seqids`: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências .
+*   `-parse_seqids`: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências . -->
 
 
 ### Executar o BLAST
 
-Com o banco de dados criado (seja baixado do NCBI ou personalizado), você pode realizar a busca. Para uma busca de proteína contra uma base de dados de proteínas, use o comando `blastp` .
+Com o banco de dados, você pode realizar a busca por blast. Para uma busca de proteína contra uma base de dados de proteínas, use o comando `blastp` .
+
+**Explicação dos parâmetros :**
+*   `-db meu_banco`: O nome do banco de dados.
+*   `-query minha_sequencia.faa`: O arquivo com a(s) sequência(s) que você quer pesquisar.
+*   `-out resultados.txt`: O arquivo onde os resultados serão salvos.
+*   `-outfmt 6`: Define o formato de saída como tabular, que é mais fácil de processar .
+*   `-evalue 1e-5`: O valor de corte para o *e-value* .
+
+**Exemplo de execução:**
+
+Substitua `meu_banco` pelo nome do banco de dados que você criou ou baixou, e `minha_sequencia.faa` pelo arquivo FASTA contendo a sequência que deseja pesquisar. Coloque um nome de arquivo de saída apropriado para os resultados.
 
 ```bash
 blastp -db meu_banco -query minha_sequencia.faa -out resultados.txt -outfmt 6 -evalue 1e-5
 ```
-
-**Explicação dos parâmetros :**
-*   `-db meu_banco`: O nome do banco de dados que você criou.
-*   `-query minha_sequencia.faa`: O arquivo com a(s) sequência(s) que você quer pesquisar.
-*   `-out resultados.txt`: O arquivo onde os resultados serão salvos.
-*   `-outfmt 6`: Define o formato de saída como tabular, que é fácil de processar .
-*   `-evalue 1e-5`: O valor de corte para o *E-value* .
 
 > **Nota:** Para outros tipos de busca, use os comandos correspondentes: `blastn` para DNA contra DNA, `blastx` para DNA traduzido contra proteína, etc. .
 
@@ -202,9 +206,9 @@ O BLAST (como `blastp` para proteínas) é a ferramenta padrão para encontrar s
 
 *   **Comando básico para buscar homólogos:**
 ```bash
-blastp -db nr -query sua_sequencia.faa -out resultados_blast.txt -outfmt 6 -evalue 1e-5 -max_target_seqs 1
+blastp -db pdbaa -query sua_sequencia.faa -out resultados_blast.txt -outfmt 6 -evalue 1e-5 -max_target_seqs 1
 ```
-- `-db nr`: Usa o banco de dados de proteínas não-redundante do NCBI (que você pode baixar com `update_blastdb.pl`).
+- `-db pdbaa`: Usa o banco de dados de proteínas do PDB (que você pode baixar com `update_blastdb.pl`).
 - `-query sua_sequencia.faa`: Seu arquivo de entrada.
 - `-out resultados_blast.txt`: Arquivo de saída.
 - `-outfmt 6`: Formato tabular simples e fácil de processar.
@@ -217,6 +221,8 @@ blastp -db nr -query sua_sequencia.faa -out resultados_blast.txt -outfmt 6 -eval
 blastp -db nr -query sua_sequencia.faa -taxids 2 -out resultados_blast_filtrado.txt -outfmt 6 -evalue 1e-5
 ```
 
+
+<!--
 
 ### Identificar Domínios e Função com InterProScan
 
@@ -233,8 +239,9 @@ interproscan.sh -i sua_sequencia.faa -f TSV,GFF3 -goterms -iprlookup -cpu 4
 - `-cpu 4`: Número de núcleos de CPU para acelerar o processo.
 - **Nota sobre a conexão com a internet:** Por padrão, o InterProScan usa um serviço de *lookup* para verificar se a sequência já foi analisada, o que acelera o processo, mas requer internet. Para uso offline, adicione a opção `-dp` (disable precalc), o que fará com que todas as análises sejam executadas localmente (o que pode ser mais lento).
 
+-->
 
-### (Alternativa) Identificar Domínios com `hmmscan` e Pfam
+### Identificar Domínios com `hmmscan` e Pfam
 
 O `hmmscan`, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.
 
