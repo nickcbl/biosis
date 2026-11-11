@@ -459,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#parte-1-predição-de-genes-e-orfs" id="toc-parte-1-predição-de-genes-e-orfs" class="nav-link" data-scroll-target="#parte-1-predição-de-genes-e-orfs"><span class="header-section-number">4</span> Parte 1 – Predição de Genes e ORFs</a>
   <ul class="collapse">
   <li><a href="#avaliação-da-qualidade-do-genoma-com-busco" id="toc-avaliação-da-qualidade-do-genoma-com-busco" class="nav-link" data-scroll-target="#avaliação-da-qualidade-do-genoma-com-busco"><span class="header-section-number">4.1</span> Avaliação da Qualidade do Genoma com BUSCO</a></li>
-  <li><a href="#predição-de-genes-com-prodigal-procariotos" id="toc-predição-de-genes-com-prodigal-procariotos" class="nav-link" data-scroll-target="#predição-de-genes-com-prodigal-procariotos"><span class="header-section-number">4.2</span> Predição de Genes com Prodigal (Procariotos)</a></li>
+  <li><a href="#predição-de-genes-com-prodigal-procariotos" id="toc-predição-de-genes-com-prodigal-procariotos" class="nav-link" data-scroll-target="#predição-de-genes-com-prodigal-procariotos"><span class="header-section-number">4.2</span> Predição de Genes com Prodigal (<strong>Procariotos</strong>)</a></li>
   <li><a href="#predição-de-genes-com-augustus-eucariotos" id="toc-predição-de-genes-com-augustus-eucariotos" class="nav-link" data-scroll-target="#predição-de-genes-com-augustus-eucariotos"><span class="header-section-number">4.3</span> Predição de Genes com Augustus (Eucariotos)</a></li>
   <li><a href="#extrair-sequencia-de-proteínas-preditas-e-cds." id="toc-extrair-sequencia-de-proteínas-preditas-e-cds." class="nav-link" data-scroll-target="#extrair-sequencia-de-proteínas-preditas-e-cds."><span class="header-section-number">4.4</span> Extrair sequencia de proteínas preditas e cds.</a></li>
   </ul></li>
@@ -469,14 +469,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#estrutura-do-arquivo-gff" id="toc-estrutura-do-arquivo-gff" class="nav-link" data-scroll-target="#estrutura-do-arquivo-gff"><span class="header-section-number">5.2</span> Estrutura do Arquivo GFF</a></li>
   <li><a href="#questões-para-responder" id="toc-questões-para-responder" class="nav-link" data-scroll-target="#questões-para-responder"><span class="header-section-number">5.3</span> Questões para Responder</a></li>
   </ul></li>
-  <li><a href="#parte-3-análise-detalhada-das-proteínas" id="toc-parte-3-análise-detalhada-das-proteínas" class="nav-link" data-scroll-target="#parte-3-análise-detalhada-das-proteínas"><span class="header-section-number">6</span> Parte 3 – Análise Detalhada das Proteínas</a>
+  <li><a href="#parte-4-validação-e-documentação" id="toc-parte-4-validação-e-documentação" class="nav-link" data-scroll-target="#parte-4-validação-e-documentação"><span class="header-section-number">6</span> Parte 4 – Validação e Documentação</a>
   <ul class="collapse">
-  <li><a href="#extração-e-análise-de-tamanhos" id="toc-extração-e-análise-de-tamanhos" class="nav-link" data-scroll-target="#extração-e-análise-de-tamanhos"><span class="header-section-number">6.1</span> Extração e Análise de Tamanhos</a></li>
-  </ul></li>
-  <li><a href="#parte-4-validação-e-documentação" id="toc-parte-4-validação-e-documentação" class="nav-link" data-scroll-target="#parte-4-validação-e-documentação"><span class="header-section-number">7</span> Parte 4 – Validação e Documentação</a>
-  <ul class="collapse">
-  <li><a href="#verificação-de-orfs-completa" id="toc-verificação-de-orfs-completa" class="nav-link" data-scroll-target="#verificação-de-orfs-completa"><span class="header-section-number">7.1</span> Verificação de ORFs Completa</a></li>
-  <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">7.2</span> Considerações Finais</a></li>
+  <li><a href="#verificação-de-orfs-completa" id="toc-verificação-de-orfs-completa" class="nav-link" data-scroll-target="#verificação-de-orfs-completa"><span class="header-section-number">6.1</span> Verificação de ORFs Completa</a></li>
+  <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6.2</span> Considerações Finais</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -503,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">10 de novembro de 2026</p>
+      <p class="date">11 de novembro de 2026</p>
     </div>
   </div>
   
@@ -607,9 +603,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="4"><span class="header-section-number">4</span> Parte 1 – Predição de Genes e ORFs</h1>
 <section id="avaliação-da-qualidade-do-genoma-com-busco" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="avaliação-da-qualidade-do-genoma-com-busco"><span class="header-section-number">4.1</span> Avaliação da Qualidade do Genoma com BUSCO</h2>
-<p>Manual: <a href="https://busco.ezlab.org/busco_userguide.html">BUSCO</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">busco</span> <span class="at">-i</span> contigs.fasta <span class="at">-o</span> nome_da_analise <span class="at">-m</span> genome <span class="at">-l</span> linhagem_odb10 <span class="at">-c</span> 8</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Argumentos:</strong></p>
+<p>Manual: <a href="https://busco.ezlab.org/busco_userguide.html">BUSCO</a></p>
 <ul>
 <li><code>-i</code>: arquivo de entrada (genoma)</li>
 <li><code>-o</code>: nome do diretório de saída</li>
@@ -618,12 +613,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>-c</code>: número de threads para processamento paralelo</li>
 </ul>
 <p><strong>Saída esperada:</strong> Relatório de completude do genoma em <code>nome_da_analise/short_summary.specific.*.txt</code></p>
+<p><strong>Exemplo de execução:</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Aviso
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lembre-se de substituir <code>contigs.fasta</code> pelo arquivo de contigs correspondente ao organismo em estudo e ajustar a linhagem (<code>-l</code>) conforme necessário.</p>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">busco</span> <span class="at">-i</span> ecoli.contigs.fasta <span class="at">-o</span> ecoli_busco <span class="at">-m</span> genome <span class="at">-l</span> bacteria_odb10 <span class="at">-c</span> 8</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># e</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">busco</span> <span class="at">-i</span> saccharomyces.contigs.fasta <span class="at">-o</span> saccharomyces_busco <span class="at">-m</span> genome <span class="at">-l</span> fungi_odb10 <span class="at">-c</span> 8</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="predição-de-genes-com-prodigal-procariotos" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="predição-de-genes-com-prodigal-procariotos"><span class="header-section-number">4.2</span> Predição de Genes com Prodigal (Procariotos)</h2>
-<p>Manual: <a href="https://github.com/cobbie/Prodigal">Prodigal</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">prodigal</span> <span class="at">-i</span> contigs.fasta <span class="at">-a</span> proteins.faa <span class="at">-d</span> genes.fna <span class="at">-f</span> gff <span class="op">&gt;</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<h2 data-number="4.2" class="anchored" data-anchor-id="predição-de-genes-com-prodigal-procariotos"><span class="header-section-number">4.2</span> Predição de Genes com Prodigal (<strong>Procariotos</strong>)</h2>
 <p><strong>Argumentos:</strong></p>
+<p>Manual: <a href="https://github.com/cobbie/Prodigal">Prodigal</a></p>
 <ul>
 <li><code>-i</code>: arquivo de entrada</li>
 <li><code>-a</code>: sequências de proteínas preditas (formato FASTA)</li>
@@ -631,22 +644,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>-f</code>: formato de saída (gff, sgf, gbk, sco)</li>
 </ul>
 <p><strong>Saída esperada:</strong> Arquivo GFF com anotações estruturais</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">prodigal</span> <span class="at">-i</span> ecoli.contigs.fasta <span class="at">-a</span> ecoli.proteins.faa <span class="at">-d</span> ecoli.genes.fna <span class="at">-f</span> gff <span class="op">&gt;</span> ecoli.genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="predição-de-genes-com-augustus-eucariotos" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="predição-de-genes-com-augustus-eucariotos"><span class="header-section-number">4.3</span> Predição de Genes com Augustus (Eucariotos)</h2>
-<p>Manual: <a href="https://bioinf.uni-greifswald.de/augustus/">Augustus</a></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">augustus</span> <span class="at">--species</span><span class="op">=</span>ESPECIE <span class="at">--gff3</span><span class="op">=</span>on <span class="at">--protein</span><span class="op">=</span>on <span class="at">--codingseq</span><span class="op">=</span>on contigs.fasta <span class="op">&gt;</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Argumentos:</strong></p>
+<p>Manual: <a href="https://bioinf.uni-greifswald.de/augustus/">Augustus</a></p>
 <ul>
 <li><code>--species</code>: espécie alvo (ex: saccharomyces, drosophila). Usaremos saccharomyces.</li>
 <li><code>--gff3=on</code>: formato de saída GFF3</li>
 <li>Outras opções úteis: <code>--strand=both</code>, <code>--genemodel=complete</code></li>
 </ul>
 <p><strong>Saída esperada:</strong> Arquivo GFF com anotações estruturais</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">augustus</span> <span class="at">--species</span><span class="op">=</span>saccharomyces <span class="at">--gff3</span><span class="op">=</span>on <span class="at">--protein</span><span class="op">=</span>on <span class="at">--codingseq</span><span class="op">=</span>on saccharomyces.contigs.fasta <span class="op">&gt;</span> saccharomyces.genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="extrair-sequencia-de-proteínas-preditas-e-cds." class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="extrair-sequencia-de-proteínas-preditas-e-cds."><span class="header-section-number">4.4</span> Extrair sequencia de proteínas preditas e cds.</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">getAnnoFasta.pl</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">getAnnoFasta.pl</span> saccharomyces.genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -656,15 +670,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="5.1" class="anchored" data-anchor-id="análise-do-arquivo-gff"><span class="header-section-number">5.1</span> Análise do Arquivo GFF</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar conteúdo do arquivo</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> genes.gff</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> saccharomyces.genes.gff</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> <span class="at">-S</span> ecoli.genes.gff</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar número total de genes (linhas com 'gene' no atributo)</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"gene"</span> genes.gff</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar cabeçalho e primeiras 10 linhas</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-20</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar número total de genes (linhas com 'gene' no atributo)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"gene"</span> saccharomyces.genes.gff</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"CDS"</span> ecoli.genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="estrutura-do-arquivo-gff" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="estrutura-do-arquivo-gff"><span class="header-section-number">5.2</span> Estrutura do Arquivo GFF</h2>
@@ -672,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><strong>seqid</strong> - identificador da sequência</li>
 <li><strong>source</strong> - ferramenta que gerou a anotação</li>
-<li><strong>type</strong> - tipo de anotação (gene, CDS, mRNA, exon)</li>
+<li><strong>type</strong> - tipo de anotação (gene, CDS, mRNA, exon, start_codon, stop_codon, etc.)</li>
 <li><strong>start</strong> - posição inicial</li>
 <li><strong>end</strong> - posição final</li>
 <li><strong>score</strong> - qualidade da predição</li>
@@ -686,167 +698,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Pergunta 1: Quantos genes foram encontrados?</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Para Prodigal</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"gene"</span> genes.gff</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"CDS"</span> ecoli.genes.gff</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Para Augustus</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"transcript"</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"transcript"</span> saccharomyces.genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Pergunta 2: Quantas proteínas foram preditas?</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar sequências no arquivo FASTA</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"^&gt;"</span> proteins.faa</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ou para Augustus, contar CDS</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"CDS"</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"^&gt;"</span> ecoli.proteins.faa</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"^&gt;"</span> saccharomyces.proteins.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
-<section id="parte-3-análise-detalhada-das-proteínas" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Parte 3 – Análise Detalhada das Proteínas</h1>
-<section id="extração-e-análise-de-tamanhos" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="extração-e-análise-de-tamanhos"><span class="header-section-number">6.1</span> Extração e Análise de Tamanhos</h2>
+<section id="parte-4-validação-e-documentação" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Parte 4 – Validação e Documentação</h1>
+<section id="verificação-de-orfs-completa" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="verificação-de-orfs-completa"><span class="header-section-number">6.1</span> Verificação de ORFs Completa</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extrair tamanhos das proteínas</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> proteins.faa <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/.*len=//'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Estatísticas descritivas</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'/^&gt;/ {if (seqlen) print seqlen; seqlen=0;next} {seqlen += length($0)}END{print seqlen}'</span> proteins.faa</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Proteína mais curta e mais longa</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> proteins.faa <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/.*len=//'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"^&gt;"</span> proteins.faa <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/.*len=//'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-1</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<!-- ### 3.2 Seleção da Maior e Menor Proteína
-
-```bash
-
-# Extrair IDs das proteínas
-grep "^>" proteins.faa > protein_ids.txt
-
-
-# Organizar por tamanho
-grep "^>" proteins.faa | sed 's/.*len=//' | sort -n > protein_sizes.txt
-
-
-# Identificar a menor proteína
-MENOR=$(grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | head -1)
-echo "Menor proteína: $MENOR aa"
-
-
-# Identificar a maior proteína
-MAIOR=$(grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | tail -1)
-echo "Maior proteína: $MAIOR aa"
-```
-
-
-### 3.3 Extração das Sequências
-
-```bash
-
-# Extrair sequência da menor proteína
-ID_MENOR=$(grep "^>" proteins.faa | awk -v len="$MENOR" '{if ($0 ~ "len=" len) print $1}' | sed 's/>//')
-awk -v id="$ID_MENOR" '/^>/ {flag=0} $0 ~ id {flag=1} flag' proteins.faa > menor_proteina.faa
-
-
-# Extrair sequência da maior proteína
-ID_MAIOR=$(grep "^>" proteins.faa | awk -v len="$MAIOR" '{if ($0 ~ "len=" len) print $1}' | sed 's/>//')
-awk -v id="$ID_MAIOR" '/^>/ {flag=0} $0 ~ id {flag=1} flag' proteins.faa > maior_proteina.faa
-```
-
---- -->
-<!-- ## Parte 4 – Análise Comparativa e Visualização
-
-
-### 4.1 Estatísticas Resumidas
-
-```bash
-
-# Número total de proteínas
-TOTAL=$(grep -c "^>" proteins.faa)
-
-
-# Média de tamanho
-MEDIA=$(awk '/^>/ {if (seqlen) print seqlen; seqlen=0;next} {seqlen += length($0)}END{print seqlen}' proteins.faa | awk '{sum+=$1; count++} END {print sum/count}')
-
-
-# Mediana
-MEDIANA=$(grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | awk 'NR<mark>FNR{count++;next} {if (NR</mark>int((count+1)/2) || NR==int((count+2)/2)) sum+=$1} END {print sum/2}' - <(echo))
-
-
-# Gerar relatório
-echo "<mark>= RELATÓRIO DE ANOTAÇÃO ESTRUTURAL </mark>="
-echo "Total de proteínas preditas: $TOTAL"
-echo "Comprimento médio: $MEDIA aa"
-echo "Mediana: $MEDIANA aa"
-echo "Menor proteína: $MENOR aa"
-echo "Maior proteína: $MAIOR aa"
-echo "<mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark><mark></mark>="
-```
-
-
-### 4.2 Visualização da Distribuição
-
-```bash
-
-# Criar histograma de tamanhos
-grep "^>" proteins.faa | sed 's/.*len=//' | sort -n | \
-awk '{count[int($1/100)]++} END {for (i in count) print i*100 "-" (i+1)*100, count[i]}' | \
-sort -n > distribuicao.txt
-
-
-# Plotar com gnuplot ou Python para visualização
-``` -->
-<hr>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar presença de códon de início e parada</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"start_codon"</span> saccharomyces.genes.gff</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"stop_codon"</span> saccharomyces.genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-</section>
-<section id="parte-4-validação-e-documentação" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Parte 4 – Validação e Documentação</h1>
-<section id="verificação-de-orfs-completa" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="verificação-de-orfs-completa"><span class="header-section-number">7.1</span> Verificação de ORFs Completa</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar presença de códon de início e parada</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"start_codon"</span> genes.gff</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-c</span> <span class="st">"stop_codon"</span> genes.gff</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<!-- ### 5.2 Documentação dos Resultados
-
-Criar arquivo `resultados_analise.md` com:
-
-```markdown
-
-# Análise de ORFs e Anotação Estrutural
-
-
-## Resumo
-- **Data da análise:** $(date)
-- **Arquivo analisado:** contigs.fasta
-- **Ferramentas utilizadas:** BUSCO, Prodigal/Augustus
-
-
-## Resultados Principais
-1. **Total de genes preditos:** [valor]
-2. **Total de proteínas preditas:** [valor]
-3. **Maior proteína:** [ID] - [comprimento] aa
-4. **Menor proteína:** [ID] - [comprimento] aa
-
-
-## Análise Estatística
-- **Média de tamanho:** [valor] aa
-- **Mediana:** [valor] aa
-- **Desvio padrão:** [valor]
-
-
-## Distribuição de Tamanhos
-[Incluir gráfico ou tabela]
-
-
-## Conclusões
-[Interpretação dos resultados]
-``` -->
-</section>
-<section id="considerações-finais" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">7.2</span> Considerações Finais</h2>
+<section id="considerações-finais" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6.2</span> Considerações Finais</h2>
 <ol type="1">
 <li>Sempre verificar a qualidade do genoma antes da predição</li>
 <li>Ajustar parâmetros específicos para cada organismo</li>

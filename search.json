@@ -980,7 +980,7 @@
     "href": "roteiros/pratica4.html#avaliação-da-qualidade-do-genoma-com-busco",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "4.1 Avaliação da Qualidade do Genoma com BUSCO",
-    "text": "4.1 Avaliação da Qualidade do Genoma com BUSCO\nManual: BUSCO\nbusco -i contigs.fasta -o nome_da_analise -m genome -l linhagem_odb10 -c 8\nArgumentos:\n\n-i: arquivo de entrada (genoma)\n-o: nome do diretório de saída\n-m: modo de análise (genome, transcriptome, proteins)\n-l: linhagem específica -&gt; usaremos: bacteria_odb10 para E. coli e fungi_odb10 para Saccharomyces cerevisae.\n-c: número de threads para processamento paralelo\n\nSaída esperada: Relatório de completude do genoma em nome_da_analise/short_summary.specific.*.txt",
+    "text": "4.1 Avaliação da Qualidade do Genoma com BUSCO\nArgumentos:\nManual: BUSCO\n\n-i: arquivo de entrada (genoma)\n-o: nome do diretório de saída\n-m: modo de análise (genome, transcriptome, proteins)\n-l: linhagem específica -&gt; usaremos: bacteria_odb10 para E. coli e fungi_odb10 para Saccharomyces cerevisae.\n-c: número de threads para processamento paralelo\n\nSaída esperada: Relatório de completude do genoma em nome_da_analise/short_summary.specific.*.txt\nExemplo de execução:\n\n\n\n\n\n\nAviso\n\n\n\nLembre-se de substituir contigs.fasta pelo arquivo de contigs correspondente ao organismo em estudo e ajustar a linhagem (-l) conforme necessário.\n\n\nbusco -i ecoli.contigs.fasta -o ecoli_busco -m genome -l bacteria_odb10 -c 8\n\n# e\n\nbusco -i saccharomyces.contigs.fasta -o saccharomyces_busco -m genome -l fungi_odb10 -c 8",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -991,7 +991,7 @@
     "href": "roteiros/pratica4.html#predição-de-genes-com-prodigal-procariotos",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "4.2 Predição de Genes com Prodigal (Procariotos)",
-    "text": "4.2 Predição de Genes com Prodigal (Procariotos)\nManual: Prodigal\nprodigal -i contigs.fasta -a proteins.faa -d genes.fna -f gff &gt; genes.gff\nArgumentos:\n\n-i: arquivo de entrada\n-a: sequências de proteínas preditas (formato FASTA)\n-d: sequências de DNA codificante (formato FASTA)\n-f: formato de saída (gff, sgf, gbk, sco)\n\nSaída esperada: Arquivo GFF com anotações estruturais",
+    "text": "4.2 Predição de Genes com Prodigal (Procariotos)\nArgumentos:\nManual: Prodigal\n\n-i: arquivo de entrada\n-a: sequências de proteínas preditas (formato FASTA)\n-d: sequências de DNA codificante (formato FASTA)\n-f: formato de saída (gff, sgf, gbk, sco)\n\nSaída esperada: Arquivo GFF com anotações estruturais\nprodigal -i ecoli.contigs.fasta -a ecoli.proteins.faa -d ecoli.genes.fna -f gff &gt; ecoli.genes.gff",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -1002,7 +1002,7 @@
     "href": "roteiros/pratica4.html#predição-de-genes-com-augustus-eucariotos",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "4.3 Predição de Genes com Augustus (Eucariotos)",
-    "text": "4.3 Predição de Genes com Augustus (Eucariotos)\nManual: Augustus\naugustus --species=ESPECIE --gff3=on --protein=on --codingseq=on contigs.fasta &gt; genes.gff\nArgumentos:\n\n--species: espécie alvo (ex: saccharomyces, drosophila). Usaremos saccharomyces.\n--gff3=on: formato de saída GFF3\nOutras opções úteis: --strand=both, --genemodel=complete\n\nSaída esperada: Arquivo GFF com anotações estruturais",
+    "text": "4.3 Predição de Genes com Augustus (Eucariotos)\nArgumentos:\nManual: Augustus\n\n--species: espécie alvo (ex: saccharomyces, drosophila). Usaremos saccharomyces.\n--gff3=on: formato de saída GFF3\nOutras opções úteis: --strand=both, --genemodel=complete\n\nSaída esperada: Arquivo GFF com anotações estruturais\naugustus --species=saccharomyces --gff3=on --protein=on --codingseq=on saccharomyces.contigs.fasta &gt; saccharomyces.genes.gff",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -1013,7 +1013,7 @@
     "href": "roteiros/pratica4.html#extrair-sequencia-de-proteínas-preditas-e-cds.",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "4.4 Extrair sequencia de proteínas preditas e cds.",
-    "text": "4.4 Extrair sequencia de proteínas preditas e cds.\ngetAnnoFasta.pl genes.gff",
+    "text": "4.4 Extrair sequencia de proteínas preditas e cds.\ngetAnnoFasta.pl saccharomyces.genes.gff",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -1024,7 +1024,7 @@
     "href": "roteiros/pratica4.html#análise-do-arquivo-gff",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "5.1 Análise do Arquivo GFF",
-    "text": "5.1 Análise do Arquivo GFF\n\n# Visualizar conteúdo do arquivo\nless genes.gff\n\n\n# Contar número total de genes (linhas com 'gene' no atributo)\ngrep -c \"gene\" genes.gff\n\n\n# Visualizar cabeçalho e primeiras 10 linhas\nhead -20 genes.gff",
+    "text": "5.1 Análise do Arquivo GFF\n\n# Visualizar conteúdo do arquivo\nless -S saccharomyces.genes.gff\nless -S ecoli.genes.gff\n\n\n# Contar número total de genes (linhas com 'gene' no atributo)\ngrep -c \"gene\" saccharomyces.genes.gff\ngrep -c \"CDS\" ecoli.genes.gff",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -1035,7 +1035,7 @@
     "href": "roteiros/pratica4.html#estrutura-do-arquivo-gff",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "5.2 Estrutura do Arquivo GFF",
-    "text": "5.2 Estrutura do Arquivo GFF\nO arquivo GFF contém 9 colunas:\n\nseqid - identificador da sequência\nsource - ferramenta que gerou a anotação\ntype - tipo de anotação (gene, CDS, mRNA, exon)\nstart - posição inicial\nend - posição final\nscore - qualidade da predição\nstrand - orientação (+ ou -)\nphase - fase de leitura\nattributes - atributos adicionais (ID, Name, etc.)",
+    "text": "5.2 Estrutura do Arquivo GFF\nO arquivo GFF contém 9 colunas:\n\nseqid - identificador da sequência\nsource - ferramenta que gerou a anotação\ntype - tipo de anotação (gene, CDS, mRNA, exon, start_codon, stop_codon, etc.)\nstart - posição inicial\nend - posição final\nscore - qualidade da predição\nstrand - orientação (+ ou -)\nphase - fase de leitura\nattributes - atributos adicionais (ID, Name, etc.)",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -1046,18 +1046,7 @@
     "href": "roteiros/pratica4.html#questões-para-responder",
     "title": "Aula Prática 4 – Predição de Genes",
     "section": "5.3 Questões para Responder",
-    "text": "5.3 Questões para Responder\nPergunta 1: Quantos genes foram encontrados?\n\n# Para Prodigal\ngrep -c \"gene\" genes.gff\n\n\n# Para Augustus\ngrep -c \"transcript\" genes.gff\nPergunta 2: Quantas proteínas foram preditas?\n\n# Contar sequências no arquivo FASTA\ngrep -c \"^&gt;\" proteins.faa\n\n\n# Ou para Augustus, contar CDS\ngrep -c \"CDS\" genes.gff",
-    "crumbs": [
-      "Roteiros",
-      "Aula Prática 4 – Predição de Genes"
-    ]
-  },
-  {
-    "objectID": "roteiros/pratica4.html#extração-e-análise-de-tamanhos",
-    "href": "roteiros/pratica4.html#extração-e-análise-de-tamanhos",
-    "title": "Aula Prática 4 – Predição de Genes",
-    "section": "6.1 Extração e Análise de Tamanhos",
-    "text": "6.1 Extração e Análise de Tamanhos\n\n# Extrair tamanhos das proteínas\ngrep \"^&gt;\" proteins.faa | sed 's/.*len=//' | sort -n\n\n\n# Estatísticas descritivas\nawk '/^&gt;/ {if (seqlen) print seqlen; seqlen=0;next} {seqlen += length($0)}END{print seqlen}' proteins.faa\n\n\n# Proteína mais curta e mais longa\ngrep \"^&gt;\" proteins.faa | sed 's/.*len=//' | sort -n | head -1\ngrep \"^&gt;\" proteins.faa | sed 's/.*len=//' | sort -n | tail -1",
+    "text": "5.3 Questões para Responder\nPergunta 1: Quantos genes foram encontrados?\n\n# Para Prodigal\ngrep -c \"CDS\" ecoli.genes.gff\n\n\n# Para Augustus\ngrep -c \"transcript\" saccharomyces.genes.gff\nPergunta 2: Quantas proteínas foram preditas?\n\n# Contar sequências no arquivo FASTA\ngrep -c \"^&gt;\" ecoli.proteins.faa\ngrep -c \"^&gt;\" saccharomyces.proteins.faa",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -1067,8 +1056,8 @@
     "objectID": "roteiros/pratica4.html#verificação-de-orfs-completa",
     "href": "roteiros/pratica4.html#verificação-de-orfs-completa",
     "title": "Aula Prática 4 – Predição de Genes",
-    "section": "7.1 Verificação de ORFs Completa",
-    "text": "7.1 Verificação de ORFs Completa\n\n# Verificar presença de códon de início e parada\ngrep -c \"start_codon\" genes.gff\ngrep -c \"stop_codon\" genes.gff",
+    "section": "6.1 Verificação de ORFs Completa",
+    "text": "6.1 Verificação de ORFs Completa\n\n# Verificar presença de códon de início e parada\ngrep -c \"start_codon\" saccharomyces.genes.gff\ngrep -c \"stop_codon\" saccharomyces.genes.gff",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -1078,8 +1067,8 @@
     "objectID": "roteiros/pratica4.html#considerações-finais",
     "href": "roteiros/pratica4.html#considerações-finais",
     "title": "Aula Prática 4 – Predição de Genes",
-    "section": "7.2 Considerações Finais",
-    "text": "7.2 Considerações Finais\n\nSempre verificar a qualidade do genoma antes da predição\nAjustar parâmetros específicos para cada organismo\nValidar resultados com dados experimentais quando disponíveis\nDocumentar todas as etapas e parâmetros utilizados",
+    "section": "6.2 Considerações Finais",
+    "text": "6.2 Considerações Finais\n\nSempre verificar a qualidade do genoma antes da predição\nAjustar parâmetros específicos para cada organismo\nValidar resultados com dados experimentais quando disponíveis\nDocumentar todas as etapas e parâmetros utilizados",
     "crumbs": [
       "Roteiros",
       "Aula Prática 4 – Predição de Genes"
@@ -2567,22 +2556,11 @@
     ]
   },
   {
-    "objectID": "roteiros/pratica5.html#explicação-do-fluxograma",
-    "href": "roteiros/pratica5.html#explicação-do-fluxograma",
-    "title": "Aula Prática 5 – Anotação Funcional",
-    "section": "2.1 Explicação do Fluxograma",
-    "text": "2.1 Explicação do Fluxograma\nO fluxograma acima ilustra o workflow completo do roteiro, com as seguintes etapas:\n\nInício e Preparação: O processo inicia com a preparação das sequências que serão analisadas.\nDecisão da Fonte de Dados:\n\nSe a base de dados for do NCBI, utiliza-se update_blastdb.pl para baixar bases já pré-formatadas\nSe for um arquivo próprio, cria-se um banco personalizado com makeblastdb\n\nExecução do BLAST: Com a base de dados pronta, executa-se a busca com blastp (proteínas) ou outras variantes.\nTipos de Análise:\n\nBusca básica por homólogos\nFiltragem por organismo específico usando -taxids\nAnálise mais detalhada conforme necessidade\n\nAnotação Funcional:\n\nInterProScan: Ferramenta principal que integra múltiplas bases de dados (Pfam, CDD, PROSITE) e fornece GO termos\nhmmscan: Alternativa focada em buscas específicas no banco Pfam\n\nResultados: Os arquivos gerados contêm informações sobre domínios, funções moleculares, processos biológicos e organismos homólogos.\nInterpretação: Consolidação das informações para identificação completa da função, domínios e organismo da sequência analisada.",
-    "crumbs": [
-      "Roteiros",
-      "Aula Prática 5 – Anotação Funcional"
-    ]
-  },
-  {
     "objectID": "roteiros/pratica5.html#ferramentas",
     "href": "roteiros/pratica5.html#ferramentas",
     "title": "Aula Prática 5 – Anotação Funcional",
-    "section": "2.2 Ferramentas",
-    "text": "2.2 Ferramentas\n\nBlast\nUniProt",
+    "section": "2.1 Ferramentas",
+    "text": "2.1 Ferramentas\n\nBlast\nUniProt",
     "crumbs": [
       "Roteiros",
       "Aula Prática 5 – Anotação Funcional"
@@ -2592,8 +2570,8 @@
     "objectID": "roteiros/pratica5.html#parte-1",
     "href": "roteiros/pratica5.html#parte-1",
     "title": "Aula Prática 5 – Anotação Funcional",
-    "section": "2.3 Parte 1",
-    "text": "2.3 Parte 1\nPara baixar sequências do NCBI, criar um banco de dados local para o BLAST e realizar uma busca, você pode seguir o fluxo de trabalho com as ferramentas de linha de comando do BLAST+. O processo consiste em três etapas principais.\n\n2.3.1 Baixar uma Base de Dados do NCBI\nA maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script update_blastdb.pl, que acompanha a suíte BLAST+ .\nPara baixar a base de dados de proteínas não-redundante (pdbaa), por exemplo, use o comando :\nupdate_blastdb.pl --decompress pdbaa\nExplicação: * update_blastdb.pl: É o script para baixar e atualizar bases de dados do NCBI . * --decompress: Baixa e descompacta a base de dados no diretório atual . * nr: É o nome da base de dados de proteínas não-redundante.\nPara ver a lista completa de bases de dados disponíveis para download, use :\nupdate_blastdb.pl --showall pretty\nEste comando exibirá uma lista com todas as opções, como swissprot, refseq_protein, entre outras .\n\n\n2.3.2 Criar um Banco de Dados Personalizado\nSe você tem seu próprio arquivo de sequências em formato FASTA (por exemplo, minhas_proteinas.faa), pode criar um banco de dados BLAST com o comando makeblastdb .\nPara uma base de dados de proteínas, o comando é :\nmakeblastdb -in minhas_proteinas.faa -dbtype prot -out meu_banco -parse_seqids\nExplicação dos parâmetros : * -in minhas_proteinas.faa: Seu arquivo de entrada no formato FASTA. * -dbtype prot: Define o tipo como proteína. Use nucl para nucleotídeos. * -out meu_banco: Nome base para os arquivos do banco de dados que serão criados. * -parse_seqids: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências .\n\n\n2.3.3 Executar o BLAST\nCom o banco de dados criado (seja baixado do NCBI ou personalizado), você pode realizar a busca. Para uma busca de proteína contra uma base de dados de proteínas, use o comando blastp .\nblastp -db meu_banco -query minha_sequencia.faa -out resultados.txt -outfmt 6 -evalue 1e-5\nExplicação dos parâmetros : * -db meu_banco: O nome do banco de dados que você criou. * -query minha_sequencia.faa: O arquivo com a(s) sequência(s) que você quer pesquisar. * -out resultados.txt: O arquivo onde os resultados serão salvos. * -outfmt 6: Define o formato de saída como tabular, que é fácil de processar . * -evalue 1e-5: O valor de corte para o E-value .\n\nNota: Para outros tipos de busca, use os comandos correspondentes: blastn para DNA contra DNA, blastx para DNA traduzido contra proteína, etc. .",
+    "section": "2.2 Parte 1",
+    "text": "2.2 Parte 1\nPara baixar sequências do NCBI, criar um banco de dados local para o BLAST e realizar uma busca, você pode seguir o fluxo de trabalho com as ferramentas de linha de comando do BLAST+. O processo consiste em três etapas principais.\n\n2.2.1 Baixar uma Base de Dados do NCBI\nA maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script update_blastdb.pl, que acompanha a suíte BLAST+ .\nPara ver a lista completa de bases de dados disponíveis para download, use :\nupdate_blastdb.pl --showall pretty\nEste comando exibirá uma lista com todas as opções, como swissprot, refseq_protein, pdbaa, entre outras.\nPara baixar a base de dados de proteínas não-redundante (pdbaa), por exemplo, use o comando :\nupdate_blastdb.pl --decompress pdbaa\nExplicação: * update_blastdb.pl: É o script para baixar e atualizar bases de dados do NCBI . * --decompress: Baixa e descompacta a base de dados no diretório atual . * pdbaa: É o nome da base de dados de proteínas do PDB.\n\n\n\n2.2.2 Executar o BLAST\nCom o banco de dados, você pode realizar a busca por blast. Para uma busca de proteína contra uma base de dados de proteínas, use o comando blastp .\nExplicação dos parâmetros : * -db meu_banco: O nome do banco de dados. * -query minha_sequencia.faa: O arquivo com a(s) sequência(s) que você quer pesquisar. * -out resultados.txt: O arquivo onde os resultados serão salvos. * -outfmt 6: Define o formato de saída como tabular, que é mais fácil de processar . * -evalue 1e-5: O valor de corte para o e-value .\nExemplo de execução:\nSubstitua meu_banco pelo nome do banco de dados que você criou ou baixou, e minha_sequencia.faa pelo arquivo FASTA contendo a sequência que deseja pesquisar. Coloque um nome de arquivo de saída apropriado para os resultados.\nblastp -db meu_banco -query minha_sequencia.faa -out resultados.txt -outfmt 6 -evalue 1e-5\n\nNota: Para outros tipos de busca, use os comandos correspondentes: blastn para DNA contra DNA, blastx para DNA traduzido contra proteína, etc. .",
     "crumbs": [
       "Roteiros",
       "Aula Prática 5 – Anotação Funcional"
@@ -2603,8 +2581,8 @@
     "objectID": "roteiros/pratica5.html#parte-2",
     "href": "roteiros/pratica5.html#parte-2",
     "title": "Aula Prática 5 – Anotação Funcional",
-    "section": "2.4 Parte 2",
-    "text": "2.4 Parte 2\nPara identificar a função, domínios e organismo homólogo das suas sequências, você pode usar uma combinação de ferramentas de linha de comando. Um fluxo de trabalho comum envolve usar o BLAST para encontrar homólogos e, em seguida, ferramentas especializadas como o InterProScan para anotação funcional e de domínios.\n\n2.4.1 Identificar Organismo Homólogo e Função com BLAST\nO BLAST (como blastp para proteínas) é a ferramenta padrão para encontrar sequências homólogas em bancos de dados. A identificação do organismo e uma primeira indicação da função vêm da análise dos hits retornados.\n\nComando básico para buscar homólogos:\n\nblastp -db pdbaa -query sua_sequencia.faa -out resultados_blast.txt -outfmt 6 -evalue 1e-5 -max_target_seqs 1\n\n-db pdbaa: Usa o banco de dados de proteínas do PDB (que você pode baixar com update_blastdb.pl).\n-query sua_sequencia.faa: Seu arquivo de entrada.\n-out resultados_blast.txt: Arquivo de saída.\n-outfmt 6: Formato tabular simples e fácil de processar.\n-evalue 1e-5: Valor de corte para significância estatística.\n-max_target_seqs 1: Limita a saída ao melhor hit, útil para uma visão rápida.\nFiltrando por um organismo específico: Se você quiser buscar apenas por homólogos em um organismo ou grupo taxonômico específico, pode usar a opção -taxids com o ID de táxon do NCBI. Por exemplo, para buscar apenas em bactérias (taxid 2):\n\nblastp -db nr -query sua_sequencia.faa -taxids 2 -out resultados_blast_filtrado.txt -outfmt 6 -evalue 1e-5\n\n\n\n2.4.2 (Alternativa) Identificar Domínios com hmmscan e Pfam\nO hmmscan, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.\n\nPreparar o banco de dados Pfam (fazer uma vez):\n\nwget ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz\ngunzip Pfam-A.hmm.gz\nhmmpress Pfam-A.hmm\nIsso criará os arquivos necessários para a busca.\n\nExecutar a busca de domínios:\n\nhmmscan --tblout saida_domains_tbl.txt --domtblout saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa\n\n--tblout saida_domains_tbl.txt: Saída resumida por sequência alvo.\n--domtblout saida_domains_domtbl.txt: Saída detalhada por domínio encontrado, muito útil para análise.",
+    "section": "2.3 Parte 2",
+    "text": "2.3 Parte 2\nPara identificar a função, domínios e organismo homólogo das suas sequências, você pode usar uma combinação de ferramentas de linha de comando. Um fluxo de trabalho comum envolve usar o BLAST para encontrar homólogos e, em seguida, ferramentas especializadas como o InterProScan para anotação funcional e de domínios.\n\n2.3.1 Identificar Organismo Homólogo e Função com BLAST\nO BLAST (como blastp para proteínas) é a ferramenta padrão para encontrar sequências homólogas em bancos de dados. A identificação do organismo e uma primeira indicação da função vêm da análise dos hits retornados.\n\nComando básico para buscar homólogos:\n\nblastp -db pdbaa -query sua_sequencia.faa -out resultados_blast.txt -outfmt 6 -evalue 1e-5 -max_target_seqs 1\n\n-db pdbaa: Usa o banco de dados de proteínas do PDB (que você pode baixar com update_blastdb.pl).\n-query sua_sequencia.faa: Seu arquivo de entrada.\n-out resultados_blast.txt: Arquivo de saída.\n-outfmt 6: Formato tabular simples e fácil de processar.\n-evalue 1e-5: Valor de corte para significância estatística.\n-max_target_seqs 1: Limita a saída ao melhor hit, útil para uma visão rápida.\nFiltrando por um organismo específico: Se você quiser buscar apenas por homólogos em um organismo ou grupo taxonômico específico, pode usar a opção -taxids com o ID de táxon do NCBI. Por exemplo, para buscar apenas em bactérias (taxid 2):\n\nblastp -db nr -query sua_sequencia.faa -taxids 2 -out resultados_blast_filtrado.txt -outfmt 6 -evalue 1e-5\n\n\n\n2.3.2 Identificar Domínios com hmmscan e Pfam\nO hmmscan, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.\n\nPreparar o banco de dados Pfam (fazer uma vez):\n\nwget ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz\ngunzip Pfam-A.hmm.gz\nhmmpress Pfam-A.hmm\nIsso criará os arquivos necessários para a busca.\n\nExecutar a busca de domínios:\n\nhmmscan --tblout saida_domains_tbl.txt --domtblout saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa\n\n--tblout saida_domains_tbl.txt: Saída resumida por sequência alvo.\n--domtblout saida_domains_domtbl.txt: Saída detalhada por domínio encontrado, muito útil para análise.",
     "crumbs": [
       "Roteiros",
       "Aula Prática 5 – Anotação Funcional"

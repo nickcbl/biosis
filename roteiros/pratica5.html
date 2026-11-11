@@ -456,18 +456,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
   <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">2</span> Fluxograma</a>
   <ul class="collapse">
-  <li><a href="#explicação-do-fluxograma" id="toc-explicação-do-fluxograma" class="nav-link" data-scroll-target="#explicação-do-fluxograma"><span class="header-section-number">2.1</span> Explicação do Fluxograma</a></li>
-  <li><a href="#ferramentas" id="toc-ferramentas" class="nav-link" data-scroll-target="#ferramentas"><span class="header-section-number">2.2</span> Ferramentas</a></li>
-  <li><a href="#parte-1" id="toc-parte-1" class="nav-link" data-scroll-target="#parte-1"><span class="header-section-number">2.3</span> Parte 1</a>
+  <li><a href="#ferramentas" id="toc-ferramentas" class="nav-link" data-scroll-target="#ferramentas"><span class="header-section-number">2.1</span> Ferramentas</a></li>
+  <li><a href="#parte-1" id="toc-parte-1" class="nav-link" data-scroll-target="#parte-1"><span class="header-section-number">2.2</span> Parte 1</a>
   <ul class="collapse">
-  <li><a href="#baixar-uma-base-de-dados-do-ncbi" id="toc-baixar-uma-base-de-dados-do-ncbi" class="nav-link" data-scroll-target="#baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.3.1</span> Baixar uma Base de Dados do NCBI</a></li>
-  <li><a href="#criar-um-banco-de-dados-personalizado" id="toc-criar-um-banco-de-dados-personalizado" class="nav-link" data-scroll-target="#criar-um-banco-de-dados-personalizado"><span class="header-section-number">2.3.2</span> Criar um Banco de Dados Personalizado</a></li>
-  <li><a href="#executar-o-blast" id="toc-executar-o-blast" class="nav-link" data-scroll-target="#executar-o-blast"><span class="header-section-number">2.3.3</span> Executar o BLAST</a></li>
+  <li><a href="#baixar-uma-base-de-dados-do-ncbi" id="toc-baixar-uma-base-de-dados-do-ncbi" class="nav-link" data-scroll-target="#baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.2.1</span> Baixar uma Base de Dados do NCBI</a></li>
+  <li><a href="#executar-o-blast" id="toc-executar-o-blast" class="nav-link" data-scroll-target="#executar-o-blast"><span class="header-section-number">2.2.2</span> Executar o BLAST</a></li>
   </ul></li>
-  <li><a href="#parte-2" id="toc-parte-2" class="nav-link" data-scroll-target="#parte-2"><span class="header-section-number">2.4</span> Parte 2</a>
+  <li><a href="#parte-2" id="toc-parte-2" class="nav-link" data-scroll-target="#parte-2"><span class="header-section-number">2.3</span> Parte 2</a>
   <ul class="collapse">
-  <li><a href="#identificar-organismo-homólogo-e-função-com-blast" id="toc-identificar-organismo-homólogo-e-função-com-blast" class="nav-link" data-scroll-target="#identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.4.1</span> Identificar Organismo Homólogo e Função com BLAST</a></li>
-  <li><a href="#alternativa-identificar-domínios-com-hmmscan-e-pfam" id="toc-alternativa-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.2</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
+  <li><a href="#identificar-organismo-homólogo-e-função-com-blast" id="toc-identificar-organismo-homólogo-e-função-com-blast" class="nav-link" data-scroll-target="#identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.3.1</span> Identificar Organismo Homólogo e Função com BLAST</a></li>
+  <li><a href="#identificar-domínios-com-hmmscan-e-pfam" id="toc-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.3.2</span> Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -495,7 +493,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">10 de novembro de 2026</p>
+      <p class="date">11 de novembro de 2026</p>
     </div>
   </div>
   
@@ -579,81 +577,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <hr>
-<section id="explicação-do-fluxograma" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="explicação-do-fluxograma"><span class="header-section-number">2.1</span> Explicação do Fluxograma</h2>
-<p>O fluxograma acima ilustra o <em>workflow</em> completo do roteiro, com as seguintes etapas:</p>
-<ol type="1">
-<li><p><strong>Início e Preparação</strong>: O processo inicia com a preparação das sequências que serão analisadas.</p></li>
-<li><p><strong>Decisão da Fonte de Dados</strong>:</p>
-<ul>
-<li>Se a base de dados for do NCBI, utiliza-se <code>update_blastdb.pl</code> para baixar bases já pré-formatadas</li>
-<li>Se for um arquivo próprio, cria-se um banco personalizado com <code>makeblastdb</code></li>
-</ul></li>
-<li><p><strong>Execução do BLAST</strong>: Com a base de dados pronta, executa-se a busca com <code>blastp</code> (proteínas) ou outras variantes.</p></li>
-<li><p><strong>Tipos de Análise</strong>:</p>
-<ul>
-<li>Busca básica por homólogos</li>
-<li>Filtragem por organismo específico usando <code>-taxids</code></li>
-<li>Análise mais detalhada conforme necessidade</li>
-</ul></li>
-<li><p><strong>Anotação Funcional</strong>:</p>
-<ul>
-<li><strong>InterProScan</strong>: Ferramenta principal que integra múltiplas bases de dados (Pfam, CDD, PROSITE) e fornece GO termos</li>
-<li><strong>hmmscan</strong>: Alternativa focada em buscas específicas no banco Pfam</li>
-</ul></li>
-<li><p><strong>Resultados</strong>: Os arquivos gerados contêm informações sobre domínios, funções moleculares, processos biológicos e organismos homólogos.</p></li>
-<li><p><strong>Interpretação</strong>: Consolidação das informações para identificação completa da função, domínios e organismo da sequência analisada.</p></li>
-</ol>
-</section>
-<section id="ferramentas" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="ferramentas"><span class="header-section-number">2.2</span> Ferramentas</h2>
+<!-- 
+## Explicação do Fluxograma
+
+O fluxograma acima ilustra o _workflow_ completo do roteiro, com as seguintes etapas:
+
+1. **Início e Preparação**: O processo inicia com a preparação das sequências que serão analisadas.
+
+2. **Decisão da Fonte de Dados**: 
+   - Se a base de dados for do NCBI, utiliza-se `update_blastdb.pl` para baixar bases já pré-formatadas
+   - Se for um arquivo próprio, cria-se um banco personalizado com `makeblastdb`
+
+3. **Execução do BLAST**: Com a base de dados pronta, executa-se a busca com `blastp` (proteínas) ou outras variantes.
+
+4. **Tipos de Análise**: 
+   - Busca básica por homólogos
+   - Filtragem por organismo específico usando `-taxids`
+   - Análise mais detalhada conforme necessidade
+
+5. **Anotação Funcional**: 
+   - **InterProScan**: Ferramenta principal que integra múltiplas bases de dados (Pfam, CDD, PROSITE) e fornece GO termos
+   - **hmmscan**: Alternativa focada em buscas específicas no banco Pfam
+
+6. **Resultados**: Os arquivos gerados contêm informações sobre domínios, funções moleculares, processos biológicos e organismos homólogos.
+
+7. **Interpretação**: Consolidação das informações para identificação completa da função, domínios e organismo da sequência analisada. -->
+<section id="ferramentas" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="ferramentas"><span class="header-section-number">2.1</span> Ferramentas</h2>
 <ul>
 <li>Blast</li>
 <li>UniProt</li>
 </ul>
 <hr>
 </section>
-<section id="parte-1" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="parte-1"><span class="header-section-number">2.3</span> Parte 1</h2>
+<section id="parte-1" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="parte-1"><span class="header-section-number">2.2</span> Parte 1</h2>
 <p>Para baixar sequências do NCBI, criar um banco de dados local para o BLAST e realizar uma busca, você pode seguir o fluxo de trabalho com as ferramentas de linha de comando do <mark>BLAST+</mark>. O processo consiste em três etapas principais.</p>
-<section id="baixar-uma-base-de-dados-do-ncbi" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.3.1</span> Baixar uma Base de Dados do NCBI</h3>
+<section id="baixar-uma-base-de-dados-do-ncbi" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.2.1</span> Baixar uma Base de Dados do NCBI</h3>
 <p>A maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script <code>update_blastdb.pl</code>, que acompanha a suíte BLAST+ .</p>
-<p>Para baixar a base de dados de proteínas não-redundante (<code>pdbaa</code>), por exemplo, use o comando :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--decompress</span> pdbaa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Explicação:</strong> * <code>update_blastdb.pl</code>: É o script para baixar e atualizar bases de dados do NCBI . * <code>--decompress</code>: Baixa e descompacta a base de dados no diretório atual . * <code>nr</code>: É o nome da base de dados de proteínas não-redundante.</p>
 <p>Para ver a lista completa de bases de dados disponíveis para download, use :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--showall</span> pretty</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Este comando exibirá uma lista com todas as opções, como <code>swissprot</code>, <code>refseq_protein</code>, entre outras .</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--showall</span> pretty</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Este comando exibirá uma lista com todas as opções, como <code>swissprot</code>, <code>refseq_protein</code>, <code>pdbaa</code>, entre outras.</p>
+<p>Para baixar a base de dados de proteínas não-redundante (<code>pdbaa</code>), por exemplo, use o comando :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--decompress</span> pdbaa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Explicação:</strong> * <code>update_blastdb.pl</code>: É o script para baixar e atualizar bases de dados do NCBI . * <code>--decompress</code>: Baixa e descompacta a base de dados no diretório atual . * <code>pdbaa</code>: É o nome da base de dados de proteínas do PDB.</p>
+<!-- 
+### Criar um Banco de Dados Personalizado
+
+Se você tem seu próprio arquivo de sequências em formato FASTA (por exemplo, `minhas_proteinas.faa`), pode criar um banco de dados BLAST com o comando `makeblastdb` .
+
+Para uma base de dados de proteínas, o comando é :
+```bash
+makeblastdb -in minhas_proteinas.faa -dbtype prot -out meu_banco -parse_seqids
+```
+
+**Explicação dos parâmetros :**
+*   `-in minhas_proteinas.faa`: Seu arquivo de entrada no formato FASTA.
+*   `-dbtype prot`: Define o tipo como proteína. Use `nucl` para nucleotídeos.
+*   `-out meu_banco`: Nome base para os arquivos do banco de dados que serão criados.
+*   `-parse_seqids`: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências . -->
 </section>
-<section id="criar-um-banco-de-dados-personalizado" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="criar-um-banco-de-dados-personalizado"><span class="header-section-number">2.3.2</span> Criar um Banco de Dados Personalizado</h3>
-<p>Se você tem seu próprio arquivo de sequências em formato FASTA (por exemplo, <code>minhas_proteinas.faa</code>), pode criar um banco de dados BLAST com o comando <code>makeblastdb</code> .</p>
-<p>Para uma base de dados de proteínas, o comando é :</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">makeblastdb</span> <span class="at">-in</span> minhas_proteinas.faa <span class="at">-dbtype</span> prot <span class="at">-out</span> meu_banco <span class="at">-parse_seqids</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Explicação dos parâmetros :</strong> * <code>-in minhas_proteinas.faa</code>: Seu arquivo de entrada no formato FASTA. * <code>-dbtype prot</code>: Define o tipo como proteína. Use <code>nucl</code> para nucleotídeos. * <code>-out meu_banco</code>: Nome base para os arquivos do banco de dados que serão criados. * <code>-parse_seqids</code>: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências .</p>
-</section>
-<section id="executar-o-blast" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="executar-o-blast"><span class="header-section-number">2.3.3</span> Executar o BLAST</h3>
-<p>Com o banco de dados criado (seja baixado do NCBI ou personalizado), você pode realizar a busca. Para uma busca de proteína contra uma base de dados de proteínas, use o comando <code>blastp</code> .</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> meu_banco <span class="at">-query</span> minha_sequencia.faa <span class="at">-out</span> resultados.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Explicação dos parâmetros :</strong> * <code>-db meu_banco</code>: O nome do banco de dados que você criou. * <code>-query minha_sequencia.faa</code>: O arquivo com a(s) sequência(s) que você quer pesquisar. * <code>-out resultados.txt</code>: O arquivo onde os resultados serão salvos. * <code>-outfmt 6</code>: Define o formato de saída como tabular, que é fácil de processar . * <code>-evalue 1e-5</code>: O valor de corte para o <em>E-value</em> .</p>
+<section id="executar-o-blast" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="executar-o-blast"><span class="header-section-number">2.2.2</span> Executar o BLAST</h3>
+<p>Com o banco de dados, você pode realizar a busca por blast. Para uma busca de proteína contra uma base de dados de proteínas, use o comando <code>blastp</code> .</p>
+<p><strong>Explicação dos parâmetros :</strong> * <code>-db meu_banco</code>: O nome do banco de dados. * <code>-query minha_sequencia.faa</code>: O arquivo com a(s) sequência(s) que você quer pesquisar. * <code>-out resultados.txt</code>: O arquivo onde os resultados serão salvos. * <code>-outfmt 6</code>: Define o formato de saída como tabular, que é mais fácil de processar . * <code>-evalue 1e-5</code>: O valor de corte para o <em>e-value</em> .</p>
+<p><strong>Exemplo de execução:</strong></p>
+<p>Substitua <code>meu_banco</code> pelo nome do banco de dados que você criou ou baixou, e <code>minha_sequencia.faa</code> pelo arquivo FASTA contendo a sequência que deseja pesquisar. Coloque um nome de arquivo de saída apropriado para os resultados.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> meu_banco <span class="at">-query</span> minha_sequencia.faa <span class="at">-out</span> resultados.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <p><strong>Nota:</strong> Para outros tipos de busca, use os comandos correspondentes: <code>blastn</code> para DNA contra DNA, <code>blastx</code> para DNA traduzido contra proteína, etc. .</p>
 </blockquote>
 <hr>
 </section>
 </section>
-<section id="parte-2" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="parte-2"><span class="header-section-number">2.4</span> Parte 2</h2>
+<section id="parte-2" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="parte-2"><span class="header-section-number">2.3</span> Parte 2</h2>
 <p>Para identificar a função, domínios e organismo homólogo das suas sequências, você pode usar uma combinação de ferramentas de linha de comando. Um fluxo de trabalho comum envolve usar o BLAST para encontrar homólogos e, em seguida, ferramentas especializadas como o InterProScan para anotação funcional e de domínios.</p>
-<section id="identificar-organismo-homólogo-e-função-com-blast" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.4.1</span> Identificar Organismo Homólogo e Função com BLAST</h3>
+<section id="identificar-organismo-homólogo-e-função-com-blast" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.3.1</span> Identificar Organismo Homólogo e Função com BLAST</h3>
 <p>O BLAST (como <code>blastp</code> para proteínas) é a ferramenta padrão para encontrar sequências homólogas em bancos de dados. A identificação do organismo e uma primeira indicação da função vêm da análise dos hits retornados.</p>
 <ul>
 <li><strong>Comando básico para buscar homólogos:</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> pdbaa <span class="at">-query</span> sua_sequencia.faa <span class="at">-out</span> resultados_blast.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5 <span class="at">-max_target_seqs</span> 1</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> pdbaa <span class="at">-query</span> sua_sequencia.faa <span class="at">-out</span> resultados_blast.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5 <span class="at">-max_target_seqs</span> 1</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><p><code>-db pdbaa</code>: Usa o banco de dados de proteínas do PDB (que você pode baixar com <code>update_blastdb.pl</code>).</p></li>
 <li><p><code>-query sua_sequencia.faa</code>: Seu arquivo de entrada.</p></li>
@@ -663,7 +670,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><code>-max_target_seqs 1</code>: Limita a saída ao melhor hit, útil para uma visão rápida.</p></li>
 <li><p><strong>Filtrando por um organismo específico:</strong> Se você quiser buscar apenas por homólogos em um organismo ou grupo taxonômico específico, pode usar a opção <code>-taxids</code> com o ID de táxon do NCBI. Por exemplo, para buscar apenas em bactérias (taxid <code>2</code>):</p></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> nr <span class="at">-query</span> sua_sequencia.faa <span class="at">-taxids</span> 2 <span class="at">-out</span> resultados_blast_filtrado.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">blastp</span> <span class="at">-db</span> nr <span class="at">-query</span> sua_sequencia.faa <span class="at">-taxids</span> 2 <span class="at">-out</span> resultados_blast_filtrado.txt <span class="at">-outfmt</span> 6 <span class="at">-evalue</span> 1e-5</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <!--
 
 ### Identificar Domínios e Função com InterProScan
@@ -683,20 +690,20 @@ interproscan.sh -i sua_sequencia.faa -f TSV,GFF3 -goterms -iprlookup -cpu 4
 
 -->
 </section>
-<section id="alternativa-identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="alternativa-identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.4.2</span> (Alternativa) Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
+<section id="identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.3.2</span> Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
 <p>O <code>hmmscan</code>, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.</p>
 <ul>
 <li><strong>Preparar o banco de dados Pfam (fazer uma vez):</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> Pfam-A.hmm.gz</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmpress</span> Pfam-A.hmm</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gunzip</span> Pfam-A.hmm.gz</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmpress</span> Pfam-A.hmm</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Isso criará os arquivos necessários para a busca.</p>
 <ul>
 <li><strong>Executar a busca de domínios:</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmscan</span> <span class="at">--tblout</span> saida_domains_tbl.txt <span class="at">--domtblout</span> saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">hmmscan</span> <span class="at">--tblout</span> saida_domains_tbl.txt <span class="at">--domtblout</span> saida_domains_domtbl.txt Pfam-A.hmm sua_sequencia.faa</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>--tblout saida_domains_tbl.txt</code>: Saída resumida por sequência alvo.</li>
 <li><code>--domtblout saida_domains_domtbl.txt</code>: Saída detalhada por domínio encontrado, muito útil para análise.</li>
