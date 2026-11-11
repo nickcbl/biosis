@@ -127,6 +127,9 @@ O fluxograma acima ilustra o _workflow_ completo do roteiro, com as seguintes et
 
 ---
 
+# Arquivos de Entrada
+
+- [sequencias.fasta](https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/ecoli.protein.faa): arquivo com proteínas do E. coli (formato FASTA).
 
 ## Parte 1
 
