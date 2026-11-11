@@ -457,15 +457,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fluxograma" id="toc-fluxograma" class="nav-link" data-scroll-target="#fluxograma"><span class="header-section-number">2</span> Fluxograma</a>
   <ul class="collapse">
   <li><a href="#ferramentas" id="toc-ferramentas" class="nav-link" data-scroll-target="#ferramentas"><span class="header-section-number">2.1</span> Ferramentas</a></li>
-  <li><a href="#parte-1" id="toc-parte-1" class="nav-link" data-scroll-target="#parte-1"><span class="header-section-number">2.2</span> Parte 1</a>
-  <ul class="collapse">
-  <li><a href="#baixar-uma-base-de-dados-do-ncbi" id="toc-baixar-uma-base-de-dados-do-ncbi" class="nav-link" data-scroll-target="#baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.2.1</span> Baixar uma Base de Dados do NCBI</a></li>
-  <li><a href="#executar-o-blast" id="toc-executar-o-blast" class="nav-link" data-scroll-target="#executar-o-blast"><span class="header-section-number">2.2.2</span> Executar o BLAST</a></li>
   </ul></li>
-  <li><a href="#parte-2" id="toc-parte-2" class="nav-link" data-scroll-target="#parte-2"><span class="header-section-number">2.3</span> Parte 2</a>
+  <li><a href="#arquivos-de-entrada" id="toc-arquivos-de-entrada" class="nav-link" data-scroll-target="#arquivos-de-entrada"><span class="header-section-number">3</span> Arquivos de Entrada</a>
   <ul class="collapse">
-  <li><a href="#identificar-organismo-homólogo-e-função-com-blast" id="toc-identificar-organismo-homólogo-e-função-com-blast" class="nav-link" data-scroll-target="#identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.3.1</span> Identificar Organismo Homólogo e Função com BLAST</a></li>
-  <li><a href="#identificar-domínios-com-hmmscan-e-pfam" id="toc-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.3.2</span> Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
+  <li><a href="#parte-1" id="toc-parte-1" class="nav-link" data-scroll-target="#parte-1"><span class="header-section-number">3.1</span> Parte 1</a>
+  <ul class="collapse">
+  <li><a href="#baixar-uma-base-de-dados-do-ncbi" id="toc-baixar-uma-base-de-dados-do-ncbi" class="nav-link" data-scroll-target="#baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">3.1.1</span> Baixar uma Base de Dados do NCBI</a></li>
+  <li><a href="#executar-o-blast" id="toc-executar-o-blast" class="nav-link" data-scroll-target="#executar-o-blast"><span class="header-section-number">3.1.2</span> Executar o BLAST</a></li>
+  </ul></li>
+  <li><a href="#parte-2" id="toc-parte-2" class="nav-link" data-scroll-target="#parte-2"><span class="header-section-number">3.2</span> Parte 2</a>
+  <ul class="collapse">
+  <li><a href="#identificar-organismo-homólogo-e-função-com-blast" id="toc-identificar-organismo-homólogo-e-função-com-blast" class="nav-link" data-scroll-target="#identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">3.2.1</span> Identificar Organismo Homólogo e Função com BLAST</a></li>
+  <li><a href="#identificar-domínios-com-hmmscan-e-pfam" id="toc-identificar-domínios-com-hmmscan-e-pfam" class="nav-link" data-scroll-target="#identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">3.2.2</span> Identificar Domínios com <code>hmmscan</code> e Pfam</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -610,11 +613,17 @@ O fluxograma acima ilustra o _workflow_ completo do roteiro, com as seguintes et
 </ul>
 <hr>
 </section>
-<section id="parte-1" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="parte-1"><span class="header-section-number">2.2</span> Parte 1</h2>
+</section>
+<section id="arquivos-de-entrada" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Arquivos de Entrada</h1>
+<ul>
+<li><a href="https://raw.githubusercontent.com/nickcbl/biosis/main/roteiros/input/ecoli.protein.faa">sequencias.fasta</a>: arquivo com proteínas do E. coli (formato FASTA).</li>
+</ul>
+<section id="parte-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="parte-1"><span class="header-section-number">3.1</span> Parte 1</h2>
 <p>Para baixar sequências do NCBI, criar um banco de dados local para o BLAST e realizar uma busca, você pode seguir o fluxo de trabalho com as ferramentas de linha de comando do <mark>BLAST+</mark>. O processo consiste em três etapas principais.</p>
-<section id="baixar-uma-base-de-dados-do-ncbi" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">2.2.1</span> Baixar uma Base de Dados do NCBI</h3>
+<section id="baixar-uma-base-de-dados-do-ncbi" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="baixar-uma-base-de-dados-do-ncbi"><span class="header-section-number">3.1.1</span> Baixar uma Base de Dados do NCBI</h3>
 <p>A maneira recomendada e mais eficiente é baixar uma base de dados já pré-formatada para o BLAST usando o script <code>update_blastdb.pl</code>, que acompanha a suíte BLAST+ .</p>
 <p>Para ver a lista completa de bases de dados disponíveis para download, use :</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">update_blastdb.pl</span> <span class="at">--showall</span> pretty</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
@@ -638,8 +647,8 @@ makeblastdb -in minhas_proteinas.faa -dbtype prot -out meu_banco -parse_seqids
 *   `-out meu_banco`: Nome base para os arquivos do banco de dados que serão criados.
 *   `-parse_seqids`: Opção recomendada para que o BLAST possa interpretar os identificadores das sequências . -->
 </section>
-<section id="executar-o-blast" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="executar-o-blast"><span class="header-section-number">2.2.2</span> Executar o BLAST</h3>
+<section id="executar-o-blast" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="executar-o-blast"><span class="header-section-number">3.1.2</span> Executar o BLAST</h3>
 <p>Com o banco de dados, você pode realizar a busca por blast. Para uma busca de proteína contra uma base de dados de proteínas, use o comando <code>blastp</code> .</p>
 <p><strong>Explicação dos parâmetros :</strong> * <code>-db meu_banco</code>: O nome do banco de dados. * <code>-query minha_sequencia.faa</code>: O arquivo com a(s) sequência(s) que você quer pesquisar. * <code>-out resultados.txt</code>: O arquivo onde os resultados serão salvos. * <code>-outfmt 6</code>: Define o formato de saída como tabular, que é mais fácil de processar . * <code>-evalue 1e-5</code>: O valor de corte para o <em>e-value</em> .</p>
 <p><strong>Exemplo de execução:</strong></p>
@@ -651,11 +660,11 @@ makeblastdb -in minhas_proteinas.faa -dbtype prot -out meu_banco -parse_seqids
 <hr>
 </section>
 </section>
-<section id="parte-2" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="parte-2"><span class="header-section-number">2.3</span> Parte 2</h2>
+<section id="parte-2" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="parte-2"><span class="header-section-number">3.2</span> Parte 2</h2>
 <p>Para identificar a função, domínios e organismo homólogo das suas sequências, você pode usar uma combinação de ferramentas de linha de comando. Um fluxo de trabalho comum envolve usar o BLAST para encontrar homólogos e, em seguida, ferramentas especializadas como o InterProScan para anotação funcional e de domínios.</p>
-<section id="identificar-organismo-homólogo-e-função-com-blast" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">2.3.1</span> Identificar Organismo Homólogo e Função com BLAST</h3>
+<section id="identificar-organismo-homólogo-e-função-com-blast" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="identificar-organismo-homólogo-e-função-com-blast"><span class="header-section-number">3.2.1</span> Identificar Organismo Homólogo e Função com BLAST</h3>
 <p>O BLAST (como <code>blastp</code> para proteínas) é a ferramenta padrão para encontrar sequências homólogas em bancos de dados. A identificação do organismo e uma primeira indicação da função vêm da análise dos hits retornados.</p>
 <ul>
 <li><strong>Comando básico para buscar homólogos:</strong></li>
@@ -690,8 +699,8 @@ interproscan.sh -i sua_sequencia.faa -f TSV,GFF3 -goterms -iprlookup -cpu 4
 
 -->
 </section>
-<section id="identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">2.3.2</span> Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
+<section id="identificar-domínios-com-hmmscan-e-pfam" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="identificar-domínios-com-hmmscan-e-pfam"><span class="header-section-number">3.2.2</span> Identificar Domínios com <code>hmmscan</code> e Pfam</h3>
 <p>O <code>hmmscan</code>, da suíte HMMER, é uma alternativa focada em buscar domínios em bancos de dados de perfis HMM, como o Pfam.</p>
 <ul>
 <li><strong>Preparar o banco de dados Pfam (fazer uma vez):</strong></li>
